@@ -1,0 +1,108 @@
+{
+  "id": "eduapp",
+  "realm": "eduapp",
+  "enabled": true,
+  "displayName": "EduApp Malaysia",
+  "displayNameHtml": "<div class=\"kc-logo-text\"><span>EduApp Malaysia</span></div>",
+  "sslRequired": "external",
+  "registrationAllowed": true,
+  "registrationEmailAsUsername": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": true,
+  "editUsernameAllowed": false,
+  "bruteForceProtected": true,
+  "permanentLockout": false,
+  "maxFailureWaitSeconds": 900,
+  "minimumQuickLoginWaitSeconds": 60,
+  "waitIncrementSeconds": 60,
+  "quickLoginCheckMilliSeconds": 1000,
+  "maxDeltaTimeSeconds": 43200,
+  "failureFactor": 5,
+  "roles": {
+    "realm": [
+      {
+        "name": "admin",
+        "description": "Administrator with full access"
+      },
+      {
+        "name": "teacher",
+        "description": "Teacher who can create classrooms and lessons"
+      },
+      {
+        "name": "student",
+        "description": "Student who can learn and track progress"
+      },
+      {
+        "name": "parent",
+        "description": "Parent who can monitor child's progress"
+      }
+    ]
+  },
+  "groups": [
+    {
+      "name": "Form 4 Students",
+      "path": "/Form 4 Students"
+    },
+    {
+      "name": "Form 5 Students",
+      "path": "/Form 5 Students"
+    },
+    {
+      "name": "Teachers",
+      "path": "/Teachers"
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "eduapp-api",
+      "name": "EduApp API",
+      "description": "Backend API for EduApp",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "secret": "${KEYCLOAK_CLIENT_SECRET}",
+      "bearerOnly": false,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": true,
+      "authorizationServicesEnabled": false,
+      "redirectUris": [
+        "http://localhost/keycloak-callback",
+        "http://localhost:*/keycloak-callback",
+        "http://127.0.0.1:*/keycloak-callback",
+        "https://*.trycloudflare.com/keycloak-callback"
+      ],
+      "webOrigins": [
+        "http://localhost",
+        "http://localhost:*",
+        "http://127.0.0.1:*",
+        "https://*.trycloudflare.com"
+      ]
+    },
+    {
+      "clientId": "eduapp-flutter",
+      "name": "EduApp Flutter Mobile",
+      "description": "Mobile app client",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "bearerOnly": false,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "redirectUris": [
+        "eduapp://callback",
+        "http://localhost:*",
+        "http://localhost/keycloak-callback",
+        "http://localhost:*/keycloak-callback",
+        "https://*.trycloudflare.com/keycloak-callback"
+      ]
+    }
+  ],
+  "identityProviders": [],
+  "identityProviderMappers": [],
+  "authenticationFlows": [],
+  "authenticatorConfig": []
+}

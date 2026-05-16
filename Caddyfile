@@ -1,0 +1,71 @@
+# Caddy reverse proxy configuration
+# Using trycloudflare for temporary public URL
+
+{
+    auto_https off
+    http_port 80
+}
+
+:80 {
+    root * /srv/web
+
+    # Health check endpoint
+    respond /health 200
+
+    # API routes
+    handle_path /api/* {
+        reverse_proxy api:3000
+    }
+
+    # WebSocket routes for classroom and live quiz sessions
+    handle /ws/* {
+        reverse_proxy api:3000
+    }
+
+    handle /auth/* {
+        reverse_proxy keycloak:8080
+    }
+
+    # Centrifugo WebSocket
+    handle /connection/* {
+        reverse_proxy centrifugo:8000
+    }
+    
+    handle /centrifugo/* {
+        reverse_proxy centrifugo:8000
+    }
+
+    # MinIO S3 API
+    handle_path /minio/* {
+        reverse_proxy minio:9000
+    }
+
+    # MinIO Console
+    handle_path /minio-console/* {
+        reverse_proxy minio:9001
+    }
+
+    # Tusyen v2 design preview (React/Babel-standalone prototype)
+    handle_path /v2/* {
+        root * /srv/web-v2
+        try_files {path} /index.html
+        file_server
+    }
+
+    # Web app
+    handle {
+        try_files {path} /index.html
+        file_server
+    }
+}
+
+# Production: Uncomment when using custom domain
+# ${DOMAIN} {
+#     reverse_proxy api:3000
+#     
+#     @websockets {
+#         header Connection *Upgrade*
+#         header Upgrade websocket
+#     }
+#     reverse_proxy @websockets centrifugo:8000
+# }

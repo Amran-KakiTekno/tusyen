@@ -1,0 +1,20 @@
+{
+  "name": "tusyen-qaqc",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright QA/QC suite for Tusyen.",
+  "scripts": {
+    "test": "npm run qaqc",
+    "qaqc": "playwright test",
+    "qaqc:full": "playwright test tests/qaqc/full-feature-regression.spec.ts --project=chromium-desktop",
+    "qaqc:smoke": "playwright test tests/qaqc/platform-health.spec.ts tests/qaqc/production-shell.spec.ts tests/qaqc/v2-role-smoke.spec.ts tests/qaqc/v2-responsive.mobile.spec.ts",
+    "qaqc:headed": "playwright test --headed",
+    "qaqc:ui": "playwright test --ui",
+    "qaqc:report": "playwright show-report",
+    "qaqc:stack": "docker compose up -d --build && playwright test",
+    "qaqc:install": "playwright install chromium"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  }
+}

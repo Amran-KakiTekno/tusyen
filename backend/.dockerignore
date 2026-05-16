@@ -1,0 +1,12 @@
+node_modules
+dist
+.git
+.env
+*.md
+vitest.config.*
+.eslintrc*
+prettier.config.*
+tests
+__tests__
+*.test.ts
+*.spec.ts

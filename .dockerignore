@@ -1,0 +1,16 @@
+.git
+.env
+**/node_modules
+**/dist
+**/build
+**/.dart_tool
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/coverage
+**/*.log
+backend/test
+flutter_app
+postgres_data
+redis_data
+minio_data
+ntfy_data

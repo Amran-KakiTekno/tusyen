@@ -1,0 +1,228 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: edu_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: eduapp
+      POSTGRES_USER: ${DB_USER:-eduuser}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/migrations:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-eduuser} -d eduapp"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - edu_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: edu_redis
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru
+    networks:
+      - edu_network
+
+  minio:
+    image: minio/minio:latest
+    container_name: edu_minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    volumes:
+      - minio_data:/data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    networks:
+      - edu_network
+
+  createbuckets:
+    image: minio/mc:latest
+    container_name: edu_minio_setup
+    depends_on:
+      - minio
+    entrypoint: >
+      /bin/sh -c "
+      sleep 10;
+      /usr/bin/mc config host add myminio http://minio:9000 ${MINIO_ROOT_USER:-minioadmin} ${MINIO_ROOT_PASSWORD};
+      /usr/bin/mc mb myminio/eduapp-media || true;
+      /usr/bin/mc anonymous set download myminio/eduapp-media || true;
+      /usr/bin/mc mb myminio/eduapp-whiteboard || true;
+      /usr/bin/mc anonymous set private myminio/eduapp-whiteboard || true;
+      exit 0;
+      "
+    networks:
+      - edu_network
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0
+    container_name: edu_keycloak
+    restart: unless-stopped
+    command: start-dev --import-realm
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+      KC_DB_USERNAME: ${DB_USER:-eduuser}
+      KC_DB_PASSWORD: ${DB_PASSWORD}
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN:-admin}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
+      KC_HTTP_RELATIVE_PATH: /auth
+      KC_PROXY_HEADERS: xforwarded
+      KC_HOSTNAME_STRICT: "false"
+      KC_FEATURES: token-exchange,admin-fine-grained-authz
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./keycloak/realm-export.json:/opt/keycloak/data/import/realm-export.json:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - edu_network
+
+  centrifugo:
+    image: centrifugo/centrifugo:v5
+    container_name: edu_centrifugo
+    restart: unless-stopped
+    volumes:
+      - ./centrifugo/config.json:/centrifugo/config.json:ro
+    command: centrifugo -c config.json
+    ports:
+      - "8000:8000"
+    environment:
+      CENTRIFUGO_TOKEN_HMAC_SECRET_KEY: ${CENTRIFUGO_SECRET}
+      CENTRIFUGO_API_KEY: ${CENTRIFUGO_API_KEY}
+    depends_on:
+      - redis
+    networks:
+      - edu_network
+
+  ntfy:
+    image: binwiederhier/ntfy:v2.10.0
+    container_name: edu_ntfy
+    restart: unless-stopped
+    command: serve
+    environment:
+      NTFY_BASE_URL: ${NTFY_BASE_URL:-http://localhost:2586}
+      NTFY_CACHE_FILE: /var/cache/ntfy/cache.db
+      NTFY_AUTH_FILE: /var/cache/ntfy/auth.db
+      NTFY_ATTACHMENT_CACHE_DIR: /var/cache/ntfy/attachments
+      NTFY_ENABLE_SIGNUP: "false"
+      NTFY_ENABLE_LOGIN: "true"
+    volumes:
+      - ntfy_data:/var/cache/ntfy
+    ports:
+      - "2586:80"
+    networks:
+      - edu_network
+
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: edu_api
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-production}
+      PORT: 3000
+      DATABASE_URL: postgres://${DB_USER:-eduuser}:${DB_PASSWORD}@postgres:5432/eduapp
+      REDIS_URL: redis://redis:6379
+      KEYCLOAK_URL: http://keycloak:8080/auth
+      KEYCLOAK_PUBLIC_URL: ${KEYCLOAK_PUBLIC_URL:-}
+      KEYCLOAK_ISSUER_URL: ${KEYCLOAK_ISSUER_URL:-}
+      KEYCLOAK_ALLOWED_REDIRECT_ORIGINS: ${KEYCLOAK_ALLOWED_REDIRECT_ORIGINS:-http://localhost,https://*.trycloudflare.com}
+      KEYCLOAK_REALM: eduapp
+      KEYCLOAK_CLIENT_ID: eduapp-api
+      KEYCLOAK_CLIENT_SECRET: ${KEYCLOAK_CLIENT_SECRET}
+      MINIO_ENDPOINT: minio
+      MINIO_PORT: 9000
+      MINIO_USE_SSL: "false"
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
+      MINIO_BUCKET_MEDIA: eduapp-media
+      MINIO_BUCKET_WHITEBOARD: eduapp-whiteboard
+      CENTRIFUGO_URL: http://centrifugo:8000
+      CENTRIFUGO_API_KEY: ${CENTRIFUGO_API_KEY}
+      CENTRIFUGO_SECRET: ${CENTRIFUGO_SECRET}
+      NTFY_URL: http://ntfy
+      NTFY_PUBLIC_URL: ${NTFY_PUBLIC_URL:-http://localhost:2586}
+      NTFY_TOPIC_PREFIX: ${NTFY_TOPIC_PREFIX:-tusyen}
+      NTFY_ACCESS_TOKEN: ${NTFY_ACCESS_TOKEN:-}
+      NTFY_USERNAME: ${NTFY_USERNAME:-}
+      NTFY_PASSWORD: ${NTFY_PASSWORD:-}
+      NTFY_ENABLED: ${NTFY_ENABLED:-true}
+      NTFY_TIMEOUT_MS: ${NTFY_TIMEOUT_MS:-2500}
+      PUBLIC_APP_URL: ${PUBLIC_APP_URL:-http://localhost}
+      JWT_SECRET: ${JWT_SECRET}
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      minio:
+        condition: service_healthy
+      keycloak:
+        condition: service_started
+      centrifugo:
+        condition: service_started
+      ntfy:
+        condition: service_started
+    networks:
+      - edu_network
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: edu_caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./flutter_app/build/web:/srv/web:ro
+      - ./web_app:/srv/web-v2:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - api
+      - keycloak
+      - minio
+    networks:
+      - edu_network
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  minio_data:
+    driver: local
+  ntfy_data:
+    driver: local
+  caddy_data:
+    driver: local
+  caddy_config:
+    driver: local
+
+networks:
+  edu_network:
+    driver: bridge
