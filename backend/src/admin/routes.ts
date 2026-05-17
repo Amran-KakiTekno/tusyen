@@ -529,6 +529,30 @@ export async function adminRoutes(fastify: FastifyInstance) {
     return { success: true };
   });
 
+  fastify.post('/classrooms/:id/enroll', async (request, reply) => {
+    const { id } = request.params as any;
+    const { studentId } = request.body as any;
+
+    if (!(await isRole(studentId, 'student'))) {
+      return reply.code(400).send({ error: 'studentId must belong to an active student' });
+    }
+
+    const classroom = await db.query('SELECT id FROM classrooms WHERE id = $1', [id]);
+    if ((classroom.rowCount ?? 0) === 0) {
+      return reply.code(404).send({ error: 'Classroom not found' });
+    }
+
+    await db.query(
+      `INSERT INTO classroom_enrollments (id, student_id, classroom_id, is_active)
+       VALUES ($1, $2, $3, true)
+       ON CONFLICT (student_id, classroom_id)
+       DO UPDATE SET is_active = true, last_active_at = NOW()`,
+      [uuidv4(), studentId, id]
+    );
+
+    return { success: true };
+  });
+
   fastify.get('/classrooms/:id/students', async (request, reply) => {
     const { id } = request.params as any;
 

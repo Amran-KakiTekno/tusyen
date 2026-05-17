@@ -18,13 +18,42 @@ export async function progressRoutes(fastify: FastifyInstance) {
   }, async (request, reply) => {
     const user = (request as any).user;
     const { studentId } = request.params as any;
-    const { classroomId, subject } = request.query as any;
+    const { classroomId, subject, limit, offset } = request.query as any;
 
     // Check authorization
     const hasAccess = await canViewStudentProgress(user, studentId);
     if (!hasAccess) {
       return reply.code(403).send({ error: 'Not authorized to view this student\'s progress' });
     }
+
+    const normalizedLimit = Math.min(
+      200,
+      Math.max(1, Math.floor(Number.isFinite(Number(limit)) ? Number(limit) : 50)),
+    );
+    const normalizedOffset = Math.max(0, Math.floor(Number.isFinite(Number(offset)) ? Number(offset) : 0));
+
+    const filters = ['p.student_id = $1'];
+    const params: any[] = [studentId];
+
+    if (classroomId) {
+      filters.push(`p.classroom_id = $${params.length + 1}`);
+      params.push(classroomId);
+    }
+
+    if (subject) {
+      filters.push(`l.subject = $${params.length + 1}`);
+      params.push(subject);
+    }
+
+    const whereClause = `WHERE ${filters.join(' AND ')}`;
+
+    const countResult = await db.query(
+      `SELECT COUNT(*) as total_count
+       FROM progress p
+       JOIN lessons l ON l.id = p.lesson_id
+       ${whereClause}`,
+      params,
+    );
 
     let query = `
       SELECT p.*, l.title as lesson_title, l.subject,
@@ -41,23 +70,13 @@ export async function progressRoutes(fastify: FastifyInstance) {
       FROM progress p
       JOIN lessons l ON l.id = p.lesson_id
       LEFT JOIN classrooms c ON c.id = p.classroom_id
-      WHERE p.student_id = $1
-    `;
-    const params: any[] = [studentId];
+      ${whereClause}
+      ORDER BY p.updated_at DESC
+      LIMIT $${params.length + 1}
+      OFFSET $${params.length + 2}`;
 
-    if (classroomId) {
-      query += ` AND p.classroom_id = $2`;
-      params.push(classroomId);
-    }
-
-    if (subject) {
-      query += ` AND l.subject = $${params.length + 1}`;
-      params.push(subject);
-    }
-
-    query += ` ORDER BY p.updated_at DESC`;
-
-    const result = await db.query(query, params);
+    const result = await db.query(query, [...params, normalizedLimit, normalizedOffset]);
+    reply.header('X-Total-Count', String(countResult.rows[0]?.total_count ?? 0));
 
     return { progress: result.rows };
   });
@@ -87,10 +106,32 @@ export async function progressRoutes(fastify: FastifyInstance) {
         COUNT(CASE WHEN completion_percentage >= 100 THEN 1 END) as lessons_completed,
         AVG(score) as average_score,
         SUM(time_spent_seconds) as total_time_seconds,
+        SUM(CASE WHEN updated_at >= date_trunc('week', NOW()) THEN time_spent_seconds ELSE 0 END) as "weekTimeSeconds",
         COUNT(DISTINCT DATE(p.updated_at)) as days_active,
         MAX(p.updated_at) as last_activity
        FROM progress p
        WHERE p.student_id = $1`,
+      [studentId]
+    );
+
+    const rankResult = await db.query(
+      `WITH student_avg AS (
+         SELECT classroom_id, student_id, AVG(score) as average_score
+         FROM progress
+         GROUP BY classroom_id, student_id
+       ), ranked AS (
+         SELECT
+           classroom_id,
+           student_id,
+           DENSE_RANK() OVER (
+             PARTITION BY classroom_id
+             ORDER BY average_score DESC NULLS LAST
+           ) AS classroom_rank
+         FROM student_avg
+       )
+       SELECT MIN(classroom_rank) as rank
+       FROM ranked
+       WHERE student_id = $1`,
       [studentId]
     );
 
@@ -128,6 +169,7 @@ export async function progressRoutes(fastify: FastifyInstance) {
       overall: stats.rows[0],
       bySubject: bySubject.rows,
       today: today.rows[0],
+      rank: rankResult.rows[0]?.rank ? Number(rankResult.rows[0].rank) : null,
       streak,
       quiz: quizSummary,
     };
@@ -222,11 +264,10 @@ export async function progressRoutes(fastify: FastifyInstance) {
         u.full_name,
         u.email,
         ce.joined_at,
-        COUNT(p.id) as lessons_attempted,
-        COUNT(CASE WHEN p.completion_percentage >= 100 THEN 1 END) as lessons_completed,
-        AVG(p.score) as average_score,
-        SUM(p.time_spent_seconds) as total_time,
-        MAX(p.updated_at) as last_activity,
+        COALESCE(scs.total_lessons, 0) as lessons_attempted,
+        COALESCE(scs.completed_lessons, 0) as lessons_completed,
+        COALESCE(scs.average_score, 0) as average_score,
+        COALESCE(scs.last_activity, ce.joined_at) as last_activity,
         COALESCE((
           SELECT ss.streak_count
           FROM student_streaks ss
@@ -237,9 +278,10 @@ export async function progressRoutes(fastify: FastifyInstance) {
         ), 0)::int as current_streak
        FROM classroom_enrollments ce
        JOIN users u ON u.id = ce.student_id
-       LEFT JOIN progress p ON p.student_id = ce.student_id AND p.classroom_id = ce.classroom_id
+       LEFT JOIN student_classroom_stats scs
+         ON scs.student_id = ce.student_id
+        AND scs.classroom_id = ce.classroom_id
        WHERE ce.classroom_id = $1 AND ce.is_active = true
-       GROUP BY u.id, u.full_name, u.email, ce.joined_at
        ORDER BY u.full_name`,
       [classroomId]
     );
