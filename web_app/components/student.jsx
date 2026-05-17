@@ -3208,7 +3208,7 @@ const SLearn = ({ activeSubject='math', setActiveSubject, openLesson, classInfo,
           </select>
         </div>
       ) : (
-        <div className="student-scroll-fade" style={{ marginBottom:20 }}>
+        <div className="student-scroll-fade" style={{ marginBottom:20, display:'flex', flexDirection:'column', minHeight:56 }}>
           <div className="student-scroll-affordance" style={{
             display:'flex',
             gap:8,
