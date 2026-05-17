@@ -88,7 +88,7 @@ const CLASS_SUBJECTS = [
   'Prinsip Perakaunan',
   'Ekonomi',
 ];
-const CLASS_FORM_LEVELS = [1, 2, 3, 4, 5];
+const CLASS_FORM_LEVELS = [4, 5];
 
 const isLiveClassId = (id) => typeof id === 'string' && id.includes('-');
 
@@ -192,6 +192,12 @@ const formatLiveClass = (c, i, analytics = null) => {
     isActive: c.is_active !== false,
     lastActivity: c.last_activity || c.lastActivity || c.last_activity_at || c.lastActiveAt || null,
   };
+};
+
+const classroomFormErrorMessage = (err, fallback) => {
+  const status = Number(err?.status || err?.statusCode || err?.response?.status || 0);
+  if (status === 400) return err?.message || 'Semak nama, subjek, dan tingkatan. Tingkatan yang dibenarkan ialah 4 atau 5.';
+  return err?.message || fallback;
 };
 
 const demoTeacherProfile = (displayName) => ({
@@ -362,6 +368,7 @@ const postComposerPlaceholder = (type) => {
 const postTypeMeta = (type) => POST_TYPE_META[type] || POST_TYPE_META.general;
 const postAttachments = (post) => Array.isArray(post.attachments) ? post.attachments : [];
 const attachmentLabel = (attachment) => teacherTitle(attachment.name || attachment.title || attachment.url, 'Lampiran');
+const teacherPostId = (post) => `${post?.id ?? post?.post_id ?? post?.postId ?? ''}`;
 const attachmentTypeLabel = (type) => ({
   link:'Pautan',
   image:'Imej',
@@ -423,6 +430,7 @@ const PostCard = ({ post, currentUserId, onDelete, onPin, onReact, onComment }) 
   const [commentAttachment, setCommentAttachment] = React.useState(null);
   const [showCommentAttachment, setShowCommentAttachment] = React.useState(false);
   const [comments, setComments] = React.useState(null);
+  const [commentError, setCommentError] = React.useState('');
   const [loadingComments, setLoadingComments] = React.useState(false);
   const [submitting, setSubmitting] = React.useState(false);
   const isOwner = post.teacher_id === currentUserId || post.author_id === currentUserId || post.user_id === currentUserId;
@@ -448,6 +456,7 @@ const PostCard = ({ post, currentUserId, onDelete, onPin, onReact, onComment }) 
     const attachments = commentAttachment ? [commentAttachment] : [];
     if (!text && attachments.length === 0) return;
     setSubmitting(true);
+    setCommentError('');
     try {
       if (attachments.length) await window.tusyenApi.addComment(post.id, text, attachments);
       else await window.tusyenApi.addComment(post.id, text);
@@ -458,7 +467,9 @@ const PostCard = ({ post, currentUserId, onDelete, onPin, onReact, onComment }) 
       const data = await window.tusyenApi.postComments(post.id);
       setComments(data.comments || []);
       onComment && onComment();
-    } catch { }
+    } catch (err) {
+      setCommentError(err.message || 'Komen gagal dihantar. Cuba lagi.');
+    }
     finally { setSubmitting(false); }
   };
 
@@ -466,6 +477,7 @@ const PostCard = ({ post, currentUserId, onDelete, onPin, onReact, onComment }) 
     const attachment = createMediaUrlAttachment(commentAttachmentUrl);
     if (!attachment) return;
     setCommentAttachment(attachment);
+    setCommentError('');
     setCommentAttachmentUrl('');
     setShowCommentAttachment(false);
   };
@@ -550,7 +562,7 @@ const PostCard = ({ post, currentUserId, onDelete, onPin, onReact, onComment }) 
           <div style={{ display:'flex', gap:8, marginTop:8 }}>
             <input
               value={commentText}
-              onChange={e => setCommentText(e.target.value)}
+              onChange={e => { setCommentText(e.target.value); if (commentError) setCommentError(''); }}
               onKeyDown={e => e.key === 'Enter' && !e.shiftKey && submitComment()}
               placeholder="Tulis komen..."
               aria-label="Tulis komen"
@@ -560,13 +572,14 @@ const PostCard = ({ post, currentUserId, onDelete, onPin, onReact, onComment }) 
                 fontFamily:'Nunito', fontWeight:600, fontSize:12, outline:'none',
               }}
             />
-            <button onClick={submitComment} disabled={submitting || !commentText.trim()} style={{
+            <button onClick={submitComment} disabled={submitting || (!commentText.trim() && !commentAttachment)} style={{
               background:C.accDim, border:`1px solid ${C.borderB}`,
               borderRadius:10, padding:'7px 12px', minHeight:44, cursor:'pointer',
               color:C.accPale, fontFamily:'Nunito', fontWeight:800, fontSize:12,
-              opacity:submitting || !commentText.trim() ? 0.5 : 1,
+              opacity:submitting || (!commentText.trim() && !commentAttachment) ? 0.5 : 1,
             }}>Hantar</button>
           </div>
+          {commentError && <div role="alert" style={{ fontSize:11, color:C.red, fontWeight:900, marginTop:7 }}>{commentError}</div>}
         </div>
       )}
     </Card>
@@ -592,7 +605,7 @@ const PostComposerModal = ({ classroomId, onClose, onPosted }) => {
     if (!content.trim() && attachments.length === 0) { setErr('Isi mesej pos atau tambah pautan dahulu.'); return; }
     setPosting(true); setErr('');
     try {
-      await window.tusyenApi.createPost({
+      const data = await window.tusyenApi.createPost({
         classroomId,
         content: content.trim(),
         postType: type,
@@ -600,7 +613,7 @@ const PostComposerModal = ({ classroomId, onClose, onPosted }) => {
         attachments,
         isPinned,
       });
-      onPosted && onPosted();
+      onPosted && onPosted(data?.post || data);
       onClose();
     } catch (e) {
       setErr(e.message || 'Tidak dapat menghantar pos.');
@@ -706,6 +719,8 @@ const TeacherPostsScreen = ({ classrooms }) => {
   const [deletingPostId, setDeletingPostId] = React.useState('');
   const feedState = useClassFeed(selectedClassId);
   const currentUserId = window.tusyenUser?.id;
+  const postRefs = React.useRef({});
+  const pendingScrollRef = React.useRef(null);
 
   React.useEffect(() => {
     const firstClassId = classrooms[0]?.id || '';
@@ -716,6 +731,19 @@ const TeacherPostsScreen = ({ classrooms }) => {
     }
     if (!selectedClassId || !stillAvailable) setSelectedClassId(firstClassId);
   }, [classrooms, selectedClassId]);
+
+  React.useEffect(() => {
+    const pending = pendingScrollRef.current;
+    const posts = feedState.data || [];
+    if (!pending || feedState.loading || posts.length === 0) return;
+    const createdId = pending.id && posts.some(post => teacherPostId(post) === pending.id) ? pending.id : '';
+    const firstId = teacherPostId(posts[0]);
+    const targetId = createdId || (firstId && firstId !== pending.before ? firstId : '');
+    const node = targetId ? postRefs.current[targetId] : null;
+    if (!node) return;
+    node.scrollIntoView({ behavior:'smooth', block:'start' });
+    pendingScrollRef.current = null;
+  }, [feedState.data, feedState.loading]);
 
   const handleDelete = (post) => {
     setDeleteConfirm(post);
@@ -744,6 +772,12 @@ const TeacherPostsScreen = ({ classrooms }) => {
       await window.tusyenApi.toggleReaction(post.id);
       feedState.refresh();
     } catch { }
+  };
+
+  const handlePosted = (createdPost) => {
+    const firstBefore = teacherPostId((feedState.data || [])[0]);
+    pendingScrollRef.current = { id:teacherPostId(createdPost), before:firstBefore };
+    feedState.refresh();
   };
 
   return (
@@ -777,15 +811,24 @@ const TeacherPostsScreen = ({ classrooms }) => {
           <EmptyState icon="📢" title="Belum ada pos" subtitle="Cipta pos pertama untuk kelas ini." />
         </Card>
       ) : (feedState.data || []).map(post => (
-        <PostCard
+        <div
           key={post.id}
-          post={post}
-          currentUserId={currentUserId}
-          onDelete={handleDelete}
-          onPin={handlePin}
-          onReact={handleReact}
-          onComment={() => feedState.refresh()}
-        />
+          ref={node => {
+            const id = teacherPostId(post);
+            if (!id) return;
+            if (node) postRefs.current[id] = node;
+            else delete postRefs.current[id];
+          }}
+        >
+          <PostCard
+            post={post}
+            currentUserId={currentUserId}
+            onDelete={handleDelete}
+            onPin={handlePin}
+            onReact={handleReact}
+            onComment={() => feedState.refresh()}
+          />
+        </div>
       ))}
       <TeacherConfirmModal
         open={Boolean(deleteConfirm)}
@@ -801,7 +844,7 @@ const TeacherPostsScreen = ({ classrooms }) => {
         <PostComposerModal
           classroomId={selectedClassId}
           onClose={() => setShowComposer(false)}
-          onPosted={() => feedState.refresh()}
+          onPosted={handlePosted}
         />
       )}
       <div style={{ height:8 }} />
@@ -1299,6 +1342,7 @@ const AssignLessonModal = ({ lesson, classrooms, onAssigned, onClose }) => {
       await window.tusyenApi.assignLessonToClassroom(classroomId, lesson.id, {
         dueDate: dueDate || null,
         isRequired,
+        is_required: isRequired,
       });
       onAssigned();
       onClose();
@@ -1330,7 +1374,7 @@ const AssignLessonModal = ({ lesson, classrooms, onAssigned, onClose }) => {
         </TeacherField>
         <label style={{ display:'flex', alignItems:'center', gap:7, color:C.textMuted, fontSize:11, fontWeight:900, marginBottom:12 }}>
           <input type="checkbox" checked={isRequired} onChange={e => setIsRequired(e.target.checked)} style={{ accentColor:C.acc }} />
-          Wajib
+          Wajib / Required
         </label>
         {error && <div style={{ fontSize:11, color:C.red, fontWeight:800, marginBottom:8 }}>{error}</div>}
         <div style={{ display:'flex', gap:8 }}>
@@ -1494,6 +1538,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
       await window.tusyenApi.assignLessonToClassroom(assignClassId, assignModal.id, {
         dueDate: assignDueDate || null,
         isRequired: assignRequired,
+        is_required: assignRequired,
       });
       setAssignMsg('Pelajaran berjaya ditetapkan ke kelas.');
     } catch (e) {
@@ -2188,7 +2233,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
               </TeacherField>
               <label style={{ display:'flex', alignItems:'center', gap:7, minHeight:44, color:C.textMuted, fontSize:11, fontWeight:900 }}>
                 <input type="checkbox" checked={assignRequired} onChange={e => setAssignRequired(e.target.checked)} style={{ accentColor:C.acc }} />
-                Wajib
+                Wajib / Required
               </label>
             </div>
             {assignMsg && (
@@ -2975,7 +3020,7 @@ const ClassroomSettingsModal = ({ cls, onClose, onSaved, onArchived }) => {
   const [form, setForm] = React.useState({
     name: cls?.name || '',
     subject: cls?.subject || subjectText(cls?.subj) || 'Matematik',
-    formLevel: String(cls?.form || 4),
+    formLevel: String(CLASS_FORM_LEVELS.includes(Number(cls?.form)) ? Number(cls?.form) : 4),
     description: cls?.description || '',
   });
   const [busy, setBusy] = React.useState('');
@@ -2985,6 +3030,7 @@ const ClassroomSettingsModal = ({ cls, onClose, onSaved, onArchived }) => {
 
   const save = async () => {
     if (!form.name.trim()) { setError('Nama kelas diperlukan.'); return; }
+    if (!CLASS_FORM_LEVELS.includes(Number(form.formLevel))) { setError('Tingkatan yang dibenarkan ialah 4 atau 5.'); return; }
     setBusy('save'); setError('');
     try {
       let updated = {
@@ -3019,7 +3065,7 @@ const ClassroomSettingsModal = ({ cls, onClose, onSaved, onArchived }) => {
       onSaved(updated);
       onClose();
     } catch (err) {
-      setError(err.message || 'Tidak dapat menyimpan kelas.');
+      setError(classroomFormErrorMessage(err, 'Tidak dapat menyimpan kelas.'));
     } finally {
       setBusy('');
     }
@@ -3131,6 +3177,8 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
   const analyticsState = useClassAnalytics(cls?.id);
   const feedState = useClassFeed(cls?.id);
   const progressState = useStudentProgress(selectedStudent?.id, cls?.id);
+  const classFeedRefs = React.useRef({});
+  const classFeedScrollRef = React.useRef(null);
   const roster = rosterState.data || STUDS;
   const atRiskRoster = roster.filter(isAtRiskStudent);
   const displayedRoster = studentFilter === 'risk' ? atRiskRoster : roster;
@@ -3147,6 +3195,19 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
     { icon:'🧪', label:'Kuiz baharu',    desc:'Sediakan semakan pantas untuk kelas.', enabled:false },
     { icon:'🎬', label:'Video pelajaran', desc:'Kongsi penerangan atau pautan video.', enabled:false },
   ];
+  React.useEffect(() => {
+    const pending = classFeedScrollRef.current;
+    const posts = feedState.data || [];
+    if (!pending || feedState.loading || posts.length === 0) return;
+    const createdId = pending.id && posts.some(post => teacherPostId(post) === pending.id) ? pending.id : '';
+    const firstId = teacherPostId(posts[0]);
+    const targetId = createdId || (firstId && firstId !== pending.before ? firstId : '');
+    const node = targetId ? classFeedRefs.current[targetId] : null;
+    if (!node) return;
+    node.scrollIntoView({ behavior:'smooth', block:'start' });
+    classFeedScrollRef.current = null;
+  }, [feedState.data, feedState.loading]);
+
   const openComposer = (item) => {
     if (!item.enabled) {
       setCreateNotice(`${item.label} akan tersedia tidak lama lagi.`);
@@ -3178,12 +3239,14 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
       const content = composer.postType === 'assignment' && dueDate
         ? `Tarikh hantar: ${formatDateShort(dueDate)}\n\n${postText}`
         : postText;
-      await window.tusyenApi.createPost({
+      const firstBefore = teacherPostId((feedState.data || [])[0]);
+      const data = await window.tusyenApi.createPost({
         classroomId: cls.id,
         content,
         postType: composer.postType,
         title: composer.label,
       });
+      classFeedScrollRef.current = { id:teacherPostId(data?.post || data), before:firstBefore };
       setPostStatus('Berjaya dihantar. Pos terkini dipaparkan di bawah.');
       setPostText('');
       setDueDate('');
@@ -3742,13 +3805,23 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                 <Skeleton width="100%" height={10} radius={5} />
               </Card>
             )) : (feedState.data || []).length ? (feedState.data || []).map(post => (
-              <Card key={post.id} style={{ marginBottom:8, padding:10 }}>
-                <div style={{ display:'flex', justifyContent:'space-between', gap:8, marginBottom:4 }}>
-                  <div style={{ fontSize:12, color:C.accPale, fontWeight:900 }}>{teacherTitle(post.title, post.post_type === 'assignment' ? 'Tugasan' : 'Pengumuman')}</div>
-                  <div style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>{window.timeAgo(post.created_at)}</div>
-                </div>
-                <div style={{ fontSize:12, color:C.text, fontWeight:700, whiteSpace:'pre-line', lineHeight:1.35 }}>{teacherBodyText(post.content, '', 180)}</div>
-              </Card>
+              <div
+                key={post.id}
+                ref={node => {
+                  const id = teacherPostId(post);
+                  if (!id) return;
+                  if (node) classFeedRefs.current[id] = node;
+                  else delete classFeedRefs.current[id];
+                }}
+              >
+                <Card style={{ marginBottom:8, padding:10 }}>
+                  <div style={{ display:'flex', justifyContent:'space-between', gap:8, marginBottom:4 }}>
+                    <div style={{ fontSize:12, color:C.accPale, fontWeight:900 }}>{teacherTitle(post.title, post.post_type === 'assignment' ? 'Tugasan' : 'Pengumuman')}</div>
+                    <div style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>{window.timeAgo(post.created_at)}</div>
+                  </div>
+                  <div style={{ fontSize:12, color:C.text, fontWeight:700, whiteSpace:'pre-line', lineHeight:1.35 }}>{teacherBodyText(post.content, '', 180)}</div>
+                </Card>
+              </div>
             )) : (
               <Card style={{ marginBottom:8, padding:12 }}>
                 <div style={{ fontSize:12, color:C.textMuted, fontWeight:600 }}>Belum ada pos dalam suapan kelas.</div>
@@ -3758,7 +3831,10 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
         )}
 
         {tab === 'quiz' && window.TeacherQuizTab && (
-          <window.TeacherQuizTab classroomId={cls?.id} />
+          <>
+            <TeacherQuizTimerControls classroomId={cls?.id} />
+            <window.TeacherQuizTab classroomId={cls?.id} />
+          </>
         )}
       </div>
       {settingsOpen && (
@@ -3805,6 +3881,7 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
   const riskCount = list.reduce((sum, c) => sum + (Number(c.riskCount) || 0), 0);
   const firstRiskClass = list.find(c => Number(c.riskCount) > 0 || (c.avg !== null && c.avg < 60));
   const [localNotice, setLocalNotice] = React.useState('');
+  const [editingClass, setEditingClass] = React.useState(null);
   const subjects = profileSubjects(profile, list);
   const subjectLine = profileState.loading
     ? 'Memuat profil...'
@@ -3856,9 +3933,22 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
     openClass(firstRiskClass, { tab:'students', filter:'risk' });
   };
 
+  const editClassFromCard = (cls, event) => {
+    event.stopPropagation();
+    setEditingClass(cls);
+    setLocalNotice('');
+  };
+
+  const handleHomeClassSaved = (updated) => {
+    setCls && setCls(updated);
+    classState.refresh();
+    setLocalNotice(`${updated.name} dikemas kini.`);
+  };
+
   const submitCreateClass = async () => {
     const name = newClass.name.trim();
     if (!name) { setCreateError('Nama kelas diperlukan.'); return; }
+    if (!CLASS_FORM_LEVELS.includes(Number(newClass.formLevel))) { setCreateError('Tingkatan yang dibenarkan ialah 4 atau 5.'); return; }
     setCreating(true); setCreateError('');
     try {
       const data = await window.tusyenApi.createClassroom({
@@ -3873,7 +3963,7 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
       setNewClass({ name:'', subject:'Matematik', formLevel:4, description:'' });
       openClass ? openClass(created, { tab:'students' }) : go('class');
     } catch (err) {
-      setCreateError(err.message || 'Tidak dapat mencipta kelas.');
+      setCreateError(classroomFormErrorMessage(err, 'Tidak dapat mencipta kelas.'));
     } finally {
       setCreating(false);
     }
@@ -3893,12 +3983,12 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
       {[
         {v:String(list.length),l:'Kelas',i:'🏫'},
         {v:String(totalStudents),l:'Pelajar',i:'👥'},
-        {v:avgCompletion === null ? '—' : `${avgCompletion}%`,l:'Purata Siap',i:'📊'},
+        {v:avgCompletion === null ? '0%' : `${avgCompletion}%`,l:'Purata Siap',i:'📊', muted:avgCompletion === null},
         {v:String(riskCount),l:'Pelajar Berisiko',i:'⚠️', danger:riskCount > 0, onClick:riskCount > 0 ? openRiskRoster : undefined},
       ].map((s,i) => (
         <Card key={i} warn={s.danger} onClick={s.onClick} style={{ textAlign:'center', padding:12 }}>
           <div style={{ fontSize:20 }}>{s.i}</div>
-          <div style={{ fontWeight:800, fontSize:18, color:s.danger ? C.red : C.text }}>{s.v}</div>
+          <div style={{ fontWeight:800, fontSize:18, color:s.danger ? C.red : s.muted ? C.textMuted : C.text }}>{s.v}</div>
           <div style={{ fontSize:10, color:C.textMuted, fontWeight:600, textTransform:'uppercase' }}>{s.l}</div>
         </Card>
       ))}
@@ -4033,27 +4123,52 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
         </div>
         <div style={{ display:'flex', gap:14, marginBottom:10, flexWrap:'wrap' }}>
           <span style={{ fontSize:12, color:C.textMuted, fontWeight:700 }}>👥 {cls.students} pelajar</span>
-          <span style={{ fontSize:12, color:C.textMuted, fontWeight:700 }}>📊 {hasAvg ? `Purata Siap ${cls.avg}%` : 'Purata Siap belum ada'}</span>
+          <span style={{ fontSize:12, color:hasAvg ? C.textMuted : C.textFaint, fontWeight:700 }}>📊 Purata Siap {hasAvg ? `${cls.avg}%` : '0%'}</span>
           <span style={{ fontSize:12, color:C.textMuted, fontWeight:700 }}>Aktiviti terakhir: {formatActivityStatus(cls.lastActivity)}</span>
         </div>
         <ProgressBar value={hasAvg ? cls.avg : 0} color={cls.color} height={6} style={{ opacity:hasAvg ? 1 : 0.35 }} />
-        <button
-          onClick={(event) => { event.stopPropagation(); openClass ? openClass(cls, { tab:'students' }) : (setCls(cls), go('class')); }}
-          style={{
-            width:'100%', minHeight:44, marginTop:10,
-            background:`color-mix(in srgb,${cls.color} 18%,var(--c-acc-dim))`,
-            border:`1px solid color-mix(in srgb,${cls.color} 42%,var(--c-bdr))`,
-            borderRadius:12, color:C.text,
-            fontFamily:'Nunito', fontWeight:900, fontSize:13,
-            cursor:'pointer',
-          }}
-        >Lihat kelas</button>
+        <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8, marginTop:10 }}>
+          <button
+            onClick={(event) => editClassFromCard(cls, event)}
+            style={{
+              width:'100%', minHeight:44,
+              background:C.surface,
+              border:`1px solid ${C.border}`,
+              borderRadius:12, color:C.accPale,
+              fontFamily:'Nunito', fontWeight:900, fontSize:13,
+              cursor:'pointer',
+            }}
+          >Edit</button>
+          <button
+            onClick={(event) => { event.stopPropagation(); openClass ? openClass(cls, { tab:'students' }) : (setCls(cls), go('class')); }}
+            style={{
+              width:'100%', minHeight:44,
+              background:`color-mix(in srgb,${cls.color} 18%,var(--c-acc-dim))`,
+              border:`1px solid color-mix(in srgb,${cls.color} 42%,var(--c-bdr))`,
+              borderRadius:12, color:C.text,
+              fontFamily:'Nunito', fontWeight:900, fontSize:13,
+              cursor:'pointer',
+            }}
+          >Lihat kelas</button>
+        </div>
       </Card>
       );
     })}
     <GlowButton outlined onClick={() => setShowCreate(v => !v)} style={{ marginTop:4 }}>
       {showCreate ? 'Tutup borang' : '+ Cipta kelas baharu'}
     </GlowButton>
+    {editingClass && (
+      <ClassroomSettingsModal
+        cls={editingClass}
+        onClose={() => setEditingClass(null)}
+        onSaved={handleHomeClassSaved}
+        onArchived={() => {
+          setEditingClass(null);
+          classState.refresh();
+          setLocalNotice('Kelas telah dinyahaktifkan.');
+        }}
+      />
+    )}
     <div style={{ height:8 }} />
   </div>
   );
@@ -4360,6 +4475,136 @@ const TeacherProfile = ({ displayName }) => {
   );
 };
 
+const teacherQuizSessionId = (session) => `${session?.id ?? session?.session_id ?? session?.sessionId ?? session?.quiz_session_id ?? session?.quizSessionId ?? ''}`;
+const teacherQuizSessionClassroomId = (session) => `${session?.classroom_id ?? session?.classroomId ?? session?.class_id ?? session?.classId ?? ''}`;
+const teacherQuizSessionPaused = (session) => Boolean(
+  session?.is_paused ?? session?.isPaused ?? session?.paused ?? session?.timer_paused ?? session?.timerPaused ?? session?.timer?.paused
+);
+
+const findTeacherQuizSession = (classroomId) => {
+  const candidates = [];
+  const add = (value) => {
+    if (!value) return;
+    if (Array.isArray(value)) value.forEach(add);
+    else candidates.push(value);
+  };
+  add(window.tusyenActiveQuizSession);
+  add(window.tusyenQuizActiveSession);
+  add(window.tusyenQuizSession);
+  add(window.teacherQuizSession);
+  add(window.TeacherQuizTab?.activeSession);
+  add(window.TeacherQuizTab?.currentSession);
+  return candidates.find(session => {
+    const sessionId = teacherQuizSessionId(session);
+    if (!sessionId) return false;
+    const sessionClassroomId = teacherQuizSessionClassroomId(session);
+    return !classroomId || !sessionClassroomId || sessionClassroomId === `${classroomId}`;
+  }) || null;
+};
+
+const postTeacherQuizTimerAction = async (sessionId, action) => {
+  const payload = { action };
+  const api = window.tusyenApi || {};
+  if (api.quizSessionTimer) return api.quizSessionTimer(sessionId, payload);
+  if (api.updateQuizSessionTimer) return api.updateQuizSessionTimer(sessionId, payload);
+  if (api.setQuizSessionTimer) return api.setQuizSessionTimer(sessionId, payload);
+  if (api.apiFetch) {
+    return api.apiFetch(`/quiz/sessions/${encodeURIComponent(sessionId)}/timer`, {
+      method:'POST',
+      headers:{ 'Content-Type':'application/json' },
+      body:JSON.stringify(payload),
+    });
+  }
+  if (api.request) {
+    return api.request(`/quiz/sessions/${encodeURIComponent(sessionId)}/timer`, {
+      method:'POST',
+      headers:{ 'Content-Type':'application/json' },
+      body:JSON.stringify(payload),
+    });
+  }
+  if (api.post) return api.post(`/quiz/sessions/${encodeURIComponent(sessionId)}/timer`, payload);
+  const response = await fetch(`/api/quiz/sessions/${encodeURIComponent(sessionId)}/timer`, {
+    method:'POST',
+    credentials:'include',
+    headers:{ 'Content-Type':'application/json' },
+    body:JSON.stringify(payload),
+  });
+  if (!response.ok) throw new Error('Tidak dapat mengemas kini pemasa kuiz.');
+  return response.json().catch(() => ({}));
+};
+
+const TeacherQuizTimerControls = ({ classroomId }) => {
+  const [session, setSession] = React.useState(() => findTeacherQuizSession(classroomId));
+  const [paused, setPaused] = React.useState(() => teacherQuizSessionPaused(session));
+  const [busy, setBusy] = React.useState(false);
+  const [message, setMessage] = React.useState('');
+
+  const refreshSession = React.useCallback(() => {
+    const next = findTeacherQuizSession(classroomId);
+    setSession(next);
+    if (next) setPaused(teacherQuizSessionPaused(next));
+  }, [classroomId]);
+
+  React.useEffect(() => {
+    refreshSession();
+    const events = ['tusyen:quiz-session', 'tusyen:quiz-session-started', 'tusyen:quiz-session-updated', 'tusyen:quiz-timer-updated'];
+    events.forEach(name => window.addEventListener(name, refreshSession));
+    const interval = window.setInterval(refreshSession, 1500);
+    return () => {
+      events.forEach(name => window.removeEventListener(name, refreshSession));
+      window.clearInterval(interval);
+    };
+  }, [refreshSession]);
+
+  const sessionId = teacherQuizSessionId(session);
+  if (!sessionId) return null;
+
+  const toggleTimer = async () => {
+    const action = paused ? 'resume' : 'pause';
+    setBusy(true);
+    setMessage('');
+    try {
+      const data = await postTeacherQuizTimerAction(sessionId, action);
+      const nextSession = data?.session || data?.quizSession || { ...session, is_paused:action === 'pause' };
+      setSession(nextSession);
+      setPaused(action === 'pause');
+      setMessage(action === 'pause' ? 'Pemasa kuiz dijeda.' : 'Pemasa kuiz disambung.');
+      window.dispatchEvent(new CustomEvent('tusyen:quiz-timer-updated', { detail:{ sessionId, action, session:nextSession } }));
+    } catch (err) {
+      setMessage(err.message || 'Tidak dapat mengemas kini pemasa kuiz.');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <Card style={{ marginBottom:12, padding:10, border:`1px solid ${paused ? C.gold : C.borderB}` }}>
+      <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', gap:10, flexWrap:'wrap' }}>
+        <div style={{ minWidth:0 }}>
+          <div style={{ fontSize:12, color:C.text, fontWeight:900 }}>Pemasa kuiz langsung</div>
+          <div style={{ fontSize:11, color:C.textMuted, fontWeight:700 }}>
+            {paused ? 'Dijeda untuk semua peserta.' : 'Sedang berjalan untuk sesi aktif.'}
+          </div>
+        </div>
+        <button onClick={toggleTimer} disabled={busy} style={{
+          minHeight:44,
+          background:paused ? C.accDim : 'rgba(245,166,35,.12)',
+          border:`1px solid ${paused ? C.borderB : 'rgba(245,166,35,.32)'}`,
+          borderRadius:12,
+          padding:'0 14px',
+          color:paused ? C.accPale : C.gold,
+          fontFamily:'Nunito',
+          fontWeight:900,
+          fontSize:12,
+          cursor:busy ? 'not-allowed' : 'pointer',
+          opacity:busy ? 0.6 : 1,
+        }}>{busy ? 'Mengemas kini...' : paused ? 'Resume' : 'Pause'}</button>
+      </div>
+      {message && <div role="status" style={{ fontSize:11, color:message.includes('Tidak') ? C.red : C.green, fontWeight:900, marginTop:8 }}>{message}</div>}
+    </Card>
+  );
+};
+
 // ─── TeacherQuizScreen ──────────────────────────────────────────────────────
 
 const TeacherQuizScreen = ({ classrooms }) => {
@@ -4420,7 +4665,10 @@ const TeacherQuizScreen = ({ classrooms }) => {
       </div>
 
       {window.TeacherQuizTab ? (
-        <window.TeacherQuizTab classroomId={activeClassroom?.id || selectedClassroomId} />
+        <>
+          <TeacherQuizTimerControls classroomId={activeClassroom?.id || selectedClassroomId} />
+          <window.TeacherQuizTab classroomId={activeClassroom?.id || selectedClassroomId} />
+        </>
       ) : (
         <Card><div style={{ fontSize:13, color:C.textMuted, fontWeight:600 }}>{t('Komponen kuiz tidak dapat dimuatkan.', 'Quiz component could not be loaded.')}</div></Card>
       )}

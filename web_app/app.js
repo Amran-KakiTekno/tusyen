@@ -5,6 +5,10 @@ const API_BASE = `${window.location.origin}/api`;
 const TOKEN_KEY = 'tusyen_token';
 const REFRESH_KEY = 'tusyen_refresh_token';
 const USER_KEY  = 'tusyen_user';
+const TOKEN_SAVED_AT_KEY = 'tusyen_token_saved_at';
+const TOKEN_REFRESH_FOCUS_AGE_MS = 45 * 60 * 1000;
+const KEYCLOAK_CALLBACK_PATH = '/keycloak-callback';
+let _refreshPromise = null;
 
 async function request(path, options = {}, retryOnUnauthorized = true) {
   const token = localStorage.getItem(TOKEN_KEY);
@@ -23,7 +27,12 @@ async function request(path, options = {}, retryOnUnauthorized = true) {
   const text = await response.text();
   const data = text ? JSON.parse(text) : {};
   if (response.status === 401 && retryOnUnauthorized) {
-    await refreshAccessToken();
+    try {
+      await refreshAccessToken();
+    } catch (_err) {
+      clearStoredSession();
+      throw new Error('Session expired. Please log in again.');
+    }
     return request(path, options, false);
   }
   if (!response.ok) {
@@ -33,6 +42,14 @@ async function request(path, options = {}, retryOnUnauthorized = true) {
 }
 
 async function refreshAccessToken() {
+  if (_refreshPromise) return _refreshPromise;
+  _refreshPromise = _doRefreshAccessToken().finally(() => {
+    _refreshPromise = null;
+  });
+  return _refreshPromise;
+}
+
+async function _doRefreshAccessToken() {
   const response = await fetch(`${API_BASE}/auth/refresh`, {
     method: 'POST',
     credentials: 'include',
@@ -50,10 +67,13 @@ async function refreshAccessToken() {
 }
 
 function persistAuthTokens(data = {}) {
-  if (data.token || data.accessToken) {
-    localStorage.setItem(TOKEN_KEY, data.token || data.accessToken);
+  const accessToken = data.token || data.accessToken;
+  if (accessToken) {
+    localStorage.setItem(TOKEN_KEY, accessToken);
+    localStorage.setItem(TOKEN_SAVED_AT_KEY, String(Date.now()));
   } else {
     localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(TOKEN_SAVED_AT_KEY);
   }
   if (data.refreshToken) {
     localStorage.setItem(REFRESH_KEY, data.refreshToken);
@@ -66,9 +86,141 @@ function clearStoredSession() {
   localStorage.removeItem(TOKEN_KEY);
   localStorage.removeItem(REFRESH_KEY);
   localStorage.removeItem(USER_KEY);
+  localStorage.removeItem(TOKEN_SAVED_AT_KEY);
+}
+
+function readJwtPayload(token) {
+  try {
+    const [, payload] = `${token || ''}`.split('.');
+    if (!payload) return null;
+    const normalized = payload.replace(/-/g, '+').replace(/_/g, '/');
+    const padded = normalized.padEnd(Math.ceil(normalized.length / 4) * 4, '=');
+    return JSON.parse(atob(padded));
+  } catch {
+    return null;
+  }
+}
+
+function accessTokenAgeMs(token = localStorage.getItem(TOKEN_KEY)) {
+  if (!token) return 0;
+  const issuedAt = Number(readJwtPayload(token)?.iat || 0) * 1000;
+  const savedAt = Number(localStorage.getItem(TOKEN_SAVED_AT_KEY) || 0);
+  const baseline = issuedAt || savedAt;
+  return baseline ? Math.max(0, Date.now() - baseline) : 0;
+}
+
+function setupTokenRefreshOnVisibility() {
+  if (setupTokenRefreshOnVisibility.ready || typeof document === 'undefined') return;
+  setupTokenRefreshOnVisibility.ready = true;
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState !== 'visible') return;
+    if (!localStorage.getItem(TOKEN_KEY)) return;
+    if (accessTokenAgeMs() <= TOKEN_REFRESH_FOCUS_AGE_MS) return;
+    refreshAccessToken().catch(() => undefined);
+  });
+}
+
+function appBasePathFromScript() {
+  const scriptSrc = document.currentScript?.getAttribute('src') || '';
+  try {
+    const scriptUrl = new URL(scriptSrc, window.location.href);
+    const marker = '/dist/app.bundle.js';
+    const index = scriptUrl.pathname.indexOf(marker);
+    if (index >= 0) return scriptUrl.pathname.slice(0, index + 1) || '/';
+  } catch {}
+  const path = window.location.pathname || '/';
+  const cleanPath = path.replace(/\/+$/, '');
+  if (cleanPath.endsWith(KEYCLOAK_CALLBACK_PATH)) {
+    const base = cleanPath.slice(0, -KEYCLOAK_CALLBACK_PATH.length) || '/';
+    return base.endsWith('/') ? base : `${base}/`;
+  }
+  return '/';
+}
+
+function safeSameOriginPath(value) {
+  if (!value) return '';
+  try {
+    const url = new URL(value, window.location.origin);
+    if (url.origin !== window.location.origin) return '';
+    if (url.pathname.replace(/\/+$/, '').endsWith(KEYCLOAK_CALLBACK_PATH)) return '';
+    return `${url.pathname}${url.search}${url.hash}`;
+  } catch {
+    return '';
+  }
+}
+
+function postAuthRedirectPath(data = {}) {
+  const explicit = safeSameOriginPath(data.redirectTo || data.redirectUrl || data.next);
+  if (explicit) return explicit;
+  const role = `${data.user?.role || data.role || ''}`.toLowerCase();
+  const url = new URL(appBasePathFromScript(), window.location.origin);
+  if (role) url.searchParams.set('role', role);
+  return `${url.pathname}${url.search}${url.hash}`;
+}
+
+function escapeHtml(value) {
+  return `${value || ''}`
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function renderKeycloakCallbackStatus(message, tone = 'info') {
+  const root = document.getElementById('root');
+  if (!root) return;
+  const color = tone === 'error' ? '#EF4444' : '#7C3AED';
+  const homePath = escapeHtml(appBasePathFromScript());
+  root.innerHTML = `
+    <main style="min-height:100vh;display:grid;place-items:center;background:#0f172a;color:#f8fafc;font-family:Nunito,Arial,sans-serif;padding:24px;">
+      <section role="${tone === 'error' ? 'alert' : 'status'}" style="width:min(420px,100%);border:1px solid rgba(255,255,255,.14);border-radius:24px;background:rgba(15,23,42,.88);padding:28px;box-shadow:0 24px 80px rgba(0,0,0,.28);">
+        <div style="width:48px;height:48px;border-radius:16px;background:${color};display:grid;place-items:center;font-weight:900;margin-bottom:16px;">T</div>
+        <h1 style="font-size:22px;line-height:1.2;margin:0 0 8px;">Keycloak sign-in</h1>
+        <p style="font-size:14px;line-height:1.55;margin:0;color:#cbd5e1;">${escapeHtml(message)}</p>
+        ${tone === 'error' ? `<a href="${homePath}" style="display:inline-flex;margin-top:18px;color:#fff;font-weight:800;">Back to Tusyen</a>` : ''}
+      </section>
+    </main>
+  `;
+}
+
+async function handleKeycloakCallbackIfNeeded() {
+  const cleanPath = (window.location.pathname || '').replace(/\/+$/, '');
+  if (!cleanPath.endsWith(KEYCLOAK_CALLBACK_PATH)) return false;
+  window.__tusyenKeycloakCallbackPending = true;
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get('code');
+  const state = params.get('state');
+  if (!code || !state) {
+    renderKeycloakCallbackStatus('Missing Keycloak callback code or state. Please start sign-in again.', 'error');
+    return true;
+  }
+
+  renderKeycloakCallbackStatus('Finishing secure sign-in and opening your dashboard...');
+  try {
+    const data = await request('/auth/keycloak/callback', {
+      method: 'POST',
+      body: JSON.stringify({
+        code,
+        state,
+        redirectUri: `${window.location.origin}${window.location.pathname}`,
+      }),
+    }, false);
+    persistAuthTokens(data);
+    if (data.user) {
+      localStorage.setItem(USER_KEY, JSON.stringify(data.user));
+      window.tusyenUser = data.user;
+    }
+    window.location.replace(postAuthRedirectPath(data));
+  } catch (err) {
+    clearStoredSession();
+    renderKeycloakCallbackStatus(err?.message || 'Keycloak sign-in could not be completed. Please try again.', 'error');
+  }
+  return true;
 }
 
 const tusyenApi = {
+  getToken() { return localStorage.getItem(TOKEN_KEY); },
   async health()      { return request('/health'); },
   async myProfile()   { return request('/profile/me'); },
   async adminStats()  { return request('/admin/stats'); },
@@ -413,6 +565,9 @@ const tusyenApi = {
   async myQuizSummary() {
     return request('/quiz/me/summary');
   },
+  async quizSessionReview(sessionId, participantToken) {
+    return request(`/quiz/sessions/${sessionId}/review?participantToken=${encodeURIComponent(participantToken)}`);
+  },
   async duplicateQuizDeck(id) {
     return request(`/quiz/decks/${id}/duplicate`, { method: 'POST' });
   },
@@ -443,6 +598,22 @@ const tusyenApi = {
   },
   async toggleReaction(postId) {
     return request(`/feed/posts/${postId}/reaction`, { method:'POST' });
+  },
+  async reactPost(postId, emoji = 'like') {
+    if (!postId) return { ok:false, status:400, error:'postId is required' };
+    try {
+      return await request(`/feed/posts/${postId}/reactions`, {
+        method:'POST',
+        body:JSON.stringify({ emoji }),
+      });
+    } catch (err) {
+      return {
+        ok:false,
+        status:501,
+        todo:true,
+        error:err?.message || 'Post reactions endpoint is not available yet',
+      };
+    }
   },
   async pinPost(postId, isPinned) {
     return request(`/feed/posts/${postId}`, { method:'PATCH', body:JSON.stringify({ isPinned }) });
@@ -591,4 +762,6 @@ const tusyenApi = {
   },
 };
 
+setupTokenRefreshOnVisibility();
 window.tusyenApi = tusyenApi;
+handleKeycloakCallbackIfNeeded();

@@ -47,6 +47,54 @@ const freeTextQuestionTypes = new Set([
   'scenario',
 ]);
 
+const LEARNING_CATALOG_LIMIT = 200;
+const LESSON_FAIL_SCORE_THRESHOLD = 60;
+const HEART_REGENERATION_MINUTES = 10;
+const ACHIEVEMENT_DEFINITIONS = [
+  {
+    code: 'streak_7',
+    name: 'Streak 7 Hari',
+    description: 'Belajar 7 hari berturut-turut.',
+    requirementType: 'streak_days',
+    requirementValue: 7,
+  },
+  {
+    code: 'streak_30',
+    name: 'Streak 30 Hari',
+    description: 'Belajar 30 hari berturut-turut.',
+    requirementType: 'streak_days',
+    requirementValue: 30,
+  },
+  {
+    code: 'perfect_score',
+    name: 'Markah Sempurna',
+    description: 'Dapat markah penuh dalam aktiviti.',
+    requirementType: 'perfect_score',
+    requirementValue: 100,
+  },
+  {
+    code: 'xp_1000',
+    name: '1000 XP',
+    description: 'Kumpul 1000 XP.',
+    requirementType: 'xp_total',
+    requirementValue: 1000,
+  },
+  {
+    code: 'xp_5000',
+    name: '5000 XP',
+    description: 'Kumpul 5000 XP.',
+    requirementType: 'xp_total',
+    requirementValue: 5000,
+  },
+  {
+    code: 'leaderboard_top_3',
+    name: 'Top 3 Leaderboard',
+    description: 'Masuk tiga tempat teratas leaderboard.',
+    requirementType: 'leaderboard_rank',
+    requirementValue: 3,
+  },
+];
+
 const lessonFields = `
   l.id,
   l.title,
@@ -152,8 +200,14 @@ export async function learningRoutes(fastify: FastifyInstance) {
       params.push(`%${cleanSearch}%`);
     }
 
+    const normalizedLimit = Math.min(
+      LEARNING_CATALOG_LIMIT,
+      Math.max(1, Math.floor(Number.isFinite(Number(limit)) ? Number(limit) : 100)),
+    );
+    const normalizedOffset = Math.max(0, Math.floor(Number.isFinite(Number(offset)) ? Number(offset) : 0));
+
     query += ` ORDER BY l.created_at DESC LIMIT $${params.length + 1} OFFSET $${params.length + 2}`;
-    params.push(Number(limit), Number(offset));
+    params.push(normalizedLimit, normalizedOffset);
 
     const result = await db.query(query, params);
     return { lessons: result.rows.map((lesson) => protectMediaReferences(fastify, user, lesson)) };
@@ -629,28 +683,31 @@ export async function learningRoutes(fastify: FastifyInstance) {
 
     const detailedAnswers = questions.rows.map((question) => {
       const userAnswer = answerMap.get(question.id);
-      const isAnswered = userAnswer !== undefined && userAnswer !== null && `${userAnswer}`.trim().length > 0;
-      const isCorrect = isAnswered && answersMatch(
+      const isAnswered = hasSubmittedAnswer(userAnswer);
+      const grade = gradeLessonAnswer(
         userAnswer,
         question.correct_answer,
         question.question_type,
         question.options,
+        isAnswered,
       );
       const points = Number(question.points || 1);
+      const earnedPointsForQuestion = points * grade.scoreMultiplier;
 
       totalPoints += points;
       if (isAnswered) answeredQuestions++;
-      if (isCorrect) {
-        earnedPoints += points;
+      if (grade.isCorrect) {
         correctAnswers++;
       }
+      earnedPoints += earnedPointsForQuestion;
 
       return {
         questionId: question.id,
         question: question.question_text,
         answer: userAnswer ?? null,
         correctAnswer: question.correct_answer,
-        isCorrect,
+        isCorrect: grade.isCorrect,
+        scoreMultiplier: grade.scoreMultiplier,
         points,
       };
     });
@@ -760,13 +817,15 @@ export async function learningRoutes(fastify: FastifyInstance) {
       );
     }
 
-    await db.query(
-      `INSERT INTO student_streaks (id, student_id, activity_date, streak_count)
-       VALUES ($1, $2, CURRENT_DATE, 1)
-       ON CONFLICT (student_id, activity_date)
-       DO UPDATE SET streak_count = GREATEST(student_streaks.streak_count, EXCLUDED.streak_count)`,
-      [uuidv4(), user.userId]
-    );
+    await checkAndUpdateStreak(user.userId);
+    await Promise.all([
+      checkAndAwardAchievements(user.userId, {
+        score,
+        perfect: Number(score) === 100,
+        streak: await getStudentStreak(user.userId),
+      }),
+      maybeDecrementStudentHeartsOnLessonFailure(user.userId, score, isCompleted),
+    ]);
 
     await cacheDelete(`stats:student:${user.userId}`);
 
@@ -1087,6 +1146,248 @@ function normalizeQuestionType(value: any): string {
   return lessonQuestionTypes.has(type)
     ? type
     : 'multiple_choice';
+}
+
+function hasSubmittedAnswer(value: any): boolean {
+  if (value === null || value === undefined) return false;
+  if (typeof value === 'string') return value.trim().length > 0;
+  if (Array.isArray(value)) return value.length > 0;
+  if (typeof value === 'object') return Object.keys(value).length > 0;
+  return true;
+}
+
+function gradeLessonAnswer(
+  userAnswer: any,
+  correctAnswer: any,
+  questionType: string,
+  options: any,
+  isAnswered: boolean,
+) {
+  if (!isAnswered) {
+    return { isCorrect: false, scoreMultiplier: 0 };
+  }
+
+  const normalizedType = normalizeQuestionType(questionType);
+  const normalizedOptions = Array.isArray(options) ? options : [];
+
+  if (pairQuestionTypes.has(normalizedType)) {
+    const expectedPairs = answerPairs(correctAnswer);
+    const expected = pairsToMap(expectedPairs.length > 0 ? expectedPairs : answerPairs(normalizedOptions));
+    const submitted = pairsToMap(answerPairs(userAnswer));
+    if (expected.size === 0) {
+      return { isCorrect: false, scoreMultiplier: 0 };
+    }
+
+    let correctPairs = 0;
+    for (const [prompt, answer] of expected.entries()) {
+      if (submitted.get(prompt) === answer) {
+        correctPairs += 1;
+      }
+    }
+
+    const scoreMultiplier = correctPairs / expected.size;
+    return {
+      isCorrect: correctPairs === expected.size,
+      scoreMultiplier,
+    };
+  }
+
+  const isCorrect = answersMatch(userAnswer, correctAnswer, normalizedType, normalizedOptions);
+  return { isCorrect, scoreMultiplier: isCorrect ? 1 : 0 };
+}
+
+async function checkAndUpdateStreak(studentId: string) {
+  await db.query(
+    `INSERT INTO student_streaks (student_id, activity_date, streak_count)
+     VALUES (
+       $1,
+       CURRENT_DATE,
+       COALESCE((
+         SELECT CASE
+           WHEN activity_date = CURRENT_DATE - INTERVAL '1 day' THEN streak_count + 1
+           ELSE 1
+         END
+         FROM student_streaks
+         WHERE student_id = $1 AND activity_date < CURRENT_DATE
+         ORDER BY activity_date DESC
+         LIMIT 1
+       ), 1)
+     )
+     ON CONFLICT (student_id, activity_date)
+     DO UPDATE SET streak_count = GREATEST(student_streaks.streak_count, EXCLUDED.streak_count)`,
+    [studentId],
+  );
+}
+
+async function checkAndAwardAchievements(
+  studentId: string,
+  context: { score: number; perfect: boolean; streak: number },
+) {
+  const totalXp = await getTotalXp(studentId);
+  const leaderboardRank = await getLeaderboardRank(studentId);
+  const earned = ACHIEVEMENT_DEFINITIONS.filter((achievement) => {
+    if (achievement.requirementType === 'streak_days') {
+      return context.streak >= achievement.requirementValue;
+    }
+    if (achievement.requirementType === 'perfect_score') {
+      return context.perfect || context.score >= achievement.requirementValue;
+    }
+    if (achievement.requirementType === 'xp_total') {
+      return totalXp >= achievement.requirementValue;
+    }
+    if (achievement.requirementType === 'leaderboard_rank') {
+      return leaderboardRank !== null && leaderboardRank <= achievement.requirementValue;
+    }
+    return false;
+  });
+
+  for (const achievement of earned) {
+    await awardAchievement(studentId, achievement);
+  }
+}
+
+async function getStudentStreak(studentId: string) {
+  const result = await db.query(
+    `SELECT activity_date, streak_count
+     FROM student_streaks
+     WHERE student_id = $1
+     ORDER BY activity_date DESC
+     LIMIT 1`,
+    [studentId],
+  );
+
+  const row = result.rows[0];
+  if (!row) return 0;
+
+  const lastActive = new Date(row.activity_date);
+  lastActive.setHours(0, 0, 0, 0);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const yesterday = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
+
+  if (lastActive.getTime() !== today.getTime() && lastActive.getTime() !== yesterday.getTime()) {
+    return 0;
+  }
+
+  return Math.max(0, Number(row.streak_count || 0));
+}
+
+async function maybeDecrementStudentHeartsOnLessonFailure(
+  studentId: string,
+  score: number,
+  isCompleted: boolean,
+) {
+  await regenerateStudentHearts(studentId);
+  if (isCompleted || Number(score) >= LESSON_FAIL_SCORE_THRESHOLD) {
+    return;
+  }
+
+  await db.query(
+    `UPDATE student_hearts
+     SET current_hearts = GREATEST(current_hearts - 1, 0),
+         updated_at = NOW()
+     WHERE student_id = $1`,
+    [studentId],
+  );
+}
+
+async function regenerateStudentHearts(studentId: string) {
+  await db.query(
+    `INSERT INTO student_hearts (student_id)
+     VALUES ($1)
+     ON CONFLICT (student_id) DO NOTHING`,
+    [studentId],
+  );
+
+  const result = await db.query(
+    `SELECT current_hearts, max_hearts, updated_at
+     FROM student_hearts
+     WHERE student_id = $1`,
+    [studentId],
+  );
+  const row = result.rows[0];
+  if (!row) return;
+
+  const current = Number(row.current_hearts || 0);
+  const maxHearts = Number(row.max_hearts || 0);
+  if (current >= maxHearts || maxHearts <= 0) return;
+
+  const updatedAt = new Date(row.updated_at || new Date()).getTime();
+  if (!Number.isFinite(updatedAt)) return;
+
+  const elapsedMinutes = Math.floor((Date.now() - updatedAt) / 60000);
+  const restored = Math.floor(elapsedMinutes / HEART_REGENERATION_MINUTES);
+  if (restored <= 0) return;
+
+  await db.query(
+    `UPDATE student_hearts
+     SET current_hearts = LEAST(current_hearts + $2, max_hearts),
+         updated_at = NOW()
+     WHERE student_id = $1`,
+    [studentId, restored],
+  );
+}
+
+async function getTotalXp(studentId: string) {
+  const result = await db.query(
+    `SELECT COALESCE(SUM(amount), 0)::int AS total_xp
+     FROM xp_events
+     WHERE user_id = $1`,
+    [studentId],
+  );
+  return Number(result.rows[0]?.total_xp || 0);
+}
+
+async function getLeaderboardRank(studentId: string) {
+  const result = await db.query(
+    `WITH ranked AS (
+       SELECT u.id,
+              DENSE_RANK() OVER (ORDER BY COALESCE(SUM(xe.amount), 0) DESC, u.id ASC) AS rank
+       FROM users u
+       LEFT JOIN xp_events xe ON xe.user_id = u.id
+       WHERE u.role = 'student' AND u.is_active = true
+       GROUP BY u.id
+     )
+     SELECT rank
+     FROM ranked
+     WHERE id = $1`,
+    [studentId],
+  );
+  const rank = Number(result.rows[0]?.rank || 0);
+  return rank > 0 ? rank : null;
+}
+
+async function awardAchievement(studentId: string, achievement: typeof ACHIEVEMENT_DEFINITIONS[number]) {
+  const result = await db.query(
+    `INSERT INTO achievements (id, code, name, description, requirement_type, requirement_value)
+     VALUES ($1, $2, $3, $4, $5, $6)
+     ON CONFLICT (code)
+     DO UPDATE SET
+       name = EXCLUDED.name,
+       description = EXCLUDED.description,
+       requirement_type = EXCLUDED.requirement_type,
+       requirement_value = EXCLUDED.requirement_value
+     RETURNING id`,
+    [
+      uuidv4(),
+      achievement.code,
+      achievement.name,
+      achievement.description,
+      achievement.requirementType,
+      achievement.requirementValue,
+    ],
+  );
+
+  const achievementId = result.rows[0]?.id;
+  if (!achievementId) return;
+
+  await db.query(
+    `INSERT INTO user_achievements (id, user_id, achievement_id)
+     VALUES ($1, $2, $3)
+     ON CONFLICT (user_id, achievement_id) DO NOTHING`,
+    [uuidv4(), studentId, achievementId],
+  );
 }
 
 export function answersMatch(

@@ -108,8 +108,18 @@ export async function consumeRefreshToken(refreshToken: unknown): Promise<Refres
   if (!parsed) return null;
 
   const key = refreshKey(parsed.id);
+  const usedKey = `${REFRESH_PREFIX}used:${parsed.id}`;
   const raw = await redis.get(key);
-  if (!raw) return null;
+  if (!raw) {
+    const usedRaw = await redis.get(usedKey);
+    if (!usedRaw) return null;
+    try {
+      return JSON.parse(usedRaw) as RefreshTokenRecord;
+    } catch {
+      await redis.del(usedKey);
+      return null;
+    }
+  }
 
   let record: RefreshTokenRecord;
   try {
@@ -123,6 +133,7 @@ export async function consumeRefreshToken(refreshToken: unknown): Promise<Refres
     return null;
   }
 
+  await redis.setex(usedKey, 10, JSON.stringify(record));
   await redis.del(key);
   return record;
 }

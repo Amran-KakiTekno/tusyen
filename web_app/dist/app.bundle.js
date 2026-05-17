@@ -11,6 +11,10 @@ const API_BASE = `${window.location.origin}/api`;
 const TOKEN_KEY = 'tusyen_token';
 const REFRESH_KEY = 'tusyen_refresh_token';
 const USER_KEY = 'tusyen_user';
+const TOKEN_SAVED_AT_KEY = 'tusyen_token_saved_at';
+const TOKEN_REFRESH_FOCUS_AGE_MS = 45 * 60 * 1000;
+const KEYCLOAK_CALLBACK_PATH = '/keycloak-callback';
+let _refreshPromise = null;
 async function request(path, options = {}, retryOnUnauthorized = true) {
   const token = localStorage.getItem(TOKEN_KEY);
   const headers = {
@@ -30,7 +34,12 @@ async function request(path, options = {}, retryOnUnauthorized = true) {
   const text = await response.text();
   const data = text ? JSON.parse(text) : {};
   if (response.status === 401 && retryOnUnauthorized) {
-    await refreshAccessToken();
+    try {
+      await refreshAccessToken();
+    } catch (_err) {
+      clearStoredSession();
+      throw new Error('Session expired. Please log in again.');
+    }
     return request(path, options, false);
   }
   if (!response.ok) {
@@ -39,6 +48,13 @@ async function request(path, options = {}, retryOnUnauthorized = true) {
   return data;
 }
 async function refreshAccessToken() {
+  if (_refreshPromise) return _refreshPromise;
+  _refreshPromise = _doRefreshAccessToken().finally(() => {
+    _refreshPromise = null;
+  });
+  return _refreshPromise;
+}
+async function _doRefreshAccessToken() {
   const response = await fetch(`${API_BASE}/auth/refresh`, {
     method: 'POST',
     credentials: 'include',
@@ -59,10 +75,13 @@ async function refreshAccessToken() {
   return data.token;
 }
 function persistAuthTokens(data = {}) {
-  if (data.token || data.accessToken) {
-    localStorage.setItem(TOKEN_KEY, data.token || data.accessToken);
+  const accessToken = data.token || data.accessToken;
+  if (accessToken) {
+    localStorage.setItem(TOKEN_KEY, accessToken);
+    localStorage.setItem(TOKEN_SAVED_AT_KEY, String(Date.now()));
   } else {
     localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(TOKEN_SAVED_AT_KEY);
   }
   if (data.refreshToken) {
     localStorage.setItem(REFRESH_KEY, data.refreshToken);
@@ -74,8 +93,127 @@ function clearStoredSession() {
   localStorage.removeItem(TOKEN_KEY);
   localStorage.removeItem(REFRESH_KEY);
   localStorage.removeItem(USER_KEY);
+  localStorage.removeItem(TOKEN_SAVED_AT_KEY);
+}
+function readJwtPayload(token) {
+  try {
+    const [, payload] = `${token || ''}`.split('.');
+    if (!payload) return null;
+    const normalized = payload.replace(/-/g, '+').replace(/_/g, '/');
+    const padded = normalized.padEnd(Math.ceil(normalized.length / 4) * 4, '=');
+    return JSON.parse(atob(padded));
+  } catch {
+    return null;
+  }
+}
+function accessTokenAgeMs(token = localStorage.getItem(TOKEN_KEY)) {
+  if (!token) return 0;
+  const issuedAt = Number(readJwtPayload(token)?.iat || 0) * 1000;
+  const savedAt = Number(localStorage.getItem(TOKEN_SAVED_AT_KEY) || 0);
+  const baseline = issuedAt || savedAt;
+  return baseline ? Math.max(0, Date.now() - baseline) : 0;
+}
+function setupTokenRefreshOnVisibility() {
+  if (setupTokenRefreshOnVisibility.ready || typeof document === 'undefined') return;
+  setupTokenRefreshOnVisibility.ready = true;
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState !== 'visible') return;
+    if (!localStorage.getItem(TOKEN_KEY)) return;
+    if (accessTokenAgeMs() <= TOKEN_REFRESH_FOCUS_AGE_MS) return;
+    refreshAccessToken().catch(() => undefined);
+  });
+}
+function appBasePathFromScript() {
+  const scriptSrc = document.currentScript?.getAttribute('src') || '';
+  try {
+    const scriptUrl = new URL(scriptSrc, window.location.href);
+    const marker = '/dist/app.bundle.js';
+    const index = scriptUrl.pathname.indexOf(marker);
+    if (index >= 0) return scriptUrl.pathname.slice(0, index + 1) || '/';
+  } catch {}
+  const path = window.location.pathname || '/';
+  const cleanPath = path.replace(/\/+$/, '');
+  if (cleanPath.endsWith(KEYCLOAK_CALLBACK_PATH)) {
+    const base = cleanPath.slice(0, -KEYCLOAK_CALLBACK_PATH.length) || '/';
+    return base.endsWith('/') ? base : `${base}/`;
+  }
+  return '/';
+}
+function safeSameOriginPath(value) {
+  if (!value) return '';
+  try {
+    const url = new URL(value, window.location.origin);
+    if (url.origin !== window.location.origin) return '';
+    if (url.pathname.replace(/\/+$/, '').endsWith(KEYCLOAK_CALLBACK_PATH)) return '';
+    return `${url.pathname}${url.search}${url.hash}`;
+  } catch {
+    return '';
+  }
+}
+function postAuthRedirectPath(data = {}) {
+  const explicit = safeSameOriginPath(data.redirectTo || data.redirectUrl || data.next);
+  if (explicit) return explicit;
+  const role = `${data.user?.role || data.role || ''}`.toLowerCase();
+  const url = new URL(appBasePathFromScript(), window.location.origin);
+  if (role) url.searchParams.set('role', role);
+  return `${url.pathname}${url.search}${url.hash}`;
+}
+function escapeHtml(value) {
+  return `${value || ''}`.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+function renderKeycloakCallbackStatus(message, tone = 'info') {
+  const root = document.getElementById('root');
+  if (!root) return;
+  const color = tone === 'error' ? '#EF4444' : '#7C3AED';
+  const homePath = escapeHtml(appBasePathFromScript());
+  root.innerHTML = `
+    <main style="min-height:100vh;display:grid;place-items:center;background:#0f172a;color:#f8fafc;font-family:Nunito,Arial,sans-serif;padding:24px;">
+      <section role="${tone === 'error' ? 'alert' : 'status'}" style="width:min(420px,100%);border:1px solid rgba(255,255,255,.14);border-radius:24px;background:rgba(15,23,42,.88);padding:28px;box-shadow:0 24px 80px rgba(0,0,0,.28);">
+        <div style="width:48px;height:48px;border-radius:16px;background:${color};display:grid;place-items:center;font-weight:900;margin-bottom:16px;">T</div>
+        <h1 style="font-size:22px;line-height:1.2;margin:0 0 8px;">Keycloak sign-in</h1>
+        <p style="font-size:14px;line-height:1.55;margin:0;color:#cbd5e1;">${escapeHtml(message)}</p>
+        ${tone === 'error' ? `<a href="${homePath}" style="display:inline-flex;margin-top:18px;color:#fff;font-weight:800;">Back to Tusyen</a>` : ''}
+      </section>
+    </main>
+  `;
+}
+async function handleKeycloakCallbackIfNeeded() {
+  const cleanPath = (window.location.pathname || '').replace(/\/+$/, '');
+  if (!cleanPath.endsWith(KEYCLOAK_CALLBACK_PATH)) return false;
+  window.__tusyenKeycloakCallbackPending = true;
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get('code');
+  const state = params.get('state');
+  if (!code || !state) {
+    renderKeycloakCallbackStatus('Missing Keycloak callback code or state. Please start sign-in again.', 'error');
+    return true;
+  }
+  renderKeycloakCallbackStatus('Finishing secure sign-in and opening your dashboard...');
+  try {
+    const data = await request('/auth/keycloak/callback', {
+      method: 'POST',
+      body: JSON.stringify({
+        code,
+        state,
+        redirectUri: `${window.location.origin}${window.location.pathname}`
+      })
+    }, false);
+    persistAuthTokens(data);
+    if (data.user) {
+      localStorage.setItem(USER_KEY, JSON.stringify(data.user));
+      window.tusyenUser = data.user;
+    }
+    window.location.replace(postAuthRedirectPath(data));
+  } catch (err) {
+    clearStoredSession();
+    renderKeycloakCallbackStatus(err?.message || 'Keycloak sign-in could not be completed. Please try again.', 'error');
+  }
+  return true;
 }
 const tusyenApi = {
+  getToken() {
+    return localStorage.getItem(TOKEN_KEY);
+  },
   async health() {
     return request('/health');
   },
@@ -594,6 +732,9 @@ const tusyenApi = {
   async myQuizSummary() {
     return request('/quiz/me/summary');
   },
+  async quizSessionReview(sessionId, participantToken) {
+    return request(`/quiz/sessions/${sessionId}/review?participantToken=${encodeURIComponent(participantToken)}`);
+  },
   async duplicateQuizDeck(id) {
     return request(`/quiz/decks/${id}/duplicate`, {
       method: 'POST'
@@ -644,6 +785,28 @@ const tusyenApi = {
     return request(`/feed/posts/${postId}/reaction`, {
       method: 'POST'
     });
+  },
+  async reactPost(postId, emoji = 'like') {
+    if (!postId) return {
+      ok: false,
+      status: 400,
+      error: 'postId is required'
+    };
+    try {
+      return await request(`/feed/posts/${postId}/reactions`, {
+        method: 'POST',
+        body: JSON.stringify({
+          emoji
+        })
+      });
+    } catch (err) {
+      return {
+        ok: false,
+        status: 501,
+        todo: true,
+        error: err?.message || 'Post reactions endpoint is not available yet'
+      };
+    }
   },
   async pinPost(postId, isPinned) {
     return request(`/feed/posts/${postId}`, {
@@ -879,7 +1042,9 @@ const tusyenApi = {
     }
   }
 };
+setupTokenRefreshOnVisibility();
 window.tusyenApi = tusyenApi;
+handleKeycloakCallbackIfNeeded();
 }());
 // END app.js
 
@@ -996,7 +1161,7 @@ const useLanguage = () => {
     t
   };
 };
-const STATIC_TRANSLATIONS = new Map([['Akaun', 'Account'], ['Aktif', 'Active'], ['Amaran', 'Alerts'], ['Anak', 'Children'], ['Bahasa', 'Language'], ['Batal', 'Cancel'], ['Belajar', 'Learn'], ['Belum ada kelas', 'No classes yet'], ['Belum ada markah direkodkan.', 'No scores recorded yet.'], ['Belum ada pelajaran', 'No lessons yet'], ['Belum ada soalan', 'No questions yet'], ['Buat kelas dahulu untuk boleh mulakan sesi kuiz langsung.', 'Create a class first before starting a live quiz session.'], ['Belum mula', 'Not started'], ['Benar / palsu', 'True / false'], ['Buang soalan', 'Remove question'], ['Buang soalan?', 'Remove question?'], ['Cipta Akaun', 'Create Account'], ['Cipta kelas pertama anda', 'Create your first class'], ['Cuba lagi', 'Retry'], ['Cerah', 'Light'], ['Dapatkan PIN daripada guru untuk masuk ke sesi langsung.', 'Get the PIN from your teacher to join the live session.'], ['Dek baharu', 'New deck'], ['Dek kuiz', 'Quiz deck'], ['Dek Kuiz', 'Quiz Decks'], ['DEK KUIZ', 'QUIZ DECKS'], ['Detail Kelas', 'Class Detail'], ['Dijeda', 'Paused'], ['Gelap', 'Dark'], ['Guru', 'Teacher'], ['Hari Streak', 'Day Streak'], ['Ibu Bapa', 'Parent'], ['Jawapan tidak dapat dihantar.', 'Answer could not be submitted.'], ['Jeda', 'Pause'], ['Jumlah Soalan', 'Total Questions'], ['JUMLAH SOALAN', 'TOTAL QUESTIONS'], ['KELAS', 'CLASSES'], ['Kandungan', 'Content'], ['Kata Laluan', 'Password'], ['Kembali ke dek', 'Back to decks'], ['Kelas', 'Classes'], ['Kelas Saya', 'My Classes'], ['Kemajuan', 'Progress'], ['Keputusan', 'Results'], ['Keputusan Kuiz', 'Quiz Results'], ['Ketepatan', 'Accuracy'], ['Ketepatan Setiap Soalan', 'Accuracy By Question'], ['Kimia', 'Chemistry'], ['Komponen kuiz tidak dapat dimuatkan.', 'Quiz component could not be loaded.'], ['Kuiz ini telah tamat. Minta PIN sesi baharu daripada guru.', 'This quiz has ended. Ask your teacher for a new session PIN.'], ['Kuiz', 'Quiz'], ['Kuiz baharu', 'New Quiz'], ['Kuiz langsung', 'Live quiz'], ['Lobi', 'Lobby'], ['Log Keluar', 'Sign Out'], ['Log Masuk', 'Sign In'], ['Langkau ke kandungan utama', 'Skip to main content'], ['Matematik', 'Mathematics'], ['Masukkan PIN 6 digit daripada guru', 'Enter the 6-digit PIN from your teacher'], ['Memadam...', 'Deleting...'], ['Memeriksa sesi kuiz aktif...', 'Checking active quiz session...'], ['Memproses...', 'Processing...'], ['Memulakan...', 'Starting...'], ['Menunggu guru memulakan...', 'Waiting for the teacher to start...'], ['Menyambung ke sesi langsung...', 'Connecting to the live session...'], ['Menyertai...', 'Joining...'], ['Menyimpan...', 'Saving...'], ['Mulakan', 'Start'], ['Mulakan Kuiz', 'Start Quiz'], ['Nama Penuh', 'Full Name'], ['Nama panggilan', 'Nickname'], ['Nama panggilan diperlukan.', 'Nickname is required.'], ['Navigasi admin', 'Admin navigation'], ['Navigasi bawah', 'Bottom navigation'], ['Papan Putih', 'Whiteboard'], ['Papan Skor Langsung', 'Live Scoreboard'], ['Padam dek', 'Delete deck'], ['Padam dek kuiz?', 'Delete quiz deck?'], ['Paparan PIN', 'PIN Display'], ['PELAJAR', 'STUDENTS'], ['Pelajar', 'Student'], ['Pelajaran', 'Lessons'], ['Pemantauan', 'Monitoring'], ['Pengguna', 'Users'], ['Peranan', 'Role'], ['Peserta', 'Participants'], ['Peserta Teratas', 'Top Participants'], ['PIN mesti 6 digit.', 'PIN must be 6 digits.'], ['PIN tidak sah. Semak 6 digit daripada guru dan cuba lagi.', 'Invalid PIN. Check the 6 digits from your teacher and try again.'], ['Pilih bahasa', 'Choose language'], ['Pilih Kelas', 'Select Class'], ['Pilih kelas dahulu.', 'Select a class first.'], ['Pilih tema warna', 'Choose color theme'], ['Pilihan jawapan', 'Multiple choice'], ['Pos', 'Posts'], ['Pos Kelas', 'Class Posts'], ['Profil', 'Profile'], ['Profil Guru', 'Teacher Profile'], ['Ringkasan Kuiz Saya', 'My Quiz Summary'], ['Sains', 'Science'], ['Salin', 'Copy'], ['Salin dek', 'Copy deck'], ['Sambung', 'Resume'], ['Sedang berjalan', 'In progress'], ['Sejarah', 'History'], ['Selesai', 'Done'], ['Sertai Kuiz', 'Join Quiz'], ['Sertai Kuiz dengan PIN', 'Join Quiz With PIN'], ['Sertai Sekarang', 'Join Now'], ['Sesi Terkini', 'Recent Sessions'], ['Sila tunggu...', 'Please wait...'], ['Simpan', 'Save'], ['Simpan dek', 'Save deck'], ['Sistem', 'System'], ['Soalan', 'Questions'], ['Soalan Seterusnya', 'Next Question'], ['Subjek', 'Subject'], ['SUBJEK', 'SUBJECTS'], ['Sunting', 'Edit'], ['Sunting dek', 'Edit deck'], ['Tajuk dek', 'Deck title'], ['Tajuk wajib diisi.', 'Deck title is required.'], ['Tambah sekurang-kurangnya satu soalan lengkap.', 'Add at least one complete question.'], ['Tamat', 'Ended'], ['Tamatkan', 'End'], ['Teks soalan...', 'Question text...'], ['Tema', 'Theme'], ['Tetapan', 'Settings'], ['Tindakan lanjut', 'More actions'], ['Tindakan lanjut soalan', 'More question actions'], ['Tidak dapat memulakan kuiz.', 'Could not start the quiz.'], ['Tidak dapat menamatkan kuiz.', 'Could not end the quiz.'], ['Tidak dapat mengemas kini pemasa.', 'Could not update the timer.'], ['Tidak dapat pergi ke soalan seterusnya.', 'Could not move to the next question.'], ['Tiada dek lagi. Cipta dek pertama anda.', 'No decks yet. Create your first deck.'], ['Tutup', 'Close'], ['Utama', 'Home']]);
+const STATIC_TRANSLATIONS = new Map([['Akaun', 'Account'], ['Aktif', 'Active'], ['Amaran', 'Alerts'], ['Anak', 'Children'], ['Bahasa', 'Language'], ['Batal', 'Cancel'], ['Belajar', 'Learn'], ['Belum ada kelas', 'No classes yet'], ['Belum ada markah direkodkan.', 'No scores recorded yet.'], ['Belum ada pelajaran', 'No lessons yet'], ['Belum ada soalan', 'No questions yet'], ['Buat kelas dahulu untuk boleh mulakan sesi kuiz langsung.', 'Create a class first before starting a live quiz session.'], ['Belum mula', 'Not started'], ['Benar / palsu', 'True / false'], ['Buang soalan', 'Remove question'], ['Buang soalan?', 'Remove question?'], ['Cipta Akaun', 'Create Account'], ['Cipta kelas pertama anda', 'Create your first class'], ['Cuba lagi', 'Retry'], ['Cerah', 'Light'], ['Dapatkan PIN daripada guru untuk masuk ke sesi langsung.', 'Get the PIN from your teacher to join the live session.'], ['Dek baharu', 'New deck'], ['Dek kuiz', 'Quiz deck'], ['Dek Kuiz', 'Quiz Decks'], ['DEK KUIZ', 'QUIZ DECKS'], ['Detail Kelas', 'Class Detail'], ['Dijeda', 'Paused'], ['Gelap', 'Dark'], ['Guru', 'Teacher'], ['Hari Streak', 'Day Streak'], ['Ibu Bapa', 'Parent'], ['Jawapan tidak dapat dihantar.', 'Answer could not be submitted.'], ['Jeda', 'Pause'], ['Jumlah Soalan', 'Total Questions'], ['JUMLAH SOALAN', 'TOTAL QUESTIONS'], ['KELAS', 'CLASSES'], ['Kandungan', 'Content'], ['Kata Laluan', 'Password'], ['Kembali ke dek', 'Back to decks'], ['Kelas', 'Classes'], ['Kelas Saya', 'My Classes'], ['Kemajuan', 'Progress'], ['Keputusan', 'Results'], ['Keputusan Kuiz', 'Quiz Results'], ['Ketepatan', 'Accuracy'], ['Ketepatan Setiap Soalan', 'Accuracy By Question'], ['Kimia', 'Chemistry'], ['Komponen kuiz tidak dapat dimuatkan.', 'Quiz component could not be loaded.'], ['Kuiz ini telah tamat. Minta PIN sesi baharu daripada guru.', 'This quiz has ended. Ask your teacher for a new session PIN.'], ['Kuiz', 'Quiz'], ['Kuiz baharu', 'New Quiz'], ['Kuiz langsung', 'Live quiz'], ['Lobi', 'Lobby'], ['Log Keluar', 'Sign Out'], ['Log Masuk', 'Sign In'], ['Langkau ke kandungan utama', 'Skip to main content'], ['Matematik', 'Mathematics'], ['Masukkan PIN 6 digit daripada guru', 'Enter the 6-digit PIN from your teacher'], ['Memadam...', 'Deleting...'], ['Memeriksa sesi kuiz aktif...', 'Checking active quiz session...'], ['Memproses...', 'Processing...'], ['Memulakan...', 'Starting...'], ['Menunggu guru memulakan...', 'Waiting for the teacher to start...'], ['Menyambung ke sesi langsung...', 'Connecting to the live session...'], ['Menyertai...', 'Joining...'], ['Menyimpan...', 'Saving...'], ['Mulakan', 'Start'], ['Mulakan Kuiz', 'Start Quiz'], ['Nama Penuh', 'Full Name'], ['Nama panggilan', 'Nickname'], ['Nama panggilan diperlukan.', 'Nickname is required.'], ['Navigasi admin', 'Admin navigation'], ['Navigasi bawah', 'Bottom navigation'], ['Papan Putih', 'Whiteboard'], ['Papan Skor Langsung', 'Live Scoreboard'], ['Padam dek', 'Delete deck'], ['Padam dek kuiz?', 'Delete quiz deck?'], ['Paparan PIN', 'PIN Display'], ['PELAJAR', 'STUDENTS'], ['Pelajar', 'Student'], ['Pelajaran', 'Lessons'], ['Pemantauan', 'Monitoring'], ['Pengguna', 'Users'], ['Peranan', 'Role'], ['Peserta', 'Participants'], ['Peserta Teratas', 'Top Participants'], ['PIN mesti 6 digit.', 'PIN must be 6 digits.'], ['PIN tidak sah. Semak 6 digit daripada guru dan cuba lagi.', 'Invalid PIN. Check the 6 digits from your teacher and try again.'], ['Pilih bahasa', 'Choose language'], ['Pilih Kelas', 'Select Class'], ['Pilih kelas dahulu.', 'Select a class first.'], ['Pilih tema warna', 'Choose color theme'], ['Pilihan jawapan', 'Multiple choice'], ['Pos', 'Posts'], ['Pos Kelas', 'Class Posts'], ['Profil', 'Profile'], ['Profil Guru', 'Teacher Profile'], ['Ringkasan Kuiz Saya', 'My Quiz Summary'], ['Sains', 'Science'], ['Salin', 'Copy'], ['Salin dek', 'Copy deck'], ['Sambung', 'Resume'], ['Sedang berjalan', 'In progress'], ['Sejarah', 'History'], ['Selesai', 'Done'], ['Sertai Kuiz', 'Join Quiz'], ['Sertai Kuiz dengan PIN', 'Join Quiz With PIN'], ['Sertai Sekarang', 'Join Now'], ['Sesi Terkini', 'Recent Sessions'], ['Sila tunggu...', 'Please wait...'], ['Simpan', 'Save'], ['Simpan dek', 'Save deck'], ['Sistem', 'System'], ['Soalan', 'Questions'], ['Soalan Seterusnya', 'Next Question'], ['Subjek', 'Subject'], ['SUBJEK', 'SUBJECTS'], ['Sunting', 'Edit'], ['Sunting dek', 'Edit deck'], ['Tajuk dek', 'Deck title'], ['Tajuk wajib diisi.', 'Deck title is required.'], ['Tambah sekurang-kurangnya satu soalan lengkap.', 'Add at least one complete question.'], ['Tandai untuk tindak lanjut', 'Flag for follow-up'], ['Tamat', 'Ended'], ['Tamatkan', 'End'], ['Teks soalan...', 'Question text...'], ['Tiada mesej dihantar; tindakan ini hanya menyimpan tanda tindak lanjut.', 'No message is sent; this only saves a follow-up flag.'], ['Tema', 'Theme'], ['Tetapan', 'Settings'], ['Tindakan lanjut', 'More actions'], ['Tindakan lanjut soalan', 'More question actions'], ['Tidak dapat memulakan kuiz.', 'Could not start the quiz.'], ['Tidak dapat menamatkan kuiz.', 'Could not end the quiz.'], ['Tidak dapat mengemas kini pemasa.', 'Could not update the timer.'], ['Tidak dapat pergi ke soalan seterusnya.', 'Could not move to the next question.'], ['Tiada dek lagi. Cipta dek pertama anda.', 'No decks yet. Create your first deck.'], ['Tutup', 'Close'], ['Utama', 'Home']]);
 const STATIC_TRANSLATION_PATTERNS = [[/^\+ Tambah Soalan$/, '+ Add Question'], [/^(\d+) soalan$/, '$1 questions'], [/^(\d+) soalan - (.+)$/, '$1 questions - $2'], [/^(\d+) peserta dalam lobi$/, '$1 participants in lobby'], [/^(\d+) peserta$/, '$1 participants'], [/^(\d+) sesi - (.+) XP diperoleh$/, '$1 sessions - $2 XP earned'], [/^(\d+)\/(\d+) betul$/, '$1/$2 correct'], [/^(.+)\sPelajar$/, '$1 Student'], [/^(.+)\sGuru$/, '$1 Teacher'], [/^(.+)\sIbu Bapa$/, '$1 Parent'], [/^Tindakan lanjut untuk (.+)$/, 'More actions for $1'], [/^Form (\d+)$/, 'Form $1'], [/^Pilihan ([A-Z])$/, 'Option $1'], [/^PIN Kuiz \(6 digit\)$/, 'Quiz PIN (6 digits)'], [/^Soalan (\d+)$/, 'Question $1'], [/^Tingkatan (\d+)$/, 'Form $1'], [/^Dek "(.+)" akan dibuang daripada senarai guru\.$/, 'Deck "$1" will be removed from the teacher list.'], [/^Soalan (\d+) akan dikeluarkan daripada draf dek ini\.$/, 'Question $1 will be removed from this deck draft.']];
 const TRANSLATED_TEXT_NODES = new WeakMap();
 const TRANSLATED_ATTRS = new WeakMap();
@@ -1284,6 +1449,86 @@ const timeAgo = ts => {
   if (hr < 24) return `${hr}j lepas`;
   const d = Math.floor(hr / 24);
   return d === 1 ? 'Semalam' : `${d} hari lepas`;
+};
+const videoEmbedInfoFromUrl = value => {
+  const raw = `${value || ''}`.trim();
+  if (!raw) return null;
+  let url;
+  try {
+    url = new URL(raw);
+  } catch {
+    return null;
+  }
+  const host = url.hostname.toLowerCase().replace(/^www\./, '').replace(/^m\./, '');
+  const parts = url.pathname.split('/').filter(Boolean);
+  const safeTitle = 'Video';
+  if (host === 'youtu.be') {
+    const id = parts[0];
+    if (id) return {
+      src: `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`,
+      title: safeTitle
+    };
+  }
+  if (host === 'youtube.com' || host === 'youtube-nocookie.com') {
+    const watchId = url.searchParams.get('v');
+    const embedId = ['embed', 'shorts', 'live'].includes(parts[0]) ? parts[1] : '';
+    const id = watchId || embedId;
+    if (id) return {
+      src: `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`,
+      title: safeTitle
+    };
+  }
+  if (host === 'vimeo.com' || host === 'player.vimeo.com') {
+    const id = parts[0] === 'video' ? parts[1] : parts.find(part => /^\d+$/.test(part));
+    if (id) return {
+      src: `https://player.vimeo.com/video/${encodeURIComponent(id)}`,
+      title: safeTitle
+    };
+  }
+  if (host === 'loom.com' || host.endsWith('.loom.com')) {
+    const id = parts[0] === 'embed' || parts[0] === 'share' ? parts[1] : '';
+    if (id) return {
+      src: `https://www.loom.com/embed/${encodeURIComponent(id)}`,
+      title: safeTitle
+    };
+  }
+  return null;
+};
+const isVideoEmbedUrl = value => !!videoEmbedInfoFromUrl(value);
+const VideoEmbed = ({
+  url,
+  title,
+  style: sx = {}
+}) => {
+  const info = videoEmbedInfoFromUrl(url);
+  if (!info) return null;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'relative',
+      width: '100%',
+      aspectRatio: '16 / 9',
+      overflow: 'hidden',
+      borderRadius: 16,
+      border: `1px solid ${C.border}`,
+      background: C.bg,
+      ...sx
+    }
+  }, /*#__PURE__*/React.createElement("iframe", {
+    title: title || info.title,
+    src: info.src,
+    loading: "lazy",
+    sandbox: "allow-scripts allow-same-origin allow-presentation",
+    allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+    allowFullScreen: true,
+    referrerPolicy: "strict-origin-when-cross-origin",
+    style: {
+      position: 'absolute',
+      inset: 0,
+      width: '100%',
+      height: '100%',
+      border: 0
+    }
+  }));
 };
 const titleCaseDisplayWords = value => `${value || ''}`.toLowerCase().replace(/\b(kssm|spm|pt3|mcq|kbat|pin)\b/g, word => word.toUpperCase()).replace(/\b\w/g, letter => letter.toUpperCase());
 const cleanUiText = (value, {
@@ -3216,6 +3461,8 @@ Object.assign(window, {
   TopBarMobile,
   BottomNavMobile,
   NavIcon,
+  VideoEmbed,
+  isVideoEmbedUrl,
   cleanUiText,
   cleanUiName,
   cleanUiTitle
@@ -4297,6 +4544,7 @@ function ProjectorPinOverlay({
 function ResultsScreen({
   live,
   isTeacher,
+  participantToken,
   onEnd
 }) {
   const {
@@ -4308,6 +4556,29 @@ function ResultsScreen({
   const topPerformers = asArray(results.topPerformers).length ? results.topPerformers : live.leaderboard;
   const participantCount = summary.participantCount ?? live.session?.participantsCount ?? topPerformers.length;
   const questionCount = summary.questionCount ?? questions.length;
+  const isStudent = !isTeacher;
+  const sessionId = live.session?.id || live.session?.sessionId;
+  const joinToken = participantToken || live.participant?.joinToken || live.participant?.participantToken || live.participant?.join_token;
+  const [reviewItems, setReviewItems] = useState(null);
+  useEffect(() => {
+    let cancelled = false;
+    if (!isStudent || !sessionId || !joinToken || !window.tusyenApi?.quizSessionReview) {
+      setReviewItems(null);
+      return () => {
+        cancelled = true;
+      };
+    }
+    window.tusyenApi.quizSessionReview(sessionId, joinToken).then(({
+      review
+    }) => {
+      if (!cancelled) setReviewItems(Array.isArray(review) ? review : []);
+    }).catch(() => {
+      if (!cancelled) setReviewItems(null);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [sessionId, joinToken, isStudent]);
   return /*#__PURE__*/React.createElement("div", {
     style: {
       padding: 16
@@ -4467,7 +4738,62 @@ function ResultsScreen({
       fontWeight: 700,
       marginTop: 4
     }
-  }, q.correctCount || 0, "/", q.answerCount || 0, " ", t('betul', 'correct'), q.noAnswerCount ? ` - ${q.noAnswerCount} ${t('tidak menjawab', 'no answer')}` : '')))), isTeacher && /*#__PURE__*/React.createElement(GlowButton, {
+  }, q.correctCount || 0, "/", q.answerCount || 0, " ", t('betul', 'correct'), q.noAnswerCount ? ` - ${q.noAnswerCount} ${t('tidak menjawab', 'no answer')}` : '')))), isStudent && reviewItems && reviewItems.length > 0 && /*#__PURE__*/React.createElement(Card, {
+    style: {
+      marginBottom: 16
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 900,
+      marginBottom: 12
+    }
+  }, t('Semakan soalan', 'Question Review')), reviewItems.map((item, i) => /*#__PURE__*/React.createElement("div", {
+    key: `${item.orderIndex ?? i}-${item.questionText || i}`,
+    style: {
+      marginBottom: i < reviewItems.length - 1 ? 12 : 0,
+      padding: 12,
+      borderRadius: 10,
+      background: item.isCorrect ? 'rgba(34,197,94,.10)' : 'rgba(239,68,68,.10)',
+      border: `1px solid ${item.isCorrect ? 'rgba(34,197,94,.28)' : 'rgba(239,68,68,.28)'}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 800,
+      fontSize: 13,
+      marginBottom: 6,
+      overflowWrap: 'anywhere'
+    }
+  }, i + 1, ". ", item.questionText || t('Soalan', 'Question')), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: 'var(--c-text2)',
+      marginBottom: 3
+    }
+  }, t('Jawapan anda', 'Your answer'), ":", ' ', /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: item.isCorrect ? '#4ade80' : '#f87171',
+      fontWeight: 800
+    }
+  }, item.didAnswer ? item.selectedAnswer ?? t('Tidak dijawab', 'Not answered') : t('Tidak dijawab', 'Not answered'))), !item.isCorrect && item.correctAnswer !== null && item.correctAnswer !== undefined && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: 'var(--c-text2)',
+      marginBottom: 3
+    }
+  }, t('Jawapan betul', 'Correct answer'), ":", ' ', /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: '#4ade80',
+      fontWeight: 800
+    }
+  }, item.correctAnswer)), item.explanation && /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: 'var(--c-text3)',
+      marginTop: 5,
+      fontStyle: 'italic',
+      lineHeight: 1.4
+    }
+  }, item.explanation)))), isTeacher && /*#__PURE__*/React.createElement(GlowButton, {
     onClick: onEnd
   }, t('Kembali ke dek', 'Back to decks')), !isTeacher && /*#__PURE__*/React.createElement(GlowButton, {
     onClick: onEnd
@@ -4911,6 +5237,7 @@ function QuizLiveSession({
     return /*#__PURE__*/React.createElement(ResultsScreen, {
       live: live,
       isTeacher: isTeacher,
+      participantToken: participantToken,
       onEnd: onEnd
     });
   }
@@ -6416,11 +6743,77 @@ const BADGES = [{
   desc: 'Selesai semua Algebra',
   earned: false
 }];
+const ACHIEVEMENT_TYPE_META = {
+  streak: {
+    icon: '7',
+    name: 'Rentetan Hari'
+  },
+  streak_7: {
+    icon: '7',
+    name: 'Streak 7 Hari'
+  },
+  daily_streak: {
+    icon: '7',
+    name: 'Rentetan Harian'
+  },
+  fast_learner: {
+    icon: 'XP',
+    name: 'Pelajar Pantas'
+  },
+  speed_learner: {
+    icon: 'XP',
+    name: 'Pelajar Pantas'
+  },
+  perfect_score: {
+    icon: '100',
+    name: 'Markah Sempurna'
+  },
+  top_3_class: {
+    icon: 'TOP',
+    name: 'Top 3 Kelas'
+  },
+  top3_class: {
+    icon: 'TOP',
+    name: 'Top 3 Kelas'
+  },
+  elite_student: {
+    icon: 'XP',
+    name: 'Pelajar Elit'
+  },
+  subject_mastery: {
+    icon: 'OK',
+    name: 'Penguasaan Subjek'
+  },
+  topic_mastery: {
+    icon: 'OK',
+    name: 'Penguasaan Topik'
+  },
+  lesson_completion: {
+    icon: 'OK',
+    name: 'Selesai Pelajaran'
+  },
+  quiz_mastery: {
+    icon: '100',
+    name: 'Penguasaan Kuiz'
+  }
+};
+const achievementTypeKey = (value = '') => `${value || ''}`.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+const achievementTypeName = (value = '') => {
+  const key = achievementTypeKey(value);
+  if (!key) return 'Lencana';
+  return key.split('_').map(word => word ? word[0].toUpperCase() + word.slice(1) : '').filter(Boolean).join(' ');
+};
+const achievementMetaForType = (type = '') => ACHIEVEMENT_TYPE_META[achievementTypeKey(type)] || {
+  icon: 'OK',
+  name: achievementTypeName(type)
+};
+const studentLanguageCode = () => `${window.tusyenLanguage || window.tusyenLang || window.tusyenLocale || localStorage.getItem('tusyen_language') || localStorage.getItem('tusyen_lang') || localStorage.getItem('language') || document.documentElement?.lang || 'ms'}`.toLowerCase();
+const tStudent = (malay, english) => studentLanguageCode().startsWith('en') ? english : malay;
 const getGreeting = () => {
   const h = new Date().getHours();
-  if (h < 12) return 'Selamat Pagi';
-  if (h < 17) return 'Selamat Petang';
-  return 'Selamat Malam';
+  if (h < 12) return tStudent('Selamat Pagi', 'Good Morning');
+  if (h < 17) return tStudent('Selamat Petang', 'Good Afternoon');
+  return tStudent('Selamat Malam', 'Good Evening');
 };
 const firstName = full => (full || '').split(' ')[0] || 'Pelajar';
 const studentText = (value, fallback = 'Item', max = 80) => window.cleanUiText ? window.cleanUiText(value, {
@@ -6975,10 +7368,12 @@ const useClassroomLeaderboard = (displayName, hasClassrooms = true) => {
     } = await window.tusyenApi.classroomLeaderboard(first.id);
     const mapped = (leaderboard || []).map((row, i) => {
       const rank = Number(row.rank || i + 1);
-      const userId = window.tusyenUser?.id;
-      const userName = (window.tusyenUser?.fullName || window.tusyenUser?.full_name || '').trim().toLowerCase();
+      const currentUser = window.tusyenUser || {};
+      const userId = currentUser.id;
+      const rowUserId = row.user_id || row.userId || row.student_id || row.studentId;
+      const userName = (currentUser.fullName || currentUser.full_name || '').trim().toLowerCase();
       const rowName = (row.full_name || row.name || '').trim().toLowerCase();
-      const isMe = userId && row.student_id === userId || !!(userName && rowName) && userName === rowName;
+      const isMe = userId && rowUserId && `${rowUserId}` === `${userId}` || !!(userName && rowName) && userName === rowName;
       return {
         rank,
         name: studentName(row.full_name || row.name, 'Pelajar'),
@@ -6997,12 +7392,17 @@ const useAchievements = () => {
     const {
       achievements
     } = await window.tusyenApi.myAchievements();
-    const mapped = (achievements || []).map(a => ({
-      icon: a.icon || a.icon_url || '🏅',
-      name: a.name,
-      desc: a.description || '',
-      earned: Boolean(a.is_earned || a.earned_at)
-    })).filter(a => a.name);
+    const mapped = (achievements || []).map(a => {
+      const type = a.type || a.badge_type || a.badgeType || a.key || a.slug || '';
+      const meta = achievementMetaForType(type);
+      return {
+        icon: a.icon || a.icon_url || meta.icon,
+        name: studentTitle(a.name || a.title || meta.name, meta.name, 64),
+        desc: a.description || a.desc || '',
+        earned: Boolean(a.is_earned || a.earned || a.earned_at),
+        type
+      };
+    }).filter(a => a.name);
     return mapped;
   }, [], initial);
 };
@@ -8419,10 +8819,14 @@ const SKuizJoin = ({
     value: pinInput,
     maxLength: 6,
     inputMode: "numeric",
+    pattern: "[0-9]*",
     "aria-label": "PIN kuiz 6 digit",
     "aria-invalid": pinErrorActive ? 'true' : 'false',
     "aria-describedby": "student-kuiz-pin-help student-kuiz-pin-error",
     onBlur: () => setPinTouched(true),
+    onKeyPress: e => {
+      if (e.key.length === 1 && !/[0-9]/.test(e.key)) e.preventDefault();
+    },
     onChange: e => {
       setPinInput(cleanStudentKuizPin(e.target.value));
       setError('');
@@ -9777,7 +10181,7 @@ const SHome = ({
       flexWrap: 'wrap',
       order: phone ? 4 : 0
     }
-  }, statsState.loading ? [86, 78, 92].map((w, i) => /*#__PURE__*/React.createElement(Skeleton, {
+  }, statsState.loading ? [86, 78, 92, 70].map((w, i) => /*#__PURE__*/React.createElement(Skeleton, {
     key: i,
     width: w,
     height: 42,
@@ -9792,6 +10196,11 @@ const SHome = ({
     value: stats.xp.toLocaleString(),
     label: "XP",
     color: C.gold
+  }), /*#__PURE__*/React.createElement(StatPill, {
+    icon: "HP",
+    value: String(stats.hearts || '...'),
+    label: "Nyawa",
+    color: C.red
   }), /*#__PURE__*/React.createElement(StatPill, {
     icon: "\uD83D\uDCDA",
     value: String(stats.lessons ?? 0),
@@ -10279,16 +10688,34 @@ const SHome = ({
     }
   }));
 };
-const buildSkillNodes = (items, subjectId, progress) => {
+const syllabusItemId = (item = {}) => `${item.id || item.topic_id || item.topicId || item.syllabus_id || item.syllabusId || item.syllabusTopicId || ''}`.trim();
+const progressRowSyllabusIds = (row = {}) => [row.syllabus_id, row.syllabusId, row.syllabus_topic_id, row.syllabusTopicId, row.topic_id, row.topicId].map(value => `${value || ''}`.trim()).filter(Boolean);
+const progressCompletionValue = (row = {}) => progressValue(row.completion_percentage ?? row.completionPercentage ?? row.completion ?? row.progress ?? row.percentage);
+const progressRowMatchesSyllabusItem = (row = {}, item = {}) => {
+  const itemId = syllabusItemId(item);
+  if (itemId && progressRowSyllabusIds(row).includes(itemId)) return true;
+  const itemTitleKey = cleanSubjectKey(item.topic || item.label || item.title || '');
+  const itemKey = cleanSubjectKey(`${item.topic || item.label || item.title || ''} ${item.subtopic || item.sub || ''}`);
+  const rowKey = cleanSubjectKey(`${row.lesson_title || row.lessonTitle || row.title || ''} ${row.topic || ''} ${row.subtopic || row.sub_topic || ''}`);
+  if (!rowKey || !itemTitleKey) return false;
+  return rowKey.includes(itemTitleKey) || itemTitleKey.includes(rowKey) || !!itemKey && itemKey.length >= 4 && rowKey.includes(itemKey);
+};
+const buildSkillNodes = (items, subjectId, progress, progressRows = []) => {
   const source = items && items.length ? items : SUBJECT_SKILL_FALLBACKS[subjectId] || SKILL_NODES;
   const total = source.length || 1;
+  const rowMatches = source.map(item => (progressRows || []).find(row => progressRowMatchesSyllabusItem(row, item)));
+  const topicDoneFlags = rowMatches.map(row => Boolean(row?.is_completed || row?.isCompleted) || progressCompletionValue(row) >= 100);
+  const hasTopicProgress = rowMatches.some(Boolean);
   const completed = progress >= 100 ? total : Math.floor(progressValue(progress) / 100 * total);
-  const currentIndex = progress >= 100 ? -1 : Math.min(completed, total - 1);
+  const fallbackCurrentIndex = progress >= 100 ? -1 : Math.min(completed, total - 1);
+  const inProgressIndex = rowMatches.findIndex((row, i) => row && !topicDoneFlags[i] && progressCompletionValue(row) > 0);
+  const firstOpenIndex = topicDoneFlags.findIndex(done => !done);
+  const currentIndex = hasTopicProgress ? inProgressIndex >= 0 ? inProgressIndex : firstOpenIndex : fallbackCurrentIndex;
   return source.map((it, i) => {
     const label = studentTitle(it.topic || it.label, `Topik ${i + 1}`);
-    const done = i < completed;
-    const cur = i === currentIndex;
-    const locked = progress < 100 && i > currentIndex;
+    const done = hasTopicProgress ? topicDoneFlags[i] : i < completed;
+    const cur = !done && i === currentIndex;
+    const locked = hasTopicProgress ? !done && currentIndex >= 0 && i > currentIndex : progress < 100 && i > currentIndex;
     return {
       id: it.id || `${subjectId}-${i}`,
       label,
@@ -10322,12 +10749,17 @@ const loadPreferredSyllabus = async (subject, formLevel) => {
   return [];
 };
 const useSyllabusNodes = (subjectId, progress, formLevel) => {
+  const userId = window.tusyenUser?.id;
   return useAsync(async () => {
     const subject = SUBJECTS.find(s => s.id === subjectId);
     if (!subject) return buildSkillNodes([], subjectId, progress);
-    const items = await loadPreferredSyllabus(subject, formLevel);
-    return buildSkillNodes(items, subjectId, progress);
-  }, [subjectId, progress, formLevel], buildSkillNodes([], subjectId, progress));
+    const [items, progressData] = await Promise.all([loadPreferredSyllabus(subject, formLevel), userId && window.tusyenApi?.studentProgress ? window.tusyenApi.studentProgress(userId).catch(() => ({
+      progress: []
+    })) : Promise.resolve({
+      progress: []
+    })]);
+    return buildSkillNodes(items, subjectId, progress, progressData?.progress || []);
+  }, [subjectId, progress, formLevel, userId], buildSkillNodes([], subjectId, progress));
 };
 const lessonMatchesSubjectForm = (lesson, subject, formLevel = null) => {
   const lessonForm = normalizeFormLevel(lesson.formLevel ?? lesson.form_level);
@@ -11208,8 +11640,8 @@ const SClassrooms = ({
       setJoinTouched(false);
       setJoinAttempted(false);
       setJoinMsg(data.classroom?.name ? `Berjaya sertai ${studentText(data.classroom.name, 'kelas', 54)}.` : 'Berjaya sertai kelas.');
-      classroomsState.refresh?.();
-      onClassJoined?.();
+      await Promise.resolve(classroomsState.refresh?.());
+      await Promise.resolve(onClassJoined?.());
     } catch (err) {
       setJoinErr(studentJoinCodeErrorMessage(err.message));
     } finally {
@@ -13877,7 +14309,7 @@ const SUBJ_COLOR = {
   'sejarah': '#EF4444'
 };
 const CLASS_SUBJECTS = ['Bahasa Melayu', 'Bahasa Inggeris', 'Matematik', 'Sains', 'Sejarah', 'Geografi', 'Reka Bentuk dan Teknologi', 'Asas Sains Komputer', 'Fizik', 'Kimia', 'Biologi', 'Prinsip Perakaunan', 'Ekonomi'];
-const CLASS_FORM_LEVELS = [1, 2, 3, 4, 5];
+const CLASS_FORM_LEVELS = [4, 5];
 const isLiveClassId = id => typeof id === 'string' && id.includes('-');
 const clampPercent = value => {
   const parsed = Number(value);
@@ -13967,6 +14399,11 @@ const formatLiveClass = (c, i, analytics = null) => {
     isActive: c.is_active !== false,
     lastActivity: c.last_activity || c.lastActivity || c.last_activity_at || c.lastActiveAt || null
   };
+};
+const classroomFormErrorMessage = (err, fallback) => {
+  const status = Number(err?.status || err?.statusCode || err?.response?.status || 0);
+  if (status === 400) return err?.message || 'Semak nama, subjek, dan tingkatan. Tingkatan yang dibenarkan ialah 4 atau 5.';
+  return err?.message || fallback;
 };
 const demoTeacherProfile = displayName => ({
   full_name: displayName,
@@ -14186,6 +14623,7 @@ const postComposerPlaceholder = type => {
 const postTypeMeta = type => POST_TYPE_META[type] || POST_TYPE_META.general;
 const postAttachments = post => Array.isArray(post.attachments) ? post.attachments : [];
 const attachmentLabel = attachment => teacherTitle(attachment.name || attachment.title || attachment.url, 'Lampiran');
+const teacherPostId = post => `${post?.id ?? post?.post_id ?? post?.postId ?? ''}`;
 const attachmentTypeLabel = type => ({
   link: 'Pautan',
   image: 'Imej',
@@ -14290,6 +14728,7 @@ const PostCard = ({
   const [commentAttachment, setCommentAttachment] = React.useState(null);
   const [showCommentAttachment, setShowCommentAttachment] = React.useState(false);
   const [comments, setComments] = React.useState(null);
+  const [commentError, setCommentError] = React.useState('');
   const [loadingComments, setLoadingComments] = React.useState(false);
   const [submitting, setSubmitting] = React.useState(false);
   const isOwner = post.teacher_id === currentUserId || post.author_id === currentUserId || post.user_id === currentUserId;
@@ -14320,6 +14759,7 @@ const PostCard = ({
     const attachments = commentAttachment ? [commentAttachment] : [];
     if (!text && attachments.length === 0) return;
     setSubmitting(true);
+    setCommentError('');
     try {
       if (attachments.length) await window.tusyenApi.addComment(post.id, text, attachments);else await window.tusyenApi.addComment(post.id, text);
       setCommentText('');
@@ -14329,7 +14769,9 @@ const PostCard = ({
       const data = await window.tusyenApi.postComments(post.id);
       setComments(data.comments || []);
       onComment && onComment();
-    } catch {} finally {
+    } catch (err) {
+      setCommentError(err.message || 'Komen gagal dihantar. Cuba lagi.');
+    } finally {
       setSubmitting(false);
     }
   };
@@ -14337,6 +14779,7 @@ const PostCard = ({
     const attachment = createMediaUrlAttachment(commentAttachmentUrl);
     if (!attachment) return;
     setCommentAttachment(attachment);
+    setCommentError('');
     setCommentAttachmentUrl('');
     setShowCommentAttachment(false);
   };
@@ -14535,7 +14978,10 @@ const PostCard = ({
     }
   }, /*#__PURE__*/React.createElement("input", {
     value: commentText,
-    onChange: e => setCommentText(e.target.value),
+    onChange: e => {
+      setCommentText(e.target.value);
+      if (commentError) setCommentError('');
+    },
     onKeyDown: e => e.key === 'Enter' && !e.shiftKey && submitComment(),
     placeholder: "Tulis komen...",
     "aria-label": "Tulis komen",
@@ -14554,7 +15000,7 @@ const PostCard = ({
     }
   }), /*#__PURE__*/React.createElement("button", {
     onClick: submitComment,
-    disabled: submitting || !commentText.trim(),
+    disabled: submitting || !commentText.trim() && !commentAttachment,
     style: {
       background: C.accDim,
       border: `1px solid ${C.borderB}`,
@@ -14566,9 +15012,17 @@ const PostCard = ({
       fontFamily: 'Nunito',
       fontWeight: 800,
       fontSize: 12,
-      opacity: submitting || !commentText.trim() ? 0.5 : 1
+      opacity: submitting || !commentText.trim() && !commentAttachment ? 0.5 : 1
     }
-  }, "Hantar"))));
+  }, "Hantar")), commentError && /*#__PURE__*/React.createElement("div", {
+    role: "alert",
+    style: {
+      fontSize: 11,
+      color: C.red,
+      fontWeight: 900,
+      marginTop: 7
+    }
+  }, commentError)));
 };
 const PostComposerModal = ({
   classroomId,
@@ -14598,7 +15052,7 @@ const PostComposerModal = ({
     setPosting(true);
     setErr('');
     try {
-      await window.tusyenApi.createPost({
+      const data = await window.tusyenApi.createPost({
         classroomId,
         content: content.trim(),
         postType: type,
@@ -14606,7 +15060,7 @@ const PostComposerModal = ({
         attachments,
         isPinned
       });
-      onPosted && onPosted();
+      onPosted && onPosted(data?.post || data);
       onClose();
     } catch (e) {
       setErr(e.message || 'Tidak dapat menghantar pos.');
@@ -14832,6 +15286,8 @@ const TeacherPostsScreen = ({
   const [deletingPostId, setDeletingPostId] = React.useState('');
   const feedState = useClassFeed(selectedClassId);
   const currentUserId = window.tusyenUser?.id;
+  const postRefs = React.useRef({});
+  const pendingScrollRef = React.useRef(null);
   React.useEffect(() => {
     const firstClassId = classrooms[0]?.id || '';
     const stillAvailable = classrooms.some(cls => cls.id === selectedClassId);
@@ -14841,6 +15297,21 @@ const TeacherPostsScreen = ({
     }
     if (!selectedClassId || !stillAvailable) setSelectedClassId(firstClassId);
   }, [classrooms, selectedClassId]);
+  React.useEffect(() => {
+    const pending = pendingScrollRef.current;
+    const posts = feedState.data || [];
+    if (!pending || feedState.loading || posts.length === 0) return;
+    const createdId = pending.id && posts.some(post => teacherPostId(post) === pending.id) ? pending.id : '';
+    const firstId = teacherPostId(posts[0]);
+    const targetId = createdId || (firstId && firstId !== pending.before ? firstId : '');
+    const node = targetId ? postRefs.current[targetId] : null;
+    if (!node) return;
+    node.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+    pendingScrollRef.current = null;
+  }, [feedState.data, feedState.loading]);
   const handleDelete = post => {
     setDeleteConfirm(post);
   };
@@ -14865,6 +15336,14 @@ const TeacherPostsScreen = ({
       await window.tusyenApi.toggleReaction(post.id);
       feedState.refresh();
     } catch {}
+  };
+  const handlePosted = createdPost => {
+    const firstBefore = teacherPostId((feedState.data || [])[0]);
+    pendingScrollRef.current = {
+      id: teacherPostId(createdPost),
+      before: firstBefore
+    };
+    feedState.refresh();
   };
   return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -14946,15 +15425,21 @@ const TeacherPostsScreen = ({
     icon: "\uD83D\uDCE2",
     title: "Belum ada pos",
     subtitle: "Cipta pos pertama untuk kelas ini."
-  })) : (feedState.data || []).map(post => /*#__PURE__*/React.createElement(PostCard, {
+  })) : (feedState.data || []).map(post => /*#__PURE__*/React.createElement("div", {
     key: post.id,
+    ref: node => {
+      const id = teacherPostId(post);
+      if (!id) return;
+      if (node) postRefs.current[id] = node;else delete postRefs.current[id];
+    }
+  }, /*#__PURE__*/React.createElement(PostCard, {
     post: post,
     currentUserId: currentUserId,
     onDelete: handleDelete,
     onPin: handlePin,
     onReact: handleReact,
     onComment: () => feedState.refresh()
-  })), /*#__PURE__*/React.createElement(TeacherConfirmModal, {
+  }))), /*#__PURE__*/React.createElement(TeacherConfirmModal, {
     open: Boolean(deleteConfirm),
     title: "Padam pos?",
     message: `Pos "${deleteConfirm?.title || 'tanpa tajuk'}" akan dibuang daripada suapan kelas ini.`,
@@ -14966,7 +15451,7 @@ const TeacherPostsScreen = ({
   }), showComposer && selectedClassId && /*#__PURE__*/React.createElement(PostComposerModal, {
     classroomId: selectedClassId,
     onClose: () => setShowComposer(false),
-    onPosted: () => feedState.refresh()
+    onPosted: handlePosted
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       height: 8
@@ -15605,7 +16090,8 @@ const AssignLessonModal = ({
     try {
       await window.tusyenApi.assignLessonToClassroom(classroomId, lesson.id, {
         dueDate: dueDate || null,
-        isRequired
+        isRequired,
+        is_required: isRequired
       });
       onAssigned();
       onClose();
@@ -15690,7 +16176,7 @@ const AssignLessonModal = ({
     style: {
       accentColor: C.acc
     }
-  }), "Wajib"), error && /*#__PURE__*/React.createElement("div", {
+  }), "Wajib / Required"), error && /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 11,
       color: C.red,
@@ -15912,7 +16398,8 @@ const TeacherLessonsScreen = ({
     try {
       await window.tusyenApi.assignLessonToClassroom(assignClassId, assignModal.id, {
         dueDate: assignDueDate || null,
-        isRequired: assignRequired
+        isRequired: assignRequired,
+        is_required: assignRequired
       });
       setAssignMsg('Pelajaran berjaya ditetapkan ke kelas.');
     } catch (e) {
@@ -17131,7 +17618,7 @@ const TeacherLessonsScreen = ({
     style: {
       accentColor: C.acc
     }
-  }), "Wajib")), assignMsg && /*#__PURE__*/React.createElement("div", {
+  }), "Wajib / Required")), assignMsg && /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 11,
       color: assignMsg.includes('berjaya') ? C.green : C.red,
@@ -18232,7 +18719,7 @@ const ClassroomSettingsModal = ({
   const [form, setForm] = React.useState({
     name: cls?.name || '',
     subject: cls?.subject || subjectText(cls?.subj) || 'Matematik',
-    formLevel: String(cls?.form || 4),
+    formLevel: String(CLASS_FORM_LEVELS.includes(Number(cls?.form)) ? Number(cls?.form) : 4),
     description: cls?.description || ''
   });
   const [busy, setBusy] = React.useState('');
@@ -18242,6 +18729,10 @@ const ClassroomSettingsModal = ({
   const save = async () => {
     if (!form.name.trim()) {
       setError('Nama kelas diperlukan.');
+      return;
+    }
+    if (!CLASS_FORM_LEVELS.includes(Number(form.formLevel))) {
+      setError('Tingkatan yang dibenarkan ialah 4 atau 5.');
       return;
     }
     setBusy('save');
@@ -18279,7 +18770,7 @@ const ClassroomSettingsModal = ({
       onSaved(updated);
       onClose();
     } catch (err) {
-      setError(err.message || 'Tidak dapat menyimpan kelas.');
+      setError(classroomFormErrorMessage(err, 'Tidak dapat menyimpan kelas.'));
     } finally {
       setBusy('');
     }
@@ -18470,6 +18961,8 @@ const TeacherClass = ({
   const analyticsState = useClassAnalytics(cls?.id);
   const feedState = useClassFeed(cls?.id);
   const progressState = useStudentProgress(selectedStudent?.id, cls?.id);
+  const classFeedRefs = React.useRef({});
+  const classFeedScrollRef = React.useRef(null);
   const roster = rosterState.data || STUDS;
   const atRiskRoster = roster.filter(isAtRiskStudent);
   const displayedRoster = studentFilter === 'risk' ? atRiskRoster : roster;
@@ -18507,6 +19000,21 @@ const TeacherClass = ({
     desc: 'Kongsi penerangan atau pautan video.',
     enabled: false
   }];
+  React.useEffect(() => {
+    const pending = classFeedScrollRef.current;
+    const posts = feedState.data || [];
+    if (!pending || feedState.loading || posts.length === 0) return;
+    const createdId = pending.id && posts.some(post => teacherPostId(post) === pending.id) ? pending.id : '';
+    const firstId = teacherPostId(posts[0]);
+    const targetId = createdId || (firstId && firstId !== pending.before ? firstId : '');
+    const node = targetId ? classFeedRefs.current[targetId] : null;
+    if (!node) return;
+    node.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+    classFeedScrollRef.current = null;
+  }, [feedState.data, feedState.loading]);
   const openComposer = item => {
     if (!item.enabled) {
       setCreateNotice(`${item.label} akan tersedia tidak lama lagi.`);
@@ -18536,12 +19044,17 @@ const TeacherClass = ({
     setPostError('');
     try {
       const content = composer.postType === 'assignment' && dueDate ? `Tarikh hantar: ${formatDateShort(dueDate)}\n\n${postText}` : postText;
-      await window.tusyenApi.createPost({
+      const firstBefore = teacherPostId((feedState.data || [])[0]);
+      const data = await window.tusyenApi.createPost({
         classroomId: cls.id,
         content,
         postType: composer.postType,
         title: composer.label
       });
+      classFeedScrollRef.current = {
+        id: teacherPostId(data?.post || data),
+        before: firstBefore
+      };
       setPostStatus('Berjaya dihantar. Pos terkini dipaparkan di bawah.');
       setPostText('');
       setDueDate('');
@@ -19613,8 +20126,14 @@ const TeacherClass = ({
     width: "100%",
     height: 10,
     radius: 5
-  }))) : (feedState.data || []).length ? (feedState.data || []).map(post => /*#__PURE__*/React.createElement(Card, {
+  }))) : (feedState.data || []).length ? (feedState.data || []).map(post => /*#__PURE__*/React.createElement("div", {
     key: post.id,
+    ref: node => {
+      const id = teacherPostId(post);
+      if (!id) return;
+      if (node) classFeedRefs.current[id] = node;else delete classFeedRefs.current[id];
+    }
+  }, /*#__PURE__*/React.createElement(Card, {
     style: {
       marginBottom: 8,
       padding: 10
@@ -19646,7 +20165,7 @@ const TeacherClass = ({
       whiteSpace: 'pre-line',
       lineHeight: 1.35
     }
-  }, teacherBodyText(post.content, '', 180)))) : /*#__PURE__*/React.createElement(Card, {
+  }, teacherBodyText(post.content, '', 180))))) : /*#__PURE__*/React.createElement(Card, {
     style: {
       marginBottom: 8,
       padding: 12
@@ -19657,9 +20176,11 @@ const TeacherClass = ({
       color: C.textMuted,
       fontWeight: 600
     }
-  }, "Belum ada pos dalam suapan kelas."))), tab === 'quiz' && window.TeacherQuizTab && /*#__PURE__*/React.createElement(window.TeacherQuizTab, {
+  }, "Belum ada pos dalam suapan kelas."))), tab === 'quiz' && window.TeacherQuizTab && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(TeacherQuizTimerControls, {
     classroomId: cls?.id
-  })), settingsOpen && /*#__PURE__*/React.createElement(ClassroomSettingsModal, {
+  }), /*#__PURE__*/React.createElement(window.TeacherQuizTab, {
+    classroomId: cls?.id
+  }))), settingsOpen && /*#__PURE__*/React.createElement(ClassroomSettingsModal, {
     cls: cls,
     onClose: () => setSettingsOpen(false),
     onSaved: updated => onClassUpdated && onClassUpdated(updated),
@@ -19711,6 +20232,7 @@ const TeacherHome = ({
   const riskCount = list.reduce((sum, c) => sum + (Number(c.riskCount) || 0), 0);
   const firstRiskClass = list.find(c => Number(c.riskCount) > 0 || c.avg !== null && c.avg < 60);
   const [localNotice, setLocalNotice] = React.useState('');
+  const [editingClass, setEditingClass] = React.useState(null);
   const subjects = profileSubjects(profile, list);
   const subjectLine = profileState.loading ? 'Memuat profil...' : subjects.length ? subjects.slice(0, 3).join(' & ') : 'Subjek belum dikemaskini';
   const attentionItems = isLive ? list.filter(c => Number(c.riskCount) > 0 || c.avg !== null && c.avg < 60).map(c => ({
@@ -19765,10 +20287,24 @@ const TeacherHome = ({
       filter: 'risk'
     });
   };
+  const editClassFromCard = (cls, event) => {
+    event.stopPropagation();
+    setEditingClass(cls);
+    setLocalNotice('');
+  };
+  const handleHomeClassSaved = updated => {
+    setCls && setCls(updated);
+    classState.refresh();
+    setLocalNotice(`${updated.name} dikemas kini.`);
+  };
   const submitCreateClass = async () => {
     const name = newClass.name.trim();
     if (!name) {
       setCreateError('Nama kelas diperlukan.');
+      return;
+    }
+    if (!CLASS_FORM_LEVELS.includes(Number(newClass.formLevel))) {
+      setCreateError('Tingkatan yang dibenarkan ialah 4 atau 5.');
       return;
     }
     setCreating(true);
@@ -19798,7 +20334,7 @@ const TeacherHome = ({
         tab: 'students'
       }) : go('class');
     } catch (err) {
-      setCreateError(err.message || 'Tidak dapat mencipta kelas.');
+      setCreateError(classroomFormErrorMessage(err, 'Tidak dapat mencipta kelas.'));
     } finally {
       setCreating(false);
     }
@@ -19845,9 +20381,10 @@ const TeacherHome = ({
     l: 'Pelajar',
     i: '👥'
   }, {
-    v: avgCompletion === null ? '—' : `${avgCompletion}%`,
+    v: avgCompletion === null ? '0%' : `${avgCompletion}%`,
     l: 'Purata Siap',
-    i: '📊'
+    i: '📊',
+    muted: avgCompletion === null
   }, {
     v: String(riskCount),
     l: 'Pelajar Berisiko',
@@ -19870,7 +20407,7 @@ const TeacherHome = ({
     style: {
       fontWeight: 800,
       fontSize: 18,
-      color: s.danger ? C.red : C.text
+      color: s.danger ? C.red : s.muted ? C.textMuted : C.text
     }
   }, s.v), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -20273,10 +20810,10 @@ const TeacherHome = ({
     }, "\uD83D\uDC65 ", cls.students, " pelajar"), /*#__PURE__*/React.createElement("span", {
       style: {
         fontSize: 12,
-        color: C.textMuted,
+        color: hasAvg ? C.textMuted : C.textFaint,
         fontWeight: 700
       }
-    }, "\uD83D\uDCCA ", hasAvg ? `Purata Siap ${cls.avg}%` : 'Purata Siap belum ada'), /*#__PURE__*/React.createElement("span", {
+    }, "\uD83D\uDCCA Purata Siap ", hasAvg ? `${cls.avg}%` : '0%'), /*#__PURE__*/React.createElement("span", {
       style: {
         fontSize: 12,
         color: C.textMuted,
@@ -20289,7 +20826,28 @@ const TeacherHome = ({
       style: {
         opacity: hasAvg ? 1 : 0.35
       }
-    }), /*#__PURE__*/React.createElement("button", {
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: 8,
+        marginTop: 10
+      }
+    }, /*#__PURE__*/React.createElement("button", {
+      onClick: event => editClassFromCard(cls, event),
+      style: {
+        width: '100%',
+        minHeight: 44,
+        background: C.surface,
+        border: `1px solid ${C.border}`,
+        borderRadius: 12,
+        color: C.accPale,
+        fontFamily: 'Nunito',
+        fontWeight: 900,
+        fontSize: 13,
+        cursor: 'pointer'
+      }
+    }, "Edit"), /*#__PURE__*/React.createElement("button", {
       onClick: event => {
         event.stopPropagation();
         openClass ? openClass(cls, {
@@ -20299,7 +20857,6 @@ const TeacherHome = ({
       style: {
         width: '100%',
         minHeight: 44,
-        marginTop: 10,
         background: `color-mix(in srgb,${cls.color} 18%,var(--c-acc-dim))`,
         border: `1px solid color-mix(in srgb,${cls.color} 42%,var(--c-bdr))`,
         borderRadius: 12,
@@ -20309,14 +20866,23 @@ const TeacherHome = ({
         fontSize: 13,
         cursor: 'pointer'
       }
-    }, "Lihat kelas"));
+    }, "Lihat kelas")));
   }), /*#__PURE__*/React.createElement(GlowButton, {
     outlined: true,
     onClick: () => setShowCreate(v => !v),
     style: {
       marginTop: 4
     }
-  }, showCreate ? 'Tutup borang' : '+ Cipta kelas baharu'), /*#__PURE__*/React.createElement("div", {
+  }, showCreate ? 'Tutup borang' : '+ Cipta kelas baharu'), editingClass && /*#__PURE__*/React.createElement(ClassroomSettingsModal, {
+    cls: editingClass,
+    onClose: () => setEditingClass(null),
+    onSaved: handleHomeClassSaved,
+    onArchived: () => {
+      setEditingClass(null);
+      classState.refresh();
+      setLocalNotice('Kelas telah dinyahaktifkan.');
+    }
+  }), /*#__PURE__*/React.createElement("div", {
     style: {
       height: 8
     }
@@ -21081,6 +21647,172 @@ const TeacherProfile = ({
     }
   }));
 };
+const teacherQuizSessionId = session => `${session?.id ?? session?.session_id ?? session?.sessionId ?? session?.quiz_session_id ?? session?.quizSessionId ?? ''}`;
+const teacherQuizSessionClassroomId = session => `${session?.classroom_id ?? session?.classroomId ?? session?.class_id ?? session?.classId ?? ''}`;
+const teacherQuizSessionPaused = session => Boolean(session?.is_paused ?? session?.isPaused ?? session?.paused ?? session?.timer_paused ?? session?.timerPaused ?? session?.timer?.paused);
+const findTeacherQuizSession = classroomId => {
+  const candidates = [];
+  const add = value => {
+    if (!value) return;
+    if (Array.isArray(value)) value.forEach(add);else candidates.push(value);
+  };
+  add(window.tusyenActiveQuizSession);
+  add(window.tusyenQuizActiveSession);
+  add(window.tusyenQuizSession);
+  add(window.teacherQuizSession);
+  add(window.TeacherQuizTab?.activeSession);
+  add(window.TeacherQuizTab?.currentSession);
+  return candidates.find(session => {
+    const sessionId = teacherQuizSessionId(session);
+    if (!sessionId) return false;
+    const sessionClassroomId = teacherQuizSessionClassroomId(session);
+    return !classroomId || !sessionClassroomId || sessionClassroomId === `${classroomId}`;
+  }) || null;
+};
+const postTeacherQuizTimerAction = async (sessionId, action) => {
+  const payload = {
+    action
+  };
+  const api = window.tusyenApi || {};
+  if (api.quizSessionTimer) return api.quizSessionTimer(sessionId, payload);
+  if (api.updateQuizSessionTimer) return api.updateQuizSessionTimer(sessionId, payload);
+  if (api.setQuizSessionTimer) return api.setQuizSessionTimer(sessionId, payload);
+  if (api.apiFetch) {
+    return api.apiFetch(`/quiz/sessions/${encodeURIComponent(sessionId)}/timer`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+  }
+  if (api.request) {
+    return api.request(`/quiz/sessions/${encodeURIComponent(sessionId)}/timer`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+  }
+  if (api.post) return api.post(`/quiz/sessions/${encodeURIComponent(sessionId)}/timer`, payload);
+  const response = await fetch(`/api/quiz/sessions/${encodeURIComponent(sessionId)}/timer`, {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  });
+  if (!response.ok) throw new Error('Tidak dapat mengemas kini pemasa kuiz.');
+  return response.json().catch(() => ({}));
+};
+const TeacherQuizTimerControls = ({
+  classroomId
+}) => {
+  const [session, setSession] = React.useState(() => findTeacherQuizSession(classroomId));
+  const [paused, setPaused] = React.useState(() => teacherQuizSessionPaused(session));
+  const [busy, setBusy] = React.useState(false);
+  const [message, setMessage] = React.useState('');
+  const refreshSession = React.useCallback(() => {
+    const next = findTeacherQuizSession(classroomId);
+    setSession(next);
+    if (next) setPaused(teacherQuizSessionPaused(next));
+  }, [classroomId]);
+  React.useEffect(() => {
+    refreshSession();
+    const events = ['tusyen:quiz-session', 'tusyen:quiz-session-started', 'tusyen:quiz-session-updated', 'tusyen:quiz-timer-updated'];
+    events.forEach(name => window.addEventListener(name, refreshSession));
+    const interval = window.setInterval(refreshSession, 1500);
+    return () => {
+      events.forEach(name => window.removeEventListener(name, refreshSession));
+      window.clearInterval(interval);
+    };
+  }, [refreshSession]);
+  const sessionId = teacherQuizSessionId(session);
+  if (!sessionId) return null;
+  const toggleTimer = async () => {
+    const action = paused ? 'resume' : 'pause';
+    setBusy(true);
+    setMessage('');
+    try {
+      const data = await postTeacherQuizTimerAction(sessionId, action);
+      const nextSession = data?.session || data?.quizSession || {
+        ...session,
+        is_paused: action === 'pause'
+      };
+      setSession(nextSession);
+      setPaused(action === 'pause');
+      setMessage(action === 'pause' ? 'Pemasa kuiz dijeda.' : 'Pemasa kuiz disambung.');
+      window.dispatchEvent(new CustomEvent('tusyen:quiz-timer-updated', {
+        detail: {
+          sessionId,
+          action,
+          session: nextSession
+        }
+      }));
+    } catch (err) {
+      setMessage(err.message || 'Tidak dapat mengemas kini pemasa kuiz.');
+    } finally {
+      setBusy(false);
+    }
+  };
+  return /*#__PURE__*/React.createElement(Card, {
+    style: {
+      marginBottom: 12,
+      padding: 10,
+      border: `1px solid ${paused ? C.gold : C.borderB}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: 10,
+      flexWrap: 'wrap'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: C.text,
+      fontWeight: 900
+    }
+  }, "Pemasa kuiz langsung"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: C.textMuted,
+      fontWeight: 700
+    }
+  }, paused ? 'Dijeda untuk semua peserta.' : 'Sedang berjalan untuk sesi aktif.')), /*#__PURE__*/React.createElement("button", {
+    onClick: toggleTimer,
+    disabled: busy,
+    style: {
+      minHeight: 44,
+      background: paused ? C.accDim : 'rgba(245,166,35,.12)',
+      border: `1px solid ${paused ? C.borderB : 'rgba(245,166,35,.32)'}`,
+      borderRadius: 12,
+      padding: '0 14px',
+      color: paused ? C.accPale : C.gold,
+      fontFamily: 'Nunito',
+      fontWeight: 900,
+      fontSize: 12,
+      cursor: busy ? 'not-allowed' : 'pointer',
+      opacity: busy ? 0.6 : 1
+    }
+  }, busy ? 'Mengemas kini...' : paused ? 'Resume' : 'Pause')), message && /*#__PURE__*/React.createElement("div", {
+    role: "status",
+    style: {
+      fontSize: 11,
+      color: message.includes('Tidak') ? C.red : C.green,
+      fontWeight: 900,
+      marginTop: 8
+    }
+  }, message));
+};
 
 // ─── TeacherQuizScreen ──────────────────────────────────────────────────────
 
@@ -21189,9 +21921,11 @@ const TeacherQuizScreen = ({
         cursor: 'pointer'
       }
     }, cls.name);
-  })), window.TeacherQuizTab ? /*#__PURE__*/React.createElement(window.TeacherQuizTab, {
+  })), window.TeacherQuizTab ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(TeacherQuizTimerControls, {
     classroomId: activeClassroom?.id || selectedClassroomId
-  }) : /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React.createElement(window.TeacherQuizTab, {
+    classroomId: activeClassroom?.id || selectedClassroomId
+  })) : /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 13,
       color: C.textMuted,
@@ -21667,14 +22401,16 @@ const parentEmailText = (value, fallback = 'Akaun ibu bapa') => {
   if (/(?:qaqc|qa|test|demo|playwright|automation|abcdef|\d{8,})/i.test(text)) return fallback;
   return text;
 };
-const TEACHER_QUESTION_LABEL = 'Simpan soalan untuk guru';
-const TEACHER_FOLLOWUP_CONFIRMATION = 'Soalan untuk guru disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah untuk menghantar soalan; aplikasi tidak menghantar mesej automatik.';
+const TEACHER_QUESTION_LABEL = 'Tandai untuk tindak lanjut';
+const TEACHER_FOLLOWUP_TOOLTIP = 'Tiada mesej dihantar; tindakan ini hanya menyimpan tanda tindak lanjut.';
+const TEACHER_FOLLOWUP_CONFIRMATION = 'Tindak lanjut disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah untuk menghantar soalan; aplikasi tidak menghantar mesej automatik.';
 const parentStatusIsSuccess = status => /berjaya|dipaut|dikeluarkan|dikemas kini/i.test(`${status || ''}`);
 const parentActionLabel = label => {
   const text = `${label || ''}`.trim();
   if (!text) return '';
   if (/hubungi\s+guru|contact\s+teacher/i.test(text)) return TEACHER_QUESTION_LABEL;
   if (/nota\s+hubungi\s+guru/i.test(text)) return TEACHER_QUESTION_LABEL;
+  if (/simpan\s+soalan\s+untuk\s+guru|tandai\s+untuk\s+tindak\s+lanjut|flag\s+for\s+follow-up/i.test(text)) return TEACHER_QUESTION_LABEL;
   return text;
 };
 const validateChildIdentifier = value => {
@@ -23002,6 +23738,7 @@ const ParentHome = ({
     attention,
     alert: homeAlerts[0]
   }) : null;
+  const todayActionTooltip = todayPlan?.actionKind === 'teacher' || todayPlan?.actionKind === 'alert' && todayPlan.alert && alertPrimaryAction(todayPlan.alert).target === 'followup' ? TEACHER_FOLLOWUP_TOOLTIP : '';
   const handleTodayAction = () => {
     if (!todayPlan) return;
     if (todayPlan.actionKind === 'teacher' && attention) {
@@ -23193,6 +23930,8 @@ const ParentHome = ({
   }, item.value)))), /*#__PURE__*/React.createElement("button", {
     type: "button",
     onClick: handleTodayAction,
+    title: todayActionTooltip || undefined,
+    "aria-label": todayActionTooltip ? `${todayPlan.actionLabel}. ${todayActionTooltip}` : todayPlan.actionLabel,
     style: {
       width: '100%',
       minHeight: 44,
@@ -24948,6 +25687,8 @@ const ParentAlertsV2 = ({
       }
     }, /*#__PURE__*/React.createElement("button", {
       onClick: () => handlePrimaryAction(alert),
+      title: action.target === 'followup' ? TEACHER_FOLLOWUP_TOOLTIP : undefined,
+      "aria-label": action.target === 'followup' ? `${action.label}. ${TEACHER_FOLLOWUP_TOOLTIP}` : action.label,
       style: {
         flex: '1 1 190px',
         minWidth: 0,
@@ -26846,6 +27587,9 @@ const ParentPostsPage = ({
     const postTitle = parentTitle(post.title, '');
     const classroomLabel = parentText(post.classroom_name, '', 54);
     const teacherLabel = parentName(post.teacher_name, '');
+    const attachmentUrls = Array.isArray(post.attachments) ? post.attachments.map(item => item?.url || item?.href || item?.media_url || item?.mediaUrl).filter(Boolean) : [];
+    const contentUrls = cleanContent.match(/https?:\/\/[^\s)]+/g) || [];
+    const videoEmbedUrl = [post.video_url, post.videoUrl, post.media_url, post.mediaUrl, post.attachment_url, post.attachmentUrl, post.link_url, post.linkUrl, ...attachmentUrls, ...contentUrls].find(value => window.isVideoEmbedUrl?.(value));
     return /*#__PURE__*/React.createElement("div", {
       key: post.id,
       style: {
@@ -26917,7 +27661,13 @@ const ParentPostsPage = ({
         lineHeight: 1.5,
         marginBottom: 8
       }
-    }, snippet), /*#__PURE__*/React.createElement("div", {
+    }, snippet), videoEmbedUrl && window.VideoEmbed && /*#__PURE__*/React.createElement(window.VideoEmbed, {
+      url: videoEmbedUrl,
+      title: postTitle || 'Video pos',
+      style: {
+        marginBottom: 8
+      }
+    }), /*#__PURE__*/React.createElement("div", {
       style: {
         fontSize: 10,
         color: C.textFaint,
@@ -27956,7 +28706,7 @@ const isValidAdminEmail = value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(`${value ||
 const validateAdminUserForm = (value = {}, mode = 'create') => {
   const errors = {};
   if (!`${value.fullName || ''}`.trim()) errors.fullName = 'Masukkan nama penuh yang boleh dikenali oleh pentadbir.';
-  if (!isValidAdminEmail(value.email)) errors.email = 'Masukkan alamat e-mel yang sah, contohnya nama@domain.com.';
+  if (mode !== 'edit' && !isValidAdminEmail(value.email)) errors.email = 'Masukkan alamat e-mel yang sah, contohnya nama@domain.com.';
   const password = `${value.password || ''}`;
   if (mode === 'create' && !password.trim()) errors.password = 'Tetapkan kata laluan sementara untuk akaun baharu.';
   if (password.trim() && password.trim().length < 8) errors.password = 'Kata laluan mesti sekurang-kurangnya 8 aksara.';
@@ -27982,6 +28732,26 @@ const mapAdminLog = log => {
     rawMsg,
     time: window.timeAgo(log.event_at || log.created_at) || 'Baru sahaja'
   };
+};
+const patchAdminUser = (userId, payload) => {
+  if (window.tusyenApi.updateAdminUser) return window.tusyenApi.updateAdminUser(userId, payload);
+  return window.tusyenApi.updateUser(userId, payload);
+};
+const deactivateAdminParentLink = linkId => {
+  if (window.tusyenApi.deactivateAdminParentLink) return window.tusyenApi.deactivateAdminParentLink(linkId);
+  if (window.tusyenApi.deactivateParentLink) return window.tusyenApi.deactivateParentLink(linkId);
+  return window.tusyenApi.deleteAdminParentLink(linkId);
+};
+const enrollAdminClassroomStudent = (classroomId, identifier) => {
+  const value = `${identifier || ''}`.trim();
+  const payload = value.includes('@') ? {
+    email: value
+  } : {
+    studentId: value
+  };
+  if (window.tusyenApi.enrollAdminClassroomStudent) return window.tusyenApi.enrollAdminClassroomStudent(classroomId, payload);
+  if (window.tusyenApi.adminClassroomEnroll) return window.tusyenApi.adminClassroomEnroll(classroomId, payload);
+  return window.tusyenApi.addStudentToAdminClassroom(classroomId, value);
 };
 const contentSummary = content => {
   if (!content) return '';
@@ -29035,10 +29805,14 @@ const AdminDash = ({
 }) => {
   const statsState = useAdminStats();
   const healthState = useAdminHealth();
-  const [logLimit, setLogLimit] = React.useState(12);
+  const auditPageSize = 20;
+  const [logOffset, setLogOffset] = React.useState(0);
+  const [loadedLogs, setLoadedLogs] = React.useState([]);
+  const [loadedLogTotal, setLoadedLogTotal] = React.useState(0);
   const [logFilter, setLogFilter] = React.useState('all');
   const logsState = useAdminLogs({
-    limit: logLimit
+    limit: auditPageSize,
+    offset: logOffset
   });
   const narrow = useNarrow(520);
   const [actionBusy, setActionBusy] = React.useState('');
@@ -29047,8 +29821,8 @@ const AdminDash = ({
   const [lastRefresh, setLastRefresh] = React.useState(null);
   const SYS = statsState.data || SYS_FALLBACK;
   const METRICS = healthState.data || METRICS_FALLBACK;
-  const LOGS = logsState.data?.logs || [];
-  const logTotal = metricNumber(logsState.data?.total, LOGS.length);
+  const LOGS = loadedLogs;
+  const logTotal = metricNumber(loadedLogTotal, LOGS.length);
   const hasMoreLogs = LOGS.length < logTotal;
   const logCounts = React.useMemo(() => LOGS.reduce((acc, log) => {
     acc[log.type] = (acc[log.type] || 0) + 1;
@@ -29079,9 +29853,18 @@ const AdminDash = ({
     type,
     logs: filteredLogs.filter(log => log.type === type)
   })).filter(group => group.logs.length > 0);
+  React.useEffect(() => {
+    if (logsState.loading || logsState.error) return;
+    const nextLogs = logsState.data?.logs || [];
+    setLoadedLogTotal(metricNumber(logsState.data?.total, nextLogs.length));
+    setLoadedLogs(prev => logOffset === 0 ? nextLogs : [...prev, ...nextLogs]);
+  }, [logsState.data, logsState.loading, logsState.error, logOffset]);
   const refreshAll = React.useCallback(() => {
     statsState.refresh();
     healthState.refresh();
+    setLoadedLogs([]);
+    setLoadedLogTotal(0);
+    setLogOffset(0);
     logsState.refresh();
     setLastRefresh(new Date());
   }, [statsState.refresh, healthState.refresh, logsState.refresh]);
@@ -29091,7 +29874,7 @@ const AdminDash = ({
   }, [refreshAll]);
   React.useEffect(() => {
     if (!statsState.loading && !healthState.loading && !logsState.loading) setLastRefresh(new Date());
-  }, [statsState.loading, healthState.loading, logsState.loading, logLimit]);
+  }, [statsState.loading, healthState.loading, logsState.loading, logOffset]);
   const clearCache = async (confirmed = false) => {
     if (confirmed !== true) {
       setConfirmCache(true);
@@ -29297,7 +30080,7 @@ const AdminDash = ({
       marginBottom: 14,
       padding: '10px 14px'
     }
-  }, logsState.loading ? [0, 1, 2, 3, 4].map(i => /*#__PURE__*/React.createElement("div", {
+  }, logsState.loading && LOGS.length === 0 ? [0, 1, 2, 3, 4].map(i => /*#__PURE__*/React.createElement("div", {
     key: i,
     style: {
       display: 'flex',
@@ -29441,8 +30224,8 @@ const AdminDash = ({
     }
   }, "Memaparkan ", fmt(filteredLogs.length), " daripada ", fmt(logTotal), " log"), hasMoreLogs && /*#__PURE__*/React.createElement(SmallButton, {
     disabled: logsState.loading,
-    onClick: () => setLogLimit(v => v + 12)
-  }, "Muat lagi")))), /*#__PURE__*/React.createElement(SectionLabel, null, "Tindakan Pantas"), /*#__PURE__*/React.createElement(InlineNotice, {
+    onClick: () => setLogOffset(LOGS.length)
+  }, logsState.loading ? 'Memuat...' : 'Muat 20 lagi')))), /*#__PURE__*/React.createElement(SectionLabel, null, "Tindakan Pantas"), /*#__PURE__*/React.createElement(InlineNotice, {
     message: notice?.message,
     error: notice?.error
   }), /*#__PURE__*/React.createElement("div", {
@@ -29700,6 +30483,140 @@ const UserForm = ({
       padding: '0 14px'
     }
   }, "Batal"))));
+};
+const UserEditModal = ({
+  value,
+  onChange,
+  onSave,
+  onCancel,
+  saving,
+  errors = {}
+}) => {
+  if (!value) return null;
+  return /*#__PURE__*/React.createElement("div", {
+    role: "presentation",
+    onClick: () => !saving && onCancel?.(),
+    style: {
+      position: 'fixed',
+      inset: 0,
+      zIndex: 520,
+      background: 'rgba(2,6,23,.68)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: 18
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    role: "dialog",
+    "aria-modal": "true",
+    "aria-labelledby": "admin-user-edit-title",
+    onClick: e => e.stopPropagation(),
+    className: "tv2-pop",
+    style: {
+      width: '100%',
+      maxWidth: 430,
+      background: C.bg,
+      border: `1px solid ${C.borderB}`,
+      borderRadius: 16,
+      padding: 16,
+      boxShadow: '0 24px 70px rgba(0,0,0,.42)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'flex-start',
+      gap: 10,
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    id: "admin-user-edit-title",
+    style: {
+      fontWeight: 900,
+      fontSize: 16,
+      color: C.text
+    }
+  }, "Edit Pengguna"), /*#__PURE__*/React.createElement("div", {
+    title: value.email || '',
+    style: {
+      fontSize: 11,
+      color: C.textFaint,
+      fontWeight: 700,
+      overflowWrap: 'anywhere',
+      marginTop: 2
+    }
+  }, cleanEmailDisplay(value.email, 48, 'Tiada e-mel', value.roleValue))), /*#__PURE__*/React.createElement(Badge, {
+    tone: value.isActive ? 'good' : 'warn'
+  }, statusText(value.isActive))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gap: 9
+    }
+  }, /*#__PURE__*/React.createElement(Field, {
+    label: "Nama Penuh"
+  }, /*#__PURE__*/React.createElement("input", {
+    value: value.fullName,
+    onChange: e => onChange(prev => ({
+      ...prev,
+      fullName: e.target.value
+    })),
+    "aria-invalid": Boolean(errors.fullName),
+    "aria-describedby": errors.fullName ? 'admin-edit-user-name-error' : undefined,
+    autoFocus: true,
+    style: inputBase
+  }), /*#__PURE__*/React.createElement(FormFieldError, {
+    id: "admin-edit-user-name-error"
+  }, errors.fullName)), /*#__PURE__*/React.createElement(Field, {
+    label: "Peranan"
+  }, /*#__PURE__*/React.createElement("select", {
+    value: value.roleValue,
+    onChange: e => onChange(prev => ({
+      ...prev,
+      roleValue: e.target.value
+    })),
+    style: inputBase
+  }, ROLE_OPTIONS.map(option => /*#__PURE__*/React.createElement("option", {
+    key: option.value,
+    value: option.value
+  }, option.label)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      border: `1px solid ${C.border}`,
+      background: C.surface,
+      borderRadius: 10,
+      padding: '8px 10px',
+      fontSize: 11,
+      color: C.textMuted,
+      fontWeight: 800,
+      lineHeight: 1.4
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: C.accPale,
+      fontWeight: 900
+    }
+  }, ROLE_OPTIONS.find(r => r.value === value.roleValue)?.label || 'Peranan', ":"), ' ', ROLE_DESCRIPTIONS[value.roleValue] || 'Pilih peranan untuk menentukan akses pengguna.'), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 8,
+      justifyContent: 'flex-end',
+      flexWrap: 'wrap'
+    }
+  }, /*#__PURE__*/React.createElement(SmallButton, {
+    onClick: onCancel,
+    disabled: saving
+  }, "Batal"), /*#__PURE__*/React.createElement(GlowButton, {
+    onClick: onSave,
+    disabled: saving,
+    style: {
+      padding: '10px 14px',
+      fontSize: 13,
+      flex: '0 0 auto'
+    }
+  }, saving ? 'Menyimpan...' : 'Simpan Perubahan')))));
 };
 const DetailRow = ({
   label,
@@ -30076,13 +30993,10 @@ const AdminUsers = () => {
     setMutationError(null);
     try {
       const payload = {
-        fullName: editing.fullName,
-        email: editing.email,
-        role: editing.roleValue,
-        isActive: editing.isActive
+        full_name: editing.fullName.trim(),
+        role: editing.roleValue
       };
-      if ((editing.password || '').trim()) payload.password = editing.password.trim();
-      await window.tusyenApi.updateUser(editing.id, payload);
+      await patchAdminUser(editing.id, payload);
       setMessage('Pengguna dikemas kini.');
       setEditing(null);
       refresh();
@@ -30427,8 +31341,7 @@ const AdminUsers = () => {
     },
     saving: saving,
     errors: formErrors
-  }), editing && /*#__PURE__*/React.createElement(UserForm, {
-    mode: "edit",
+  }), editing && /*#__PURE__*/React.createElement(UserEditModal, {
     value: editing,
     onChange: updater => {
       setFormErrors({});
@@ -32747,8 +33660,8 @@ const AdminClassroomsPage = () => {
     setBusy('addstud');
     setMsg('');
     try {
-      await window.tusyenApi.addStudentToAdminClassroom(classroomId, sid);
-      setOk('Pelajar ditambah.');
+      await enrollAdminClassroomStudent(classroomId, sid);
+      setOk('Pelajar didaftarkan.');
       setAddStudentId('');
       const data = await window.tusyenApi.adminClassroomStudents(classroomId);
       setClassStudents(prev => ({
@@ -32765,7 +33678,7 @@ const AdminClassroomsPage = () => {
       }));
       classroomsState.refresh();
     } catch (e) {
-      setErr(e.message || 'Tidak dapat menambah pelajar.');
+      setErr(e.message || 'Tidak dapat mendaftarkan pelajar.');
     } finally {
       setBusy('');
     }
@@ -33348,11 +34261,23 @@ const AdminClassroomsPage = () => {
         flex: '1 1 220px',
         minWidth: 0
       }
+    }, /*#__PURE__*/React.createElement(Field, {
+      label: "Enroll Student"
+    }, /*#__PURE__*/React.createElement("input", {
+      value: addStudentId,
+      onChange: e => setAddStudentId(e.target.value),
+      placeholder: "Student UUID atau e-mel",
+      style: inputBase
+    }))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: '1 1 220px',
+        minWidth: 0
+      }
     }, /*#__PURE__*/React.createElement(SearchableUserSelect, {
       role: "student",
       value: addStudentId,
       onChange: setAddStudentId,
-      placeholder: "Cari pelajar untuk kelas...",
+      placeholder: "Atau cari pelajar sedia ada...",
       emptyLabel: "Pilih pelajar"
     })), /*#__PURE__*/React.createElement("select", {
       value: addStudentId,
@@ -33368,12 +34293,12 @@ const AdminClassroomsPage = () => {
       key: s.id,
       value: s.id
     }, s.name))), /*#__PURE__*/React.createElement(SmallButton, {
-      disabled: busy === 'addstud' || !addStudentId,
+      disabled: busy === 'addstud' || !addStudentId.trim(),
       onClick: () => addStudent(cls.id),
       style: {
         flex: narrow ? '1 1 108px' : '0 0 auto'
       }
-    }, "Tambah"))));
+    }, busy === 'addstud' ? 'Mendaftar...' : 'Daftar'))));
   })), confirmClassStatus && /*#__PURE__*/React.createElement(ConfirmModal, {
     title: confirmClassStatus.isActive ? 'Aktifkan kelas?' : 'Nyahaktifkan kelas?',
     confirmLabel: confirmClassStatus.isActive ? 'Aktifkan' : 'Nyahaktifkan',
@@ -33466,12 +34391,12 @@ const AdminParentLinksSection = () => {
     setBusy(id);
     setMsg('');
     try {
-      await window.tusyenApi.deleteAdminParentLink(id);
-      setOk('Pautan dibuang.');
+      await deactivateAdminParentLink(id);
+      setOk('Pautan dinyahaktifkan.');
       setConfirmRemove(null);
       loadLinks();
     } catch (e) {
-      setErr(e.message || 'Tidak dapat membuang pautan.');
+      setErr(e.message || 'Tidak dapat menyahaktifkan pautan.');
     } finally {
       setBusy('');
     }
@@ -33625,61 +34550,64 @@ const AdminParentLinksSection = () => {
       display: 'grid',
       gap: 6
     }
-  }, family.links.map((link, i) => /*#__PURE__*/React.createElement("div", {
-    key: link.id || i,
-    style: {
-      display: 'grid',
-      gridTemplateColumns: 'minmax(0, 1fr) auto',
-      gap: 8,
-      alignItems: 'center',
-      border: `1px solid ${C.border}`,
-      borderRadius: 10,
-      padding: '8px 9px',
-      background: C.surface
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 12,
-      fontWeight: 900,
-      color: C.text,
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis'
-    }
-  }, cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', 'Pelajar')), /*#__PURE__*/React.createElement("div", {
-    title: cleanEmailDisplay(link.student_email || link.studentEmail, 42, 'Tiada e-mel pelajar', 'student'),
-    style: {
-      fontSize: 10,
-      color: C.textFaint,
-      fontWeight: 700,
-      overflowWrap: 'anywhere'
-    }
-  }, cleanEmailDisplay(link.student_email || link.studentEmail, 42, 'Tiada e-mel pelajar', 'student')), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      gap: 5,
-      flexWrap: 'wrap',
-      marginTop: 5
-    }
-  }, /*#__PURE__*/React.createElement(Badge, {
-    tone: (link.is_active ?? link.isActive) === false ? 'warn' : 'good'
-  }, (link.is_active ?? link.isActive) === false ? 'Tidak aktif' : 'Aktif'), /*#__PURE__*/React.createElement(Badge, null, formatDateTime(link.created_at || link.createdAt)), (link.created_by || link.createdBy) && /*#__PURE__*/React.createElement(Badge, {
-    title: cleanPersonLogLabel(link.created_by || link.createdBy, 'admin', 'Admin')
-  }, "Dicipta oleh ", cleanPersonLogLabel(link.created_by || link.createdBy, 'admin', 'Admin')))), /*#__PURE__*/React.createElement(AdminActionMenu, {
-    label: "Aksi",
-    ariaLabel: `Tindakan pautan ${family.parentName}`,
-    items: [{
-      label: 'Buang pautan',
-      tone: 'danger',
-      description: 'Nyahaktifkan pautan keluarga ini.',
-      disabled: busy === link.id,
-      onClick: () => setConfirmRemove(link)
-    }]
-  }))))))), /*#__PURE__*/React.createElement(Card, {
+  }, family.links.map((link, i) => (() => {
+    const linkActive = (link.is_active ?? link.isActive) !== false;
+    return /*#__PURE__*/React.createElement("div", {
+      key: link.id || i,
+      style: {
+        display: 'grid',
+        gridTemplateColumns: 'minmax(0, 1fr) auto',
+        gap: 8,
+        alignItems: 'center',
+        border: `1px solid ${C.border}`,
+        borderRadius: 10,
+        padding: '8px 9px',
+        background: C.surface
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        minWidth: 0
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        fontWeight: 900,
+        color: C.text,
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis'
+      }
+    }, cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', 'Pelajar')), /*#__PURE__*/React.createElement("div", {
+      title: cleanEmailDisplay(link.student_email || link.studentEmail, 42, 'Tiada e-mel pelajar', 'student'),
+      style: {
+        fontSize: 10,
+        color: C.textFaint,
+        fontWeight: 700,
+        overflowWrap: 'anywhere'
+      }
+    }, cleanEmailDisplay(link.student_email || link.studentEmail, 42, 'Tiada e-mel pelajar', 'student')), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'flex',
+        gap: 5,
+        flexWrap: 'wrap',
+        marginTop: 5
+      }
+    }, /*#__PURE__*/React.createElement(Badge, {
+      tone: (link.is_active ?? link.isActive) === false ? 'warn' : 'good'
+    }, (link.is_active ?? link.isActive) === false ? 'Tidak aktif' : 'Aktif'), /*#__PURE__*/React.createElement(Badge, null, formatDateTime(link.created_at || link.createdAt)), (link.created_by || link.createdBy) && /*#__PURE__*/React.createElement(Badge, {
+      title: cleanPersonLogLabel(link.created_by || link.createdBy, 'admin', 'Admin')
+    }, "Dicipta oleh ", cleanPersonLogLabel(link.created_by || link.createdBy, 'admin', 'Admin')))), /*#__PURE__*/React.createElement(AdminActionMenu, {
+      label: "Aksi",
+      ariaLabel: `Tindakan pautan ${family.parentName}`,
+      items: [{
+        label: 'Nyahaktifkan pautan',
+        tone: 'danger',
+        description: 'Nyahaktifkan pautan keluarga ini.',
+        disabled: busy === link.id || !linkActive,
+        onClick: () => setConfirmRemove(link)
+      }]
+    }));
+  })()))))), /*#__PURE__*/React.createElement(Card, {
     style: {
       display: 'none',
       marginBottom: 14,
@@ -33730,14 +34658,15 @@ const AdminParentLinksSection = () => {
     ariaLabel: `Tindakan pautan ${cleanPersonName(link.parent_name || link.parentName, link.parent_email || link.parentEmail, 'parent', 'ibu bapa')}`,
     disabled: busy === link.id,
     items: [{
-      label: 'Buang pautan',
+      label: 'Nyahaktifkan pautan',
       tone: 'danger',
+      disabled: (link.is_active ?? link.isActive) === false,
       description: 'Nyahaktifkan pautan keluarga ini.',
       onClick: () => setConfirmRemove(link)
     }]
   })))), confirmRemove && /*#__PURE__*/React.createElement(ConfirmModal, {
-    title: "Buang pautan keluarga?",
-    confirmLabel: "Buang Pautan",
+    title: "Nyahaktifkan pautan keluarga?",
+    confirmLabel: "Nyahaktifkan Pautan",
     danger: true,
     busy: busy === confirmRemove.id,
     onCancel: () => setConfirmRemove(null),

@@ -198,9 +198,11 @@ const STATIC_TRANSLATIONS = new Map([
   ['Tajuk dek', 'Deck title'],
   ['Tajuk wajib diisi.', 'Deck title is required.'],
   ['Tambah sekurang-kurangnya satu soalan lengkap.', 'Add at least one complete question.'],
+  ['Tandai untuk tindak lanjut', 'Flag for follow-up'],
   ['Tamat', 'Ended'],
   ['Tamatkan', 'End'],
   ['Teks soalan...', 'Question text...'],
+  ['Tiada mesej dihantar; tindakan ini hanya menyimpan tanda tindak lanjut.', 'No message is sent; this only saves a follow-up flag.'],
   ['Tema', 'Theme'],
   ['Tetapan', 'Settings'],
   ['Tindakan lanjut', 'More actions'],
@@ -503,6 +505,81 @@ const timeAgo = (ts) => {
   if (hr < 24)  return `${hr}j lepas`;
   const d = Math.floor(hr / 24);
   return d === 1 ? 'Semalam' : `${d} hari lepas`;
+};
+
+const videoEmbedInfoFromUrl = (value) => {
+  const raw = `${value || ''}`.trim();
+  if (!raw) return null;
+  let url;
+  try {
+    url = new URL(raw);
+  } catch {
+    return null;
+  }
+
+  const host = url.hostname.toLowerCase().replace(/^www\./, '').replace(/^m\./, '');
+  const parts = url.pathname.split('/').filter(Boolean);
+  const safeTitle = 'Video';
+
+  if (host === 'youtu.be') {
+    const id = parts[0];
+    if (id) return { src:`https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`, title:safeTitle };
+  }
+
+  if (host === 'youtube.com' || host === 'youtube-nocookie.com') {
+    const watchId = url.searchParams.get('v');
+    const embedId = ['embed', 'shorts', 'live'].includes(parts[0]) ? parts[1] : '';
+    const id = watchId || embedId;
+    if (id) return { src:`https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`, title:safeTitle };
+  }
+
+  if (host === 'vimeo.com' || host === 'player.vimeo.com') {
+    const id = parts[0] === 'video' ? parts[1] : parts.find(part => /^\d+$/.test(part));
+    if (id) return { src:`https://player.vimeo.com/video/${encodeURIComponent(id)}`, title:safeTitle };
+  }
+
+  if (host === 'loom.com' || host.endsWith('.loom.com')) {
+    const id = parts[0] === 'embed' || parts[0] === 'share' ? parts[1] : '';
+    if (id) return { src:`https://www.loom.com/embed/${encodeURIComponent(id)}`, title:safeTitle };
+  }
+
+  return null;
+};
+
+const isVideoEmbedUrl = (value) => !!videoEmbedInfoFromUrl(value);
+
+const VideoEmbed = ({ url, title, style:sx={} }) => {
+  const info = videoEmbedInfoFromUrl(url);
+  if (!info) return null;
+  return (
+    <div style={{
+      position:'relative',
+      width:'100%',
+      aspectRatio:'16 / 9',
+      overflow:'hidden',
+      borderRadius:16,
+      border:`1px solid ${C.border}`,
+      background:C.bg,
+      ...sx,
+    }}>
+      <iframe
+        title={title || info.title}
+        src={info.src}
+        loading="lazy"
+        sandbox="allow-scripts allow-same-origin allow-presentation"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        referrerPolicy="strict-origin-when-cross-origin"
+        style={{
+          position:'absolute',
+          inset:0,
+          width:'100%',
+          height:'100%',
+          border:0,
+        }}
+      />
+    </div>
+  );
 };
 
 const titleCaseDisplayWords = (value) => `${value || ''}`
@@ -1723,6 +1800,6 @@ Object.assign(window, {
   ThemeToggle, LanguageToggle, ThemeSettingsCard, AccountActionsCard,
   AccountMenu, ConfirmDialog, ActionMenu, DataModeBanner, useTheme,
   useLanguage, useNarrow, useScreenFocus, AppSidebar, TopBarMobile, BottomNavMobile,
-  NavIcon,
+  NavIcon, VideoEmbed, isVideoEmbedUrl,
   cleanUiText, cleanUiName, cleanUiTitle,
 });

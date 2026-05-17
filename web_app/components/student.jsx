@@ -89,11 +89,39 @@ const BADGES = [
   { icon:'🌟', name:'Penguasa Algebra', desc:'Selesai semua Algebra',   earned:false },
 ];
 
+const ACHIEVEMENT_TYPE_META = {
+  streak:{ icon:'7', name:'Rentetan Hari' },
+  streak_7:{ icon:'7', name:'Streak 7 Hari' },
+  daily_streak:{ icon:'7', name:'Rentetan Harian' },
+  fast_learner:{ icon:'XP', name:'Pelajar Pantas' },
+  speed_learner:{ icon:'XP', name:'Pelajar Pantas' },
+  perfect_score:{ icon:'100', name:'Markah Sempurna' },
+  top_3_class:{ icon:'TOP', name:'Top 3 Kelas' },
+  top3_class:{ icon:'TOP', name:'Top 3 Kelas' },
+  elite_student:{ icon:'XP', name:'Pelajar Elit' },
+  subject_mastery:{ icon:'OK', name:'Penguasaan Subjek' },
+  topic_mastery:{ icon:'OK', name:'Penguasaan Topik' },
+  lesson_completion:{ icon:'OK', name:'Selesai Pelajaran' },
+  quiz_mastery:{ icon:'100', name:'Penguasaan Kuiz' },
+};
+const achievementTypeKey = (value='') => `${value || ''}`.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+const achievementTypeName = (value='') => {
+  const key = achievementTypeKey(value);
+  if (!key) return 'Lencana';
+  return key.split('_').map(word => word ? word[0].toUpperCase() + word.slice(1) : '').filter(Boolean).join(' ');
+};
+const achievementMetaForType = (type='') => ACHIEVEMENT_TYPE_META[achievementTypeKey(type)] || {
+  icon:'OK',
+  name:achievementTypeName(type),
+};
+
+const studentLanguageCode = () => `${window.tusyenLanguage || window.tusyenLang || window.tusyenLocale || localStorage.getItem('tusyen_language') || localStorage.getItem('tusyen_lang') || localStorage.getItem('language') || document.documentElement?.lang || 'ms'}`.toLowerCase();
+const tStudent = (malay, english) => studentLanguageCode().startsWith('en') ? english : malay;
 const getGreeting = () => {
   const h = new Date().getHours();
-  if (h < 12) return 'Selamat Pagi';
-  if (h < 17) return 'Selamat Petang';
-  return 'Selamat Malam';
+  if (h < 12) return tStudent('Selamat Pagi', 'Good Morning');
+  if (h < 17) return tStudent('Selamat Petang', 'Good Afternoon');
+  return tStudent('Selamat Malam', 'Good Evening');
 };
 
 const firstName = (full) => (full || '').split(' ')[0] || 'Pelajar';
@@ -628,11 +656,12 @@ const useClassroomLeaderboard = (displayName, hasClassrooms=true) => {
     const { leaderboard } = await window.tusyenApi.classroomLeaderboard(first.id);
     const mapped = (leaderboard || []).map((row, i) => {
       const rank = Number(row.rank || i + 1);
-      const userId = window.tusyenUser?.id;
-      const userName = (window.tusyenUser?.fullName || window.tusyenUser?.full_name || '').trim().toLowerCase();
+      const currentUser = window.tusyenUser || {};
+      const userId = currentUser.id;
+      const rowUserId = row.user_id || row.userId || row.student_id || row.studentId;
+      const userName = (currentUser.fullName || currentUser.full_name || '').trim().toLowerCase();
       const rowName = (row.full_name || row.name || '').trim().toLowerCase();
-      const isMe = (userId && row.student_id === userId) || (!!(userName && rowName) && userName === rowName);
-      return {
+      const isMe = (userId && rowUserId && `${rowUserId}` === `${userId}`) || (!!(userName && rowName) && userName === rowName);return {
         rank,
         name: studentName(row.full_name || row.name, 'Pelajar'),
         xp: Number(row.total_xp ?? row.xp) || 0,
@@ -649,13 +678,17 @@ const useAchievements = () => {
   return useAsync(async () => {
     if (window.tusyenUser?.role !== 'student') return BADGES;
     const { achievements } = await window.tusyenApi.myAchievements();
-    const mapped = (achievements || []).map(a => ({
-      icon: a.icon || a.icon_url || '🏅',
-      name: a.name,
-      desc: a.description || '',
-      earned: Boolean(a.is_earned || a.earned_at),
-    })).filter(a => a.name);
-    return mapped;
+    const mapped = (achievements || []).map(a => {
+      const type = a.type || a.badge_type || a.badgeType || a.key || a.slug || '';
+      const meta = achievementMetaForType(type);
+      return {
+        icon: a.icon || a.icon_url || meta.icon,
+        name: studentTitle(a.name || a.title || meta.name, meta.name, 64),
+        desc: a.description || a.desc || '',
+        earned: Boolean(a.is_earned || a.earned || a.earned_at),
+        type,
+      };
+    }).filter(a => a.name);return mapped;
   }, [], initial);
 };
 
@@ -1841,11 +1874,11 @@ const SKuizJoin = ({ user, onActiveChange }) => {
             value={pinInput}
             maxLength={6}
             inputMode="numeric"
-            aria-label="PIN kuiz 6 digit"
+                        pattern="[0-9]*"aria-label="PIN kuiz 6 digit"
             aria-invalid={pinErrorActive ? 'true' : 'false'}
             aria-describedby="student-kuiz-pin-help student-kuiz-pin-error"
             onBlur={() => setPinTouched(true)}
-            onChange={e => {
+                        onKeyPress={e => { if (e.key.length === 1 && !/[0-9]/.test(e.key)) e.preventDefault(); }}onChange={e => {
               setPinInput(cleanStudentKuizPin(e.target.value));
               setError('');
               setPinAttempted(false);
@@ -2724,11 +2757,12 @@ const SHome = ({ goLearn, openLesson, goClassrooms, displayName, avatarUrl, clas
     {/* Stat pills */}
     <div style={{ display:'flex', gap:10, flexWrap:'wrap', order:phone ? 4 : 0 }}>
       {statsState.loading ? (
-        [86, 78, 92].map((w, i) => <Skeleton key={i} width={w} height={42} radius={99} />)
+        [86, 78, 92, 70].map((w, i) => <Skeleton key={i} width={w} height={42} radius={99} />)
       ) : (
         <>
           <StatPill icon="🔥" value={String(stats.streak)} label="Rentetan hari" color={C.orange} />
           <StatPill icon="⚡" value={stats.xp.toLocaleString()} label="XP" color={C.gold} />
+          <StatPill icon="HP" value={String(stats.hearts || '...')} label="Nyawa" color={C.red} />
           <StatPill icon="📚" value={String(stats.lessons ?? 0)} label="Pelajaran" color={C.blue} />
         </>
       )}
@@ -2932,17 +2966,45 @@ const SHome = ({ goLearn, openLesson, goClassrooms, displayName, avatarUrl, clas
 );
 };
 
-const buildSkillNodes = (items, subjectId, progress) => {
+const syllabusItemId = (item={}) => `${item.id || item.topic_id || item.topicId || item.syllabus_id || item.syllabusId || item.syllabusTopicId || ''}`.trim();
+const progressRowSyllabusIds = (row={}) => [
+  row.syllabus_id,
+  row.syllabusId,
+  row.syllabus_topic_id,
+  row.syllabusTopicId,
+  row.topic_id,
+  row.topicId,
+].map(value => `${value || ''}`.trim()).filter(Boolean);
+const progressCompletionValue = (row={}) => progressValue(row.completion_percentage ?? row.completionPercentage ?? row.completion ?? row.progress ?? row.percentage);
+const progressRowMatchesSyllabusItem = (row={}, item={}) => {
+  const itemId = syllabusItemId(item);
+  if (itemId && progressRowSyllabusIds(row).includes(itemId)) return true;
+  const itemTitleKey = cleanSubjectKey(item.topic || item.label || item.title || '');
+  const itemKey = cleanSubjectKey(`${item.topic || item.label || item.title || ''} ${item.subtopic || item.sub || ''}`);
+  const rowKey = cleanSubjectKey(`${row.lesson_title || row.lessonTitle || row.title || ''} ${row.topic || ''} ${row.subtopic || row.sub_topic || ''}`);
+  if (!rowKey || !itemTitleKey) return false;
+  return rowKey.includes(itemTitleKey) || itemTitleKey.includes(rowKey) || (!!itemKey && itemKey.length >= 4 && rowKey.includes(itemKey));
+};
+
+const buildSkillNodes = (items, subjectId, progress, progressRows=[]) => {
   const source = (items && items.length ? items : SUBJECT_SKILL_FALLBACKS[subjectId] || SKILL_NODES);
   const total = source.length || 1;
+  const rowMatches = source.map(item => (progressRows || []).find(row => progressRowMatchesSyllabusItem(row, item)));
+  const topicDoneFlags = rowMatches.map(row => Boolean(row?.is_completed || row?.isCompleted) || progressCompletionValue(row) >= 100);
+  const hasTopicProgress = rowMatches.some(Boolean);
   const completed = progress >= 100 ? total : Math.floor((progressValue(progress) / 100) * total);
-  const currentIndex = progress >= 100 ? -1 : Math.min(completed, total - 1);
+  const fallbackCurrentIndex = progress >= 100 ? -1 : Math.min(completed, total - 1);
+  const inProgressIndex = rowMatches.findIndex((row, i) => row && !topicDoneFlags[i] && progressCompletionValue(row) > 0);
+  const firstOpenIndex = topicDoneFlags.findIndex(done => !done);
+  const currentIndex = hasTopicProgress
+    ? (inProgressIndex >= 0 ? inProgressIndex : firstOpenIndex)
+    : fallbackCurrentIndex;
 
   return source.map((it, i) => {
     const label = studentTitle(it.topic || it.label, `Topik ${i + 1}`);
-    const done = i < completed;
-    const cur = i === currentIndex;
-    const locked = progress < 100 && i > currentIndex;
+    const done = hasTopicProgress ? topicDoneFlags[i] : i < completed;
+    const cur = !done && i === currentIndex;
+    const locked = hasTopicProgress ? (!done && currentIndex >= 0 && i > currentIndex) : (progress < 100 && i > currentIndex);
     return {
       id: it.id || `${subjectId}-${i}`,
       label,
@@ -2980,12 +3042,18 @@ const loadPreferredSyllabus = async (subject, formLevel) => {
 };
 
 const useSyllabusNodes = (subjectId, progress, formLevel) => {
+  const userId = window.tusyenUser?.id;
   return useAsync(async () => {
     const subject = SUBJECTS.find(s => s.id === subjectId);
     if (!subject) return buildSkillNodes([], subjectId, progress);
-    const items = await loadPreferredSyllabus(subject, formLevel);
-    return buildSkillNodes(items, subjectId, progress);
-  }, [subjectId, progress, formLevel], buildSkillNodes([], subjectId, progress));
+    const [items, progressData] = await Promise.all([
+      loadPreferredSyllabus(subject, formLevel),
+      userId && window.tusyenApi?.studentProgress
+        ? window.tusyenApi.studentProgress(userId).catch(() => ({ progress:[] }))
+        : Promise.resolve({ progress:[] }),
+    ]);
+    return buildSkillNodes(items, subjectId, progress, progressData?.progress || []);
+  }, [subjectId, progress, formLevel, userId], buildSkillNodes([], subjectId, progress));
 };
 
 const lessonMatchesSubjectForm = (lesson, subject, formLevel=null) => {
@@ -3586,9 +3654,8 @@ const SClassrooms = ({ classInfo, onClassJoined, onViewPosts }) => {
       setJoinTouched(false);
       setJoinAttempted(false);
       setJoinMsg(data.classroom?.name ? `Berjaya sertai ${studentText(data.classroom.name, 'kelas', 54)}.` : 'Berjaya sertai kelas.');
-      classroomsState.refresh?.();
-      onClassJoined?.();
-    } catch (err) {
+            await Promise.resolve(classroomsState.refresh?.());
+      await Promise.resolve(onClassJoined?.());} catch (err) {
       setJoinErr(studentJoinCodeErrorMessage(err.message));
     } finally {
       setJoining(false);

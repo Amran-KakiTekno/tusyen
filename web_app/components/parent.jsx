@@ -147,8 +147,9 @@ const parentEmailText = (value, fallback = 'Akaun ibu bapa') => {
   return text;
 };
 
-const TEACHER_QUESTION_LABEL = 'Simpan soalan untuk guru';
-const TEACHER_FOLLOWUP_CONFIRMATION = 'Soalan untuk guru disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah untuk menghantar soalan; aplikasi tidak menghantar mesej automatik.';
+const TEACHER_QUESTION_LABEL = 'Tandai untuk tindak lanjut';
+const TEACHER_FOLLOWUP_TOOLTIP = 'Tiada mesej dihantar; tindakan ini hanya menyimpan tanda tindak lanjut.';
+const TEACHER_FOLLOWUP_CONFIRMATION = 'Tindak lanjut disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah untuk menghantar soalan; aplikasi tidak menghantar mesej automatik.';
 
 const parentStatusIsSuccess = (status) =>
   /berjaya|dipaut|dikeluarkan|dikemas kini/i.test(`${status || ''}`);
@@ -158,6 +159,7 @@ const parentActionLabel = (label) => {
   if (!text) return '';
   if (/hubungi\s+guru|contact\s+teacher/i.test(text)) return TEACHER_QUESTION_LABEL;
   if (/nota\s+hubungi\s+guru/i.test(text)) return TEACHER_QUESTION_LABEL;
+  if (/simpan\s+soalan\s+untuk\s+guru|tandai\s+untuk\s+tindak\s+lanjut|flag\s+for\s+follow-up/i.test(text)) return TEACHER_QUESTION_LABEL;
   return text;
 };
 
@@ -1268,6 +1270,10 @@ const ParentHome = ({ displayName, childState, child, childOptions, selectedId, 
   };
 
   const todayPlan = child ? todayPlanForParent({ child, attention, alert:homeAlerts[0] }) : null;
+  const todayActionTooltip = todayPlan?.actionKind === 'teacher'
+    || (todayPlan?.actionKind === 'alert' && todayPlan.alert && alertPrimaryAction(todayPlan.alert).target === 'followup')
+      ? TEACHER_FOLLOWUP_TOOLTIP
+      : '';
   const handleTodayAction = () => {
     if (!todayPlan) return;
     if (todayPlan.actionKind === 'teacher' && attention) {
@@ -1379,7 +1385,12 @@ const ParentHome = ({ displayName, childState, child, childOptions, selectedId, 
             </div>
           ))}
         </div>
-        <button type="button" onClick={handleTodayAction} style={{
+        <button
+          type="button"
+          onClick={handleTodayAction}
+          title={todayActionTooltip || undefined}
+          aria-label={todayActionTooltip ? `${todayPlan.actionLabel}. ${todayActionTooltip}` : todayPlan.actionLabel}
+          style={{
           width:'100%',
           minHeight:44,
           background:'linear-gradient(135deg, var(--c-acc-lo), var(--c-acc))',
@@ -2314,7 +2325,11 @@ const ParentAlertsV2 = ({ childState, child, childOptions, selectedId, onSelectC
               </div>
             )}
             <div style={{ display:'flex', gap:8, flexWrap:'nowrap', alignItems:'center', justifyContent:'space-between', maxWidth:'100%', minWidth:0 }}>
-              <button onClick={() => handlePrimaryAction(alert)} style={{
+              <button
+                onClick={() => handlePrimaryAction(alert)}
+                title={action.target === 'followup' ? TEACHER_FOLLOWUP_TOOLTIP : undefined}
+                aria-label={action.target === 'followup' ? `${action.label}. ${TEACHER_FOLLOWUP_TOOLTIP}` : action.label}
+                style={{
                 flex:'1 1 190px',
                 minWidth:0,
                 background:`color-mix(in srgb,${palette.btn} 13%,transparent)`,
@@ -3336,6 +3351,22 @@ const ParentPostsPage = ({ childState, child, childOptions, selectedId, onSelect
         const postTitle = parentTitle(post.title, '');
         const classroomLabel = parentText(post.classroom_name, '', 54);
         const teacherLabel = parentName(post.teacher_name, '');
+        const attachmentUrls = Array.isArray(post.attachments)
+          ? post.attachments.map(item => item?.url || item?.href || item?.media_url || item?.mediaUrl).filter(Boolean)
+          : [];
+        const contentUrls = cleanContent.match(/https?:\/\/[^\s)]+/g) || [];
+        const videoEmbedUrl = [
+          post.video_url,
+          post.videoUrl,
+          post.media_url,
+          post.mediaUrl,
+          post.attachment_url,
+          post.attachmentUrl,
+          post.link_url,
+          post.linkUrl,
+          ...attachmentUrls,
+          ...contentUrls,
+        ].find(value => window.isVideoEmbedUrl?.(value));
 
         return (
           <div key={post.id} style={{ background:C.card, border:`1px solid ${C.border}`, borderRadius:16, padding:14, marginBottom:10 }}>
@@ -3372,6 +3403,9 @@ const ParentPostsPage = ({ childState, child, childOptions, selectedId, onSelect
             )}
             {snippet && (
               <div style={{ fontSize:12, color:C.textMuted, fontWeight:600, lineHeight:1.5, marginBottom:8 }}>{snippet}</div>
+            )}
+            {videoEmbedUrl && window.VideoEmbed && (
+              <window.VideoEmbed url={videoEmbedUrl} title={postTitle || 'Video pos'} style={{ marginBottom:8 }} />
             )}
             <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, lineHeight:1.4, marginBottom:8 }}>
               {mode.hint}

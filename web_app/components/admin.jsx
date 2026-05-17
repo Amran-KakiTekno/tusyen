@@ -257,7 +257,7 @@ const isValidAdminEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(`${value 
 const validateAdminUserForm = (value = {}, mode = 'create') => {
   const errors = {};
   if (!`${value.fullName || ''}`.trim()) errors.fullName = 'Masukkan nama penuh yang boleh dikenali oleh pentadbir.';
-  if (!isValidAdminEmail(value.email)) errors.email = 'Masukkan alamat e-mel yang sah, contohnya nama@domain.com.';
+  if (mode !== 'edit' && !isValidAdminEmail(value.email)) errors.email = 'Masukkan alamat e-mel yang sah, contohnya nama@domain.com.';
   const password = `${value.password || ''}`;
   if (mode === 'create' && !password.trim()) errors.password = 'Tetapkan kata laluan sementara untuk akaun baharu.';
   if (password.trim() && password.trim().length < 8) errors.password = 'Kata laluan mesti sekurang-kurangnya 8 aksara.';
@@ -285,6 +285,25 @@ const mapAdminLog = (log) => {
     rawMsg,
     time: window.timeAgo(log.event_at || log.created_at) || 'Baru sahaja',
   };
+};
+
+const patchAdminUser = (userId, payload) => {
+  if (window.tusyenApi.updateAdminUser) return window.tusyenApi.updateAdminUser(userId, payload);
+  return window.tusyenApi.updateUser(userId, payload);
+};
+
+const deactivateAdminParentLink = (linkId) => {
+  if (window.tusyenApi.deactivateAdminParentLink) return window.tusyenApi.deactivateAdminParentLink(linkId);
+  if (window.tusyenApi.deactivateParentLink) return window.tusyenApi.deactivateParentLink(linkId);
+  return window.tusyenApi.deleteAdminParentLink(linkId);
+};
+
+const enrollAdminClassroomStudent = (classroomId, identifier) => {
+  const value = `${identifier || ''}`.trim();
+  const payload = value.includes('@') ? { email:value } : { studentId:value };
+  if (window.tusyenApi.enrollAdminClassroomStudent) return window.tusyenApi.enrollAdminClassroomStudent(classroomId, payload);
+  if (window.tusyenApi.adminClassroomEnroll) return window.tusyenApi.adminClassroomEnroll(classroomId, payload);
+  return window.tusyenApi.addStudentToAdminClassroom(classroomId, value);
 };
 
 const contentSummary = (content) => {
@@ -1111,9 +1130,12 @@ const normalizeAdminQuizQuestion = (question) => {
 const AdminDash = ({ go }) => {
   const statsState = useAdminStats();
   const healthState = useAdminHealth();
-  const [logLimit, setLogLimit] = React.useState(12);
+  const auditPageSize = 20;
+  const [logOffset, setLogOffset] = React.useState(0);
+  const [loadedLogs, setLoadedLogs] = React.useState([]);
+  const [loadedLogTotal, setLoadedLogTotal] = React.useState(0);
   const [logFilter, setLogFilter] = React.useState('all');
-  const logsState = useAdminLogs({ limit:logLimit });
+  const logsState = useAdminLogs({ limit:auditPageSize, offset:logOffset });
   const narrow = useNarrow(520);
   const [actionBusy, setActionBusy] = React.useState('');
   const [notice, setNotice] = React.useState(null);
@@ -1121,8 +1143,8 @@ const AdminDash = ({ go }) => {
   const [lastRefresh, setLastRefresh] = React.useState(null);
   const SYS = statsState.data || SYS_FALLBACK;
   const METRICS = healthState.data || METRICS_FALLBACK;
-  const LOGS = logsState.data?.logs || [];
-  const logTotal = metricNumber(logsState.data?.total, LOGS.length);
+  const LOGS = loadedLogs;
+  const logTotal = metricNumber(loadedLogTotal, LOGS.length);
   const hasMoreLogs = LOGS.length < logTotal;
   const logCounts = React.useMemo(() => LOGS.reduce((acc, log) => {
     acc[log.type] = (acc[log.type] || 0) + 1;
@@ -1140,9 +1162,19 @@ const AdminDash = ({ go }) => {
     .map(type => ({ type, logs:filteredLogs.filter(log => log.type === type) }))
     .filter(group => group.logs.length > 0);
 
+  React.useEffect(() => {
+    if (logsState.loading || logsState.error) return;
+    const nextLogs = logsState.data?.logs || [];
+    setLoadedLogTotal(metricNumber(logsState.data?.total, nextLogs.length));
+    setLoadedLogs(prev => logOffset === 0 ? nextLogs : [...prev, ...nextLogs]);
+  }, [logsState.data, logsState.loading, logsState.error, logOffset]);
+
   const refreshAll = React.useCallback(() => {
     statsState.refresh();
     healthState.refresh();
+    setLoadedLogs([]);
+    setLoadedLogTotal(0);
+    setLogOffset(0);
     logsState.refresh();
     setLastRefresh(new Date());
   }, [statsState.refresh, healthState.refresh, logsState.refresh]);
@@ -1154,7 +1186,7 @@ const AdminDash = ({ go }) => {
 
   React.useEffect(() => {
     if (!statsState.loading && !healthState.loading && !logsState.loading) setLastRefresh(new Date());
-  }, [statsState.loading, healthState.loading, logsState.loading, logLimit]);
+  }, [statsState.loading, healthState.loading, logsState.loading, logOffset]);
 
   const clearCache = async (confirmed = false) => {
     if (confirmed !== true) {
@@ -1238,7 +1270,7 @@ const AdminDash = ({ go }) => {
 
       <SectionLabel>Log Sistem</SectionLabel>
       <Card style={{ marginBottom:14, padding:'10px 14px' }}>
-        {logsState.loading ? [0,1,2,3,4].map(i => (
+        {logsState.loading && LOGS.length === 0 ? [0,1,2,3,4].map(i => (
           <div key={i} style={{
             display:'flex', gap:8, padding:'7px 0',
             borderBottom: i < 4 ? `1px solid ${C.border}` : 'none',
@@ -1317,8 +1349,8 @@ const AdminDash = ({ go }) => {
                 Memaparkan {fmt(filteredLogs.length)} daripada {fmt(logTotal)} log
               </div>
               {hasMoreLogs && (
-                <SmallButton disabled={logsState.loading} onClick={() => setLogLimit(v => v + 12)}>
-                  Muat lagi
+                <SmallButton disabled={logsState.loading} onClick={() => setLogOffset(LOGS.length)}>
+                  {logsState.loading ? 'Memuat...' : 'Muat 20 lagi'}
                 </SmallButton>
               )}
             </div>
@@ -1469,6 +1501,94 @@ const UserForm = ({ mode, value, onChange, onSave, onCancel, saving, errors = {}
         </div>
       </div>
     </Card>
+  );
+};
+
+const UserEditModal = ({ value, onChange, onSave, onCancel, saving, errors = {} }) => {
+  if (!value) return null;
+  return (
+    <div
+      role="presentation"
+      onClick={() => !saving && onCancel?.()}
+      style={{
+        position:'fixed',
+        inset:0,
+        zIndex:520,
+        background:'rgba(2,6,23,.68)',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        padding:18,
+      }}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="admin-user-edit-title"
+        onClick={e => e.stopPropagation()}
+        className="tv2-pop"
+        style={{
+          width:'100%',
+          maxWidth:430,
+          background:C.bg,
+          border:`1px solid ${C.borderB}`,
+          borderRadius:16,
+          padding:16,
+          boxShadow:'0 24px 70px rgba(0,0,0,.42)',
+        }}
+      >
+        <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:10, marginBottom:12 }}>
+          <div style={{ minWidth:0 }}>
+            <div id="admin-user-edit-title" style={{ fontWeight:900, fontSize:16, color:C.text }}>Edit Pengguna</div>
+            <div title={value.email || ''} style={{ fontSize:11, color:C.textFaint, fontWeight:700, overflowWrap:'anywhere', marginTop:2 }}>
+              {cleanEmailDisplay(value.email, 48, 'Tiada e-mel', value.roleValue)}
+            </div>
+          </div>
+          <Badge tone={value.isActive ? 'good' : 'warn'}>{statusText(value.isActive)}</Badge>
+        </div>
+        <div style={{ display:'grid', gap:9 }}>
+          <Field label="Nama Penuh">
+            <input
+              value={value.fullName}
+              onChange={e => onChange(prev => ({ ...prev, fullName:e.target.value }))}
+              aria-invalid={Boolean(errors.fullName)}
+              aria-describedby={errors.fullName ? 'admin-edit-user-name-error' : undefined}
+              autoFocus
+              style={inputBase}
+            />
+            <FormFieldError id="admin-edit-user-name-error">{errors.fullName}</FormFieldError>
+          </Field>
+          <Field label="Peranan">
+            <select
+              value={value.roleValue}
+              onChange={e => onChange(prev => ({ ...prev, roleValue:e.target.value }))}
+              style={inputBase}
+            >
+              {ROLE_OPTIONS.map(option => <option key={option.value} value={option.value}>{option.label}</option>)}
+            </select>
+          </Field>
+          <div style={{
+            border:`1px solid ${C.border}`,
+            background:C.surface,
+            borderRadius:10,
+            padding:'8px 10px',
+            fontSize:11,
+            color:C.textMuted,
+            fontWeight:800,
+            lineHeight:1.4,
+          }}>
+            <span style={{ color:C.accPale, fontWeight:900 }}>{ROLE_OPTIONS.find(r => r.value === value.roleValue)?.label || 'Peranan'}:</span>{' '}
+            {ROLE_DESCRIPTIONS[value.roleValue] || 'Pilih peranan untuk menentukan akses pengguna.'}
+          </div>
+          <div style={{ display:'flex', gap:8, justifyContent:'flex-end', flexWrap:'wrap' }}>
+            <SmallButton onClick={onCancel} disabled={saving}>Batal</SmallButton>
+            <GlowButton onClick={onSave} disabled={saving} style={{ padding:'10px 14px', fontSize:13, flex:'0 0 auto' }}>
+              {saving ? 'Menyimpan...' : 'Simpan Perubahan'}
+            </GlowButton>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -1713,13 +1833,10 @@ const AdminUsers = () => {
     setMutationError(null);
     try {
       const payload = {
-        fullName: editing.fullName,
-        email: editing.email,
+        full_name: editing.fullName.trim(),
         role: editing.roleValue,
-        isActive: editing.isActive,
       };
-      if ((editing.password || '').trim()) payload.password = editing.password.trim();
-      await window.tusyenApi.updateUser(editing.id, payload);
+      await patchAdminUser(editing.id, payload);
       setMessage('Pengguna dikemas kini.');
       setEditing(null);
       refresh();
@@ -1912,8 +2029,7 @@ const AdminUsers = () => {
           />
         )}
         {editing && (
-          <UserForm
-            mode="edit"
+          <UserEditModal
             value={editing}
             onChange={(updater) => { setFormErrors({}); setMutationError(null); setEditing(updater); }}
             onSave={saveEdit}
@@ -3280,14 +3396,14 @@ const AdminClassroomsPage = () => {
     if (!sid) return;
     setBusy('addstud'); setMsg('');
     try {
-      await window.tusyenApi.addStudentToAdminClassroom(classroomId, sid);
-      setOk('Pelajar ditambah.');
+      await enrollAdminClassroomStudent(classroomId, sid);
+      setOk('Pelajar didaftarkan.');
       setAddStudentId('');
       const data = await window.tusyenApi.adminClassroomStudents(classroomId);
       setClassStudents(prev => ({ ...prev, [classroomId]: data.students || [] }));
       setRosterState(prev => ({ ...prev, [classroomId]:{ loading:false, error:'', loaded:true } }));
       classroomsState.refresh();
-    } catch (e) { setErr(e.message || 'Tidak dapat menambah pelajar.'); }
+    } catch (e) { setErr(e.message || 'Tidak dapat mendaftarkan pelajar.'); }
     finally { setBusy(''); }
   };
 
@@ -3551,11 +3667,21 @@ const AdminClassroomsPage = () => {
                   ))}
                   <div style={{ display:'flex', gap:8, marginTop:8, flexWrap:narrow ? 'wrap' : 'nowrap' }}>
                     <div style={{ flex:'1 1 220px', minWidth:0 }}>
+                      <Field label="Enroll Student">
+                        <input
+                          value={addStudentId}
+                          onChange={e => setAddStudentId(e.target.value)}
+                          placeholder="Student UUID atau e-mel"
+                          style={inputBase}
+                        />
+                      </Field>
+                    </div>
+                    <div style={{ flex:'1 1 220px', minWidth:0 }}>
                       <SearchableUserSelect
                         role="student"
                         value={addStudentId}
                         onChange={setAddStudentId}
-                        placeholder="Cari pelajar untuk kelas..."
+                        placeholder="Atau cari pelajar sedia ada..."
                         emptyLabel="Pilih pelajar"
                       />
                     </div>
@@ -3563,7 +3689,9 @@ const AdminClassroomsPage = () => {
                       <option value="">— Pilih pelajar —</option>
                       {(studentsState.data || []).map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
                     </select>
-                    <SmallButton disabled={busy === 'addstud' || !addStudentId} onClick={() => addStudent(cls.id)} style={{ flex:narrow ? '1 1 108px' : '0 0 auto' }}>Tambah</SmallButton>
+                    <SmallButton disabled={busy === 'addstud' || !addStudentId.trim()} onClick={() => addStudent(cls.id)} style={{ flex:narrow ? '1 1 108px' : '0 0 auto' }}>
+                      {busy === 'addstud' ? 'Mendaftar...' : 'Daftar'}
+                    </SmallButton>
                   </div>
                 </div>
               )}
@@ -3662,11 +3790,11 @@ const AdminParentLinksSection = () => {
   const removeLink = async (id) => {
     setBusy(id); setMsg('');
     try {
-      await window.tusyenApi.deleteAdminParentLink(id);
-      setOk('Pautan dibuang.');
+      await deactivateAdminParentLink(id);
+      setOk('Pautan dinyahaktifkan.');
       setConfirmRemove(null);
       loadLinks();
-    } catch (e) { setErr(e.message || 'Tidak dapat membuang pautan.'); }
+    } catch (e) { setErr(e.message || 'Tidak dapat menyahaktifkan pautan.'); }
     finally { setBusy(''); }
   };
 
@@ -3730,6 +3858,9 @@ const AdminParentLinksSection = () => {
             </div>
             <div style={{ display:'grid', gap:6 }}>
               {family.links.map((link, i) => (
+                (() => {
+                  const linkActive = (link.is_active ?? link.isActive) !== false;
+                  return (
                 <div key={link.id || i} style={{
                   display:'grid',
                   gridTemplateColumns:'minmax(0, 1fr) auto',
@@ -3760,15 +3891,17 @@ const AdminParentLinksSection = () => {
                     ariaLabel={`Tindakan pautan ${family.parentName}`}
                     items={[
                       {
-                        label:'Buang pautan',
+                        label:'Nyahaktifkan pautan',
                         tone:'danger',
                         description:'Nyahaktifkan pautan keluarga ini.',
-                        disabled:busy === link.id,
+                        disabled:busy === link.id || !linkActive,
                         onClick:() => setConfirmRemove(link),
                       },
                     ]}
                   />
                 </div>
+                  );
+                })()
               ))}
             </div>
           </div>
@@ -3794,8 +3927,9 @@ const AdminParentLinksSection = () => {
               disabled={busy === link.id}
               items={[
                 {
-                  label:'Buang pautan',
+                  label:'Nyahaktifkan pautan',
                   tone:'danger',
+                  disabled:(link.is_active ?? link.isActive) === false,
                   description:'Nyahaktifkan pautan keluarga ini.',
                   onClick:() => setConfirmRemove(link),
                 },
@@ -3806,8 +3940,8 @@ const AdminParentLinksSection = () => {
       </Card>
       {confirmRemove && (
         <ConfirmModal
-          title="Buang pautan keluarga?"
-          confirmLabel="Buang Pautan"
+          title="Nyahaktifkan pautan keluarga?"
+          confirmLabel="Nyahaktifkan Pautan"
           danger
           busy={busy === confirmRemove.id}
           onCancel={() => setConfirmRemove(null)}

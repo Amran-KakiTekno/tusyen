@@ -181,6 +181,45 @@ export function quizAnswersMatch(
   return normalizeValue(userAnswer) === normalizeValue(correctAnswer);
 }
 
+export function gradeQuizAnswer(
+  userAnswer: unknown,
+  correctAnswer: unknown,
+  questionType: string,
+  options: unknown = [],
+): { isCorrect: boolean; scoreMultiplier: number } {
+  if (quizAnswerIsBlank(userAnswer)) {
+    return { isCorrect: false, scoreMultiplier: 0 };
+  }
+
+  const normalizedType = normalizeQuizQuestionType(questionType);
+  const normalizedOptions = Array.isArray(options) ? options : [];
+
+  if (pairQuestionTypes.has(normalizedType)) {
+    const expectedPairs = answerPairs(correctAnswer);
+    const expected = pairsToMap(expectedPairs.length > 0 ? expectedPairs : answerPairs(normalizedOptions));
+    const submitted = pairsToMap(answerPairs(userAnswer));
+    if (expected.size === 0) {
+      return { isCorrect: false, scoreMultiplier: 0 };
+    }
+
+    let correctPairs = 0;
+    for (const [prompt, answer] of expected.entries()) {
+      if (submitted.get(prompt) === answer) {
+        correctPairs += 1;
+      }
+    }
+
+    const scoreMultiplier = correctPairs / expected.size;
+    return {
+      isCorrect: correctPairs === expected.size,
+      scoreMultiplier,
+    };
+  }
+
+  const isCorrect = quizAnswersMatch(userAnswer, correctAnswer, normalizedType, normalizedOptions);
+  return { isCorrect, scoreMultiplier: isCorrect ? 1 : 0 };
+}
+
 export function buildLeaderboard(entries: QuizLeaderboardEntry[], limit = 10) {
   return entries
     .slice()
