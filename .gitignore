@@ -12,6 +12,7 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+cf-tunnel.log
 
 # Build and coverage output
 dist/
@@ -29,6 +30,12 @@ playwright-report/
 test-results/
 .playwright/
 qaqc-artifacts/
+smoke-*.png
+smoke-*.js
+tmp-smoke.js
+
+# Dev tunnel logs
+.codex-tunnel/
 
 # Python caches
 __pycache__/
@@ -36,9 +43,9 @@ __pycache__/
 
 # Local tool state and downloaded assets
 .claude/
-.codex-tunnel/
 .design-fetch/
 downloads/
+.design-fetch/
 minio/certs/*
 !minio/certs/.gitkeep
 
@@ -53,6 +60,7 @@ ntfy_data/
 Thumbs.db
 .idea/
 .vscode/
+flutter_app/.idea/
 
 # The static web app loads this precompiled production bundle directly.
 !web_app/dist/
