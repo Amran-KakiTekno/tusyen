@@ -33,6 +33,7 @@ qaqc-artifacts/
 smoke-*.png
 smoke-*.js
 tmp-smoke.js
+check-*.sql
 
 # Dev tunnel logs
 .codex-tunnel/
