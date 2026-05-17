@@ -42,6 +42,8 @@ const KEYCLOAK_START_RATE_LIMIT = {
 const LOGIN_FAILURE_LIMIT = 10;
 const LOGIN_FAILURE_WINDOW_SECONDS = 60 * 60;
 const LOGIN_LOCKOUT_SECONDS = 15 * 60;
+const PARENT_ALERTS_CACHE_TTL_SECONDS = 60 * 2;
+const PARENT_ALERTS_CACHE_PREFIX = 'alerts:parent:';
 
 export async function authRoutes(fastify: FastifyInstance) {
   // Register
@@ -147,10 +149,6 @@ export async function authRoutes(fastify: FastifyInstance) {
 
     const user = result.rows[0];
 
-    if (isDemoAdminAccount(user.email, user.role) && !config.DEMO_ADMIN_LOGIN_ENABLED) {
-      return reply.code(403).send({ error: 'Demo admin login is disabled on this deployment' });
-    }
-
     if (!user.is_active) {
       return reply.code(403).send({ error: 'Account deactivated' });
     }
@@ -210,7 +208,7 @@ export async function authRoutes(fastify: FastifyInstance) {
         body.refreshToken || body.token || refreshTokenFromCookies(request.headers?.cookie)
       );
       if (!refreshRecord) {
-        return reply.code(401).send({ error: 'Invalid refresh token' });
+        return reply.code(401).send({ error: 'Session expired. Please log in again.' });
       }
       
       const result = await db.query(
@@ -242,7 +240,7 @@ export async function authRoutes(fastify: FastifyInstance) {
       };
     } catch (err) {
       request.log.warn(err);
-      return reply.code(401).send({ error: 'Invalid refresh token' });
+      return reply.code(401).send({ error: 'Session expired. Please log in again.' });
     }
   });
 
@@ -418,6 +416,9 @@ export async function authRoutes(fastify: FastifyInstance) {
     } catch (err) {
       await redis.del(redisKey).catch(() => undefined);
       if (err instanceof KeycloakAuthError) {
+        if (err.auditEvent) {
+          auditLog(request, err.auditEvent, { statusCode: err.statusCode });
+        }
         return reply.code(err.statusCode).send({ error: err.message });
       }
       request.log.error(err);
@@ -474,6 +475,7 @@ export async function authRoutes(fastify: FastifyInstance) {
         'UPDATE parent_student_links SET is_active = true, created_at = NOW() WHERE id = $1',
         [existing.rows[0].id]
       );
+      await invalidateParentAlertCache(user.userId);
 
       return { success: true, message: 'Successfully linked to student' };
     }
@@ -483,6 +485,7 @@ export async function authRoutes(fastify: FastifyInstance) {
       'INSERT INTO parent_student_links (id, parent_id, student_id) VALUES ($1, $2, $3)',
       [uuidv4(), user.userId, linkedStudentId]
     );
+    await invalidateParentAlertCache(user.userId);
 
     return { success: true, message: 'Successfully linked to student' };
   });
@@ -541,6 +544,7 @@ export async function authRoutes(fastify: FastifyInstance) {
     if ((result.rowCount ?? 0) === 0) {
       return reply.code(404).send({ error: 'Linked student not found' });
     }
+    await invalidateParentAlertCache(user.userId);
 
     return { success: true };
   });
@@ -556,128 +560,21 @@ export async function authRoutes(fastify: FastifyInstance) {
 
     await ensureParentAlertStatusTable();
 
-    const linked = await db.query(
-      `SELECT s.id, s.full_name
-       FROM parent_student_links psl
-       JOIN users s ON s.id = psl.student_id
-       WHERE psl.parent_id = $1
-         AND psl.is_active = true
-         AND s.is_active = true
-       ORDER BY psl.created_at DESC`,
-      [user.userId]
-    );
-
-    const alerts: any[] = [];
-
-    for (const child of linked.rows) {
-      const lowScore = await db.query(
-        `SELECT l.subject,
-                AVG(p.score) as avg_score
-         FROM progress p
-         JOIN lessons l ON l.id = p.lesson_id
-         WHERE p.student_id = $1
-           AND p.updated_at >= NOW() - INTERVAL '14 days'
-         GROUP BY l.subject
-         HAVING AVG(p.score) < 50
-         ORDER BY AVG(p.score) ASC
-         LIMIT 1`,
-        [child.id]
-      );
-
-      if ((lowScore.rowCount ?? 0) > 0) {
-        const row = lowScore.rows[0];
-        const subject = row.subject || 'Subjek';
-        alerts.push({
-          id: buildParentAlertId(child.id, 'low-score', subject),
-          childId: child.id,
-          icon: '🔴',
-          title: `Prestasi ${subject} merosot`,
-          desc: `Purata ${child.full_name} untuk ${subject} ialah ${Math.round(Number(row.avg_score) || 0)}% dalam 14 hari terakhir.`,
-          severity: 'high',
-          time: 'Hari ini',
-          action: 'Tandai untuk tindak lanjut',
-        });
-      }
-
-      const activity = await db.query(
-        'SELECT MAX(updated_at) as last_activity FROM progress WHERE student_id = $1',
-        [child.id]
-      );
-      const lastActivity = activity.rows[0]?.last_activity ? new Date(activity.rows[0].last_activity) : null;
-      const inactiveMs = lastActivity ? Date.now() - lastActivity.getTime() : Number.POSITIVE_INFINITY;
-      if (!lastActivity || inactiveMs > 3 * 24 * 60 * 60 * 1000) {
-        alerts.push({
-          id: buildParentAlertId(child.id, 'inactivity'),
-          childId: child.id,
-          icon: '🟡',
-          title: 'Kehadiran log masuk rendah',
-          desc: `${child.full_name} belum menunjukkan aktiviti pembelajaran yang konsisten dalam beberapa hari ini.`,
-          severity: 'medium',
-          time: lastActivity ? formatAlertTime(lastActivity) : 'Tiada aktiviti',
-          action: 'Semak Kemajuan',
-        });
-      }
-
-      const streak = await db.query(
-        `SELECT COUNT(DISTINCT activity_date)::int as active_days
-         FROM student_streaks
-         WHERE student_id = $1
-           AND activity_date >= CURRENT_DATE - INTERVAL '6 days'`,
-        [child.id]
-      );
-      if (Number(streak.rows[0]?.active_days || 0) >= 7) {
-        alerts.push({
-          id: buildParentAlertId(child.id, 'streak-7'),
-          childId: child.id,
-          icon: '🟢',
-          title: 'Streak tujuh hari!',
-          desc: `${child.full_name} berjaya belajar 7 hari berturut-turut. Tahniah!`,
-          severity: 'good',
-          time: 'Hari ini',
-          action: null,
-        });
-      }
-
-      const assignment = await db.query(
-        `SELECT p.id,
-                p.title,
-                p.content,
-                p.created_at,
-                u.full_name as author_name
-         FROM classroom_enrollments ce
-         JOIN posts p
-           ON p.classroom_id = ce.classroom_id
-          AND p.is_active = true
-          AND p.post_type = 'assignment'
-         JOIN users u ON u.id = p.author_id
-         WHERE ce.student_id = $1
-           AND ce.is_active = true
-         ORDER BY p.created_at DESC
-         LIMIT 1`,
-        [child.id]
-      );
-      if ((assignment.rowCount ?? 0) > 0) {
-        const post = assignment.rows[0];
-        alerts.push({
-          id: buildParentAlertId(child.id, 'assignment', post.id),
-          childId: child.id,
-          icon: '📋',
-          title: 'Kuiz Baharu Dihantar',
-          desc: `${post.author_name || 'Guru'} hantar ${post.title || 'tugasan'}: ${`${post.content || ''}`.slice(0, 90)}`,
-          severity: 'info',
-          time: formatAlertTime(post.created_at),
-          action: 'Lihat Kuiz',
-        });
-      }
+    const cachedAlerts = await getCachedParentAlerts(user.userId);
+    let parentAlerts = cachedAlerts;
+    if (!parentAlerts) {
+      parentAlerts = await buildParentAlertCardsForParent(user.userId);
+      await setCachedParentAlerts(user.userId, parentAlerts);
     }
-    const visibleAlerts = alerts.slice(0, 12);
+
+    const visibleAlerts = parentAlerts.slice(0, 12);
     const statuses = await getParentAlertStatuses(user.userId, visibleAlerts);
 
     return {
-      alerts: visibleAlerts.map(alert => ({
+      alerts: visibleAlerts.map((alert) => ({
         ...alert,
         ...(statuses.get(parentAlertStatusKey(alert.childId, alert.id)) || {}),
-      }))
+      })),
     };
   });
 
@@ -714,6 +611,7 @@ export async function authRoutes(fastify: FastifyInstance) {
 
     await ensureParentAlertStatusTable();
     const status = await upsertParentAlertStatus(user.userId, childId, alertId, { read, dismissed, followUp });
+    await invalidateParentAlertCache(user.userId);
 
     return { success: true, status };
   });
@@ -761,11 +659,10 @@ export async function authRoutes(fastify: FastifyInstance) {
     for (const id of uniqueAlertIds) {
       statuses.push(await upsertParentAlertStatus(user.userId, childId, id, { read, dismissed, followUp }));
     }
+    await invalidateParentAlertCache(user.userId);
 
     return { success: true, statuses };
   });
-
-}
 
 async function enforceRateLimit(
   request: any,
@@ -784,11 +681,21 @@ async function enforceRateLimit(
 }
 
 function clientIp(request: any) {
-  const forwardedFor = firstHeader(request.headers?.['x-forwarded-for']);
-  const cfConnectingIp = firstHeader(request.headers?.['cf-connecting-ip']);
+  const trustedProxy = isTrustedProxyRequest(request);
+  const forwardedFor = trustedProxy ? firstHeader(request.headers?.['x-forwarded-for']) : null;
+  const cfConnectingIp = trustedProxy ? firstHeader(request.headers?.['cf-connecting-ip']) : null;
   return (cfConnectingIp || forwardedFor?.split(',')[0]?.trim() || request.ip || 'unknown')
     .replace(/[^a-zA-Z0-9:._-]/g, '_')
     .slice(0, 80);
+}
+
+function isTrustedProxyRequest(request: any) {
+  const trusted = (config.TRUSTED_PROXY_IPS || '')
+    .split(',')
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+  if (trusted.length === 0) return false;
+  return trusted.includes(request.ip);
 }
 
 function firstHeader(value: string | string[] | undefined): string | null {
@@ -834,10 +741,6 @@ function bearerAccessToken(value: string | string[] | undefined) {
   return scheme?.toLowerCase() === 'bearer' && token ? token : null;
 }
 
-function isDemoAdminAccount(email: string, role: string) {
-  return role === 'admin' && email.toLowerCase() === 'admin@tusyen.test';
-}
-
 function isUuid(value: string) {
   return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value);
 }
@@ -870,6 +773,168 @@ function buildParentAlertId(childId: string, type: string, value = '') {
 
 function parentAlertStatusKey(childId: string, alertId: string) {
   return `${childId}::${alertId}`;
+}
+
+function parentAlertCacheKey(parentId: string) {
+  return `${PARENT_ALERTS_CACHE_PREFIX}${parentId}`;
+}
+
+async function getCachedParentAlerts(parentId: string) {
+  const key = parentAlertCacheKey(parentId);
+  const cached = await redis.get(key);
+  if (!cached) return null;
+
+  try {
+    const parsed = JSON.parse(cached);
+    return Array.isArray(parsed) ? parsed : null;
+  } catch {
+    await redis.del(key);
+    return null;
+  }
+}
+
+async function setCachedParentAlerts(parentId: string, alerts: any[]) {
+  await redis.setex(parentAlertCacheKey(parentId), PARENT_ALERTS_CACHE_TTL_SECONDS, JSON.stringify(alerts));
+}
+
+async function invalidateParentAlertCache(parentId: string) {
+  await redis.del(parentAlertCacheKey(parentId));
+}
+
+async function buildParentAlertCardsForParent(parentId: string) {
+  const linked = await db.query(
+    `SELECT s.id, s.full_name
+     FROM parent_student_links psl
+     JOIN users s ON s.id = psl.student_id
+     WHERE psl.parent_id = $1
+       AND psl.is_active = true
+       AND s.is_active = true
+     ORDER BY psl.created_at DESC`,
+    [parentId]
+  );
+
+  const alerts: any[] = [];
+
+  for (const child of linked.rows) {
+    const lowScore = await db.query(
+      `SELECT l.subject,
+              AVG(CASE WHEN p.updated_at >= NOW() - INTERVAL '7 days' THEN p.score END) AS avg_score_7d,
+              AVG(CASE WHEN p.updated_at >= NOW() - INTERVAL '14 days' AND p.updated_at < NOW() - INTERVAL '7 days' THEN p.score END) AS avg_score_prev_7d,
+              COUNT(CASE WHEN p.updated_at >= NOW() - INTERVAL '7 days' THEN 1 END) AS recent_score_count,
+              COUNT(CASE WHEN p.updated_at >= NOW() - INTERVAL '14 days' AND p.updated_at < NOW() - INTERVAL '7 days' THEN 1 END) AS prev_score_count
+       FROM progress p
+       JOIN lessons l ON l.id = p.lesson_id
+       WHERE p.student_id = $1
+         AND p.updated_at >= NOW() - INTERVAL '14 days'
+       GROUP BY l.subject
+       ORDER BY AVG(CASE WHEN p.updated_at >= NOW() - INTERVAL '7 days' THEN p.score END) ASC NULLS LAST
+       LIMIT 1`,
+      [child.id]
+    );
+
+    if ((lowScore.rowCount ?? 0) > 0) {
+      const row = lowScore.rows[0];
+      const recentScoreValue = row.avg_score_7d ?? row.avg_score;
+      const recentCount = Number(row.recent_score_count ?? (recentScoreValue !== undefined && recentScoreValue !== null ? 1 : 0));
+      const recentScore = Number(recentScoreValue || 0);
+      const prevCount = Number(row.prev_score_count || 0);
+      if (recentCount > 0 && recentScore < 50) {
+        const prevScore = Number(row.avg_score_prev_7d || 0);
+        const trendDelta = Number((recentScore - prevScore).toFixed(1));
+        const trendDirection = trendDelta > 0 ? 'up' : trendDelta < 0 ? 'down' : 'flat';
+        const subject = row.subject || 'Subjek';
+
+        alerts.push({
+          id: buildParentAlertId(child.id, 'low-score', subject),
+          childId: child.id,
+          icon: '🔴',
+          title: `Prestasi ${subject} merosot`,
+          desc: `Purata ${child.full_name} untuk ${subject} ialah ${Math.round(recentScore)}% dalam 7 hari terakhir. `
+            + `${prevCount > 0 ? `Minggu sebelumnya ialah ${Math.round(prevScore)}% (${trendDirection === 'down' ? 'turun' : trendDirection === 'up' ? 'naik' : 'sama'} ${Math.abs(trendDelta).toFixed(1)}%).` : 'Trend belum cukup data untuk perbandingan.'}`,
+          severity: 'high',
+          time: 'Hari ini',
+          action: 'Tandai untuk tindak lanjut',
+          avgScore7d: recentScore,
+          avgScorePrev7d: prevScore,
+          trendDirection,
+          trendDelta,
+        });
+      }
+    }
+
+    const activity = await db.query(
+      'SELECT MAX(updated_at) as last_activity FROM progress WHERE student_id = $1',
+      [child.id]
+    );
+    const lastActivity = activity.rows[0]?.last_activity ? new Date(activity.rows[0].last_activity) : null;
+    const inactiveMs = lastActivity ? Date.now() - lastActivity.getTime() : Number.POSITIVE_INFINITY;
+    if (!lastActivity || inactiveMs > 3 * 24 * 60 * 60 * 1000) {
+      alerts.push({
+        id: buildParentAlertId(child.id, 'inactivity'),
+        childId: child.id,
+        icon: '🟡',
+        title: 'Kehadiran log masuk rendah',
+        desc: `${child.full_name} belum menunjukkan aktiviti pembelajaran yang konsisten dalam beberapa hari ini.`,
+        severity: 'medium',
+        time: lastActivity ? formatAlertTime(lastActivity) : 'Tiada aktiviti',
+        action: 'Semak Kemajuan',
+      });
+    }
+
+    const streak = await db.query(
+      `SELECT COUNT(DISTINCT activity_date)::int as active_days
+       FROM student_streaks
+       WHERE student_id = $1
+         AND activity_date >= CURRENT_DATE - INTERVAL '6 days'`,
+      [child.id]
+    );
+    if (Number(streak.rows[0]?.active_days || 0) >= 7) {
+      alerts.push({
+        id: buildParentAlertId(child.id, 'streak-7'),
+        childId: child.id,
+        icon: '🟢',
+        title: 'Streak tujuh hari!',
+        desc: `${child.full_name} berjaya belajar 7 hari berturut-turut. Tahniah!`,
+        severity: 'good',
+        time: 'Hari ini',
+        action: null,
+      });
+    }
+
+    const assignment = await db.query(
+      `SELECT p.id,
+              p.title,
+              p.content,
+              p.created_at,
+              u.full_name as author_name
+       FROM classroom_enrollments ce
+       JOIN posts p
+         ON p.classroom_id = ce.classroom_id
+        AND p.is_active = true
+        AND p.post_type = 'assignment'
+       JOIN users u ON u.id = p.author_id
+       WHERE ce.student_id = $1
+         AND ce.is_active = true
+       ORDER BY p.created_at DESC
+       LIMIT 1`,
+      [child.id]
+    );
+    if ((assignment.rowCount ?? 0) > 0) {
+      const post = assignment.rows[0];
+      alerts.push({
+        id: buildParentAlertId(child.id, 'assignment', post.id),
+        childId: child.id,
+        icon: '📋',
+        title: 'Kuiz Baharu Dihantar',
+        desc: `${post.author_name || 'Guru'} hantar ${post.title || 'tugasan'}: ${`${post.content || ''}`.slice(0, 90)}`,
+        severity: 'info',
+        time: formatAlertTime(post.created_at),
+        action: 'Lihat Kuiz',
+      });
+    }
+  }
+
+  return alerts;
 }
 
 async function getParentAlertStatuses(parentId: string, alerts: any[]) {
@@ -956,3 +1021,6 @@ function formatAlertTime(value: string | Date): string {
   if (days === 1) return 'Semalam';
   return `${days} hari lepas`;
 }
+
+}
+

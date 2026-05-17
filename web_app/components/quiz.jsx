@@ -972,7 +972,7 @@ function ProjectorPinOverlay({ pin, deckTitle, participantsCount, onClose }) {
   );
 }
 
-function ResultsScreen({ live, isTeacher, onEnd }) {
+function ResultsScreen({ live, isTeacher, participantToken, onEnd }) {
   const { t } = useLanguage();
   const results = live.results || {};
   const summary = results.summary || {};
@@ -980,6 +980,30 @@ function ResultsScreen({ live, isTeacher, onEnd }) {
   const topPerformers = asArray(results.topPerformers).length ? results.topPerformers : live.leaderboard;
   const participantCount = summary.participantCount ?? live.session?.participantsCount ?? topPerformers.length;
   const questionCount = summary.questionCount ?? questions.length;
+  const isStudent = !isTeacher;
+  const sessionId = live.session?.id || live.session?.sessionId;
+  const joinToken =
+    participantToken ||
+    live.participant?.joinToken ||
+    live.participant?.participantToken ||
+    live.participant?.join_token;
+  const [reviewItems, setReviewItems] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    if (!isStudent || !sessionId || !joinToken || !window.tusyenApi?.quizSessionReview) {
+      setReviewItems(null);
+      return () => { cancelled = true; };
+    }
+    window.tusyenApi.quizSessionReview(sessionId, joinToken)
+      .then(({ review }) => {
+        if (!cancelled) setReviewItems(Array.isArray(review) ? review : []);
+      })
+      .catch(() => {
+        if (!cancelled) setReviewItems(null);
+      });
+    return () => { cancelled = true; };
+  }, [sessionId, joinToken, isStudent]);
 
   return (
     <div style={{ padding:16 }}>
@@ -1046,6 +1070,47 @@ function ResultsScreen({ live, isTeacher, onEnd }) {
           </div>
         ))}
       </Card>
+
+      {isStudent && reviewItems && reviewItems.length > 0 && (
+        <Card style={{ marginBottom:16 }}>
+          <div style={{ fontWeight:900, marginBottom:12 }}>
+            {t('Semakan soalan', 'Question Review')}
+          </div>
+          {reviewItems.map((item, i) => (
+            <div
+              key={`${item.orderIndex ?? i}-${item.questionText || i}`}
+              style={{
+                marginBottom:i < reviewItems.length - 1 ? 12 : 0,
+                padding:12,
+                borderRadius:10,
+                background:item.isCorrect ? 'rgba(34,197,94,.10)' : 'rgba(239,68,68,.10)',
+                border:`1px solid ${item.isCorrect ? 'rgba(34,197,94,.28)' : 'rgba(239,68,68,.28)'}`,
+              }}
+            >
+              <div style={{ fontWeight:800, fontSize:13, marginBottom:6, overflowWrap:'anywhere' }}>
+                {i + 1}. {item.questionText || t('Soalan', 'Question')}
+              </div>
+              <div style={{ fontSize:12, color:'var(--c-text2)', marginBottom:3 }}>
+                {t('Jawapan anda', 'Your answer')}:{' '}
+                <span style={{ color:item.isCorrect ? '#4ade80' : '#f87171', fontWeight:800 }}>
+                  {item.didAnswer ? (item.selectedAnswer ?? t('Tidak dijawab', 'Not answered')) : t('Tidak dijawab', 'Not answered')}
+                </span>
+              </div>
+              {!item.isCorrect && item.correctAnswer !== null && item.correctAnswer !== undefined && (
+                <div style={{ fontSize:12, color:'var(--c-text2)', marginBottom:3 }}>
+                  {t('Jawapan betul', 'Correct answer')}:{' '}
+                  <span style={{ color:'#4ade80', fontWeight:800 }}>{item.correctAnswer}</span>
+                </div>
+              )}
+              {item.explanation && (
+                <div style={{ fontSize:11, color:'var(--c-text3)', marginTop:5, fontStyle:'italic', lineHeight:1.4 }}>
+                  {item.explanation}
+                </div>
+              )}
+            </div>
+          ))}
+        </Card>
+      )}
 
       {isTeacher && (
         <GlowButton onClick={onEnd}>{t('Kembali ke dek', 'Back to decks')}</GlowButton>
@@ -1384,7 +1449,7 @@ function QuizLiveSession({ session, initialSnapshot, participantToken, isTeacher
   }
 
   if (live.phase === 'ended') {
-    return <ResultsScreen live={live} isTeacher={isTeacher} onEnd={onEnd} />;
+    return <ResultsScreen live={live} isTeacher={isTeacher} participantToken={participantToken} onEnd={onEnd} />;
   }
 
   return null;

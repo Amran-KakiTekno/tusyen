@@ -78,140 +78,291 @@ const useLanguage = () => {
 const STATIC_TRANSLATIONS = new Map([
   ['Akaun', 'Account'],
   ['Aktif', 'Active'],
+  ['Aktifkan', 'Activate'],
   ['Amaran', 'Alerts'],
+  ['Amaran & Notifikasi', 'Alerts & Notifications'],
   ['Anak', 'Children'],
+  ['Anak berjaya dipaut.', 'Child linked successfully.'],
+  ['Anak Dipaut', 'Linked Children'],
+  ['Anda perlukan ID Tusyen pelajar atau e-mel akaun pelajar. Kod kelas guru tidak digunakan di sini.', 'You need the student Tusyen ID or student account email. Teacher class codes are not used here.'],
+  ['Arus, voltan, rintangan', 'Current, voltage, resistance'],
+  ['Atom dan molekul', 'Atoms and molecules'],
+  ['Aktiviti sistem', 'System activity'],
   ['Bahasa', 'Language'],
   ['Batal', 'Cancel'],
   ['Belajar', 'Learn'],
+  ['Belajar 7 hari berturut', 'Study 7 days in a row'],
+  ['Belajar fleksibel', 'Flexible learning'],
+  ['Belum ada pencapaian. Lengkapkan pelajaran pertama untuk membuka badge.', 'No achievements yet. Complete your first lesson to unlock a badge.'],
   ['Belum ada kelas', 'No classes yet'],
   ['Belum ada markah direkodkan.', 'No scores recorded yet.'],
   ['Belum ada pelajaran', 'No lessons yet'],
   ['Belum ada soalan', 'No questions yet'],
+  ['Belum ada topik selesai', 'No completed topics yet'],
+  ['Belum dipautkan', 'Not linked yet'],
+  ['Belum disemak', 'Not checked yet'],
+  ['Belum log masuk', 'Not logged in yet'],
   ['Buat kelas dahulu untuk boleh mulakan sesi kuiz langsung.', 'Create a class first before starting a live quiz session.'],
+  ['Buka Panduan Tambah Anak', 'Open Add Child Guide'],
   ['Belum mula', 'Not started'],
   ['Benar / palsu', 'True / false'],
   ['Buang soalan', 'Remove question'],
   ['Buang soalan?', 'Remove question?'],
   ['Cipta Akaun', 'Create Account'],
+  ['Cipta Kandungan', 'Create Content'],
+  ['Cipta Kelas', 'Create Class'],
   ['Cipta kelas pertama anda', 'Create your first class'],
+  ['Cipta Pelajaran Berpandu', 'Create Guided Lesson'],
   ['Cuba lagi', 'Retry'],
   ['Cerah', 'Light'],
+  ['Capai 5,000 XP', 'Reach 5,000 XP'],
+  ['Cari ibu bapa...', 'Search parents...'],
+  ['Cari pelajar...', 'Search students...'],
   ['Dapatkan PIN daripada guru untuk masuk ke sesi langsung.', 'Get the PIN from your teacher to join the live session.'],
+  ['Data anak belum dapat dimuat.', 'Child data could not be loaded yet.'],
   ['Dek baharu', 'New deck'],
   ['Dek kuiz', 'Quiz deck'],
   ['Dek Kuiz', 'Quiz Decks'],
   ['DEK KUIZ', 'QUIZ DECKS'],
   ['Detail Kelas', 'Class Detail'],
   ['Dijeda', 'Paused'],
+  ['Dipautkan', 'Linked'],
+  ['E-mel', 'Email'],
+  ['Faktor dan graf', 'Factors and graphs'],
   ['Gelap', 'Dark'],
+  ['Geometri', 'Geometry'],
   ['Guru', 'Teacher'],
+  ['Halaju, pecutan, graf', 'Velocity, acceleration, graphs'],
+  ['Hari aktif', 'Active days'],
   ['Hari Streak', 'Day Streak'],
   ['Ibu Bapa', 'Parent'],
+  ['Identiti dan budaya', 'Identity and culture'],
+  ['Ikut rekod semasa', 'Based on current records'],
+  ['Interaksi organisma', 'Organism interactions'],
+  ['Ion dan kovalen', 'Ionic and covalent'],
   ['Jawapan tidak dapat dihantar.', 'Answer could not be submitted.'],
   ['Jeda', 'Pause'],
   ['Jumlah Soalan', 'Total Questions'],
+  ['Jumlah XP', 'Total XP'],
   ['JUMLAH SOALAN', 'TOTAL QUESTIONS'],
   ['KELAS', 'CLASSES'],
+  ['Kawalan dalaman', 'Internal regulation'],
   ['Kandungan', 'Content'],
   ['Kata Laluan', 'Password'],
   ['Kembali ke dek', 'Back to decks'],
   ['Kelas', 'Classes'],
+  ['Kelas baharu', 'New class'],
   ['Kelas Saya', 'My Classes'],
+  ['Kelas tanpa nama', 'Untitled class'],
   ['Kemajuan', 'Progress'],
   ['Keputusan', 'Results'],
   ['Keputusan Kuiz', 'Quiz Results'],
   ['Ketepatan', 'Accuracy'],
   ['Ketepatan Setiap Soalan', 'Accuracy By Question'],
   ['Kimia', 'Chemistry'],
+  ['Kod Kelas', 'Class Code'],
+  ['Kod kelas guru tidak boleh digunakan. Masukkan ID Tusyen pelajar atau e-mel akaun pelajar.', 'Teacher class codes cannot be used. Enter the student Tusyen ID or student account email.'],
   ['Komponen kuiz tidak dapat dimuatkan.', 'Quiz component could not be loaded.'],
+  ['Komen ini akan disembunyikan daripada perbincangan pos kelas.', 'This comment will be hidden from the class post discussion.'],
+  ['Kumpulan dan kala', 'Groups and periods'],
   ['Kuiz ini telah tamat. Minta PIN sesi baharu daripada guru.', 'This quiz has ended. Ask your teacher for a new session PIN.'],
   ['Kuiz', 'Quiz'],
   ['Kuiz baharu', 'New Quiz'],
   ['Kuiz langsung', 'Live quiz'],
+  ['Kelengkapan Profil', 'Profile Completion'],
+  ['Kerja, kuasa, kecekapan', 'Work, power, efficiency'],
   ['Lobi', 'Lobby'],
   ['Log Keluar', 'Sign Out'],
+  ['Log keluar', 'Sign out'],
   ['Log Masuk', 'Sign In'],
   ['Langkau ke kandungan utama', 'Skip to main content'],
+  ['Latih topik lemah', 'Practice weak topics'],
+  ['Lihat kelas', 'View class'],
+  ['Lihat penguasaan', 'View mastery'],
+  ['Lihat sebab dan cadangan', 'View reasons and suggestions'],
   ['Matematik', 'Mathematics'],
+  ['Masa minggu ini', 'Time this week'],
+  ['Masukkan ID Tusyen pelajar atau e-mel akaun pelajar.', 'Enter the student Tusyen ID or student account email.'],
   ['Masukkan PIN 6 digit daripada guru', 'Enter the 6-digit PIN from your teacher'],
   ['Memadam...', 'Deleting...'],
   ['Memeriksa sesi kuiz aktif...', 'Checking active quiz session...'],
+  ['Memantau %s', 'Monitoring %s'],
   ['Memproses...', 'Processing...'],
   ['Memulakan...', 'Starting...'],
   ['Menunggu guru memulakan...', 'Waiting for the teacher to start...'],
   ['Menyambung ke sesi langsung...', 'Connecting to the live session...'],
   ['Menyertai...', 'Joining...'],
   ['Menyimpan...', 'Saving...'],
+  ['Mengemas kini...', 'Updating...'],
+  ['Mitosis dan meiosis', 'Mitosis and meiosis'],
   ['Mulakan', 'Start'],
   ['Mulakan Kuiz', 'Start Quiz'],
+  ['Mula topik semasa', 'Start current topic'],
   ['Nama Penuh', 'Full Name'],
   ['Nama panggilan', 'Nickname'],
   ['Nama panggilan diperlukan.', 'Nickname is required.'],
   ['Navigasi admin', 'Admin navigation'],
   ['Navigasi bawah', 'Bottom navigation'],
+  ['Navigasi guru', 'Teacher navigation'],
+  ['Nombor', 'Numbers'],
+  ['Notifikasi', 'Notifications'],
+  ['Nyahaktifkan', 'Deactivate'],
+  ['Nyahaktifkan kelas', 'Deactivate class'],
+  ['Nyahaktifkan Pautan', 'Deactivate Link'],
+  ['Nyahaktifkan pautan', 'Deactivate link'],
+  ['Nyahaktifkan pautan keluarga?', 'Deactivate family link?'],
   ['Papan Putih', 'Whiteboard'],
   ['Papan Skor Langsung', 'Live Scoreboard'],
+  ['Pangkalan Data', 'Database'],
   ['Padam dek', 'Delete deck'],
   ['Padam dek kuiz?', 'Delete quiz deck?'],
+  ['Padam komen', 'Delete comment'],
+  ['Padam pos', 'Delete post'],
   ['Paparan PIN', 'PIN Display'],
   ['PELAJAR', 'STUDENTS'],
   ['Pelajar', 'Student'],
+  ['Pelajar Berisiko', 'At-Risk Students'],
+  ['Pelajaran dicadang', 'Suggested lesson'],
   ['Pelajaran', 'Lessons'],
   ['Pemantauan', 'Monitoring'],
+  ['Pembangunan negara', 'National development'],
+  ['Pemasa kuiz langsung', 'Live quiz timer'],
   ['Pengguna', 'Users'],
+  ['Pengurusan alam sekitar', 'Environmental management'],
   ['Peranan', 'Role'],
+  ['Peristiwa utama', 'Key events'],
+  ['Perlembagaan dan sistem', 'Constitution and system'],
+  ['Perbincangan', 'Discussion'],
   ['Peserta', 'Participants'],
   ['Peserta Teratas', 'Top Participants'],
+  ['pH dan peneutralan', 'pH and neutralization'],
   ['PIN mesti 6 digit.', 'PIN must be 6 digits.'],
   ['PIN tidak sah. Semak 6 digit daripada guru dan cuba lagi.', 'Invalid PIN. Check the 6 digits from your teacher and try again.'],
+  ['Pautan ditambah.', 'Link added.'],
+  ['Pautan dinyahaktifkan.', 'Link deactivated.'],
+  ['Pautan Ibu Bapa-Pelajar', 'Parent-Student Links'],
+  ['Pautan Ibu Bapa–Pelajar', 'Parent-Student Links'],
+  ['Pautkan anak untuk mula memantau.', 'Link a child to start monitoring.'],
+  ['Pilih anak', 'Select child'],
   ['Pilih bahasa', 'Choose language'],
   ['Pilih Kelas', 'Select Class'],
   ['Pilih kelas dahulu.', 'Select a class first.'],
+  ['Pilih ibu bapa dan pelajar.', 'Select a parent and student.'],
+  ['Pilih subjek', 'Choose subject'],
   ['Pilih tema warna', 'Choose color theme'],
+  ['Pilih topik semasa', 'Choose current topic'],
   ['Pilihan jawapan', 'Multiple choice'],
   ['Pos', 'Posts'],
+  ['Pos baharu', 'New post'],
   ['Pos Kelas', 'Class Posts'],
+  ['Pos daripada kelas anak akan muncul di sini.', 'Posts from the child classes will appear here.'],
   ['Profil', 'Profile'],
   ['Profil Guru', 'Teacher Profile'],
+  ['Pewarisan sifat', 'Inherited traits'],
+  ['Pratonton Pelajaran', 'Lesson Preview'],
+  ['Privasi: pautan ibu bapa hanya memaparkan kemajuan, kelas, dan pos berkaitan anak. Pastikan anak bersetuju sebelum memaut akaun.', 'Privacy: parent links only show progress, classes, and posts related to the child. Make sure the child agrees before linking the account.'],
+  ['Purata Siap', 'Average Completion'],
+  ['Purata skor', 'Average score'],
   ['Ringkasan Kuiz Saya', 'My Quiz Summary'],
+  ['Ringkasan ibu bapa', 'Parent summary'],
   ['Sains', 'Science'],
   ['Salin', 'Copy'],
   ['Salin dek', 'Copy deck'],
   ['Sambung', 'Resume'],
+  ['Saiz storan belum dimuat.', 'Storage size has not loaded.'],
   ['Sedang berjalan', 'In progress'],
   ['Sejarah', 'History'],
+  ['Sejarah Pelajaran', 'Lesson History'],
   ['Selesai', 'Done'],
+  ['Selesai semua Algebra', 'Complete all Algebra'],
   ['Sertai Kuiz', 'Join Quiz'],
   ['Sertai Kuiz dengan PIN', 'Join Quiz With PIN'],
   ['Sertai Sekarang', 'Join Now'],
   ['Sesi Terkini', 'Recent Sessions'],
+  ['Sahkan', 'Confirm'],
+  ['Sahkan persetujuan anak sebelum memaut akaun.', 'Confirm the child consent before linking the account.'],
   ['Sila tunggu...', 'Please wait...'],
   ['Simpan', 'Save'],
   ['Simpan dek', 'Save deck'],
+  ['Simpan draf', 'Save draft'],
+  ['Simpan Perubahan', 'Save Changes'],
+  ['Simpan Profil', 'Save Profile'],
   ['Sistem', 'System'],
+  ['Skala dan arah', 'Scale and direction'],
+  ['Skor 100% dalam ujian', 'Score 100% in a quiz'],
   ['Soalan', 'Questions'],
+  ['Soalan Latihan', 'Practice Questions'],
   ['Soalan Seterusnya', 'Next Question'],
+  ['Status belum dimuat.', 'Status has not loaded.'],
+  ['Statistik', 'Statistics'],
+  ['Storan', 'Storage'],
+  ['Struktur dan fungsi', 'Structure and function'],
   ['Subjek', 'Subject'],
   ['SUBJEK', 'SUBJECTS'],
+  ['Suapan & Pos', 'Feed & Posts'],
+  ['Suapan Kelas', 'Class Feed'],
   ['Sunting', 'Edit'],
   ['Sunting dek', 'Edit deck'],
+  ['Sunting profil', 'Edit profile'],
   ['Tajuk dek', 'Deck title'],
+  ['Tajuk Pelajaran', 'Lesson Title'],
   ['Tajuk wajib diisi.', 'Deck title is required.'],
   ['Tambah sekurang-kurangnya satu soalan lengkap.', 'Add at least one complete question.'],
+  ['Tambah Anak', 'Add Child'],
+  ['Tambah Pautan', 'Add Link'],
+  ['Tambah Pautan Baharu', 'Add New Link'],
+  ['Tambah Pengguna', 'Add User'],
+  ['Tambah Soalan', 'Add Question'],
+  ['Tandai untuk tindak lanjut', 'Flag for follow-up'],
   ['Tamat', 'Ended'],
   ['Tamatkan', 'End'],
+  ['Tanah tinggi dan saliran', 'Highlands and drainage'],
+  ['Tanpa tajuk', 'Untitled'],
   ['Teks soalan...', 'Question text...'],
+  ['Tiada mesej dihantar; tindakan ini hanya menyimpan tanda tindak lanjut.', 'No message is sent; this only saves a follow-up flag.'],
+  ['Tetapkan ke Kelas', 'Assign to Class'],
   ['Tema', 'Theme'],
   ['Tetapan', 'Settings'],
+  ['Tetapan Akaun', 'Account Settings'],
+  ['Tetapan Ibu Bapa', 'Parent Settings'],
+  ['Tetapan Kelas', 'Class Settings'],
+  ['Tingkatan', 'Form'],
   ['Tindakan lanjut', 'More actions'],
   ['Tindakan lanjut soalan', 'More question actions'],
+  ['Tindak lanjut disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.', 'Follow-up saved on this device. Use official class or school channels if a question must be sent.'],
+  ['Tokoh dan gerakan', 'Figures and movements'],
+  ['Topik pembelajaran', 'Learning topic'],
   ['Tidak dapat memulakan kuiz.', 'Could not start the quiz.'],
   ['Tidak dapat menamatkan kuiz.', 'Could not end the quiz.'],
   ['Tidak dapat mengemas kini pemasa.', 'Could not update the timer.'],
   ['Tidak dapat pergi ke soalan seterusnya.', 'Could not move to the next question.'],
+  ['Tidak dapat memaut anak.', 'Unable to link child.'],
+  ['Tidak dapat membuang pautan anak.', 'Unable to remove child link.'],
+  ['Tidak dapat memuat anak terpaut.', 'Unable to load linked child.'],
+  ['Tidak dapat memuat kemajuan.', 'Unable to load progress.'],
+  ['Tidak dapat memuat pos.', 'Unable to load posts.'],
+  ['Tidak dapat menukar kata laluan.', 'Unable to change password.'],
+  ['Tidak aktif', 'Inactive'],
   ['Tiada dek lagi. Cipta dek pertama anda.', 'No decks yet. Create your first deck.'],
+  ['Tiada data', 'No data'],
+  ['Tiada e-mel', 'No email'],
+  ['Tiada e-mel ibu bapa', 'No parent email'],
+  ['Tiada e-mel pelajar', 'No student email'],
+  ['Tiada ibu bapa ditemui', 'No parents found'],
+  ['Tiada pelajar ditemui', 'No students found'],
+  ['Tiada amaran aktif', 'No active alerts'],
+  ['Tiada ulasan lagi.', 'No comments yet.'],
   ['Tutup', 'Close'],
+  ['Tugasan', 'Assignment'],
+  ['Tugasan guru', 'Teacher assignment'],
+  ['Tugasan Kelas', 'Class Assignments'],
+  ['Tugaskan Pelajaran', 'Assign Lesson'],
+  ['Ulang kaji selesai', 'Review completed'],
+  ['Urus Pengguna', 'Manage Users'],
   ['Utama', 'Home'],
+  ['%s anak didaftarkan', '%s children linked'],
+  ['+ Cipta kelas baharu', '+ Create new class'],
+  ['+ Pos baharu', '+ New post'],
 ]);
 
 const STATIC_TRANSLATION_PATTERNS = [
@@ -503,6 +654,81 @@ const timeAgo = (ts) => {
   if (hr < 24)  return `${hr}j lepas`;
   const d = Math.floor(hr / 24);
   return d === 1 ? 'Semalam' : `${d} hari lepas`;
+};
+
+const videoEmbedInfoFromUrl = (value) => {
+  const raw = `${value || ''}`.trim();
+  if (!raw) return null;
+  let url;
+  try {
+    url = new URL(raw);
+  } catch {
+    return null;
+  }
+
+  const host = url.hostname.toLowerCase().replace(/^www\./, '').replace(/^m\./, '');
+  const parts = url.pathname.split('/').filter(Boolean);
+  const safeTitle = 'Video';
+
+  if (host === 'youtu.be') {
+    const id = parts[0];
+    if (id) return { src:`https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`, title:safeTitle };
+  }
+
+  if (host === 'youtube.com' || host === 'youtube-nocookie.com') {
+    const watchId = url.searchParams.get('v');
+    const embedId = ['embed', 'shorts', 'live'].includes(parts[0]) ? parts[1] : '';
+    const id = watchId || embedId;
+    if (id) return { src:`https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`, title:safeTitle };
+  }
+
+  if (host === 'vimeo.com' || host === 'player.vimeo.com') {
+    const id = parts[0] === 'video' ? parts[1] : parts.find(part => /^\d+$/.test(part));
+    if (id) return { src:`https://player.vimeo.com/video/${encodeURIComponent(id)}`, title:safeTitle };
+  }
+
+  if (host === 'loom.com' || host.endsWith('.loom.com')) {
+    const id = parts[0] === 'embed' || parts[0] === 'share' ? parts[1] : '';
+    if (id) return { src:`https://www.loom.com/embed/${encodeURIComponent(id)}`, title:safeTitle };
+  }
+
+  return null;
+};
+
+const isVideoEmbedUrl = (value) => !!videoEmbedInfoFromUrl(value);
+
+const VideoEmbed = ({ url, title, style:sx={} }) => {
+  const info = videoEmbedInfoFromUrl(url);
+  if (!info) return null;
+  return (
+    <div style={{
+      position:'relative',
+      width:'100%',
+      aspectRatio:'16 / 9',
+      overflow:'hidden',
+      borderRadius:16,
+      border:`1px solid ${C.border}`,
+      background:C.bg,
+      ...sx,
+    }}>
+      <iframe
+        title={title || info.title}
+        src={info.src}
+        loading="lazy"
+        sandbox="allow-scripts allow-same-origin allow-presentation"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        referrerPolicy="strict-origin-when-cross-origin"
+        style={{
+          position:'absolute',
+          inset:0,
+          width:'100%',
+          height:'100%',
+          border:0,
+        }}
+      />
+    </div>
+  );
 };
 
 const titleCaseDisplayWords = (value) => `${value || ''}`
@@ -1723,6 +1949,6 @@ Object.assign(window, {
   ThemeToggle, LanguageToggle, ThemeSettingsCard, AccountActionsCard,
   AccountMenu, ConfirmDialog, ActionMenu, DataModeBanner, useTheme,
   useLanguage, useNarrow, useScreenFocus, AppSidebar, TopBarMobile, BottomNavMobile,
-  NavIcon,
+  NavIcon, VideoEmbed, isVideoEmbedUrl,
   cleanUiText, cleanUiName, cleanUiTitle,
 });

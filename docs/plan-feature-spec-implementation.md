@@ -19,10 +19,10 @@ Design-only items (⚪) and explicitly out-of-scope features (Flutter offline ca
 
 | # | Task | Files | Change | Label |
 |---|------|-------|--------|-------|
-| 0.1 | Add `UNIQUE(session_id, display_name)` to guest quiz participants | `database/migrations/018_guest_quiz_unique.sql` | New migration adding partial unique index on `quiz_session_participants(session_id, display_name) WHERE user_id IS NULL`. | `[BLOCKING]` |
-| 0.2 | Add `parent_alert_statuses` table to migrations | `database/migrations/019_parent_alert_statuses.sql` | Extract the ad-hoc `CREATE TABLE IF NOT EXISTS parent_alert_statuses` from `auth/routes.ts` into a proper migration. Add FK on `user_id`. | `[BLOCKING]` |
-| 0.3 | Add `(classroom_id, updated_at)` composite index on progress | `database/migrations/020_progress_classroom_index.sql` | `CREATE INDEX CONCURRENTLY idx_progress_classroom_updated ON progress(classroom_id, updated_at)`. Fixes DAT-07 and speeds up OPS-04 alert queries. | `[BLOCKING]` |
-| 0.4 | Add `keycloak_subject` uniqueness per realm | `database/migrations/021_keycloak_subject_realm_unique.sql` | Drop existing unique index on `keycloak_subject`; add `UNIQUE(keycloak_subject, keycloak_realm)` to `users` table. Fixes SEC-01. | `[BLOCKING]` |
+| 0.1 | Add `UNIQUE(session_id, display_name)` to guest quiz participants | `database/migrations/018_guest_quiz_unique.sql` | New migration adding partial unique index on `quiz_session_participants(session_id, display_name) WHERE user_id IS NULL`. | `[BLOCKING]` | `[DONE]` |
+| 0.2 | Add `parent_alert_statuses` table to migrations | `database/migrations/019_parent_alert_statuses.sql` | Extract the ad-hoc `CREATE TABLE IF NOT EXISTS parent_alert_statuses` from `auth/routes.ts` into a proper migration. Add FK on `user_id`. | `[BLOCKING]` | `[DONE]` |
+| 0.3 | Add `(classroom_id, updated_at)` composite index on progress | `database/migrations/020_progress_classroom_index.sql` | `CREATE INDEX CONCURRENTLY idx_progress_classroom_updated ON progress(classroom_id, updated_at)`. Fixes DAT-07 and speeds up OPS-04 alert queries. | `[BLOCKING]` | `[DONE]` — note: `CONCURRENTLY` keyword was dropped (plain `CREATE INDEX`), which is fine for initial migration but locks the table briefly on first run. |
+| 0.4 | Add `keycloak_subject` uniqueness per realm | `database/migrations/021_keycloak_subject_realm_unique.sql` | Drop existing unique index on `keycloak_subject`; add `UNIQUE(keycloak_subject, keycloak_realm)` to `users` table. Fixes SEC-01. | `[BLOCKING]` | `[DONE]` |
 
 ---
 
@@ -30,13 +30,13 @@ Design-only items (⚪) and explicitly out-of-scope features (Flutter offline ca
 
 | # | Task | Files | Change | Label |
 |---|------|-------|--------|-------|
-| 1.1 | Fix Keycloak email-merge account takeover | `backend/src/auth/keycloak.ts` | At the upsert-user step (~line 427), scope the email lookup to the same `keycloak_realm`; reject cross-realm email matches with a 409 and log an audit event. Depends on 0.4. | `[PARALLEL]` |
-| 1.2 | Remove hardcoded demo admin account | `backend/src/auth/routes.ts`, `backend/scripts/seed-demo.js` | Delete the hardcoded `admin@tusyen.test` fallback from routes.ts (~line 838). Move demo seed into `seed-demo.js` only, gated by `NODE_ENV !== production`. Fixes SEC-03. | `[PARALLEL]` |
-| 1.3 | Replace Math.random join-code with crypto.randomBytes | `backend/src/classroom/routes.ts` | Replace `Math.random().toString(36).substring(2,8)` with `crypto.randomBytes(4).toString('hex').substring(0,6).toUpperCase()`. Fixes SEC-04. | `[PARALLEL]` |
-| 1.4 | Fix CORS wildcard regex in production | `backend/src/index.ts` | Wrap the wildcard-subdomain regex inside `if (NODE_ENV !== 'production')`. In production, use the exact origins from `config.ts`. Fixes SEC-02. | `[PARALLEL]` |
-| 1.5 | Add rate limit to `/classroom/join-by-code` | `backend/src/classroom/routes.ts` | Add a Fastify rate-limit decorator specifically on the join-by-code route: 10 attempts per 5 min per IP. Fixes SEC-05 analogue for join codes. | `[PARALLEL]` |
-| 1.6 | Fix Centrifugo allowed_origins for production | `centrifugo/config.json` | Add `CENTRIFUGO_ALLOWED_ORIGINS` env var support; document required values for production deployment. Fixes OPS-01. | `[PARALLEL]` |
-| 1.7 | Add trusted-proxy validation for X-Forwarded-For | `backend/src/auth/routes.ts` | Add `trustProxy` config check; validate `X-Forwarded-For` only when behind a trusted reverse proxy. Fixes SEC-06. | `[PARALLEL]` |
+| 1.1 | Fix Keycloak email-merge account takeover | `backend/src/auth/keycloak.ts` | At the upsert-user step (~line 427), scope the email lookup to the same `keycloak_realm`; reject cross-realm email matches with a 409 and log an audit event. Depends on 0.4. | `[PARALLEL]` | `[DONE]` — cross-realm check at lines 430–446; 409 thrown with audit event `auth.keycloak_realm_conflict`. |
+| 1.2 | Remove hardcoded demo admin account | `backend/src/auth/routes.ts`, `backend/scripts/seed-demo.js` | Delete the hardcoded `admin@tusyen.test` fallback from routes.ts (~line 838). Move demo seed into `seed-demo.js` only, gated by `NODE_ENV !== production`. Fixes SEC-03. | `[PARALLEL]` | `[DONE]` — no match for `admin@tusyen.test` in routes.ts; seed-demo.js gated by env. |
+| 1.3 | Replace Math.random join-code with crypto.randomBytes | `backend/src/classroom/routes.ts` | Replace `Math.random().toString(36).substring(2,8)` with `crypto.randomBytes(4).toString('hex').substring(0,6).toUpperCase()`. Fixes SEC-04. | `[PARALLEL]` | `[DONE]` — `generateClassCode()` now uses `randomBytes(4)`. |
+| 1.4 | Fix CORS wildcard regex in production | `backend/src/index.ts` | Wrap the wildcard-subdomain regex inside `if (NODE_ENV !== 'production')`. In production, use the exact origins from `config.ts`. Fixes SEC-02. | `[PARALLEL]` | `[DONE]` — `originMatchesAllowed` returns false for wildcards in production (lines 229, 231). |
+| 1.5 | Add rate limit to `/classroom/join-by-code` | `backend/src/classroom/routes.ts` | Add a Fastify rate-limit decorator specifically on the join-by-code route: 10 attempts per 5 min per IP. Fixes SEC-05 analogue for join codes. | `[PARALLEL]` | `[DONE]` — `enforceJoinByCodeRateLimit` wraps Redis-backed check, 10/300s per IP. |
+| 1.6 | Fix Centrifugo allowed_origins for production | `centrifugo/config.json` | Add `CENTRIFUGO_ALLOWED_ORIGINS` env var support; document required values for production deployment. Fixes OPS-01. | `[PARALLEL]` | `[PARTIAL: config.json still hardcodes ["http://localhost","http://127.0.0.1"]; no env var substitution or env-var documentation was added. Production WebSocket connections will still fail.]` |
+| 1.7 | Add trusted-proxy validation for X-Forwarded-For | `backend/src/auth/routes.ts` | Add `trustProxy` config check; validate `X-Forwarded-For` only when behind a trusted proxy. Fixes SEC-06. | `[PARALLEL]` | `[DONE]` — `isTrustedProxyRequest` checks `config.TRUSTED_PROXY_IPS`; X-Forwarded-For only consumed when IP matches. |
 
 ---
 

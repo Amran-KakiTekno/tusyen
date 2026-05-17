@@ -6,8 +6,8 @@ import {
   calculateQuestionScore,
   formatQuizParticipantDisplayName,
   generateQuizPin,
+  gradeQuizAnswer,
   quizAnswerIsBlank,
-  quizAnswersMatch,
   normalizeQuizQuestion,
   questionRowForClient,
   type QuizQuestionInput,
@@ -50,6 +50,52 @@ type QuizTimerControlInput = {
 const SESSION_STATE_TTL_SECONDS = 60 * 60 * 24 * 7;
 const SESSION_PIN_KEY_PREFIX = 'quiz:pin:';
 const SESSION_STATE_KEY_PREFIX = 'quiz:session:';
+const QUIZ_FAIL_SCORE_THRESHOLD = 60;
+const HEART_REGENERATION_MINUTES = 10;
+const ACHIEVEMENT_DEFINITIONS = [
+  {
+    code: 'streak_7',
+    name: 'Streak 7 Hari',
+    description: 'Belajar 7 hari berturut-turut.',
+    requirementType: 'streak_days',
+    requirementValue: 7,
+  },
+  {
+    code: 'streak_30',
+    name: 'Streak 30 Hari',
+    description: 'Belajar 30 hari berturut-turut.',
+    requirementType: 'streak_days',
+    requirementValue: 30,
+  },
+  {
+    code: 'perfect_score',
+    name: 'Markah Sempurna',
+    description: 'Dapat markah penuh dalam aktiviti.',
+    requirementType: 'perfect_score',
+    requirementValue: 100,
+  },
+  {
+    code: 'xp_1000',
+    name: '1000 XP',
+    description: 'Kumpul 1000 XP.',
+    requirementType: 'xp_total',
+    requirementValue: 1000,
+  },
+  {
+    code: 'xp_5000',
+    name: '5000 XP',
+    description: 'Kumpul 5000 XP.',
+    requirementType: 'xp_total',
+    requirementValue: 5000,
+  },
+  {
+    code: 'leaderboard_top_3',
+    name: 'Top 3 Leaderboard',
+    description: 'Masuk tiga tempat teratas leaderboard.',
+    requirementType: 'leaderboard_rank',
+    requirementValue: 3,
+  },
+];
 const quizSessionUpdateColumns = new Set([
   'status',
   'current_question_index',
@@ -596,30 +642,182 @@ export async function duplicateQuizDeck(user: AuthUser, deckId: string) {
 }
 
 export async function listQuizSessions(user: AuthUser, classroomId: string) {
-  if (!isTeacherOrAdmin(user)) {
-    throw new Error('Only teachers can view quiz sessions');
+  if (isTeacherOrAdmin(user)) {
+    await ensureTeacherCanAccessClassroomSession(user, classroomId);
+
+    const result = await db.query(
+      `SELECT qs.*,
+              qd.title as deck_title,
+              qd.subject as deck_subject,
+              qd.form_level as deck_form_level,
+              COUNT(DISTINCT qsp.id) as participant_count,
+              COUNT(DISTINCT qsa.id) as answer_count
+       FROM quiz_sessions qs
+       JOIN quiz_decks qd ON qd.id = qs.deck_id
+       LEFT JOIN quiz_session_participants qsp ON qsp.session_id = qs.id
+       LEFT JOIN quiz_session_answers qsa ON qsa.session_id = qs.id
+       WHERE qs.classroom_id = $1
+       GROUP BY qs.id, qd.id
+       ORDER BY qs.created_at DESC`,
+      [classroomId]
+    );
+
+    return result.rows;
   }
 
-  await ensureTeacherCanAccessClassroomSession(user, classroomId);
+  if (user.role !== 'student') {
+    throw new Error('Not enrolled in this classroom');
+  }
+
+  const enrolled = await db.query(
+    `SELECT id FROM classroom_students
+     WHERE classroom_id = $1 AND student_id = $2 AND is_active = true`,
+    [classroomId, user.userId]
+  );
+  if ((enrolled.rowCount ?? 0) === 0) {
+    throw new Error('Not enrolled in this classroom');
+  }
 
   const result = await db.query(
-    `SELECT qs.*,
-            qd.title as deck_title,
-            qd.subject as deck_subject,
-            qd.form_level as deck_form_level,
-            COUNT(DISTINCT qsp.id) as participant_count,
-            COUNT(DISTINCT qsa.id) as answer_count
-     FROM quiz_sessions qs
-     JOIN quiz_decks qd ON qd.id = qs.deck_id
-     LEFT JOIN quiz_session_participants qsp ON qsp.session_id = qs.id
-     LEFT JOIN quiz_session_answers qsa ON qsa.session_id = qs.id
-     WHERE qs.classroom_id = $1
-     GROUP BY qs.id, qd.id
-     ORDER BY qs.created_at DESC`,
+    `SELECT qs.id, qs.pin, qs.status, qs.started_at, qs.current_question_index,
+            qs.created_at, qd.title as deck_title, qd.subject
+       FROM quiz_sessions qs
+       JOIN quiz_decks qd ON qd.id = qs.deck_id
+       WHERE qs.classroom_id = $1
+         AND qs.status IN ('waiting', 'lobby', 'active')
+       ORDER BY qs.created_at DESC
+       LIMIT 10`,
     [classroomId]
   );
 
-  return result.rows;
+  return result.rows.map((row) => ({
+    id: row.id,
+    pin: row.pin,
+    status: row.status,
+    deckTitle: row.deck_title,
+    subject: row.subject,
+    startedAt: row.started_at,
+    currentQuestionIndex: Number(row.current_question_index ?? 0),
+    createdAt: row.created_at,
+  }));
+}
+
+export async function getSessionParticipantReview(
+  user: AuthUser,
+  sessionId: string,
+  participantToken: string,
+) {
+  const sessionResult = await db.query(
+    `SELECT qs.id, qs.status, qs.deck_id, qs.classroom_id, qs.teacher_id
+     FROM quiz_sessions qs
+     WHERE qs.id = $1`,
+    [sessionId]
+  );
+  if (sessionResult.rowCount === 0) throw new Error('Session not found');
+  const session = sessionResult.rows[0];
+  if (session.status !== 'ended') throw new Error('Session is not yet ended');
+
+  let participantId: string;
+  if (isTeacherOrAdmin(user)) {
+    const pResult = await db.query(
+      `SELECT id FROM quiz_session_participants
+       WHERE session_id = $1 AND join_token = $2`,
+      [sessionId, participantToken]
+    );
+    if (pResult.rowCount === 0) throw new Error('Participant not found');
+    participantId = pResult.rows[0].id;
+  } else {
+    const pResult = await db.query(
+      `SELECT id FROM quiz_session_participants
+       WHERE session_id = $1 AND join_token = $2 AND user_id = $3`,
+      [sessionId, participantToken, user.userId]
+    );
+    if (pResult.rowCount === 0) throw new Error('Participant not found or not authorized');
+    participantId = pResult.rows[0].id;
+  }
+
+  const questionsResult = await db.query(
+    `SELECT q.id, q.question_text, q.question_type, q.options, q.correct_answer, q.explanation, q.order_index
+     FROM quiz_deck_questions q
+     WHERE q.deck_id = $1
+     ORDER BY q.order_index`,
+    [session.deck_id]
+  );
+
+  const answersResult = await db.query(
+    `SELECT question_id, selected_answer, is_correct, response_time_ms
+     FROM quiz_session_answers
+     WHERE session_id = $1 AND participant_id = $2`,
+    [sessionId, participantId]
+  );
+  const answersByQuestion = new Map(answersResult.rows.map((row) => [row.question_id, row]));
+
+  return questionsResult.rows.map((question, index) => {
+    const answer = answersByQuestion.get(question.id);
+    const options = normalizeReviewOptions(question.options);
+    return {
+      orderIndex: Number(question.order_index ?? index),
+      questionText: question.question_text,
+      questionType: question.question_type,
+      selectedAnswer: answer ? answerTextForReview(answer.selected_answer, options) : null,
+      correctAnswer: answerTextForReview(question.correct_answer, options),
+      isCorrect: Boolean(answer?.is_correct),
+      didAnswer: Boolean(answer),
+      explanation: question.explanation ?? null,
+      responseTimeMs: Number(answer?.response_time_ms ?? 0),
+    };
+  });
+}
+
+function normalizeReviewOptions(rawOptions: unknown): unknown[] {
+  if (Array.isArray(rawOptions)) return rawOptions;
+  if (!rawOptions) return [];
+  if (typeof rawOptions === 'string') {
+    try {
+      const parsed = JSON.parse(rawOptions);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  }
+  return [];
+}
+
+function answerTextForReview(rawAnswer: unknown, options: unknown[]) {
+  const answer = normalizeReviewAnswer(rawAnswer);
+  if (answer === null || answer === undefined || answer === '') return null;
+
+  const index =
+    typeof answer === 'object' && !Array.isArray(answer)
+      ? Number((answer as any).optionIndex ?? (answer as any).selectedOptionIndex)
+      : Number(answer);
+
+  if (Number.isInteger(index) && index >= 0 && index < options.length) {
+    return optionTextForReview(options[index]);
+  }
+
+  return typeof answer === 'object' ? JSON.stringify(answer) : String(answer);
+}
+
+function normalizeReviewAnswer(rawAnswer: unknown): any {
+  if (rawAnswer === null || rawAnswer === undefined) return null;
+  if (typeof rawAnswer !== 'string') return rawAnswer;
+  const trimmed = rawAnswer.trim();
+  if (!trimmed) return '';
+  try {
+    return JSON.parse(trimmed);
+  } catch {
+    return trimmed;
+  }
+}
+
+function optionTextForReview(option: unknown) {
+  if (option === null || option === undefined) return null;
+  if (typeof option === 'object') {
+    const value = option as any;
+    return String(value.text ?? value.label ?? value.value ?? JSON.stringify(option));
+  }
+  return String(option);
 }
 
 export async function createQuizSession(user: AuthUser, input: { classroomId: string; deckId: string }) {
@@ -1069,6 +1267,7 @@ export async function endQuizSession(user: AuthUser, sessionId: string) {
     [sessionId]
   );
 
+  const questionCount = (await loadDeckQuestions(session.deck_id)).length;
   const xpAwards: Array<{ userId: string; amount: number }> = [];
 
   await withTransaction(async (client) => {
@@ -1154,10 +1353,103 @@ export async function endQuizSession(user: AuthUser, sessionId: string) {
     endedAt: new Date().toISOString(),
   });
 
+  await Promise.all(participants.rows.map(async (participant: any) => {
+    if (!participant.user_id || participant.role !== 'student') return;
+
+    const answeredCount = Number(participant.answered_count || 0);
+    const correctCount = Number(participant.correct_count || 0);
+    const completed = questionCount > 0 && answeredCount >= questionCount;
+    const score = questionCount > 0 ? Math.round((correctCount / questionCount) * 100) : 0;
+
+    await Promise.all([
+      checkAndAwardAchievements(participant.user_id, {
+        score,
+        perfect: completed && score === 100,
+        streak: await getStudentStreak(participant.user_id),
+      }),
+      maybeDecrementStudentHeartsOnQuizFailure(participant.user_id, score, completed),
+    ]);
+  }));
+
   return {
     snapshot,
     xpAwards,
   };
+}
+
+export async function cancelQuizSession(user: AuthUser, sessionId: string) {
+  const session = await loadSessionRecord(sessionId);
+  if (!session) {
+    throw new Error('Quiz session not found');
+  }
+
+  await ensureTeacherCanAccessSession(user, session);
+
+  if (session.status === 'ended' || session.status === 'cancelled') {
+    return createSessionSnapshot(sessionId, { revealCorrectAnswer: true });
+  }
+
+  const participants = await db.query(
+    `SELECT qsp.*
+     FROM quiz_session_participants qsp
+     WHERE qsp.session_id = $1
+     ORDER BY qsp.total_score DESC, qsp.correct_count DESC, qsp.answered_count ASC, qsp.display_name ASC`,
+    [sessionId]
+  );
+
+  await withTransaction(async (client) => {
+    await client.query(
+      `UPDATE quiz_sessions
+       SET status = 'cancelled',
+           ended_at = NOW(),
+           leaderboard_snapshot = $2,
+           updated_at = NOW()
+       WHERE id = $1`,
+      [sessionId, JSON.stringify(buildLeaderboard(
+        participants.rows.map((participant: any) => ({
+          participantId: participant.id,
+          displayName: participant.display_name,
+          totalScore: Number(participant.total_score || 0),
+          correctCount: Number(participant.correct_count || 0),
+          answeredCount: Number(participant.answered_count || 0),
+          isGuest: Boolean(participant.is_guest),
+          userId: participant.user_id || null,
+        }))
+      ))]
+    );
+
+    await client.query(
+      `UPDATE quiz_session_participants
+       SET is_connected = false,
+           left_at = COALESCE(left_at, NOW()),
+           updated_at = NOW()
+       WHERE session_id = $1`,
+      [sessionId]
+    );
+  });
+
+  await clearSessionPin(session.pin);
+  await redis.del(stateKey(sessionId));
+
+  const snapshot = await createSessionSnapshot(sessionId, { revealCorrectAnswer: true });
+  if (snapshot) {
+    await storeSessionState(sessionId, {
+      sessionId,
+      status: snapshot.session.status,
+      pin: snapshot.session.pin,
+      classroomId: snapshot.session.classroomId,
+      deckId: snapshot.session.deckId,
+      currentQuestionIndex: snapshot.session.currentQuestionIndex,
+      currentQuestionId: snapshot.session.currentQuestionId,
+      questionStartedAt: snapshot.session.questionStartedAt,
+      questionEndsAt: snapshot.session.questionEndsAt,
+      questionPausedAt: snapshot.session.questionPausedAt,
+      questionRemainingMs: snapshot.session.questionRemainingMs,
+      endedAt: snapshot.session.endedAt || new Date().toISOString(),
+    });
+  }
+
+  return snapshot;
 }
 
 export async function submitQuizAnswer(input: QuizAnswerInput) {
@@ -1225,12 +1517,13 @@ export async function submitQuizAnswer(input: QuizAnswerInput) {
   }
 
   const correctAnswerIndex = Number(currentQuestion.correct_answer?.optionIndex ?? -1);
-  const isCorrect = quizAnswersMatch(
+  const grade = gradeQuizAnswer(
     submittedAnswer,
     currentQuestion.correct_answer,
     currentQuestion.question_type,
     options,
   );
+  const isCorrect = grade.isCorrect;
   const rawAnswerTimeLimitSeconds = Number(currentQuestion.time_limit_seconds || 20);
   const timeLimitMs = (Number.isFinite(rawAnswerTimeLimitSeconds) && rawAnswerTimeLimitSeconds > 0
     ? rawAnswerTimeLimitSeconds
@@ -1238,9 +1531,12 @@ export async function submitQuizAnswer(input: QuizAnswerInput) {
   const elapsedMs = questionPaused
     ? Math.max(0, timeLimitMs - Math.max(0, Number(session.question_remaining_ms || 0)))
     : Math.max(0, now.getTime() - startedAt.getTime());
-  const pointsAwarded = isCorrect
-    ? calculateQuestionScore(Number(currentQuestion.points || 1000), Number(currentQuestion.time_limit_seconds || 20), elapsedMs)
-    : 0;
+  const baseScore = calculateQuestionScore(
+    Number(currentQuestion.points || 1000),
+    Number(currentQuestion.time_limit_seconds || 20),
+    elapsedMs,
+  );
+  const pointsAwarded = Math.round(baseScore * grade.scoreMultiplier);
 
   const insertResult = await withTransaction(async (client) => {
     const answerResult = await client.query(
@@ -1298,6 +1594,177 @@ export async function submitQuizAnswer(input: QuizAnswerInput) {
     pointsAwarded,
     elapsedMs,
   };
+}
+
+async function checkAndAwardAchievements(
+  studentId: string,
+  context: { score: number; perfect: boolean; streak: number },
+) {
+  const totalXp = await getTotalXp(studentId);
+  const leaderboardRank = await getLeaderboardRank(studentId);
+  const earned = ACHIEVEMENT_DEFINITIONS.filter((achievement) => {
+    if (achievement.requirementType === 'streak_days') {
+      return context.streak >= achievement.requirementValue;
+    }
+    if (achievement.requirementType === 'perfect_score') {
+      return context.perfect || context.score >= achievement.requirementValue;
+    }
+    if (achievement.requirementType === 'xp_total') {
+      return totalXp >= achievement.requirementValue;
+    }
+    if (achievement.requirementType === 'leaderboard_rank') {
+      return leaderboardRank !== null && leaderboardRank <= achievement.requirementValue;
+    }
+    return false;
+  });
+
+  for (const achievement of earned) {
+    await awardAchievement(studentId, achievement);
+  }
+}
+
+async function getStudentStreak(studentId: string) {
+  const result = await db.query(
+    `SELECT activity_date, streak_count
+     FROM student_streaks
+     WHERE student_id = $1
+     ORDER BY activity_date DESC
+     LIMIT 1`,
+    [studentId],
+  );
+
+  const row = result.rows[0];
+  if (!row) return 0;
+
+  const lastActive = new Date(row.activity_date);
+  lastActive.setHours(0, 0, 0, 0);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const yesterday = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
+
+  if (lastActive.getTime() !== today.getTime() && lastActive.getTime() !== yesterday.getTime()) {
+    return 0;
+  }
+
+  return Math.max(0, Number(row.streak_count || 0));
+}
+
+async function maybeDecrementStudentHeartsOnQuizFailure(
+  studentId: string,
+  score: number,
+  isCompleted: boolean,
+) {
+  await regenerateStudentHearts(studentId);
+  if (isCompleted || Number(score) >= QUIZ_FAIL_SCORE_THRESHOLD) {
+    return;
+  }
+
+  await db.query(
+    `UPDATE student_hearts
+     SET current_hearts = GREATEST(current_hearts - 1, 0),
+         updated_at = NOW()
+     WHERE student_id = $1`,
+    [studentId],
+  );
+}
+
+async function regenerateStudentHearts(studentId: string) {
+  await db.query(
+    `INSERT INTO student_hearts (student_id)
+     VALUES ($1)
+     ON CONFLICT (student_id) DO NOTHING`,
+    [studentId],
+  );
+
+  const result = await db.query(
+    `SELECT current_hearts, max_hearts, updated_at
+     FROM student_hearts
+     WHERE student_id = $1`,
+    [studentId],
+  );
+  const row = result.rows[0];
+  if (!row) return;
+
+  const current = Number(row.current_hearts || 0);
+  const maxHearts = Number(row.max_hearts || 0);
+  if (current >= maxHearts || maxHearts <= 0) return;
+
+  const updatedAt = new Date(row.updated_at || new Date()).getTime();
+  if (!Number.isFinite(updatedAt)) return;
+
+  const elapsedMinutes = Math.floor((Date.now() - updatedAt) / 60000);
+  const restored = Math.floor(elapsedMinutes / HEART_REGENERATION_MINUTES);
+  if (restored <= 0) return;
+
+  await db.query(
+    `UPDATE student_hearts
+     SET current_hearts = LEAST(current_hearts + $2, max_hearts),
+         updated_at = NOW()
+     WHERE student_id = $1`,
+    [studentId, restored],
+  );
+}
+
+async function getTotalXp(studentId: string) {
+  const result = await db.query(
+    `SELECT COALESCE(SUM(amount), 0)::int AS total_xp
+     FROM xp_events
+     WHERE user_id = $1`,
+    [studentId],
+  );
+  return Number(result.rows[0]?.total_xp || 0);
+}
+
+async function getLeaderboardRank(studentId: string) {
+  const result = await db.query(
+    `WITH ranked AS (
+       SELECT u.id,
+              DENSE_RANK() OVER (ORDER BY COALESCE(SUM(xe.amount), 0) DESC, u.id ASC) AS rank
+       FROM users u
+       LEFT JOIN xp_events xe ON xe.user_id = u.id
+       WHERE u.role = 'student' AND u.is_active = true
+       GROUP BY u.id
+     )
+     SELECT rank
+     FROM ranked
+     WHERE id = $1`,
+    [studentId],
+  );
+  const rank = Number(result.rows[0]?.rank || 0);
+  return rank > 0 ? rank : null;
+}
+
+async function awardAchievement(studentId: string, achievement: typeof ACHIEVEMENT_DEFINITIONS[number]) {
+  const result = await db.query(
+    `INSERT INTO achievements (id, code, name, description, requirement_type, requirement_value)
+     VALUES ($1, $2, $3, $4, $5, $6)
+     ON CONFLICT (code)
+     DO UPDATE SET
+       name = EXCLUDED.name,
+       description = EXCLUDED.description,
+       requirement_type = EXCLUDED.requirement_type,
+       requirement_value = EXCLUDED.requirement_value
+     RETURNING id`,
+    [
+      uuidv4(),
+      achievement.code,
+      achievement.name,
+      achievement.description,
+      achievement.requirementType,
+      achievement.requirementValue,
+    ],
+  );
+
+  const achievementId = result.rows[0]?.id;
+  if (!achievementId) return;
+
+  await db.query(
+    `INSERT INTO user_achievements (id, user_id, achievement_id)
+     VALUES ($1, $2, $3)
+     ON CONFLICT (user_id, achievement_id) DO NOTHING`,
+    [uuidv4(), studentId, achievementId],
+  );
 }
 
 export async function markParticipantConnected(sessionId: string, participantToken: string, connected: boolean) {

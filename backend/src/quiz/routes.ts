@@ -6,6 +6,7 @@ import {
   deleteQuizDeck,
   duplicateQuizDeck,
   getQuizDeck,
+  getSessionParticipantReview,
   getQuizSessionParticipantByToken,
   getQuizSessionById,
   getQuizSessionSnapshot,
@@ -14,6 +15,7 @@ import {
   listQuizDecks,
   listQuizSessions,
   loadQuizSessionState,
+  cancelQuizSession,
   saveQuizDeck,
   startQuizSession,
   endQuizSession,
@@ -169,9 +171,15 @@ export async function quizRoutes(fastify: FastifyInstance) {
   fastify.get('/classrooms/:classroomId/sessions', {
     onRequest: [(fastify as any).authenticate],
   }, async (request, reply) => {
-    const user = (request as any).user as AuthUser;
-    const { classroomId } = request.params as any;
-    return { sessions: await listQuizSessions(user, classroomId) };
+    try {
+      const user = (request as any).user as AuthUser;
+      const { classroomId } = request.params as any;
+      return { sessions: await listQuizSessions(user, classroomId) };
+    } catch (error) {
+      const msg = error instanceof Error ? error.message : 'Failed to list sessions';
+      const code = msg.includes('enrolled') || msg.includes('teacher') || msg.includes('authorized') ? 403 : 500;
+      return reply.code(code).send({ error: msg });
+    }
   });
 
   fastify.post('/sessions', {
@@ -248,6 +256,25 @@ export async function quizRoutes(fastify: FastifyInstance) {
     }
 
     return { snapshot };
+  });
+
+  fastify.get('/sessions/:sessionId/review', {
+    onRequest: [(fastify as any).authenticate],
+  }, async (request, reply) => {
+    try {
+      const user = (request as any).user as AuthUser;
+      const { sessionId } = request.params as any;
+      const { participantToken } = request.query as any;
+      if (!participantToken) {
+        return reply.code(400).send({ error: 'participantToken is required' });
+      }
+      const review = await getSessionParticipantReview(user, sessionId, String(participantToken));
+      return { review };
+    } catch (error) {
+      const msg = error instanceof Error ? error.message : 'Failed to load review';
+      const code = msg.includes('not authorized') || msg.includes('not found') ? 403 : 500;
+      return reply.code(code).send({ error: msg });
+    }
   });
 
   fastify.post('/join', async (request, reply) => {
@@ -394,6 +421,25 @@ export async function quizRoutes(fastify: FastifyInstance) {
       return { success: true, ...result };
     } catch (error) {
       return reply.code(400).send({ error: error instanceof Error ? error.message : 'Failed to end quiz session' });
+    }
+  });
+
+  fastify.post('/sessions/:sessionId/cancel', {
+    onRequest: [(fastify as any).authenticate],
+  }, async (request, reply) => {
+    try {
+      const user = (request as any).user as AuthUser;
+      const { sessionId } = request.params as any;
+      const snapshot = await cancelQuizSession(user, sessionId);
+
+      await publishQuizSessionEvent(sessionId, {
+        type: 'quiz_session_cancelled',
+        snapshot,
+      });
+
+      return { success: true, snapshot };
+    } catch (error) {
+      return reply.code(400).send({ error: error instanceof Error ? error.message : 'Failed to cancel quiz session' });
     }
   });
 

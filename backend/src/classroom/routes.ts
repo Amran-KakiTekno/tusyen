@@ -1,13 +1,16 @@
 import { FastifyInstance } from 'fastify';
+import { randomBytes } from 'crypto';
 import { v4 as uuidv4 } from 'uuid';
 import { db, withTransaction } from '../database';
-import { redis } from '../redis';
+import { checkRateLimit, redis } from '../redis';
 import { publishLessonAssignedNotification } from '../notifications';
 
 // Generate unique classroom code
 function generateClassCode(): string {
-  return Math.random().toString(36).substring(2, 8).toUpperCase();
+  return randomBytes(4).toString('hex').substring(0, 6).toUpperCase();
 }
+
+const JOIN_BY_CODE_RATE_LIMIT = { max: 10, windowSeconds: 5 * 60 };
 
 export async function classroomRoutes(fastify: FastifyInstance) {
   // Create classroom (Teacher only)
@@ -152,6 +155,8 @@ export async function classroomRoutes(fastify: FastifyInstance) {
     if (!normalizedJoinCode) {
       return reply.code(400).send({ error: 'Classroom join code is required' });
     }
+
+    if (!(await enforceJoinByCodeRateLimit(request, reply))) return;
 
     const classroom = await db.query(
       `SELECT c.id, c.name, c.subject, c.form_level, c.is_active, u.full_name as teacher_name
@@ -716,4 +721,23 @@ function atRiskStudentsSubquery(classroomExpression: string): string {
          )
     ) risk_students
   `;
+}
+
+async function enforceJoinByCodeRateLimit(request: any, reply: any) {
+  const allowed = await checkRateLimit(
+    `rate:classroom:join-by-code:${clientIp(request)}`,
+    JOIN_BY_CODE_RATE_LIMIT.max,
+    JOIN_BY_CODE_RATE_LIMIT.windowSeconds,
+  );
+  if (!allowed) {
+    reply.code(429).send({ error: 'Too many classroom join attempts. Please try again shortly.' });
+    return false;
+  }
+  return true;
+}
+
+function clientIp(request: any) {
+  return `${request.ip || 'unknown'}`
+    .replace(/[^a-zA-Z0-9:._-]/g, '_')
+    .slice(0, 80);
 }

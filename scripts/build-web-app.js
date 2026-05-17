@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const babel = require('@babel/core');
+const sharp = require('sharp');
 
 const rootDir = path.resolve(__dirname, '..');
 const webDir = path.join(rootDir, 'web_app');
@@ -48,9 +49,32 @@ function compileFile(relativePath) {
   ].join('\n');
 }
 
-fs.mkdirSync(outDir, { recursive: true });
-const chunks = inputs.map(compileFile);
-fs.writeFileSync(outFile, `${banner}\n${chunks.join('\n')}`, 'utf8');
+async function build() {
+  fs.mkdirSync(outDir, { recursive: true });
+  const chunks = inputs.map(compileFile);
+  fs.writeFileSync(outFile, `${banner}\n${chunks.join('\n')}`, 'utf8');
 
-const sizeKb = (fs.statSync(outFile).size / 1024).toFixed(1);
-console.log(`Built ${path.relative(rootDir, outFile)} (${sizeKb} KiB)`);
+  await generatePwaIcons();
+
+  const sizeKb = (fs.statSync(outFile).size / 1024).toFixed(1);
+  console.log(`Built ${path.relative(rootDir, outFile)} (${sizeKb} KiB)`);
+}
+
+async function generatePwaIcons() {
+  const iconSvg = path.join(webDir, 'icons', 'icon.svg');
+  const icon192 = path.join(webDir, 'icons', 'icon-192.png');
+  const icon512 = path.join(webDir, 'icons', 'icon-512.png');
+
+  if (!fs.existsSync(iconSvg)) {
+    throw new Error(`Missing PWA source icon: ${path.relative(rootDir, iconSvg)}`);
+  }
+
+  await sharp(iconSvg).resize(192, 192).png().toFile(icon192);
+  await sharp(iconSvg).resize(512, 512).png().toFile(icon512);
+  console.log(`Generated ${path.relative(rootDir, icon192)} and ${path.relative(rootDir, icon512)}`);
+}
+
+build().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

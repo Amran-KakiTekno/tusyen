@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   calculateQuestionScore,
   buildLeaderboard,
+  gradeQuizAnswer,
   normalizeQuizQuestion,
   quizAnswersMatch,
 } from '../src/quiz/logic';
@@ -74,6 +75,51 @@ describe('quiz logic', () => {
         { prompt: 'V = IR', answer: 'Ohm law' },
       ],
     )).toBe(true);
+  });
+
+  it('grades STEM quiz answers with correct and incorrect outcomes', () => {
+    expect(gradeQuizAnswer('gradient', 'Gradient', 'fill_blank', [])).toEqual({
+      isCorrect: true,
+      scoreMultiplier: 1,
+    });
+    expect(gradeQuizAnswer('intercept', 'Gradient', 'fill_blank', [])).toEqual({
+      isCorrect: false,
+      scoreMultiplier: 0,
+    });
+    expect(gradeQuizAnswer('9.81 m/s^2', '9.8 m/s^2', 'numeric', [])).toEqual({
+      isCorrect: true,
+      scoreMultiplier: 1,
+    });
+    expect(gradeQuizAnswer('9.81 N', '9.8 m/s^2', 'numeric', [])).toEqual({
+      isCorrect: false,
+      scoreMultiplier: 0,
+    });
+  });
+
+  it('supports exact step order and partial matching quiz scoring', () => {
+    const steps = ['Expand brackets', 'Collect like terms', 'Solve for x'];
+    expect(gradeQuizAnswer(steps, '', 'step_order', steps)).toEqual({
+      isCorrect: true,
+      scoreMultiplier: 1,
+    });
+    expect(gradeQuizAnswer([...steps].reverse(), '', 'step_order', steps)).toEqual({
+      isCorrect: false,
+      scoreMultiplier: 0,
+    });
+
+    const pairs = [
+      { prompt: 'F = ma', answer: 'Newton second law' },
+      { prompt: 'V = IR', answer: 'Ohm law' },
+    ];
+    expect(gradeQuizAnswer(
+      { 'F = ma': 'Newton second law', 'V = IR': 'Wrong law' },
+      '',
+      'matching',
+      pairs,
+    )).toEqual({
+      isCorrect: false,
+      scoreMultiplier: 0.5,
+    });
   });
 
   it('applies speed scoring within the expected range', () => {

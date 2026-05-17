@@ -35,6 +35,10 @@ const fastify = Fastify({
   }
 });
 
+const STUDENT_CLASSROOM_STATS_REFRESH_INTERVAL_MS = 5 * 60 * 1000;
+let studentClassroomStatsRefreshTimer: NodeJS.Timeout | null = null;
+let isRefreshingStudentClassroomStats = false;
+
 async function main() {
   try {
     // Register plugins
@@ -164,6 +168,11 @@ async function main() {
     // Setup WebSocket handlers
     await setupWebSocketHandlers(fastify);
 
+    void refreshStudentClassroomStats();
+    studentClassroomStatsRefreshTimer = setInterval(() => {
+      void refreshStudentClassroomStats();
+    }, STUDENT_CLASSROOM_STATS_REFRESH_INTERVAL_MS);
+
     // Start server
     await fastify.listen({
       port: config.PORT,
@@ -182,11 +191,27 @@ main();
 // Graceful shutdown
 process.on('SIGTERM', async () => {
   fastify.log.info('SIGTERM received, shutting down gracefully');
+  if (studentClassroomStatsRefreshTimer) {
+    clearInterval(studentClassroomStatsRefreshTimer);
+  }
   await fastify.close();
   await db.end();
   await redis.quit();
   process.exit(0);
 });
+
+async function refreshStudentClassroomStats() {
+  if (isRefreshingStudentClassroomStats) return;
+
+  isRefreshingStudentClassroomStats = true;
+  try {
+    await db.query('REFRESH MATERIALIZED VIEW CONCURRENTLY student_classroom_stats');
+  } catch (error) {
+    fastify.log.error({ error }, 'Failed to refresh student_classroom_stats materialized view');
+  } finally {
+    isRefreshingStudentClassroomStats = false;
+  }
+}
 
 function originAllowed(origin: string) {
   let normalizedOrigin: string;
@@ -201,8 +226,9 @@ function originAllowed(origin: string) {
 
 function originMatchesAllowed(origin: string, allowed: string) {
   const normalizedAllowed = allowed.replace(/\/+$/, '');
-  if (normalizedAllowed === '*') return true;
+  if (normalizedAllowed === '*') return config.NODE_ENV !== 'production';
   if (!normalizedAllowed.includes('*')) return origin === normalizedAllowed;
+  if (config.NODE_ENV === 'production') return false;
 
   try {
     const allowedUrl = new URL(normalizedAllowed.replace('*.', 'wildcard.'));

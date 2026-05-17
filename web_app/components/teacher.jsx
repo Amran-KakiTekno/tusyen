@@ -88,7 +88,7 @@ const CLASS_SUBJECTS = [
   'Prinsip Perakaunan',
   'Ekonomi',
 ];
-const CLASS_FORM_LEVELS = [1, 2, 3, 4, 5];
+const CLASS_FORM_LEVELS = [4, 5];
 
 const isLiveClassId = (id) => typeof id === 'string' && id.includes('-');
 
@@ -192,6 +192,12 @@ const formatLiveClass = (c, i, analytics = null) => {
     isActive: c.is_active !== false,
     lastActivity: c.last_activity || c.lastActivity || c.last_activity_at || c.lastActiveAt || null,
   };
+};
+
+const classroomFormErrorMessage = (err, fallback) => {
+  const status = Number(err?.status || err?.statusCode || err?.response?.status || 0);
+  if (status === 400) return err?.message || 'Semak nama, subjek, dan tingkatan. Tingkatan yang dibenarkan ialah 4 atau 5.';
+  return err?.message || fallback;
 };
 
 const demoTeacherProfile = (displayName) => ({
@@ -362,6 +368,7 @@ const postComposerPlaceholder = (type) => {
 const postTypeMeta = (type) => POST_TYPE_META[type] || POST_TYPE_META.general;
 const postAttachments = (post) => Array.isArray(post.attachments) ? post.attachments : [];
 const attachmentLabel = (attachment) => teacherTitle(attachment.name || attachment.title || attachment.url, 'Lampiran');
+const teacherPostId = (post) => `${post?.id ?? post?.post_id ?? post?.postId ?? ''}`;
 const attachmentTypeLabel = (type) => ({
   link:'Pautan',
   image:'Imej',
@@ -392,6 +399,7 @@ const createMediaUrlAttachment = (url) => {
 };
 
 const PostAttachments = ({ attachments }) => {
+  const { t } = useLanguage();
   if (!attachments.length) return null;
   return (
     <div style={{ display:'flex', flexDirection:'column', gap:6, margin:'8px 0 10px' }}>
@@ -408,7 +416,7 @@ const PostAttachments = ({ attachments }) => {
             <span style={{ minWidth:0, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>
               {attachmentTypeLabel(type)}: {label}
             </span>
-            <span style={{ color:C.accPale, flexShrink:0 }}>Buka</span>
+            <span style={{ color:C.accPale, flexShrink:0 }}>{t('Buka', 'Open')}</span>
           </a>
         );
       })}
@@ -417,12 +425,14 @@ const PostAttachments = ({ attachments }) => {
 };
 
 const PostCard = ({ post, currentUserId, onDelete, onPin, onReact, onComment }) => {
+  const { t } = useLanguage();
   const [expanded, setExpanded] = React.useState(false);
   const [commentText, setCommentText] = React.useState('');
   const [commentAttachmentUrl, setCommentAttachmentUrl] = React.useState('');
   const [commentAttachment, setCommentAttachment] = React.useState(null);
   const [showCommentAttachment, setShowCommentAttachment] = React.useState(false);
   const [comments, setComments] = React.useState(null);
+  const [commentError, setCommentError] = React.useState('');
   const [loadingComments, setLoadingComments] = React.useState(false);
   const [submitting, setSubmitting] = React.useState(false);
   const isOwner = post.teacher_id === currentUserId || post.author_id === currentUserId || post.user_id === currentUserId;
@@ -448,6 +458,7 @@ const PostCard = ({ post, currentUserId, onDelete, onPin, onReact, onComment }) 
     const attachments = commentAttachment ? [commentAttachment] : [];
     if (!text && attachments.length === 0) return;
     setSubmitting(true);
+    setCommentError('');
     try {
       if (attachments.length) await window.tusyenApi.addComment(post.id, text, attachments);
       else await window.tusyenApi.addComment(post.id, text);
@@ -458,7 +469,9 @@ const PostCard = ({ post, currentUserId, onDelete, onPin, onReact, onComment }) 
       const data = await window.tusyenApi.postComments(post.id);
       setComments(data.comments || []);
       onComment && onComment();
-    } catch { }
+    } catch (err) {
+      setCommentError(err.message || 'Komen gagal dihantar. Cuba lagi.');
+    }
     finally { setSubmitting(false); }
   };
 
@@ -466,6 +479,7 @@ const PostCard = ({ post, currentUserId, onDelete, onPin, onReact, onComment }) 
     const attachment = createMediaUrlAttachment(commentAttachmentUrl);
     if (!attachment) return;
     setCommentAttachment(attachment);
+    setCommentError('');
     setCommentAttachmentUrl('');
     setShowCommentAttachment(false);
   };
@@ -499,10 +513,10 @@ const PostCard = ({ post, currentUserId, onDelete, onPin, onReact, onComment }) 
         <div style={{ display:'flex', gap:5, flexShrink:0 }}>
           {isOwner && (
             <TeacherActionMenu
-              label="Tindakan pos"
+              label={t('Tindakan pos', 'Post actions')}
               items={[
-                { label:pinned ? 'Nyahsemat pos' : 'Semat pos', icon:pinned ? '📌' : '📍', onClick:() => onPin && onPin(post) },
-                { label:'Padam pos', icon:'🗑️', danger:true, onClick:() => onDelete && onDelete(post) },
+                { label:pinned ? t('Nyahsemat pos', 'Unpin post') : t('Semat pos', 'Pin post'), icon:pinned ? '📌' : '📍', onClick:() => onPin && onPin(post) },
+                { label:t('Padam pos', 'Delete post'), icon:'🗑️', danger:true, onClick:() => onDelete && onDelete(post) },
               ]}
             />
           )}
@@ -540,17 +554,17 @@ const PostCard = ({ post, currentUserId, onDelete, onPin, onReact, onComment }) 
                 <PostAttachments attachments={postAttachments(c)} />
               </div>
               {(c.user_id === currentUserId || c.author_id === currentUserId) && (
-                <button onClick={() => deleteComment(c.id)} title="Padam komen" aria-label="Padam komen" style={{
+                <button onClick={() => deleteComment(c.id)} title={t('Padam komen', 'Delete comment')} aria-label={t('Padam komen', 'Delete comment')} style={{
                   background:'transparent', border:'none', cursor:'pointer',
                   fontSize:12, color:C.red, flexShrink:0, minWidth:44, minHeight:44,
-                }}>Padam</button>
+                }}>{t('Padam', 'Delete')}</button>
               )}
             </div>
           ))}
           <div style={{ display:'flex', gap:8, marginTop:8 }}>
             <input
               value={commentText}
-              onChange={e => setCommentText(e.target.value)}
+              onChange={e => { setCommentText(e.target.value); if (commentError) setCommentError(''); }}
               onKeyDown={e => e.key === 'Enter' && !e.shiftKey && submitComment()}
               placeholder="Tulis komen..."
               aria-label="Tulis komen"
@@ -560,13 +574,14 @@ const PostCard = ({ post, currentUserId, onDelete, onPin, onReact, onComment }) 
                 fontFamily:'Nunito', fontWeight:600, fontSize:12, outline:'none',
               }}
             />
-            <button onClick={submitComment} disabled={submitting || !commentText.trim()} style={{
+            <button onClick={submitComment} disabled={submitting || (!commentText.trim() && !commentAttachment)} style={{
               background:C.accDim, border:`1px solid ${C.borderB}`,
               borderRadius:10, padding:'7px 12px', minHeight:44, cursor:'pointer',
               color:C.accPale, fontFamily:'Nunito', fontWeight:800, fontSize:12,
-              opacity:submitting || !commentText.trim() ? 0.5 : 1,
-            }}>Hantar</button>
+              opacity:submitting || (!commentText.trim() && !commentAttachment) ? 0.5 : 1,
+            }}>{t('Hantar', 'Send')}</button>
           </div>
+          {commentError && <div role="alert" style={{ fontSize:11, color:C.red, fontWeight:900, marginTop:7 }}>{commentError}</div>}
         </div>
       )}
     </Card>
@@ -574,6 +589,7 @@ const PostCard = ({ post, currentUserId, onDelete, onPin, onReact, onComment }) 
 };
 
 const PostComposerModal = ({ classroomId, onClose, onPosted }) => {
+  const { t } = useLanguage();
   const [type, setType] = React.useState('announcement');
   const [title, setTitle] = React.useState('');
   const [content, setContent] = React.useState('');
@@ -589,10 +605,10 @@ const PostComposerModal = ({ classroomId, onClose, onPosted }) => {
     const attachments = cleanedLink
       ? [{ type:'link', url:cleanedLink, name:linkTitle.trim() || cleanedLink }]
       : [];
-    if (!content.trim() && attachments.length === 0) { setErr('Isi mesej pos atau tambah pautan dahulu.'); return; }
+    if (!content.trim() && attachments.length === 0) { setErr(t('Isi mesej pos atau tambah pautan dahulu.', 'Write a post message or add a link first.')); return; }
     setPosting(true); setErr('');
     try {
-      await window.tusyenApi.createPost({
+      const data = await window.tusyenApi.createPost({
         classroomId,
         content: content.trim(),
         postType: type,
@@ -600,7 +616,7 @@ const PostComposerModal = ({ classroomId, onClose, onPosted }) => {
         attachments,
         isPinned,
       });
-      onPosted && onPosted();
+      onPosted && onPosted(data?.post || data);
       onClose();
     } catch (e) {
       setErr(e.message || 'Tidak dapat menghantar pos.');
@@ -618,10 +634,9 @@ const PostComposerModal = ({ classroomId, onClose, onPosted }) => {
         background:C.card, borderRadius:'20px 20px 0 0', padding:'20px 18px 28px',
         width:'100%', maxWidth:480, maxHeight:'85vh', overflowY:'auto',
       }}>
-        <div style={{ fontWeight:900, fontSize:16, color:C.text, marginBottom:4 }}>Pos baharu</div>
+        <div style={{ fontWeight:900, fontSize:16, color:C.text, marginBottom:4 }}>{t('Pos baharu', 'New post')}</div>
         <div style={{ fontSize:12, color:C.textMuted, fontWeight:700, lineHeight:1.35, marginBottom:12 }}>
-          {selectedPostType.label} akan dipaparkan dalam suapan kelas.
-        </div>
+          {selectedPostType.label}{t('akan dipaparkan dalam suapan kelas.', 'will appear in the class feed.')}</div>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(3, minmax(0, 1fr))', gap:6, marginBottom:12 }}>
           {POST_TYPE_OPTIONS.map(option => (
             <button key={option.value} type="button" onClick={() => setType(option.value)} aria-pressed={type === option.value} style={{
@@ -640,7 +655,7 @@ const PostComposerModal = ({ classroomId, onClose, onPosted }) => {
         <input
           value={title}
           onChange={e => setTitle(e.target.value)}
-          placeholder="Tajuk pos (pilihan)"
+          placeholder={t('Tajuk pos (pilihan)', 'Post title (optional)')}
           style={{
             width:'100%', boxSizing:'border-box', marginBottom:8,
             background:C.surface, border:`1px solid ${C.border}`,
@@ -664,7 +679,7 @@ const PostComposerModal = ({ classroomId, onClose, onPosted }) => {
           <input
             value={linkUrl}
             onChange={e => setLinkUrl(e.target.value)}
-            placeholder="Pautan bahan (pilihan)"
+            placeholder={t('Pautan bahan (pilihan)', 'Resource link (optional)')}
             style={{
               minWidth:0, background:C.surface, border:`1px solid ${C.border}`,
               borderRadius:10, padding:'9px 10px', color:C.text,
@@ -674,7 +689,7 @@ const PostComposerModal = ({ classroomId, onClose, onPosted }) => {
           <input
             value={linkTitle}
             onChange={e => setLinkTitle(e.target.value)}
-            placeholder="Nama bahan"
+            placeholder={t('Nama bahan', 'Resource name')}
             style={{
               minWidth:0, background:C.surface, border:`1px solid ${C.border}`,
               borderRadius:10, padding:'9px 10px', color:C.text,
@@ -684,15 +699,15 @@ const PostComposerModal = ({ classroomId, onClose, onPosted }) => {
         </div>
         <label style={{ display:'flex', alignItems:'center', gap:8, marginBottom:12, cursor:'pointer' }}>
           <input type="checkbox" checked={isPinned} onChange={e => setIsPinned(e.target.checked)} style={{ accentColor:C.acc }} />
-          <span style={{ fontSize:12, color:C.textMuted, fontWeight:600 }}>Semat di atas suapan kelas</span>
+          <span style={{ fontSize:12, color:C.textMuted, fontWeight:600 }}>{t('Semat di atas suapan kelas', 'Pin to top of class feed')}</span>
         </label>
         {err && <div style={{ color:C.red, fontSize:11, fontWeight:800, marginBottom:8 }}>{err}</div>}
         <div style={{ display:'flex', gap:8 }}>
-          <GlowButton onClick={submit} disabled={posting} style={{ flex:1 }}>{posting ? 'Menghantar...' : 'Hantar ke kelas'}</GlowButton>
+          <GlowButton onClick={submit} disabled={posting} style={{ flex:1 }}>{posting ? 'Menghantar...' : t('Hantar ke kelas', 'Send to class')}</GlowButton>
           <button onClick={onClose} style={{
             background:C.surface, border:`1px solid ${C.border}`, borderRadius:12,
             padding:'0 16px', minHeight:44, color:C.textMuted, fontFamily:'Nunito', fontWeight:800, cursor:'pointer',
-          }}>Batal</button>
+          }}>{t('Batal', 'Cancel')}</button>
         </div>
       </div>
     </div>
@@ -700,12 +715,15 @@ const PostComposerModal = ({ classroomId, onClose, onPosted }) => {
 };
 
 const TeacherPostsScreen = ({ classrooms }) => {
+  const { t } = useLanguage();
   const [selectedClassId, setSelectedClassId] = React.useState(classrooms[0]?.id || '');
   const [showComposer, setShowComposer] = React.useState(false);
   const [deleteConfirm, setDeleteConfirm] = React.useState(null);
   const [deletingPostId, setDeletingPostId] = React.useState('');
   const feedState = useClassFeed(selectedClassId);
   const currentUserId = window.tusyenUser?.id;
+  const postRefs = React.useRef({});
+  const pendingScrollRef = React.useRef(null);
 
   React.useEffect(() => {
     const firstClassId = classrooms[0]?.id || '';
@@ -716,6 +734,19 @@ const TeacherPostsScreen = ({ classrooms }) => {
     }
     if (!selectedClassId || !stillAvailable) setSelectedClassId(firstClassId);
   }, [classrooms, selectedClassId]);
+
+  React.useEffect(() => {
+    const pending = pendingScrollRef.current;
+    const posts = feedState.data || [];
+    if (!pending || feedState.loading || posts.length === 0) return;
+    const createdId = pending.id && posts.some(post => teacherPostId(post) === pending.id) ? pending.id : '';
+    const firstId = teacherPostId(posts[0]);
+    const targetId = createdId || (firstId && firstId !== pending.before ? firstId : '');
+    const node = targetId ? postRefs.current[targetId] : null;
+    if (!node) return;
+    node.scrollIntoView({ behavior:'smooth', block:'start' });
+    pendingScrollRef.current = null;
+  }, [feedState.data, feedState.loading]);
 
   const handleDelete = (post) => {
     setDeleteConfirm(post);
@@ -746,6 +777,12 @@ const TeacherPostsScreen = ({ classrooms }) => {
     } catch { }
   };
 
+  const handlePosted = (createdPost) => {
+    const firstBefore = teacherPostId((feedState.data || [])[0]);
+    pendingScrollRef.current = { id:teacherPostId(createdPost), before:firstBefore };
+    feedState.refresh();
+  };
+
   return (
     <div style={{ padding:'14px 16px 10px' }}>
       {classrooms.length > 1 && (
@@ -762,8 +799,8 @@ const TeacherPostsScreen = ({ classrooms }) => {
         </div>
       )}
       <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:12 }}>
-        <div style={{ fontWeight:800, fontSize:15, color:C.text }}>Suapan Kelas</div>
-        <GlowButton onClick={() => setShowComposer(true)} style={{ padding:'7px 14px', fontSize:12 }}>+ Pos baharu</GlowButton>
+        <div style={{ fontWeight:800, fontSize:15, color:C.text }}>{t('Suapan Kelas', 'Class Feed')}</div>
+        <GlowButton onClick={() => setShowComposer(true)} style={{ padding:'7px 14px', fontSize:12 }}>{t('+ Pos baharu', '+ New post')}</GlowButton>
       </div>
       {feedState.error && <ErrorRetry message={feedState.error.message || 'Tidak dapat memuat pos.'} onRetry={feedState.refresh} />}
       {feedState.loading ? [0,1,2,3].map(i => (
@@ -774,24 +811,33 @@ const TeacherPostsScreen = ({ classrooms }) => {
         </Card>
       )) : (feedState.data || []).length === 0 ? (
         <Card>
-          <EmptyState icon="📢" title="Belum ada pos" subtitle="Cipta pos pertama untuk kelas ini." />
+          <EmptyState icon="📢" title={t('Belum ada pos', 'No posts yet')} subtitle={t('Cipta pos pertama untuk kelas ini.', 'Create the first post for this class.')} />
         </Card>
       ) : (feedState.data || []).map(post => (
-        <PostCard
+        <div
           key={post.id}
-          post={post}
-          currentUserId={currentUserId}
-          onDelete={handleDelete}
-          onPin={handlePin}
-          onReact={handleReact}
-          onComment={() => feedState.refresh()}
-        />
+          ref={node => {
+            const id = teacherPostId(post);
+            if (!id) return;
+            if (node) postRefs.current[id] = node;
+            else delete postRefs.current[id];
+          }}
+        >
+          <PostCard
+            post={post}
+            currentUserId={currentUserId}
+            onDelete={handleDelete}
+            onPin={handlePin}
+            onReact={handleReact}
+            onComment={() => feedState.refresh()}
+          />
+        </div>
       ))}
       <TeacherConfirmModal
         open={Boolean(deleteConfirm)}
-        title="Padam pos?"
+        title={t('Padam pos?', 'Delete post?')}
         message={`Pos "${deleteConfirm?.title || 'tanpa tajuk'}" akan dibuang daripada suapan kelas ini.`}
-        confirmLabel="Padam pos"
+        confirmLabel={t('Padam pos', 'Delete post')}
         danger
         busy={Boolean(deletingPostId)}
         onCancel={() => setDeleteConfirm(null)}
@@ -801,7 +847,7 @@ const TeacherPostsScreen = ({ classrooms }) => {
         <PostComposerModal
           classroomId={selectedClassId}
           onClose={() => setShowComposer(false)}
-          onPosted={() => feedState.refresh()}
+          onPosted={handlePosted}
         />
       )}
       <div style={{ height:8 }} />
@@ -1285,6 +1331,7 @@ const lessonAssignmentMeta = (lesson = {}) => {
 const lessonIsAssigned = (lesson = {}) => lessonAssignmentMeta(lesson).tone === 'good';
 
 const AssignLessonModal = ({ lesson, classrooms, onAssigned, onClose }) => {
+  const { t } = useLanguage();
   const [classroomId, setClassroomId] = React.useState(classrooms[0]?.id || '');
   const [dueDate, setDueDate] = React.useState('');
   const [isRequired, setIsRequired] = React.useState(true);
@@ -1293,12 +1340,13 @@ const AssignLessonModal = ({ lesson, classrooms, onAssigned, onClose }) => {
   const lessonDisplayTitle = displayLessonTitle(lesson);
 
   const submit = async () => {
-    if (!classroomId) { setError('Pilih kelas dahulu.'); return; }
+    if (!classroomId) { setError(t('Pilih kelas dahulu.', 'Select a class first.')); return; }
     setSubmitting(true); setError('');
     try {
       await window.tusyenApi.assignLessonToClassroom(classroomId, lesson.id, {
         dueDate: dueDate || null,
         isRequired,
+        is_required: isRequired,
       });
       onAssigned();
       onClose();
@@ -1318,19 +1366,19 @@ const AssignLessonModal = ({ lesson, classrooms, onAssigned, onClose }) => {
         background:C.surface, borderRadius:16, padding:24, width:'100%',
         maxWidth:440, maxHeight:'80vh', overflowY:'auto',
       }}>
-        <div style={{ fontWeight:900, fontSize:15, color:C.text, marginBottom:4 }}>Tugaskan Pelajaran</div>
+        <div style={{ fontWeight:900, fontSize:15, color:C.text, marginBottom:4 }}>{t('Tugaskan Pelajaran', 'Assign Lesson')}</div>
         <div style={{ fontSize:12, color:C.textMuted, fontWeight:600, marginBottom:14 }}>{lessonDisplayTitle}</div>
-        <TeacherField label="Kelas">
+        <TeacherField label={t('Kelas', 'Class')}>
           <select value={classroomId} onChange={e => setClassroomId(e.target.value)} style={{ ...teacherInputBase, marginBottom:10 }}>
-            {classrooms.map(c => <option key={c.id} value={c.id}>{teacherText(c.name, 'Kelas', 54)}</option>)}
+            {classrooms.map(c => <option key={c.id} value={c.id}>{teacherText(c.name, t('Kelas', 'Class'), 54)}</option>)}
           </select>
         </TeacherField>
-        <TeacherField label="Tarikh Akhir">
+        <TeacherField label={t('Tarikh Akhir', 'Due Date')}>
           <input type="date" value={dueDate} onChange={e => setDueDate(e.target.value)} style={{ ...teacherInputBase, marginBottom:10 }} />
         </TeacherField>
         <label style={{ display:'flex', alignItems:'center', gap:7, color:C.textMuted, fontSize:11, fontWeight:900, marginBottom:12 }}>
           <input type="checkbox" checked={isRequired} onChange={e => setIsRequired(e.target.checked)} style={{ accentColor:C.acc }} />
-          Wajib
+          Wajib / Required
         </label>
         {error && <div style={{ fontSize:11, color:C.red, fontWeight:800, marginBottom:8 }}>{error}</div>}
         <div style={{ display:'flex', gap:8 }}>
@@ -1340,7 +1388,7 @@ const AssignLessonModal = ({ lesson, classrooms, onAssigned, onClose }) => {
           <button onClick={onClose} style={{
             background:C.card, border:`1px solid ${C.border}`, borderRadius:12,
             padding:'0 14px', minHeight:44, cursor:'pointer', color:C.textMuted, fontFamily:'Nunito', fontWeight:800,
-          }}>Batal</button>
+          }}>{t('Batal', 'Cancel')}</button>
         </div>
       </div>
     </div>
@@ -1348,6 +1396,7 @@ const AssignLessonModal = ({ lesson, classrooms, onAssigned, onClose }) => {
 };
 
 const TeacherLessonsScreen = ({ classrooms }) => {
+  const { t } = useLanguage();
   const defaultClass = classrooms[0] || {};
   const defaultSubject = defaultClass.subject || subjectText(defaultClass.subj) || 'Matematik';
   const defaultFormLevel = String(defaultClass.form || defaultClass.formLevel || 4);
@@ -1388,14 +1437,14 @@ const TeacherLessonsScreen = ({ classrooms }) => {
   const catalogGroups = [
     {
       key:'unassigned',
-      title:'Belum Ditugaskan',
-      hint:'Sedia untuk dipratonton dan diberikan kepada kelas.',
+      title:t('Belum Ditugaskan', 'Not Assigned Yet'),
+      hint:t('Sedia untuk dipratonton dan diberikan kepada kelas.', 'Ready to preview and assign to a class.'),
       lessons:catalogLessons.filter(lesson => !lessonIsAssigned(lesson)),
     },
     {
       key:'assigned',
       title:'Ditugaskan',
-      hint:'Sudah pernah diberikan kepada satu atau lebih kelas.',
+      hint:t('Sudah pernah diberikan kepada satu atau lebih kelas.', 'Already assigned to one or more classes.'),
       lessons:catalogLessons.filter(lessonIsAssigned),
     },
   ].filter(group => group.lessons.length > 0);
@@ -1410,8 +1459,8 @@ const TeacherLessonsScreen = ({ classrooms }) => {
   const createStepValidationErrors = (stepIndex) => {
     if (stepIndex === 0) {
       return [
-        !lessonForm.syllabusId && { field:'syllabusId', label:'Item silibus', message:'Pilih topik silibus sebelum teruskan.' },
-        !lessonForm.title.trim() && { field:'title', label:'Tajuk pelajaran', message:'Isi tajuk yang jelas untuk pelajar.' },
+        !lessonForm.syllabusId && { field:'syllabusId', label:'Item silibus', message:t('Pilih topik silibus sebelum teruskan.', 'Select a syllabus topic before continuing.') },
+        !lessonForm.title.trim() && { field:'title', label:t('Tajuk pelajaran', 'Lesson title'), message:t('Isi tajuk yang jelas untuk pelajar.', 'Enter a clear title for students.') },
         (Number(lessonForm.estimatedMinutes) || 0) < 1 && { field:'estimatedMinutes', label:'Anggaran minit', message:'Isi 1 minit atau lebih.' },
       ].filter(Boolean);
     }
@@ -1443,7 +1492,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
           setDraftSavedAt(savedAt.toLocaleTimeString('ms-MY', { hour:'2-digit', minute:'2-digit' }));
         }
       }
-      setCreateStatus('Draf pelajaran dipulihkan dari peranti ini.');
+      setCreateStatus(t('Draf pelajaran dipulihkan dari peranti ini.', 'Lesson draft restored from this device.'));
     } catch {
       localStorage.removeItem(TEACHER_LESSON_DRAFT_KEY);
     } finally {
@@ -1464,7 +1513,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
         }));
         setDraftSavedAt(savedAt.toLocaleTimeString('ms-MY', { hour:'2-digit', minute:'2-digit' }));
       } catch {
-        setCreateError('Tidak dapat menyimpan draf pada peranti ini.');
+        setCreateError(t('Tidak dapat menyimpan draf pada peranti ini.', 'Unable to save draft on this device.'));
       }
     }, TEACHER_LESSON_DRAFT_AUTOSAVE_MS);
     return () => window.clearTimeout(timeout);
@@ -1494,8 +1543,9 @@ const TeacherLessonsScreen = ({ classrooms }) => {
       await window.tusyenApi.assignLessonToClassroom(assignClassId, assignModal.id, {
         dueDate: assignDueDate || null,
         isRequired: assignRequired,
+        is_required: assignRequired,
       });
-      setAssignMsg('Pelajaran berjaya ditetapkan ke kelas.');
+      setAssignMsg(t('Pelajaran berjaya ditetapkan ke kelas.', 'Lesson assigned to class successfully.'));
     } catch (e) {
       setAssignMsg(e.message || 'Tidak dapat menetapkan pelajaran.');
     } finally {
@@ -1528,7 +1578,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
       if (!normalized) throw new Error('Isi soalan dahulu.');
       setQuizQuestions(prev => [...prev, { ...quizDraft, id:`q-${Date.now()}-${prev.length}` }]);
       setQuizDraft(createEmptyTeacherQuestion());
-      setCreateStatus('Soalan ditambah.');
+      setCreateStatus(t('Soalan ditambah.', 'Question added.'));
     } catch (err) {
       setCreateError(err.message || 'Tidak dapat menambah soalan.');
     }
@@ -1576,7 +1626,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
       setDraftSavedAt(time);
       setCreateStatus(`Draf disimpan pada ${time}.`);
     } catch {
-      setCreateError('Tidak dapat menyimpan draf pada peranti ini.');
+      setCreateError(t('Tidak dapat menyimpan draf pada peranti ini.', 'Unable to save draft on this device.'));
     }
   };
 
@@ -1612,7 +1662,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
         quizData: { questions },
       });
       clearLessonDraft();
-      setCreateStatus('Pelajaran berjaya diterbitkan ke katalog.');
+      setCreateStatus(t('Pelajaran berjaya diterbitkan ke katalog.', 'Lesson published to catalog successfully.'));
       setLessonForm(prev => ({ ...prev, syllabusId:'', title:'', summary:'' }));
       setContentBlocks([createEmptyLessonBlock()]);
       setQuizDraft(createEmptyTeacherQuestion());
@@ -1640,11 +1690,11 @@ const TeacherLessonsScreen = ({ classrooms }) => {
       done:Boolean(lessonForm.syllabusId),
       detail:selectedSyllabus
         ? `${selectedSyllabus.topic || 'Topik'}${selectedSyllabus.subtopic ? ` - ${selectedSyllabus.subtopic}` : ''}`
-        : 'Wajib supaya pelajaran masuk ke topik katalog yang betul.',
+        : t('Wajib supaya pelajaran masuk ke topik katalog yang betul.', 'Required so the lesson is saved under the correct catalog topic.'),
     },
     {
       id:'title',
-      label:'Tajuk pelajaran jelas',
+      label:t('Tajuk pelajaran jelas', 'Clear lesson title'),
       done:Boolean(lessonForm.title.trim()),
       detail:lessonForm.title.trim() ? compactLessonTitle(lessonForm.title) : 'Wajib diisi sebelum langkah kandungan.',
     },
@@ -1678,12 +1728,12 @@ const TeacherLessonsScreen = ({ classrooms }) => {
     },
     {
       id:'questions',
-      label:'Soalan latihan',
+      label:t('Soalan latihan', 'Practice questions'),
       done:lessonPreviewQuestions > 0,
       required:false,
       detail:lessonPreviewQuestions > 0
         ? `${lessonPreviewQuestions} soalan akan diterbitkan.`
-        : 'Pilihan, tetapi membantu semak kefahaman pelajar.',
+        : t('Pilihan, tetapi membantu semak kefahaman pelajar.', 'Optional, but helps check student understanding.'),
     },
   ];
   const currentCreateChecks = createStepId === 'info'
@@ -1720,29 +1770,29 @@ const TeacherLessonsScreen = ({ classrooms }) => {
               <input
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                placeholder="Cari pelajaran..."
-                aria-label="Cari pelajaran dalam katalog"
+                placeholder={t('Cari pelajaran...', 'Search lessons...')}
+                aria-label={t('Cari pelajaran dalam katalog', 'Search lessons in catalog')}
                 style={{
                   background:C.card, border:`1px solid ${C.border}`, borderRadius:10,
                   padding:'8px 10px', color:C.text, fontFamily:'Nunito', fontWeight:700,
                   fontSize:12, outline:'none', minHeight:44,
                 }}
               />
-              <select value={formLevel} onChange={e => setFormLevel(e.target.value)} aria-label="Tapis tingkatan pelajaran" style={{
+              <select value={formLevel} onChange={e => setFormLevel(e.target.value)} aria-label={t('Tapis tingkatan pelajaran', 'Filter lesson form level')} style={{
                 background:C.card, border:`1px solid ${C.border}`, borderRadius:10,
                 padding:'8px 10px', minHeight:44, color:C.text, fontFamily:'Nunito', fontWeight:700, fontSize:12,
               }}>
                 <option>Semua</option>
-                {CLASS_FORM_LEVELS.map(item => <option key={item} value={String(item)}>Tingkatan {item}</option>)}
+                {CLASS_FORM_LEVELS.map(item => <option key={item} value={String(item)}>{t('Tingkatan', 'Form')}{item}</option>)}
               </select>
             </div>
-            <select value={subject} onChange={e => setSubject(e.target.value)} aria-label="Tapis subjek pelajaran" style={{
+            <select value={subject} onChange={e => setSubject(e.target.value)} aria-label={t('Tapis subjek pelajaran', 'Filter lesson subject')} style={{
               width:'100%', marginBottom:7,
               background:C.card, border:`1px solid ${C.border}`, borderRadius:10,
               padding:'8px 10px', minHeight:44, color:C.text,
               fontFamily:'Nunito', fontWeight:700, fontSize:12,
             }}>
-              <option value="">Semua subjek</option>
+              <option value="">{t('Semua subjek', 'All subjects')}</option>
               {CLASS_SUBJECTS.map(item => <option key={item} value={item}>{item}</option>)}
             </select>
             <div style={{ display:'flex', gap:6, overflowX:'auto', scrollbarWidth:'none' }}>
@@ -1775,16 +1825,16 @@ const TeacherLessonsScreen = ({ classrooms }) => {
                 <Skeleton width="30%" height={10} radius={5} />
               </Card>
             )) : catalogState.error ? (
-              <ErrorRetry message="Tidak dapat memuat katalog pelajaran." onRetry={catalogState.refresh} />
+              <ErrorRetry message={t('Tidak dapat memuat katalog pelajaran.', 'Unable to load lesson catalog.')} onRetry={catalogState.refresh} />
             ) : catalogLessons.length === 0 ? (
               <Card>
-                <EmptyState icon="📚" title="Tiada pelajaran" subtitle="Tiada pelajaran dalam katalog bagi penapis ini." />
+                <EmptyState icon="📚" title={t('Tiada pelajaran', 'No lessons')} subtitle={t('Tiada pelajaran dalam katalog bagi penapis ini.', 'No lessons in the catalog for this filter.')} />
               </Card>
             ) : catalogGroups.map(group => (
               <div key={group.key} style={{ marginBottom:14 }}>
                 <div style={{ display:'flex', justifyContent:'space-between', alignItems:'baseline', gap:8, margin:'4px 0 8px' }}>
                   <div style={{ fontWeight:900, fontSize:12, color:C.text, textTransform:'uppercase' }}>{group.title}</div>
-                  <div style={{ fontSize:10, color:C.textMuted, fontWeight:800 }}>{group.lessons.length} pelajaran</div>
+                  <div style={{ fontSize:10, color:C.textMuted, fontWeight:800 }}>{group.lessons.length}{t('pelajaran', 'lessons')}</div>
                 </div>
                 <div style={{ fontSize:11, color:C.textFaint, fontWeight:700, lineHeight:1.35, marginBottom:8 }}>{group.hint}</div>
                 {group.lessons.map(lesson => {
@@ -1803,7 +1853,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
                             }}
                           >{displayTitle}</div>
                           <div style={{ fontSize:10, color:C.textFaint, fontWeight:600, marginTop:2 }}>
-                            {teacherText(lesson.subject, 'Subjek', 34)} - T{lesson.form_level || '-'}
+                            {teacherText(lesson.subject, t('Subjek', 'Subject'), 34)} - T{lesson.form_level || '-'}
                             {lesson.topic ? ` · ${compactLessonTitle(lesson.topic)}` : ''}
                           </div>
                           <div style={{ display:'flex', gap:6, marginTop:6, flexWrap:'wrap' }}>
@@ -1816,8 +1866,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
                             }}>{LESSON_DIFF_LABEL[lesson.difficulty] || lesson.difficulty}</span>
                             {lesson.question_count > 0 && (
                               <span style={{ fontSize:10, fontWeight:600, color:C.textMuted }}>
-                                {lesson.question_count} soalan
-                              </span>
+                                {lesson.question_count}{t('soalan', 'questions')}</span>
                             )}
                             {lesson.estimated_minutes && (
                               <span style={{ fontSize:10, fontWeight:600, color:C.textMuted }}>
@@ -1849,7 +1898,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
         )}
         {tab === 'create' && (
           <Card style={{ marginBottom:12 }}>
-            <div style={{ fontWeight:900, fontSize:13, color:C.accPale, marginBottom:8 }}>Cipta Pelajaran Berpandu</div>
+            <div style={{ fontWeight:900, fontSize:13, color:C.accPale, marginBottom:8 }}>{t('Cipta Pelajaran Berpandu', 'Create Guided Lesson')}</div>
             {createStatus && (
               <Card success style={{ marginBottom:8, padding:9 }}>
                 <div style={{ fontSize:11, color:C.green, fontWeight:900 }}>{createStatus}</div>
@@ -1896,7 +1945,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
               ))}
             </div>
             <TeacherChecklistPanel
-              title={createStepId === 'questions' ? 'Senarai semak sebelum terbit' : 'Wajib lengkap sebelum teruskan'}
+              title={createStepId === 'questions' ? t('Senarai semak sebelum terbit', 'Checklist before publishing') : 'Wajib lengkap sebelum teruskan'}
               items={currentCreateChecks}
               style={{ marginBottom:10 }}
             />
@@ -1904,33 +1953,33 @@ const TeacherLessonsScreen = ({ classrooms }) => {
               {createStepId === 'info' && (
                 <>
               <div style={{ display:'grid', gridTemplateColumns:'1fr 92px', gap:8 }}>
-                <TeacherField label="Subjek" required>
-                  <select value={lessonForm.subject} onChange={e => setLessonForm(prev => ({ ...prev, subject:e.target.value, syllabusId:'' }))} aria-label="Subjek pelajaran" style={teacherInputBase}>
+                <TeacherField label={t('Subjek', 'Subject')} required>
+                  <select value={lessonForm.subject} onChange={e => setLessonForm(prev => ({ ...prev, subject:e.target.value, syllabusId:'' }))} aria-label={t('Subjek pelajaran', 'Lesson subject')} style={teacherInputBase}>
                     {CLASS_SUBJECTS.map(item => <option key={item} value={item}>{item}</option>)}
                   </select>
                 </TeacherField>
-                <TeacherField label="Tingkatan" required>
-                  <select value={lessonForm.formLevel} onChange={e => setLessonForm(prev => ({ ...prev, formLevel:e.target.value, syllabusId:'' }))} aria-label="Tingkatan pelajaran" style={teacherInputBase}>
-                    {CLASS_FORM_LEVELS.map(item => <option key={item} value={String(item)}>Tingkatan {item}</option>)}
+                <TeacherField label={t('Tingkatan', 'Form')} required>
+                  <select value={lessonForm.formLevel} onChange={e => setLessonForm(prev => ({ ...prev, formLevel:e.target.value, syllabusId:'' }))} aria-label={t('Tingkatan pelajaran', 'Lesson form level')} style={teacherInputBase}>
+                    {CLASS_FORM_LEVELS.map(item => <option key={item} value={String(item)}>{t('Tingkatan', 'Form')}{item}</option>)}
                   </select>
                 </TeacherField>
               </div>
               <TeacherField
                 label="Item Silibus"
                 required
-                hint={lessonForm.syllabusId ? 'Topik ini akan digunakan dalam katalog pelajaran.' : 'Wajib dipilih sebelum ke langkah kandungan.'}
-                error={infoFieldError('syllabusId', !lessonForm.syllabusId, 'Pilih topik silibus sebelum teruskan.')}
+                hint={lessonForm.syllabusId ? t('Topik ini akan digunakan dalam katalog pelajaran.', 'This topic will be used in the lesson catalog.') : 'Wajib dipilih sebelum ke langkah kandungan.'}
+                error={infoFieldError('syllabusId', !lessonForm.syllabusId, t('Pilih topik silibus sebelum teruskan.', 'Select a syllabus topic before continuing.'))}
               >
                 <select
                   ref={el => { createFieldRefs.current.syllabusId = el; }}
                   value={lessonForm.syllabusId}
                   onBlur={() => markCreateTouched('syllabusId')}
                   onChange={e => setLessonForm(prev => ({ ...prev, syllabusId:e.target.value }))}
-                  aria-label="Item silibus pelajaran"
+                  aria-label={t('Item silibus pelajaran', 'Lesson syllabus item')}
                   aria-invalid={createFieldInvalid('syllabusId', !lessonForm.syllabusId) ? 'true' : undefined}
                   style={{ ...teacherInputBase, ...(createInvalidStyle('syllabusId', !lessonForm.syllabusId) || {}) }}
                 >
-                  <option value="">Pilih topik silibus</option>
+                  <option value="">{t('Pilih topik silibus', 'Select syllabus topic')}</option>
                   {(syllabusState.data || []).map(item => (
                     <option key={item.id} value={item.id}>{compactLessonTitle(item.topic, 'Topik')}{item.subtopic ? ` - ${compactLessonTitle(item.subtopic, 'Subtopik')}` : ''}</option>
                   ))}
@@ -1938,13 +1987,13 @@ const TeacherLessonsScreen = ({ classrooms }) => {
               </TeacherField>
               {syllabusState.loading && <Skeleton width="100%" height={28} radius={8} />}
               {!syllabusState.loading && (syllabusState.data || []).length === 0 && (
-                <div style={{ fontSize:11, color:C.textMuted, fontWeight:600 }}>Tiada item silibus untuk subjek dan tingkatan ini.</div>
+                <div style={{ fontSize:11, color:C.textMuted, fontWeight:600 }}>{t('Tiada item silibus untuk subjek dan tingkatan ini.', 'No syllabus items for this subject and form level.')}</div>
               )}
               <TeacherField
-                label="Tajuk Pelajaran"
+                label={t('Tajuk Pelajaran', 'Lesson Title')}
                 required
-                hint={lessonForm.title.trim() ? 'Tajuk ini dipaparkan kepada pelajar dan guru.' : 'Wajib diisi sebelum ke langkah kandungan.'}
-                error={infoFieldError('title', !lessonForm.title.trim(), 'Tajuk wajib diisi.')}
+                hint={lessonForm.title.trim() ? t('Tajuk ini dipaparkan kepada pelajar dan guru.', 'This title is shown to students and teachers.') : 'Wajib diisi sebelum ke langkah kandungan.'}
+                error={infoFieldError('title', !lessonForm.title.trim(), t('Tajuk wajib diisi.', 'Title is required.'))}
               >
                 <input
                   ref={el => { createFieldRefs.current.title = el; }}
@@ -1952,14 +2001,14 @@ const TeacherLessonsScreen = ({ classrooms }) => {
                   onBlur={() => markCreateTouched('title')}
                   onChange={e => setLessonForm(prev => ({ ...prev, title:e.target.value }))}
                   placeholder="Contoh: Kecerunan garis lurus"
-                  aria-label="Tajuk pelajaran"
+                  aria-label={t('Tajuk pelajaran', 'Lesson title')}
                   aria-invalid={createFieldInvalid('title', !lessonForm.title.trim()) ? 'true' : undefined}
                   style={{ ...teacherInputBase, ...(createInvalidStyle('title', !lessonForm.title.trim()) || {}) }}
                 />
               </TeacherField>
               <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8 }}>
                 <TeacherField label="Tahap" required>
-                  <select value={lessonForm.difficulty} onChange={e => setLessonForm(prev => ({ ...prev, difficulty:e.target.value }))} aria-label="Tahap kesukaran pelajaran" style={teacherInputBase}>
+                  <select value={lessonForm.difficulty} onChange={e => setLessonForm(prev => ({ ...prev, difficulty:e.target.value }))} aria-label={t('Tahap kesukaran pelajaran', 'Lesson difficulty level')} style={teacherInputBase}>
                     <option value="easy">Mudah</option>
                     <option value="medium">Sederhana</option>
                     <option value="hard">Sukar</option>
@@ -1968,7 +2017,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
                 <TeacherField
                   label="Anggaran Minit"
                   required
-                  hint={(Number(lessonForm.estimatedMinutes) || 0) >= 1 ? 'Anggaran membantu guru menetapkan beban tugasan.' : 'Wajib 1 minit atau lebih.'}
+                  hint={(Number(lessonForm.estimatedMinutes) || 0) >= 1 ? t('Anggaran membantu guru menetapkan beban tugasan.', 'The estimate helps teachers set assignment workload.') : 'Wajib 1 minit atau lebih.'}
                   error={infoFieldError('estimatedMinutes', (Number(lessonForm.estimatedMinutes) || 0) < 1, 'Isi 1 minit atau lebih.')}
                 >
                   <input
@@ -1978,14 +2027,14 @@ const TeacherLessonsScreen = ({ classrooms }) => {
                     value={lessonForm.estimatedMinutes}
                     onBlur={() => markCreateTouched('estimatedMinutes')}
                     onChange={e => setLessonForm(prev => ({ ...prev, estimatedMinutes:e.target.value }))}
-                    aria-label="Anggaran minit pelajaran"
+                    aria-label={t('Anggaran minit pelajaran', 'Estimated lesson minutes')}
                     aria-invalid={createFieldInvalid('estimatedMinutes', (Number(lessonForm.estimatedMinutes) || 0) < 1) ? 'true' : undefined}
                     style={{ ...teacherInputBase, ...(createInvalidStyle('estimatedMinutes', (Number(lessonForm.estimatedMinutes) || 0) < 1) || {}) }}
                   />
                 </TeacherField>
               </div>
               <TeacherField label="Ringkasan" hint="Ringkasan membantu pratonton sebelum pelajaran diterbitkan.">
-                <textarea value={lessonForm.summary} onChange={e => setLessonForm(prev => ({ ...prev, summary:e.target.value }))} rows={3} placeholder="Nyatakan hasil pembelajaran utama." aria-label="Ringkasan pelajaran" style={{ ...teacherInputBase, resize:'vertical' }} />
+                <textarea value={lessonForm.summary} onChange={e => setLessonForm(prev => ({ ...prev, summary:e.target.value }))} rows={3} placeholder="Nyatakan hasil pembelajaran utama." aria-label={t('Ringkasan pelajaran', 'Lesson summary')} style={{ ...teacherInputBase, resize:'vertical' }} />
               </TeacherField>
                 </>
               )}
@@ -2011,7 +2060,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
                       ref={el => { if (index === 0) createFieldRefs.current.content = el; }}
                       value={block.title}
                       onChange={e => updateContentBlock(block.id, { title:e.target.value })}
-                      placeholder="Tajuk bahagian"
+                      placeholder={t('Tajuk bahagian', 'Section title')}
                       aria-invalid={createFieldInvalid('content', !hasLessonContent && !lessonForm.summary.trim()) ? 'true' : undefined}
                       style={{ ...teacherInputBase, ...(index === 0 ? (createInvalidStyle('content', !hasLessonContent && !lessonForm.summary.trim()) || {}) : {}) }}
                     />
@@ -2019,7 +2068,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
                       value={block.body}
                       onChange={e => updateContentBlock(block.id, { body:e.target.value })}
                       rows={3}
-                      placeholder="Penerangan, contoh, atau langkah kerja."
+                      placeholder={t('Penerangan, contoh, atau langkah kerja.', 'Explanation, example, or working steps.')}
                       style={{ ...teacherInputBase, resize:'vertical', ...(index === 0 ? (createInvalidStyle('content', !hasLessonContent && !lessonForm.summary.trim()) || {}) : {}) }}
                     />
                   </div>
@@ -2031,8 +2080,8 @@ const TeacherLessonsScreen = ({ classrooms }) => {
                 <>
               <div style={{ borderTop:`1px solid ${C.border}`, paddingTop:10, display:'grid', gap:8 }}>
                 <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', gap:8 }}>
-                  <div style={{ fontWeight:900, fontSize:12, color:C.text }}>Soalan Latihan</div>
-                  <TeacherBadge>{lessonPreviewQuestions} soalan</TeacherBadge>
+                  <div style={{ fontWeight:900, fontSize:12, color:C.text }}>{t('Soalan Latihan', 'Practice Questions')}</div>
+                  <TeacherBadge>{lessonPreviewQuestions}{t('soalan', 'questions')}</TeacherBadge>
                 </div>
                 {quizQuestions.length > 0 && (
                   <div style={{ display:'grid', gap:6 }}>
@@ -2067,8 +2116,8 @@ const TeacherLessonsScreen = ({ classrooms }) => {
                     )}
                   </TeacherField>
                 </div>
-                <TeacherField label="Soalan">
-                  <input value={quizDraft.questionText} onChange={e => setQuizDraft(prev => ({ ...prev, questionText:e.target.value }))} placeholder="Tulis soalan untuk pelajar" style={teacherInputBase} />
+                <TeacherField label={t('Soalan', 'Question')}>
+                  <input value={quizDraft.questionText} onChange={e => setQuizDraft(prev => ({ ...prev, questionText:e.target.value }))} placeholder={t('Tulis soalan untuk pelajar', 'Write a question for students')} style={teacherInputBase} />
                 </TeacherField>
                 {quizDraft.type === 'multiple_choice' && (
                   <div style={{ display:'grid', gap:6 }}>
@@ -2078,27 +2127,27 @@ const TeacherLessonsScreen = ({ classrooms }) => {
                   </div>
                 )}
                 <TeacherField label="Penjelasan">
-                  <input value={quizDraft.explanation} onChange={e => setQuizDraft(prev => ({ ...prev, explanation:e.target.value }))} placeholder="Penjelasan selepas pelajar menjawab" style={teacherInputBase} />
+                  <input value={quizDraft.explanation} onChange={e => setQuizDraft(prev => ({ ...prev, explanation:e.target.value }))} placeholder={t('Penjelasan selepas pelajar menjawab', 'Explanation after students answer')} style={teacherInputBase} />
                 </TeacherField>
-                <TeacherSmallButton onClick={addQuizQuestion} style={{ justifySelf:'start' }}>Tambah Soalan</TeacherSmallButton>
+                <TeacherSmallButton onClick={addQuizQuestion} style={{ justifySelf:'start' }}>{t('Tambah Soalan', 'Add Question')}</TeacherSmallButton>
               </div>
 
               <Card style={{ padding:11, background:C.surface }}>
-                <div style={{ fontWeight:900, fontSize:12, color:C.text, marginBottom:7 }}>Pratonton sebelum terbit</div>
+                <div style={{ fontWeight:900, fontSize:12, color:C.text, marginBottom:7 }}>{t('Pratonton sebelum terbit', 'Preview before publishing')}</div>
                 <div style={{ fontSize:13, color:C.text, fontWeight:900, lineHeight:1.35, marginBottom:4 }}>
-                  {compactLessonTitle(lessonForm.title) || 'Tajuk pelajaran'}
+                  {compactLessonTitle(lessonForm.title) || t('Tajuk pelajaran', 'Lesson title')}
                 </div>
                 <div style={{ fontSize:11, color:C.textMuted, fontWeight:700, lineHeight:1.45, marginBottom:8 }}>
                   {lessonForm.summary || 'Ringkasan belum diisi.'}
                 </div>
                 <div style={{ display:'flex', gap:6, flexWrap:'wrap' }}>
                   <TeacherBadge>{lessonForm.subject}</TeacherBadge>
-                  <TeacherBadge>Tingkatan {lessonForm.formLevel}</TeacherBadge>
+                  <TeacherBadge>{t('Tingkatan', 'Form')}{lessonForm.formLevel}</TeacherBadge>
                   <TeacherBadge tone={lessonForm.difficulty === 'hard' ? 'bad' : lessonForm.difficulty === 'easy' ? 'good' : 'warn'}>
                     {LESSON_DIFF_LABEL[lessonForm.difficulty]}
                   </TeacherBadge>
                   <TeacherBadge>{contentBlocks.filter(block => block.title.trim() || block.body.trim()).length} bahagian</TeacherBadge>
-                  <TeacherBadge>{lessonPreviewQuestions} soalan</TeacherBadge>
+                  <TeacherBadge>{lessonPreviewQuestions}{t('soalan', 'questions')}</TeacherBadge>
                 </div>
               </Card>
                 </>
@@ -2109,7 +2158,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
                   minHeight:44, background:C.surface, border:`1px solid ${C.border}`,
                   borderRadius:12, padding:'0 14px', color:C.textMuted,
                   fontFamily:'Nunito', fontWeight:900, cursor:'pointer',
-                }}>Simpan draf</button>
+                }}>{t('Simpan draf', 'Save draft')}</button>
                 {createStep > 0 && (
                   <button onClick={goPrevCreateStep} style={{
                     minHeight:44, background:C.surface, border:`1px solid ${C.border}`,
@@ -2142,7 +2191,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
           <div style={{ background:C.card, borderRadius:18, padding:'20px 18px', width:'100%', maxWidth:520, maxHeight:'86vh', overflowY:'auto' }}>
             <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:10, marginBottom:10 }}>
               <div style={{ minWidth:0 }}>
-                <div style={{ fontWeight:900, fontSize:15, color:C.text, marginBottom:4 }}>Pratonton Pelajaran</div>
+                <div style={{ fontWeight:900, fontSize:15, color:C.text, marginBottom:4 }}>{t('Pratonton Pelajaran', 'Lesson Preview')}</div>
                 <div style={{ fontSize:12, color:C.textMuted, fontWeight:600 }}>{displayLessonTitle(assignModal)}</div>
               </div>
               <TeacherBadge tone={assignModal.difficulty === 'hard' ? 'bad' : assignModal.difficulty === 'easy' ? 'good' : 'warn'}>
@@ -2171,24 +2220,24 @@ const TeacherLessonsScreen = ({ classrooms }) => {
                   </div>
                 ))}
                 <div style={{ display:'flex', gap:6, marginTop:10, flexWrap:'wrap' }}>
-                  <TeacherBadge>{previewState.data?.questions?.length ?? assignModal.question_count ?? 0} soalan</TeacherBadge>
+                  <TeacherBadge>{previewState.data?.questions?.length ?? assignModal.question_count ?? 0}{t('soalan', 'questions')}</TeacherBadge>
                   {assignModal.estimated_minutes && <TeacherBadge>{assignModal.estimated_minutes} min</TeacherBadge>}
                   {assignModal.topic && <TeacherBadge>{compactLessonTitle(assignModal.topic, 'Topik')}</TeacherBadge>}
                 </div>
               </Card>
             )}
-            <TeacherField label="Kelas">
+            <TeacherField label={t('Kelas', 'Class')}>
               <select value={assignClassId} onChange={e => setAssignClassId(e.target.value)} style={{ ...teacherInputBase, marginBottom:10 }}>
-                {classrooms.map(c => <option key={c.id} value={c.id}>{teacherText(c.name, 'Kelas', 54)}</option>)}
+                {classrooms.map(c => <option key={c.id} value={c.id}>{teacherText(c.name, t('Kelas', 'Class'), 54)}</option>)}
               </select>
             </TeacherField>
             <div style={{ display:'grid', gridTemplateColumns:'1fr auto', gap:10, alignItems:'end', marginBottom:10 }}>
-              <TeacherField label="Tarikh Hantar">
+              <TeacherField label={t('Tarikh Hantar', 'Due Date')}>
                 <input type="date" value={assignDueDate} onChange={e => setAssignDueDate(e.target.value)} style={teacherInputBase} />
               </TeacherField>
               <label style={{ display:'flex', alignItems:'center', gap:7, minHeight:44, color:C.textMuted, fontSize:11, fontWeight:900 }}>
                 <input type="checkbox" checked={assignRequired} onChange={e => setAssignRequired(e.target.checked)} style={{ accentColor:C.acc }} />
-                Wajib
+                Wajib / Required
               </label>
             </div>
             {assignMsg && (
@@ -2196,7 +2245,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
             )}
             <div style={{ display:'flex', gap:8 }}>
               <GlowButton onClick={assignLesson} disabled={assigning} style={{ flex:1 }}>
-                {assigning ? 'Menetapkan...' : 'Tetapkan ke Kelas'}
+                {assigning ? 'Menetapkan...' : t('Tetapkan ke Kelas', 'Assign to Class')}
               </GlowButton>
               <button onClick={() => setAssignModal(null)} style={{
                 background:C.surface, border:`1px solid ${C.border}`, borderRadius:12,
@@ -2445,6 +2494,7 @@ const whiteboardRenderReplayEvents = (canvas, events, limit = events.length) => 
 };
 
 const WhiteboardReplay = ({ session, classroom, onClose }) => {
+  const { t } = useLanguage();
   const canvasRef = React.useRef(null);
   const timerRef = React.useRef(null);
   const [loading, setLoading] = React.useState(true);
@@ -2460,7 +2510,7 @@ const WhiteboardReplay = ({ session, classroom, onClose }) => {
     const load = async () => {
       if (!sessionId) {
         setLoading(false);
-        setError('Sesi tidak sah.');
+        setError(t('Sesi tidak sah.', 'Invalid session.'));
         return;
       }
       setLoading(true);
@@ -2471,7 +2521,7 @@ const WhiteboardReplay = ({ session, classroom, onClose }) => {
         if (cancelled) return;
         setEvents(nextEvents);
         setPlayhead(nextEvents.length);
-        setError(nextEvents.length ? '' : 'Tiada aktiviti papan putih ditemui untuk ulangan ini.');
+        setError(nextEvents.length ? '' : t('Tiada aktiviti papan putih ditemui untuk ulangan ini.', 'No whiteboard activity found for this replay.'));
       } catch (e) {
         if (cancelled) return;
         setEvents([]);
@@ -2526,7 +2576,7 @@ const WhiteboardReplay = ({ session, classroom, onClose }) => {
           <div style={{ minWidth:0 }}>
             <div style={{ fontWeight:900, fontSize:16, color:C.accPale, marginBottom:4 }}>🖌️ Ulangan Papan Putih</div>
             <div style={{ fontSize:12, color:C.textMuted, fontWeight:700, lineHeight:1.35 }}>
-              {teacherTitle(session?.title, 'Sesi Papan Putih')} - {teacherText(classroom?.name, 'kelas ini', 54)}
+              {teacherTitle(session?.title, t('Sesi Papan Putih', 'Whiteboard Session'))} - {teacherText(classroom?.name, t('kelas ini', 'this class'), 54)}
             </div>
           </div>
           <button onClick={onClose} style={{
@@ -2560,7 +2610,7 @@ const WhiteboardReplay = ({ session, classroom, onClose }) => {
             background:C.surface, border:`1px solid ${C.border}`, borderRadius:12,
             padding:'0 14px', color:C.accPale, textDecoration:'none',
             fontSize:12, fontWeight:900,
-          }}>Buka fail</a>
+          }}>{t('Buka fail', 'Open file')}</a>
         )}
       </div>
       <div style={{ display:'flex', gap:6, flexWrap:'wrap', alignItems:'center' }}>
@@ -2572,6 +2622,7 @@ const WhiteboardReplay = ({ session, classroom, onClose }) => {
 };
 
 const WhiteboardCanvas = ({ sessionId, classroomId, onClose }) => {
+  const { t } = useLanguage();
   const canvasRef = React.useRef(null);
   const wsRef = React.useRef(null);
   const drawingRef = React.useRef(false);
@@ -2690,12 +2741,12 @@ const WhiteboardCanvas = ({ sessionId, classroomId, onClose }) => {
         padding:'10px 14px', background:C.card, borderBottom:`1px solid ${C.border}`,
         display:'flex', alignItems:'center', gap:10, flexShrink:0,
       }}>
-        <button onClick={onClose} aria-label="Tutup papan putih" style={{
+        <button onClick={onClose} aria-label={t('Tutup papan putih', 'Close whiteboard')} style={{
           background:C.surface, border:`1px solid ${C.border}`, borderRadius:10,
           cursor:'pointer', minWidth:44, minHeight:44, padding:'0 12px',
           fontSize:12, color:C.textMuted, fontFamily:'Nunito', fontWeight:900,
         }}>Kembali</button>
-        <div style={{ fontWeight:800, fontSize:14, color:C.text, flex:1 }}>Papan Putih</div>
+        <div style={{ fontWeight:800, fontSize:14, color:C.text, flex:1 }}>{t('Papan Putih', 'Whiteboard')}</div>
         <div style={{ fontSize:10, color:connected ? C.green : C.red, fontWeight:800 }}>
           {connected ? '● Bersambung' : '● Terputus'}
         </div>
@@ -2736,7 +2787,7 @@ const WhiteboardCanvas = ({ sessionId, classroomId, onClose }) => {
           background:'rgba(239,68,68,.12)', border:'1px solid rgba(239,68,68,.3)',
           borderRadius:10, padding:'0 12px', minHeight:44, minWidth:92, cursor:'pointer',
           color:C.red, fontFamily:'Nunito', fontWeight:800, fontSize:11,
-        }}>Padam papan</button>
+        }}>{t('Padam papan', 'Clear board')}</button>
       </div>
       <canvas
         ref={canvasRef}
@@ -2756,6 +2807,7 @@ const WhiteboardCanvas = ({ sessionId, classroomId, onClose }) => {
 };
 
 const TeacherWhiteboardScreen = ({ classrooms }) => {
+  const { t } = useLanguage();
   const [selectedClassId, setSelectedClassId] = React.useState(classrooms[0]?.id || '');
   const [activeCanvas, setActiveCanvas] = React.useState(null);
   const [replaySession, setReplaySession] = React.useState(null);
@@ -2778,12 +2830,12 @@ const TeacherWhiteboardScreen = ({ classrooms }) => {
 
   const startSession = async () => {
     if (!selectedClassId || !isLiveClassId(selectedClassId)) {
-      setMsg('Pilih kelas nyata untuk memulakan sesi.');
+      setMsg(t('Pilih kelas nyata untuk memulakan sesi.', 'Select a real class to start a session.'));
       return;
     }
     setStarting(true); setMsg('');
     try {
-      const data = await window.tusyenApi.startWhiteboardSession({ classroomId: selectedClassId, title:'Sesi Papan Putih' });
+      const data = await window.tusyenApi.startWhiteboardSession({ classroomId: selectedClassId, title:t('Sesi Papan Putih', 'Whiteboard Session') });
       const session = data.session || data;
       sessState.refresh();
       if (session?.id) setActiveCanvas({ sessionId:session.id, classroomId:selectedClassId });
@@ -2856,8 +2908,8 @@ const TeacherWhiteboardScreen = ({ classrooms }) => {
               }}>{cls.name}</button>
             ))}
           </div>
-          <TeacherBadge tone={active ? 'good' : 'neutral'}>{active ? 'Sesi aktif' : 'Tiada sesi'}</TeacherBadge>
-          <TeacherBadge>{whiteboardParticipantCount(active)} peserta</TeacherBadge>
+          <TeacherBadge tone={active ? 'good' : 'neutral'}>{active ? t('Sesi aktif', 'Active session') : 'Tiada sesi'}</TeacherBadge>
+          <TeacherBadge>{whiteboardParticipantCount(active)}{t('peserta', 'participants')}</TeacherBadge>
         </div>
       </Card>
       {msg && <div style={{ fontSize:11, color:msg.includes('tamat') ? C.green : C.red, fontWeight:800, marginBottom:10 }}>{msg}</div>}
@@ -2867,10 +2919,10 @@ const TeacherWhiteboardScreen = ({ classrooms }) => {
             <div style={{ minWidth:0 }}>
               <div style={{ fontWeight:900, fontSize:14, color:C.accPale, marginBottom:3 }}>🖌️ Sesi Aktif</div>
               <div style={{ fontSize:12, color:C.textMuted, fontWeight:600 }}>
-                {active.title || 'Sesi Papan Putih'} - Bermula {window.timeAgo(active.started_at || active.createdAt)}
+                {active.title || t('Sesi Papan Putih', 'Whiteboard Session')} - Bermula {window.timeAgo(active.started_at || active.createdAt)}
               </div>
             </div>
-            <TeacherBadge tone="good">{whiteboardParticipantCount(active)} peserta</TeacherBadge>
+            <TeacherBadge tone="good">{whiteboardParticipantCount(active)}{t('peserta', 'participants')}</TeacherBadge>
           </div>
           <div style={{ display:'flex', gap:6, flexWrap:'wrap', marginBottom:12 }}>
             <TeacherBadge>{whiteboardRecordingLabel(active)}</TeacherBadge>
@@ -2891,7 +2943,7 @@ const TeacherWhiteboardScreen = ({ classrooms }) => {
             <GlowButton onClick={() => setActiveCanvas({
               sessionId:active.id,
               classroomId:active.classroom_id || active.classroomId || selectedClassId,
-            })} style={{ flex:1 }}>Masuk Papan Putih</GlowButton>
+            })} style={{ flex:1 }}>{t('Masuk Papan Putih', 'Enter Whiteboard')}</GlowButton>
             <button onClick={() => shareSummary(active)} style={{
               background:C.surface, border:`1px solid ${C.border}`,
               borderRadius:12, padding:'0 14px', minHeight:44, cursor:'pointer',
@@ -2914,14 +2966,14 @@ const TeacherWhiteboardScreen = ({ classrooms }) => {
               fontSize:22,
             }}>🖌️</div>
             <div style={{ minWidth:0 }}>
-              <div style={{ fontWeight:900, fontSize:14, color:C.text }}>Tiada sesi aktif</div>
+              <div style={{ fontWeight:900, fontSize:14, color:C.text }}>{t('Tiada sesi aktif', 'No active session')}</div>
               <div style={{ fontSize:12, color:C.textMuted, fontWeight:700, lineHeight:1.35 }}>
-                {history.length ? 'Mulakan lagi papan putih untuk kelas yang dipilih.' : 'Mulakan papan putih untuk kelas yang dipilih.'}
+                {history.length ? t('Mulakan lagi papan putih untuk kelas yang dipilih.', 'Start the whiteboard again for the selected class.') : t('Mulakan papan putih untuk kelas yang dipilih.', 'Start the whiteboard for the selected class.')}
               </div>
             </div>
           </div>
           <GlowButton onClick={startSession} disabled={starting}>
-            {starting ? 'Memulakan...' : history.length ? 'Mula lagi' : 'Mulakan Sesi Papan Putih'}
+            {starting ? 'Memulakan...' : history.length ? t('Mula lagi', 'Start again') : t('Mulakan Sesi Papan Putih', 'Start Whiteboard Session')}
           </GlowButton>
         </Card>
       )}
@@ -2932,10 +2984,9 @@ const TeacherWhiteboardScreen = ({ classrooms }) => {
             <Card key={s.id || i} style={{ marginBottom:8, padding:12 }}>
               <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', gap:10 }}>
                 <div style={{ minWidth:0 }}>
-                  <div style={{ fontWeight:800, fontSize:13, color:C.text, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{teacherTitle(s.title, 'Sesi Papan Putih')}</div>
+                  <div style={{ fontWeight:800, fontSize:13, color:C.text, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{teacherTitle(s.title, t('Sesi Papan Putih', 'Whiteboard Session'))}</div>
                   <div style={{ fontSize:10, color:C.textFaint, fontWeight:600, marginTop:2 }}>
-                    {formatDateShort(s.started_at)} - {s.ended_at ? `Tamat ${window.timeAgo(s.ended_at)}` : 'Sedang berjalan'} - {whiteboardParticipantCount(s)} peserta
-                  </div>
+                    {formatDateShort(s.started_at)} - {s.ended_at ? `Tamat ${window.timeAgo(s.ended_at)}` : t('Sedang berjalan', 'Running')} - {whiteboardParticipantCount(s)}{t('peserta', 'participants')}</div>
                   <div style={{ fontSize:10, color:C.textMuted, fontWeight:800, marginTop:3 }}>{whiteboardRecordingLabel(s)}</div>
                 </div>
                 {whiteboardSessionId(s) && (
@@ -2972,10 +3023,11 @@ const TeacherWhiteboardScreen = ({ classrooms }) => {
 // ─── Class Detail ──────────────────────────────────────────────────────────
 
 const ClassroomSettingsModal = ({ cls, onClose, onSaved, onArchived }) => {
+  const { t } = useLanguage();
   const [form, setForm] = React.useState({
     name: cls?.name || '',
     subject: cls?.subject || subjectText(cls?.subj) || 'Matematik',
-    formLevel: String(cls?.form || 4),
+    formLevel: String(CLASS_FORM_LEVELS.includes(Number(cls?.form)) ? Number(cls?.form) : 4),
     description: cls?.description || '',
   });
   const [busy, setBusy] = React.useState('');
@@ -2984,7 +3036,8 @@ const ClassroomSettingsModal = ({ cls, onClose, onSaved, onArchived }) => {
   const live = isLiveClassId(cls?.id);
 
   const save = async () => {
-    if (!form.name.trim()) { setError('Nama kelas diperlukan.'); return; }
+    if (!form.name.trim()) { setError(t('Nama kelas diperlukan.', 'Class name is required.')); return; }
+    if (!CLASS_FORM_LEVELS.includes(Number(form.formLevel))) { setError(t('Tingkatan yang dibenarkan ialah 4 atau 5.', 'Allowed form levels are 4 or 5.')); return; }
     setBusy('save'); setError('');
     try {
       let updated = {
@@ -3019,7 +3072,7 @@ const ClassroomSettingsModal = ({ cls, onClose, onSaved, onArchived }) => {
       onSaved(updated);
       onClose();
     } catch (err) {
-      setError(err.message || 'Tidak dapat menyimpan kelas.');
+      setError(classroomFormErrorMessage(err, t('Tidak dapat menyimpan kelas.', 'Unable to save class.')));
     } finally {
       setBusy('');
     }
@@ -3046,39 +3099,39 @@ const ClassroomSettingsModal = ({ cls, onClose, onSaved, onArchived }) => {
         display:'flex', alignItems:'center', justifyContent:'center', padding:20,
       }} onClick={e => e.target === e.currentTarget && onClose()}>
         <div style={{ background:C.card, borderRadius:18, padding:'20px 18px', width:'100%', maxWidth:460 }}>
-          <div style={{ fontWeight:900, fontSize:15, color:C.text, marginBottom:12 }}>Tetapan Kelas</div>
+          <div style={{ fontWeight:900, fontSize:15, color:C.text, marginBottom:12 }}>{t('Tetapan Kelas', 'Class Settings')}</div>
           <div style={{ display:'grid', gap:8 }}>
-            <TeacherField label="Nama Kelas">
+            <TeacherField label={t('Nama Kelas', 'Class Name')}>
               <input value={form.name} onChange={e => setForm(prev => ({ ...prev, name:e.target.value }))} style={teacherInputBase} />
             </TeacherField>
             <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8 }}>
-              <TeacherField label="Subjek">
+              <TeacherField label={t('Subjek', 'Subject')}>
                 <select value={form.subject} onChange={e => setForm(prev => ({ ...prev, subject:e.target.value }))} style={teacherInputBase}>
                   {CLASS_SUBJECTS.map(item => <option key={item} value={item}>{item}</option>)}
                 </select>
               </TeacherField>
-              <TeacherField label="Tingkatan">
+              <TeacherField label={t('Tingkatan', 'Form')}>
                 <select value={form.formLevel} onChange={e => setForm(prev => ({ ...prev, formLevel:e.target.value }))} style={teacherInputBase}>
-                  {CLASS_FORM_LEVELS.map(item => <option key={item} value={String(item)}>Tingkatan {item}</option>)}
+                  {CLASS_FORM_LEVELS.map(item => <option key={item} value={String(item)}>{t('Tingkatan', 'Form')}{item}</option>)}
                 </select>
               </TeacherField>
             </div>
-            <TeacherField label="Penerangan">
+            <TeacherField label={t('Penerangan', 'Description')}>
               <textarea value={form.description} onChange={e => setForm(prev => ({ ...prev, description:e.target.value }))} rows={3} style={{ ...teacherInputBase, resize:'vertical' }} />
             </TeacherField>
             {error && <div style={{ fontSize:11, color:C.red, fontWeight:900 }}>{error}</div>}
             <div style={{ display:'flex', gap:8 }}>
               <GlowButton onClick={save} disabled={busy === 'save'} style={{ flex:1 }}>
-                {busy === 'save' ? 'Menyimpan...' : 'Simpan'}
+                {busy === 'save' ? 'Menyimpan...' : t('Simpan', 'Save')}
               </GlowButton>
-              <button onClick={onClose} style={{ background:C.surface, border:`1px solid ${C.border}`, borderRadius:12, padding:'0 14px', minHeight:44, color:C.textMuted, fontFamily:'Nunito', fontWeight:800, cursor:'pointer' }}>Batal</button>
+              <button onClick={onClose} style={{ background:C.surface, border:`1px solid ${C.border}`, borderRadius:12, padding:'0 14px', minHeight:44, color:C.textMuted, fontFamily:'Nunito', fontWeight:800, cursor:'pointer' }}>{t('Batal', 'Cancel')}</button>
             </div>
             <div style={{ display:'flex', justifyContent:'flex-end', marginTop:4 }}>
               <TeacherActionMenu
-                label="Tindakan lanjut kelas"
+                label={t('Tindakan lanjut kelas', 'Advanced class actions')}
                 items={[
                   {
-                    label:busy === 'archive' ? 'Menyahaktifkan...' : 'Nyahaktifkan kelas',
+                    label:busy === 'archive' ? 'Menyahaktifkan...' : t('Nyahaktifkan kelas', 'Deactivate class'),
                     icon:'!',
                     danger:true,
                     disabled:busy === 'archive',
@@ -3092,7 +3145,7 @@ const ClassroomSettingsModal = ({ cls, onClose, onSaved, onArchived }) => {
       </div>
       <TeacherConfirmModal
         open={archiveConfirm}
-        title="Nyahaktifkan kelas?"
+        title={t('Nyahaktifkan kelas?', 'Deactivate class?')}
         message={`${cls.name} tidak akan kelihatan kepada pelajar selepas dinyahaktifkan.`}
         confirmLabel="Nyahaktifkan"
         danger
@@ -3105,6 +3158,7 @@ const ClassroomSettingsModal = ({ cls, onClose, onSaved, onArchived }) => {
 };
 
 const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onBack, onClassUpdated, onClassArchived }) => {
+  const { t } = useLanguage();
   const [tab, setTab] = React.useState(initialTab);
   const [composer, setComposer] = React.useState(null);
   const [postText, setPostText] = React.useState('');
@@ -3131,6 +3185,8 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
   const analyticsState = useClassAnalytics(cls?.id);
   const feedState = useClassFeed(cls?.id);
   const progressState = useStudentProgress(selectedStudent?.id, cls?.id);
+  const classFeedRefs = React.useRef({});
+  const classFeedScrollRef = React.useRef(null);
   const roster = rosterState.data || STUDS;
   const atRiskRoster = roster.filter(isAtRiskStudent);
   const displayedRoster = studentFilter === 'risk' ? atRiskRoster : roster;
@@ -3142,11 +3198,24 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
     atRiskCount: 0,
   };
   const createCards = [
-    { icon:'📢', label:'Pengumuman',    desc:'Maklumkan jadual, peringatan, atau nota penting.', postType:'announcement', enabled:true  },
-    { icon:'📋', label:'Tugasan',        desc:'Tetapkan arahan kerja, bahan rujukan, dan tarikh hantar.', postType:'assignment', enabled:true  },
-    { icon:'🧪', label:'Kuiz baharu',    desc:'Sediakan semakan pantas untuk kelas.', enabled:false },
-    { icon:'🎬', label:'Video pelajaran', desc:'Kongsi penerangan atau pautan video.', enabled:false },
+    { icon:'📢', label:t('Pengumuman', 'Announcement'),    desc:t('Maklumkan jadual, peringatan, atau nota penting.', 'Share schedules, reminders, or important notes.'), postType:'announcement', enabled:true  },
+    { icon:'📋', label:t('Tugasan', 'Assignment'),        desc:t('Tetapkan arahan kerja, bahan rujukan, dan tarikh hantar.', 'Set work instructions, reference materials, and due date.'), postType:'assignment', enabled:true  },
+    { icon:'🧪', label:t('Kuiz baharu', 'New quiz'),    desc:t('Sediakan semakan pantas untuk kelas.', 'Prepare a quick review for the class.'), enabled:false },
+    { icon:'🎬', label:t('Video pelajaran', 'Lesson video'), desc:t('Kongsi penerangan atau pautan video.', 'Share an explanation or video link.'), enabled:false },
   ];
+  React.useEffect(() => {
+    const pending = classFeedScrollRef.current;
+    const posts = feedState.data || [];
+    if (!pending || feedState.loading || posts.length === 0) return;
+    const createdId = pending.id && posts.some(post => teacherPostId(post) === pending.id) ? pending.id : '';
+    const firstId = teacherPostId(posts[0]);
+    const targetId = createdId || (firstId && firstId !== pending.before ? firstId : '');
+    const node = targetId ? classFeedRefs.current[targetId] : null;
+    if (!node) return;
+    node.scrollIntoView({ behavior:'smooth', block:'start' });
+    classFeedScrollRef.current = null;
+  }, [feedState.data, feedState.loading]);
+
   const openComposer = (item) => {
     if (!item.enabled) {
       setCreateNotice(`${item.label} akan tersedia tidak lama lagi.`);
@@ -3168,7 +3237,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
   const submitPost = async () => {
     if (!composer || !postText.trim()) return;
     if (composer.postType === 'assignment' && !dueDate) {
-      setPostError('Tarikh hantar diperlukan untuk tugasan.');
+      setPostError(t('Tarikh hantar diperlukan untuk tugasan.', 'Due date is required for assignments.'));
       return;
     }
     setPosting(true);
@@ -3178,13 +3247,15 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
       const content = composer.postType === 'assignment' && dueDate
         ? `Tarikh hantar: ${formatDateShort(dueDate)}\n\n${postText}`
         : postText;
-      await window.tusyenApi.createPost({
+      const firstBefore = teacherPostId((feedState.data || [])[0]);
+      const data = await window.tusyenApi.createPost({
         classroomId: cls.id,
         content,
         postType: composer.postType,
         title: composer.label,
       });
-      setPostStatus('Berjaya dihantar. Pos terkini dipaparkan di bawah.');
+      classFeedScrollRef.current = { id:teacherPostId(data?.post || data), before:firstBefore };
+      setPostStatus(t('Berjaya dihantar. Pos terkini dipaparkan di bawah.', 'Sent successfully. The latest post is shown below.'));
       setPostText('');
       setDueDate('');
       setComposer(null);
@@ -3205,9 +3276,9 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
   const copyClassCode = async () => {
     try {
       await copyTextToClipboard(cls.code);
-      setClassNotice('Kod kelas disalin.');
+      setClassNotice(t('Kod kelas disalin.', 'Class code copied.'));
     } catch {
-      setClassNotice('Salin kod gagal. Pilih kod dan salin secara manual.');
+      setClassNotice(t('Salin kod gagal. Pilih kod dan salin secara manual.', 'Copy failed. Select the code and copy it manually.'));
     }
   };
 
@@ -3215,7 +3286,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
     try {
       if (navigator.share) {
         await navigator.share({ title:`Kod kelas ${cls.name}`, text:classInviteText(cls) });
-        setClassNotice('Kod kelas sedia dikongsi.');
+        setClassNotice(t('Kod kelas sedia dikongsi.', 'Class code is ready to share.'));
       } else {
         await copyTextToClipboard(classInviteText(cls));
         setClassNotice('Teks jemputan disalin.');
@@ -3266,34 +3337,34 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
   const trendDelta = Math.round(averageCount(lateWeek) - averageCount(earlyWeek));
   const activityTrend = weeklyTotal === 0
     ? {
-      label:'Belum ada data',
+      label:t('Belum ada data', 'No data yet'),
       tone:'neutral',
-      detail:'Aktiviti belum cukup untuk membaca corak minggu ini.',
-      why:'Mengapa penting: trend membantu Cikgu memilih sama ada perlu dorongan kelas atau intervensi kecil.',
+      detail:t('Aktiviti belum cukup untuk membaca corak minggu ini.', 'There is not enough activity to read this week\'s pattern.'),
+      why:t('Mengapa penting: trend membantu Cikgu memilih sama ada perlu dorongan kelas atau intervensi kecil.', 'Why it matters: trends help teachers choose between class encouragement or small interventions.'),
     }
     : trendDelta >= 2
       ? {
         label:'Trend menaik',
         tone:'good',
         detail:`Aktiviti terkini naik kira-kira ${trendDelta} berbanding awal minggu.`,
-        why:'Mengapa penting: momentum sedang baik; kekalkan rentak dengan tugasan pendek atau pujian kelas.',
+        why:t('Mengapa penting: momentum sedang baik; kekalkan rentak dengan tugasan pendek atau pujian kelas.', 'Why it matters: momentum is good; keep the pace with short assignments or class praise.'),
       }
       : trendDelta <= -2
         ? {
           label:'Trend menurun',
           tone:'bad',
           detail:`Aktiviti terkini turun kira-kira ${Math.abs(trendDelta)} berbanding awal minggu.`,
-          why:'Mengapa penting: penurunan awal memberi peluang untuk hantar peringatan sebelum pelajar tertinggal.',
+          why:t('Mengapa penting: penurunan awal memberi peluang untuk hantar peringatan sebelum pelajar tertinggal.', 'Why it matters: an early dip gives time to send reminders before students fall behind.'),
         }
         : {
           label:'Trend stabil',
           tone:'warn',
-          detail:'Aktiviti kelas stabil tanpa lonjakan atau penurunan besar.',
-          why:'Mengapa penting: kelas stabil sesuai diberi latihan pengukuhan ringan dan semakan topik lemah.',
+          detail:t('Aktiviti kelas stabil tanpa lonjakan atau penurunan besar.', 'Class activity is stable without major spikes or drops.'),
+          why:t('Mengapa penting: kelas stabil sesuai diberi latihan pengukuhan ringan dan semakan topik lemah.', 'Why it matters: a stable class is ready for light reinforcement practice and weak-topic review.'),
         };
   const riskActionWhy = atRiskRoster.length > 0
     ? `${atRiskRoster.length} pelajar memerlukan semakan kerana skor atau kemajuan mereka berada di bawah ambang risiko.`
-    : 'Tiada pelajar berisiko dikesan sekarang; terus pantau selepas tugasan baharu.';
+    : t('Tiada pelajar berisiko dikesan sekarang; terus pantau selepas tugasan baharu.', 'No at-risk students detected now; keep monitoring after new assignments.');
   const weakTopicWhy = (topic) => {
     const score = Number(topic.avgScore) || 0;
     if (score < 50) return 'Mengapa penting: purata bawah 50% biasanya menandakan asas topik belum kukuh dan perlu pemulihan segera.';
@@ -3302,12 +3373,12 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
   };
   const weeklyTrendLabel = weeklyPeak
     ? `${weeklyTotal} aktiviti minggu ini; hari paling aktif ${weeklyPeak.day} (${weeklyPeak.count}).`
-    : 'Belum ada aktiviti minggu ini.';
+    : t('Belum ada aktiviti minggu ini.', 'No activity this week yet.');
 
   if (!cls) {
     return (
       <div style={{ flex:1, display:'flex', flexDirection:'column', overflow:'hidden' }}>
-        <EmptyState icon="🏫" title="Pilih kelas dahulu" subtitle="Buka tab Kelas dan pilih kelas untuk melihat pelajar, analitik, atau mencipta kandungan." />
+        <EmptyState icon="🏫" title={t('Pilih kelas dahulu', 'Select a class first')} subtitle={t('Buka tab Kelas dan pilih kelas untuk melihat pelajar, analitik, atau mencipta kandungan.', 'Open the Classes tab and select a class to view students, analytics, or create content.')} />
       </div>
     );
   }
@@ -3336,9 +3407,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
               cursor:'pointer',
               flexShrink:0,
             }}
-          >
-            Kembali ke Kelas
-          </button>
+          >{t('Kembali ke Kelas', 'Back to Classes')}</button>
           <div style={{
             minWidth:0,
             color:C.textMuted,
@@ -3347,14 +3416,13 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
             whiteSpace:'nowrap',
             overflow:'hidden',
             textOverflow:'ellipsis',
-          }}>
-            Kelas / {cls.name}
+          }}>{t('Kelas /', 'Class /')}{cls.name}
           </div>
         </div>
         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', gap:10, marginBottom:8 }}>
           <div style={{ minWidth:0 }}>
             <div style={{ fontWeight:900, fontSize:16, color:C.text, marginBottom:1, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{cls.name}</div>
-            <div style={{ fontSize:12, color:C.textMuted, fontWeight:600 }}>{cls.subj} • {cls.students} pelajar</div>
+            <div style={{ fontSize:12, color:C.textMuted, fontWeight:600 }}>{cls.subj} • {cls.students}{t('pelajar', 'students')}</div>
           </div>
           <button onClick={() => setSettingsOpen(true)} title="Sunting kelas" style={{
             background:C.surface, border:`1px solid ${C.border}`, borderRadius:10,
@@ -3363,7 +3431,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
           }}>⚙</button>
         </div>
         <div style={{ display:'grid', gridTemplateColumns:'minmax(0,1fr) auto', gap:8, alignItems:'stretch' }}>
-          <StatPill icon="📊" value={classAvgLabel} label="Purata Siap" color={cls.color} />
+          <StatPill icon="📊" value={classAvgLabel} label={t('Purata Siap', 'Average Completion')} color={cls.color} />
           <div style={{
             display:'grid', gridTemplateColumns:'1fr auto auto', gap:6, alignItems:'center',
             background:`color-mix(in srgb,${cls.color} 16%,transparent)`,
@@ -3371,26 +3439,24 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
             borderRadius:12, padding:'5px 7px',
           }}>
             <div style={{ minWidth:0 }}>
-              <div style={{ fontSize:9, color:C.textMuted, fontWeight:900, textTransform:'uppercase' }}>Kod Kelas</div>
+              <div style={{ fontSize:9, color:C.textMuted, fontWeight:900, textTransform:'uppercase' }}>{t('Kod Kelas', 'Class Code')}</div>
               <div style={{ fontSize:13, color:cls.color, fontWeight:900, letterSpacing:0 }}>{cls.code}</div>
             </div>
-            <TeacherSmallButton onClick={copyClassCode}>Salin</TeacherSmallButton>
+            <TeacherSmallButton onClick={copyClassCode}>{t('Salin', 'Copy')}</TeacherSmallButton>
             <TeacherSmallButton onClick={shareClassCode}>Kongsi</TeacherSmallButton>
           </div>
         </div>
         <div style={{ display:'flex', gap:8, marginTop:9 }}>
-          <TeacherSmallButton onClick={quickAnnouncement} style={{ flex:1 }}>Pengumuman baharu</TeacherSmallButton>
+          <TeacherSmallButton onClick={quickAnnouncement} style={{ flex:1 }}>{t('Pengumuman baharu', 'New announcement')}</TeacherSmallButton>
           <TeacherSmallButton onClick={() => { setTab('students'); setStudentFilter('risk'); }} danger={atRiskRoster.length > 0} style={{ flex:1 }}>
-            {atRiskRoster.length} Pelajar Berisiko
-          </TeacherSmallButton>
+            {atRiskRoster.length}{t('Pelajar Berisiko', 'At-Risk Students')}</TeacherSmallButton>
         </div>
         <div style={{ marginTop:8, fontSize:11, color:C.textMuted, fontWeight:800, lineHeight:1.4 }}>
-          Aktiviti terakhir: {formatActivityStatus(classLastActivity)}. Purata siap berdasarkan rekod pelajaran yang sudah dicuba dalam kelas ini.
-        </div>
+          Aktiviti terakhir: {formatActivityStatus(classLastActivity)}{t('. Purata siap berdasarkan rekod pelajaran yang sudah dicuba dalam kelas ini.', '. Average completion is based on lesson records attempted in this class.')}</div>
         {classNotice && <div style={{ fontSize:11, color:C.accPale, fontWeight:900, marginTop:7 }}>{classNotice}</div>}
       </div>
 
-      <div role="tablist" aria-label="Bahagian detail kelas" style={{ display:'flex', borderBottom:`1px solid ${C.border}`, flexShrink:0, background:C.surface, overflowX:'auto' }}>
+      <div role="tablist" aria-label={t('Bahagian detail kelas', 'Class detail section')} style={{ display:'flex', borderBottom:`1px solid ${C.border}`, flexShrink:0, background:C.surface, overflowX:'auto' }}>
         {['students','analytics','create','quiz'].map(t => (
           <button key={t} role="tab" aria-selected={tab === t} onClick={() => setTab(t)} style={{
             flex:1, padding:'10px 0', minHeight:44, border:'none', cursor:'pointer',
@@ -3448,8 +3514,8 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
             <Card>
               <EmptyState
                 icon="👥"
-                title={studentFilter === 'risk' ? 'Tiada pelajar berisiko' : 'Belum ada pelajar'}
-                subtitle={studentFilter === 'risk' ? 'Tiada pelajar berisiko berdasarkan markah dan kemajuan semasa.' : 'Kongsi kod kelas untuk mula menambah pelajar.'}
+                title={studentFilter === 'risk' ? t('Tiada pelajar berisiko', 'No at-risk students') : t('Belum ada pelajar', 'No students yet')}
+                subtitle={studentFilter === 'risk' ? t('Tiada pelajar berisiko berdasarkan markah dan kemajuan semasa.', 'No at-risk students based on current marks and progress.') : t('Kongsi kod kelas untuk mula menambah pelajar.', 'Share the class code to start adding students.')}
               />
             </Card>
           ) : (
@@ -3458,7 +3524,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                 const hasScore = s.score !== null && s.score !== undefined;
                 const scoreGood = hasScore && s.score >= 60;
                 const scoreColor = !hasScore ? C.textFaint : scoreGood ? C.green : C.red;
-                const progressText = s.attempted > 0 ? `${s.completed}/${s.attempted} selesai` : 'Belum ada pelajaran';
+                const progressText = s.attempted > 0 ? `${s.completed}/${s.attempted} selesai` : t('Belum ada pelajaran', 'No lessons yet');
                 return (
                   <div key={s.id || i} onClick={() => setSelectedStudent(selectedStudent?.id === (s.id || i) ? null : s)} style={{
                     display:'flex', alignItems:'center', gap:10, padding:'9px 0',
@@ -3483,9 +3549,9 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                     <TeacherActionMenu
                       label={`Tindakan ${s.name}`}
                       items={[
-                        { label:'Lihat kemajuan', icon:'📊', onClick:() => setSelectedStudent(s) },
+                        { label:t('Lihat kemajuan', 'View progress'), icon:'📊', onClick:() => setSelectedStudent(s) },
                         isLiveClassId(cls?.id) && {
-                          label:removingStudentId === s.id ? 'Membuang...' : 'Buang daripada kelas',
+                          label:removingStudentId === s.id ? 'Membuang...' : t('Buang daripada kelas', 'Remove from class'),
                           icon:'🗑️',
                           danger:true,
                           disabled:removingStudentId === s.id,
@@ -3502,7 +3568,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                     <div>
                       <div style={{ fontWeight:800, fontSize:14, color:C.text }}>{selectedStudent.name}</div>
                       <div style={{ fontSize:11, color:C.textMuted, fontWeight:600 }}>
-                        {selectedStudent.lastActive ? `Aktif ${formatDateShort(selectedStudent.lastActive)}` : 'Belum ada aktiviti direkod'}
+                        {selectedStudent.lastActive ? `Aktif ${formatDateShort(selectedStudent.lastActive)}` : t('Belum ada aktiviti direkod', 'No activity recorded yet')}
                       </div>
                     </div>
                     <div style={{ display:'flex', gap:6 }}>
@@ -3510,7 +3576,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                         label={`Tindakan ${selectedStudent.name}`}
                         items={[
                           isLiveClassId(cls?.id) && {
-                            label:removingStudentId === selectedStudent.id ? 'Membuang...' : 'Buang daripada kelas',
+                            label:removingStudentId === selectedStudent.id ? 'Membuang...' : t('Buang daripada kelas', 'Remove from class'),
                             icon:'🗑️',
                             danger:true,
                             disabled:removingStudentId === selectedStudent.id,
@@ -3536,7 +3602,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                       </div>
                     ))}
                   </div>
-                  <div style={{ fontWeight:800, fontSize:12, color:C.text, marginBottom:7 }}>Sejarah Pelajaran</div>
+                  <div style={{ fontWeight:800, fontSize:12, color:C.text, marginBottom:7 }}>{t('Sejarah Pelajaran', 'Lesson History')}</div>
                   {progressState.loading ? [0,1,2].map(i => (
                     <Skeleton key={i} width="100%" height={24} radius={8} style={{ marginBottom:6 }} />
                   )) : (progressState.data || []).length ? (progressState.data || []).slice(0,4).map((p,i) => (
@@ -3546,14 +3612,14 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                     }}>
                       <div style={{ minWidth:0 }}>
                         <div style={{ fontSize:12, color:C.text, fontWeight:800, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>
-                          {compactLessonTitle(p.lesson_title || p.title || '', 'Pelajaran')}
+                          {compactLessonTitle(p.lesson_title || p.title || '', t('Pelajaran', 'Lessons'))}
                         </div>
                         <div style={{ fontSize:10, color:C.textMuted, fontWeight:600 }}>{p.topic || p.subject || 'Topik'}</div>
                       </div>
                       <div style={{ fontSize:12, color:C.accPale, fontWeight:900, flexShrink:0 }}>{Math.round(Number(p.score) || 0)}%</div>
                     </div>
                   )) : (
-                    <div style={{ fontSize:12, color:C.textMuted, fontWeight:600 }}>Tiada rekod pelajaran untuk kelas ini.</div>
+                    <div style={{ fontSize:12, color:C.textMuted, fontWeight:600 }}>{t('Tiada rekod pelajaran untuk kelas ini.', 'No lesson records for this class.')}</div>
                   )}
                 </Card>
               )}
@@ -3602,7 +3668,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
             <Card style={{ margin:'14px 0 12px', padding:12, background:atRiskRoster.length ? 'rgba(239,68,68,.08)' : C.surface, border:`1px solid ${atRiskRoster.length ? 'rgba(239,68,68,.26)' : C.border}` }}>
               <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:10 }}>
                 <div style={{ minWidth:0 }}>
-                  <div style={{ fontSize:13, color:C.text, fontWeight:900, marginBottom:4 }}>Tindakan risiko pelajar</div>
+                  <div style={{ fontSize:13, color:C.text, fontWeight:900, marginBottom:4 }}>{t('Tindakan risiko pelajar', 'Student risk action')}</div>
                   <div style={{ fontSize:11, color:C.textMuted, fontWeight:800, lineHeight:1.45 }}>
                     Mengapa penting: {riskActionWhy}
                   </div>
@@ -3612,7 +3678,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                   onClick={() => { setTab('students'); setStudentFilter(atRiskRoster.length ? 'risk' : 'all'); }}
                   style={{ flexShrink:0 }}
                 >
-                  {atRiskRoster.length ? 'Semak risiko' : 'Lihat roster'}
+                  {atRiskRoster.length ? t('Semak risiko', 'Review risk') : 'Lihat roster'}
                 </TeacherSmallButton>
               </div>
             </Card>
@@ -3622,12 +3688,10 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                 <Skeleton width={i === 0 ? '72%' : '60%'} height={13} radius={7} />
               </Card>
             )) : analyticsState.error ? (
-              <ErrorRetry message="Analitik topik tidak dapat dimuat." onRetry={analyticsState.refresh} />
+              <ErrorRetry message={t('Analitik topik tidak dapat dimuat.', 'Topic analytics could not be loaded.')} onRetry={analyticsState.refresh} />
             ) : analytics.weakTopics.length === 0 ? (
               <Card style={{ marginBottom:8, padding:12 }}>
-                <div style={{ fontSize:12, color:C.textMuted, fontWeight:800, lineHeight:1.4 }}>
-                  Tiada topik lemah dikesan berdasarkan data kelas semasa.
-                </div>
+                <div style={{ fontSize:12, color:C.textMuted, fontWeight:800, lineHeight:1.4 }}>{t('Tiada topik lemah dikesan berdasarkan data kelas semasa.', 'No weak topics detected from current class data.')}</div>
               </Card>
             ) : analytics.weakTopics.map((t,i) => {
               const weakTone = Number(t.avgScore) < 50 ? 'bad' : Number(t.avgScore) < 60 ? 'warn' : 'neutral';
@@ -3636,10 +3700,10 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
               <Card warn key={i} style={{ marginBottom:8, padding:10 }}>
                 <div style={{ display:'flex', alignItems:'center', gap:8 }}>
                   <div style={{ flex:1, minWidth:0 }}>
-                    <div style={{ fontSize:13, color:C.text, fontWeight:700 }}>⚠️ {t.topic} (purata {t.avgScore}%)</div>
+                    <div style={{ fontSize:13, color:C.text, fontWeight:700 }}>⚠️ {t.topic}{t('(purata', '(average')}{t.avgScore}%)</div>
                     <div style={{ display:'flex', gap:6, flexWrap:'wrap', marginTop:5 }}>
                       <TeacherBadge tone={weakTone}>{weakLabel}</TeacherBadge>
-                      <TeacherBadge tone="neutral">Purata {t.avgScore}%</TeacherBadge>
+                      <TeacherBadge tone="neutral">{t('Purata', 'Average')}{t.avgScore}%</TeacherBadge>
                     </div>
                     <div style={{ fontSize:11, color:C.textMuted, fontWeight:800, lineHeight:1.45, marginTop:5 }}>
                       {weakTopicWhy(t)}
@@ -3659,7 +3723,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
 
         {tab === 'create' && (
           <div>
-            <div style={{ fontWeight:800, fontSize:14, color:C.text, marginBottom:12 }}>Cipta Kandungan</div>
+            <div style={{ fontWeight:800, fontSize:14, color:C.text, marginBottom:12 }}>{t('Cipta Kandungan', 'Create Content')}</div>
             {postStatus && (
               <Card success style={{ marginBottom:10, padding:10 }}>
                 <div style={{ fontSize:12, color:C.green, fontWeight:900 }}>{postStatus}</div>
@@ -3674,9 +3738,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
               <Card style={{ marginBottom:10 }}>
                 <div style={{ fontWeight:800, fontSize:13, color:C.accPale, marginBottom:8 }}>{composer.label}</div>
                 {composer.postType === 'assignment' && (
-                  <label style={{ display:'block', fontSize:10, color:C.textFaint, fontWeight:600, textTransform:'uppercase', marginBottom:8 }}>
-                    Tarikh Hantar
-                    <input
+                  <label style={{ display:'block', fontSize:10, color:C.textFaint, fontWeight:600, textTransform:'uppercase', marginBottom:8 }}>{t('Tarikh Hantar', 'Due Date')}<input
                       type="date"
                       value={dueDate}
                       onChange={e => setDueDate(e.target.value)}
@@ -3692,7 +3754,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                 <textarea
                   value={postText}
                   onChange={e => setPostText(e.target.value)}
-                  placeholder={composer.postType === 'assignment' ? 'Tulis arahan tugasan, bahan rujukan, dan kriteria siap...' : 'Tulis pengumuman ringkas untuk kelas...'}
+                  placeholder={composer.postType === 'assignment' ? t('Tulis arahan tugasan, bahan rujukan, dan kriteria siap...', 'Write assignment instructions, reference materials, and completion criteria...') : t('Tulis pengumuman ringkas untuk kelas...', 'Write a short announcement for the class...')}
                   style={{
                     width:'100%', minHeight:96, resize:'vertical',
                     background:C.surface, border:`1px solid ${C.border}`,
@@ -3707,13 +3769,13 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                 )}
                 <div style={{ display:'flex', gap:8, marginTop:10 }}>
                   <GlowButton onClick={submitPost} disabled={posting || !postText.trim() || (composer.postType === 'assignment' && !dueDate)} style={{ flex:1 }}>
-                    {posting ? 'Menghantar...' : 'Hantar'}
+                    {posting ? 'Menghantar...' : t('Hantar', 'Send')}
                   </GlowButton>
                   <button onClick={() => setComposer(null)} style={{
                     background:C.surface, border:`1px solid ${C.border}`,
                     borderRadius:12, padding:'0 14px', minHeight:44, color:C.textMuted,
                     fontFamily:'Nunito', fontWeight:800, cursor:'pointer',
-                  }}>Batal</button>
+                  }}>{t('Batal', 'Cancel')}</button>
                 </div>
               </Card>
             )}
@@ -3735,30 +3797,43 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                 )}
               </Card>
             ))}
-            <SectionLabel>Suapan Kelas</SectionLabel>
+            <SectionLabel>{t('Suapan Kelas', 'Class Feed')}</SectionLabel>
             {feedState.loading ? [0,1,2].map(i => (
               <Card key={i} style={{ marginBottom:8, padding:10 }}>
                 <Skeleton width={i === 0 ? '68%' : '52%'} height={13} radius={7} style={{ marginBottom:7 }} />
                 <Skeleton width="100%" height={10} radius={5} />
               </Card>
             )) : (feedState.data || []).length ? (feedState.data || []).map(post => (
-              <Card key={post.id} style={{ marginBottom:8, padding:10 }}>
-                <div style={{ display:'flex', justifyContent:'space-between', gap:8, marginBottom:4 }}>
-                  <div style={{ fontSize:12, color:C.accPale, fontWeight:900 }}>{teacherTitle(post.title, post.post_type === 'assignment' ? 'Tugasan' : 'Pengumuman')}</div>
-                  <div style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>{window.timeAgo(post.created_at)}</div>
-                </div>
-                <div style={{ fontSize:12, color:C.text, fontWeight:700, whiteSpace:'pre-line', lineHeight:1.35 }}>{teacherBodyText(post.content, '', 180)}</div>
-              </Card>
+              <div
+                key={post.id}
+                ref={node => {
+                  const id = teacherPostId(post);
+                  if (!id) return;
+                  if (node) classFeedRefs.current[id] = node;
+                  else delete classFeedRefs.current[id];
+                }}
+              >
+                <Card style={{ marginBottom:8, padding:10 }}>
+                  <div style={{ display:'flex', justifyContent:'space-between', gap:8, marginBottom:4 }}>
+                    <div style={{ fontSize:12, color:C.accPale, fontWeight:900 }}>{teacherTitle(post.title, post.post_type === 'assignment' ? t('Tugasan', 'Assignment') : t('Pengumuman', 'Announcement'))}</div>
+                    <div style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>{window.timeAgo(post.created_at)}</div>
+                  </div>
+                  <div style={{ fontSize:12, color:C.text, fontWeight:700, whiteSpace:'pre-line', lineHeight:1.35 }}>{teacherBodyText(post.content, '', 180)}</div>
+                </Card>
+              </div>
             )) : (
               <Card style={{ marginBottom:8, padding:12 }}>
-                <div style={{ fontSize:12, color:C.textMuted, fontWeight:600 }}>Belum ada pos dalam suapan kelas.</div>
+                <div style={{ fontSize:12, color:C.textMuted, fontWeight:600 }}>{t('Belum ada pos dalam suapan kelas.', 'No posts in the class feed yet.')}</div>
               </Card>
             )}
           </div>
         )}
 
         {tab === 'quiz' && window.TeacherQuizTab && (
-          <window.TeacherQuizTab classroomId={cls?.id} />
+          <>
+            <TeacherQuizTimerControls classroomId={cls?.id} />
+            <window.TeacherQuizTab classroomId={cls?.id} />
+          </>
         )}
       </div>
       {settingsOpen && (
@@ -3771,9 +3846,9 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
       )}
       <TeacherConfirmModal
         open={Boolean(removeConfirm)}
-        title="Buang pelajar?"
-        message={`${removeConfirm?.name || 'Pelajar'} akan dikeluarkan daripada ${cls?.name || 'kelas ini'}. Rekod kemajuan sedia ada tidak dipadam.`}
-        confirmLabel="Buang daripada kelas"
+        title={t('Buang pelajar?', 'Remove student?')}
+        message={`${removeConfirm?.name || t('Pelajar', 'Students')} akan dikeluarkan daripada ${cls?.name || t('kelas ini', 'this class')}. Rekod kemajuan sedia ada tidak dipadam.`}
+        confirmLabel={t('Buang daripada kelas', 'Remove from class')}
         danger
         busy={Boolean(removingStudentId)}
         onCancel={() => setRemoveConfirm(null)}
@@ -3786,6 +3861,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
 // ─── Home ──────────────────────────────────────────────────────────────────
 
 const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
+  const { t } = useLanguage();
   const classState = useTeacherClassrooms();
   const profileState = useTeacherProfile(displayName);
   const { classes:list = CLASSES, isLive = false } = classState.data || { classes:CLASSES, isLive:false };
@@ -3805,10 +3881,11 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
   const riskCount = list.reduce((sum, c) => sum + (Number(c.riskCount) || 0), 0);
   const firstRiskClass = list.find(c => Number(c.riskCount) > 0 || (c.avg !== null && c.avg < 60));
   const [localNotice, setLocalNotice] = React.useState('');
+  const [editingClass, setEditingClass] = React.useState(null);
   const subjects = profileSubjects(profile, list);
   const subjectLine = profileState.loading
-    ? 'Memuat profil...'
-    : (subjects.length ? subjects.slice(0, 3).join(' & ') : 'Subjek belum dikemaskini');
+    ? t('Memuat profil...', 'Loading profile...')
+    : (subjects.length ? subjects.slice(0, 3).join(' & ') : t('Subjek belum dikemaskini', 'Subject not updated yet'));
   const attentionItems = isLive
     ? list
         .filter(c => Number(c.riskCount) > 0 || (c.avg !== null && c.avg < 60))
@@ -3819,7 +3896,7 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
           classRef:c,
           tab:Number(c.riskCount) > 0 ? 'students' : 'analytics',
           filter:Number(c.riskCount) > 0 ? 'risk' : 'all',
-          action:Number(c.riskCount) > 0 ? 'Lihat roster' : 'Buka intervensi',
+          action:Number(c.riskCount) > 0 ? 'Lihat roster' : t('Buka intervensi', 'Open intervention'),
         }))
     : [
         { text:'Nurul Ain (4A) - Skor 45%, tiada aktiviti 5 hari', classRef:list[0], tab:'students', filter:'risk', action:'Lihat roster' },
@@ -3832,7 +3909,7 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
       await copyTextToClipboard(cls.code);
       setLocalNotice(`Kod ${cls.name} disalin.`);
     } catch {
-      setLocalNotice('Salin kod gagal. Pilih kod dan salin secara manual.');
+      setLocalNotice(t('Salin kod gagal. Pilih kod dan salin secara manual.', 'Copy failed. Select the code and copy it manually.'));
     }
   };
 
@@ -3841,7 +3918,7 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
     try {
       if (navigator.share) {
         await navigator.share({ title:`Kod kelas ${cls.name}`, text:classInviteText(cls) });
-        setLocalNotice('Kod kelas sedia dikongsi.');
+        setLocalNotice(t('Kod kelas sedia dikongsi.', 'Class code is ready to share.'));
       } else {
         await copyTextToClipboard(classInviteText(cls));
         setLocalNotice(`Teks jemputan ${cls.name} disalin.`);
@@ -3856,9 +3933,22 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
     openClass(firstRiskClass, { tab:'students', filter:'risk' });
   };
 
+  const editClassFromCard = (cls, event) => {
+    event.stopPropagation();
+    setEditingClass(cls);
+    setLocalNotice('');
+  };
+
+  const handleHomeClassSaved = (updated) => {
+    setCls && setCls(updated);
+    classState.refresh();
+    setLocalNotice(`${updated.name} dikemas kini.`);
+  };
+
   const submitCreateClass = async () => {
     const name = newClass.name.trim();
-    if (!name) { setCreateError('Nama kelas diperlukan.'); return; }
+    if (!name) { setCreateError(t('Nama kelas diperlukan.', 'Class name is required.')); return; }
+    if (!CLASS_FORM_LEVELS.includes(Number(newClass.formLevel))) { setCreateError(t('Tingkatan yang dibenarkan ialah 4 atau 5.', 'Allowed form levels are 4 or 5.')); return; }
     setCreating(true); setCreateError('');
     try {
       const data = await window.tusyenApi.createClassroom({
@@ -3873,7 +3963,7 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
       setNewClass({ name:'', subject:'Matematik', formLevel:4, description:'' });
       openClass ? openClass(created, { tab:'students' }) : go('class');
     } catch (err) {
-      setCreateError(err.message || 'Tidak dapat mencipta kelas.');
+      setCreateError(classroomFormErrorMessage(err, t('Tidak dapat mencipta kelas.', 'Unable to create class.')));
     } finally {
       setCreating(false);
     }
@@ -3891,14 +3981,14 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
 
     <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(112px, 1fr))', gap:8, marginBottom:14 }}>
       {[
-        {v:String(list.length),l:'Kelas',i:'🏫'},
-        {v:String(totalStudents),l:'Pelajar',i:'👥'},
-        {v:avgCompletion === null ? '—' : `${avgCompletion}%`,l:'Purata Siap',i:'📊'},
-        {v:String(riskCount),l:'Pelajar Berisiko',i:'⚠️', danger:riskCount > 0, onClick:riskCount > 0 ? openRiskRoster : undefined},
+        {v:String(list.length),l:t('Kelas', 'Class'),i:'🏫'},
+        {v:String(totalStudents),l:t('Pelajar', 'Students'),i:'👥'},
+        {v:avgCompletion === null ? '0%' : `${avgCompletion}%`,l:t('Purata Siap', 'Average Completion'),i:'📊', muted:avgCompletion === null},
+        {v:String(riskCount),l:t('Pelajar Berisiko', 'At-Risk Students'),i:'⚠️', danger:riskCount > 0, onClick:riskCount > 0 ? openRiskRoster : undefined},
       ].map((s,i) => (
         <Card key={i} warn={s.danger} onClick={s.onClick} style={{ textAlign:'center', padding:12 }}>
           <div style={{ fontSize:20 }}>{s.i}</div>
-          <div style={{ fontWeight:800, fontSize:18, color:s.danger ? C.red : C.text }}>{s.v}</div>
+          <div style={{ fontWeight:800, fontSize:18, color:s.danger ? C.red : s.muted ? C.textMuted : C.text }}>{s.v}</div>
           <div style={{ fontSize:10, color:C.textMuted, fontWeight:600, textTransform:'uppercase' }}>{s.l}</div>
         </Card>
       ))}
@@ -3934,11 +4024,11 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
           )}
         </div>
       )) : (
-        <div style={{ fontSize:12, color:C.text, fontWeight:700, padding:'3px 0' }}>Tiada amaran kelas berdasarkan data semasa.</div>
+        <div style={{ fontSize:12, color:C.text, fontWeight:700, padding:'3px 0' }}>{t('Tiada amaran kelas berdasarkan data semasa.', 'No class alerts based on current data.')}</div>
       )}
     </Card>
 
-    <SectionLabel>Kelas Saya</SectionLabel>
+    <SectionLabel>{t('Kelas Saya', 'My Classes')}</SectionLabel>
     {notice && (
       <Card style={{ marginBottom:10, padding:10, border:`1px solid ${C.borderB}`, background:C.accDim }}>
         <div style={{ fontSize:12, color:C.accPale, fontWeight:900 }}>ℹ️ {notice}</div>
@@ -3956,11 +4046,11 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
     )}
     {showCreate && (
       <Card style={{ marginBottom:10 }}>
-        <div style={{ fontWeight:800, fontSize:13, color:C.accPale, marginBottom:8 }}>Kelas baharu</div>
+        <div style={{ fontWeight:800, fontSize:13, color:C.accPale, marginBottom:8 }}>{t('Kelas baharu', 'New class')}</div>
         <input
           value={newClass.name}
           onChange={e => setNewClass({ ...newClass, name:e.target.value })}
-          placeholder="Nama kelas, contoh: Matematik 4A"
+          placeholder={t('Nama kelas, contoh: Matematik 4A', 'Class name, e.g. Mathematics 4A')}
           style={{ width:'100%', boxSizing:'border-box', marginBottom:8, background:C.surface, border:`1px solid ${C.border}`, borderRadius:10, padding:10, color:C.text, fontFamily:'Nunito', fontWeight:700 }}
         />
         <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8, marginBottom:8 }}>
@@ -3968,14 +4058,14 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
             {CLASS_SUBJECTS.map(s => <option key={s} value={s}>{s}</option>)}
           </select>
           <select value={newClass.formLevel} onChange={e => setNewClass({ ...newClass, formLevel:Number(e.target.value) })} style={{ background:C.surface, border:`1px solid ${C.border}`, borderRadius:10, padding:10, color:C.text, fontFamily:'Nunito', fontWeight:700 }}>
-            {CLASS_FORM_LEVELS.map(level => <option key={level} value={level}>Tingkatan {level}</option>)}
+            {CLASS_FORM_LEVELS.map(level => <option key={level} value={level}>{t('Tingkatan', 'Form')}{level}</option>)}
           </select>
         </div>
-        <textarea value={newClass.description} onChange={e => setNewClass({ ...newClass, description:e.target.value })} placeholder="Penerangan ringkas kelas" style={{ width:'100%', minHeight:72, resize:'vertical', boxSizing:'border-box', background:C.surface, border:`1px solid ${C.border}`, borderRadius:10, padding:10, color:C.text, fontFamily:'Nunito', fontWeight:600 }} />
+        <textarea value={newClass.description} onChange={e => setNewClass({ ...newClass, description:e.target.value })} placeholder={t('Penerangan ringkas kelas', 'Short class description')} style={{ width:'100%', minHeight:72, resize:'vertical', boxSizing:'border-box', background:C.surface, border:`1px solid ${C.border}`, borderRadius:10, padding:10, color:C.text, fontFamily:'Nunito', fontWeight:600 }} />
         {createError && <div style={{ color:C.red, fontSize:11, fontWeight:800, marginTop:7 }}>{createError}</div>}
         <div style={{ display:'flex', gap:8, marginTop:10 }}>
-          <GlowButton onClick={submitCreateClass} disabled={creating} style={{ flex:1 }}>{creating ? 'Mencipta...' : 'Cipta Kelas'}</GlowButton>
-          <button onClick={() => setShowCreate(false)} style={{ background:C.surface, border:`1px solid ${C.border}`, borderRadius:12, padding:'0 14px', minHeight:44, color:C.textMuted, fontFamily:'Nunito', fontWeight:800, cursor:'pointer' }}>Batal</button>
+          <GlowButton onClick={submitCreateClass} disabled={creating} style={{ flex:1 }}>{creating ? 'Mencipta...' : t('Cipta Kelas', 'Create Class')}</GlowButton>
+          <button onClick={() => setShowCreate(false)} style={{ background:C.surface, border:`1px solid ${C.border}`, borderRadius:12, padding:'0 14px', minHeight:44, color:C.textMuted, fontFamily:'Nunito', fontWeight:800, cursor:'pointer' }}>{t('Batal', 'Cancel')}</button>
         </div>
       </Card>
     )}
@@ -3996,16 +4086,16 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
       </Card>
     )) : list.length === 0 ? (
       <Card style={{ marginBottom:10 }}>
-        <EmptyState icon="🏫" title="Cipta kelas pertama anda" subtitle="Mulakan kelas untuk jemput pelajar, berkongsi tugasan, dan melihat kemajuan." />
+        <EmptyState icon="🏫" title={t('Cipta kelas pertama anda', 'Create your first class')} subtitle={t('Mulakan kelas untuk jemput pelajar, berkongsi tugasan, dan melihat kemajuan.', 'Start a class to invite students, share assignments, and view progress.')} />
         <div style={{ display:'grid', gap:7, margin:'0 auto 14px', maxWidth:300 }}>
-          {['Namakan kelas dan subjek.', 'Kongsi kod kelas kepada pelajar.', 'Tetapkan pelajaran pertama dengan tarikh hantar.'].map((item, index) => (
+          {[t('Namakan kelas dan subjek.', 'Name the class and subject.'), t('Kongsi kod kelas kepada pelajar.', 'Share the class code with students.'), t('Tetapkan pelajaran pertama dengan tarikh hantar.', 'Assign the first lesson with a due date.')].map((item, index) => (
             <div key={index} style={{ display:'flex', gap:8, alignItems:'center', fontSize:12, color:C.textMuted, fontWeight:800 }}>
               <TeacherBadge>{index + 1}</TeacherBadge>
               <span>{item}</span>
             </div>
           ))}
         </div>
-        <GlowButton onClick={() => setShowCreate(true)} style={{ marginTop:4 }}>Cipta kelas pertama anda</GlowButton>
+        <GlowButton onClick={() => setShowCreate(true)} style={{ marginTop:4 }}>{t('Cipta kelas pertama anda', 'Create your first class')}</GlowButton>
       </Card>
     ) : list.map(cls => {
       const hasAvg = cls.avg !== null && cls.avg !== undefined;
@@ -4016,7 +4106,7 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
             <div style={{ fontWeight:800, fontSize:15, color:C.text }}>{cls.name}</div>
             <div style={{ fontSize:12, color:C.textMuted, fontWeight:600 }}>{cls.subj} • Tingkatan {cls.form}</div>
           </div>
-          {Number(cls.riskCount) > 0 && <TeacherBadge tone="bad">{cls.riskCount} risiko</TeacherBadge>}
+          {Number(cls.riskCount) > 0 && <TeacherBadge tone="bad">{cls.riskCount}{t('risiko', 'risk')}</TeacherBadge>}
         </div>
         <div onClick={e => e.stopPropagation()} style={{
           display:'grid', gridTemplateColumns:'1fr auto auto', gap:6, alignItems:'center',
@@ -4025,35 +4115,60 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
           borderRadius:10, padding:'7px 8px', marginBottom:9,
         }}>
           <div style={{ minWidth:0 }}>
-            <div style={{ fontSize:9, color:C.textMuted, fontWeight:900, textTransform:'uppercase' }}>Kod Kelas</div>
+            <div style={{ fontSize:9, color:C.textMuted, fontWeight:900, textTransform:'uppercase' }}>{t('Kod Kelas', 'Class Code')}</div>
             <div style={{ fontSize:13, fontWeight:900, color:cls.color, letterSpacing:0 }}>{cls.code}</div>
           </div>
-          <TeacherSmallButton onClick={(event) => copyClassCodeFromCard(cls, event)}>Salin</TeacherSmallButton>
+          <TeacherSmallButton onClick={(event) => copyClassCodeFromCard(cls, event)}>{t('Salin', 'Copy')}</TeacherSmallButton>
           <TeacherSmallButton onClick={(event) => shareClassCodeFromCard(cls, event)}>Kongsi</TeacherSmallButton>
         </div>
         <div style={{ display:'flex', gap:14, marginBottom:10, flexWrap:'wrap' }}>
-          <span style={{ fontSize:12, color:C.textMuted, fontWeight:700 }}>👥 {cls.students} pelajar</span>
-          <span style={{ fontSize:12, color:C.textMuted, fontWeight:700 }}>📊 {hasAvg ? `Purata Siap ${cls.avg}%` : 'Purata Siap belum ada'}</span>
+          <span style={{ fontSize:12, color:C.textMuted, fontWeight:700 }}>👥 {cls.students}{t('pelajar', 'students')}</span>
+          <span style={{ fontSize:12, color:hasAvg ? C.textMuted : C.textFaint, fontWeight:700 }}>📊 Purata Siap {hasAvg ? `${cls.avg}%` : '0%'}</span>
           <span style={{ fontSize:12, color:C.textMuted, fontWeight:700 }}>Aktiviti terakhir: {formatActivityStatus(cls.lastActivity)}</span>
         </div>
         <ProgressBar value={hasAvg ? cls.avg : 0} color={cls.color} height={6} style={{ opacity:hasAvg ? 1 : 0.35 }} />
-        <button
-          onClick={(event) => { event.stopPropagation(); openClass ? openClass(cls, { tab:'students' }) : (setCls(cls), go('class')); }}
-          style={{
-            width:'100%', minHeight:44, marginTop:10,
-            background:`color-mix(in srgb,${cls.color} 18%,var(--c-acc-dim))`,
-            border:`1px solid color-mix(in srgb,${cls.color} 42%,var(--c-bdr))`,
-            borderRadius:12, color:C.text,
-            fontFamily:'Nunito', fontWeight:900, fontSize:13,
-            cursor:'pointer',
-          }}
-        >Lihat kelas</button>
+        <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8, marginTop:10 }}>
+          <button
+            onClick={(event) => editClassFromCard(cls, event)}
+            style={{
+              width:'100%', minHeight:44,
+              background:C.surface,
+              border:`1px solid ${C.border}`,
+              borderRadius:12, color:C.accPale,
+              fontFamily:'Nunito', fontWeight:900, fontSize:13,
+              cursor:'pointer',
+            }}
+          >Edit</button>
+          <button
+            onClick={(event) => { event.stopPropagation(); openClass ? openClass(cls, { tab:'students' }) : (setCls(cls), go('class')); }}
+            style={{
+              width:'100%', minHeight:44,
+              background:`color-mix(in srgb,${cls.color} 18%,var(--c-acc-dim))`,
+              border:`1px solid color-mix(in srgb,${cls.color} 42%,var(--c-bdr))`,
+              borderRadius:12, color:C.text,
+              fontFamily:'Nunito', fontWeight:900, fontSize:13,
+              cursor:'pointer',
+            }}
+          >{t('Lihat kelas', 'View class')}</button>
+        </div>
       </Card>
       );
     })}
     <GlowButton outlined onClick={() => setShowCreate(v => !v)} style={{ marginTop:4 }}>
-      {showCreate ? 'Tutup borang' : '+ Cipta kelas baharu'}
+      {showCreate ? 'Tutup borang' : t('+ Cipta kelas baharu', '+ Create new class')}
     </GlowButton>
+    {editingClass && (
+      <ClassroomSettingsModal
+        cls={editingClass}
+        onClose={() => setEditingClass(null)}
+        onSaved={handleHomeClassSaved}
+        onArchived={() => {
+          setEditingClass(null);
+          classState.refresh();
+          setLocalNotice(t('Kelas telah dinyahaktifkan.', 'Class has been deactivated.'));
+        }}
+      />
+    )}
     <div style={{ height:8 }} />
   </div>
   );
@@ -4062,6 +4177,7 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
 // ─── Profile ───────────────────────────────────────────────────────────────
 
 const TeacherProfile = ({ displayName }) => {
+  const { t } = useLanguage();
   const profileState = useTeacherProfile(displayName);
   const classState = useTeacherClassrooms();
   const profile = profileState.data || emptyTeacherProfile(displayName);
@@ -4097,7 +4213,7 @@ const TeacherProfile = ({ displayName }) => {
         headline:profileForm.headline, bio:profileForm.bio, specialties:profileForm.specialties,
         credentials:profileForm.credentials, yearsExperience:Number(profileForm.yearsExperience)||0, location:profileForm.location,
       });
-      setProfileStatus('Profil dikemas kini.');
+      setProfileStatus(t('Profil dikemas kini.', 'Profile updated.'));
       setEditing(false);
       profileState.refresh();
     } catch (err) {
@@ -4108,11 +4224,11 @@ const TeacherProfile = ({ displayName }) => {
   };
 
   const infoRows = [
-    { label:'Tajuk', value:profileHeadline || 'Belum dikemaskini', icon:'👤' },
-    { label:'Pengalaman', value:yearsExperience ? `${yearsExperience} tahun mengajar` : 'Belum dikemaskini', icon:'🎖️' },
+    { label:t('Tajuk', 'Title'), value:profileHeadline || 'Belum dikemaskini', icon:'👤' },
+    { label:t('Pengalaman', 'Experience'), value:yearsExperience ? `${yearsExperience} tahun mengajar` : t('Belum dikemaskini', 'Not updated yet'), icon:'🎖️' },
     { label:'Kelayakan', value:profileCredentials || 'Tambah kelayakan seperti B.Ed, MSc, sijil pedagogi, atau pengalaman peperiksaan.', icon:'🎓' },
     { label:'E-mel', value:teacherEmailText(profile.email || window.tusyenUser?.email), icon:'✉️' },
-    { label:'Lokasi', value:profileLocation || 'Belum dikemaskini', icon:'📍' },
+    { label:t('Lokasi', 'Location'), value:profileLocation || 'Belum dikemaskini', icon:'📍' },
   ];
   const completionItems = [
     { label:'tajuk', done:Boolean(profileHeadline) },
@@ -4127,14 +4243,14 @@ const TeacherProfile = ({ displayName }) => {
   const completionPercent = Math.round((completionChecks.filter(Boolean).length / completionChecks.length) * 100);
   const previewText = previewAudience === 'parent'
     ? {
-        title:'Pratonton ibu bapa',
+        title:t('Pratonton ibu bapa', 'Parent preview'),
         body:profileBio || 'Ibu bapa akan melihat pengenalan cikgu, kelayakan, subjek, dan kelas aktif di sini.',
         meta:profileCredentials || 'Kelayakan belum dikemaskini',
       }
     : {
-        title:'Pratonton pelajar',
+        title:t('Pratonton pelajar', 'Student preview'),
         body:profileBio || 'Pelajar akan melihat gaya mengajar dan cara cikgu menyokong pembelajaran mereka.',
-        meta:subjects.length ? subjects.join(', ') : 'Subjek belum dikemaskini',
+        meta:subjects.length ? subjects.join(', ') : t('Subjek belum dikemaskini', 'Subject not updated yet'),
       };
 
   return (
@@ -4165,32 +4281,30 @@ const TeacherProfile = ({ displayName }) => {
           {profileHeadline || profileLocation || 'Profil guru'}
         </div>
         <div style={{ display:'flex', gap:6, marginTop:8, flexWrap:'wrap', justifyContent:'center' }}>
-          {(subjects.length ? subjects : ['Subjek belum dikemaskini']).map((s,i) => (
+          {(subjects.length ? subjects : [t('Subjek belum dikemaskini', 'Subject not updated yet')]).map((s,i) => (
             <span key={i} style={{ background:C.accDim, border:`1px solid ${C.border}`, borderRadius:20, padding:'3px 12px', fontSize:11, fontWeight:700, color:C.accPale }}>{s}</span>
           ))}
         </div>
       </div>
 
-      <SectionLabel>Kelengkapan Profil</SectionLabel>
+      <SectionLabel>{t('Kelengkapan Profil', 'Profile Completion')}</SectionLabel>
       <Card style={{ marginBottom:14 }}>
         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', gap:10, marginBottom:8 }}>
-          <div style={{ fontWeight:900, fontSize:13, color:C.text }}>Profil {completionPercent}% lengkap</div>
+          <div style={{ fontWeight:900, fontSize:13, color:C.text }}>{t('Profil', 'Profile')}{completionPercent}% lengkap</div>
           <TeacherBadge tone={completionPercent >= 80 ? 'good' : completionPercent >= 50 ? 'warn' : 'bad'}>
             {completionChecks.filter(Boolean).length}/{completionChecks.length}
           </TeacherBadge>
         </div>
         <ProgressBar value={completionPercent} color={completionPercent >= 80 ? C.green : completionPercent >= 50 ? C.gold : C.red} height={8} />
-        <div style={{ fontSize:11, color:C.textMuted, fontWeight:800, lineHeight:1.4, marginTop:8 }}>
-          Dikira daripada tajuk, bio, subjek, kelayakan, pengalaman, dan lokasi.
-          {missingCompletion.length ? ` Seterusnya: ${missingCompletion.slice(0, 2).join(', ')}.` : ' Semua item asas lengkap.'}
+        <div style={{ fontSize:11, color:C.textMuted, fontWeight:800, lineHeight:1.4, marginTop:8 }}>{t('Dikira daripada tajuk, bio, subjek, kelayakan, pengalaman, dan lokasi.', 'Calculated from title, bio, subject, credentials, experience, and location.')}{missingCompletion.length ? ` Seterusnya: ${missingCompletion.slice(0, 2).join(', ')}.` : ' Semua item asas lengkap.'}
         </div>
       </Card>
 
       <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:8, marginBottom:16 }}>
         {[
-          {v:String(Number(profile.student_count)||0),l:'Pelajar',i:'👥'},
-          {v:String(Number(profile.classroom_count)||classes.length||0),l:'Kelas',i:'🏫'},
-          {v:String(Number(profile.post_count)||0),l:'Pos',i:'📢'},
+          {v:String(Number(profile.student_count)||0),l:t('Pelajar', 'Students'),i:'👥'},
+          {v:String(Number(profile.classroom_count)||classes.length||0),l:t('Kelas', 'Class'),i:'🏫'},
+          {v:String(Number(profile.post_count)||0),l:t('Pos', 'Posts'),i:'📢'},
         ].map((s,i) => (
           <Card key={i} style={{ textAlign:'center', padding:12 }}>
             <div style={{ fontSize:20 }}>{s.i}</div>
@@ -4215,8 +4329,8 @@ const TeacherProfile = ({ displayName }) => {
       <Card style={{ marginBottom:14 }}>
         <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:6, marginBottom:10 }}>
           {[
-            ['student','Sebagai pelajar'],
-            ['parent','Sebagai ibu bapa'],
+            ['student',t('Sebagai pelajar', 'As student')],
+            ['parent',t('Sebagai ibu bapa', 'As parent')],
           ].map(([value, label]) => (
             <button key={value} onClick={() => setPreviewAudience(value)} style={{
               minHeight:44,
@@ -4237,19 +4351,19 @@ const TeacherProfile = ({ displayName }) => {
 
       {editing && (
         <Card style={{ marginBottom:14 }}>
-          <div style={{ fontWeight:800, fontSize:13, color:C.accPale, marginBottom:8 }}>Sunting profil</div>
-          <input value={profileForm.headline} onChange={e => setProfileForm({ ...profileForm, headline:e.target.value })} placeholder="Tajuk profil" style={{ ...inputStyle, marginBottom:8 }} />
-          <textarea value={profileForm.bio} onChange={e => setProfileForm({ ...profileForm, bio:e.target.value })} placeholder="Tentang Cikgu: gaya mengajar, fokus subjek, dan sokongan untuk pelajar" style={{ ...inputStyle, minHeight:80, resize:'vertical', marginBottom:8 }} />
-          <input value={profileForm.specialties} onChange={e => setProfileForm({ ...profileForm, specialties:e.target.value })} placeholder="Kepakaran" style={{ ...inputStyle, marginBottom:4 }} />
-          <div style={{ fontSize:10, color:C.textMuted, fontWeight:600, lineHeight:1.35, marginBottom:8 }}>Pisahkan setiap kepakaran dengan koma, contoh: Matematik, Fizik.</div>
-          <input value={profileForm.credentials} onChange={e => setProfileForm({ ...profileForm, credentials:e.target.value })} placeholder="Kelayakan, sijil, pengalaman peperiksaan, atau pencapaian mengajar" style={{ ...inputStyle, marginBottom:8 }} />
+          <div style={{ fontWeight:800, fontSize:13, color:C.accPale, marginBottom:8 }}>{t('Sunting profil', 'Edit profile')}</div>
+          <input value={profileForm.headline} onChange={e => setProfileForm({ ...profileForm, headline:e.target.value })} placeholder={t('Tajuk profil', 'Profile title')} style={{ ...inputStyle, marginBottom:8 }} />
+          <textarea value={profileForm.bio} onChange={e => setProfileForm({ ...profileForm, bio:e.target.value })} placeholder={t('Tentang Cikgu: gaya mengajar, fokus subjek, dan sokongan untuk pelajar', 'About the teacher: teaching style, subject focus, and student support')} style={{ ...inputStyle, minHeight:80, resize:'vertical', marginBottom:8 }} />
+          <input value={profileForm.specialties} onChange={e => setProfileForm({ ...profileForm, specialties:e.target.value })} placeholder={t('Kepakaran', 'Specialties')} style={{ ...inputStyle, marginBottom:4 }} />
+          <div style={{ fontSize:10, color:C.textMuted, fontWeight:600, lineHeight:1.35, marginBottom:8 }}>{t('Pisahkan setiap kepakaran dengan koma, contoh: Matematik, Fizik.', 'Separate each specialty with commas, e.g. Mathematics, Physics.')}</div>
+          <input value={profileForm.credentials} onChange={e => setProfileForm({ ...profileForm, credentials:e.target.value })} placeholder={t('Kelayakan, sijil, pengalaman peperiksaan, atau pencapaian mengajar', 'Credentials, certificates, exam experience, or teaching achievements')} style={{ ...inputStyle, marginBottom:8 }} />
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8 }}>
-            <input type="number" min="0" value={profileForm.yearsExperience} onChange={e => setProfileForm({ ...profileForm, yearsExperience:e.target.value })} placeholder="Tahun pengalaman" style={inputStyle} />
-            <input value={profileForm.location} onChange={e => setProfileForm({ ...profileForm, location:e.target.value })} placeholder="Lokasi / sekolah" style={inputStyle} />
+            <input type="number" min="0" value={profileForm.yearsExperience} onChange={e => setProfileForm({ ...profileForm, yearsExperience:e.target.value })} placeholder={t('Tahun pengalaman', 'Years of experience')} style={inputStyle} />
+            <input value={profileForm.location} onChange={e => setProfileForm({ ...profileForm, location:e.target.value })} placeholder={t('Lokasi / sekolah', 'Location / school')} style={inputStyle} />
           </div>
           <div style={{ display:'flex', gap:8, marginTop:10 }}>
-            <GlowButton onClick={saveProfile} disabled={saving} style={{ flex:1 }}>{saving ? 'Menyimpan...' : 'Simpan Profil'}</GlowButton>
-            <button onClick={() => setEditing(false)} style={{ background:C.surface, border:`1px solid ${C.border}`, borderRadius:12, padding:'0 14px', minHeight:44, color:C.textMuted, fontFamily:'Nunito', fontWeight:800, cursor:'pointer' }}>Batal</button>
+            <GlowButton onClick={saveProfile} disabled={saving} style={{ flex:1 }}>{saving ? 'Menyimpan...' : t('Simpan Profil', 'Save Profile')}</GlowButton>
+            <button onClick={() => setEditing(false)} style={{ background:C.surface, border:`1px solid ${C.border}`, borderRadius:12, padding:'0 14px', minHeight:44, color:C.textMuted, fontFamily:'Nunito', fontWeight:800, cursor:'pointer' }}>{t('Batal', 'Cancel')}</button>
           </div>
         </Card>
       )}
@@ -4263,7 +4377,7 @@ const TeacherProfile = ({ displayName }) => {
           }}>🎓</div>
           <div style={{ flex:1, minWidth:0 }}>
             <div style={{ fontWeight:900, fontSize:13, color:C.text, marginBottom:3 }}>
-              {profileCredentials ? 'Kelayakan disiarkan' : 'Kelayakan belum lengkap'}
+              {profileCredentials ? 'Kelayakan disiarkan' : t('Kelayakan belum lengkap', 'Credentials incomplete')}
             </div>
             <div style={{ fontSize:12, color:C.textMuted, fontWeight:700, lineHeight:1.45 }}>
               {profileCredentials || 'Tambah kelayakan akademik, sijil, atau pengalaman peperiksaan supaya profil lebih meyakinkan.'}
@@ -4298,7 +4412,7 @@ const TeacherProfile = ({ displayName }) => {
             </div>
           </div>
         )) : (
-          <div style={{ fontSize:12, color:C.textMuted, fontWeight:600, padding:'8px 0' }}>Belum ada kelas aktif.</div>
+          <div style={{ fontSize:12, color:C.textMuted, fontWeight:600, padding:'8px 0' }}>{t('Belum ada kelas aktif.', 'No active classes yet.')}</div>
         )}
       </Card>
 
@@ -4315,28 +4429,28 @@ const TeacherProfile = ({ displayName }) => {
             border:`1px solid ${previewAudience === 'student' ? C.borderB : C.border}`,
             borderRadius:12, color:previewAudience === 'student' ? C.accPale : C.textMuted,
             fontFamily:'Nunito', fontWeight:900, fontSize:11, cursor:'pointer',
-          }}>Pelajar</button>
+          }}>{t('Pelajar', 'Students')}</button>
           <button onClick={() => setPreviewAudience('parent')} aria-pressed={previewAudience === 'parent'} style={{
             minHeight:44, background:previewAudience === 'parent' ? C.accDim : C.surface,
             border:`1px solid ${previewAudience === 'parent' ? C.borderB : C.border}`,
             borderRadius:12, color:previewAudience === 'parent' ? C.accPale : C.textMuted,
             fontFamily:'Nunito', fontWeight:900, fontSize:11, cursor:'pointer',
-          }}>Ibu bapa</button>
+          }}>{t('Ibu bapa', 'Parents')}</button>
           <button onClick={startEdit} disabled={!canEdit} style={{
             minHeight:44, background:C.accDim, border:`1px solid ${C.borderB}`,
             borderRadius:12, padding:'0 14px', color:C.accPale,
             fontFamily:'Nunito', fontWeight:900, fontSize:11,
             cursor:canEdit ? 'pointer' : 'not-allowed', opacity:canEdit ? 1 : .55,
-          }}>{canEdit ? 'Sunting' : 'Kunci'}</button>
+          }}>{canEdit ? t('Sunting', 'Edit') : t('Kunci', 'Locked')}</button>
         </div>
       </div>
 
-      <SectionLabel>Tetapan Akaun</SectionLabel>
+      <SectionLabel>{t('Tetapan Akaun', 'Account Settings')}</SectionLabel>
       <Card style={{ marginBottom:14 }}>
         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', gap:12, marginBottom:12 }}>
           <div style={{ minWidth:0 }}>
-            <div style={{ fontSize:13, color:C.text, fontWeight:800 }}>Tampilan</div>
-            <div style={{ fontSize:12, color:C.textMuted, fontWeight:700, lineHeight:1.4 }}>Pilih tema yang selesa untuk akaun guru ini.</div>
+            <div style={{ fontSize:13, color:C.text, fontWeight:800 }}>{t('Tampilan', 'Appearance')}</div>
+            <div style={{ fontSize:12, color:C.textMuted, fontWeight:700, lineHeight:1.4 }}>{t('Pilih tema yang selesa untuk akaun guru ini.', 'Choose a comfortable theme for this teacher account.')}</div>
           </div>
         </div>
         <ThemeToggle />
@@ -4345,7 +4459,7 @@ const TeacherProfile = ({ displayName }) => {
         </div>
       </Card>
       <Card style={{ marginBottom:14 }}>
-        <div style={{ fontSize:13, color:C.text, fontWeight:800, marginBottom:8 }}>Akaun</div>
+        <div style={{ fontSize:13, color:C.text, fontWeight:800, marginBottom:8 }}>{t('Akaun', 'Account')}</div>
         <button onClick={() => window.tusyenSignOut?.()} style={{
           width:'100%', minHeight:44,
           background:'rgba(239,68,68,.10)',
@@ -4353,10 +4467,141 @@ const TeacherProfile = ({ displayName }) => {
           color:C.red, borderRadius:12, padding:'10px 12px',
           fontFamily:'Nunito', fontWeight:900, fontSize:13,
           cursor:'pointer',
-        }}>Log Keluar</button>
+        }}>{t('Log Keluar', 'Sign Out')}</button>
       </Card>
       <div style={{ height:8 }} />
     </div>
+  );
+};
+
+const teacherQuizSessionId = (session) => `${session?.id ?? session?.session_id ?? session?.sessionId ?? session?.quiz_session_id ?? session?.quizSessionId ?? ''}`;
+const teacherQuizSessionClassroomId = (session) => `${session?.classroom_id ?? session?.classroomId ?? session?.class_id ?? session?.classId ?? ''}`;
+const teacherQuizSessionPaused = (session) => Boolean(
+  session?.is_paused ?? session?.isPaused ?? session?.paused ?? session?.timer_paused ?? session?.timerPaused ?? session?.timer?.paused
+);
+
+const findTeacherQuizSession = (classroomId) => {
+  const candidates = [];
+  const add = (value) => {
+    if (!value) return;
+    if (Array.isArray(value)) value.forEach(add);
+    else candidates.push(value);
+  };
+  add(window.tusyenActiveQuizSession);
+  add(window.tusyenQuizActiveSession);
+  add(window.tusyenQuizSession);
+  add(window.teacherQuizSession);
+  add(window.TeacherQuizTab?.activeSession);
+  add(window.TeacherQuizTab?.currentSession);
+  return candidates.find(session => {
+    const sessionId = teacherQuizSessionId(session);
+    if (!sessionId) return false;
+    const sessionClassroomId = teacherQuizSessionClassroomId(session);
+    return !classroomId || !sessionClassroomId || sessionClassroomId === `${classroomId}`;
+  }) || null;
+};
+
+const postTeacherQuizTimerAction = async (sessionId, action) => {
+  const payload = { action };
+  const api = window.tusyenApi || {};
+  if (api.quizSessionTimer) return api.quizSessionTimer(sessionId, payload);
+  if (api.updateQuizSessionTimer) return api.updateQuizSessionTimer(sessionId, payload);
+  if (api.setQuizSessionTimer) return api.setQuizSessionTimer(sessionId, payload);
+  if (api.apiFetch) {
+    return api.apiFetch(`/quiz/sessions/${encodeURIComponent(sessionId)}/timer`, {
+      method:'POST',
+      headers:{ 'Content-Type':'application/json' },
+      body:JSON.stringify(payload),
+    });
+  }
+  if (api.request) {
+    return api.request(`/quiz/sessions/${encodeURIComponent(sessionId)}/timer`, {
+      method:'POST',
+      headers:{ 'Content-Type':'application/json' },
+      body:JSON.stringify(payload),
+    });
+  }
+  if (api.post) return api.post(`/quiz/sessions/${encodeURIComponent(sessionId)}/timer`, payload);
+  const response = await fetch(`/api/quiz/sessions/${encodeURIComponent(sessionId)}/timer`, {
+    method:'POST',
+    credentials:'include',
+    headers:{ 'Content-Type':'application/json' },
+    body:JSON.stringify(payload),
+  });
+  if (!response.ok) throw new Error('Tidak dapat mengemas kini pemasa kuiz.');
+  return response.json().catch(() => ({}));
+};
+
+const TeacherQuizTimerControls = ({ classroomId }) => {
+  const { t } = useLanguage();
+  const [session, setSession] = React.useState(() => findTeacherQuizSession(classroomId));
+  const [paused, setPaused] = React.useState(() => teacherQuizSessionPaused(session));
+  const [busy, setBusy] = React.useState(false);
+  const [message, setMessage] = React.useState('');
+
+  const refreshSession = React.useCallback(() => {
+    const next = findTeacherQuizSession(classroomId);
+    setSession(next);
+    if (next) setPaused(teacherQuizSessionPaused(next));
+  }, [classroomId]);
+
+  React.useEffect(() => {
+    refreshSession();
+    const events = ['tusyen:quiz-session', 'tusyen:quiz-session-started', 'tusyen:quiz-session-updated', 'tusyen:quiz-timer-updated'];
+    events.forEach(name => window.addEventListener(name, refreshSession));
+    const interval = window.setInterval(refreshSession, 1500);
+    return () => {
+      events.forEach(name => window.removeEventListener(name, refreshSession));
+      window.clearInterval(interval);
+    };
+  }, [refreshSession]);
+
+  const sessionId = teacherQuizSessionId(session);
+  if (!sessionId) return null;
+
+  const toggleTimer = async () => {
+    const action = paused ? 'resume' : 'pause';
+    setBusy(true);
+    setMessage('');
+    try {
+      const data = await postTeacherQuizTimerAction(sessionId, action);
+      const nextSession = data?.session || data?.quizSession || { ...session, is_paused:action === 'pause' };
+      setSession(nextSession);
+      setPaused(action === 'pause');
+      setMessage(action === 'pause' ? t('Pemasa kuiz dijeda.', 'Quiz timer paused.') : t('Pemasa kuiz disambung.', 'Quiz timer resumed.'));
+      window.dispatchEvent(new CustomEvent('tusyen:quiz-timer-updated', { detail:{ sessionId, action, session:nextSession } }));
+    } catch (err) {
+      setMessage(err.message || 'Tidak dapat mengemas kini pemasa kuiz.');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <Card style={{ marginBottom:12, padding:10, border:`1px solid ${paused ? C.gold : C.borderB}` }}>
+      <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', gap:10, flexWrap:'wrap' }}>
+        <div style={{ minWidth:0 }}>
+          <div style={{ fontSize:12, color:C.text, fontWeight:900 }}>{t('Pemasa kuiz langsung', 'Live quiz timer')}</div>
+          <div style={{ fontSize:11, color:C.textMuted, fontWeight:700 }}>
+            {paused ? t('Dijeda untuk semua peserta.', 'Paused for all participants.') : t('Sedang berjalan untuk sesi aktif.', 'Running for the active session.')}
+          </div>
+        </div>
+        <button onClick={toggleTimer} disabled={busy} style={{
+          minHeight:44,
+          background:paused ? C.accDim : 'rgba(245,166,35,.12)',
+          border:`1px solid ${paused ? C.borderB : 'rgba(245,166,35,.32)'}`,
+          borderRadius:12,
+          padding:'0 14px',
+          color:paused ? C.accPale : C.gold,
+          fontFamily:'Nunito',
+          fontWeight:900,
+          fontSize:12,
+          cursor:busy ? 'not-allowed' : 'pointer',
+          opacity:busy ? 0.6 : 1,
+        }}>{busy ? t('Mengemas kini...', 'Updating...') : paused ? 'Resume' : 'Pause'}</button>
+      </div>
+      {message && <div role="status" style={{ fontSize:11, color:message.includes('Tidak') ? C.red : C.green, fontWeight:900, marginTop:8 }}>{message}</div>}
+    </Card>
   );
 };
 
@@ -4384,7 +4629,7 @@ const TeacherQuizScreen = ({ classrooms }) => {
   if (!classrooms.length) {
     return (
       <div style={{ padding:'14px 16px 10px' }}>
-        <EmptyState icon="🎮" title="Belum ada kelas" subtitle="Buat kelas dahulu untuk boleh mulakan sesi kuiz langsung." />
+        <EmptyState icon="🎮" title={t('Belum ada kelas', 'No classes yet')} subtitle={t('Buat kelas dahulu untuk boleh mulakan sesi kuiz langsung.', 'Create a class first before starting a live quiz session.')} />
       </div>
     );
   }
@@ -4420,7 +4665,10 @@ const TeacherQuizScreen = ({ classrooms }) => {
       </div>
 
       {window.TeacherQuizTab ? (
-        <window.TeacherQuizTab classroomId={activeClassroom?.id || selectedClassroomId} />
+        <>
+          <TeacherQuizTimerControls classroomId={activeClassroom?.id || selectedClassroomId} />
+          <window.TeacherQuizTab classroomId={activeClassroom?.id || selectedClassroomId} />
+        </>
       ) : (
         <Card><div style={{ fontSize:13, color:C.textMuted, fontWeight:600 }}>{t('Komponen kuiz tidak dapat dimuatkan.', 'Quiz component could not be loaded.')}</div></Card>
       )}
@@ -4457,6 +4705,7 @@ const TeacherSidebarStats = ({ classes = [] }) => {
 };
 
 const TeacherApp = ({ sidebarExtraTop } = {}) => {
+  const { t } = useLanguage();
   const [screen, setScreen] = React.useState('home');
   const [cls, setCls] = React.useState(null);
   const [classView, setClassView] = React.useState({ tab:'students', filter:'all' });
@@ -4467,22 +4716,22 @@ const TeacherApp = ({ sidebarExtraTop } = {}) => {
   const classes = classState.data?.classes || CLASSES;
 
   const screenMeta = {
-    home:      { title:'Kelas Saya',       en:'My Classes' },
+    home:      { title:t('Kelas Saya', 'My Classes'),       en:'My Classes' },
     class:     { title:cls?.name || 'Detail Kelas', en:'Class Detail' },
-    posts:     { title:'Suapan & Pos',     en:'Feed & Posts' },
-    lessons:   { title:'Pelajaran',        en:'Lessons' },
-    quiz:      { title:'Dek Kuiz',         en:'Quiz Decks' },
-    whiteboard:{ title:'Papan Putih',      en:'Whiteboard' },
+    posts:     { title:t('Suapan & Pos', 'Feed & Posts'),     en:'Feed & Posts' },
+    lessons:   { title:t('Pelajaran', 'Lessons'),        en:'Lessons' },
+    quiz:      { title:t('Dek Kuiz', 'Quiz Decks'),         en:'Quiz Decks' },
+    whiteboard:{ title:t('Papan Putih', 'Whiteboard'),      en:'Whiteboard' },
     profile:   { title:'Profil Guru',      en:'Teacher Profile' },
   };
 
   const nav = [
-    { id:'home',       icon:'🏫', label:'Kelas',      en:'Classes'    },
-    { id:'posts',      icon:'📢', label:'Pos',         en:'Posts'      },
-    { id:'lessons',    icon:'📚', label:'Pelajaran',   en:'Lessons'    },
-    { id:'quiz',       icon:'🎮', label:'Kuiz',        en:'Quiz'       },
-    { id:'whiteboard', icon:'🖌️', label:'Papan Putih', en:'Whiteboard' },
-    { id:'profile',    icon:'👤', label:'Profil',      en:'Profile'    },
+    { id:'home',       icon:'🏫', label:t('Kelas', 'Class'),      en:'Classes'    },
+    { id:'posts',      icon:'📢', label:t('Pos', 'Posts'),         en:'Posts'      },
+    { id:'lessons',    icon:'📚', label:t('Pelajaran', 'Lessons'),   en:'Lessons'    },
+    { id:'quiz',       icon:'🎮', label:t('Kuiz', 'Quiz'),        en:'Quiz'       },
+    { id:'whiteboard', icon:'🖌️', label:t('Papan Putih', 'Whiteboard'), en:'Whiteboard' },
+    { id:'profile',    icon:'👤', label:t('Profil', 'Profile'),      en:'Profile'    },
   ];
 
   const go = (next) => { setHomeNotice(''); setScreen(next); };
@@ -4505,13 +4754,13 @@ const TeacherApp = ({ sidebarExtraTop } = {}) => {
     setCls(null);
     setClassView({ tab:'students', filter:'all' });
     classState.refresh();
-    setHomeNotice('Kelas telah dinyahaktifkan.');
+    setHomeNotice(t('Kelas telah dinyahaktifkan.', 'Class has been deactivated.'));
     setScreen('home');
   };
 
   const selectNav = (next) => {
     if (next === 'class' && !cls) {
-      setHomeNotice('Pilih kelas dahulu untuk melihat detail.');
+      setHomeNotice(t('Pilih kelas dahulu untuk melihat detail.', 'Select a class first to view details.'));
       setScreen('home');
       return;
     }
@@ -4570,7 +4819,7 @@ const TeacherApp = ({ sidebarExtraTop } = {}) => {
           items={nav}
           active={activeNavId}
           onNav={selectNav}
-          label="Navigasi guru"
+          label={t('Navigasi guru', 'Teacher navigation')}
         />
       </main>
     </div>

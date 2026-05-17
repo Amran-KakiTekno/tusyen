@@ -38,6 +38,7 @@ interface KeycloakUserRecord {
   avatar_url?: string | null;
   is_active: boolean;
   keycloak_subject?: string | null;
+  keycloak_realm?: string | null;
   auth_provider?: string | null;
 }
 
@@ -64,7 +65,7 @@ const JWKS_CACHE_TTL_MS = 5 * 60 * 1000;
 let jwksCache: { expiresAt: number; keys: JwksKey[] } | null = null;
 
 export class KeycloakAuthError extends Error {
-  constructor(message: string, public statusCode = 400) {
+  constructor(message: string, public statusCode = 400, public auditEvent?: string) {
     super(message);
     this.name = 'KeycloakAuthError';
   }
@@ -387,12 +388,13 @@ async function upsertKeycloakUser(
   userInfo?: Record<string, unknown> | null,
 ): Promise<KeycloakUserRecord> {
   if (!claims.sub) throw new KeycloakAuthError('Keycloak token is missing subject.', 401);
+  const keycloakRealm = realmFromClaims(claims);
 
   const existingBySubject = await db.query<KeycloakUserRecord>(
-    `SELECT id, email, role, full_name, avatar_url, is_active, keycloak_subject, auth_provider
+    `SELECT id, email, role, full_name, avatar_url, is_active, keycloak_subject, keycloak_realm, auth_provider
      FROM users
-     WHERE keycloak_subject = $1`,
-    [claims.sub],
+     WHERE keycloak_subject = $1 AND keycloak_realm = $2`,
+    [claims.sub, keycloakRealm],
   );
 
   if ((existingBySubject.rowCount ?? 0) > 0) {
@@ -417,12 +419,31 @@ async function upsertKeycloakUser(
   }
 
   const existingByEmail = await db.query<KeycloakUserRecord>(
-    `SELECT id, email, role, full_name, avatar_url, is_active, keycloak_subject, auth_provider
+    `SELECT id, email, role, full_name, avatar_url, is_active, keycloak_subject, keycloak_realm, auth_provider
      FROM users
      WHERE lower(email) = lower($1)
+       AND (keycloak_realm IS NULL OR keycloak_realm = $2)
      LIMIT 1`,
-    [email],
+    [email, keycloakRealm],
   );
+
+  const crossRealmEmail = await db.query<KeycloakUserRecord>(
+    `SELECT id
+     FROM users
+     WHERE lower(email) = lower($1)
+       AND keycloak_realm IS NOT NULL
+       AND keycloak_realm <> $2
+     LIMIT 1`,
+    [email, keycloakRealm],
+  );
+
+  if ((crossRealmEmail.rowCount ?? 0) > 0) {
+    throw new KeycloakAuthError(
+      'This email is already linked to another Keycloak realm.',
+      409,
+      'auth.keycloak_realm_conflict',
+    );
+  }
 
   if ((existingByEmail.rowCount ?? 0) > 0) {
     const user = existingByEmail.rows[0];
@@ -435,14 +456,15 @@ async function upsertKeycloakUser(
     const updated = await db.query<KeycloakUserRecord>(
       `UPDATE users
        SET keycloak_subject = $2,
-           auth_provider = $3,
-           email_verified = COALESCE($4, email_verified),
-           full_name = COALESCE($5, full_name),
+           keycloak_realm = $3,
+           auth_provider = $4,
+           email_verified = COALESCE($5, email_verified),
+           full_name = COALESCE($6, full_name),
            last_login = NOW(),
            updated_at = NOW()
        WHERE id = $1
-       RETURNING id, email, role, full_name, avatar_url, is_active, keycloak_subject, auth_provider`,
-      [user.id, claims.sub, provider, emailVerifiedFromClaims(claims, userInfo), fullNameFromClaims(claims, userInfo)],
+       RETURNING id, email, role, full_name, avatar_url, is_active, keycloak_subject, keycloak_realm, auth_provider`,
+      [user.id, claims.sub, keycloakRealm, provider, emailVerifiedFromClaims(claims, userInfo), fullNameFromClaims(claims, userInfo)],
     );
     return updated.rows[0];
   }
@@ -452,13 +474,19 @@ async function upsertKeycloakUser(
   const passwordHash = await bcrypt.hash(base64Url(randomBytes(32)), 10);
   const created = await db.query<KeycloakUserRecord>(
     `INSERT INTO users
-       (id, email, password_hash, role, full_name, is_active, auth_provider, keycloak_subject, email_verified, last_login)
-     VALUES ($1, $2, $3, $4, $5, true, 'keycloak', $6, $7, NOW())
-     RETURNING id, email, role, full_name, avatar_url, is_active, keycloak_subject, auth_provider`,
-    [uuidv4(), email, passwordHash, role, fullName, claims.sub, emailVerifiedFromClaims(claims, userInfo) || false],
+       (id, email, password_hash, role, full_name, is_active, auth_provider, keycloak_subject, keycloak_realm, email_verified, last_login)
+     VALUES ($1, $2, $3, $4, $5, true, 'keycloak', $6, $7, $8, NOW())
+     RETURNING id, email, role, full_name, avatar_url, is_active, keycloak_subject, keycloak_realm, auth_provider`,
+    [uuidv4(), email, passwordHash, role, fullName, claims.sub, keycloakRealm, emailVerifiedFromClaims(claims, userInfo) || false],
   );
 
   return created.rows[0];
+}
+
+function realmFromClaims(claims: JwtPayload): string {
+  const issuer = stringClaim(claims.iss);
+  const match = issuer?.match(/\/realms\/([^/]+)\/?$/);
+  return match?.[1] ? decodeURIComponent(match[1]) : config.KEYCLOAK_REALM;
 }
 
 function emailFromClaims(claims: JwtPayload, userInfo?: Record<string, unknown> | null): string | null {

@@ -1,6 +1,8 @@
 // Tusyen — Parent Role UI v2
 // Parent dashboard uses linked-child data, progress rows, and local parent preferences.
 
+const t = (ms, en) => languageText(ms, en);
+
 const SUBJECT_COLORS = {
   matematik:'#8B5CF6',
   mathematics:'#8B5CF6',
@@ -44,10 +46,10 @@ const FALLBACK_CHILD = {
   ],
   classrooms:[],
   activity:[
-    { icon:'✅', label:'Selesai pelajaran Matematik Bab 3', time:'2j lepas' },
-    { icon:'🎯', label:'Skor 90% dalam kuiz Biologi', time:'5j lepas' },
-    { icon:'🔥', label:'Streak 7 hari! Bonus XP diterima', time:'1 hari lepas' },
-    { icon:'📝', label:'Mula bab baru: Fizik Bab 5', time:'2 hari lepas' },
+    { icon:'✅', label:t('Selesai pelajaran Matematik Bab 3', 'Completed Mathematics Chapter 3'), time:t('2j lepas', '2h ago') },
+    { icon:'🎯', label:'Skor 90% dalam kuiz Biologi', time:t('5j lepas', '5h ago') },
+    { icon:'🔥', label:t('Streak 7 hari! Bonus XP diterima', '7-day streak! Bonus XP received'), time:t('1 hari lepas', '1 day ago') },
+    { icon:'📝', label:t('Mula bab baru: Fizik Bab 5', 'Started new chapter: Physics Chapter 5'), time:t('2 hari lepas', '2 days ago') },
   ],
 };
 
@@ -82,28 +84,28 @@ const DEMO_ALERTS = [
   {
     childId:'demo-child',
     icon:'🔴',
-    title:'Prestasi Fizik Merosot',
-    desc:'Purata turun dari 58% ke 42% dalam 2 minggu. Disarankan jumpa guru.',
+    title:t('Prestasi Fizik Merosot', 'Physics Performance Dropped'),
+    desc:t('Purata turun dari 58% ke 42% dalam 2 minggu. Disarankan jumpa guru.', 'Average fell from 58% to 42% in 2 weeks. Meeting the teacher is recommended.'),
     severity:'high',
-    time:'Hari ini',
-    action:'Tandai untuk tindak lanjut',
+    time:t('Hari ini', 'Today'),
+    action:t('Tandai untuk tindak lanjut', 'Flag for follow-up'),
   },
   {
     childId:'demo-child',
     icon:'🟡',
-    title:'Kehadiran Log Masuk Rendah',
-    desc:'Ahmad hanya log masuk 2 kali minggu lepas. Galakkan belajar harian.',
+    title:t('Kehadiran Log Masuk Rendah', 'Low Login Attendance'),
+    desc:t('Ahmad hanya log masuk 2 kali minggu lepas. Galakkan belajar harian.', 'Ahmad only logged in twice last week. Encourage daily study.'),
     severity:'medium',
-    time:'3 hari lepas',
-    action:'Semak Kemajuan',
+    time:t('3 hari lepas', '3 days ago'),
+    action:t('Semak Kemajuan', 'Check Progress'),
   },
   {
     childId:'demo-child',
     icon:'🟢',
-    title:'Streak Tujuh Hari!',
-    desc:'Ahmad berjaya mengekalkan streak 7 hari berturut-turut. Tahniah!',
+    title:t('Streak Tujuh Hari!', 'Seven-Day Streak!'),
+    desc:t('Ahmad berjaya mengekalkan streak 7 hari berturut-turut. Tahniah!', 'Ahmad maintained a 7-day streak. Congratulations!'),
     severity:'good',
-    time:'Semalam',
+    time:t('Semalam', 'Yesterday'),
     action:null,
   },
 ];
@@ -134,21 +136,22 @@ const subjectColor = (subject) => SUBJECT_COLORS[`${subject || ''}`.toLowerCase(
 const cleanName = (value) => `${value || ''}`.trim();
 const parentText = (value, fallback = 'Item', max = 80) =>
   window.cleanUiText ? window.cleanUiText(value, { fallback, max }) : `${value || fallback}`;
-const parentName = (value, fallback = 'Pengguna') =>
+const parentName = (value, fallback = t('Pengguna', 'User')) =>
   window.cleanUiName ? window.cleanUiName(value, fallback) : parentText(value, fallback, 42);
 const parentTitle = (value, fallback = 'Tanpa tajuk') =>
   window.cleanUiTitle ? window.cleanUiTitle(value, fallback) : parentText(value, fallback, 68);
 const parentBodyText = (value, fallback = '', max = 180) =>
   window.cleanUiText ? window.cleanUiText(value, { fallback, max, preserveCase:true }) : `${value || fallback}`;
-const parentEmailText = (value, fallback = 'Akaun ibu bapa') => {
+const parentEmailText = (value, fallback = t('Akaun ibu bapa', 'Parent account')) => {
   const text = `${value || ''}`.trim();
   if (!text) return fallback;
   if (/(?:qaqc|qa|test|demo|playwright|automation|abcdef|\d{8,})/i.test(text)) return fallback;
   return text;
 };
 
-const TEACHER_QUESTION_LABEL = 'Simpan soalan untuk guru';
-const TEACHER_FOLLOWUP_CONFIRMATION = 'Soalan untuk guru disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah untuk menghantar soalan; aplikasi tidak menghantar mesej automatik.';
+const TEACHER_QUESTION_LABEL = t('Tandai untuk tindak lanjut', 'Flag for follow-up');
+const TEACHER_FOLLOWUP_TOOLTIP = t('Tiada mesej dihantar; tindakan ini hanya menyimpan tanda tindak lanjut.', 'No message is sent; this only saves a follow-up flag.');
+const TEACHER_FOLLOWUP_CONFIRMATION = t('Tindak lanjut disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah untuk menghantar soalan; aplikasi tidak menghantar mesej automatik.', 'Follow-up saved on this device. Use the official class or school channel to send questions; the app does not send automatic messages.');
 
 const parentStatusIsSuccess = (status) =>
   /berjaya|dipaut|dikeluarkan|dikemas kini/i.test(`${status || ''}`);
@@ -158,43 +161,44 @@ const parentActionLabel = (label) => {
   if (!text) return '';
   if (/hubungi\s+guru|contact\s+teacher/i.test(text)) return TEACHER_QUESTION_LABEL;
   if (/nota\s+hubungi\s+guru/i.test(text)) return TEACHER_QUESTION_LABEL;
+  if (/simpan\s+soalan\s+untuk\s+guru|tandai\s+untuk\s+tindak\s+lanjut|flag\s+for\s+follow-up/i.test(text)) return TEACHER_QUESTION_LABEL;
   return text;
 };
 
 const validateChildIdentifier = (value) => {
   const id = `${value || ''}`.trim();
-  if (!id) return 'Masukkan ID Tusyen pelajar atau e-mel akaun pelajar.';
-  if (id.length < 4) return 'ID atau e-mel terlalu pendek. Semak semula profil anak.';
-  if (id.length > 120) return 'ID atau e-mel terlalu panjang. Semak semula profil anak.';
-  if (/\s/.test(id)) return 'ID atau e-mel tidak boleh mengandungi ruang.';
+  if (!id) return t('Masukkan ID Tusyen pelajar atau e-mel akaun pelajar.', 'Enter the student Tusyen ID or student account email.');
+  if (id.length < 4) return t('ID atau e-mel terlalu pendek. Semak semula profil anak.', 'The ID or email is too short. Check the child profile again.');
+  if (id.length > 120) return t('ID atau e-mel terlalu panjang. Semak semula profil anak.', 'The ID or email is too long. Check the child profile again.');
+  if (/\s/.test(id)) return t('ID atau e-mel tidak boleh mengandungi ruang.', 'The ID or email cannot contain spaces.');
   if (/^(?:kelas|class|kod|code)[-_\s]*/i.test(id) || /^[0-9][A-Za-z]$/i.test(id)) {
-    return 'Gunakan ID Tusyen pelajar atau e-mel akaun pelajar, bukan kod kelas guru.';
+    return t('Gunakan ID Tusyen pelajar atau e-mel akaun pelajar, bukan kod kelas guru.', 'Use the student Tusyen ID or student account email, not the teacher class code.');
   }
   if (id.includes('@')) {
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(id);
-    if (!emailOk) return 'Format e-mel pelajar tidak sah.';
+    if (!emailOk) return t('Format e-mel pelajar tidak sah.', 'The student email format is invalid.');
   } else if (!/^[A-Za-z0-9._-]+$/.test(id)) {
-    return 'ID pelajar hanya boleh mengandungi huruf, nombor, titik, sengkang, atau garis bawah.';
+    return t('ID pelajar hanya boleh mengandungi huruf, nombor, titik, sengkang, atau garis bawah.', 'The student ID may only contain letters, numbers, dots, hyphens, or underscores.');
   }
   return '';
 };
 
-const parentLinkErrorMessage = (err, fallback = 'Tidak dapat memaut anak.') => {
+const parentLinkErrorMessage = (err, fallback = t('Tidak dapat memaut anak.', 'Unable to link child.')) => {
   const raw = `${err?.code || ''} ${err?.message || err?.error || err || ''}`.toLowerCase();
   if (raw.includes('network') || raw.includes('fetch') || raw.includes('timeout')) {
-    return 'Sambungan terganggu. Semak internet dan cuba lagi.';
+    return t('Sambungan terganggu. Semak internet dan cuba lagi.', 'Connection interrupted. Check your internet and try again.');
   }
   if (raw.includes('unauthor') || raw.includes('forbidden') || raw.includes('session')) {
-    return 'Sesi akaun tamat atau tidak dibenarkan. Log masuk semula dan cuba lagi.';
+    return t('Sesi akaun tamat atau tidak dibenarkan. Log masuk semula dan cuba lagi.', 'The account session expired or is not allowed. Sign in again and try again.');
   }
   if (raw.includes('not found') || raw.includes('404') || raw.includes('tiada') || raw.includes('not exist')) {
-    return 'Akaun pelajar tidak ditemui. Semak ID Tusyen atau e-mel daripada profil anak.';
+    return t('Akaun pelajar tidak ditemui. Semak ID Tusyen atau e-mel daripada profil anak.', 'Student account not found. Check the Tusyen ID or email from the child profile.');
   }
   if (raw.includes('already') || raw.includes('duplicate') || raw.includes('sudah')) {
-    return 'Anak ini sudah dipaut pada akaun ibu bapa.';
+    return t('Anak ini sudah dipaut pada akaun ibu bapa.', 'This child is already linked to the parent account.');
   }
   if (raw.includes('class') || raw.includes('kelas') || raw.includes('code') || raw.includes('kod')) {
-    return 'Kod kelas guru tidak boleh digunakan. Masukkan ID Tusyen pelajar atau e-mel akaun pelajar.';
+    return t('Kod kelas guru tidak boleh digunakan. Masukkan ID Tusyen pelajar atau e-mel akaun pelajar.', 'Teacher class codes cannot be used. Enter the student Tusyen ID or student account email.');
   }
   const message = parentBodyText(err?.message || err?.error, '', 140);
   return message || fallback;
@@ -209,7 +213,7 @@ const parentPreferredName = (user = currentUser(), prefs = readParentPrefs()) =>
     || parentName(cleanName(user?.preferredName || user?.preferred_name || user?.givenName || user?.given_name), '')
     || parentName(firstName(user?.fullName || user?.full_name), '')
     || emailLocalName(user?.email)
-    || 'Ibu Bapa';
+    || t('Ibu Bapa', 'Parent');
 };
 
 const parentGreetingName = (user = currentUser(), prefs = readParentPrefs()) => {
@@ -315,7 +319,7 @@ const buildSubjectRows = (stats, progressRows, fallbackSubjects = []) => {
     const hasData = score !== null;
 
     return {
-      name: parentText(name, 'Subjek', 36),
+      name: parentText(name, t('Subjek', 'Subject'), 36),
       score,
       hasData,
       color: fallback?.color || subjectColor(name),
@@ -332,11 +336,11 @@ const buildActivity = (progressRows, fallbackActivity = []) => {
     .slice(0, 5)
     .map(row => {
       const score = scoreValue(row.score);
-      const title = parentTitle(row.lesson_title || row.topic || row.subject, 'Pelajaran');
+      const title = parentTitle(row.lesson_title || row.topic || row.subject, t('Pelajaran', 'Lesson'));
       const done = row.is_completed || Number(row.completion_percentage || 0) >= 100;
       return {
         icon: done ? '✅' : '📘',
-        label: `${done ? 'Selesai' : 'Kemajuan'} ${title}${score !== null ? ` (${score}%)` : ''}`,
+        label: `${done ? t('Selesai', 'Completed') : t('Kemajuan', 'Progress')} ${title}${score !== null ? ` (${score}%)` : ''}`,
         time: window.timeAgo(row.updated_at),
       };
     });
@@ -370,7 +374,7 @@ const buildChild = ({ student, stats, progressRows, classrooms, rank, fallback }
     id: student.id,
     name: parentName(student.full_name, fallback.name),
     form: Number(firstClass?.form_level || student.form_level || fallback.form || 4),
-    cls: childClasses.length > 1 ? `${childClasses.length} kelas` : parentText(firstClass?.name, fallback.cls || 'Belum kelas', 54),
+    cls: childClasses.length > 1 ? `${childClasses.length} kelas` : parentText(firstClass?.name, fallback.cls || t('Belum kelas', 'No class yet'), 54),
     streak: Number(stats?.streak?.current ?? stats?.streak ?? fallback.streak ?? 0),
     xp: Number(stats?.quiz?.quizXpTotal || fallback.xp || 0),
     avg,
@@ -524,7 +528,7 @@ const useParentAnnouncements = (child) => {
       .slice(0, 5)
       .map(post => ({
         icon: postIcon(post.post_type),
-        label: parentTitle(post.title || post.content?.slice(0, 80), 'Pengumuman baharu di kelas'),
+        label: parentTitle(post.title || post.content?.slice(0, 80), t('Pengumuman baharu di kelas', 'New class announcement')),
         time: window.timeAgo(post.created_at),
         meta: parentText(post.classroom_name || post.post_type, '', 54),
       }));
@@ -548,7 +552,7 @@ const ChildSwitcher = ({ childOptions, selectedId, onSelect }) => {
   return (
     <div style={{ marginBottom:14 }}>
       <div style={{ display:'flex', justifyContent:'space-between', gap:10, alignItems:'center', marginBottom:7 }}>
-        <div style={{ fontSize:11, color:C.textMuted, fontWeight:900, textTransform:'uppercase', letterSpacing:0.6 }}>Pilih anak</div>
+        <div style={{ fontSize:11, color:C.textMuted, fontWeight:900, textTransform:'uppercase', letterSpacing:0.6 }}>{t('Pilih anak', 'Select child')}</div>
         <div style={{ fontSize:10, color:C.textFaint, fontWeight:700 }}>Geser untuk tukar anak</div>
       </div>
       <div style={{ display:'flex', gap:8, overflowX:'auto', paddingBottom:3, maxWidth:'100%' }}>
@@ -575,7 +579,7 @@ const ChildSwitcher = ({ childOptions, selectedId, onSelect }) => {
               <Avatar name={child.name} size={28} />
               <div style={{ textAlign:'left', minWidth:0 }}>
                 <div style={{ fontWeight:900, fontSize:12, color:on ? C.accPale : C.text, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{child.name}</div>
-                <div style={{ fontSize:11, fontWeight:700, color:on ? C.accPale : C.textFaint }}>{on ? 'Sedang dilihat' : `Tingkatan ${child.form}`}</div>
+                <div style={{ fontSize:11, fontWeight:700, color:on ? C.accPale : C.textFaint }}>{on ? t('Sedang dilihat', 'Currently viewing') : `Tingkatan ${child.form}`}</div>
               </div>
             </button>
           );
@@ -585,7 +589,7 @@ const ChildSwitcher = ({ childOptions, selectedId, onSelect }) => {
   );
 };
 
-const NoLinkedChild = ({ onOpenSettings, childState, errorMessage = 'Tidak dapat memuat anak terpaut.' }) => (
+const NoLinkedChild = ({ onOpenSettings, childState, errorMessage = t('Tidak dapat memuat anak terpaut.', 'Unable to load linked child.') }) => (
   <div style={{ padding:'14px 16px 10px' }}>
     {childState?.error && (
       <div style={{ marginBottom:14 }}>
@@ -597,7 +601,7 @@ const NoLinkedChild = ({ onOpenSettings, childState, errorMessage = 'Tidak dapat
       Pautan ini hanya memaparkan kelas, pos, amaran, dan kemajuan anak yang dipaut.
     </div>
     <div style={{ padding:'0 18px 18px' }}>
-      <GlowButton onClick={onOpenSettings}>Buka Tetapan</GlowButton>
+      <GlowButton onClick={onOpenSettings}>{t('Buka Tetapan', 'Open Settings')}</GlowButton>
     </div>
   </div>
 );
@@ -708,7 +712,7 @@ const ParentConfirmModal = ({
   title,
   children,
   confirmLabel = 'Sahkan',
-  cancelLabel = 'Batal',
+  cancelLabel = t('Batal', 'Cancel'),
   onConfirm,
   onCancel,
   danger,
@@ -803,7 +807,7 @@ const GuidedAddChildModal = ({ open, busy, status, onSubmit, onClose }) => {
     e.preventDefault();
     const value = identifier.trim();
     const identifierError = validateChildIdentifier(value);
-    const consentError = consent ? '' : 'Sahkan persetujuan anak sebelum memaut akaun.';
+    const consentError = consent ? '' : t('Sahkan persetujuan anak sebelum memaut akaun.', 'Confirm the child consent before linking the account.');
     const nextErrors = {
       ...(identifierError ? { identifier:identifierError } : {}),
       ...(consentError ? { consent:consentError } : {}),
@@ -853,9 +857,9 @@ const GuidedAddChildModal = ({ open, busy, status, onSubmit, onClose }) => {
         </div>
         <div style={{ display:'grid', gap:8, marginBottom:12 }}>
           {[
-            'Pastikan anak bersetuju untuk berkongsi kemajuan pembelajaran.',
-            'Pautan ini hanya memaparkan kelas, pos sekolah, dan kemajuan anak.',
-            'Anda boleh membuang pautan ini pada bila-bila masa di Tetapan.',
+            t('Pastikan anak bersetuju untuk berkongsi kemajuan pembelajaran.', 'Make sure the child agrees to share learning progress.'),
+            t('Pautan ini hanya memaparkan kelas, pos sekolah, dan kemajuan anak.', 'This link only shows the child classes, school posts, and progress.'),
+            t('Anda boleh membuang pautan ini pada bila-bila masa di Tetapan.', 'You can remove this link anytime in Settings.'),
           ].map((line, index) => (
             <div key={line} style={{ display:'grid', gridTemplateColumns:'24px 1fr', gap:8, alignItems:'start' }}>
               <span style={{
@@ -952,14 +956,14 @@ const GuidedAddChildModal = ({ open, busy, status, onSubmit, onClose }) => {
             borderRadius:10, padding:'9px 13px',
             color:C.textMuted, fontFamily:'Nunito', fontWeight:800,
             cursor:busy ? 'not-allowed' : 'pointer',
-          }}>Batal</button>
+          }}>{t('Batal', 'Cancel')}</button>
           <button type="submit" disabled={busy} style={{
             background:C.accDim, border:`1px solid ${C.borderB}`,
             borderRadius:10, padding:'9px 13px',
             color:C.accPale, fontFamily:'Nunito', fontWeight:900,
             cursor:busy ? 'not-allowed' : 'pointer',
             opacity:busy ? 0.6 : 1,
-          }}>{busy ? 'Memaut...' : 'Pautkan Anak'}</button>
+          }}>{busy ? t('Memaut...', 'Linking...') : t('Pautkan Anak', 'Link Child')}</button>
         </div>
       </form>
     </div>
@@ -1006,7 +1010,7 @@ const alertWhyText = (alert) => {
     return 'Rutin yang terputus biasanya mengurangkan latihan ulang kaji; semakan awal lebih mudah daripada mengejar semula kemudian.';
   }
   if (text.includes('kuiz') || text.includes('tugasan') || text.includes('assignment')) {
-    return 'Tugasan baharu ada tarikh dan arahan kelas; semak awal supaya anak tahu langkah seterusnya.';
+    return t('Tugasan baharu ada tarikh dan arahan kelas; semak awal supaya anak tahu langkah seterusnya.', 'A new assignment has a due date and class instructions; check early so the child knows the next steps.');
   }
   if (alert.severity === 'good' || text.includes('streak') || text.includes('pencapaian')) {
     return 'Pengiktirafan kecil menguatkan tabiat belajar yang sedang menjadi.';
@@ -1020,15 +1024,15 @@ const alertRecommendedAction = (alert) => {
     return 'Tandai tindak lanjut, kemudian hubungi guru atau pihak sekolah jika corak ini berulang.';
   }
   if (text.includes('log') || text.includes('aktiviti') || text.includes('kehadiran')) {
-    return 'Tetapkan sesi belajar ringkas hari ini dan semak Kemajuan selepas anak selesai.';
+    return t('Tetapkan sesi belajar ringkas hari ini dan semak Kemajuan selepas anak selesai.', 'Set a short study session today and check Progress after the child finishes.');
   }
   if (text.includes('kuiz') || text.includes('tugasan') || text.includes('assignment')) {
-    return 'Baca pos kelas dan pastikan anak faham tugasan yang perlu disiapkan.';
+    return t('Baca pos kelas dan pastikan anak faham tugasan yang perlu disiapkan.', 'Read the class post and make sure the child understands the assignment to complete.');
   }
   if (alert.severity === 'good' || text.includes('streak') || text.includes('pencapaian')) {
-    return 'Ucap tahniah kepada anak dan kekalkan jadual belajar yang sama.';
+    return t('Ucap tahniah kepada anak dan kekalkan jadual belajar yang sama.', 'Congratulate the child and keep the same study schedule.');
   }
-  return 'Semak butiran dan tandai dibaca selepas tindakan sesuai dibuat.';
+  return t('Semak butiran dan tandai dibaca selepas tindakan sesuai dibuat.', 'Check the details and mark as read after the right action is taken.');
 };
 
 const alertSummaryText = (alert) => {
@@ -1045,10 +1049,10 @@ const alertSummaryText = (alert) => {
 const alertPrimaryAction = (alert) => {
   const text = `${alert.title || ''} ${alert.desc || ''} ${alert.action || ''}`.toLowerCase();
   if (text.includes('kuiz') || text.includes('tugasan') || text.includes('assignment')) {
-    return { label:parentActionLabel(alert.action) || 'Lihat Pos Kelas', target:'posts' };
+    return { label:parentActionLabel(alert.action) || t('Lihat Pos Kelas', 'View Class Posts'), target:'posts' };
   }
   if (text.includes('kemajuan') || text.includes('log') || text.includes('aktiviti') || text.includes('kehadiran')) {
-    return { label:parentActionLabel(alert.action) || 'Semak Kemajuan', target:'progress' };
+    return { label:parentActionLabel(alert.action) || t('Semak Kemajuan', 'Check Progress'), target:'progress' };
   }
   if (alert.severity === 'high' || text.includes('guru') || text.includes('tindak') || text.includes('prestasi') || text.includes('skor')) {
     return { label:parentActionLabel(alert.action) || 'Tandai Tindak Lanjut', target:'followup' };
@@ -1059,20 +1063,20 @@ const alertPrimaryAction = (alert) => {
 const alertFollowUpExplanation = (alert) => {
   const action = alertPrimaryAction(alert);
   if (action.target === 'followup') {
-    return 'Tindak lanjut menyimpan penanda pada peranti ini supaya ibu bapa boleh menyemak semula dan membawa soalan melalui saluran rasmi kelas atau sekolah.';
+    return t('Tindak lanjut menyimpan penanda pada peranti ini supaya ibu bapa boleh menyemak semula dan membawa soalan melalui saluran rasmi kelas atau sekolah.', 'Follow-up saves a marker on this device so parents can review it again and bring questions through official class or school channels.');
   }
   if (action.target === 'progress') {
-    return 'Butang ini membuka Kemajuan anak untuk melihat subjek, masa belajar, dan corak mingguan.';
+    return t('Butang ini membuka Kemajuan anak untuk melihat subjek, masa belajar, dan corak mingguan.', 'This button opens the child Progress view to see subjects, study time, and weekly patterns.');
   }
   if (action.target === 'posts') {
-    return 'Butang ini membuka Pos Kelas supaya ibu bapa boleh membaca arahan guru dan maklum balas yang dibenarkan.';
+    return t('Butang ini membuka Pos Kelas supaya ibu bapa boleh membaca arahan guru dan maklum balas yang dibenarkan.', 'This button opens Class Posts so parents can read teacher instructions and allowed feedback.');
   }
   return 'Tindakan ini hanya menandakan makluman sebagai dibaca pada peranti ini.';
 };
 
 const subjectNextStep = (subject) => {
   const score = scoreValue(subject?.score);
-  if (score === null) return 'Minta guru mengesahkan aktiviti pertama yang perlu dibuat untuk mula merekod kemajuan.';
+  if (score === null) return t('Minta guru mengesahkan aktiviti pertama yang perlu dibuat untuk mula merekod kemajuan.', 'Ask the teacher to confirm the first activity needed to start recording progress.');
   if (score < 50) return `Utamakan ${subject.name}: ulang satu topik asas, buat latihan pendek, kemudian semak dengan guru.`;
   if (score < 60) return `Jadualkan 20 minit latihan ${subject.name} dan minta anak catat soalan yang masih keliru.`;
   if (subject?.trend === '↓') return `Pantau ${subject.name} minggu ini; skor masih lulus tetapi trend menurun.`;
@@ -1112,7 +1116,7 @@ const childStatusSummary = (child) => {
   }
   return {
     label:'Belum cukup data',
-    detail:'Kemajuan akan lebih jelas selepas beberapa pelajaran atau kuiz direkodkan.',
+    detail:t('Kemajuan akan lebih jelas selepas beberapa pelajaran atau kuiz direkodkan.', 'Progress will be clearer after a few lessons or quizzes are recorded.'),
     tone:'neutral',
   };
 };
@@ -1125,14 +1129,14 @@ const todayPlanForParent = ({ child, attention, alert }) => {
       concern:`${attention.name} berada pada ${formatScore(attention.score)}.`,
       actionLabel:TEACHER_QUESTION_LABEL,
       actionKind:'teacher',
-      actionDetail:'Minta anak tunjuk satu soalan yang susah, kemudian bawa konteks itu kepada guru.',
+      actionDetail:t('Minta anak tunjuk satu soalan yang susah, kemudian bawa konteks itu kepada guru.', 'Ask the child to show one difficult question, then bring that context to the teacher.'),
     };
   }
   if (alert) {
     const action = alertPrimaryAction(alert);
     return {
       status,
-      concern:parentTitle(alert.title, 'Ada makluman baharu daripada kelas.'),
+      concern:parentTitle(alert.title, t('Ada makluman baharu daripada kelas.', 'There is a new class notification.')),
       actionLabel:action.label,
       actionKind:'alert',
       actionDetail:alertRecommendedAction(alert),
@@ -1142,16 +1146,16 @@ const todayPlanForParent = ({ child, attention, alert }) => {
   if (status.tone === 'warn') {
     return {
       status,
-      concern:'Rutin minggu ini masih perlahan.',
-      actionLabel:'Semak kemajuan',
+      concern:t('Rutin minggu ini masih perlahan.', 'This week routine is still slow.'),
+      actionLabel:t('Semak kemajuan', 'Check progress'),
       actionKind:'progress',
-      actionDetail:'Cari masa 15-20 minit untuk ulang kaji ringkas hari ini.',
+      actionDetail:t('Cari masa 15-20 minit untuk ulang kaji ringkas hari ini.', 'Find 15-20 minutes for a short review today.'),
     };
   }
   return {
     status,
-    concern:'Tiada isu besar dikesan daripada data terkini.',
-    actionLabel:'Lihat kemajuan',
+    concern:t('Tiada isu besar dikesan daripada data terkini.', 'No major issues were detected from the latest data.'),
+    actionLabel:t('Lihat kemajuan', 'View progress'),
     actionKind:'progress',
     actionDetail:'Teruskan rutin belajar dan semak trend subjek apabila ada data baharu.',
   };
@@ -1254,13 +1258,13 @@ const ParentHome = ({ displayName, childState, child, childOptions, selectedId, 
           read: true,
           followUp: true,
         }).then(() => {
-          setNotice('Tindak lanjut disimpan dan disegerakkan dengan akaun ibu bapa. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.');
+          setNotice(t('Tindak lanjut disimpan dan disegerakkan dengan akaun ibu bapa. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.', 'Follow-up saved and synced with the parent account. Use official class or school channels if a question must be sent.'));
         }).catch(() => {
           setNotice('Tindak lanjut disimpan pada peranti ini. Penyegerakan pelayan belum tersedia.');
         });
         return;
       }
-      setNotice('Tindak lanjut disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.');
+      setNotice(t('Tindak lanjut disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.', 'Follow-up saved on this device. Use official class or school channels if a question must be sent.'));
       return;
     }
     syncHomeAlertRead();
@@ -1268,6 +1272,10 @@ const ParentHome = ({ displayName, childState, child, childOptions, selectedId, 
   };
 
   const todayPlan = child ? todayPlanForParent({ child, attention, alert:homeAlerts[0] }) : null;
+  const todayActionTooltip = todayPlan?.actionKind === 'teacher'
+    || (todayPlan?.actionKind === 'alert' && todayPlan.alert && alertPrimaryAction(todayPlan.alert).target === 'followup')
+      ? TEACHER_FOLLOWUP_TOOLTIP
+      : '';
   const handleTodayAction = () => {
     if (!todayPlan) return;
     if (todayPlan.actionKind === 'teacher' && attention) {
@@ -1293,24 +1301,24 @@ const ParentHome = ({ displayName, childState, child, childOptions, selectedId, 
   const homeInsightCards = [
     {
       v:formatScore(child?.avg, hasOverallScore),
-      l:'Purata Skor',
-      sub:hasOverallScore ? 'Purata rekod pelajaran dan kuiz' : 'Belum ada data',
+      l:t('Purata Skor', 'Average Score'),
+      sub:hasOverallScore ? t('Purata rekod pelajaran dan kuiz', 'Average lesson and quiz records') : t('Belum ada data', 'No data yet'),
       target:'progress',
-      aria:'Buka Kemajuan untuk melihat purata skor anak',
+      aria:t('Buka Kemajuan untuk melihat purata skor anak', 'Open Progress to view the child average score'),
     },
     {
       v:weekMetrics?.hasActivity ? formatStudyTime(weekMetrics.timeSeconds) : (hasWeekTime ? formatStudyTime(child.weekTimeSeconds) : '—'),
       l:'Minggu Ini',
       sub:weekRange,
       target:'progress',
-      aria:'Buka Kemajuan untuk melihat aktiviti minggu ini',
+      aria:t('Buka Kemajuan untuk melihat aktiviti minggu ini', 'Open Progress to view this week activity'),
     },
     {
       v:child?.rank ? `#${child.rank}` : '—',
-      l:child?.rank ? 'Kedudukan Kelas' : 'Kedudukan belum tersedia',
-      sub:child?.rank ? 'Berdasarkan papan markah kelas' : 'Muncul bila kelas ada papan markah',
+      l:child?.rank ? t('Kedudukan Kelas', 'Class Ranking') : t('Kedudukan belum tersedia', 'Ranking not available yet'),
+      sub:child?.rank ? t('Berdasarkan papan markah kelas', 'Based on the class leaderboard') : t('Muncul bila kelas ada papan markah', 'Appears when the class has a leaderboard'),
       target:'children',
-      aria:'Buka profil anak untuk melihat ringkasan kelas',
+      aria:t('Buka profil anak untuk melihat ringkasan kelas', 'Open the child profile to view the class summary'),
     },
   ];
 
@@ -1326,7 +1334,7 @@ const ParentHome = ({ displayName, childState, child, childOptions, selectedId, 
 
     {childState.error && (
       <div style={{ marginBottom:14 }}>
-        <ErrorRetry message={childState.error.message || 'Tidak dapat memuat anak terpaut.'} onRetry={childState.refresh} />
+        <ErrorRetry message={childState.error.message || t('Tidak dapat memuat anak terpaut.', 'Unable to load linked child.')} onRetry={childState.refresh} />
       </div>
     )}
 
@@ -1379,7 +1387,12 @@ const ParentHome = ({ displayName, childState, child, childOptions, selectedId, 
             </div>
           ))}
         </div>
-        <button type="button" onClick={handleTodayAction} style={{
+        <button
+          type="button"
+          onClick={handleTodayAction}
+          title={todayActionTooltip || undefined}
+          aria-label={todayActionTooltip ? `${todayPlan.actionLabel}. ${todayActionTooltip}` : todayPlan.actionLabel}
+          style={{
           width:'100%',
           minHeight:44,
           background:'linear-gradient(135deg, var(--c-acc-lo), var(--c-acc))',
@@ -1637,7 +1650,7 @@ const ParentProgress = ({ childState, child, childOptions, selectedId, onSelectC
 
       {childState.error && (
         <div style={{ marginBottom:14 }}>
-          <ErrorRetry message={childState.error.message || 'Tidak dapat memuat kemajuan.'} onRetry={childState.refresh} />
+          <ErrorRetry message={childState.error.message || t('Tidak dapat memuat kemajuan.', 'Unable to load progress.')} onRetry={childState.refresh} />
         </div>
       )}
 
@@ -1655,10 +1668,10 @@ const ParentProgress = ({ childState, child, childOptions, selectedId, onSelectC
 
       <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8, marginBottom:16 }}>
         {[
-          { v:metrics.hasActivity ? formatStudyTime(metrics.timeSeconds) : '—', l:'Masa Belajar', i:'⏱️', c:C.acc },
-          { v:metrics.hasActivity ? String(metrics.lessons) : '—', l:'Pelajaran', i:'📚', c:C.blue },
-          { v:formatScore(metrics.avg, metrics.hasScore), l:metrics.hasScore ? 'Purata Skor' : 'Purata belum ada data', i:'📊', c:C.green },
-          { v:metrics.rank ? `#${metrics.rank}` : '—', l:metrics.rank ? 'Kedudukan Kelas' : 'Kedudukan belum tersedia', i:'🏆', c:C.gold },
+          { v:metrics.hasActivity ? formatStudyTime(metrics.timeSeconds) : '—', l:t('Masa Belajar', 'Study Time'), i:'⏱️', c:C.acc },
+          { v:metrics.hasActivity ? String(metrics.lessons) : '—', l:t('Pelajaran', 'Lesson'), i:'📚', c:C.blue },
+          { v:formatScore(metrics.avg, metrics.hasScore), l:metrics.hasScore ? t('Purata Skor', 'Average Score') : t('Purata belum ada data', 'Average has no data yet'), i:'📊', c:C.green },
+          { v:metrics.rank ? `#${metrics.rank}` : '—', l:metrics.rank ? t('Kedudukan Kelas', 'Class Ranking') : t('Kedudukan belum tersedia', 'Ranking not available yet'), i:'🏆', c:C.gold },
         ].map((s,i) => (
           <Card key={i} style={{ padding:12, display:'flex', alignItems:'center', gap:10 }}>
             <span style={{ fontSize:26 }}>{s.i}</span>
@@ -1844,7 +1857,7 @@ const ParentAlerts = ({ childState, child, childOptions, selectedId, onSelectChi
     const next = uniqueBy([...dismissedIds, id], item => item);
     setDismissedIds(next);
     writeLocal(alertStorageKey(child.id, 'dismissed_alerts'), next);
-    setNotice('Amaran disembunyikan pada peranti ini sahaja. Ia boleh muncul semula pada peranti lain.');
+    setNotice(t('Amaran disembunyikan pada peranti ini sahaja. Ia boleh muncul semula pada peranti lain.', 'Alert hidden on this device only. It may appear again on another device.'));
   };
 
   const clearAll = () => {
@@ -1866,7 +1879,7 @@ const ParentAlerts = ({ childState, child, childOptions, selectedId, onSelectChi
     writeLocal(alertStorageKey(child.id, 'followup_alerts'), next);
     setNotice(teacher
       ? TEACHER_FOLLOWUP_CONFIRMATION
-      : 'Amaran ditandai untuk tindak lanjut pada peranti ini sahaja.');
+      : t('Amaran ditandai untuk tindak lanjut pada peranti ini sahaja.', 'Alert marked for follow-up on this device only.'));
   };
 
   const handleAction = (alert) => {
@@ -1882,7 +1895,7 @@ const ParentAlerts = ({ childState, child, childOptions, selectedId, onSelectChi
   return (
   <div style={{ padding:'14px 16px 10px' }}>
     <div style={{ marginBottom:14 }}>
-      <div style={{ fontWeight:800, fontSize:17, color:C.text }}>Amaran & Notifikasi</div>
+      <div style={{ fontWeight:800, fontSize:17, color:C.text }}>{t('Amaran & Notifikasi', 'Alerts & Notifications')}</div>
       <div style={{ fontSize:12, color:C.textMuted, fontWeight:600, marginTop:2 }}>{child.name} • Tingkatan {child.form}</div>
     </div>
 
@@ -1902,7 +1915,7 @@ const ParentAlerts = ({ childState, child, childOptions, selectedId, onSelectChi
 
     {childState.error && (
       <div style={{ marginBottom:14 }}>
-        <ErrorRetry message={childState.error.message || 'Tidak dapat memuat anak terpaut.'} onRetry={childState.refresh} />
+        <ErrorRetry message={childState.error.message || t('Tidak dapat memuat anak terpaut.', 'Unable to load linked child.')} onRetry={childState.refresh} />
       </div>
     )}
 
@@ -2094,13 +2107,13 @@ const ParentAlertsV2 = ({ childState, child, childOptions, selectedId, onSelectC
         alertId: id,
         dismissed: true,
       }).then(() => {
-        setNotice('Amaran disembunyikan dan disegerakkan dengan akaun ibu bapa.');
+        setNotice(t('Amaran disembunyikan dan disegerakkan dengan akaun ibu bapa.', 'Alert hidden and synced with the parent account.'));
       }).catch(() => {
-        setNotice('Amaran disembunyikan pada peranti ini. Penyegerakan pelayan belum tersedia.');
+        setNotice(t('Amaran disembunyikan pada peranti ini. Penyegerakan pelayan belum tersedia.', 'Alert hidden on this device. Server syncing is not available yet.'));
       });
       return;
     }
-    setNotice('Amaran disembunyikan pada peranti ini sahaja. Ia boleh muncul semula pada peranti lain.');
+    setNotice(t('Amaran disembunyikan pada peranti ini sahaja. Ia boleh muncul semula pada peranti lain.', 'Alert hidden on this device only. It may appear again on another device.'));
   };
 
   const clearAll = () => {
@@ -2144,13 +2157,13 @@ const ParentAlertsV2 = ({ childState, child, childOptions, selectedId, onSelectC
         read: true,
         followUp: true,
       }).then(() => {
-        setNotice('Tindak lanjut disimpan dan disegerakkan dengan akaun ibu bapa. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.');
+        setNotice(t('Tindak lanjut disimpan dan disegerakkan dengan akaun ibu bapa. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.', 'Follow-up saved and synced with the parent account. Use official class or school channels if a question must be sent.'));
       }).catch(() => {
         setNotice('Tindak lanjut disimpan pada peranti ini. Penyegerakan pelayan belum tersedia.');
       });
       return;
     }
-    setNotice('Tindak lanjut disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.');
+    setNotice(t('Tindak lanjut disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.', 'Follow-up saved on this device. Use official class or school channels if a question must be sent.'));
   };
 
   const handlePrimaryAction = (alert) => {
@@ -2179,7 +2192,7 @@ const ParentAlertsV2 = ({ childState, child, childOptions, selectedId, onSelectC
   return (
     <div style={{ padding:'14px 16px 10px' }}>
       <div style={{ marginBottom:14 }}>
-        <div style={{ fontWeight:800, fontSize:17, color:C.text }}>Amaran & Notifikasi</div>
+        <div style={{ fontWeight:800, fontSize:17, color:C.text }}>{t('Amaran & Notifikasi', 'Alerts & Notifications')}</div>
         <div style={{ fontSize:12, color:C.textMuted, fontWeight:600, marginTop:2 }}>{child.name} - Tingkatan {child.form}</div>
       </div>
 
@@ -2199,7 +2212,7 @@ const ParentAlertsV2 = ({ childState, child, childOptions, selectedId, onSelectC
 
       {childState.error && (
         <div style={{ marginBottom:14 }}>
-          <ErrorRetry message={childState.error.message || 'Tidak dapat memuat anak terpaut.'} onRetry={childState.refresh} />
+          <ErrorRetry message={childState.error.message || t('Tidak dapat memuat anak terpaut.', 'Unable to load linked child.')} onRetry={childState.refresh} />
         </div>
       )}
 
@@ -2287,7 +2300,7 @@ const ParentAlertsV2 = ({ childState, child, childOptions, selectedId, onSelectC
                 cursor:'pointer', textAlign:'left',
               }}
             >
-              <span>{expanded ? 'Sembunyikan butiran' : 'Lihat sebab dan cadangan'}</span>
+              <span>{expanded ? t('Sembunyikan butiran', 'Hide details') : t('Lihat sebab dan cadangan', 'View reasons and suggestions')}</span>
               <span aria-hidden="true">{expanded ? '↑' : '↓'}</span>
             </button>
             {expanded && (
@@ -2314,7 +2327,11 @@ const ParentAlertsV2 = ({ childState, child, childOptions, selectedId, onSelectC
               </div>
             )}
             <div style={{ display:'flex', gap:8, flexWrap:'nowrap', alignItems:'center', justifyContent:'space-between', maxWidth:'100%', minWidth:0 }}>
-              <button onClick={() => handlePrimaryAction(alert)} style={{
+              <button
+                onClick={() => handlePrimaryAction(alert)}
+                title={action.target === 'followup' ? TEACHER_FOLLOWUP_TOOLTIP : undefined}
+                aria-label={action.target === 'followup' ? `${action.label}. ${TEACHER_FOLLOWUP_TOOLTIP}` : action.label}
+                style={{
                 flex:'1 1 190px',
                 minWidth:0,
                 background:`color-mix(in srgb,${palette.btn} 13%,transparent)`,
@@ -2458,7 +2475,7 @@ const passwordStrength = (value) => {
     /\d/.test(password),
     /[^A-Za-z0-9]/.test(password),
   ].filter(Boolean).length;
-  if (checks <= 2) return { score:1, label:'Lemah', color:C.red, hint:'Tambah panjang, huruf besar/kecil, nombor, atau simbol.' };
+  if (checks <= 2) return { score:1, label:t('Lemah', 'Weak'), color:C.red, hint:t('Tambah panjang, huruf besar/kecil, nombor, atau simbol.', 'Add length, uppercase/lowercase letters, numbers, or symbols.') };
   if (checks <= 3) return { score:2, label:'Sederhana', color:C.orange, hint:'Boleh dikuatkan dengan 12 aksara dan simbol.' };
   if (checks <= 4) return { score:3, label:'Kuat', color:C.green, hint:'Baik. Frasa panjang yang unik lebih selamat.' };
   return { score:4, label:'Sangat kuat', color:C.green, hint:'Kata laluan ini kelihatan kukuh.' };
@@ -2517,7 +2534,7 @@ const ParentSettings = ({ childState, childOptions, selectedId, onSelectChild })
     e.preventDefault();
     const id = studentId.trim();
     const identifierError = validateChildIdentifier(id);
-    const consentError = studentConsent ? '' : 'Sahkan persetujuan anak sebelum memaut akaun.';
+    const consentError = studentConsent ? '' : t('Sahkan persetujuan anak sebelum memaut akaun.', 'Confirm the child consent before linking the account.');
     const nextErrors = {
       ...(identifierError ? { identifier:identifierError } : {}),
       ...(consentError ? { consent:consentError } : {}),
@@ -2531,7 +2548,7 @@ const ParentSettings = ({ childState, childOptions, selectedId, onSelectChild })
       setStudentId('');
       setStudentConsent(false);
       setStudentErrors({});
-      setLinkStatus('Anak berjaya dipaut.');
+      setLinkStatus(t('Anak berjaya dipaut.', 'Child linked successfully.'));
       childState.refresh();
     } catch (err) {
       setLinkStatus(parentLinkErrorMessage(err));
@@ -2554,7 +2571,7 @@ const ParentSettings = ({ childState, childOptions, selectedId, onSelectChild })
       if (selectedId === child.id) onSelectChild('');
       childState.refresh();
     } catch (err) {
-      setLinkStatus(err.message || 'Tidak dapat membuang pautan anak.');
+      setLinkStatus(err.message || t('Tidak dapat membuang pautan anak.', 'Unable to remove child link.'));
     } finally {
       setBusy(false);
     }
@@ -2575,7 +2592,7 @@ const ParentSettings = ({ childState, childOptions, selectedId, onSelectChild })
       setConfirmPassword('');
       setPasswordStatus('Kata laluan berjaya dikemas kini.');
     } catch (err) {
-      setPasswordStatus(err.message || 'Tidak dapat menukar kata laluan.');
+      setPasswordStatus(err.message || t('Tidak dapat menukar kata laluan.', 'Unable to change password.'));
     } finally {
       setBusy(false);
     }
@@ -2591,7 +2608,7 @@ const ParentSettings = ({ childState, childOptions, selectedId, onSelectChild })
   return (
     <div style={{ padding:'14px 16px 10px' }}>
       <div style={{ marginBottom:14 }}>
-        <div style={{ fontWeight:800, fontSize:17, color:C.text }}>Tetapan Ibu Bapa</div>
+        <div style={{ fontWeight:800, fontSize:17, color:C.text }}>{t('Tetapan Ibu Bapa', 'Parent Settings')}</div>
         <div style={{ fontSize:12, color:C.textMuted, fontWeight:600, marginTop:2 }}>{parentEmailText(user?.email)}</div>
       </div>
 
@@ -2672,7 +2689,7 @@ const ParentSettings = ({ childState, childOptions, selectedId, onSelectChild })
               borderRadius:10, padding:'6px 9px',
               color:selectedId === child.id ? C.accPale : C.textMuted,
               fontFamily:'Nunito', fontWeight:800, fontSize:11, cursor:'pointer',
-            }}>{selectedId === child.id ? 'Dipilih' : 'Pilih'}</button>
+            }}>{selectedId === child.id ? t('Dipilih', 'Selected') : t('Pilih', 'Select')}</button>
             {unlinkConfirm === child.id ? (
               <div style={{ display:'flex', gap:5 }}>
                 <button onClick={() => unlinkChild(child)} disabled={busy} style={{
@@ -2686,7 +2703,7 @@ const ParentSettings = ({ childState, childOptions, selectedId, onSelectChild })
                   borderRadius:10, padding:'6px 9px',
                   color:C.textMuted, fontFamily:'Nunito', fontWeight:800,
                   fontSize:11, cursor:'pointer',
-                }}>Batal</button>
+                }}>{t('Batal', 'Cancel')}</button>
               </div>
             ) : (
               <button onClick={() => unlinkChild(child)} disabled={busy} style={{
@@ -2733,7 +2750,7 @@ const ParentSettings = ({ childState, childOptions, selectedId, onSelectChild })
             color:C.accPale, fontFamily:'Nunito', fontWeight:800,
             fontSize:12, cursor:busy ? 'not-allowed' : 'pointer',
             opacity:busy ? 0.6 : 1,
-          }}>Tambah</button>
+          }}>{t('Tambah', 'Add')}</button>
           </div>
           {studentErrors.identifier && <div id="parent-inline-child-id-error" role="alert" style={{ fontSize:11, color:C.red, fontWeight:850, lineHeight:1.35 }}>{studentErrors.identifier}</div>}
           <label style={{ display:'grid', gridTemplateColumns:'28px 1fr', gap:8, alignItems:'start', cursor:busy ? 'not-allowed' : 'pointer' }}>
@@ -2882,7 +2899,7 @@ const ParentSettingsV2 = ({ childState, childOptions, selectedId, onSelectChild 
     setLinkStatus('');
     try {
       await window.tusyenApi.linkParent(id);
-      setLinkStatus('Anak berjaya dipaut.');
+      setLinkStatus(t('Anak berjaya dipaut.', 'Child linked successfully.'));
       setShowAddChild(false);
       markSaved('children');
       childState.refresh();
@@ -2905,7 +2922,7 @@ const ParentSettingsV2 = ({ childState, childOptions, selectedId, onSelectChild 
       markSaved('children');
       childState.refresh();
     } catch (err) {
-      setLinkStatus(err.message || 'Tidak dapat membuang pautan anak.');
+      setLinkStatus(err.message || t('Tidak dapat membuang pautan anak.', 'Unable to remove child link.'));
     } finally {
       setBusy(false);
     }
@@ -2927,7 +2944,7 @@ const ParentSettingsV2 = ({ childState, childOptions, selectedId, onSelectChild 
       setPasswordStatus('Kata laluan berjaya dikemas kini.');
       markSaved('security');
     } catch (err) {
-      setPasswordStatus(err.message || 'Tidak dapat menukar kata laluan.');
+      setPasswordStatus(err.message || t('Tidak dapat menukar kata laluan.', 'Unable to change password.'));
     } finally {
       setBusy(false);
     }
@@ -2940,14 +2957,14 @@ const ParentSettingsV2 = ({ childState, childOptions, selectedId, onSelectChild 
     { value:'weekly', label:'Mingguan' },
   ];
   const languageOptions = [
-    { value:'ms', label:'Bahasa Melayu', hint:'Istilah sekolah dan ibu bapa dikekalkan.' },
+    { value:'ms', label:t('Bahasa Melayu', 'Malay'), hint:t('Istilah sekolah dan ibu bapa dikekalkan.', 'School and parent terms are preserved.') },
     { value:'en', label:'English', hint:'Stores the preference for English app copy.' },
   ];
 
   return (
     <div style={{ padding:'14px 16px 10px' }}>
       <div style={{ marginBottom:14 }}>
-        <div style={{ fontWeight:800, fontSize:17, color:C.text }}>Tetapan Ibu Bapa</div>
+        <div style={{ fontWeight:800, fontSize:17, color:C.text }}>{t('Tetapan Ibu Bapa', 'Parent Settings')}</div>
         <div style={{ fontSize:12, color:C.textMuted, fontWeight:600, marginTop:2 }}>{parentEmailText(user?.email)}</div>
       </div>
 
@@ -3020,9 +3037,9 @@ const ParentSettingsV2 = ({ childState, childOptions, selectedId, onSelectChild 
               <Avatar name={child.name} size={34} />
               <div style={{ flex:'1 1 150px', minWidth:0 }}>
                 <div style={{ fontWeight:800, fontSize:13, color:C.text, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{child.name}</div>
-                <div style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>Tingkatan {child.form} - {child.cls}</div>
+                <div style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>{t('Tingkatan', 'Form')} {child.form} - {child.cls}</div>
               </div>
-              <button onClick={() => { onSelectChild(child.id); markSaved('children'); }} style={{ minHeight:44, background:selectedId === child.id ? C.accDim : 'transparent', border:`1px solid ${selectedId === child.id ? C.borderB : C.border}`, borderRadius:10, padding:'9px 11px', color:selectedId === child.id ? C.accPale : C.textMuted, fontFamily:'Nunito', fontWeight:900, fontSize:11, cursor:'pointer' }}>{selectedId === child.id ? 'Dipilih' : 'Pilih'}</button>
+              <button onClick={() => { onSelectChild(child.id); markSaved('children'); }} style={{ minHeight:44, background:selectedId === child.id ? C.accDim : 'transparent', border:`1px solid ${selectedId === child.id ? C.borderB : C.border}`, borderRadius:10, padding:'9px 11px', color:selectedId === child.id ? C.accPale : C.textMuted, fontFamily:'Nunito', fontWeight:900, fontSize:11, cursor:'pointer' }}>{selectedId === child.id ? t('Dipilih', 'Selected') : t('Pilih', 'Select')}</button>
               <button onClick={() => setUnlinkTarget(child)} disabled={busy} style={{ minHeight:44, background:'transparent', border:`1px solid rgba(239,68,68,.35)`, borderRadius:10, padding:'9px 11px', color:C.red, fontFamily:'Nunito', fontWeight:850, fontSize:11, cursor:busy ? 'not-allowed' : 'pointer', opacity:busy ? 0.55 : 1 }}>Buang Pautan</button>
             </div>
           )) : (
@@ -3096,7 +3113,7 @@ const ParentSettingsV2 = ({ childState, childOptions, selectedId, onSelectChild 
       <GuidedAddChildModal open={showAddChild} busy={busy} status={linkStatus} onSubmit={linkChildById} onClose={() => setShowAddChild(false)} />
 
       {unlinkTarget && (
-        <ParentConfirmModal title="Buang pautan anak?" confirmLabel="Buang Pautan" cancelLabel="Batal" danger busy={busy} onCancel={() => !busy && setUnlinkTarget(null)} onConfirm={confirmUnlinkChild}>
+        <ParentConfirmModal title="Buang pautan anak?" confirmLabel="Buang Pautan" cancelLabel={t('Batal', 'Cancel')} danger busy={busy} onCancel={() => !busy && setUnlinkTarget(null)} onConfirm={confirmUnlinkChild}>
           Ini tidak memadam akaun {unlinkTarget.name}. Ibu bapa hanya tidak lagi melihat kemajuan dan pos kelas anak ini dalam akaun ini.
         </ParentConfirmModal>
       )}
@@ -3113,7 +3130,7 @@ const POST_TYPE_META = {
 };
 
 const postTypeMeta = (type) =>
-  POST_TYPE_META[(type || '').toLowerCase()] || { icon:'✅', label:'Pos', color: () => C.textMuted };
+  POST_TYPE_META[(type || '').toLowerCase()] || { icon:'✅', label:t('Pos', 'Post'), color: () => C.textMuted };
 
 const parentPostMode = (post) => {
   const type = `${post?.post_type || ''}`.toLowerCase();
@@ -3134,7 +3151,7 @@ const parentPostMode = (post) => {
       canComment:true,
       reactionLabel:'Tandai sudah baca',
       commentLabel:'Maklum balas',
-      hint:'Semak arahan guru bersama anak. Reaksi menandakan pos sudah dilihat; komen boleh digunakan untuk maklum balas ringkas.',
+      hint:t('Semak arahan guru bersama anak. Reaksi menandakan pos sudah dilihat; komen boleh digunakan untuk maklum balas ringkas.', 'Review teacher instructions with the child. A reaction marks the post as seen; comments can be used for short feedback.'),
     };
   }
   return {
@@ -3143,7 +3160,7 @@ const parentPostMode = (post) => {
     canComment:true,
     reactionLabel:'Reaksi',
     commentLabel:'Perbincangan',
-    hint:'Pos ini membenarkan perbincangan. Ibu bapa boleh memberi reaksi atau menulis komen yang berkaitan kelas.',
+    hint:t('Pos ini membenarkan perbincangan. Ibu bapa boleh memberi reaksi atau menulis komen yang berkaitan kelas.', 'This post allows discussion. Parents can react or write comments related to the class.'),
   };
 };
 
@@ -3196,7 +3213,7 @@ const ParentPostsPage = ({ childState, child, childOptions, selectedId, onSelect
     const seen = new Map();
     postsData.posts.forEach(p => {
       if (p.classroom_id && !seen.has(p.classroom_id)) {
-        seen.set(p.classroom_id, parentText(p.classroom_name, 'Kelas', 54));
+        seen.set(p.classroom_id, parentText(p.classroom_name, t('Kelas', 'Class'), 54));
       }
     });
     return Array.from(seen.entries()).map(([id, name]) => ({ id, name }));
@@ -3303,7 +3320,7 @@ const ParentPostsPage = ({ childState, child, childOptions, selectedId, onSelect
                 color: on ? C.accPale : C.textMuted,
                 whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis',
                 fontFamily:'Nunito', transition:'all .2s',
-              }}>{parentText(chip.name, 'Kelas', 54)}</button>
+              }}>{parentText(chip.name, t('Kelas', 'Class'), 54)}</button>
             );
           })}
         </div>
@@ -3311,7 +3328,7 @@ const ParentPostsPage = ({ childState, child, childOptions, selectedId, onSelect
 
       {postsData.error && (
         <div style={{ marginBottom:14 }}>
-          <ErrorRetry message={postsData.error.message || 'Tidak dapat memuat pos.'} onRetry={() => loadPosts(filterClassroomId)} />
+          <ErrorRetry message={postsData.error.message || t('Tidak dapat memuat pos.', 'Unable to load posts.')} onRetry={() => loadPosts(filterClassroomId)} />
         </div>
       )}
 
@@ -3336,6 +3353,22 @@ const ParentPostsPage = ({ childState, child, childOptions, selectedId, onSelect
         const postTitle = parentTitle(post.title, '');
         const classroomLabel = parentText(post.classroom_name, '', 54);
         const teacherLabel = parentName(post.teacher_name, '');
+        const attachmentUrls = Array.isArray(post.attachments)
+          ? post.attachments.map(item => item?.url || item?.href || item?.media_url || item?.mediaUrl).filter(Boolean)
+          : [];
+        const contentUrls = cleanContent.match(/https?:\/\/[^\s)]+/g) || [];
+        const videoEmbedUrl = [
+          post.video_url,
+          post.videoUrl,
+          post.media_url,
+          post.mediaUrl,
+          post.attachment_url,
+          post.attachmentUrl,
+          post.link_url,
+          post.linkUrl,
+          ...attachmentUrls,
+          ...contentUrls,
+        ].find(value => window.isVideoEmbedUrl?.(value));
 
         return (
           <div key={post.id} style={{ background:C.card, border:`1px solid ${C.border}`, borderRadius:16, padding:14, marginBottom:10 }}>
@@ -3372,6 +3405,9 @@ const ParentPostsPage = ({ childState, child, childOptions, selectedId, onSelect
             )}
             {snippet && (
               <div style={{ fontSize:12, color:C.textMuted, fontWeight:600, lineHeight:1.5, marginBottom:8 }}>{snippet}</div>
+            )}
+            {videoEmbedUrl && window.VideoEmbed && (
+              <window.VideoEmbed url={videoEmbedUrl} title={postTitle || 'Video pos'} style={{ marginBottom:8 }} />
             )}
             <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, lineHeight:1.4, marginBottom:8 }}>
               {mode.hint}
@@ -3434,10 +3470,10 @@ const ParentPostsPage = ({ childState, child, childOptions, selectedId, onSelect
                   </div>
                 ) : (cmts?.list || []).length ? (cmts.list).map(comment => (
                   <div key={comment.id} style={{ display:'flex', gap:8, marginBottom:10, alignItems:'flex-start' }}>
-                    <Avatar name={parentName(comment.author_name, 'Pengguna')} size={28} />
+                    <Avatar name={parentName(comment.author_name, t('Pengguna', 'User'))} size={28} />
                     <div style={{ flex:1, minWidth:0 }}>
                       <div style={{ display:'flex', alignItems:'center', gap:6 }}>
-                        <span style={{ fontWeight:700, fontSize:12, color:C.text }}>{parentName(comment.author_name, 'Pengguna')}</span>
+                        <span style={{ fontWeight:700, fontSize:12, color:C.text }}>{parentName(comment.author_name, t('Pengguna', 'User'))}</span>
                         <span style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>{window.timeAgo(comment.created_at)}</span>
                       </div>
                       <div style={{ fontSize:12, color:C.text, lineHeight:1.4, marginTop:2 }}>{parentBodyText(comment.content, '', 180)}</div>
@@ -3447,7 +3483,7 @@ const ParentPostsPage = ({ childState, child, childOptions, selectedId, onSelect
                         flexShrink:0, background:'transparent', border:'none',
                         color:C.red, fontFamily:'Nunito', fontWeight:800, fontSize:11,
                         cursor:'pointer', padding:'8px 6px', minHeight:44,
-                      }}>Padam</button>
+                      }}>{t('Padam', 'Delete')}</button>
                     )}
                   </div>
                 )) : (
@@ -3478,7 +3514,7 @@ const ParentPostsPage = ({ childState, child, childOptions, selectedId, onSelect
                       color:C.accPale, fontFamily:'Nunito', fontWeight:800,
                       fontSize:12, cursor:'pointer',
                       opacity:(commentDraft[post.id] || '').trim() ? 1 : 0.5,
-                    }}>Hantar</button>
+                    }}>{t('Hantar', 'Send')}</button>
                 </div>
               </div>
             )}
@@ -3487,7 +3523,7 @@ const ParentPostsPage = ({ childState, child, childOptions, selectedId, onSelect
       })}
         </React.Fragment>
       )) : (
-        <EmptyState icon="📢" title="Tiada pos" subtitle="Pos daripada kelas anak akan muncul di sini." />
+        <EmptyState icon="📢" title={t('Tiada pos', 'No posts')} subtitle={t('Pos daripada kelas anak akan muncul di sini.', 'Posts from the child classes will appear here.')} />
       )}
 
       {/* Teacher profile modal */}
@@ -3497,14 +3533,14 @@ const ParentPostsPage = ({ childState, child, childOptions, selectedId, onSelect
 
       {deleteCommentTarget && (
         <ParentConfirmModal
-          title="Padam komen?"
-          confirmLabel="Padam"
-          cancelLabel="Batal"
+          title={t('Padam komen?', 'Delete comment?')}
+          confirmLabel={t('Padam', 'Delete')}
+          cancelLabel={t('Batal', 'Cancel')}
           danger
           onCancel={() => setDeleteCommentTarget(null)}
           onConfirm={deleteComment}
         >
-          Komen ini akan disembunyikan daripada perbincangan pos kelas.
+          {t('Komen ini akan disembunyikan daripada perbincangan pos kelas.', 'This comment will be hidden from the class post discussion.')}
         </ParentConfirmModal>
       )}
 
@@ -3527,7 +3563,7 @@ const ParentChildrenPage = ({ childState, childOptions, selectedId, onSelectChil
     setLinkStatus('');
     try {
       await window.tusyenApi.linkParent(id);
-      setLinkStatus('Anak berjaya dipaut.');
+      setLinkStatus(t('Anak berjaya dipaut.', 'Child linked successfully.'));
       setShowAddChild(false);
       childState.refresh();
     } catch (err) {
@@ -3540,7 +3576,7 @@ const ParentChildrenPage = ({ childState, childOptions, selectedId, onSelectChil
   return (
     <div style={{ padding:'14px 16px 10px' }}>
       <div style={{ marginBottom:14 }}>
-        <div style={{ fontWeight:800, fontSize:17, color:C.text }}>Anak Dipaut</div>
+        <div style={{ fontWeight:800, fontSize:17, color:C.text }}>{t('Anak Dipaut', 'Linked Children')}</div>
         <div style={{ fontSize:12, color:C.textMuted, fontWeight:600, marginTop:2 }}>
           {childState.loading
             ? 'Memuatkan…'
@@ -3592,7 +3628,7 @@ const ParentChildrenPage = ({ childState, childOptions, selectedId, onSelectChil
                 borderRadius:12, padding:'9px 14px', minHeight:44,
                 color: isActive ? C.accPale : C.textMuted,
                 fontFamily:'Nunito', fontWeight:800, fontSize:12, cursor:'pointer',
-              }}>{isActive ? 'Dipilih' : 'Pilih'}</button>
+              }}>{isActive ? t('Dipilih', 'Selected') : t('Pilih', 'Select')}</button>
               <button onClick={() => { onSelectChild(child.id); onNavigate('progress'); }} style={{
                 background:'transparent',
                 border:`1.5px solid ${C.border}`,
@@ -3605,14 +3641,14 @@ const ParentChildrenPage = ({ childState, childOptions, selectedId, onSelectChil
         );
       })}
 
-      <SectionLabel>Tambah Anak</SectionLabel>
+      <SectionLabel>{t('Tambah Anak', 'Add Child')}</SectionLabel>
       <Card>
         <div style={{
           background:C.accDim, border:`1px solid ${C.borderB}`,
           borderRadius:12, padding:10, marginBottom:10,
           fontSize:11, color:C.accPale, fontWeight:800, lineHeight:1.45,
         }}>
-          Privasi: pautan ibu bapa hanya memaparkan kemajuan, kelas, dan pos berkaitan anak. Pastikan anak bersetuju sebelum memaut akaun.
+          {t('Privasi: pautan ibu bapa hanya memaparkan kemajuan, kelas, dan pos berkaitan anak. Pastikan anak bersetuju sebelum memaut akaun.', 'Privacy: parent links only show progress, classes, and posts related to the child. Make sure the child agrees before linking the account.')}
         </div>
         <button type="button" data-testid="add-child" onClick={() => setShowAddChild(true)} style={{
           width:'100%', minHeight:44,
@@ -3620,9 +3656,9 @@ const ParentChildrenPage = ({ childState, childOptions, selectedId, onSelectChil
           borderRadius:10, padding:'10px 12px',
           color:C.accPale, fontFamily:'Nunito', fontWeight:900,
           fontSize:12, cursor:'pointer',
-        }}>Buka Panduan Tambah Anak</button>
+        }}>{t('Buka Panduan Tambah Anak', 'Open Add Child Guide')}</button>
         <div style={{ marginTop:7, fontSize:11, lineHeight:1.4, color:C.textFaint, fontWeight:600 }}>
-          Anda perlukan ID Tusyen pelajar atau e-mel akaun pelajar. Kod kelas guru tidak digunakan di sini.
+          {t('Anda perlukan ID Tusyen pelajar atau e-mel akaun pelajar. Kod kelas guru tidak digunakan di sini.', 'You need the student Tusyen ID or student account email. Teacher class codes are not used here.')}
         </div>
         {linkStatus && (
           <div style={{ marginTop:8, fontSize:11, fontWeight:800, color:parentStatusIsSuccess(linkStatus) ? C.green : C.red }}>
@@ -3650,15 +3686,15 @@ const ParentSidebarSummary = ({ child, childCount, loading, error, onOpenChildre
   const hasScore = child?.hasProgressData !== false && scoreValue(child?.avg) !== null;
   const hasWeek = child?.hasWeekData !== false && child?.weekTimeSeconds !== null && child?.weekTimeSeconds !== undefined;
   const rows = [
-    { value:loading ? '...' : String(childCount || 0), label:'Anak dipaut' },
-    { value:child ? formatScore(child.avg, hasScore) : '--', label:'Purata skor' },
-    { value:child && hasWeek ? formatStudyTime(child.weekTimeSeconds) : '--', label:'Masa minggu ini' },
+    { value:loading ? '...' : String(childCount || 0), label:t('Anak dipaut', 'Linked children') },
+    { value:child ? formatScore(child.avg, hasScore) : '--', label:t('Purata skor', 'Average score') },
+    { value:child && hasWeek ? formatStudyTime(child.weekTimeSeconds) : '--', label:t('Masa minggu ini', 'Time this week') },
   ];
   const subtitle = error
-    ? 'Data anak belum dapat dimuat.'
+    ? t('Data anak belum dapat dimuat.', 'Child data could not be loaded yet.')
     : child
-      ? `Memantau ${child.name}`
-      : 'Pautkan anak untuk mula memantau.';
+      ? t('Memantau %s', 'Monitoring %s').replace('%s', child.name)
+      : t('Pautkan anak untuk mula memantau.', 'Link a child to start monitoring.');
   return (
     <div className="parent-sidebar-summary" style={{ padding:'12px 14px 14px', borderBottom:`1px solid ${C.border}` }}>
       <div style={{ fontSize:10, color:C.textFaint, fontWeight:900, textTransform:'uppercase', letterSpacing:0.5, marginBottom:4 }}>
@@ -3687,7 +3723,7 @@ const ParentSidebarSummary = ({ child, childCount, loading, error, onOpenChildre
         fontWeight:900,
         cursor:'pointer',
       }}>
-        {child ? 'Semak Kemajuan' : 'Tambah Anak'}
+        {child ? t('Semak Kemajuan', 'Check Progress') : t('Tambah Anak', 'Add Child')}
       </button>
     </div>
   );
@@ -3718,12 +3754,12 @@ const ParentApp = ({ sidebarExtraTop } = {}) => {
   };
 
   const nav = [
-    { id:'home',     icon:'🏠', label:'Pemantauan' },
-    { id:'children', icon:'👪', label:'Anak'      },
-    { id:'progress', icon:'📈', label:'Kemajuan'  },
-    { id:'posts',    icon:'📢', label:'Pos Kelas' },
-    { id:'alerts',   icon:'🔔', label:'Amaran'    },
-    { id:'settings', icon:'⚙️', label:'Tetapan'   },
+    { id:'home',     icon:'🏠', label:t('Pemantauan', 'Monitoring') },
+    { id:'children', icon:'👪', label:t('Anak', 'Child')      },
+    { id:'progress', icon:'📈', label:t('Kemajuan', 'Progress')  },
+    { id:'posts',    icon:'📢', label:t('Pos Kelas', 'Class Posts') },
+    { id:'alerts',   icon:'🔔', label:t('Amaran', 'Alerts')    },
+    { id:'settings', icon:'⚙️', label:t('Tetapan', 'Settings')   },
   ];
 
   const navEnglish = {
@@ -3747,12 +3783,12 @@ const ParentApp = ({ sidebarExtraTop } = {}) => {
   };
 
   const screenMeta = {
-    home:     { title:'Pemantauan', en:selectedChild ? selectedChild.name : 'Ibu bapa'     },
-    children: { title:'Anak',        en:`${childOptions.length} anak`                     },
-    progress: { title:'Kemajuan',   en:selectedChild ? selectedChild.name : 'Pilih anak'   },
-    posts:    { title:'Pos Kelas',  en:selectedChild ? selectedChild.name : 'Pos kelas'    },
-    alerts:   { title:'Amaran',     en:selectedChild ? selectedChild.name : 'Notifikasi'   },
-    settings: { title:'Tetapan',    en:displayName                                         },
+    home:     { title:t('Pemantauan', 'Monitoring'), en:selectedChild ? selectedChild.name : t('Ibu bapa', 'Parent')     },
+    children: { title:t('Anak', 'Child'),        en:t('%s anak', '%s children').replace('%s', childOptions.length)                     },
+    progress: { title:t('Kemajuan', 'Progress'),   en:selectedChild ? selectedChild.name : t('Pilih anak', 'Select child')   },
+    posts:    { title:t('Pos Kelas', 'Class Posts'),  en:selectedChild ? selectedChild.name : t('Pos kelas', 'Class posts')    },
+    alerts:   { title:t('Amaran', 'Alerts'),     en:selectedChild ? selectedChild.name : t('Notifikasi', 'Notifications')   },
+    settings: { title:t('Tetapan', 'Settings'),    en:displayName                                         },
   };
   const meta = screenMeta[screen] || screenMeta.home;
   useScreenFocus(screen);

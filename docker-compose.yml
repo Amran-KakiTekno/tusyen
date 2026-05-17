@@ -22,6 +22,33 @@ services:
     networks:
       - edu_network
 
+  pg-backup:
+    image: postgres:16.3-alpine
+    container_name: edu_pg_backup
+    restart: unless-stopped
+    environment:
+      DB_HOST: postgres
+      DB_NAME: eduapp
+      DB_USER: ${DB_USER:-eduuser}
+      PGPASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./backups:/backups
+    command: >
+      /bin/sh -c "
+      mkdir -p /backups
+      while true; do
+        backup_time=$(date +%Y%m%d_%H%M%S)
+        pg_dump -h "$DB_HOST" -U "$DB_USER" -d "$DB_NAME" --format=custom --file="/backups/$DB_NAME_$backup_time.dump"
+        find /backups -name "$DB_NAME_*.dump" -type f -mtime +7 -delete
+        sleep 86400
+      done
+      "
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - edu_network
+
   redis:
     image: redis:7.2.5-alpine
     container_name: edu_redis
@@ -122,6 +149,7 @@ services:
     environment:
       CENTRIFUGO_TOKEN_HMAC_SECRET_KEY: ${CENTRIFUGO_SECRET}
       CENTRIFUGO_API_KEY: ${CENTRIFUGO_API_KEY}
+      CENTRIFUGO_ALLOWED_ORIGINS: ${CENTRIFUGO_ALLOWED_ORIGINS:-http://localhost,http://127.0.0.1}
     depends_on:
       - redis
     networks:

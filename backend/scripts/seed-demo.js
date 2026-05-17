@@ -1096,6 +1096,10 @@ async function refreshLegacySeedLabels() {
 }
 
 async function main() {
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('Demo seed is disabled in production');
+  }
+
   await client.connect();
   await client.query('BEGIN');
 
