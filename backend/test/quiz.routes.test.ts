@@ -21,6 +21,7 @@ vi.mock('../src/quiz/store', () => ({
   controlQuizSessionTimer: vi.fn(),
   endQuizSession: vi.fn(),
   submitQuizAnswer: vi.fn(),
+  getSessionParticipantReview: vi.fn(),
   getStudentQuizSummary: vi.fn(),
 }));
 
@@ -236,6 +237,114 @@ describe('quiz routes', () => {
       { userId: 'teacher-1', role: 'teacher' },
       'session-1',
       { action: 'add_time', seconds: 15 }
+    );
+  });
+
+  it('returns classroom sessions for an enrolled student', async () => {
+    const sessions = [
+      {
+        id: 'session-1',
+        classroom_id: 'classroom-1',
+        status: 'lobby',
+      },
+    ];
+    mockedStore.listQuizSessions.mockResolvedValue(sessions as any);
+
+    const app = buildApp({ userId: 'student-1', role: 'student' });
+    await app.ready();
+
+    const response = await app.inject({
+      method: 'GET',
+      url: '/quiz/classrooms/classroom-1/sessions',
+    });
+
+    expect(response.statusCode).toBe(200);
+    expect(JSON.parse(response.body).sessions).toEqual(sessions);
+    expect(mockedStore.listQuizSessions).toHaveBeenCalledWith(
+      { userId: 'student-1', role: 'student' },
+      'classroom-1'
+    );
+  });
+
+  it('returns 403 when a student is not enrolled in the classroom', async () => {
+    mockedStore.listQuizSessions.mockRejectedValue(new Error('Student is not enrolled'));
+
+    const app = buildApp({ userId: 'student-1', role: 'student' });
+    await app.ready();
+
+    const response = await app.inject({
+      method: 'GET',
+      url: '/quiz/classrooms/classroom-1/sessions',
+    });
+
+    expect(response.statusCode).toBe(403);
+    expect(JSON.parse(response.body).error).toBe('Student is not enrolled');
+  });
+
+  it('returns 400 when session review is requested before the session has ended', async () => {
+    mockedStore.getSessionParticipantReview.mockRejectedValue(new Error('not yet ended'));
+
+    const app = buildApp({ userId: 'student-1', role: 'student' });
+    await app.ready();
+
+    const response = await app.inject({
+      method: 'GET',
+      url: '/quiz/sessions/session-1/review?participantToken=join-token-1',
+    });
+
+    expect(response.statusCode).toBe(400);
+    expect(JSON.parse(response.body).error).toBe('not yet ended');
+    expect(mockedStore.getSessionParticipantReview).toHaveBeenCalledWith(
+      { userId: 'student-1', role: 'student' },
+      'session-1',
+      'join-token-1'
+    );
+  });
+
+  it('returns 404 when session review is requested with the wrong participant token', async () => {
+    mockedStore.getSessionParticipantReview.mockRejectedValue(new Error('Participant not found'));
+
+    const app = buildApp({ userId: 'student-1', role: 'student' });
+    await app.ready();
+
+    const response = await app.inject({
+      method: 'GET',
+      url: '/quiz/sessions/session-1/review?participantToken=wrong-token',
+    });
+
+    expect(response.statusCode).toBe(404);
+    expect(JSON.parse(response.body).error).toBe('Participant not found');
+    expect(mockedStore.getSessionParticipantReview).toHaveBeenCalledWith(
+      { userId: 'student-1', role: 'student' },
+      'session-1',
+      'wrong-token'
+    );
+  });
+
+  it('returns session review data for the correct participant token', async () => {
+    const review = [
+      {
+        questionId: 'question-1',
+        questionText: 'What is 2 + 2?',
+        isCorrect: true,
+      },
+    ];
+    mockedStore.getSessionParticipantReview.mockResolvedValue(review as any);
+
+    const app = buildApp({ userId: 'student-1', role: 'student' });
+    await app.ready();
+
+    const response = await app.inject({
+      method: 'GET',
+      url: '/quiz/sessions/session-1/review?participantToken=join-token-1',
+    });
+
+    expect(response.statusCode).toBe(200);
+    expect(JSON.parse(response.body).review).toEqual(review);
+    expect(mockedStore.getSessionParticipantReview).toHaveBeenCalledWith(
+      { userId: 'student-1', role: 'student' },
+      'session-1',
+      'join-token-1'
     );
   });
 });

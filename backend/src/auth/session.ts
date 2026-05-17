@@ -141,7 +141,10 @@ export async function consumeRefreshToken(refreshToken: unknown): Promise<Refres
 export async function revokeRefreshToken(refreshToken: unknown) {
   const parsed = parseRefreshToken(refreshToken);
   if (!parsed) return false;
-  await redis.del(refreshKey(parsed.id));
+  await Promise.all([
+    redis.del(refreshKey(parsed.id)),
+    redis.del(`${REFRESH_PREFIX}used:${parsed.id}`),
+  ]);
   return true;
 }
 

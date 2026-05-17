@@ -272,7 +272,10 @@ export async function quizRoutes(fastify: FastifyInstance) {
       return { review };
     } catch (error) {
       const msg = error instanceof Error ? error.message : 'Failed to load review';
-      const code = msg.includes('not authorized') || msg.includes('not found') ? 403 : 500;
+      const code =
+        msg.includes('not authorized') ? 403 :
+        msg.includes('not found') ? 404 :
+        msg.includes('not yet ended') ? 400 : 500;
       return reply.code(code).send({ error: msg });
     }
   });

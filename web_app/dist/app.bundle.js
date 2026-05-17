@@ -10972,7 +10972,10 @@ const SLearn = ({
   }, tStudent(`${s.name} - ${s.progress}% siap`, `${s.name} - ${s.progress}% complete`))))) : /*#__PURE__*/React.createElement("div", {
     className: "student-scroll-fade",
     style: {
-      marginBottom: 20
+      marginBottom: 20,
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: 56
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "student-scroll-affordance",
