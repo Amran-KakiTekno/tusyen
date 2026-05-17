@@ -60,6 +60,8 @@ function buildApp() {
 describe('admin routes', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    mocks.dbQuery.mockResolvedValue({ rowCount: 0, rows: [] });
+    mocks.txQuery.mockResolvedValue({ rowCount: 0, rows: [] });
     mocks.withTransaction.mockImplementation(async (callback) =>
       callback({ query: mocks.txQuery })
     );
@@ -92,6 +94,7 @@ describe('admin routes', () => {
       url: `/admin/users/${userId}`,
       payload: {
         fullName: 'Updated Teacher',
+        role: 'admin',
       },
     });
 
@@ -99,7 +102,7 @@ describe('admin routes', () => {
     expect(mocks.dbQuery.mock.calls[1][1]).toEqual([
       null,
       null,
-      null,
+      'admin',
       'Updated Teacher',
       false,
       null,
@@ -108,6 +111,83 @@ describe('admin routes', () => {
       null,
       userId,
     ]);
+  });
+
+  it('manually enrolls a student into a classroom', async () => {
+    const classroomId = '11111111-1111-4111-8111-111111111111';
+    const studentId = '22222222-2222-4222-8222-222222222222';
+    mocks.dbQuery
+      .mockResolvedValueOnce({ rowCount: 1, rows: [{ id: studentId }] })
+      .mockResolvedValueOnce({ rowCount: 1, rows: [{ id: classroomId }] })
+      .mockResolvedValueOnce({ rowCount: 1, rows: [] });
+
+    const app = buildApp();
+    await app.ready();
+
+    const response = await app.inject({
+      method: 'POST',
+      url: `/admin/classrooms/${classroomId}/enroll`,
+      payload: { studentId },
+    });
+
+    expect(response.statusCode).toBe(200);
+    expect(response.json()).toEqual({ success: true });
+    const enrollmentInsert = mocks.dbQuery.mock.calls.find((call) =>
+      String(call[0]).includes('INSERT INTO classroom_enrollments')
+    );
+    expect(enrollmentInsert?.[1]).toEqual([
+      expect.any(String),
+      studentId,
+      classroomId,
+    ]);
+
+    await app.close();
+  });
+
+  it('creates and deactivates parent-student links', async () => {
+    const parentId = '33333333-3333-4333-8333-333333333333';
+    const studentId = '44444444-4444-4444-8444-444444444444';
+    const linkId = '55555555-5555-4555-8555-555555555555';
+    mocks.dbQuery
+      .mockResolvedValueOnce({
+        rowCount: 2,
+        rows: [
+          { id: parentId, role: 'parent' },
+          { id: studentId, role: 'student' },
+        ],
+      })
+      .mockResolvedValueOnce({
+        rowCount: 1,
+        rows: [{ id: linkId, parent_id: parentId, student_id: studentId, is_active: true }],
+      })
+      .mockResolvedValueOnce({ rowCount: 1, rows: [{ id: linkId }] });
+
+    const app = buildApp();
+    await app.ready();
+
+    const createResponse = await app.inject({
+      method: 'POST',
+      url: '/admin/parent-links',
+      payload: { parentId, studentId },
+    });
+    expect(createResponse.statusCode).toBe(200);
+    expect(createResponse.json().link).toMatchObject({
+      id: linkId,
+      parent_id: parentId,
+      student_id: studentId,
+    });
+
+    const deleteResponse = await app.inject({
+      method: 'DELETE',
+      url: `/admin/parent-links/${linkId}`,
+    });
+    expect(deleteResponse.statusCode).toBe(200);
+    expect(deleteResponse.json()).toEqual({ success: true });
+    expect(mocks.dbQuery.mock.calls.some((call) =>
+      String(call[0]).includes('UPDATE parent_student_links SET is_active = false')
+    )).toBe(true);
+
+    await app.close();
   });
 
   it('creates lesson questions from camelCase admin builder payloads', async () => {

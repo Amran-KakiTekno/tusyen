@@ -226,8 +226,9 @@ function originAllowed(origin: string) {
 
 function originMatchesAllowed(origin: string, allowed: string) {
   const normalizedAllowed = allowed.replace(/\/+$/, '');
-  if (normalizedAllowed === '*') return true;
+  if (normalizedAllowed === '*') return config.NODE_ENV !== 'production';
   if (!normalizedAllowed.includes('*')) return origin === normalizedAllowed;
+  if (config.NODE_ENV === 'production') return false;
 
   try {
     const allowedUrl = new URL(normalizedAllowed.replace('*.', 'wildcard.'));

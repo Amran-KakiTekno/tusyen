@@ -19,10 +19,10 @@ Design-only items (⚪) and explicitly out-of-scope features (Flutter offline ca
 
 | # | Task | Files | Change | Label |
 |---|------|-------|--------|-------|
-| 0.1 | Add `UNIQUE(session_id, display_name)` to guest quiz participants | `database/migrations/018_guest_quiz_unique.sql` | New migration adding partial unique index on `quiz_session_participants(session_id, display_name) WHERE user_id IS NULL`. | `[BLOCKING]` |
-| 0.2 | Add `parent_alert_statuses` table to migrations | `database/migrations/019_parent_alert_statuses.sql` | Extract the ad-hoc `CREATE TABLE IF NOT EXISTS parent_alert_statuses` from `auth/routes.ts` into a proper migration. Add FK on `user_id`. | `[BLOCKING]` |
-| 0.3 | Add `(classroom_id, updated_at)` composite index on progress | `database/migrations/020_progress_classroom_index.sql` | `CREATE INDEX CONCURRENTLY idx_progress_classroom_updated ON progress(classroom_id, updated_at)`. Fixes DAT-07 and speeds up OPS-04 alert queries. | `[BLOCKING]` |
-| 0.4 | Add `keycloak_subject` uniqueness per realm | `database/migrations/021_keycloak_subject_realm_unique.sql` | Drop existing unique index on `keycloak_subject`; add `UNIQUE(keycloak_subject, keycloak_realm)` to `users` table. Fixes SEC-01. | `[BLOCKING]` |
+| 0.1 | Add `UNIQUE(session_id, display_name)` to guest quiz participants | `database/migrations/018_guest_quiz_unique.sql` | New migration adding partial unique index on `quiz_session_participants(session_id, display_name) WHERE user_id IS NULL`. | `[BLOCKING]` | `[DONE]` |
+| 0.2 | Add `parent_alert_statuses` table to migrations | `database/migrations/019_parent_alert_statuses.sql` | Extract the ad-hoc `CREATE TABLE IF NOT EXISTS parent_alert_statuses` from `auth/routes.ts` into a proper migration. Add FK on `user_id`. | `[BLOCKING]` | `[DONE]` |
+| 0.3 | Add `(classroom_id, updated_at)` composite index on progress | `database/migrations/020_progress_classroom_index.sql` | `CREATE INDEX CONCURRENTLY idx_progress_classroom_updated ON progress(classroom_id, updated_at)`. Fixes DAT-07 and speeds up OPS-04 alert queries. | `[BLOCKING]` | `[DONE]` — note: `CONCURRENTLY` keyword was dropped (plain `CREATE INDEX`), which is fine for initial migration but locks the table briefly on first run. |
+| 0.4 | Add `keycloak_subject` uniqueness per realm | `database/migrations/021_keycloak_subject_realm_unique.sql` | Drop existing unique index on `keycloak_subject`; add `UNIQUE(keycloak_subject, keycloak_realm)` to `users` table. Fixes SEC-01. | `[BLOCKING]` | `[DONE]` |
 
 ---
 

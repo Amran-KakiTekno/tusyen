@@ -1,6 +1,8 @@
 // Tusyen - Admin Role UI v2
 // Admin screens use real API data when an admin session is active.
 
+const t = (ms, en) => languageText(ms, en);
+
 const SYS_FALLBACK = {
   students:0,
   teachers:0,
@@ -15,26 +17,26 @@ const SYS_FALLBACK = {
 };
 
 const METRICS_FALLBACK = [
-  { label:'Pangkalan Data', val:null, color:'#9B8DB8', unit:'', hint:'Belum disemak', tone:'neutral', detail:'Status belum dimuat.', threshold:'Baik: connected. Kritikal: error atau tiada sambungan.' },
-  { label:'Cache (Redis)',  val:null, color:'#9B8DB8', unit:'', hint:'Belum disemak', tone:'neutral', detail:'Status belum dimuat.', threshold:'Baik: connected. Kritikal: error atau tiada sambungan.' },
-  { label:'Notifikasi',     val:null, color:'#9B8DB8', unit:'', hint:'Belum disemak', tone:'neutral', detail:'Status belum dimuat.', threshold:'Baik: connected/ok atau sengaja disabled. Amaran: degraded/unknown.' },
-  { label:'Storan',         val:null, color:'#9B8DB8', unit:'', hint:'Belum disemak', tone:'neutral', detail:'Saiz storan belum dimuat.', threshold:'API semasa hanya memaparkan saiz DB dan jumlah fail; tiada ambang kapasiti.' },
+  { label:t("Pangkalan Data", "Database"), val:null, color:'#9B8DB8', unit:'', hint:t("Belum disemak", "Not checked yet"), tone:'neutral', detail:t("Status belum dimuat.", "Status has not loaded."), threshold:t("Baik: connected. Kritikal: error atau tiada sambungan.", "Good: connected. Critical: error or no connection.") },
+  { label:t("Cache (Redis)", "Cache (Redis)"),  val:null, color:'#9B8DB8', unit:'', hint:t("Belum disemak", "Not checked yet"), tone:'neutral', detail:t("Status belum dimuat.", "Status has not loaded."), threshold:t("Baik: connected. Kritikal: error atau tiada sambungan.", "Good: connected. Critical: error or no connection.") },
+  { label:t("Notifikasi", "Notifications"),     val:null, color:'#9B8DB8', unit:'', hint:t("Belum disemak", "Not checked yet"), tone:'neutral', detail:t("Status belum dimuat.", "Status has not loaded."), threshold:t("Baik: connected/ok atau sengaja disabled. Amaran: degraded/unknown.", "Good: connected/ok or intentionally disabled. Warning: degraded/unknown.") },
+  { label:t("Storan", "Storage"),         val:null, color:'#9B8DB8', unit:'', hint:t("Belum disemak", "Not checked yet"), tone:'neutral', detail:t("Saiz storan belum dimuat.", "Storage size has not loaded."), threshold:t("API semasa hanya memaparkan saiz DB dan jumlah fail; tiada ambang kapasiti.", "The current API only shows DB size and file count; no capacity threshold is available.") },
 ];
 
-const ROLE_LABEL = { student:'Pelajar', teacher:'Guru', parent:'Ibu Bapa', admin:'Admin' };
+const ROLE_LABEL = { student:t("Pelajar", "Student"), teacher:t("Guru", "Teacher"), parent:t("Ibu Bapa", "Parent"), admin:t("Admin", "Admin") };
 const ROLE_VALUE = { 'Pelajar':'student', 'Guru':'teacher', 'Ibu Bapa':'parent', 'Admin':'admin' };
 const ROLE_OPTIONS = [
-  { value:'student', label:'Pelajar' },
-  { value:'teacher', label:'Guru' },
-  { value:'parent',  label:'Ibu Bapa' },
-  { value:'admin',   label:'Admin' },
+  { value:'student', label:t("Pelajar", "Student") },
+  { value:'teacher', label:t("Guru", "Teacher") },
+  { value:'parent',  label:t("Ibu Bapa", "Parent") },
+  { value:'admin',   label:t("Admin", "Admin") },
 ];
 
 const ROLE_DESCRIPTIONS = {
-  student:'Pelajar boleh menyertai kelas, membuka pelajaran, menjawab kuiz, dan membina rekod kemajuan.',
-  teacher:'Guru boleh mengurus kelas sendiri, menyiarkan kandungan, memberi tugasan, dan melihat kemajuan pelajar.',
-  parent:'Ibu bapa boleh memantau pelajar yang dipautkan serta menerima ringkasan dan amaran berkaitan.',
-  admin:'Admin boleh mengurus pengguna, kelas, kandungan global, konfigurasi sistem, dan tindakan penyelenggaraan.',
+  student:t("Pelajar boleh menyertai kelas, membuka pelajaran, menjawab kuiz, dan membina rekod kemajuan.", "Students can join classes, open lessons, answer quizzes, and build progress records."),
+  teacher:t("Guru boleh mengurus kelas sendiri, menyiarkan kandungan, memberi tugasan, dan melihat kemajuan pelajar.", "Teachers can manage their own classes, publish content, assign work, and view student progress."),
+  parent:t("Ibu bapa boleh memantau pelajar yang dipautkan serta menerima ringkasan dan amaran berkaitan.", "Parents can monitor linked students and receive related summaries and alerts."),
+  admin:t("Admin boleh mengurus pengguna, kelas, kandungan global, konfigurasi sistem, dan tindakan penyelenggaraan.", "Admins can manage users, classes, global content, system configuration, and maintenance actions."),
 };
 
 const ROLE_STYLE = {
@@ -73,13 +75,13 @@ const fmt = (value) => new Intl.NumberFormat('ms-MY').format(metricNumber(value)
 
 const fmtOptional = (value) => {
   const number = optionalNumber(value);
-  return number === null ? 'Tidak tersedia' : new Intl.NumberFormat('ms-MY').format(number);
+  return number === null ? t("Tidak tersedia", "Not available") : new Intl.NumberFormat('ms-MY').format(number);
 };
 
 const formatDateTime = (value) => {
-  if (!value) return 'Tiada data';
+  if (!value) return t("Tiada data", "No data");
   const date = new Date(value);
-  if (!Number.isFinite(date.getTime())) return 'Tiada data';
+  if (!Number.isFinite(date.getTime())) return t("Tiada data", "No data");
   return date.toLocaleString('ms-MY', { dateStyle:'medium', timeStyle:'short' });
 };
 
@@ -89,9 +91,9 @@ const logIcon = (type) => type === 'success' ? '✓' : type === 'warn' ? '⚠' :
 
 const logColor = (type) => type === 'success' ? C.green : type === 'warn' ? C.gold : C.blue;
 
-const statusText = (value) => value ? 'Aktif' : 'Tidak aktif';
+const statusText = (value) => value ? t("Aktif", "Active") : t("Tidak aktif", "Inactive");
 
-const compactText = (value, max = 58, fallback = 'Tiada data') => {
+const compactText = (value, max = 58, fallback = t("Tiada data", "No data")) => {
   const text = `${value || ''}`.replace(/\s+/g, ' ').trim();
   if (!text) return fallback;
   if (text.length <= max) return text;
@@ -110,7 +112,7 @@ const shortId = (value) => {
 
 const normalizeRoleValue = (role) => ROLE_VALUE[role] || role;
 
-const roleFallbackLabel = (role, fallback = 'Pengguna') => ROLE_LABEL[normalizeRoleValue(role)] || fallback;
+const roleFallbackLabel = (role, fallback = t("Pengguna", "User")) => ROLE_LABEL[normalizeRoleValue(role)] || fallback;
 
 const titleCaseWords = (value) => `${value || ''}`
   .toLowerCase()
@@ -147,12 +149,12 @@ const stripInternalTokens = (value) => {
   return text;
 };
 
-const cleanDisplayText = (value, max = 58, fallback = 'Tiada data') => {
+const cleanDisplayText = (value, max = 58, fallback = t("Tiada data", "No data")) => {
   const cleaned = stripInternalTokens(value);
   if (/^(?:subject|subjek|topic|topik|subtopic|lesson|pelajaran|content|class|classroom|kelas|user|record|item|abcdef|qa|qaqc|test|demo|internal)$/i.test(cleaned)) return fallback;
   return compactText(cleaned, max, fallback);
 };
-const cleanEmailDisplay = (email, max = 42, fallback = 'Tiada e-mel', role) => {
+const cleanEmailDisplay = (email, max = 42, fallback = t("Tiada e-mel", "No email"), role) => {
   const text = `${email || ''}`.trim();
   if (!text) return fallback;
   const atIndex = text.indexOf('@');
@@ -190,7 +192,7 @@ const displayNameFromEmail = (email, role) => {
   return compactText(titleCaseWords(cleanLocal), 34, fallback);
 };
 
-const cleanPersonName = (name, email, role, fallback = 'Pengguna') => {
+const cleanPersonName = (name, email, role, fallback = t("Pengguna", "User")) => {
   const address = `${email || ''}`.trim();
   const cleanName = cleanDisplayText(name, 42, '');
   if (/^(student|teacher|parent|admin|user|pelajar|guru|ibu bapa|pengguna)$/i.test(cleanName)) {
@@ -210,25 +212,25 @@ const cleanUserName = (u = {}) => {
   );
 };
 
-const cleanTeacherDisplayName = (name, email = '', fallback = 'Guru') => {
+const cleanTeacherDisplayName = (name, email = '', fallback = t("Guru", "Teacher")) => {
   const cleaned = cleanPersonName(name, email, 'teacher', fallback);
   if (!cleaned || cleaned === fallback) return fallback;
   return /^cikgu\b/i.test(cleaned) ? cleaned : `Cikgu ${cleaned}`;
 };
 
-const cleanSubjectLabel = (value, fallback = 'Subjek') => cleanDisplayText(value, 34, fallback);
+const cleanSubjectLabel = (value, fallback = t("Subjek", "Subject")) => cleanDisplayText(value, 34, fallback);
 
-const cleanClassName = (value, fallback = 'Kelas tanpa nama') => cleanDisplayText(value, 54, fallback);
+const cleanClassName = (value, fallback = t("Kelas tanpa nama", "Untitled class")) => cleanDisplayText(value, 54, fallback);
 
-const cleanContentTitle = (value, fallback = 'Tanpa tajuk') => cleanDisplayText(value, 68, fallback);
+const cleanContentTitle = (value, fallback = t("Tanpa tajuk", "Untitled")) => cleanDisplayText(value, 68, fallback);
 
 const cleanContentSummary = (value, max = 120) => cleanDisplayText(value, max, '');
 
-const cleanPersonLogLabel = (value, role, fallback = 'Pengguna') => {
+const cleanPersonLogLabel = (value, role, fallback = t("Pengguna", "User")) => {
   const text = `${value || ''}`.trim();
   if (text.includes('@')) {
     const name = displayNameFromEmail(text, role);
-    if (role || name !== 'Pengguna') return name;
+    if (role || name !== t("Pengguna", "User")) return name;
     return cleanEmailDisplay(text, 42, fallback, role);
   }
   return cleanPersonName(text, '', role, fallback);
@@ -236,31 +238,31 @@ const cleanPersonLogLabel = (value, role, fallback = 'Pengguna') => {
 
 const cleanLogMessage = (message) => {
   const raw = `${message || ''}`.replace(/\s+/g, ' ').trim();
-  if (!raw) return 'Aktiviti sistem';
+  if (!raw) return t("Aktiviti sistem", "System activity");
   const separator = raw.indexOf(':');
   if (separator > 0) {
-    const prefix = cleanDisplayText(raw.slice(0, separator), 38, 'Aktiviti sistem');
+    const prefix = cleanDisplayText(raw.slice(0, separator), 38, t("Aktiviti sistem", "System activity"));
     const detail = raw.slice(separator + 1).trim();
     const lowerPrefix = prefix.toLowerCase();
     let cleanDetail = cleanDisplayText(detail, 72, '');
-    if (lowerPrefix.includes('pelajaran')) cleanDetail = cleanContentTitle(detail, 'Pelajaran');
+    if (lowerPrefix.includes('pelajaran')) cleanDetail = cleanContentTitle(detail, t("Pelajaran", "Lesson"));
     else if (lowerPrefix.includes('kelas')) cleanDetail = cleanClassName(detail);
-    else if (lowerPrefix.includes('pelajar')) cleanDetail = cleanPersonLogLabel(detail, 'student', 'Pelajar');
-    else if (lowerPrefix.includes('pengguna') || lowerPrefix.includes('akaun')) cleanDetail = cleanPersonLogLabel(detail, undefined, 'Pengguna');
+    else if (lowerPrefix.includes('pelajar')) cleanDetail = cleanPersonLogLabel(detail, 'student', t("Pelajar", "Student"));
+    else if (lowerPrefix.includes('pengguna') || lowerPrefix.includes('akaun')) cleanDetail = cleanPersonLogLabel(detail, undefined, t("Pengguna", "User"));
     return cleanDetail ? `${prefix}: ${cleanDetail}` : prefix;
   }
-  return cleanDisplayText(raw, 96, 'Aktiviti sistem');
+  return cleanDisplayText(raw, 96, t("Aktiviti sistem", "System activity"));
 };
 
 const isValidAdminEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(`${value || ''}`.trim());
 
 const validateAdminUserForm = (value = {}, mode = 'create') => {
   const errors = {};
-  if (!`${value.fullName || ''}`.trim()) errors.fullName = 'Masukkan nama penuh yang boleh dikenali oleh pentadbir.';
-  if (mode !== 'edit' && !isValidAdminEmail(value.email)) errors.email = 'Masukkan alamat e-mel yang sah, contohnya nama@domain.com.';
+  if (!`${value.fullName || ''}`.trim()) errors.fullName = t("Masukkan nama penuh yang boleh dikenali oleh pentadbir.", "Enter a full name that admins can recognize.");
+  if (mode !== 'edit' && !isValidAdminEmail(value.email)) errors.email = t("Masukkan alamat e-mel yang sah, contohnya nama@domain.com.", "Enter a valid email address, for example name@domain.com.");
   const password = `${value.password || ''}`;
-  if (mode === 'create' && !password.trim()) errors.password = 'Tetapkan kata laluan sementara untuk akaun baharu.';
-  if (password.trim() && password.trim().length < 8) errors.password = 'Kata laluan mesti sekurang-kurangnya 8 aksara.';
+  if (mode === 'create' && !password.trim()) errors.password = t("Tetapkan kata laluan sementara untuk akaun baharu.", "Set a temporary password for the new account.");
+  if (password.trim() && password.trim().length < 8) errors.password = t("Kata laluan mesti sekurang-kurangnya 8 aksara.", "Password must be at least 8 characters.");
   return errors;
 };
 
@@ -270,20 +272,20 @@ const mapAdminUser = (u) => ({
   rawName: u.full_name || u.fullName || u.name || '',
   shortId: shortId(u.id),
   email: u.email || '',
-  displayEmail: cleanEmailDisplay(u.email, 42, 'Tiada e-mel', u.role),
-  role: ROLE_LABEL[u.role] || u.role || 'Pelajar',
+  displayEmail: cleanEmailDisplay(u.email, 42, t("Tiada e-mel", "No email"), u.role),
+  role: ROLE_LABEL[u.role] || u.role || t("Pelajar", "Student"),
   roleValue: ROLE_VALUE[u.role] || u.role || 'student',
-  last: u.last || window.timeAgo(u.last_login) || 'Belum log masuk',
+  last: u.last || window.timeAgo(u.last_login) || t("Belum log masuk", "Not logged in yet"),
   active: Boolean(u.is_active ?? u.active),
 });
 
 const mapAdminLog = (log) => {
-  const rawMsg = log.message || log.msg || 'Aktiviti sistem';
+  const rawMsg = log.message || log.msg || t("Aktiviti sistem", "System activity");
   return {
     type: log.type || 'info',
     msg: cleanLogMessage(rawMsg),
     rawMsg,
-    time: window.timeAgo(log.event_at || log.created_at) || 'Baru sahaja',
+    time: window.timeAgo(log.event_at || log.created_at) || t("Baru sahaja", "Just now"),
   };
 };
 
@@ -396,14 +398,14 @@ const InlineNotice = ({ message, error }) => {
 const ConfirmModal = ({
   title,
   children,
-  confirmLabel = 'Sahkan',
-  cancelLabel = 'Batal',
+  confirmLabel = t("Sahkan", "Confirm"),
+  cancelLabel = t("Batal", "Cancel"),
   onConfirm,
   onCancel,
   danger,
   busy,
   expectedText,
-  expectedLabel = 'Taip nilai pengesahan',
+  expectedLabel = t("Taip nilai pengesahan", "Type the confirmation value"),
   maxWidth = 420,
 }) => {
   const [typed, setTyped] = React.useState('');
@@ -474,7 +476,7 @@ const ConfirmModal = ({
             disabled={busy || !canConfirm}
             onClick={onConfirm}
           >
-            {busy ? 'Memproses...' : confirmLabel}
+            {busy ? t("Memproses...", "Processing...") : confirmLabel}
           </SmallButton>
         </div>
       </div>
@@ -852,13 +854,13 @@ const statusTone = (value) => {
 const serviceHintLabel = (value) => ({
   connected:'Bersambung',
   healthy:'Sihat',
-  ok:'Baik',
-  enabled:'Aktif',
-  active:'Aktif',
+  ok:t("Baik", "Good"),
+  enabled:t("Aktif", "Active"),
+  active:t("Aktif", "Active"),
   error:'Ralat',
-  failed:'Gagal',
+  failed:t("Gagal", "Failed"),
   down:'Tergendala',
-  inactive:'Tidak aktif',
+  inactive:t("Tidak aktif", "Inactive"),
   disabled:'Dimatikan',
   degraded:'Terganggu',
   unknown:'Tidak pasti',
@@ -896,7 +898,7 @@ const HealthStatusCard = ({ metric }) => {
 
 const ContentStatusBadge = ({ status }) => {
   const tone = status === 'archive' ? 'warn' : status === 'draft' ? 'neutral' : 'good';
-  const label = status === 'archive' ? 'Arkib' : status === 'draft' ? 'Draf' : 'Diterbitkan';
+  const label = status === 'archive' ? t("Arkib", "Archive") : status === 'draft' ? t("Draf", "Draft") : t("Diterbitkan", "Published");
   return <Badge tone={tone}>{label}</Badge>;
 };
 
@@ -904,7 +906,7 @@ const maskConfigValue = () => 'Disembunyikan';
 
 const userOption = (user) => ({
   value:user.id,
-  label:user.name || displayNameFromEmail(user.email, user.role) || 'Pengguna',
+  label:user.name || displayNameFromEmail(user.email, user.role) || t("Pengguna", "User"),
   description:user.displayEmail || cleanEmailDisplay(user.email, 42, '', user.role),
 });
 
@@ -1014,10 +1016,10 @@ const useAdminHealth = () => {
     const dbSize = h.storage?.database_size || 'Tidak pasti';
     const files = optionalNumber(h.storage?.total_files);
     return [
-      { label:'Pangkalan Data', val:null, color:upDb ? C.green : C.red, hint:h.database || 'unknown', tone:upDb ? 'good' : 'bad', detail:'Status sambungan pangkalan data.', threshold:'Baik: connected. Kritikal: error atau tiada sambungan.' },
-      { label:'Cache (Redis)',  val:null, color:upCache ? C.blue : C.red, hint:h.cache || 'unknown', tone:upCache ? 'good' : 'bad', detail:'Status sambungan Redis cache.', threshold:'Baik: connected. Kritikal: error atau tiada sambungan.' },
-      { label:'Notifikasi',     val:null, color:upNotif ? '#A78BFA' : C.gold, hint:notif.enabled === false ? 'disabled' : (notif.connected ? 'connected' : (notif.status || 'degraded')), tone:upNotif ? 'good' : 'warn', detail:notif.enabled === false ? 'Notifikasi dimatikan melalui konfigurasi.' : 'Status sambungan ntfy.', threshold:'Baik: connected/ok atau disabled secara sengaja. Amaran: degraded/unknown.' },
-      { label:'Storan',         val:null, color:C.gold, hint:dbSize, tone:'neutral', detail:`Fail aktif: ${files === null ? 'Tidak tersedia' : fmt(files)}`, threshold:'API semasa hanya memaparkan saiz DB dan jumlah fail; tiada ambang kapasiti.' },
+      { label:t("Pangkalan Data", "Database"), val:null, color:upDb ? C.green : C.red, hint:h.database || 'unknown', tone:upDb ? 'good' : 'bad', detail:'Status sambungan pangkalan data.', threshold:t("Baik: connected. Kritikal: error atau tiada sambungan.", "Good: connected. Critical: error or no connection.") },
+      { label:t("Cache (Redis)", "Cache (Redis)"),  val:null, color:upCache ? C.blue : C.red, hint:h.cache || 'unknown', tone:upCache ? 'good' : 'bad', detail:'Status sambungan Redis cache.', threshold:t("Baik: connected. Kritikal: error atau tiada sambungan.", "Good: connected. Critical: error or no connection.") },
+      { label:t("Notifikasi", "Notifications"),     val:null, color:upNotif ? '#A78BFA' : C.gold, hint:notif.enabled === false ? 'disabled' : (notif.connected ? 'connected' : (notif.status || 'degraded')), tone:upNotif ? 'good' : 'warn', detail:notif.enabled === false ? 'Notifikasi dimatikan melalui konfigurasi.' : 'Status sambungan ntfy.', threshold:'Baik: connected/ok atau disabled secara sengaja. Amaran: degraded/unknown.' },
+      { label:t("Storan", "Storage"),         val:null, color:C.gold, hint:dbSize, tone:'neutral', detail:`Fail aktif: ${files === null ? t("Tidak tersedia", "Not available") : fmt(files)}`, threshold:t("API semasa hanya memaparkan saiz DB dan jumlah fail; tiada ambang kapasiti.", "The current API only shows DB size and file count; no capacity threshold is available.") },
     ];
   }, [], METRICS_FALLBACK);
 };
@@ -1152,11 +1154,11 @@ const AdminDash = ({ go }) => {
   }, { all:LOGS.length }), [LOGS]);
   const logFilters = [
     { id:'all', label:'Semua' },
-    { id:'warn', label:'Amaran' },
-    { id:'success', label:'Berjaya' },
+    { id:'warn', label:t("Amaran", "Warning") },
+    { id:'success', label:t("Berjaya", "Success") },
     { id:'info', label:'Maklumat' },
   ];
-  const logTypeLabel = { warn:'Amaran', success:'Berjaya', info:'Maklumat' };
+  const logTypeLabel = { warn:t("Amaran", "Warning"), success:t("Berjaya", "Success"), info:'Maklumat' };
   const filteredLogs = LOGS.filter(log => logFilter === 'all' || log.type === logFilter);
   const groupedLogs = ['warn', 'success', 'info']
     .map(type => ({ type, logs:filteredLogs.filter(log => log.type === type) }))
@@ -1210,7 +1212,7 @@ const AdminDash = ({ go }) => {
     <div style={{ padding:'14px 16px 10px' }}>
       <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:14, gap:8, flexWrap:narrow ? 'wrap' : 'nowrap' }}>
         <div style={{ minWidth:0 }}>
-          <div style={{ fontSize:13, color:C.textMuted, fontWeight:600 }}>Panel Admin</div>
+          <div style={{ fontSize:13, color:C.textMuted, fontWeight:600 }}>{t("Panel Admin", "Admin Panel")}</div>
           <div style={{ fontSize:21, fontWeight:900, color:C.text, lineHeight:1.15 }}>Tusyen Online</div>
           <div style={{ fontSize:10, color:C.textFaint, fontWeight:600, marginTop:2 }}>
             {lastRefresh ? `Kemas kini terakhir: ${formatDateTime(lastRefresh.toISOString())}` : 'Auto-refresh setiap 30s'}
@@ -1233,9 +1235,9 @@ const AdminDash = ({ go }) => {
             <Skeleton width="68%" height={12} radius={6} />
           </Card>
         )) : [
-          { v:SYS.students, l:'Pelajar', c:C.acc, trend:SYS.trends?.students, trendLabel:'baru 7 hari' },
-          { v:SYS.teachers, l:'Guru', c:C.blue, trend:SYS.trends?.teachers, trendLabel:'baru 7 hari' },
-          { v:SYS.parents,  l:'Ibu Bapa', c:C.gold, trend:SYS.trends?.parents, trendLabel:'baru 7 hari' },
+          { v:SYS.students, l:t("Pelajar", "Student"), c:C.acc, trend:SYS.trends?.students, trendLabel:'baru 7 hari' },
+          { v:SYS.teachers, l:t("Guru", "Teacher"), c:C.blue, trend:SYS.trends?.teachers, trendLabel:'baru 7 hari' },
+          { v:SYS.parents,  l:t("Ibu Bapa", "Parent"), c:C.gold, trend:SYS.trends?.parents, trendLabel:'baru 7 hari' },
           { v:SYS.active,   l:'Aktif Hari Ini', c:C.green, trend:SYS.trends?.active, trendLabel:'vs 24j lalu' },
         ].map((s) => (
           <Card key={s.l} style={{ padding:14 }}>
@@ -1255,7 +1257,7 @@ const AdminDash = ({ go }) => {
         ))}
       </div>
 
-      <SectionLabel>Kesihatan Sistem</SectionLabel>
+      <SectionLabel>{t("Kesihatan Sistem", "System Health")}</SectionLabel>
       <div style={{ display:'grid', gridTemplateColumns:narrow ? '1fr' : 'repeat(4, minmax(0, 1fr))', gap:8, marginBottom:14 }}>
         {healthState.loading ? [0,1,2,3].map(i => (
           <Card key={i} style={{ padding:12, minHeight:112 }}>
@@ -1362,7 +1364,7 @@ const AdminDash = ({ go }) => {
       <InlineNotice message={notice?.message} error={notice?.error} />
       <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8, marginBottom:14 }}>
         {[
-          { label:'Urus Pengguna',  icon:'👥', screen:'users',   badge:'Buka',    tone:'neutral' },
+          { label:t("Urus Pengguna", "Manage Users"),  icon:'👥', screen:'users',   badge:'Buka',    tone:'neutral' },
           { label:'Kelola Silibus', icon:'📚', screen:'content', badge:'Buka',    tone:'neutral' },
           { label:'Paksa Sinkron',  icon:'🔄', disabled:true,    badge:'Peranti', tone:'warn', note:'Gunakan sync dari peranti pengguna.' },
           { label:'Bersih Cache',   icon:'🧹', action:clearCache, disabled:actionBusy === 'cache', badge:actionBusy === 'cache' ? 'Proses' : 'Sedia', tone:'good', note:'Kosongkan Redis cache.' },
@@ -1418,12 +1420,12 @@ const UserForm = ({ mode, value, onChange, onSave, onCancel, saving, errors = {}
     <Card style={{ marginBottom:10 }}>
       <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:8 }}>
         <div style={{ fontWeight:900, fontSize:13, color:C.accPale }}>
-          {mode === 'create' ? 'Tambah Pengguna' : 'Edit Pengguna'}
+          {mode === 'create' ? t("Tambah Pengguna", "Add User") : 'Edit Pengguna'}
         </div>
         <Badge tone={value.isActive ? 'good' : 'warn'}>{statusText(value.isActive)}</Badge>
       </div>
       <div style={{ display:'grid', gap:8 }}>
-        <Field label="Nama Penuh">
+        <Field label={t("Nama Penuh", "Full Name")}>
           <input
             value={value.fullName}
             onChange={e => onChange(prev => ({ ...prev, fullName:e.target.value }))}
@@ -1433,7 +1435,7 @@ const UserForm = ({ mode, value, onChange, onSave, onCancel, saving, errors = {}
           />
           <FormFieldError id="admin-user-name-error">{errors.fullName}</FormFieldError>
         </Field>
-        <Field label="E-mel">
+        <Field label={t("E-mel", "Email")}>
           <input
             type="email"
             value={value.email}
@@ -1445,7 +1447,7 @@ const UserForm = ({ mode, value, onChange, onSave, onCancel, saving, errors = {}
           <FormFieldError id="admin-user-email-error">{errors.email}</FormFieldError>
         </Field>
         <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8 }}>
-          <Field label="Peranan">
+          <Field label={t("Peranan", "Role")}>
             <select
               value={value.roleValue}
               onChange={e => onChange(prev => ({ ...prev, roleValue:e.target.value }))}
@@ -1454,14 +1456,14 @@ const UserForm = ({ mode, value, onChange, onSave, onCancel, saving, errors = {}
               {ROLE_OPTIONS.map(option => <option key={option.value} value={option.value}>{option.label}</option>)}
             </select>
           </Field>
-          <Field label="Status">
+          <Field label={t("Status", "Status")}>
             <select
               value={value.isActive ? 'true' : 'false'}
               onChange={e => onChange(prev => ({ ...prev, isActive:e.target.value === 'true' }))}
               style={inputBase}
             >
-              <option value="true">Aktif</option>
-              <option value="false">Tidak aktif</option>
+              <option value="true">{t("Aktif", "Active")}</option>
+              <option value="false">{t("Tidak aktif", "Inactive")}</option>
             </select>
           </Field>
         </div>
@@ -1475,10 +1477,10 @@ const UserForm = ({ mode, value, onChange, onSave, onCancel, saving, errors = {}
           fontWeight:800,
           lineHeight:1.4,
         }}>
-          <span style={{ color:C.accPale, fontWeight:900 }}>{ROLE_OPTIONS.find(r => r.value === value.roleValue)?.label || 'Peranan'}:</span>{' '}
+          <span style={{ color:C.accPale, fontWeight:900 }}>{ROLE_OPTIONS.find(r => r.value === value.roleValue)?.label || t("Peranan", "Role")}:</span>{' '}
           {ROLE_DESCRIPTIONS[value.roleValue] || 'Pilih peranan untuk menentukan akses pengguna.'}
         </div>
-        <Field label={mode === 'create' ? 'Kata Laluan Sementara' : 'Reset Kata Laluan'}>
+        <Field label={mode === 'create' ? t("Kata Laluan Sementara", "Temporary Password") : 'Reset Kata Laluan'}>
           <input
             type="password"
             value={value.password || ''}
@@ -1495,9 +1497,9 @@ const UserForm = ({ mode, value, onChange, onSave, onCancel, saving, errors = {}
         </Field>
         <div style={{ display:'flex', gap:8 }}>
           <GlowButton onClick={onSave} disabled={saving} style={{ flex:1, padding:'10px 12px', fontSize:13 }}>
-            {saving ? 'Menyimpan...' : 'Simpan'}
+            {saving ? 'Menyimpan...' : t("Simpan", "Save")}
           </GlowButton>
-          <SmallButton onClick={onCancel} style={{ padding:'0 14px' }}>Batal</SmallButton>
+          <SmallButton onClick={onCancel} style={{ padding:'0 14px' }}>{t("Batal", "Cancel")}</SmallButton>
         </div>
       </div>
     </Card>
@@ -1541,13 +1543,13 @@ const UserEditModal = ({ value, onChange, onSave, onCancel, saving, errors = {} 
           <div style={{ minWidth:0 }}>
             <div id="admin-user-edit-title" style={{ fontWeight:900, fontSize:16, color:C.text }}>Edit Pengguna</div>
             <div title={value.email || ''} style={{ fontSize:11, color:C.textFaint, fontWeight:700, overflowWrap:'anywhere', marginTop:2 }}>
-              {cleanEmailDisplay(value.email, 48, 'Tiada e-mel', value.roleValue)}
+              {cleanEmailDisplay(value.email, 48, t("Tiada e-mel", "No email"), value.roleValue)}
             </div>
           </div>
           <Badge tone={value.isActive ? 'good' : 'warn'}>{statusText(value.isActive)}</Badge>
         </div>
         <div style={{ display:'grid', gap:9 }}>
-          <Field label="Nama Penuh">
+          <Field label={t("Nama Penuh", "Full Name")}>
             <input
               value={value.fullName}
               onChange={e => onChange(prev => ({ ...prev, fullName:e.target.value }))}
@@ -1558,7 +1560,7 @@ const UserEditModal = ({ value, onChange, onSave, onCancel, saving, errors = {} 
             />
             <FormFieldError id="admin-edit-user-name-error">{errors.fullName}</FormFieldError>
           </Field>
-          <Field label="Peranan">
+          <Field label={t("Peranan", "Role")}>
             <select
               value={value.roleValue}
               onChange={e => onChange(prev => ({ ...prev, roleValue:e.target.value }))}
@@ -1577,13 +1579,13 @@ const UserEditModal = ({ value, onChange, onSave, onCancel, saving, errors = {} 
             fontWeight:800,
             lineHeight:1.4,
           }}>
-            <span style={{ color:C.accPale, fontWeight:900 }}>{ROLE_OPTIONS.find(r => r.value === value.roleValue)?.label || 'Peranan'}:</span>{' '}
+            <span style={{ color:C.accPale, fontWeight:900 }}>{ROLE_OPTIONS.find(r => r.value === value.roleValue)?.label || t("Peranan", "Role")}:</span>{' '}
             {ROLE_DESCRIPTIONS[value.roleValue] || 'Pilih peranan untuk menentukan akses pengguna.'}
           </div>
           <div style={{ display:'flex', gap:8, justifyContent:'flex-end', flexWrap:'wrap' }}>
-            <SmallButton onClick={onCancel} disabled={saving}>Batal</SmallButton>
+            <SmallButton onClick={onCancel} disabled={saving}>{t("Batal", "Cancel")}</SmallButton>
             <GlowButton onClick={onSave} disabled={saving} style={{ padding:'10px 14px', fontSize:13, flex:'0 0 auto' }}>
-              {saving ? 'Menyimpan...' : 'Simpan Perubahan'}
+              {saving ? 'Menyimpan...' : t("Simpan Perubahan", "Save Changes")}
             </GlowButton>
           </div>
         </div>
@@ -1603,7 +1605,7 @@ const DetailRow = ({ label, value }) => (
   }}>
     <div style={{ fontSize:11, color:C.textMuted, fontWeight:900 }}>{label}</div>
     <div style={{ minWidth:0, fontSize:11, color:C.text, fontWeight:800, textAlign:'right', overflowWrap:'anywhere' }}>
-      {value || 'Tiada data'}
+      {value || t("Tiada data", "No data")}
     </div>
   </div>
 );
@@ -1613,7 +1615,7 @@ const UserDetailModal = ({ detail, onClose, onRetry }) => {
   const data = detail.data || {};
   const user = data.user || detail.user || {};
   const userDisplayName = cleanUserName(user);
-  const userDisplayEmail = cleanEmailDisplay(user.email, 48, 'Tiada e-mel', user.role);
+  const userDisplayEmail = cleanEmailDisplay(user.email, 48, t("Tiada e-mel", "No email"), user.role);
   const links = data.parentLinks || [];
   const owned = data.classroomsOwned || [];
   const enrolled = data.classroomEnrollments || [];
@@ -1672,8 +1674,8 @@ const UserDetailModal = ({ detail, onClose, onRetry }) => {
             <SectionLabel>Profil</SectionLabel>
             <Card style={{ marginBottom:12, padding:'10px 14px' }}>
               <DetailRow label="Ref Pengguna" value={shortId(user.id || detail.id)} />
-              <DetailRow label="Peranan" value={ROLE_LABEL[user.role] || user.role} />
-              <DetailRow label="Status" value={statusText(Boolean(user.is_active ?? user.active))} />
+              <DetailRow label={t("Peranan", "Role")} value={ROLE_LABEL[user.role] || user.role} />
+              <DetailRow label={t("Status", "Status")} value={statusText(Boolean(user.is_active ?? user.active))} />
               <DetailRow label="Telefon" value={user.phone_number || user.phoneNumber} />
               <DetailRow label="Tarikh lahir" value={user.date_of_birth || user.dateOfBirth} />
               <DetailRow label="Dicipta" value={formatDateTime(user.created_at || user.createdAt)} />
@@ -1709,7 +1711,7 @@ const UserDetailModal = ({ detail, onClose, onRetry }) => {
                     <div style={{ fontSize:11, color:C.textFaint, fontWeight:800 }}>Tiada pautan aktif.</div>
                   ) : links.map(link => (
                     <div key={link.id} style={{ fontSize:11, color:C.text, fontWeight:800, padding:'4px 0' }}>
-                      {cleanPersonName(link.parent_name || link.parentName, link.parent_email || link.parentEmail, 'parent', 'Ibu Bapa')} -> {cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', 'Pelajar')}
+                      {cleanPersonName(link.parent_name || link.parentName, link.parent_email || link.parentEmail, 'parent', t("Ibu Bapa", "Parent"))} -> {cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', t("Pelajar", "Student"))}
                     </div>
                   ))}
                 </div>
@@ -1738,7 +1740,7 @@ const AdminUsers = () => {
   const [confirmStatus, setConfirmStatus] = React.useState(null);
   const [detail, setDetail] = React.useState({ id:null, loading:false, error:null, data:null, user:null });
   const narrow = useNarrow(760);
-  const filters = ['Semua','Pelajar','Guru','Ibu Bapa','Admin'];
+  const filters = ['Semua',t("Pelajar", "Student"),t("Guru", "Teacher"),t("Ibu Bapa", "Parent"),t("Admin", "Admin")];
   const pageSize = 25;
   const { users, total, loading, error, refresh } = useAdminUsers({ filter, search, page, limit:pageSize });
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
@@ -1841,7 +1843,7 @@ const AdminUsers = () => {
       setEditing(null);
       refresh();
     } catch (err) {
-      setMutationError({ message: err.message || 'Tidak dapat menyimpan pengguna.', retry: saveEdit });
+      setMutationError({ message: err.message || t("Tidak dapat menyimpan pengguna.", "Could not save user."), retry: saveEdit });
     } finally {
       setSaving(false);
     }
@@ -1976,9 +1978,9 @@ const AdminUsers = () => {
           <div style={{ flex:'1 1 180px', minWidth:0, fontSize:11, color:C.textFaint, fontWeight:800, lineHeight:1.35 }}>
             <div>{fmt(total)} pengguna</div>
             <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginTop:5 }}>
-              <Badge tone="neutral">Pelajar {fmt(visibleRoleCounts.Pelajar || 0)}</Badge>
-              <Badge tone="neutral">Guru {fmt(visibleRoleCounts.Guru || 0)}</Badge>
-              <Badge tone="neutral">Ibu Bapa {fmt(visibleRoleCounts['Ibu Bapa'] || 0)}</Badge>
+              <Badge tone="neutral">{t("Pelajar", "Student")} {fmt(visibleRoleCounts.Pelajar || 0)}</Badge>
+              <Badge tone="neutral">{t("Guru", "Teacher")} {fmt(visibleRoleCounts.Guru || 0)}</Badge>
+              <Badge tone="neutral">{t("Ibu Bapa", "Parent")} {fmt(visibleRoleCounts[t("Ibu Bapa", "Parent")] || 0)}</Badge>
             </div>
             <div>Memaparkan {fmt(pageStart)}-{fmt(pageEnd)} · {pageSize} setiap halaman</div>
           </div>
@@ -1999,7 +2001,7 @@ const AdminUsers = () => {
                 <div style={{ fontSize:9, color:C.textFaint, fontWeight:700, marginTop:1 }}>Tindakan pukal perlu disahkan dahulu.</div>
               </div>
               <SmallButton disabled={saving} onClick={() => setSelected(new Set())}>Kosongkan</SmallButton>
-              <SmallButton success disabled={saving} onClick={() => requestBulkStatus(true)}>Aktifkan</SmallButton>
+              <SmallButton success disabled={saving} onClick={() => requestBulkStatus(true)}>{t("Aktifkan", "Activate")}</SmallButton>
               <SmallButton disabled={saving} onClick={() => requestBulkStatus(false)} style={{ color:C.red, borderColor:'rgba(239,68,68,.22)', background:'transparent' }}>Nyahaktif</SmallButton>
             </div>
           </Card>
@@ -2057,7 +2059,7 @@ const AdminUsers = () => {
           </div>
         )) : users.length === 0 ? (
           <div style={{ textAlign:'center', padding:'40px 0', color:C.textFaint, fontSize:13, fontWeight:700 }}>
-            Tiada pengguna ditemui
+            {t("Tiada pengguna ditemui", "No users found")}
           </div>
         ) : (
           <>
@@ -2092,11 +2094,11 @@ const AdminUsers = () => {
               }}>
                 <span />
                 <span />
-                <span>Pengguna</span>
-                <span>Peranan</span>
-                <span>Status</span>
+                <span>{t("Pengguna", "User")}</span>
+                <span>{t("Peranan", "Role")}</span>
+                <span>{t("Status", "Status")}</span>
                 <span>Log masuk</span>
-                <span style={{ textAlign:'right' }}>Aksi</span>
+                <span style={{ textAlign:'right' }}>{t("Aksi", "Actions")}</span>
               </div>
             )}
             {users.map((u, i) => {
@@ -2133,7 +2135,7 @@ const AdminUsers = () => {
 
                   <div style={{ flex:1, minWidth:0 }}>
                     <div title={u.name} style={{ fontWeight:800, fontSize:12, color:C.text, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{u.name}</div>
-                    <div title={u.displayEmail || 'Tiada e-mel'} style={{
+                    <div title={u.displayEmail || t("Tiada e-mel", "No email")} style={{
                       fontSize:10,
                       color:C.textFaint,
                       fontWeight:600,
@@ -2144,7 +2146,7 @@ const AdminUsers = () => {
                       overflowWrap:'anywhere',
                       lineHeight:1.3,
                     }}>
-                      {u.displayEmail || 'Tiada e-mel'}{narrow ? ` · ${u.last}` : ''}
+                      {u.displayEmail || t("Tiada e-mel", "No email")}{narrow ? ` · ${u.last}` : ''}
                     </div>
                     {narrow && (
                       <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginTop:6 }}>
@@ -2171,7 +2173,7 @@ const AdminUsers = () => {
                   {!narrow && <Badge tone={u.active ? 'good' : 'warn'}>{statusText(u.active)}</Badge>}
                   {!narrow && <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{u.last}</div>}
                   <AdminActionMenu
-                    label="Aksi"
+                    label={t("Aksi", "Actions")}
                     ariaLabel={`Tindakan untuk ${u.name}`}
                     disabled={!u.id}
                     items={[
@@ -2197,7 +2199,7 @@ const AdminUsers = () => {
       {confirmBulk && (
         <ConfirmModal
           title={confirmBulk.isActive ? 'Aktifkan pengguna dipilih?' : 'Nyahaktifkan pengguna dipilih?'}
-          confirmLabel={confirmBulk.isActive ? 'Aktifkan' : 'Nyahaktifkan'}
+          confirmLabel={confirmBulk.isActive ? t("Aktifkan", "Activate") : t("Nyahaktifkan", "Deactivate")}
           danger={!confirmBulk.isActive}
           busy={saving}
           onCancel={() => setConfirmBulk(null)}
@@ -2210,7 +2212,7 @@ const AdminUsers = () => {
       {confirmStatus && (
         <ConfirmModal
           title={confirmStatus.isActive ? 'Aktifkan akaun pengguna?' : 'Nyahaktifkan akaun pengguna?'}
-          confirmLabel={confirmStatus.isActive ? 'Aktifkan' : 'Nyahaktifkan'}
+          confirmLabel={confirmStatus.isActive ? t("Aktifkan", "Activate") : t("Nyahaktifkan", "Deactivate")}
           danger={!confirmStatus.isActive}
           onCancel={() => setConfirmStatus(null)}
           onConfirm={() => toggleStatus(confirmStatus.user)}
@@ -2306,7 +2308,7 @@ const AdminAssignLessonModal = ({ lesson, onClose }) => {
         <div style={{ fontSize:12, color:C.textMuted, fontWeight:600, marginBottom:16 }}>{cleanContentTitle(lesson?.title, 'Pelajaran tanpa tajuk')}</div>
         {classroomsState.loading ? <Skeleton width="100%" height={36} radius={8} style={{ marginBottom:12 }} /> : (
           <form onSubmit={submit} style={{ display:'flex', flexDirection:'column', gap:10 }}>
-            <Field label="Kelas">
+            <Field label={t("Kelas", "Class")}>
               <select value={classroomId} onChange={e => setClassroomId(e.target.value)} style={{ ...inputBase }}>
                 {classrooms.map(c => <option key={c.id} value={c.id}>{cleanClassName(c.name)}{c.subject ? ` - ${c.subject}` : ''}</option>)}
               </select>
@@ -2321,7 +2323,7 @@ const AdminAssignLessonModal = ({ lesson, onClose }) => {
             {notice && <div style={{ fontSize:11, fontWeight:900, color: isError ? C.red : C.green }}>{notice}</div>}
             <div style={{ display:'flex', gap:8, marginTop:4 }}>
               <GlowButton type="submit" disabled={busy || !classroomId}>{busy ? 'Menugaskan...' : 'Tugaskan'}</GlowButton>
-              <button type="button" onClick={onClose} style={{ flex:1, background:'transparent', border:`1px solid ${C.border}`, borderRadius:12, padding:'11px 12px', color:C.textMuted, fontFamily:'Nunito', fontWeight:800, fontSize:13, cursor:'pointer' }}>Batal</button>
+              <button type="button" onClick={onClose} style={{ flex:1, background:'transparent', border:`1px solid ${C.border}`, borderRadius:12, padding:'11px 12px', color:C.textMuted, fontFamily:'Nunito', fontWeight:800, fontSize:13, cursor:'pointer' }}>{t("Batal", "Cancel")}</button>
             </div>
           </form>
         )}
@@ -2343,7 +2345,7 @@ const PreviewRow = ({ label, value }) => (
     lineHeight:1.35,
   }}>
     <div style={{ color:C.textFaint, fontWeight:900 }}>{label}</div>
-    <div style={{ color:C.text, fontWeight:800, overflowWrap:'anywhere' }}>{value === 0 ? 0 : (value || 'Tiada data')}</div>
+    <div style={{ color:C.text, fontWeight:800, overflowWrap:'anywhere' }}>{value === 0 ? 0 : (value || t("Tiada data", "No data"))}</div>
   </div>
 );
 
@@ -2370,8 +2372,8 @@ const ContentPublishPreview = ({ type, syllabusForm, lessonForm, syllabusItems =
           <>
             <PreviewRow label="Silibus KSSM" value={syllabusTitle} />
             <PreviewRow label="Tajuk pelajaran" value={cleanContentTitle(lessonForm.title, 'Pelajaran tanpa tajuk')} />
-            <PreviewRow label="Ringkasan" value={cleanContentSummary(lessonForm.summary, 180) || 'Tiada ringkasan'} />
-            <PreviewRow label="Tahap" value={difficultyLabel} />
+            <PreviewRow label={t("Ringkasan", "Summary")} value={cleanContentSummary(lessonForm.summary, 180) || 'Tiada ringkasan'} />
+            <PreviewRow label={t("Tahap", "Level")} value={difficultyLabel} />
             <PreviewRow label="Anggaran masa" value={`${Number(lessonForm.estimatedMinutes) || 15} minit`} />
             <PreviewRow label="Kuiz" value={`${questionCount} soalan`} />
           </>
@@ -2379,10 +2381,10 @@ const ContentPublishPreview = ({ type, syllabusForm, lessonForm, syllabusItems =
           <>
             <PreviewRow label="Subjek KSSM" value={cleanSubjectLabel(syllabusForm.subject)} />
             <PreviewRow label="Tingkatan" value={`Tingkatan ${syllabusForm.formLevel || '-'}`} />
-            <PreviewRow label="Topik" value={cleanContentTitle(syllabusForm.topic, 'Topik tanpa tajuk')} />
+            <PreviewRow label={t("Topik", "Topic")} value={cleanContentTitle(syllabusForm.topic, 'Topik tanpa tajuk')} />
             <PreviewRow label="Subtopik" value={cleanDisplayText(syllabusForm.subtopic, 80, 'Tiada subtopik')} />
             <PreviewRow label="Urutan" value={Number(syllabusForm.orderIndex) || 0} />
-            <PreviewRow label="Ringkasan" value={cleanContentSummary(syllabusForm.summary, 180) || 'Tiada ringkasan'} />
+            <PreviewRow label={t("Ringkasan", "Summary")} value={cleanContentSummary(syllabusForm.summary, 180) || 'Tiada ringkasan'} />
           </>
         )}
       </Card>
@@ -2588,7 +2590,7 @@ const AdminContent = () => {
     <div style={{ flex:1, display:'flex', flexDirection:'column', overflow:'hidden' }}>
       <div style={{ padding:'10px 16px 0', flexShrink:0, position:'sticky', top:0, zIndex:30, background:C.bg, borderBottom:`1px solid ${C.border}` }}>
         <div style={{ display:'grid', gridTemplateColumns:narrow ? '1fr' : 'minmax(0, 1fr) 96px', gap:8, marginBottom:8 }}>
-          <Field label="Subjek">
+          <Field label={t("Subjek", "Subject")}>
             <input
               value={subject}
               onChange={e => setSubject(e.target.value)}
@@ -2607,7 +2609,7 @@ const AdminContent = () => {
         <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:6, marginBottom:10 }}>
           {[
             { id:'syllabus', label:'Silibus' },
-            { id:'lessons', label:'Pelajaran' },
+            { id:'lessons', label:t("Pelajaran", "Lesson") },
           ].map(item => (
             <button key={item.id} onClick={() => setTab(item.id)} aria-pressed={tab === item.id} style={{
               background:tab === item.id ? C.accDim : 'transparent',
@@ -2633,7 +2635,7 @@ const AdminContent = () => {
               <div style={{ fontWeight:900, fontSize:13, color:C.accPale, marginBottom:8 }}>Cipta Item Silibus</div>
               <form onSubmit={submitSyllabusForm} style={{ display:'grid', gap:8 }}>
                 <div style={{ display:'grid', gridTemplateColumns:narrow ? '1fr 1fr' : 'minmax(0, 1fr) 86px 70px', gap:8 }}>
-                  <Field label="Subjek" style={narrow ? { gridColumn:'1 / -1' } : undefined}>
+                  <Field label={t("Subjek", "Subject")} style={narrow ? { gridColumn:'1 / -1' } : undefined}>
                     <input required value={syllabusForm.subject} onChange={e => setSyllabusForm(prev => ({ ...prev, subject:e.target.value }))} style={inputBase} />
                   </Field>
                   <Field label="Ting.">
@@ -2646,13 +2648,13 @@ const AdminContent = () => {
                     <input type="number" value={syllabusForm.orderIndex} onChange={e => setSyllabusForm(prev => ({ ...prev, orderIndex:e.target.value }))} style={inputBase} />
                   </Field>
                 </div>
-                <Field label="Topik">
+                <Field label={t("Topik", "Topic")}>
                   <input required value={syllabusForm.topic} onChange={e => setSyllabusForm(prev => ({ ...prev, topic:e.target.value }))} style={inputBase} />
                 </Field>
                 <Field label="Subtopik">
                   <input value={syllabusForm.subtopic} onChange={e => setSyllabusForm(prev => ({ ...prev, subtopic:e.target.value }))} style={inputBase} />
                 </Field>
-                <Field label="Ringkasan">
+                <Field label={t("Ringkasan", "Summary")}>
                   <textarea value={syllabusForm.summary} onChange={e => setSyllabusForm(prev => ({ ...prev, summary:e.target.value }))} rows={3} style={{ ...inputBase, resize:'vertical' }} />
                 </Field>
                 <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', gap:8 }}>
@@ -2691,7 +2693,7 @@ const AdminContent = () => {
                     <ContentStatusBadge status={(item.is_active ?? item.isActive) === false ? 'archive' : 'published'} />
                     {shortId(item.id) && <Badge tone="neutral">Ref {shortId(item.id)}</Badge>}
                     <AdminActionMenu
-                      label="Aksi"
+                      label={t("Aksi", "Actions")}
                       ariaLabel={`Tindakan silibus ${cleanContentTitle(item.topic, 'tanpa tajuk')}`}
                       disabled={busy === item.id}
                       items={[
@@ -2723,11 +2725,11 @@ const AdminContent = () => {
                     ))}
                   </select>
                 </Field>
-                <Field label="Tajuk">
+                <Field label={t("Tajuk", "Title")}>
                   <input required value={lessonForm.title} onChange={e => setLessonForm(prev => ({ ...prev, title:e.target.value }))} style={inputBase} />
                 </Field>
                 <div style={{ display:'grid', gridTemplateColumns:narrow ? '1fr' : '1fr 1fr', gap:8 }}>
-                  <Field label="Tahap">
+                  <Field label={t("Tahap", "Level")}>
                     <select value={lessonForm.difficulty} onChange={e => setLessonForm(prev => ({ ...prev, difficulty:e.target.value }))} style={inputBase}>
                       <option value="easy">Mudah</option>
                       <option value="medium">Sederhana</option>
@@ -2759,7 +2761,7 @@ const AdminContent = () => {
                             {question.type === 'multiple_choice' ? 'MCQ' : 'Benar/Salah'} - {cleanDisplayText(question.questionText, 78, 'Soalan')}
                           </div>
                           <AdminActionMenu
-                            label="Aksi"
+                            label={t("Aksi", "Actions")}
                             ariaLabel={`Tindakan soalan kuiz ${index + 1}`}
                             items={[
                               {
@@ -2861,7 +2863,7 @@ const AdminContent = () => {
                   <div style={{ flex:1, minWidth:0 }}>
                     <div title={cleanContentTitle(lesson.title, 'Pelajaran tanpa tajuk')} style={{ fontSize:13, color:C.text, fontWeight:900, lineHeight:1.25, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{cleanContentTitle(lesson.title, 'Pelajaran tanpa tajuk')}</div>
                     <div style={{ fontSize:10, color:C.textFaint, fontWeight:600, marginTop:2, overflowWrap:'anywhere' }}>
-                      {cleanSubjectLabel(lesson.subject)} - T{lesson.form_level || '-'} - {cleanDisplayText(lesson.difficulty, 18, 'Tahap')}
+                      {cleanSubjectLabel(lesson.subject)} - T{lesson.form_level || '-'} - {cleanDisplayText(lesson.difficulty, 18, t("Tahap", "Level"))}
                     </div>
                     <div style={{ display:'flex', gap:6, marginTop:6, flexWrap:'wrap' }}>
                       <ContentStatusBadge status={(lesson.is_active ?? lesson.isActive) === false ? 'archive' : 'published'} />
@@ -2872,7 +2874,7 @@ const AdminContent = () => {
                   </div>
                   <div style={{ display:'grid', gap:5, justifyItems:'end', flexShrink:0 }}>
                     <AdminActionMenu
-                      label="Aksi"
+                      label={t("Aksi", "Actions")}
                       ariaLabel={`Tindakan pelajaran ${cleanContentTitle(lesson.title, 'tanpa tajuk')}`}
                       disabled={busy === lesson.id}
                       items={[
@@ -3003,7 +3005,7 @@ const AdminSystem = () => {
     setNotice({ message:'Menghantar notifikasi ujian...', error:false });
     try {
       const data = await window.tusyenApi.testAdminNotification({
-        title:'Tusyen Admin',
+        title:t("Tusyen Admin", "Tusyen Admin"),
         message:'Semakan notifikasi daripada panel admin.',
       });
       if (data.success === false) throw new Error(data.result?.error || 'Provider notifikasi menolak ujian notifikasi.');
@@ -3024,7 +3026,7 @@ const AdminSystem = () => {
     ['NTFY', config.ntfyEnabled ? 'enabled' : 'disabled'],
     ['Sync Batch', config.syncBatchSize || '-'],
     ['Sync History', `${config.maxSyncHistoryDays || '-'} hari`],
-    ['Log masuk contoh admin', config.demoAdminLoginEnabled ? 'Aktif' : 'Tidak aktif'],
+    ['Log masuk contoh admin', config.demoAdminLoginEnabled ? t("Aktif", "Active") : t("Tidak aktif", "Inactive")],
     ['Public Admin Register', config.publicAdminRegistrationEnabled ? 'enabled' : 'disabled'],
   ];
 
@@ -3032,7 +3034,7 @@ const AdminSystem = () => {
     <div style={{ padding:'14px 16px 10px' }}>
       <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:12 }}>
         <div>
-          <div style={{ fontSize:13, color:C.textMuted, fontWeight:600 }}>Sistem</div>
+          <div style={{ fontSize:13, color:C.textMuted, fontWeight:600 }}>{t("Sistem", "System")}</div>
           <div style={{ fontSize:20, color:C.text, fontWeight:900 }}>Operasi Platform</div>
           <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, marginTop:2 }}>
             {lastRefresh ? `Kemas kini terakhir: ${formatDateTime(lastRefresh.toISOString())}` : 'Belum dikemas kini'}
@@ -3132,7 +3134,7 @@ const AdminSystem = () => {
         </div>
       </Card>
 
-      <SectionLabel>Penyelenggaraan</SectionLabel>
+      <SectionLabel>{t("Penyelenggaraan", "Maintenance")}</SectionLabel>
       <Card style={{ marginBottom:14 }}>
         <div style={{ display:'grid', gap:8 }}>
           <div style={{ display:'flex', justifyContent:'space-between', gap:10, alignItems:'center' }}>
@@ -3146,7 +3148,7 @@ const AdminSystem = () => {
           </div>
           <div style={{ display:'flex', justifyContent:'space-between', gap:10, alignItems:'center' }}>
             <div>
-              <div style={{ fontSize:12, color:C.text, fontWeight:900 }}>Notifikasi</div>
+              <div style={{ fontSize:12, color:C.text, fontWeight:900 }}>{t("Notifikasi", "Notifications")}</div>
               <div style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>Hantar ujian notifikasi ke ntfy.</div>
             </div>
             <SmallButton success disabled={busy === 'notification'} onClick={testNotification}>
@@ -3233,7 +3235,7 @@ const useAdminUsersList = (role, search = '', limit = 200) => {
   }, [role, search, limit], []);
 };
 
-const SearchableUserSelect = ({ role, value, onChange, selectedLabel, placeholder = 'Cari pengguna...', emptyLabel = 'Pilih pengguna' }) => {
+const SearchableUserSelect = ({ role, value, onChange, selectedLabel, placeholder = t("Cari pengguna...", "Search users..."), emptyLabel = 'Pilih pengguna' }) => {
   const [query, setQuery] = React.useState('');
   const usersState = useAdminUsersList(role, query, 30);
   const options = usersState.data || [];
@@ -3384,7 +3386,7 @@ const AdminClassroomsPage = () => {
         formLevel: Number(editingClassroom.formLevel),
         teacherId: editingClassroom.teacherId,
       });
-      setOk('Kelas dikemas kini.');
+      setOk(t("Kelas dikemas kini.", "Class updated."));
       setEditingClassroom(null);
       classroomsState.refresh();
     } catch (e) { setErr(e.message || 'Tidak dapat mengemas kini kelas.'); }
@@ -3430,7 +3432,7 @@ const AdminClassroomsPage = () => {
               value={search}
               onChange={e => setSearch(e.target.value)}
               onKeyDown={e => { if (e.key === 'Enter') applyClassSearch(); }}
-              placeholder="Cari kelas..."
+              placeholder={t("Cari kelas...", "Search classes...")}
               aria-label="Cari kelas"
               style={{ flex:1, minWidth:0, minHeight:44, background:'none', border:'none', outline:'none', fontFamily:'Nunito', fontSize:13, fontWeight:700, color:C.text }}
             />
@@ -3447,11 +3449,11 @@ const AdminClassroomsPage = () => {
           <SmallButton onClick={() => { setCreating(v => !v); setEditingClassroom(null); setMsg(''); }} style={{ flex:narrow ? '1 1 108px' : '0 0 auto' }}>+ Cipta</SmallButton>
         </div>
         <div style={{ display:'grid', gridTemplateColumns:narrow ? '1fr 1fr' : '120px 120px minmax(220px, 1fr)', gap:8, marginBottom:8 }}>
-          <Field label="Status">
+          <Field label={t("Status", "Status")}>
             <select value={activeFilter} onChange={e => setActiveFilter(e.target.value)} style={inputBase}>
               <option value="all">Semua</option>
-              <option value="active">Aktif</option>
-              <option value="inactive">Tidak aktif</option>
+              <option value="active">{t("Aktif", "Active")}</option>
+              <option value="inactive">{t("Tidak aktif", "Inactive")}</option>
             </select>
           </Field>
           <Field label="Tingkatan">
@@ -3461,7 +3463,7 @@ const AdminClassroomsPage = () => {
               <option value="5">5</option>
             </select>
           </Field>
-          <Field label="Guru" style={narrow ? { gridColumn:'1 / -1' } : undefined}>
+          <Field label={t("Guru", "Teacher")} style={narrow ? { gridColumn:'1 / -1' } : undefined}>
             <SearchableUserSelect
               role="teacher"
               value={teacherFilter}
@@ -3478,7 +3480,7 @@ const AdminClassroomsPage = () => {
             <div style={{ display:'grid', gap:8 }}>
               <Field label="Nama"><input value={newCls.name} onChange={e => setNewCls(p => ({ ...p, name:e.target.value }))} style={inputBase} /></Field>
               <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8 }}>
-                <Field label="Subjek">
+                <Field label={t("Subjek", "Subject")}>
                   <select value={newCls.subject} onChange={e => setNewCls(p => ({ ...p, subject:e.target.value }))} style={inputBase}>
                     {['Matematik','Sains','Fizik','Kimia','Biologi','English','Sejarah'].map(s => <option key={s}>{s}</option>)}
                   </select>
@@ -3490,7 +3492,7 @@ const AdminClassroomsPage = () => {
                   </select>
                 </Field>
               </div>
-              <Field label="Guru">
+              <Field label={t("Guru", "Teacher")}>
                 <SearchableUserSelect
                   role="teacher"
                   value={newCls.teacherId}
@@ -3501,7 +3503,7 @@ const AdminClassroomsPage = () => {
               </Field>
               <div style={{ display:'flex', gap:8 }}>
                 <GlowButton onClick={createClassroom} disabled={busy === 'create'} style={{ flex:1, padding:'9px 12px', fontSize:13 }}>{busy === 'create' ? 'Mencipta...' : 'Cipta Kelas'}</GlowButton>
-                <SmallButton onClick={() => setCreating(false)}>Batal</SmallButton>
+                <SmallButton onClick={() => setCreating(false)}>{t("Batal", "Cancel")}</SmallButton>
               </div>
             </div>
           </Card>
@@ -3517,7 +3519,7 @@ const AdminClassroomsPage = () => {
                 <input value={editingClassroom.name} onChange={e => setEditingClassroom(p => ({ ...p, name:e.target.value }))} style={inputBase} />
               </Field>
               <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8 }}>
-                <Field label="Subjek">
+                <Field label={t("Subjek", "Subject")}>
                   <select value={editingClassroom.subject} onChange={e => setEditingClassroom(p => ({ ...p, subject:e.target.value }))} style={inputBase}>
                     {['Matematik','Sains','Fizik','Kimia','Biologi','English','Sejarah'].map(s => <option key={s}>{s}</option>)}
                   </select>
@@ -3529,7 +3531,7 @@ const AdminClassroomsPage = () => {
                   </select>
                 </Field>
               </div>
-              <Field label="Guru">
+              <Field label={t("Guru", "Teacher")}>
                 <SearchableUserSelect
                   role="teacher"
                   value={editingClassroom.teacherId}
@@ -3543,7 +3545,7 @@ const AdminClassroomsPage = () => {
                 <GlowButton onClick={saveClassroom} disabled={busy === 'editclass'} style={{ flex:1, padding:'9px 12px', fontSize:13 }}>
                   {busy === 'editclass' ? 'Menyimpan...' : 'Simpan Kelas'}
                 </GlowButton>
-                <SmallButton onClick={() => setEditingClassroom(null)}>Batal</SmallButton>
+                <SmallButton onClick={() => setEditingClassroom(null)}>{t("Batal", "Cancel")}</SmallButton>
               </div>
             </div>
           </Card>
@@ -3567,7 +3569,7 @@ const AdminClassroomsPage = () => {
           const isOpen = expanded === cls.id;
           const roster = classStudents[cls.id] || [];
           const rosterStatus = rosterState[cls.id] || {};
-          const teacherLabel = cls.teacher_name ? cleanTeacherDisplayName(cls.teacher_name, '', 'Guru') : '';
+          const teacherLabel = cls.teacher_name ? cleanTeacherDisplayName(cls.teacher_name, '', t("Guru", "Teacher")) : '';
           return (
             <Card key={cls.id} style={{ marginBottom:8, padding:12 }}>
               <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:8, flexWrap:narrow ? 'wrap' : 'nowrap' }}>
@@ -3598,12 +3600,12 @@ const AdminClassroomsPage = () => {
                   }}
                 >
                   <div style={{ fontSize:18, fontWeight:900, lineHeight:1 }}>{fmt(cls.student_count ?? 0)}</div>
-                  <div style={{ fontSize:9, fontWeight:900, textTransform:'uppercase', lineHeight:1.1 }}>Pelajar</div>
+                  <div style={{ fontSize:9, fontWeight:900, textTransform:'uppercase', lineHeight:1.1 }}>{t("Pelajar", "Student")}</div>
                 </button>
                 <div style={{ display:'flex', gap:5, flexShrink:0, alignItems:'flex-start', flexWrap:'wrap', justifyContent:'flex-end' }}>
-                  <Badge tone={cls.is_active !== false ? 'good' : 'warn'}>{cls.is_active !== false ? 'Aktif' : 'Tidak aktif'}</Badge>
+                  <Badge tone={cls.is_active !== false ? 'good' : 'warn'}>{cls.is_active !== false ? t("Aktif", "Active") : t("Tidak aktif", "Inactive")}</Badge>
                   <AdminActionMenu
-                    label="Aksi"
+                    label={t("Aksi", "Actions")}
                     ariaLabel={`Tindakan kelas ${cleanClassName(cls.name)}`}
                     items={[
                       { label:isOpen ? 'Tutup butiran' : 'Buka butiran', onClick:() => toggleExpand(cls.id) },
@@ -3651,7 +3653,7 @@ const AdminClassroomsPage = () => {
                         <div title={cleanEmailDisplay(s.email, 42, '', 'student')} style={{ fontSize:10, color:C.textFaint, fontWeight:600, overflowWrap:'anywhere' }}>{cleanEmailDisplay(s.email, 42, '', 'student')}</div>
                       </div>
                       <AdminActionMenu
-                        label="Aksi"
+                        label={t("Aksi", "Actions")}
                         ariaLabel={`Tindakan pelajar ${cleanUserName(s)}`}
                         items={[
                           {
@@ -3686,7 +3688,7 @@ const AdminClassroomsPage = () => {
                       />
                     </div>
                     <select value={addStudentId} onChange={e => setAddStudentId(e.target.value)} aria-hidden="true" tabIndex="-1" style={{ display:'none' }}>
-                      <option value="">— Pilih pelajar —</option>
+                      <option value="">{t("— Pilih pelajar —", "Select a student")}</option>
                       {(studentsState.data || []).map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
                     </select>
                     <SmallButton disabled={busy === 'addstud' || !addStudentId.trim()} onClick={() => addStudent(cls.id)} style={{ flex:narrow ? '1 1 108px' : '0 0 auto' }}>
@@ -3702,7 +3704,7 @@ const AdminClassroomsPage = () => {
       {confirmClassStatus && (
         <ConfirmModal
           title={confirmClassStatus.isActive ? 'Aktifkan kelas?' : 'Nyahaktifkan kelas?'}
-          confirmLabel={confirmClassStatus.isActive ? 'Aktifkan' : 'Nyahaktifkan'}
+          confirmLabel={confirmClassStatus.isActive ? t("Aktifkan", "Activate") : t("Nyahaktifkan", "Deactivate")}
           danger={!confirmClassStatus.isActive}
           busy={busy === confirmClassStatus.cls?.id}
           onCancel={() => setConfirmClassStatus(null)}
@@ -3764,7 +3766,7 @@ const AdminParentLinksSection = () => {
       if (!groups.has(parentId)) {
         groups.set(parentId, {
           id:parentId,
-          parentName:cleanPersonName(link.parent_name || link.parentName, link.parent_email || link.parentEmail, 'parent', 'Ibu Bapa'),
+          parentName:cleanPersonName(link.parent_name || link.parentName, link.parent_email || link.parentEmail, 'parent', t("Ibu Bapa", "Parent")),
           parentEmail:cleanEmailDisplay(link.parent_email || link.parentEmail, 42, '', 'parent'),
           parentRawEmail:link.parent_email || link.parentEmail || '',
           links:[],
@@ -3776,14 +3778,14 @@ const AdminParentLinksSection = () => {
   }, [links]);
 
   const addLink = async () => {
-    if (!selectedParent || !selectedStudent) { setErr('Pilih ibu bapa dan pelajar.'); return; }
+    if (!selectedParent || !selectedStudent) { setErr(t("Pilih ibu bapa dan pelajar.", "Select a parent and student.")); return; }
     setBusy('add'); setMsg('');
     try {
       await window.tusyenApi.createAdminParentLink(selectedParent, selectedStudent);
-      setOk('Pautan ditambah.');
+      setOk(t("Pautan ditambah.", "Link added."));
       setSelectedParent(''); setSelectedStudent('');
       loadLinks();
-    } catch (e) { setErr(e.message || 'Tidak dapat menambah pautan.'); }
+    } catch (e) { setErr(e.message || t("Tidak dapat menambah pautan.", "Could not add the link.")); }
     finally { setBusy(''); }
   };
 
@@ -3791,10 +3793,10 @@ const AdminParentLinksSection = () => {
     setBusy(id); setMsg('');
     try {
       await deactivateAdminParentLink(id);
-      setOk('Pautan dinyahaktifkan.');
+      setOk(t("Pautan dinyahaktifkan.", "Link deactivated."));
       setConfirmRemove(null);
       loadLinks();
-    } catch (e) { setErr(e.message || 'Tidak dapat menyahaktifkan pautan.'); }
+    } catch (e) { setErr(e.message || t("Tidak dapat menyahaktifkan pautan.", "Could not deactivate the link.")); }
     finally { setBusy(''); }
   };
 
@@ -3803,43 +3805,43 @@ const AdminParentLinksSection = () => {
       <SectionLabel>🔗 Pautan Ibu Bapa–Pelajar</SectionLabel>
       {msg && <div style={{ fontSize:11, fontWeight:800, color:msgErr ? C.red : C.green, marginBottom:8 }}>{msg}</div>}
       <Card style={{ marginBottom:10 }}>
-        <div style={{ fontWeight:900, fontSize:12, color:C.accPale, marginBottom:8 }}>Tambah Pautan Baharu</div>
+        <div style={{ fontWeight:900, fontSize:12, color:C.accPale, marginBottom:8 }}>{t("Tambah Pautan Baharu", "Add New Link")}</div>
         <div style={{ display:'grid', gap:8 }}>
-          <Field label="Ibu Bapa">
+          <Field label={t("Ibu Bapa", "Parent")}>
             <SearchableUserSelect
               role="parent"
               value={selectedParent}
               onChange={setSelectedParent}
-              placeholder="Cari ibu bapa..."
-              emptyLabel="Tiada ibu bapa ditemui"
+              placeholder={t("Cari ibu bapa...", "Search parents...")}
+              emptyLabel={t("Tiada ibu bapa ditemui", "No parents found")}
             />
             <select value={selectedParent} onChange={e => setSelectedParent(e.target.value)} aria-hidden="true" tabIndex="-1" style={{ ...inputBase, display:'none' }}>
-              <option value="">— Pilih ibu bapa —</option>
+              <option value="">{t("— Pilih ibu bapa —", "Select a parent")}</option>
               {(parentsState.data || []).map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
             </select>
           </Field>
-          <Field label="Pelajar">
+          <Field label={t("Pelajar", "Student")}>
             <SearchableUserSelect
               role="student"
               value={selectedStudent}
               onChange={setSelectedStudent}
-              placeholder="Cari pelajar..."
-              emptyLabel="Tiada pelajar ditemui"
+              placeholder={t("Cari pelajar...", "Search students...")}
+              emptyLabel={t("Tiada pelajar ditemui", "No students found")}
             />
             <select value={selectedStudent} onChange={e => setSelectedStudent(e.target.value)} aria-hidden="true" tabIndex="-1" style={{ ...inputBase, display:'none' }}>
-              <option value="">— Pilih pelajar —</option>
+              <option value="">{t("— Pilih pelajar —", "Select a student")}</option>
               {(studentsState.data || []).map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
             </select>
           </Field>
-          <SmallButton disabled={busy === 'add' || !selectedParent || !selectedStudent} onClick={addLink} style={{ justifySelf:'start' }}>Tambah Pautan</SmallButton>
+          <SmallButton disabled={busy === 'add' || !selectedParent || !selectedStudent} onClick={addLink} style={{ justifySelf:'start' }}>{t("Tambah Pautan", "Add Link")}</SmallButton>
         </div>
       </Card>
       <Card style={{ marginBottom:14, padding:'10px 14px' }}>
         {loading ? [0,1,2].map(i => <Skeleton key={i} width="100%" height={28} radius={8} style={{ marginBottom:6 }} />) :
         links.length === 0 ? (
           <div style={{ display:'grid', gap:6, fontSize:12, color:C.textFaint, fontWeight:700 }}>
-            <Badge tone="warn" style={{ justifySelf:'start' }}>Belum dipautkan</Badge>
-            <div>Tiada pautan ibu bapa-pelajar.</div>
+            <Badge tone="warn" style={{ justifySelf:'start' }}>{t("Belum dipautkan", "Not linked yet")}</Badge>
+            <div>{t("Tiada pautan ibu bapa-pelajar.", "No parent-student links.")}</div>
           </div>
         ) : linksByFamily.map((family, familyIndex) => (
           <div key={family.id} style={{
@@ -3849,11 +3851,11 @@ const AdminParentLinksSection = () => {
             <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:8, marginBottom:7, flexWrap:'wrap' }}>
               <div style={{ minWidth:0 }}>
                 <div style={{ fontSize:13, color:C.text, fontWeight:900, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{family.parentName}</div>
-                <div title={family.parentEmail || 'Tiada e-mel ibu bapa'} style={{ fontSize:10, color:C.textFaint, fontWeight:700, overflowWrap:'anywhere' }}>{family.parentEmail || 'Tiada e-mel ibu bapa'}</div>
+                <div title={family.parentEmail || t("Tiada e-mel ibu bapa", "No parent email")} style={{ fontSize:10, color:C.textFaint, fontWeight:700, overflowWrap:'anywhere' }}>{family.parentEmail || t("Tiada e-mel ibu bapa", "No parent email")}</div>
               </div>
               <div style={{ display:'flex', gap:5, flexWrap:'wrap', justifyContent:'flex-end' }}>
-                <Badge tone="good">Dipautkan</Badge>
-                <Badge>{family.links.length} pelajar</Badge>
+                <Badge tone="good">{t("Dipautkan", "Linked")}</Badge>
+                <Badge>{family.links.length} {t("pelajar", "students")}</Badge>
               </div>
             </div>
             <div style={{ display:'grid', gap:6 }}>
@@ -3873,27 +3875,27 @@ const AdminParentLinksSection = () => {
                 }}>
                   <div style={{ minWidth:0 }}>
                     <div style={{ fontSize:12, fontWeight:900, color:C.text, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>
-                      {cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', 'Pelajar')}
+                      {cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', t("Pelajar", "Student"))}
                     </div>
-                    <div title={cleanEmailDisplay(link.student_email || link.studentEmail, 42, 'Tiada e-mel pelajar', 'student')} style={{ fontSize:10, color:C.textFaint, fontWeight:700, overflowWrap:'anywhere' }}>
-                      {cleanEmailDisplay(link.student_email || link.studentEmail, 42, 'Tiada e-mel pelajar', 'student')}
+                    <div title={cleanEmailDisplay(link.student_email || link.studentEmail, 42, t("Tiada e-mel pelajar", "No student email"), 'student')} style={{ fontSize:10, color:C.textFaint, fontWeight:700, overflowWrap:'anywhere' }}>
+                      {cleanEmailDisplay(link.student_email || link.studentEmail, 42, t("Tiada e-mel pelajar", "No student email"), 'student')}
                     </div>
                     <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginTop:5 }}>
                       <Badge tone={(link.is_active ?? link.isActive) === false ? 'warn' : 'good'}>
-                        {(link.is_active ?? link.isActive) === false ? 'Tidak aktif' : 'Aktif'}
+                        {(link.is_active ?? link.isActive) === false ? t("Tidak aktif", "Inactive") : t("Aktif", "Active")}
                       </Badge>
                       <Badge>{formatDateTime(link.created_at || link.createdAt)}</Badge>
-                      {(link.created_by || link.createdBy) && <Badge title={cleanPersonLogLabel(link.created_by || link.createdBy, 'admin', 'Admin')}>Dicipta oleh {cleanPersonLogLabel(link.created_by || link.createdBy, 'admin', 'Admin')}</Badge>}
+                      {(link.created_by || link.createdBy) && <Badge title={cleanPersonLogLabel(link.created_by || link.createdBy, 'admin', t("Admin", "Admin"))}>{t("Dicipta oleh", "Created by")} {cleanPersonLogLabel(link.created_by || link.createdBy, 'admin', t("Admin", "Admin"))}</Badge>}
                     </div>
                   </div>
                   <AdminActionMenu
-                    label="Aksi"
+                    label={t("Aksi", "Actions")}
                     ariaLabel={`Tindakan pautan ${family.parentName}`}
                     items={[
                       {
-                        label:'Nyahaktifkan pautan',
+                        label:t("Nyahaktifkan pautan", "Deactivate link"),
                         tone:'danger',
-                        description:'Nyahaktifkan pautan keluarga ini.',
+                        description:t("Nyahaktifkan pautan keluarga ini.", "Deactivate this family link."),
                         disabled:busy === link.id || !linkActive,
                         onClick:() => setConfirmRemove(link),
                       },
@@ -3910,27 +3912,27 @@ const AdminParentLinksSection = () => {
       <Card style={{ display:'none', marginBottom:14, padding:'10px 14px' }}>
         {loading ? [0,1,2].map(i => <Skeleton key={i} width="100%" height={28} radius={8} style={{ marginBottom:6 }} />) :
         links.length === 0 ? (
-          <div style={{ fontSize:12, color:C.textFaint, fontWeight:600 }}>Tiada pautan ibu bapa–pelajar.</div>
+          <div style={{ fontSize:12, color:C.textFaint, fontWeight:600 }}>{t("Tiada pautan ibu bapa–pelajar.", "No parent-student links.")}</div>
         ) : links.map((link, i) => (
           <div key={link.id || i} style={{ display:'flex', alignItems:'center', gap:8, padding:'7px 0', borderBottom: i < links.length - 1 ? `1px solid ${C.border}` : 'none' }}>
             <div style={{ flex:1, minWidth:0 }}>
               <div style={{ fontSize:12, fontWeight:800, color:C.text }}>
-                {cleanPersonName(link.parent_name || link.parentName, link.parent_email || link.parentEmail, 'parent', 'Ibu Bapa')} -> {cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', 'Pelajar')}
+                {cleanPersonName(link.parent_name || link.parentName, link.parent_email || link.parentEmail, 'parent', t("Ibu Bapa", "Parent"))} -> {cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', t("Pelajar", "Student"))}
               </div>
               <div style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>
                 {cleanEmailDisplay(link.parent_email || link.parentEmail, 42, '', 'parent')} - {cleanEmailDisplay(link.student_email || link.studentEmail, 42, '', 'student')}
               </div>
             </div>
             <AdminActionMenu
-              label="Aksi"
+              label={t("Aksi", "Actions")}
               ariaLabel={`Tindakan pautan ${cleanPersonName(link.parent_name || link.parentName, link.parent_email || link.parentEmail, 'parent', 'ibu bapa')}`}
               disabled={busy === link.id}
               items={[
                 {
-                  label:'Nyahaktifkan pautan',
+                  label:t("Nyahaktifkan pautan", "Deactivate link"),
                   tone:'danger',
                   disabled:(link.is_active ?? link.isActive) === false,
-                  description:'Nyahaktifkan pautan keluarga ini.',
+                  description:t("Nyahaktifkan pautan keluarga ini.", "Deactivate this family link."),
                   onClick:() => setConfirmRemove(link),
                 },
               ]}
@@ -3940,14 +3942,14 @@ const AdminParentLinksSection = () => {
       </Card>
       {confirmRemove && (
         <ConfirmModal
-          title="Nyahaktifkan pautan keluarga?"
-          confirmLabel="Nyahaktifkan Pautan"
+          title={t("Nyahaktifkan pautan keluarga?", "Deactivate family link?")}
+          confirmLabel={t("Nyahaktifkan Pautan", "Deactivate Link")}
           danger
           busy={busy === confirmRemove.id}
           onCancel={() => setConfirmRemove(null)}
           onConfirm={() => removeLink(confirmRemove.id)}
         >
-          Pautan antara {cleanPersonName(confirmRemove.parent_name || confirmRemove.parentName, confirmRemove.parent_email || confirmRemove.parentEmail, 'parent', 'ibu bapa')} dan {cleanPersonName(confirmRemove.student_name || confirmRemove.studentName, confirmRemove.student_email || confirmRemove.studentEmail, 'student', 'pelajar')} akan dinyahaktifkan.
+          {t("Pautan antara", "The link between")} {cleanPersonName(confirmRemove.parent_name || confirmRemove.parentName, confirmRemove.parent_email || confirmRemove.parentEmail, 'parent', 'ibu bapa')} {t("dan", "and")} {cleanPersonName(confirmRemove.student_name || confirmRemove.studentName, confirmRemove.student_email || confirmRemove.studentEmail, 'student', 'pelajar')} {t("akan dinyahaktifkan.", "will be deactivated.")}
         </ConfirmModal>
       )}
     </div>
@@ -3958,9 +3960,9 @@ const AdminParentLinksSection = () => {
 
 const AdminSidebar = ({ navItems, active, onNav, user, onSignOut, extraTop }) => {
   const { language } = useLanguage();
-  const displayName = cleanPersonName(user?.fullName || user?.full_name, user?.email, 'admin', user?.email || 'Admin');
+  const displayName = cleanPersonName(user?.fullName || user?.full_name, user?.email, 'admin', user?.email || t("Admin", "Admin"));
   return (
-    <aside className="sidebar-wrap" aria-label="Navigasi admin">
+    <aside className="sidebar-wrap" aria-label={t("Navigasi admin", "Admin navigation")}>
       <div style={{ padding:'22px 20px 18px', borderBottom:`1px solid ${C.border}`, flexShrink:0 }}>
         <div className="sidebar-logo" style={{ display:'flex', alignItems:'center', gap:10 }}>
           <div style={{
@@ -3990,13 +3992,13 @@ const AdminSidebar = ({ navItems, active, onNav, user, onSignOut, extraTop }) =>
             <div style={{ fontWeight:700, fontSize:14, color:C.text, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>
               {displayName}
             </div>
-            <div style={{ fontSize:11, color:C.textMuted, fontWeight:600 }}>Admin</div>
+            <div style={{ fontSize:11, color:C.textMuted, fontWeight:600 }}>{t("Admin", "Admin")}</div>
           </div>
         </div>
-        <Badge tone="good">Panel Admin</Badge>
+        <Badge tone="good">{t("Panel Admin", "Admin Panel")}</Badge>
       </div>
 
-      <nav className="sidebar-nav" aria-label="Navigasi utama admin" style={{ flex:1, padding:'12px 10px' }}>
+      <nav className="sidebar-nav" aria-label={t("Navigasi utama admin", "Main admin navigation")} style={{ flex:1, padding:'12px 10px' }}>
         {navItems.map(item => {
           const on = active === item.id;
           const visibleLabel = languageText(item.label, item.en, language);
@@ -4041,16 +4043,16 @@ const AdminSidebar = ({ navItems, active, onNav, user, onSignOut, extraTop }) =>
 
       <div className="sidebar-bottom" style={{ padding:'14px 14px 18px', borderTop:`1px solid ${C.border}`, flexShrink:0 }}>
         <div className="sidebar-label" style={{ display:'grid', gap:6, marginBottom:10 }}>
-          <Badge tone="neutral" style={{ justifyContent:'center' }}>Operasi</Badge>
+          <Badge tone="neutral" style={{ justifyContent:'center' }}>{t("Operasi", "Operations")}</Badge>
           <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, lineHeight:1.35, textAlign:'center' }}>
-            Urus pengguna, kelas, kandungan, dan sistem.
+            {t("Urus pengguna, kelas, kandungan, dan sistem.", "Manage users, classes, content, and the system.")}
           </div>
         </div>
         <ThemeToggle />
         <div style={{ marginTop:8 }}>
           <LanguageToggle compact />
         </div>
-        <button className="topbar-signout" onClick={onSignOut} aria-label="Log keluar" style={{
+        <button className="topbar-signout" onClick={onSignOut} aria-label={t("Log keluar", "Sign out")} style={{
           width:'100%',
           marginTop:8,
           background:'rgba(239,68,68,.10)',
@@ -4063,7 +4065,7 @@ const AdminSidebar = ({ navItems, active, onNav, user, onSignOut, extraTop }) =>
           fontWeight:700,
           fontSize:12,
           cursor:'pointer',
-        }}><span aria-hidden="true">🚪</span> <span className="sidebar-label">Log Keluar</span></button>
+        }}><span aria-hidden="true">🚪</span> <span className="sidebar-label">{t("Log Keluar", "Sign Out")}</span></button>
       </div>
     </aside>
   );
@@ -4072,21 +4074,21 @@ const AdminSidebar = ({ navItems, active, onNav, user, onSignOut, extraTop }) =>
 const AdminApp = ({ sidebarExtraTop } = {}) => {
   const [screen, setScreen] = React.useState('home');
   const nav = [
-    { id:'home',       icon:'📊', label:'Papan Pemuka', en:'Dashboard'    },
-    { id:'users',      icon:'👥', label:'Pengguna',     en:'Users'        },
-    { id:'links',      icon:'🔗', label:'Ibu Bapa',     en:'Parent Links' },
-    { id:'classrooms', icon:'🏫', label:'Kelas',        en:'Classrooms'   },
-    { id:'content',    icon:'📚', label:'Kandungan',    en:'Content'      },
-    { id:'settings',   icon:'⚙️', label:'Sistem',       en:'System'       },
+    { id:'home',       icon:'📊', label:t("Papan Pemuka", "Dashboard"), en:'Dashboard'    },
+    { id:'users',      icon:'👥', label:t("Pengguna", "User"),     en:'Users'        },
+    { id:'links',      icon:'🔗', label:t("Ibu Bapa", "Parent"),     en:t("Parent Links", "Parent Links") },
+    { id:'classrooms', icon:'🏫', label:t("Kelas", "Class"),        en:t("Classrooms", "Classrooms")   },
+    { id:'content',    icon:'📚', label:t("Kandungan", "Content"),    en:'Content'      },
+    { id:'settings',   icon:'⚙️', label:t("Sistem", "System"),       en:'System'       },
   ];
 
   const screenMeta = {
-    home:       { title:'Tusyen Admin',  en:'Dashboard'    },
-    users:      { title:'Pengguna',      en:'User Mgmt'    },
-    links:      { title:'Ibu Bapa',      en:'Parent Links' },
-    classrooms: { title:'Kelas',         en:'Classrooms'   },
-    content:    { title:'Kandungan',     en:'Content'      },
-    settings:   { title:'Sistem',        en:'Operations'   },
+    home:       { title:t("Tusyen Admin", "Tusyen Admin"),  en:'Dashboard'    },
+    users:      { title:t("Pengguna", "User"),      en:t("User Mgmt", "User Mgmt")    },
+    links:      { title:t("Ibu Bapa", "Parent"),      en:t("Parent Links", "Parent Links") },
+    classrooms: { title:t("Kelas", "Class"),         en:t("Classrooms", "Classrooms")   },
+    content:    { title:t("Kandungan", "Content"),     en:'Content'      },
+    settings:   { title:t("Sistem", "System"),        en:t("Operations", "Operations")   },
   };
   const meta = screenMeta[screen] || screenMeta.home;
   useScreenFocus(screen);
@@ -4117,7 +4119,7 @@ const AdminApp = ({ sidebarExtraTop } = {}) => {
           {screen === 'content'    && <AdminContent />}
           {screen === 'settings'   && <AdminSystem />}
         </div>
-        <BottomNavMobile items={nav} active={screen} onNav={setScreen} label="Navigasi admin" />
+        <BottomNavMobile items={nav} active={screen} onNav={setScreen} label={t("Navigasi admin", "Admin navigation")} />
       </main>
     </div>
   );

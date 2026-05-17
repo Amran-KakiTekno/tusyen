@@ -63,6 +63,18 @@ Do NOT run any commands.
      their commits to the same remote branch when done, so changes accumulate correctly
    - Instruct it to spawn parallel agents for each Wave 1+ batch (one agent per task group)
    - Instruct it to run blocking/sequential tasks in order before releasing parallel agents
+   - **After all waves are complete and all agents have pushed:** run the Playwright test
+     suite (`npm run qaqc`). If tests pass, proceed. If tests fail, fix the failures before
+     continuing — do not open a PR with a failing test suite.
+   - **Once tests pass:** open a pull request from `feature/<short-slug>` into `main` using
+     `gh pr create`. PR title: the slug in plain English. PR body must include:
+       - Summary of what was implemented (one bullet per task)
+       - Test result (pass/fail counts)
+       - Any known limitations or follow-up items
+   - **Immediately merge the PR** using `gh pr merge --squash --delete-branch`. Do not wait
+     for human approval unless a merge conflict is detected — in that case, stop and report
+     the conflict details instead of forcing through.
+   - After merge confirm with: `git checkout main && git pull` and report the final main HEAD commit hash.
    - Include the same project context above so the model has full background
 
 ## My request
@@ -118,10 +130,11 @@ The agent output below is the result of an implementation run. Work through thes
 2. **Issues found** — list any bugs, inconsistencies, or gaps you spotted
    (wrong file edited, logic error, missing edge case, test not written, etc.)
 
-3. **Branch status** — state which git branch was used and one of:
-   - `PR READY` — all tasks done, no issues blocking merge
-   - `NEEDS WORK` — incomplete/broken tasks remain; do not open PR yet
-   - `ON HOLD` — blocked by an external dependency
+3. **Merge status** — state which branch was used and one of:
+   - `MERGED` — PR was opened and squash-merged into main; include the final main HEAD commit hash
+   - `PR OPEN` — PR was opened but not yet merged (e.g. conflict detected); include the PR URL
+   - `NEEDS WORK` — incomplete/broken tasks remain; PR was not opened; do not merge yet
+   - `ON HOLD` — blocked by an external dependency; PR was not opened
 
 4. **If any tasks are not `[DONE]`:** output a ready-to-paste PLANNER PROMPT (inside a
    code block) that I can paste into a new chat. This prompt must:
@@ -144,7 +157,7 @@ The agent output below is the result of an implementation run. Work through thes
 2. The reviewer will:
    - Update `docs/plan-<slug>.md` in-place with task statuses
    - List any issues found
-   - State branch/PR status
+   - Report merge status (MERGED / PR OPEN / NEEDS WORK / ON HOLD) with commit hash or PR URL
    - If work remains: output a pre-filled Template 1 planner prompt for the next cycle
 3. Copy that planner prompt into a fresh chat to re-plan only the leftover tasks.
 4. Repeat until the reviewer outputs `All tasks complete`.

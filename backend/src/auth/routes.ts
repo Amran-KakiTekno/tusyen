@@ -149,10 +149,6 @@ export async function authRoutes(fastify: FastifyInstance) {
 
     const user = result.rows[0];
 
-    if (isDemoAdminAccount(user.email, user.role) && !config.DEMO_ADMIN_LOGIN_ENABLED) {
-      return reply.code(403).send({ error: 'Demo admin login is disabled on this deployment' });
-    }
-
     if (!user.is_active) {
       return reply.code(403).send({ error: 'Account deactivated' });
     }
@@ -420,6 +416,9 @@ export async function authRoutes(fastify: FastifyInstance) {
     } catch (err) {
       await redis.del(redisKey).catch(() => undefined);
       if (err instanceof KeycloakAuthError) {
+        if (err.auditEvent) {
+          auditLog(request, err.auditEvent, { statusCode: err.statusCode });
+        }
         return reply.code(err.statusCode).send({ error: err.message });
       }
       request.log.error(err);
@@ -682,11 +681,21 @@ async function enforceRateLimit(
 }
 
 function clientIp(request: any) {
-  const forwardedFor = firstHeader(request.headers?.['x-forwarded-for']);
-  const cfConnectingIp = firstHeader(request.headers?.['cf-connecting-ip']);
+  const trustedProxy = isTrustedProxyRequest(request);
+  const forwardedFor = trustedProxy ? firstHeader(request.headers?.['x-forwarded-for']) : null;
+  const cfConnectingIp = trustedProxy ? firstHeader(request.headers?.['cf-connecting-ip']) : null;
   return (cfConnectingIp || forwardedFor?.split(',')[0]?.trim() || request.ip || 'unknown')
     .replace(/[^a-zA-Z0-9:._-]/g, '_')
     .slice(0, 80);
+}
+
+function isTrustedProxyRequest(request: any) {
+  const trusted = (config.TRUSTED_PROXY_IPS || '')
+    .split(',')
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+  if (trusted.length === 0) return false;
+  return trusted.includes(request.ip);
 }
 
 function firstHeader(value: string | string[] | undefined): string | null {
@@ -730,10 +739,6 @@ function bearerAccessToken(value: string | string[] | undefined) {
   if (!header) return null;
   const [scheme, token] = header.split(' ');
   return scheme?.toLowerCase() === 'bearer' && token ? token : null;
-}
-
-function isDemoAdminAccount(email: string, role: string) {
-  return role === 'admin' && email.toLowerCase() === 'admin@tusyen.test';
 }
 
 function isUuid(value: string) {

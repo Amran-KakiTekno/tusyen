@@ -10,6 +10,48 @@ import {
 } from './support/api';
 
 test.describe('full project feature coverage', () => {
+  test('handles the mocked Keycloak OAuth callback in the SPA', async ({ page }) => {
+    const user = {
+      id: randomUUID(),
+      email: `keycloak.${uniqueRunId('kc')}@tusyen.test`,
+      role: 'student',
+      fullName: 'Keycloak Student',
+    };
+
+    await page.route('**/api/auth/keycloak/callback', async (route) => {
+      const requestBody = route.request().postDataJSON() as {
+        code?: string;
+        state?: string;
+        redirectUri?: string;
+      };
+      expect(requestBody.code).toBe('mock-code');
+      expect(requestBody.state).toBe('mock-state');
+      expect(requestBody.redirectUri).toContain('/keycloak-callback');
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          token: 'mock-access-token',
+          refreshToken: 'mock-refresh-token',
+          authProvider: 'keycloak',
+          user,
+        }),
+      });
+    });
+
+    await page.goto('/keycloak-callback?code=mock-code&state=mock-state');
+    await page.waitForFunction(() => localStorage.getItem('tusyen_token') === 'mock-access-token');
+
+    const stored = await page.evaluate(() => ({
+      token: localStorage.getItem('tusyen_token'),
+      refreshToken: localStorage.getItem('tusyen_refresh_token'),
+      user: JSON.parse(localStorage.getItem('tusyen_user') || '{}'),
+    }));
+    expect(stored.token).toBe('mock-access-token');
+    expect(stored.refreshToken).toBe('mock-refresh-token');
+    expect(stored.user.email).toBe(user.email);
+  });
+
   test('exercises the main Tusyen feature workflows end to end', async ({ request, page }) => {
     test.setTimeout(180_000);
 
@@ -387,8 +429,59 @@ test.describe('full project feature coverage', () => {
       const parentLessons = await qa.parent.api.getJson<{ lessons: Array<{ id: string }> }>('/api/learning/lessons');
       expect(parentLessons.lessons.some((item) => item.id === lessonId)).toBe(true);
 
-      const parentAlerts = await qa.parent.api.getJson<{ alerts: unknown[] }>('/api/auth/parent/alerts');
+      const lowScoreSyllabus = await qa.admin.api.postJson<{ item: { id: string } }>('/api/admin/syllabus', {
+        subject: secondarySubject,
+        formLevel: 4,
+        topic: `Amaran Prestasi ${suffix}`,
+        subtopic: 'Skor rendah',
+        orderIndex: 20,
+        content: { summary: 'Item khusus untuk menghasilkan amaran prestasi ibu bapa.' },
+      });
+      const lowScoreLesson = await qa.teacher.api.postJson<{ lessonId: string }>('/api/learning/lessons', {
+        syllabusId: lowScoreSyllabus.item.id,
+        title: `Semakan Skor Rendah ${suffix}`,
+        content: { summary: 'Latihan ringkas untuk menguji amaran skor rendah.', blocks: [] },
+        difficulty: 'easy',
+        estimatedMinutes: 4,
+        quizData: {
+          questions: [{
+            questionText: 'Pilih jawapan betul.',
+            questionType: 'multiple_choice',
+            options: ['Betul', 'Salah'],
+            correctAnswer: 0,
+            points: 1,
+          }],
+        },
+      });
+      await qa.teacher.api.postJson(`/api/classroom/${classroomId}/lessons`, {
+        lessonId: lowScoreLesson.lessonId,
+        isRequired: true,
+      });
+      const lowScoreDetail = await qa.student.api.getJson<{
+        questions: Array<{ id: string }>;
+      }>(`/api/learning/lessons/${lowScoreLesson.lessonId}`, { params: { classroomId } });
+      await qa.student.api.postJson(`/api/learning/lessons/${lowScoreLesson.lessonId}/submit`, {
+        classroomId,
+        answers: [{ questionId: lowScoreDetail.questions[0].id, answer: 'Salah' }],
+        contentReviewed: true,
+        contentBlockCount: 0,
+      });
+
+      const parentAlerts = await qa.parent.api.getJson<{
+        alerts: Array<{
+          childId?: string;
+          severity?: string;
+          avgScore7d?: number;
+          trendDirection?: string;
+        }>;
+      }>('/api/auth/parent/alerts');
       expect(Array.isArray(parentAlerts.alerts)).toBe(true);
+      expect(parentAlerts.alerts).toContainEqual(expect.objectContaining({
+        childId: qa.student.user.id,
+        severity: 'high',
+        avgScore7d: expect.any(Number),
+        trendDirection: expect.any(String),
+      }));
     });
 
     await test.step('classroom feed posts, rich embeds, comments, reactions, and moderation', async () => {
@@ -634,6 +727,18 @@ test.describe('full project feature coverage', () => {
       }
 
       await qa.teacher.api.postJson(`/api/quiz/sessions/${quizSessionId}/start`);
+
+      const paused = await qa.teacher.api.postJson<{
+        snapshot: { session: { questionPausedAt: string | null; questionRemainingMs: number | null } };
+      }>(`/api/quiz/sessions/${quizSessionId}/timer`, { action: 'pause' });
+      expect(paused.snapshot.session.questionPausedAt).toBeTruthy();
+      expect(paused.snapshot.session.questionRemainingMs).toBeGreaterThan(0);
+
+      const resumed = await qa.teacher.api.postJson<{
+        snapshot: { session: { questionPausedAt: string | null; questionEndsAt: string | null } };
+      }>(`/api/quiz/sessions/${quizSessionId}/timer`, { action: 'resume' });
+      expect(resumed.snapshot.session.questionPausedAt).toBeNull();
+      expect(resumed.snapshot.session.questionEndsAt).toBeTruthy();
 
       const quizSocketMessages = await exerciseQuizWebSocket(page, quizSessionId, quizParticipantToken);
       expect(quizSocketMessages).toEqual(expect.arrayContaining(['CONNECTED', 'AUTH_SUCCESS', 'QUIZ_STATE', 'PONG']));

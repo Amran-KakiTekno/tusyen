@@ -62,6 +62,8 @@ function makeCatalogLesson(index: number, overrides: Record<string, any> = {}) {
 describe('learning routes', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    mocks.dbQuery.mockResolvedValue({ rowCount: 0, rows: [] });
+    mocks.txQuery.mockResolvedValue({ rowCount: 0, rows: [] });
     mocks.withTransaction.mockImplementation(async (callback) =>
       callback({ query: mocks.txQuery })
     );
@@ -131,6 +133,123 @@ describe('learning routes', () => {
     expect(String(query)).toContain('l.difficulty');
     expect(String(query)).toContain('LOWER(l.title)');
     expect(params).toEqual(['Mathematics', 4, 'easy', '%gradient%', 100, 0]);
+
+    await app.close();
+  });
+
+  it('scores STEM lesson submissions including partial matching credit', async () => {
+    const lessonId = '11111111-1111-4111-8111-111111111111';
+    const studentId = '55555555-5555-4555-8555-555555555555';
+    const lesson = {
+      id: lessonId,
+      title: 'STEM Scoring',
+      subject: 'Physics',
+      form_level: 4,
+      difficulty: 'medium',
+      estimated_minutes: 15,
+      content: { summary: 'No review blocks.', blocks: [] },
+      classroom_id: null,
+      classroom_name: null,
+      due_date: null,
+      is_required: false,
+      content_block_count: 0,
+    };
+    const questions = [
+      {
+        id: '33333333-3333-4333-8333-000000000001',
+        question_text: 'Fill blank',
+        question_type: 'fill_blank',
+        options: [],
+        correct_answer: 'Gradient',
+        points: 1,
+        order_index: 0,
+      },
+      {
+        id: '33333333-3333-4333-8333-000000000002',
+        question_text: 'Numeric',
+        question_type: 'numeric',
+        options: [],
+        correct_answer: '9.8 m/s^2',
+        points: 1,
+        order_index: 1,
+      },
+      {
+        id: '33333333-3333-4333-8333-000000000003',
+        question_text: 'Matching',
+        question_type: 'matching',
+        options: [
+          { prompt: 'F = ma', answer: 'Newton second law' },
+          { prompt: 'V = IR', answer: 'Ohm law' },
+        ],
+        correct_answer: '',
+        points: 2,
+        order_index: 2,
+      },
+      {
+        id: '33333333-3333-4333-8333-000000000004',
+        question_text: 'Step order',
+        question_type: 'step_order',
+        options: ['Expand brackets', 'Collect like terms', 'Solve for x'],
+        correct_answer: '',
+        points: 1,
+        order_index: 3,
+      },
+    ];
+
+    mocks.dbQuery
+      .mockResolvedValueOnce({ rowCount: 1, rows: [lesson] })
+      .mockResolvedValueOnce({ rowCount: questions.length, rows: questions })
+      .mockResolvedValueOnce({
+        rowCount: 1,
+        rows: [{ id: '44444444-4444-4444-8444-444444444444', score: 80 }],
+      });
+
+    const app = buildApp({
+      userId: studentId,
+      role: 'student',
+    });
+    await app.ready();
+
+    const response = await app.inject({
+      method: 'POST',
+      url: `/learning/lessons/${lessonId}/submit`,
+      payload: {
+        answers: [
+          { questionId: questions[0].id, answer: 'gradient' },
+          { questionId: questions[1].id, answer: '9.81 m/s^2' },
+          {
+            questionId: questions[2].id,
+            answer: {
+              'F = ma': 'Newton second law',
+              'V = IR': 'Wrong law',
+            },
+          },
+          {
+            questionId: questions[3].id,
+            answer: ['Expand brackets', 'Collect like terms', 'Solve for x'],
+          },
+        ],
+      },
+    });
+
+    expect(response.statusCode).toBe(200);
+    expect(response.json().result).toMatchObject({
+      score: 80,
+      correctAnswers: 3,
+      totalQuestions: 4,
+      isCompleted: true,
+    });
+
+    const progressInsert = mocks.dbQuery.mock.calls.find((call) =>
+      String(call[0]).includes('INSERT INTO progress')
+    );
+    expect(progressInsert).toBeTruthy();
+    const detailedAnswers = JSON.parse(progressInsert?.[1][6]);
+    expect(detailedAnswers.find((item: any) => item.questionId === questions[2].id)).toMatchObject({
+      isCorrect: false,
+      scoreMultiplier: 0.5,
+      points: 2,
+    });
 
     await app.close();
   });

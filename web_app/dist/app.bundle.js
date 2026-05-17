@@ -1161,7 +1161,7 @@ const useLanguage = () => {
     t
   };
 };
-const STATIC_TRANSLATIONS = new Map([['Akaun', 'Account'], ['Aktif', 'Active'], ['Amaran', 'Alerts'], ['Anak', 'Children'], ['Bahasa', 'Language'], ['Batal', 'Cancel'], ['Belajar', 'Learn'], ['Belum ada kelas', 'No classes yet'], ['Belum ada markah direkodkan.', 'No scores recorded yet.'], ['Belum ada pelajaran', 'No lessons yet'], ['Belum ada soalan', 'No questions yet'], ['Buat kelas dahulu untuk boleh mulakan sesi kuiz langsung.', 'Create a class first before starting a live quiz session.'], ['Belum mula', 'Not started'], ['Benar / palsu', 'True / false'], ['Buang soalan', 'Remove question'], ['Buang soalan?', 'Remove question?'], ['Cipta Akaun', 'Create Account'], ['Cipta kelas pertama anda', 'Create your first class'], ['Cuba lagi', 'Retry'], ['Cerah', 'Light'], ['Dapatkan PIN daripada guru untuk masuk ke sesi langsung.', 'Get the PIN from your teacher to join the live session.'], ['Dek baharu', 'New deck'], ['Dek kuiz', 'Quiz deck'], ['Dek Kuiz', 'Quiz Decks'], ['DEK KUIZ', 'QUIZ DECKS'], ['Detail Kelas', 'Class Detail'], ['Dijeda', 'Paused'], ['Gelap', 'Dark'], ['Guru', 'Teacher'], ['Hari Streak', 'Day Streak'], ['Ibu Bapa', 'Parent'], ['Jawapan tidak dapat dihantar.', 'Answer could not be submitted.'], ['Jeda', 'Pause'], ['Jumlah Soalan', 'Total Questions'], ['JUMLAH SOALAN', 'TOTAL QUESTIONS'], ['KELAS', 'CLASSES'], ['Kandungan', 'Content'], ['Kata Laluan', 'Password'], ['Kembali ke dek', 'Back to decks'], ['Kelas', 'Classes'], ['Kelas Saya', 'My Classes'], ['Kemajuan', 'Progress'], ['Keputusan', 'Results'], ['Keputusan Kuiz', 'Quiz Results'], ['Ketepatan', 'Accuracy'], ['Ketepatan Setiap Soalan', 'Accuracy By Question'], ['Kimia', 'Chemistry'], ['Komponen kuiz tidak dapat dimuatkan.', 'Quiz component could not be loaded.'], ['Kuiz ini telah tamat. Minta PIN sesi baharu daripada guru.', 'This quiz has ended. Ask your teacher for a new session PIN.'], ['Kuiz', 'Quiz'], ['Kuiz baharu', 'New Quiz'], ['Kuiz langsung', 'Live quiz'], ['Lobi', 'Lobby'], ['Log Keluar', 'Sign Out'], ['Log Masuk', 'Sign In'], ['Langkau ke kandungan utama', 'Skip to main content'], ['Matematik', 'Mathematics'], ['Masukkan PIN 6 digit daripada guru', 'Enter the 6-digit PIN from your teacher'], ['Memadam...', 'Deleting...'], ['Memeriksa sesi kuiz aktif...', 'Checking active quiz session...'], ['Memproses...', 'Processing...'], ['Memulakan...', 'Starting...'], ['Menunggu guru memulakan...', 'Waiting for the teacher to start...'], ['Menyambung ke sesi langsung...', 'Connecting to the live session...'], ['Menyertai...', 'Joining...'], ['Menyimpan...', 'Saving...'], ['Mulakan', 'Start'], ['Mulakan Kuiz', 'Start Quiz'], ['Nama Penuh', 'Full Name'], ['Nama panggilan', 'Nickname'], ['Nama panggilan diperlukan.', 'Nickname is required.'], ['Navigasi admin', 'Admin navigation'], ['Navigasi bawah', 'Bottom navigation'], ['Papan Putih', 'Whiteboard'], ['Papan Skor Langsung', 'Live Scoreboard'], ['Padam dek', 'Delete deck'], ['Padam dek kuiz?', 'Delete quiz deck?'], ['Paparan PIN', 'PIN Display'], ['PELAJAR', 'STUDENTS'], ['Pelajar', 'Student'], ['Pelajaran', 'Lessons'], ['Pemantauan', 'Monitoring'], ['Pengguna', 'Users'], ['Peranan', 'Role'], ['Peserta', 'Participants'], ['Peserta Teratas', 'Top Participants'], ['PIN mesti 6 digit.', 'PIN must be 6 digits.'], ['PIN tidak sah. Semak 6 digit daripada guru dan cuba lagi.', 'Invalid PIN. Check the 6 digits from your teacher and try again.'], ['Pilih bahasa', 'Choose language'], ['Pilih Kelas', 'Select Class'], ['Pilih kelas dahulu.', 'Select a class first.'], ['Pilih tema warna', 'Choose color theme'], ['Pilihan jawapan', 'Multiple choice'], ['Pos', 'Posts'], ['Pos Kelas', 'Class Posts'], ['Profil', 'Profile'], ['Profil Guru', 'Teacher Profile'], ['Ringkasan Kuiz Saya', 'My Quiz Summary'], ['Sains', 'Science'], ['Salin', 'Copy'], ['Salin dek', 'Copy deck'], ['Sambung', 'Resume'], ['Sedang berjalan', 'In progress'], ['Sejarah', 'History'], ['Selesai', 'Done'], ['Sertai Kuiz', 'Join Quiz'], ['Sertai Kuiz dengan PIN', 'Join Quiz With PIN'], ['Sertai Sekarang', 'Join Now'], ['Sesi Terkini', 'Recent Sessions'], ['Sila tunggu...', 'Please wait...'], ['Simpan', 'Save'], ['Simpan dek', 'Save deck'], ['Sistem', 'System'], ['Soalan', 'Questions'], ['Soalan Seterusnya', 'Next Question'], ['Subjek', 'Subject'], ['SUBJEK', 'SUBJECTS'], ['Sunting', 'Edit'], ['Sunting dek', 'Edit deck'], ['Tajuk dek', 'Deck title'], ['Tajuk wajib diisi.', 'Deck title is required.'], ['Tambah sekurang-kurangnya satu soalan lengkap.', 'Add at least one complete question.'], ['Tandai untuk tindak lanjut', 'Flag for follow-up'], ['Tamat', 'Ended'], ['Tamatkan', 'End'], ['Teks soalan...', 'Question text...'], ['Tiada mesej dihantar; tindakan ini hanya menyimpan tanda tindak lanjut.', 'No message is sent; this only saves a follow-up flag.'], ['Tema', 'Theme'], ['Tetapan', 'Settings'], ['Tindakan lanjut', 'More actions'], ['Tindakan lanjut soalan', 'More question actions'], ['Tidak dapat memulakan kuiz.', 'Could not start the quiz.'], ['Tidak dapat menamatkan kuiz.', 'Could not end the quiz.'], ['Tidak dapat mengemas kini pemasa.', 'Could not update the timer.'], ['Tidak dapat pergi ke soalan seterusnya.', 'Could not move to the next question.'], ['Tiada dek lagi. Cipta dek pertama anda.', 'No decks yet. Create your first deck.'], ['Tutup', 'Close'], ['Utama', 'Home']]);
+const STATIC_TRANSLATIONS = new Map([['Akaun', 'Account'], ['Aktif', 'Active'], ['Aktifkan', 'Activate'], ['Amaran', 'Alerts'], ['Amaran & Notifikasi', 'Alerts & Notifications'], ['Anak', 'Children'], ['Anak berjaya dipaut.', 'Child linked successfully.'], ['Anak Dipaut', 'Linked Children'], ['Anda perlukan ID Tusyen pelajar atau e-mel akaun pelajar. Kod kelas guru tidak digunakan di sini.', 'You need the student Tusyen ID or student account email. Teacher class codes are not used here.'], ['Arus, voltan, rintangan', 'Current, voltage, resistance'], ['Atom dan molekul', 'Atoms and molecules'], ['Aktiviti sistem', 'System activity'], ['Bahasa', 'Language'], ['Batal', 'Cancel'], ['Belajar', 'Learn'], ['Belajar 7 hari berturut', 'Study 7 days in a row'], ['Belajar fleksibel', 'Flexible learning'], ['Belum ada pencapaian. Lengkapkan pelajaran pertama untuk membuka badge.', 'No achievements yet. Complete your first lesson to unlock a badge.'], ['Belum ada kelas', 'No classes yet'], ['Belum ada markah direkodkan.', 'No scores recorded yet.'], ['Belum ada pelajaran', 'No lessons yet'], ['Belum ada soalan', 'No questions yet'], ['Belum ada topik selesai', 'No completed topics yet'], ['Belum dipautkan', 'Not linked yet'], ['Belum disemak', 'Not checked yet'], ['Belum log masuk', 'Not logged in yet'], ['Buat kelas dahulu untuk boleh mulakan sesi kuiz langsung.', 'Create a class first before starting a live quiz session.'], ['Buka Panduan Tambah Anak', 'Open Add Child Guide'], ['Belum mula', 'Not started'], ['Benar / palsu', 'True / false'], ['Buang soalan', 'Remove question'], ['Buang soalan?', 'Remove question?'], ['Cipta Akaun', 'Create Account'], ['Cipta Kandungan', 'Create Content'], ['Cipta Kelas', 'Create Class'], ['Cipta kelas pertama anda', 'Create your first class'], ['Cipta Pelajaran Berpandu', 'Create Guided Lesson'], ['Cuba lagi', 'Retry'], ['Cerah', 'Light'], ['Capai 5,000 XP', 'Reach 5,000 XP'], ['Cari ibu bapa...', 'Search parents...'], ['Cari pelajar...', 'Search students...'], ['Dapatkan PIN daripada guru untuk masuk ke sesi langsung.', 'Get the PIN from your teacher to join the live session.'], ['Data anak belum dapat dimuat.', 'Child data could not be loaded yet.'], ['Dek baharu', 'New deck'], ['Dek kuiz', 'Quiz deck'], ['Dek Kuiz', 'Quiz Decks'], ['DEK KUIZ', 'QUIZ DECKS'], ['Detail Kelas', 'Class Detail'], ['Dijeda', 'Paused'], ['Dipautkan', 'Linked'], ['E-mel', 'Email'], ['Faktor dan graf', 'Factors and graphs'], ['Gelap', 'Dark'], ['Geometri', 'Geometry'], ['Guru', 'Teacher'], ['Halaju, pecutan, graf', 'Velocity, acceleration, graphs'], ['Hari aktif', 'Active days'], ['Hari Streak', 'Day Streak'], ['Ibu Bapa', 'Parent'], ['Identiti dan budaya', 'Identity and culture'], ['Ikut rekod semasa', 'Based on current records'], ['Interaksi organisma', 'Organism interactions'], ['Ion dan kovalen', 'Ionic and covalent'], ['Jawapan tidak dapat dihantar.', 'Answer could not be submitted.'], ['Jeda', 'Pause'], ['Jumlah Soalan', 'Total Questions'], ['Jumlah XP', 'Total XP'], ['JUMLAH SOALAN', 'TOTAL QUESTIONS'], ['KELAS', 'CLASSES'], ['Kawalan dalaman', 'Internal regulation'], ['Kandungan', 'Content'], ['Kata Laluan', 'Password'], ['Kembali ke dek', 'Back to decks'], ['Kelas', 'Classes'], ['Kelas baharu', 'New class'], ['Kelas Saya', 'My Classes'], ['Kelas tanpa nama', 'Untitled class'], ['Kemajuan', 'Progress'], ['Keputusan', 'Results'], ['Keputusan Kuiz', 'Quiz Results'], ['Ketepatan', 'Accuracy'], ['Ketepatan Setiap Soalan', 'Accuracy By Question'], ['Kimia', 'Chemistry'], ['Kod Kelas', 'Class Code'], ['Kod kelas guru tidak boleh digunakan. Masukkan ID Tusyen pelajar atau e-mel akaun pelajar.', 'Teacher class codes cannot be used. Enter the student Tusyen ID or student account email.'], ['Komponen kuiz tidak dapat dimuatkan.', 'Quiz component could not be loaded.'], ['Komen ini akan disembunyikan daripada perbincangan pos kelas.', 'This comment will be hidden from the class post discussion.'], ['Kumpulan dan kala', 'Groups and periods'], ['Kuiz ini telah tamat. Minta PIN sesi baharu daripada guru.', 'This quiz has ended. Ask your teacher for a new session PIN.'], ['Kuiz', 'Quiz'], ['Kuiz baharu', 'New Quiz'], ['Kuiz langsung', 'Live quiz'], ['Kelengkapan Profil', 'Profile Completion'], ['Kerja, kuasa, kecekapan', 'Work, power, efficiency'], ['Lobi', 'Lobby'], ['Log Keluar', 'Sign Out'], ['Log keluar', 'Sign out'], ['Log Masuk', 'Sign In'], ['Langkau ke kandungan utama', 'Skip to main content'], ['Latih topik lemah', 'Practice weak topics'], ['Lihat kelas', 'View class'], ['Lihat penguasaan', 'View mastery'], ['Lihat sebab dan cadangan', 'View reasons and suggestions'], ['Matematik', 'Mathematics'], ['Masa minggu ini', 'Time this week'], ['Masukkan ID Tusyen pelajar atau e-mel akaun pelajar.', 'Enter the student Tusyen ID or student account email.'], ['Masukkan PIN 6 digit daripada guru', 'Enter the 6-digit PIN from your teacher'], ['Memadam...', 'Deleting...'], ['Memeriksa sesi kuiz aktif...', 'Checking active quiz session...'], ['Memantau %s', 'Monitoring %s'], ['Memproses...', 'Processing...'], ['Memulakan...', 'Starting...'], ['Menunggu guru memulakan...', 'Waiting for the teacher to start...'], ['Menyambung ke sesi langsung...', 'Connecting to the live session...'], ['Menyertai...', 'Joining...'], ['Menyimpan...', 'Saving...'], ['Mengemas kini...', 'Updating...'], ['Mitosis dan meiosis', 'Mitosis and meiosis'], ['Mulakan', 'Start'], ['Mulakan Kuiz', 'Start Quiz'], ['Mula topik semasa', 'Start current topic'], ['Nama Penuh', 'Full Name'], ['Nama panggilan', 'Nickname'], ['Nama panggilan diperlukan.', 'Nickname is required.'], ['Navigasi admin', 'Admin navigation'], ['Navigasi bawah', 'Bottom navigation'], ['Navigasi guru', 'Teacher navigation'], ['Nombor', 'Numbers'], ['Notifikasi', 'Notifications'], ['Nyahaktifkan', 'Deactivate'], ['Nyahaktifkan kelas', 'Deactivate class'], ['Nyahaktifkan Pautan', 'Deactivate Link'], ['Nyahaktifkan pautan', 'Deactivate link'], ['Nyahaktifkan pautan keluarga?', 'Deactivate family link?'], ['Papan Putih', 'Whiteboard'], ['Papan Skor Langsung', 'Live Scoreboard'], ['Pangkalan Data', 'Database'], ['Padam dek', 'Delete deck'], ['Padam dek kuiz?', 'Delete quiz deck?'], ['Padam komen', 'Delete comment'], ['Padam pos', 'Delete post'], ['Paparan PIN', 'PIN Display'], ['PELAJAR', 'STUDENTS'], ['Pelajar', 'Student'], ['Pelajar Berisiko', 'At-Risk Students'], ['Pelajaran dicadang', 'Suggested lesson'], ['Pelajaran', 'Lessons'], ['Pemantauan', 'Monitoring'], ['Pembangunan negara', 'National development'], ['Pemasa kuiz langsung', 'Live quiz timer'], ['Pengguna', 'Users'], ['Pengurusan alam sekitar', 'Environmental management'], ['Peranan', 'Role'], ['Peristiwa utama', 'Key events'], ['Perlembagaan dan sistem', 'Constitution and system'], ['Perbincangan', 'Discussion'], ['Peserta', 'Participants'], ['Peserta Teratas', 'Top Participants'], ['pH dan peneutralan', 'pH and neutralization'], ['PIN mesti 6 digit.', 'PIN must be 6 digits.'], ['PIN tidak sah. Semak 6 digit daripada guru dan cuba lagi.', 'Invalid PIN. Check the 6 digits from your teacher and try again.'], ['Pautan ditambah.', 'Link added.'], ['Pautan dinyahaktifkan.', 'Link deactivated.'], ['Pautan Ibu Bapa-Pelajar', 'Parent-Student Links'], ['Pautan Ibu Bapa–Pelajar', 'Parent-Student Links'], ['Pautkan anak untuk mula memantau.', 'Link a child to start monitoring.'], ['Pilih anak', 'Select child'], ['Pilih bahasa', 'Choose language'], ['Pilih Kelas', 'Select Class'], ['Pilih kelas dahulu.', 'Select a class first.'], ['Pilih ibu bapa dan pelajar.', 'Select a parent and student.'], ['Pilih subjek', 'Choose subject'], ['Pilih tema warna', 'Choose color theme'], ['Pilih topik semasa', 'Choose current topic'], ['Pilihan jawapan', 'Multiple choice'], ['Pos', 'Posts'], ['Pos baharu', 'New post'], ['Pos Kelas', 'Class Posts'], ['Pos daripada kelas anak akan muncul di sini.', 'Posts from the child classes will appear here.'], ['Profil', 'Profile'], ['Profil Guru', 'Teacher Profile'], ['Pewarisan sifat', 'Inherited traits'], ['Pratonton Pelajaran', 'Lesson Preview'], ['Privasi: pautan ibu bapa hanya memaparkan kemajuan, kelas, dan pos berkaitan anak. Pastikan anak bersetuju sebelum memaut akaun.', 'Privacy: parent links only show progress, classes, and posts related to the child. Make sure the child agrees before linking the account.'], ['Purata Siap', 'Average Completion'], ['Purata skor', 'Average score'], ['Ringkasan Kuiz Saya', 'My Quiz Summary'], ['Ringkasan ibu bapa', 'Parent summary'], ['Sains', 'Science'], ['Salin', 'Copy'], ['Salin dek', 'Copy deck'], ['Sambung', 'Resume'], ['Saiz storan belum dimuat.', 'Storage size has not loaded.'], ['Sedang berjalan', 'In progress'], ['Sejarah', 'History'], ['Sejarah Pelajaran', 'Lesson History'], ['Selesai', 'Done'], ['Selesai semua Algebra', 'Complete all Algebra'], ['Sertai Kuiz', 'Join Quiz'], ['Sertai Kuiz dengan PIN', 'Join Quiz With PIN'], ['Sertai Sekarang', 'Join Now'], ['Sesi Terkini', 'Recent Sessions'], ['Sahkan', 'Confirm'], ['Sahkan persetujuan anak sebelum memaut akaun.', 'Confirm the child consent before linking the account.'], ['Sila tunggu...', 'Please wait...'], ['Simpan', 'Save'], ['Simpan dek', 'Save deck'], ['Simpan draf', 'Save draft'], ['Simpan Perubahan', 'Save Changes'], ['Simpan Profil', 'Save Profile'], ['Sistem', 'System'], ['Skala dan arah', 'Scale and direction'], ['Skor 100% dalam ujian', 'Score 100% in a quiz'], ['Soalan', 'Questions'], ['Soalan Latihan', 'Practice Questions'], ['Soalan Seterusnya', 'Next Question'], ['Status belum dimuat.', 'Status has not loaded.'], ['Statistik', 'Statistics'], ['Storan', 'Storage'], ['Struktur dan fungsi', 'Structure and function'], ['Subjek', 'Subject'], ['SUBJEK', 'SUBJECTS'], ['Suapan & Pos', 'Feed & Posts'], ['Suapan Kelas', 'Class Feed'], ['Sunting', 'Edit'], ['Sunting dek', 'Edit deck'], ['Sunting profil', 'Edit profile'], ['Tajuk dek', 'Deck title'], ['Tajuk Pelajaran', 'Lesson Title'], ['Tajuk wajib diisi.', 'Deck title is required.'], ['Tambah sekurang-kurangnya satu soalan lengkap.', 'Add at least one complete question.'], ['Tambah Anak', 'Add Child'], ['Tambah Pautan', 'Add Link'], ['Tambah Pautan Baharu', 'Add New Link'], ['Tambah Pengguna', 'Add User'], ['Tambah Soalan', 'Add Question'], ['Tandai untuk tindak lanjut', 'Flag for follow-up'], ['Tamat', 'Ended'], ['Tamatkan', 'End'], ['Tanah tinggi dan saliran', 'Highlands and drainage'], ['Tanpa tajuk', 'Untitled'], ['Teks soalan...', 'Question text...'], ['Tiada mesej dihantar; tindakan ini hanya menyimpan tanda tindak lanjut.', 'No message is sent; this only saves a follow-up flag.'], ['Tetapkan ke Kelas', 'Assign to Class'], ['Tema', 'Theme'], ['Tetapan', 'Settings'], ['Tetapan Akaun', 'Account Settings'], ['Tetapan Ibu Bapa', 'Parent Settings'], ['Tetapan Kelas', 'Class Settings'], ['Tingkatan', 'Form'], ['Tindakan lanjut', 'More actions'], ['Tindakan lanjut soalan', 'More question actions'], ['Tindak lanjut disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.', 'Follow-up saved on this device. Use official class or school channels if a question must be sent.'], ['Tokoh dan gerakan', 'Figures and movements'], ['Topik pembelajaran', 'Learning topic'], ['Tidak dapat memulakan kuiz.', 'Could not start the quiz.'], ['Tidak dapat menamatkan kuiz.', 'Could not end the quiz.'], ['Tidak dapat mengemas kini pemasa.', 'Could not update the timer.'], ['Tidak dapat pergi ke soalan seterusnya.', 'Could not move to the next question.'], ['Tidak dapat memaut anak.', 'Unable to link child.'], ['Tidak dapat membuang pautan anak.', 'Unable to remove child link.'], ['Tidak dapat memuat anak terpaut.', 'Unable to load linked child.'], ['Tidak dapat memuat kemajuan.', 'Unable to load progress.'], ['Tidak dapat memuat pos.', 'Unable to load posts.'], ['Tidak dapat menukar kata laluan.', 'Unable to change password.'], ['Tidak aktif', 'Inactive'], ['Tiada dek lagi. Cipta dek pertama anda.', 'No decks yet. Create your first deck.'], ['Tiada data', 'No data'], ['Tiada e-mel', 'No email'], ['Tiada e-mel ibu bapa', 'No parent email'], ['Tiada e-mel pelajar', 'No student email'], ['Tiada ibu bapa ditemui', 'No parents found'], ['Tiada pelajar ditemui', 'No students found'], ['Tiada amaran aktif', 'No active alerts'], ['Tiada ulasan lagi.', 'No comments yet.'], ['Tutup', 'Close'], ['Tugasan', 'Assignment'], ['Tugasan guru', 'Teacher assignment'], ['Tugasan Kelas', 'Class Assignments'], ['Tugaskan Pelajaran', 'Assign Lesson'], ['Ulang kaji selesai', 'Review completed'], ['Urus Pengguna', 'Manage Users'], ['Utama', 'Home'], ['%s anak didaftarkan', '%s children linked'], ['+ Cipta kelas baharu', '+ Create new class'], ['+ Pos baharu', '+ New post']]);
 const STATIC_TRANSLATION_PATTERNS = [[/^\+ Tambah Soalan$/, '+ Add Question'], [/^(\d+) soalan$/, '$1 questions'], [/^(\d+) soalan - (.+)$/, '$1 questions - $2'], [/^(\d+) peserta dalam lobi$/, '$1 participants in lobby'], [/^(\d+) peserta$/, '$1 participants'], [/^(\d+) sesi - (.+) XP diperoleh$/, '$1 sessions - $2 XP earned'], [/^(\d+)\/(\d+) betul$/, '$1/$2 correct'], [/^(.+)\sPelajar$/, '$1 Student'], [/^(.+)\sGuru$/, '$1 Teacher'], [/^(.+)\sIbu Bapa$/, '$1 Parent'], [/^Tindakan lanjut untuk (.+)$/, 'More actions for $1'], [/^Form (\d+)$/, 'Form $1'], [/^Pilihan ([A-Z])$/, 'Option $1'], [/^PIN Kuiz \(6 digit\)$/, 'Quiz PIN (6 digits)'], [/^Soalan (\d+)$/, 'Question $1'], [/^Tingkatan (\d+)$/, 'Form $1'], [/^Dek "(.+)" akan dibuang daripada senarai guru\.$/, 'Deck "$1" will be removed from the teacher list.'], [/^Soalan (\d+) akan dikeluarkan daripada draf dek ini\.$/, 'Question $1 will be removed from this deck draft.']];
 const TRANSLATED_TEXT_NODES = new WeakMap();
 const TRANSLATED_ATTRS = new WeakMap();
@@ -6452,7 +6452,8 @@ const SUBJECTS = [{
 const SKILL_NODES = [{
   id: 1,
   label: 'Nombor',
-  sub: 'Numbers',
+  sub: 'Nombor',
+  subEn: 'Numbers',
   done: true,
   locked: false,
   cur: false
@@ -6460,27 +6461,31 @@ const SKILL_NODES = [{
   id: 2,
   label: 'Algebra',
   sub: 'Algebra',
+  subEn: 'Algebra',
   done: true,
   locked: false,
   cur: false
 }, {
   id: 3,
   label: 'Geometri',
-  sub: 'Geometry',
+  sub: 'Geometri',
+  subEn: 'Geometry',
   done: false,
   locked: false,
   cur: true
 }, {
   id: 4,
   label: 'Trigonometri',
-  sub: 'Trigonometry',
+  sub: 'Trigonometri',
+  subEn: 'Trigonometry',
   done: false,
   locked: true,
   cur: false
 }, {
   id: 5,
   label: 'Statistik',
-  sub: 'Statistics',
+  sub: 'Statistik',
+  subEn: 'Statistics',
   done: false,
   locked: true,
   cur: false
@@ -6491,6 +6496,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'bio-1',
     label: 'Sel',
     sub: 'Struktur dan fungsi',
+    subEn: 'Structure and function',
     done: false,
     locked: false,
     cur: true
@@ -6498,6 +6504,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'bio-2',
     label: 'Pembahagian Sel',
     sub: 'Mitosis dan meiosis',
+    subEn: 'Mitosis and meiosis',
     done: false,
     locked: true,
     cur: false
@@ -6505,6 +6512,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'bio-3',
     label: 'Genetik',
     sub: 'Pewarisan sifat',
+    subEn: 'Inherited traits',
     done: false,
     locked: true,
     cur: false
@@ -6512,6 +6520,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'bio-4',
     label: 'Ekosistem',
     sub: 'Interaksi organisma',
+    subEn: 'Organism interactions',
     done: false,
     locked: true,
     cur: false
@@ -6519,6 +6528,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'bio-5',
     label: 'Homeostasis',
     sub: 'Kawalan dalaman',
+    subEn: 'Internal regulation',
     done: false,
     locked: true,
     cur: false
@@ -6527,6 +6537,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'phy-1',
     label: 'Daya dan Gerakan',
     sub: 'Halaju, pecutan, graf',
+    subEn: 'Velocity, acceleration, graphs',
     done: false,
     locked: false,
     cur: true
@@ -6534,6 +6545,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'phy-2',
     label: 'Tenaga',
     sub: 'Kerja, kuasa, kecekapan',
+    subEn: 'Work, power, efficiency',
     done: false,
     locked: true,
     cur: false
@@ -6541,6 +6553,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'phy-3',
     label: 'Haba',
     sub: 'Suhu dan pemindahan haba',
+    subEn: 'Temperature and heat transfer',
     done: false,
     locked: true,
     cur: false
@@ -6548,6 +6561,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'phy-4',
     label: 'Gelombang',
     sub: 'Bunyi dan cahaya',
+    subEn: 'Sound and light',
     done: false,
     locked: true,
     cur: false
@@ -6555,6 +6569,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'phy-5',
     label: 'Elektrik',
     sub: 'Arus, voltan, rintangan',
+    subEn: 'Current, voltage, resistance',
     done: false,
     locked: true,
     cur: false
@@ -6563,6 +6578,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'chem-1',
     label: 'Jirim',
     sub: 'Atom dan molekul',
+    subEn: 'Atoms and molecules',
     done: false,
     locked: false,
     cur: true
@@ -6570,6 +6586,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'chem-2',
     label: 'Jadual Berkala',
     sub: 'Kumpulan dan kala',
+    subEn: 'Groups and periods',
     done: false,
     locked: true,
     cur: false
@@ -6577,6 +6594,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'chem-3',
     label: 'Ikatan Kimia',
     sub: 'Ion dan kovalen',
+    subEn: 'Ionic and covalent',
     done: false,
     locked: true,
     cur: false
@@ -6584,6 +6602,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'chem-4',
     label: 'Asid dan Bes',
     sub: 'pH dan peneutralan',
+    subEn: 'pH and neutralization',
     done: false,
     locked: true,
     cur: false
@@ -6591,6 +6610,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'chem-5',
     label: 'Kadar Tindak Balas',
     sub: 'Faktor dan graf',
+    subEn: 'Factors and graphs',
     done: false,
     locked: true,
     cur: false
@@ -6599,6 +6619,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'hist-1',
     label: 'Warisan Negara',
     sub: 'Identiti dan budaya',
+    subEn: 'Identity and culture',
     done: false,
     locked: false,
     cur: true
@@ -6606,6 +6627,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'hist-2',
     label: 'Nasionalisme',
     sub: 'Tokoh dan gerakan',
+    subEn: 'Figures and movements',
     done: false,
     locked: true,
     cur: false
@@ -6613,6 +6635,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'hist-3',
     label: 'Pembentukan Negara',
     sub: 'Perlembagaan dan sistem',
+    subEn: 'Constitution and system',
     done: false,
     locked: true,
     cur: false
@@ -6620,6 +6643,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'hist-4',
     label: 'Kemerdekaan',
     sub: 'Peristiwa utama',
+    subEn: 'Key events',
     done: false,
     locked: true,
     cur: false
@@ -6627,6 +6651,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'hist-5',
     label: 'Malaysia Moden',
     sub: 'Pembangunan negara',
+    subEn: 'National development',
     done: false,
     locked: true,
     cur: false
@@ -6635,6 +6660,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'geo-1',
     label: 'Kemahiran Peta',
     sub: 'Skala dan arah',
+    subEn: 'Scale and direction',
     done: false,
     locked: false,
     cur: true
@@ -6642,6 +6668,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'geo-2',
     label: 'Bentuk Muka Bumi',
     sub: 'Tanah tinggi dan saliran',
+    subEn: 'Highlands and drainage',
     done: false,
     locked: true,
     cur: false
@@ -6649,6 +6676,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'geo-3',
     label: 'Cuaca dan Iklim',
     sub: 'Hujan, suhu, angin',
+    subEn: 'Rainfall, temperature, wind',
     done: false,
     locked: true,
     cur: false
@@ -6656,6 +6684,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'geo-4',
     label: 'Penduduk',
     sub: 'Taburan dan migrasi',
+    subEn: 'Distribution and migration',
     done: false,
     locked: true,
     cur: false
@@ -6663,6 +6692,7 @@ const SUBJECT_SKILL_FALLBACKS = {
     id: 'geo-5',
     label: 'Sumber',
     sub: 'Pengurusan alam sekitar',
+    subEn: 'Environmental management',
     done: false,
     locked: true,
     cur: false
@@ -6715,86 +6745,111 @@ const QUESTIONS = [{
 const BADGES = [{
   icon: '🔥',
   name: 'Streak 7 Hari',
+  nameEn: '7-Day Streak',
   desc: 'Belajar 7 hari berturut',
+  descEn: 'Study 7 days in a row',
   earned: true
 }, {
   icon: '⚡',
   name: 'Pelajar Pantas',
+  nameEn: 'Fast Learner',
   desc: '10 pelajaran sehari',
+  descEn: '10 lessons in one day',
   earned: true
 }, {
   icon: '🎯',
   name: 'Markah Sempurna',
+  nameEn: 'Perfect Score',
   desc: 'Skor 100% dalam ujian',
+  descEn: 'Score 100% in a quiz',
   earned: true
 }, {
   icon: '🏆',
   name: 'Top 3 Kelas',
+  nameEn: 'Top 3 in Class',
   desc: '3 teratas dalam kelas',
+  descEn: 'Top 3 in class',
   earned: false
 }, {
   icon: '💎',
   name: 'Pelajar Elit',
+  nameEn: 'Elite Student',
   desc: 'Capai 5,000 XP',
+  descEn: 'Reach 5,000 XP',
   earned: false
 }, {
   icon: '🌟',
   name: 'Penguasa Algebra',
+  nameEn: 'Algebra Master',
   desc: 'Selesai semua Algebra',
+  descEn: 'Complete all Algebra',
   earned: false
 }];
 const ACHIEVEMENT_TYPE_META = {
   streak: {
     icon: '7',
-    name: 'Rentetan Hari'
+    name: 'Rentetan Hari',
+    nameEn: 'Day Streak'
   },
   streak_7: {
     icon: '7',
-    name: 'Streak 7 Hari'
+    name: 'Streak 7 Hari',
+    nameEn: '7-Day Streak'
   },
   daily_streak: {
     icon: '7',
-    name: 'Rentetan Harian'
+    name: 'Rentetan Harian',
+    nameEn: 'Daily Streak'
   },
   fast_learner: {
     icon: 'XP',
-    name: 'Pelajar Pantas'
+    name: 'Pelajar Pantas',
+    nameEn: 'Fast Learner'
   },
   speed_learner: {
     icon: 'XP',
-    name: 'Pelajar Pantas'
+    name: 'Pelajar Pantas',
+    nameEn: 'Fast Learner'
   },
   perfect_score: {
     icon: '100',
-    name: 'Markah Sempurna'
+    name: 'Markah Sempurna',
+    nameEn: 'Perfect Score'
   },
   top_3_class: {
     icon: 'TOP',
-    name: 'Top 3 Kelas'
+    name: 'Top 3 Kelas',
+    nameEn: 'Top 3 in Class'
   },
   top3_class: {
     icon: 'TOP',
-    name: 'Top 3 Kelas'
+    name: 'Top 3 Kelas',
+    nameEn: 'Top 3 in Class'
   },
   elite_student: {
     icon: 'XP',
-    name: 'Pelajar Elit'
+    name: 'Pelajar Elit',
+    nameEn: 'Elite Student'
   },
   subject_mastery: {
     icon: 'OK',
-    name: 'Penguasaan Subjek'
+    name: 'Penguasaan Subjek',
+    nameEn: 'Subject Mastery'
   },
   topic_mastery: {
     icon: 'OK',
-    name: 'Penguasaan Topik'
+    name: 'Penguasaan Topik',
+    nameEn: 'Topic Mastery'
   },
   lesson_completion: {
     icon: 'OK',
-    name: 'Selesai Pelajaran'
+    name: 'Selesai Pelajaran',
+    nameEn: 'Lesson Complete'
   },
   quiz_mastery: {
     icon: '100',
-    name: 'Penguasaan Kuiz'
+    name: 'Penguasaan Kuiz',
+    nameEn: 'Quiz Mastery'
   }
 };
 const achievementTypeKey = (value = '') => `${value || ''}`.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
@@ -7398,7 +7453,9 @@ const useAchievements = () => {
       return {
         icon: a.icon || a.icon_url || meta.icon,
         name: studentTitle(a.name || a.title || meta.name, meta.name, 64),
+        nameEn: a.name_en || a.title_en || meta.nameEn || '',
         desc: a.description || a.desc || '',
+        descEn: a.description_en || a.desc_en || '',
         earned: Boolean(a.is_earned || a.earned || a.earned_at),
         type
       };
@@ -10700,6 +10757,11 @@ const progressRowMatchesSyllabusItem = (row = {}, item = {}) => {
   if (!rowKey || !itemTitleKey) return false;
   return rowKey.includes(itemTitleKey) || itemTitleKey.includes(rowKey) || !!itemKey && itemKey.length >= 4 && rowKey.includes(itemKey);
 };
+const localizedSkillSub = (item = {}, fallback = '') => {
+  const source = item.subtopic || item.sub || item.topic || fallback;
+  const label = studentText(source, '', 64);
+  return item.subEn && !item.subtopic ? tStudent(label, item.subEn) : label;
+};
 const buildSkillNodes = (items, subjectId, progress, progressRows = []) => {
   const source = items && items.length ? items : SUBJECT_SKILL_FALLBACKS[subjectId] || SKILL_NODES;
   const total = source.length || 1;
@@ -10712,18 +10774,19 @@ const buildSkillNodes = (items, subjectId, progress, progressRows = []) => {
   const firstOpenIndex = topicDoneFlags.findIndex(done => !done);
   const currentIndex = hasTopicProgress ? inProgressIndex >= 0 ? inProgressIndex : firstOpenIndex : fallbackCurrentIndex;
   return source.map((it, i) => {
-    const label = studentTitle(it.topic || it.label, `Topik ${i + 1}`);
+    const label = studentTitle(it.topic || it.label, tStudent(`Topik ${i + 1}`, `Topic ${i + 1}`));
     const done = hasTopicProgress ? topicDoneFlags[i] : i < completed;
     const cur = !done && i === currentIndex;
     const locked = hasTopicProgress ? !done && currentIndex >= 0 && i > currentIndex : progress < 100 && i > currentIndex;
+    const previousTopic = studentTitle(source[i - 1]?.topic || source[i - 1]?.label, tStudent('topik sebelumnya', 'the previous topic'));
     return {
       id: it.id || `${subjectId}-${i}`,
       label,
-      sub: studentText(it.subtopic || it.sub || it.topic, '', 64),
+      sub: localizedSkillSub(it),
       done,
       cur,
       locked,
-      lockReason: locked ? `Selesaikan ${studentTitle(source[i - 1]?.topic || source[i - 1]?.label, 'topik sebelumnya')} dahulu` : ''
+      lockReason: locked ? tStudent(`Selesaikan ${previousTopic} dahulu`, `Complete ${previousTopic} first`) : ''
     };
   });
 };
@@ -10824,7 +10887,7 @@ const SLearn = ({
   const catalogLessons = catalogState.data || [];
   const catalogLessonsForSubject = catalogLessons.filter(lesson => lessonMatchesSubjectForm(lesson, subj, formLevel));
   const allLessonsForSubject = mergeLessonPools(assignedLessonsForSubject, catalogLessonsForSubject);
-  const formLabel = formLevel ? `Tingkatan ${formLevel}` : 'Tingkatan belum ditetapkan';
+  const formLabel = formLevel ? tStudent(`Tingkatan ${formLevel}`, `Form ${formLevel}`) : tStudent('Tingkatan belum ditetapkan', 'Form not set');
   const nodesState = useSyllabusNodes(active, subj.progress, formLevel);
   const nodes = nodesState.data || buildSkillNodes([], active, subj.progress);
   const phone = useNarrow(620);
@@ -10832,7 +10895,7 @@ const SLearn = ({
   const currentNode = nodes.find(node => node.cur) || nodes.find(node => !node.done && !node.locked) || null;
   const nextLesson = allLessonsForSubject.find(lesson => lesson.progress > 0 && lesson.progress < 100) || allLessonsForSubject.find(lesson => lesson.progress < 100) || null;
   const weakNode = nodes.find(node => !node.done && !node.locked && !node.cur) || currentNode || completedNodes[completedNodes.length - 1] || null;
-  const softNote = !isRealStudent ? '' : catalogState.loading ? 'Memuat pelajaran bebas untuk subjek ini.' : !hasClassroom ? 'Guru belum menetapkan pelajaran. Kamu boleh belajar secara bebas dari katalog.' : assignedLessonsForSubject.length ? 'Tugasan kelas diutamakan. Pelajaran bebas masih tersedia untuk latihan tambahan.' : 'Guru belum menetapkan pelajaran. Kamu boleh belajar secara bebas dari katalog.';
+  const softNote = !isRealStudent ? '' : catalogState.loading ? tStudent('Memuat pelajaran bebas untuk subjek ini.', 'Loading free lessons for this subject.') : !hasClassroom ? tStudent('Guru belum menetapkan pelajaran. Kamu boleh belajar secara bebas dari katalog.', 'Your teacher has not assigned lessons yet. You can learn freely from the catalog.') : assignedLessonsForSubject.length ? tStudent('Tugasan kelas diutamakan. Pelajaran bebas masih tersedia untuk latihan tambahan.', 'Class assignments are prioritized. Free lessons are still available for extra practice.') : tStudent('Guru belum menetapkan pelajaran. Kamu boleh belajar secara bebas dari katalog.', 'Your teacher has not assigned lessons yet. You can learn freely from the catalog.');
   const runTopicAction = type => {
     if (type === 'next') {
       if (nextLesson) {
@@ -10843,23 +10906,23 @@ const SLearn = ({
         openNodeLesson(currentNode);
         return;
       }
-      setLockedNotice('Semua topik sudah selesai. Ulang kaji topik yang pernah dibuat untuk kekalkan penguasaan.');
+      setLockedNotice(tStudent('Semua topik sudah selesai. Ulang kaji topik yang pernah dibuat untuk kekalkan penguasaan.', 'All topics are complete. Review completed topics to keep your mastery strong.'));
       return;
     }
     if (type === 'revise') {
       const target = completedNodes[completedNodes.length - 1];
-      if (target) openNodeLesson(target);else setLockedNotice('Belum ada topik selesai untuk diulang kaji.');
+      if (target) openNodeLesson(target);else setLockedNotice(tStudent('Belum ada topik selesai untuk diulang kaji.', 'No completed topics to review yet.'));
       return;
     }
     if (type === 'weak') {
-      if (weakNode) openNodeLesson(weakNode);else setLockedNotice('Tiada topik lemah dikesan setakat ini.');
+      if (weakNode) openNodeLesson(weakNode);else setLockedNotice(tStudent('Tiada topik lemah dikesan setakat ini.', 'No weak topics detected yet.'));
       return;
     }
     goProgress?.();
   };
   const openNodeLesson = node => {
     if (node.locked) {
-      setLockedNotice(node.lockReason || 'Topik ini masih terkunci.');
+      setLockedNotice(node.lockReason || tStudent('Topik ini masih terkunci.', 'This topic is still locked.'));
       return;
     }
     setLockedNotice('');
@@ -10895,7 +10958,7 @@ const SLearn = ({
     }
   }, /*#__PURE__*/React.createElement("select", {
     className: "student-native-select",
-    "aria-label": "Pilih subjek",
+    "aria-label": tStudent('Pilih subjek', 'Choose subject'),
     value: active,
     onChange: e => selectSubject(e.target.value),
     style: {
@@ -10906,7 +10969,7 @@ const SLearn = ({
   }, subjects.map(s => /*#__PURE__*/React.createElement("option", {
     key: s.id,
     value: s.id
-  }, s.name, " - ", s.progress, "% siap")))) : /*#__PURE__*/React.createElement("div", {
+  }, tStudent(`${s.name} - ${s.progress}% siap`, `${s.name} - ${s.progress}% complete`))))) : /*#__PURE__*/React.createElement("div", {
     className: "student-scroll-fade",
     style: {
       marginBottom: 20
@@ -10968,7 +11031,7 @@ const SLearn = ({
         fontWeight: 900,
         color: s.color
       }
-    }, "Aktif"));
+    }, tStudent('Aktif', 'Active')));
   }))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
@@ -11000,7 +11063,7 @@ const SLearn = ({
       fontWeight: 600,
       marginTop: 4
     }
-  }, formLabel, " \xB7 ", subj.progress, "% siap")), /*#__PURE__*/React.createElement("div", {
+  }, formLabel, " \xB7 ", tStudent(`${subj.progress}% siap`, `${subj.progress}% complete`))), /*#__PURE__*/React.createElement("div", {
     style: {
       minWidth: phone ? 0 : 160,
       width: phone ? '100%' : undefined,
@@ -11019,7 +11082,7 @@ const SLearn = ({
       color: C.textFaint,
       fontWeight: 600
     }
-  }, nodes.filter(n => n.done).length, "/", nodes.length, " topik"), /*#__PURE__*/React.createElement("span", {
+  }, tStudent(`${nodes.filter(n => n.done).length}/${nodes.length} topik`, `${nodes.filter(n => n.done).length}/${nodes.length} topics`)), /*#__PURE__*/React.createElement("span", {
     style: {
       fontSize: 11,
       color: subj.color,
@@ -11043,7 +11106,7 @@ const SLearn = ({
       lineHeight: 1.45
     }
   }, lockedNotice), (lessonState.error || catalogState.error) && /*#__PURE__*/React.createElement(ErrorRetry, {
-    message: "Sebahagian pelajaran tidak dapat dimuat. Cuba semula atau teruskan topik yang sudah tersedia.",
+    message: tStudent('Sebahagian pelajaran tidak dapat dimuat. Cuba semula atau teruskan topik yang sudah tersedia.', 'Some lessons could not be loaded. Try again or continue with the topics already available.'),
     onRetry: () => {
       lessonState.refresh?.();
       catalogState.refresh?.();
@@ -11062,7 +11125,7 @@ const SLearn = ({
       fontWeight: 900,
       marginBottom: 4
     }
-  }, "Belajar fleksibel"), /*#__PURE__*/React.createElement("div", {
+  }, tStudent('Belajar fleksibel', 'Flexible learning')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 12,
       color: C.textMuted,
@@ -11078,20 +11141,20 @@ const SLearn = ({
     }
   }, [{
     key: 'next',
-    label: 'Pelajaran dicadang',
-    sub: nextLesson?.title || currentNode?.label || 'Pilih topik semasa'
+    label: tStudent('Pelajaran dicadang', 'Suggested lesson'),
+    sub: nextLesson?.title || currentNode?.label || tStudent('Pilih topik semasa', 'Choose current topic')
   }, {
     key: 'revise',
-    label: 'Ulang kaji selesai',
-    sub: completedNodes.length ? `${completedNodes.length} topik tersedia` : 'Belum ada topik selesai'
+    label: tStudent('Ulang kaji selesai', 'Review completed'),
+    sub: completedNodes.length ? tStudent(`${completedNodes.length} topik tersedia`, `${completedNodes.length} topics available`) : tStudent('Belum ada topik selesai', 'No completed topics yet')
   }, {
     key: 'weak',
-    label: 'Latih topik lemah',
-    sub: weakNode?.label || 'Ikut rekod semasa'
+    label: tStudent('Latih topik lemah', 'Practice weak topics'),
+    sub: weakNode?.label || tStudent('Ikut rekod semasa', 'Based on current records')
   }, {
     key: 'mastery',
-    label: 'Lihat penguasaan',
-    sub: `${subj.progress}% siap`
+    label: tStudent('Lihat penguasaan', 'View mastery'),
+    sub: tStudent(`${subj.progress}% siap`, `${subj.progress}% complete`)
   }].map(action => {
     return /*#__PURE__*/React.createElement("button", {
       key: action.key,
@@ -11141,7 +11204,7 @@ const SLearn = ({
       letterSpacing: .8,
       marginBottom: 10
     }
-  }, "Tugasan Kelas"), lessonState.loading ? /*#__PURE__*/React.createElement("div", {
+  }, tStudent('Tugasan Kelas', 'Class Assignments')), lessonState.loading ? /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: phone ? '1fr' : 'repeat(2, minmax(0, 1fr))',
@@ -11203,7 +11266,7 @@ const SLearn = ({
         lineHeight: 1.25,
         marginBottom: 8
       }
-    }, dueLabel || lesson.topic || 'Tugasan guru'), /*#__PURE__*/React.createElement(ProgressBar, {
+    }, dueLabel || lesson.topic || tStudent('Tugasan guru', 'Teacher assignment')), /*#__PURE__*/React.createElement(ProgressBar, {
       value: lesson.progress,
       height: 6
     }), /*#__PURE__*/React.createElement("div", {
@@ -11213,7 +11276,7 @@ const SLearn = ({
         fontWeight: 800,
         marginTop: 5
       }
-    }, lesson.progress, "% siap"));
+    }, tStudent(`${lesson.progress}% siap`, `${lesson.progress}% complete`)));
   }))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
@@ -11222,9 +11285,9 @@ const SLearn = ({
       paddingBottom: 48
     }
   }, nodes.map((node, i) => {
-    const statusLabel = node.done ? 'Selesai' : node.cur ? 'Semasa' : node.locked ? 'Terkunci' : 'Sedia';
+    const statusLabel = node.done ? tStudent('Selesai', 'Done') : node.cur ? tStudent('Semasa', 'Current') : node.locked ? tStudent('Terkunci', 'Locked') : tStudent('Sedia', 'Ready');
     const statusColor = node.done ? C.green : node.cur ? subj.color : node.locked ? C.textFaint : C.accPale;
-    const nodeHint = node.sub || (node.locked ? node.lockReason : 'Topik pembelajaran');
+    const nodeHint = node.sub || (node.locked ? node.lockReason : tStudent('Topik pembelajaran', 'Learning topic'));
     return /*#__PURE__*/React.createElement("button", {
       key: node.id,
       onClick: () => openNodeLesson(node),
@@ -11305,7 +11368,7 @@ const SLearn = ({
     style: {
       background: `linear-gradient(135deg, ${subj.color}CC, ${subj.color})`
     }
-  }, "Mula topik semasa"))));
+  }, tStudent('Mula topik semasa', 'Start current topic')))));
 };
 const StudentChangePasswordCard = () => {
   const [currentPassword, setCurrentPassword] = React.useState('');
@@ -12820,16 +12883,16 @@ const SProfile = ({
     }
   }, [{
     id: 'profile',
-    label: 'Profil'
+    label: tStudent('Profil', 'Profile')
   }, {
     id: 'achievements',
-    label: `Pencapaian${earnedBadgeCount ? ` ${earnedBadgeCount}` : ''}`
+    label: earnedBadgeCount ? tStudent(`Pencapaian ${earnedBadgeCount}`, `Achievements ${earnedBadgeCount}`) : tStudent('Pencapaian', 'Achievements')
   }, {
     id: 'class',
-    label: 'Kelas'
+    label: tStudent('Kelas', 'Class')
   }, {
     id: 'security',
-    label: 'Keselamatan'
+    label: tStudent('Keselamatan', 'Security')
   }].map(tab => {
     const active = profileTab === tab.id;
     return /*#__PURE__*/React.createElement("button", {
@@ -12901,17 +12964,17 @@ const SProfile = ({
     }
   }, [{
     v: String(stats.daysActive ?? 0),
-    l: 'Hari aktif',
+    l: tStudent('Hari aktif', 'Active days'),
     i: '📅',
     color: C.accHi
   }, {
     v: String(stats.lessons ?? 0),
-    l: 'Pelajaran',
+    l: tStudent('Pelajaran', 'Lessons'),
     i: '📚',
     color: C.blue
   }, {
     v: Number(stats.xp || 0).toLocaleString(),
-    l: 'Jumlah XP',
+    l: tStudent('Jumlah XP', 'Total XP'),
     i: '⚡',
     color: C.gold
   }].map((s, i) => /*#__PURE__*/React.createElement(Card, {
@@ -12942,7 +13005,7 @@ const SProfile = ({
   }, s.l)))), profileTab === 'class' && /*#__PURE__*/React.createElement(JoinClassroomCard, {
     classInfo: classInfo,
     onJoined: onClassJoined
-  }), profileTab === 'security' && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(StudentChangePasswordCard, null), /*#__PURE__*/React.createElement(StudentAccountSafetyCard, null)), profileTab === 'achievements' && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SectionLabel, null, "\uD83C\uDFC5 Pencapaian"), /*#__PURE__*/React.createElement("div", {
+  }), profileTab === 'security' && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(StudentChangePasswordCard, null), /*#__PURE__*/React.createElement(StudentAccountSafetyCard, null)), profileTab === 'achievements' && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SectionLabel, null, "\uD83C\uDFC5 ", tStudent('Pencapaian', 'Achievements')), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
@@ -12972,38 +13035,42 @@ const SProfile = ({
     width: "100%",
     height: 9,
     radius: 5
-  }))) : badges.length ? badges.map((b, i) => /*#__PURE__*/React.createElement(Card, {
-    key: i,
-    style: {
-      padding: 12,
-      opacity: b.earned ? 1 : 0.4,
-      border: b.earned ? `1px solid color-mix(in srgb,var(--c-acc) 35%,transparent)` : `1px solid ${C.border}`
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 24,
-      marginBottom: 4
-    }
-  }, b.icon), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontWeight: 800,
-      fontSize: 12,
-      color: C.text,
-      lineHeight: 1.2
-    }
-  }, b.name), /*#__PURE__*/React.createElement("div", {
-    title: b.desc,
-    style: {
-      fontSize: 10,
-      color: C.textMuted,
-      fontWeight: 600,
-      lineHeight: 1.3,
-      marginTop: 2,
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis'
-    }
-  }, b.desc))) : /*#__PURE__*/React.createElement(Card, {
+  }))) : badges.length ? badges.map((b, i) => {
+    const badgeName = b.nameEn ? tStudent(b.name, b.nameEn) : b.name;
+    const badgeDesc = b.descEn ? tStudent(b.desc, b.descEn) : b.desc;
+    return /*#__PURE__*/React.createElement(Card, {
+      key: i,
+      style: {
+        padding: 12,
+        opacity: b.earned ? 1 : 0.4,
+        border: b.earned ? `1px solid color-mix(in srgb,var(--c-acc) 35%,transparent)` : `1px solid ${C.border}`
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 24,
+        marginBottom: 4
+      }
+    }, b.icon), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontWeight: 800,
+        fontSize: 12,
+        color: C.text,
+        lineHeight: 1.2
+      }
+    }, badgeName), /*#__PURE__*/React.createElement("div", {
+      title: badgeDesc,
+      style: {
+        fontSize: 10,
+        color: C.textMuted,
+        fontWeight: 600,
+        lineHeight: 1.3,
+        marginTop: 2,
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis'
+      }
+    }, badgeDesc));
+  }) : /*#__PURE__*/React.createElement(Card, {
     style: {
       gridColumn: '1 / -1'
     }
@@ -13014,7 +13081,7 @@ const SProfile = ({
       fontWeight: 600,
       lineHeight: 1.5
     }
-  }, "Belum ada pencapaian. Lengkapkan pelajaran pertama untuk membuka badge.")))), editing && /*#__PURE__*/React.createElement("div", {
+  }, tStudent('Belum ada pencapaian. Lengkapkan pelajaran pertama untuk membuka badge.', 'No achievements yet. Complete your first lesson to unlock a badge.'))))), editing && /*#__PURE__*/React.createElement("div", {
     onClick: () => setEditing(false),
     style: {
       position: 'fixed',
@@ -14665,6 +14732,9 @@ const createMediaUrlAttachment = url => {
 const PostAttachments = ({
   attachments
 }) => {
+  const {
+    t
+  } = useLanguage();
   if (!attachments.length) return null;
   return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -14711,7 +14781,7 @@ const PostAttachments = ({
         color: C.accPale,
         flexShrink: 0
       }
-    }, "Buka"));
+    }, t('Buka', 'Open')));
   }));
 };
 const PostCard = ({
@@ -14722,6 +14792,9 @@ const PostCard = ({
   onReact,
   onComment
 }) => {
+  const {
+    t
+  } = useLanguage();
   const [expanded, setExpanded] = React.useState(false);
   const [commentText, setCommentText] = React.useState('');
   const [commentAttachmentUrl, setCommentAttachmentUrl] = React.useState('');
@@ -14856,13 +14929,13 @@ const PostCard = ({
       flexShrink: 0
     }
   }, isOwner && /*#__PURE__*/React.createElement(TeacherActionMenu, {
-    label: "Tindakan pos",
+    label: t('Tindakan pos', 'Post actions'),
     items: [{
-      label: pinned ? 'Nyahsemat pos' : 'Semat pos',
+      label: pinned ? t('Nyahsemat pos', 'Unpin post') : t('Semat pos', 'Pin post'),
       icon: pinned ? '📌' : '📍',
       onClick: () => onPin && onPin(post)
     }, {
-      label: 'Padam pos',
+      label: t('Padam pos', 'Delete post'),
       icon: '🗑️',
       danger: true,
       onClick: () => onDelete && onDelete(post)
@@ -14958,8 +15031,8 @@ const PostCard = ({
     attachments: postAttachments(c)
   })), (c.user_id === currentUserId || c.author_id === currentUserId) && /*#__PURE__*/React.createElement("button", {
     onClick: () => deleteComment(c.id),
-    title: "Padam komen",
-    "aria-label": "Padam komen",
+    title: t('Padam komen', 'Delete comment'),
+    "aria-label": t('Padam komen', 'Delete comment'),
     style: {
       background: 'transparent',
       border: 'none',
@@ -14970,7 +15043,7 @@ const PostCard = ({
       minWidth: 44,
       minHeight: 44
     }
-  }, "Padam"))), /*#__PURE__*/React.createElement("div", {
+  }, t('Padam', 'Delete')))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       gap: 8,
@@ -15014,7 +15087,7 @@ const PostCard = ({
       fontSize: 12,
       opacity: submitting || !commentText.trim() && !commentAttachment ? 0.5 : 1
     }
-  }, "Hantar")), commentError && /*#__PURE__*/React.createElement("div", {
+  }, t('Hantar', 'Send'))), commentError && /*#__PURE__*/React.createElement("div", {
     role: "alert",
     style: {
       fontSize: 11,
@@ -15029,6 +15102,9 @@ const PostComposerModal = ({
   onClose,
   onPosted
 }) => {
+  const {
+    t
+  } = useLanguage();
   const [type, setType] = React.useState('announcement');
   const [title, setTitle] = React.useState('');
   const [content, setContent] = React.useState('');
@@ -15046,7 +15122,7 @@ const PostComposerModal = ({
       name: linkTitle.trim() || cleanedLink
     }] : [];
     if (!content.trim() && attachments.length === 0) {
-      setErr('Isi mesej pos atau tambah pautan dahulu.');
+      setErr(t('Isi mesej pos atau tambah pautan dahulu.', 'Write a post message or add a link first.'));
       return;
     }
     setPosting(true);
@@ -15096,7 +15172,7 @@ const PostComposerModal = ({
       color: C.text,
       marginBottom: 4
     }
-  }, "Pos baharu"), /*#__PURE__*/React.createElement("div", {
+  }, t('Pos baharu', 'New post')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 12,
       color: C.textMuted,
@@ -15104,7 +15180,7 @@ const PostComposerModal = ({
       lineHeight: 1.35,
       marginBottom: 12
     }
-  }, selectedPostType.label, " akan dipaparkan dalam suapan kelas."), /*#__PURE__*/React.createElement("div", {
+  }, selectedPostType.label, t('akan dipaparkan dalam suapan kelas.', 'will appear in the class feed.')), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
@@ -15149,7 +15225,7 @@ const PostComposerModal = ({
   }, option.hint)))), /*#__PURE__*/React.createElement("input", {
     value: title,
     onChange: e => setTitle(e.target.value),
-    placeholder: "Tajuk pos (pilihan)",
+    placeholder: t('Tajuk pos (pilihan)', 'Post title (optional)'),
     style: {
       width: '100%',
       boxSizing: 'border-box',
@@ -15194,7 +15270,7 @@ const PostComposerModal = ({
   }, /*#__PURE__*/React.createElement("input", {
     value: linkUrl,
     onChange: e => setLinkUrl(e.target.value),
-    placeholder: "Pautan bahan (pilihan)",
+    placeholder: t('Pautan bahan (pilihan)', 'Resource link (optional)'),
     style: {
       minWidth: 0,
       background: C.surface,
@@ -15210,7 +15286,7 @@ const PostComposerModal = ({
   }), /*#__PURE__*/React.createElement("input", {
     value: linkTitle,
     onChange: e => setLinkTitle(e.target.value),
-    placeholder: "Nama bahan",
+    placeholder: t('Nama bahan', 'Resource name'),
     style: {
       minWidth: 0,
       background: C.surface,
@@ -15244,7 +15320,7 @@ const PostComposerModal = ({
       color: C.textMuted,
       fontWeight: 600
     }
-  }, "Semat di atas suapan kelas")), err && /*#__PURE__*/React.createElement("div", {
+  }, t('Semat di atas suapan kelas', 'Pin to top of class feed'))), err && /*#__PURE__*/React.createElement("div", {
     style: {
       color: C.red,
       fontSize: 11,
@@ -15262,7 +15338,7 @@ const PostComposerModal = ({
     style: {
       flex: 1
     }
-  }, posting ? 'Menghantar...' : 'Hantar ke kelas'), /*#__PURE__*/React.createElement("button", {
+  }, posting ? 'Menghantar...' : t('Hantar ke kelas', 'Send to class')), /*#__PURE__*/React.createElement("button", {
     onClick: onClose,
     style: {
       background: C.surface,
@@ -15275,11 +15351,14 @@ const PostComposerModal = ({
       fontWeight: 800,
       cursor: 'pointer'
     }
-  }, "Batal"))));
+  }, t('Batal', 'Cancel')))));
 };
 const TeacherPostsScreen = ({
   classrooms
 }) => {
+  const {
+    t
+  } = useLanguage();
   const [selectedClassId, setSelectedClassId] = React.useState(classrooms[0]?.id || '');
   const [showComposer, setShowComposer] = React.useState(false);
   const [deleteConfirm, setDeleteConfirm] = React.useState(null);
@@ -15388,13 +15467,13 @@ const TeacherPostsScreen = ({
       fontSize: 15,
       color: C.text
     }
-  }, "Suapan Kelas"), /*#__PURE__*/React.createElement(GlowButton, {
+  }, t('Suapan Kelas', 'Class Feed')), /*#__PURE__*/React.createElement(GlowButton, {
     onClick: () => setShowComposer(true),
     style: {
       padding: '7px 14px',
       fontSize: 12
     }
-  }, "+ Pos baharu")), feedState.error && /*#__PURE__*/React.createElement(ErrorRetry, {
+  }, t('+ Pos baharu', '+ New post'))), feedState.error && /*#__PURE__*/React.createElement(ErrorRetry, {
     message: feedState.error.message || 'Tidak dapat memuat pos.',
     onRetry: feedState.refresh
   }), feedState.loading ? [0, 1, 2, 3].map(i => /*#__PURE__*/React.createElement(Card, {
@@ -15423,8 +15502,8 @@ const TeacherPostsScreen = ({
     radius: 5
   }))) : (feedState.data || []).length === 0 ? /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement(EmptyState, {
     icon: "\uD83D\uDCE2",
-    title: "Belum ada pos",
-    subtitle: "Cipta pos pertama untuk kelas ini."
+    title: t('Belum ada pos', 'No posts yet'),
+    subtitle: t('Cipta pos pertama untuk kelas ini.', 'Create the first post for this class.')
   })) : (feedState.data || []).map(post => /*#__PURE__*/React.createElement("div", {
     key: post.id,
     ref: node => {
@@ -15441,9 +15520,9 @@ const TeacherPostsScreen = ({
     onComment: () => feedState.refresh()
   }))), /*#__PURE__*/React.createElement(TeacherConfirmModal, {
     open: Boolean(deleteConfirm),
-    title: "Padam pos?",
+    title: t('Padam pos?', 'Delete post?'),
     message: `Pos "${deleteConfirm?.title || 'tanpa tajuk'}" akan dibuang daripada suapan kelas ini.`,
-    confirmLabel: "Padam pos",
+    confirmLabel: t('Padam pos', 'Delete post'),
     danger: true,
     busy: Boolean(deletingPostId),
     onCancel: () => setDeleteConfirm(null),
@@ -16074,6 +16153,9 @@ const AssignLessonModal = ({
   onAssigned,
   onClose
 }) => {
+  const {
+    t
+  } = useLanguage();
   const [classroomId, setClassroomId] = React.useState(classrooms[0]?.id || '');
   const [dueDate, setDueDate] = React.useState('');
   const [isRequired, setIsRequired] = React.useState(true);
@@ -16082,7 +16164,7 @@ const AssignLessonModal = ({
   const lessonDisplayTitle = displayLessonTitle(lesson);
   const submit = async () => {
     if (!classroomId) {
-      setError('Pilih kelas dahulu.');
+      setError(t('Pilih kelas dahulu.', 'Select a class first.'));
       return;
     }
     setSubmitting(true);
@@ -16130,7 +16212,7 @@ const AssignLessonModal = ({
       color: C.text,
       marginBottom: 4
     }
-  }, "Tugaskan Pelajaran"), /*#__PURE__*/React.createElement("div", {
+  }, t('Tugaskan Pelajaran', 'Assign Lesson')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 12,
       color: C.textMuted,
@@ -16138,7 +16220,7 @@ const AssignLessonModal = ({
       marginBottom: 14
     }
   }, lessonDisplayTitle), /*#__PURE__*/React.createElement(TeacherField, {
-    label: "Kelas"
+    label: t('Kelas', 'Class')
   }, /*#__PURE__*/React.createElement("select", {
     value: classroomId,
     onChange: e => setClassroomId(e.target.value),
@@ -16149,8 +16231,8 @@ const AssignLessonModal = ({
   }, classrooms.map(c => /*#__PURE__*/React.createElement("option", {
     key: c.id,
     value: c.id
-  }, teacherText(c.name, 'Kelas', 54))))), /*#__PURE__*/React.createElement(TeacherField, {
-    label: "Tarikh Akhir"
+  }, teacherText(c.name, t('Kelas', 'Class'), 54))))), /*#__PURE__*/React.createElement(TeacherField, {
+    label: t('Tarikh Akhir', 'Due Date')
   }, /*#__PURE__*/React.createElement("input", {
     type: "date",
     value: dueDate,
@@ -16207,11 +16289,14 @@ const AssignLessonModal = ({
       fontFamily: 'Nunito',
       fontWeight: 800
     }
-  }, "Batal"))));
+  }, t('Batal', 'Cancel')))));
 };
 const TeacherLessonsScreen = ({
   classrooms
 }) => {
+  const {
+    t
+  } = useLanguage();
   const defaultClass = classrooms[0] || {};
   const defaultSubject = defaultClass.subject || subjectText(defaultClass.subj) || 'Matematik';
   const defaultFormLevel = String(defaultClass.form || defaultClass.formLevel || 4);
@@ -16260,13 +16345,13 @@ const TeacherLessonsScreen = ({
   const catalogLessons = catalogState.data || [];
   const catalogGroups = [{
     key: 'unassigned',
-    title: 'Belum Ditugaskan',
-    hint: 'Sedia untuk dipratonton dan diberikan kepada kelas.',
+    title: t('Belum Ditugaskan', 'Not Assigned Yet'),
+    hint: t('Sedia untuk dipratonton dan diberikan kepada kelas.', 'Ready to preview and assign to a class.'),
     lessons: catalogLessons.filter(lesson => !lessonIsAssigned(lesson))
   }, {
     key: 'assigned',
     title: 'Ditugaskan',
-    hint: 'Sudah pernah diberikan kepada satu atau lebih kelas.',
+    hint: t('Sudah pernah diberikan kepada satu atau lebih kelas.', 'Already assigned to one or more classes.'),
     lessons: catalogLessons.filter(lessonIsAssigned)
   }].filter(group => group.lessons.length > 0);
   const hasLessonContent = contentBlocks.some(block => `${block.title || ''}${block.body || ''}`.trim());
@@ -16285,11 +16370,11 @@ const TeacherLessonsScreen = ({
       return [!lessonForm.syllabusId && {
         field: 'syllabusId',
         label: 'Item silibus',
-        message: 'Pilih topik silibus sebelum teruskan.'
+        message: t('Pilih topik silibus sebelum teruskan.', 'Select a syllabus topic before continuing.')
       }, !lessonForm.title.trim() && {
         field: 'title',
-        label: 'Tajuk pelajaran',
-        message: 'Isi tajuk yang jelas untuk pelajar.'
+        label: t('Tajuk pelajaran', 'Lesson title'),
+        message: t('Isi tajuk yang jelas untuk pelajar.', 'Enter a clear title for students.')
       }, (Number(lessonForm.estimatedMinutes) || 0) < 1 && {
         field: 'estimatedMinutes',
         label: 'Anggaran minit',
@@ -16326,7 +16411,7 @@ const TeacherLessonsScreen = ({
           }));
         }
       }
-      setCreateStatus('Draf pelajaran dipulihkan dari peranti ini.');
+      setCreateStatus(t('Draf pelajaran dipulihkan dari peranti ini.', 'Lesson draft restored from this device.'));
     } catch {
       localStorage.removeItem(TEACHER_LESSON_DRAFT_KEY);
     } finally {
@@ -16355,7 +16440,7 @@ const TeacherLessonsScreen = ({
           minute: '2-digit'
         }));
       } catch {
-        setCreateError('Tidak dapat menyimpan draf pada peranti ini.');
+        setCreateError(t('Tidak dapat menyimpan draf pada peranti ini.', 'Unable to save draft on this device.'));
       }
     }, TEACHER_LESSON_DRAFT_AUTOSAVE_MS);
     return () => window.clearTimeout(timeout);
@@ -16401,7 +16486,7 @@ const TeacherLessonsScreen = ({
         isRequired: assignRequired,
         is_required: assignRequired
       });
-      setAssignMsg('Pelajaran berjaya ditetapkan ke kelas.');
+      setAssignMsg(t('Pelajaran berjaya ditetapkan ke kelas.', 'Lesson assigned to class successfully.'));
     } catch (e) {
       setAssignMsg(e.message || 'Tidak dapat menetapkan pelajaran.');
     } finally {
@@ -16439,7 +16524,7 @@ const TeacherLessonsScreen = ({
         id: `q-${Date.now()}-${prev.length}`
       }]);
       setQuizDraft(createEmptyTeacherQuestion());
-      setCreateStatus('Soalan ditambah.');
+      setCreateStatus(t('Soalan ditambah.', 'Question added.'));
     } catch (err) {
       setCreateError(err.message || 'Tidak dapat menambah soalan.');
     }
@@ -16495,7 +16580,7 @@ const TeacherLessonsScreen = ({
       setDraftSavedAt(time);
       setCreateStatus(`Draf disimpan pada ${time}.`);
     } catch {
-      setCreateError('Tidak dapat menyimpan draf pada peranti ini.');
+      setCreateError(t('Tidak dapat menyimpan draf pada peranti ini.', 'Unable to save draft on this device.'));
     }
   };
   const createLesson = async () => {
@@ -16530,7 +16615,7 @@ const TeacherLessonsScreen = ({
         }
       });
       clearLessonDraft();
-      setCreateStatus('Pelajaran berjaya diterbitkan ke katalog.');
+      setCreateStatus(t('Pelajaran berjaya diterbitkan ke katalog.', 'Lesson published to catalog successfully.'));
       setLessonForm(prev => ({
         ...prev,
         syllabusId: '',
@@ -16559,10 +16644,10 @@ const TeacherLessonsScreen = ({
     id: 'syllabus',
     label: 'Item silibus dipilih',
     done: Boolean(lessonForm.syllabusId),
-    detail: selectedSyllabus ? `${selectedSyllabus.topic || 'Topik'}${selectedSyllabus.subtopic ? ` - ${selectedSyllabus.subtopic}` : ''}` : 'Wajib supaya pelajaran masuk ke topik katalog yang betul.'
+    detail: selectedSyllabus ? `${selectedSyllabus.topic || 'Topik'}${selectedSyllabus.subtopic ? ` - ${selectedSyllabus.subtopic}` : ''}` : t('Wajib supaya pelajaran masuk ke topik katalog yang betul.', 'Required so the lesson is saved under the correct catalog topic.')
   }, {
     id: 'title',
-    label: 'Tajuk pelajaran jelas',
+    label: t('Tajuk pelajaran jelas', 'Clear lesson title'),
     done: Boolean(lessonForm.title.trim()),
     detail: lessonForm.title.trim() ? compactLessonTitle(lessonForm.title) : 'Wajib diisi sebelum langkah kandungan.'
   }, {
@@ -16584,10 +16669,10 @@ const TeacherLessonsScreen = ({
     detail: LESSON_DIFF_LABEL[lessonForm.difficulty] || 'Tahap belum dipilih.'
   }, {
     id: 'questions',
-    label: 'Soalan latihan',
+    label: t('Soalan latihan', 'Practice questions'),
     done: lessonPreviewQuestions > 0,
     required: false,
-    detail: lessonPreviewQuestions > 0 ? `${lessonPreviewQuestions} soalan akan diterbitkan.` : 'Pilihan, tetapi membantu semak kefahaman pelajar.'
+    detail: lessonPreviewQuestions > 0 ? `${lessonPreviewQuestions} soalan akan diterbitkan.` : t('Pilihan, tetapi membantu semak kefahaman pelajar.', 'Optional, but helps check student understanding.')
   }];
   const currentCreateChecks = createStepId === 'info' ? infoChecks : createStepId === 'content' ? contentChecks : finalPreviewChecks;
   const goNextCreateStep = () => {
@@ -16646,8 +16731,8 @@ const TeacherLessonsScreen = ({
   }, /*#__PURE__*/React.createElement("input", {
     value: search,
     onChange: e => setSearch(e.target.value),
-    placeholder: "Cari pelajaran...",
-    "aria-label": "Cari pelajaran dalam katalog",
+    placeholder: t('Cari pelajaran...', 'Search lessons...'),
+    "aria-label": t('Cari pelajaran dalam katalog', 'Search lessons in catalog'),
     style: {
       background: C.card,
       border: `1px solid ${C.border}`,
@@ -16663,7 +16748,7 @@ const TeacherLessonsScreen = ({
   }), /*#__PURE__*/React.createElement("select", {
     value: formLevel,
     onChange: e => setFormLevel(e.target.value),
-    "aria-label": "Tapis tingkatan pelajaran",
+    "aria-label": t('Tapis tingkatan pelajaran', 'Filter lesson form level'),
     style: {
       background: C.card,
       border: `1px solid ${C.border}`,
@@ -16678,10 +16763,10 @@ const TeacherLessonsScreen = ({
   }, /*#__PURE__*/React.createElement("option", null, "Semua"), CLASS_FORM_LEVELS.map(item => /*#__PURE__*/React.createElement("option", {
     key: item,
     value: String(item)
-  }, "Tingkatan ", item)))), /*#__PURE__*/React.createElement("select", {
+  }, t('Tingkatan', 'Form'), item)))), /*#__PURE__*/React.createElement("select", {
     value: subject,
     onChange: e => setSubject(e.target.value),
-    "aria-label": "Tapis subjek pelajaran",
+    "aria-label": t('Tapis subjek pelajaran', 'Filter lesson subject'),
     style: {
       width: '100%',
       marginBottom: 7,
@@ -16697,7 +16782,7 @@ const TeacherLessonsScreen = ({
     }
   }, /*#__PURE__*/React.createElement("option", {
     value: ""
-  }, "Semua subjek"), CLASS_SUBJECTS.map(item => /*#__PURE__*/React.createElement("option", {
+  }, t('Semua subjek', 'All subjects')), CLASS_SUBJECTS.map(item => /*#__PURE__*/React.createElement("option", {
     key: item,
     value: item
   }, item))), /*#__PURE__*/React.createElement("div", {
@@ -16756,12 +16841,12 @@ const TeacherLessonsScreen = ({
     height: 10,
     radius: 5
   }))) : catalogState.error ? /*#__PURE__*/React.createElement(ErrorRetry, {
-    message: "Tidak dapat memuat katalog pelajaran.",
+    message: t('Tidak dapat memuat katalog pelajaran.', 'Unable to load lesson catalog.'),
     onRetry: catalogState.refresh
   }) : catalogLessons.length === 0 ? /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement(EmptyState, {
     icon: "\uD83D\uDCDA",
-    title: "Tiada pelajaran",
-    subtitle: "Tiada pelajaran dalam katalog bagi penapis ini."
+    title: t('Tiada pelajaran', 'No lessons'),
+    subtitle: t('Tiada pelajaran dalam katalog bagi penapis ini.', 'No lessons in the catalog for this filter.')
   })) : catalogGroups.map(group => /*#__PURE__*/React.createElement("div", {
     key: group.key,
     style: {
@@ -16788,7 +16873,7 @@ const TeacherLessonsScreen = ({
       color: C.textMuted,
       fontWeight: 800
     }
-  }, group.lessons.length, " pelajaran")), /*#__PURE__*/React.createElement("div", {
+  }, group.lessons.length, t('pelajaran', 'lessons'))), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 11,
       color: C.textFaint,
@@ -16837,7 +16922,7 @@ const TeacherLessonsScreen = ({
         fontWeight: 600,
         marginTop: 2
       }
-    }, teacherText(lesson.subject, 'Subjek', 34), " - T", lesson.form_level || '-', lesson.topic ? ` · ${compactLessonTitle(lesson.topic)}` : ''), /*#__PURE__*/React.createElement("div", {
+    }, teacherText(lesson.subject, t('Subjek', 'Subject'), 34), " - T", lesson.form_level || '-', lesson.topic ? ` · ${compactLessonTitle(lesson.topic)}` : ''), /*#__PURE__*/React.createElement("div", {
       style: {
         display: 'flex',
         gap: 6,
@@ -16860,7 +16945,7 @@ const TeacherLessonsScreen = ({
         fontWeight: 600,
         color: C.textMuted
       }
-    }, lesson.question_count, " soalan"), lesson.estimated_minutes && /*#__PURE__*/React.createElement("span", {
+    }, lesson.question_count, t('soalan', 'questions')), lesson.estimated_minutes && /*#__PURE__*/React.createElement("span", {
       style: {
         fontSize: 10,
         fontWeight: 600,
@@ -16917,7 +17002,7 @@ const TeacherLessonsScreen = ({
       color: C.accPale,
       marginBottom: 8
     }
-  }, "Cipta Pelajaran Berpandu"), createStatus && /*#__PURE__*/React.createElement(Card, {
+  }, t('Cipta Pelajaran Berpandu', 'Create Guided Lesson')), createStatus && /*#__PURE__*/React.createElement(Card, {
     success: true,
     style: {
       marginBottom: 8,
@@ -16994,7 +17079,7 @@ const TeacherLessonsScreen = ({
       cursor: 'pointer'
     }
   }, index + 1, ". ", step.label))), /*#__PURE__*/React.createElement(TeacherChecklistPanel, {
-    title: createStepId === 'questions' ? 'Senarai semak sebelum terbit' : 'Wajib lengkap sebelum teruskan',
+    title: createStepId === 'questions' ? t('Senarai semak sebelum terbit', 'Checklist before publishing') : 'Wajib lengkap sebelum teruskan',
     items: currentCreateChecks,
     style: {
       marginBottom: 10
@@ -17011,7 +17096,7 @@ const TeacherLessonsScreen = ({
       gap: 8
     }
   }, /*#__PURE__*/React.createElement(TeacherField, {
-    label: "Subjek",
+    label: t('Subjek', 'Subject'),
     required: true
   }, /*#__PURE__*/React.createElement("select", {
     value: lessonForm.subject,
@@ -17020,13 +17105,13 @@ const TeacherLessonsScreen = ({
       subject: e.target.value,
       syllabusId: ''
     })),
-    "aria-label": "Subjek pelajaran",
+    "aria-label": t('Subjek pelajaran', 'Lesson subject'),
     style: teacherInputBase
   }, CLASS_SUBJECTS.map(item => /*#__PURE__*/React.createElement("option", {
     key: item,
     value: item
   }, item)))), /*#__PURE__*/React.createElement(TeacherField, {
-    label: "Tingkatan",
+    label: t('Tingkatan', 'Form'),
     required: true
   }, /*#__PURE__*/React.createElement("select", {
     value: lessonForm.formLevel,
@@ -17035,16 +17120,16 @@ const TeacherLessonsScreen = ({
       formLevel: e.target.value,
       syllabusId: ''
     })),
-    "aria-label": "Tingkatan pelajaran",
+    "aria-label": t('Tingkatan pelajaran', 'Lesson form level'),
     style: teacherInputBase
   }, CLASS_FORM_LEVELS.map(item => /*#__PURE__*/React.createElement("option", {
     key: item,
     value: String(item)
-  }, "Tingkatan ", item))))), /*#__PURE__*/React.createElement(TeacherField, {
+  }, t('Tingkatan', 'Form'), item))))), /*#__PURE__*/React.createElement(TeacherField, {
     label: "Item Silibus",
     required: true,
-    hint: lessonForm.syllabusId ? 'Topik ini akan digunakan dalam katalog pelajaran.' : 'Wajib dipilih sebelum ke langkah kandungan.',
-    error: infoFieldError('syllabusId', !lessonForm.syllabusId, 'Pilih topik silibus sebelum teruskan.')
+    hint: lessonForm.syllabusId ? t('Topik ini akan digunakan dalam katalog pelajaran.', 'This topic will be used in the lesson catalog.') : 'Wajib dipilih sebelum ke langkah kandungan.',
+    error: infoFieldError('syllabusId', !lessonForm.syllabusId, t('Pilih topik silibus sebelum teruskan.', 'Select a syllabus topic before continuing.'))
   }, /*#__PURE__*/React.createElement("select", {
     ref: el => {
       createFieldRefs.current.syllabusId = el;
@@ -17055,7 +17140,7 @@ const TeacherLessonsScreen = ({
       ...prev,
       syllabusId: e.target.value
     })),
-    "aria-label": "Item silibus pelajaran",
+    "aria-label": t('Item silibus pelajaran', 'Lesson syllabus item'),
     "aria-invalid": createFieldInvalid('syllabusId', !lessonForm.syllabusId) ? 'true' : undefined,
     style: {
       ...teacherInputBase,
@@ -17063,7 +17148,7 @@ const TeacherLessonsScreen = ({
     }
   }, /*#__PURE__*/React.createElement("option", {
     value: ""
-  }, "Pilih topik silibus"), (syllabusState.data || []).map(item => /*#__PURE__*/React.createElement("option", {
+  }, t('Pilih topik silibus', 'Select syllabus topic')), (syllabusState.data || []).map(item => /*#__PURE__*/React.createElement("option", {
     key: item.id,
     value: item.id
   }, compactLessonTitle(item.topic, 'Topik'), item.subtopic ? ` - ${compactLessonTitle(item.subtopic, 'Subtopik')}` : '')))), syllabusState.loading && /*#__PURE__*/React.createElement(Skeleton, {
@@ -17076,11 +17161,11 @@ const TeacherLessonsScreen = ({
       color: C.textMuted,
       fontWeight: 600
     }
-  }, "Tiada item silibus untuk subjek dan tingkatan ini."), /*#__PURE__*/React.createElement(TeacherField, {
-    label: "Tajuk Pelajaran",
+  }, t('Tiada item silibus untuk subjek dan tingkatan ini.', 'No syllabus items for this subject and form level.')), /*#__PURE__*/React.createElement(TeacherField, {
+    label: t('Tajuk Pelajaran', 'Lesson Title'),
     required: true,
-    hint: lessonForm.title.trim() ? 'Tajuk ini dipaparkan kepada pelajar dan guru.' : 'Wajib diisi sebelum ke langkah kandungan.',
-    error: infoFieldError('title', !lessonForm.title.trim(), 'Tajuk wajib diisi.')
+    hint: lessonForm.title.trim() ? t('Tajuk ini dipaparkan kepada pelajar dan guru.', 'This title is shown to students and teachers.') : 'Wajib diisi sebelum ke langkah kandungan.',
+    error: infoFieldError('title', !lessonForm.title.trim(), t('Tajuk wajib diisi.', 'Title is required.'))
   }, /*#__PURE__*/React.createElement("input", {
     ref: el => {
       createFieldRefs.current.title = el;
@@ -17092,7 +17177,7 @@ const TeacherLessonsScreen = ({
       title: e.target.value
     })),
     placeholder: "Contoh: Kecerunan garis lurus",
-    "aria-label": "Tajuk pelajaran",
+    "aria-label": t('Tajuk pelajaran', 'Lesson title'),
     "aria-invalid": createFieldInvalid('title', !lessonForm.title.trim()) ? 'true' : undefined,
     style: {
       ...teacherInputBase,
@@ -17113,7 +17198,7 @@ const TeacherLessonsScreen = ({
       ...prev,
       difficulty: e.target.value
     })),
-    "aria-label": "Tahap kesukaran pelajaran",
+    "aria-label": t('Tahap kesukaran pelajaran', 'Lesson difficulty level'),
     style: teacherInputBase
   }, /*#__PURE__*/React.createElement("option", {
     value: "easy"
@@ -17124,7 +17209,7 @@ const TeacherLessonsScreen = ({
   }, "Sukar"))), /*#__PURE__*/React.createElement(TeacherField, {
     label: "Anggaran Minit",
     required: true,
-    hint: (Number(lessonForm.estimatedMinutes) || 0) >= 1 ? 'Anggaran membantu guru menetapkan beban tugasan.' : 'Wajib 1 minit atau lebih.',
+    hint: (Number(lessonForm.estimatedMinutes) || 0) >= 1 ? t('Anggaran membantu guru menetapkan beban tugasan.', 'The estimate helps teachers set assignment workload.') : 'Wajib 1 minit atau lebih.',
     error: infoFieldError('estimatedMinutes', (Number(lessonForm.estimatedMinutes) || 0) < 1, 'Isi 1 minit atau lebih.')
   }, /*#__PURE__*/React.createElement("input", {
     ref: el => {
@@ -17138,7 +17223,7 @@ const TeacherLessonsScreen = ({
       ...prev,
       estimatedMinutes: e.target.value
     })),
-    "aria-label": "Anggaran minit pelajaran",
+    "aria-label": t('Anggaran minit pelajaran', 'Estimated lesson minutes'),
     "aria-invalid": createFieldInvalid('estimatedMinutes', (Number(lessonForm.estimatedMinutes) || 0) < 1) ? 'true' : undefined,
     style: {
       ...teacherInputBase,
@@ -17155,7 +17240,7 @@ const TeacherLessonsScreen = ({
     })),
     rows: 3,
     placeholder: "Nyatakan hasil pembelajaran utama.",
-    "aria-label": "Ringkasan pelajaran",
+    "aria-label": t('Ringkasan pelajaran', 'Lesson summary'),
     style: {
       ...teacherInputBase,
       resize: 'vertical'
@@ -17218,7 +17303,7 @@ const TeacherLessonsScreen = ({
     onChange: e => updateContentBlock(block.id, {
       title: e.target.value
     }),
-    placeholder: "Tajuk bahagian",
+    placeholder: t('Tajuk bahagian', 'Section title'),
     "aria-invalid": createFieldInvalid('content', !hasLessonContent && !lessonForm.summary.trim()) ? 'true' : undefined,
     style: {
       ...teacherInputBase,
@@ -17230,7 +17315,7 @@ const TeacherLessonsScreen = ({
       body: e.target.value
     }),
     rows: 3,
-    placeholder: "Penerangan, contoh, atau langkah kerja.",
+    placeholder: t('Penerangan, contoh, atau langkah kerja.', 'Explanation, example, or working steps.'),
     style: {
       ...teacherInputBase,
       resize: 'vertical',
@@ -17256,7 +17341,7 @@ const TeacherLessonsScreen = ({
       fontSize: 12,
       color: C.text
     }
-  }, "Soalan Latihan"), /*#__PURE__*/React.createElement(TeacherBadge, null, lessonPreviewQuestions, " soalan")), quizQuestions.length > 0 && /*#__PURE__*/React.createElement("div", {
+  }, t('Soalan Latihan', 'Practice Questions')), /*#__PURE__*/React.createElement(TeacherBadge, null, lessonPreviewQuestions, t('soalan', 'questions'))), quizQuestions.length > 0 && /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gap: 6
@@ -17329,14 +17414,14 @@ const TeacherLessonsScreen = ({
   }, "Benar"), /*#__PURE__*/React.createElement("option", {
     value: "false"
   }, "Salah")))), /*#__PURE__*/React.createElement(TeacherField, {
-    label: "Soalan"
+    label: t('Soalan', 'Question')
   }, /*#__PURE__*/React.createElement("input", {
     value: quizDraft.questionText,
     onChange: e => setQuizDraft(prev => ({
       ...prev,
       questionText: e.target.value
     })),
-    placeholder: "Tulis soalan untuk pelajar",
+    placeholder: t('Tulis soalan untuk pelajar', 'Write a question for students'),
     style: teacherInputBase
   })), quizDraft.type === 'multiple_choice' && /*#__PURE__*/React.createElement("div", {
     style: {
@@ -17357,14 +17442,14 @@ const TeacherLessonsScreen = ({
       ...prev,
       explanation: e.target.value
     })),
-    placeholder: "Penjelasan selepas pelajar menjawab",
+    placeholder: t('Penjelasan selepas pelajar menjawab', 'Explanation after students answer'),
     style: teacherInputBase
   })), /*#__PURE__*/React.createElement(TeacherSmallButton, {
     onClick: addQuizQuestion,
     style: {
       justifySelf: 'start'
     }
-  }, "Tambah Soalan")), /*#__PURE__*/React.createElement(Card, {
+  }, t('Tambah Soalan', 'Add Question'))), /*#__PURE__*/React.createElement(Card, {
     style: {
       padding: 11,
       background: C.surface
@@ -17376,7 +17461,7 @@ const TeacherLessonsScreen = ({
       color: C.text,
       marginBottom: 7
     }
-  }, "Pratonton sebelum terbit"), /*#__PURE__*/React.createElement("div", {
+  }, t('Pratonton sebelum terbit', 'Preview before publishing')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 13,
       color: C.text,
@@ -17384,7 +17469,7 @@ const TeacherLessonsScreen = ({
       lineHeight: 1.35,
       marginBottom: 4
     }
-  }, compactLessonTitle(lessonForm.title) || 'Tajuk pelajaran'), /*#__PURE__*/React.createElement("div", {
+  }, compactLessonTitle(lessonForm.title) || t('Tajuk pelajaran', 'Lesson title')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 11,
       color: C.textMuted,
@@ -17398,9 +17483,9 @@ const TeacherLessonsScreen = ({
       gap: 6,
       flexWrap: 'wrap'
     }
-  }, /*#__PURE__*/React.createElement(TeacherBadge, null, lessonForm.subject), /*#__PURE__*/React.createElement(TeacherBadge, null, "Tingkatan ", lessonForm.formLevel), /*#__PURE__*/React.createElement(TeacherBadge, {
+  }, /*#__PURE__*/React.createElement(TeacherBadge, null, lessonForm.subject), /*#__PURE__*/React.createElement(TeacherBadge, null, t('Tingkatan', 'Form'), lessonForm.formLevel), /*#__PURE__*/React.createElement(TeacherBadge, {
     tone: lessonForm.difficulty === 'hard' ? 'bad' : lessonForm.difficulty === 'easy' ? 'good' : 'warn'
-  }, LESSON_DIFF_LABEL[lessonForm.difficulty]), /*#__PURE__*/React.createElement(TeacherBadge, null, contentBlocks.filter(block => block.title.trim() || block.body.trim()).length, " bahagian"), /*#__PURE__*/React.createElement(TeacherBadge, null, lessonPreviewQuestions, " soalan")))), /*#__PURE__*/React.createElement("div", {
+  }, LESSON_DIFF_LABEL[lessonForm.difficulty]), /*#__PURE__*/React.createElement(TeacherBadge, null, contentBlocks.filter(block => block.title.trim() || block.body.trim()).length, " bahagian"), /*#__PURE__*/React.createElement(TeacherBadge, null, lessonPreviewQuestions, t('soalan', 'questions'))))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       gap: 8,
@@ -17422,7 +17507,7 @@ const TeacherLessonsScreen = ({
       fontWeight: 900,
       cursor: 'pointer'
     }
-  }, "Simpan draf"), createStep > 0 && /*#__PURE__*/React.createElement("button", {
+  }, t('Simpan draf', 'Save draft')), createStep > 0 && /*#__PURE__*/React.createElement("button", {
     onClick: goPrevCreateStep,
     style: {
       minHeight: 44,
@@ -17497,7 +17582,7 @@ const TeacherLessonsScreen = ({
       color: C.text,
       marginBottom: 4
     }
-  }, "Pratonton Pelajaran"), /*#__PURE__*/React.createElement("div", {
+  }, t('Pratonton Pelajaran', 'Lesson Preview')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 12,
       color: C.textMuted,
@@ -17574,8 +17659,8 @@ const TeacherLessonsScreen = ({
       marginTop: 10,
       flexWrap: 'wrap'
     }
-  }, /*#__PURE__*/React.createElement(TeacherBadge, null, previewState.data?.questions?.length ?? assignModal.question_count ?? 0, " soalan"), assignModal.estimated_minutes && /*#__PURE__*/React.createElement(TeacherBadge, null, assignModal.estimated_minutes, " min"), assignModal.topic && /*#__PURE__*/React.createElement(TeacherBadge, null, compactLessonTitle(assignModal.topic, 'Topik')))), /*#__PURE__*/React.createElement(TeacherField, {
-    label: "Kelas"
+  }, /*#__PURE__*/React.createElement(TeacherBadge, null, previewState.data?.questions?.length ?? assignModal.question_count ?? 0, t('soalan', 'questions')), assignModal.estimated_minutes && /*#__PURE__*/React.createElement(TeacherBadge, null, assignModal.estimated_minutes, " min"), assignModal.topic && /*#__PURE__*/React.createElement(TeacherBadge, null, compactLessonTitle(assignModal.topic, 'Topik')))), /*#__PURE__*/React.createElement(TeacherField, {
+    label: t('Kelas', 'Class')
   }, /*#__PURE__*/React.createElement("select", {
     value: assignClassId,
     onChange: e => setAssignClassId(e.target.value),
@@ -17586,7 +17671,7 @@ const TeacherLessonsScreen = ({
   }, classrooms.map(c => /*#__PURE__*/React.createElement("option", {
     key: c.id,
     value: c.id
-  }, teacherText(c.name, 'Kelas', 54))))), /*#__PURE__*/React.createElement("div", {
+  }, teacherText(c.name, t('Kelas', 'Class'), 54))))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr auto',
@@ -17595,7 +17680,7 @@ const TeacherLessonsScreen = ({
       marginBottom: 10
     }
   }, /*#__PURE__*/React.createElement(TeacherField, {
-    label: "Tarikh Hantar"
+    label: t('Tarikh Hantar', 'Due Date')
   }, /*#__PURE__*/React.createElement("input", {
     type: "date",
     value: assignDueDate,
@@ -17636,7 +17721,7 @@ const TeacherLessonsScreen = ({
     style: {
       flex: 1
     }
-  }, assigning ? 'Menetapkan...' : 'Tetapkan ke Kelas'), /*#__PURE__*/React.createElement("button", {
+  }, assigning ? 'Menetapkan...' : t('Tetapkan ke Kelas', 'Assign to Class')), /*#__PURE__*/React.createElement("button", {
     onClick: () => setAssignModal(null),
     style: {
       background: C.surface,
@@ -17845,6 +17930,9 @@ const WhiteboardReplay = ({
   classroom,
   onClose
 }) => {
+  const {
+    t
+  } = useLanguage();
   const canvasRef = React.useRef(null);
   const timerRef = React.useRef(null);
   const [loading, setLoading] = React.useState(true);
@@ -17859,7 +17947,7 @@ const WhiteboardReplay = ({
     const load = async () => {
       if (!sessionId) {
         setLoading(false);
-        setError('Sesi tidak sah.');
+        setError(t('Sesi tidak sah.', 'Invalid session.'));
         return;
       }
       setLoading(true);
@@ -17870,7 +17958,7 @@ const WhiteboardReplay = ({
         if (cancelled) return;
         setEvents(nextEvents);
         setPlayhead(nextEvents.length);
-        setError(nextEvents.length ? '' : 'Tiada aktiviti papan putih ditemui untuk ulangan ini.');
+        setError(nextEvents.length ? '' : t('Tiada aktiviti papan putih ditemui untuk ulangan ini.', 'No whiteboard activity found for this replay.'));
       } catch (e) {
         if (cancelled) return;
         setEvents([]);
@@ -17945,7 +18033,7 @@ const WhiteboardReplay = ({
       fontWeight: 700,
       lineHeight: 1.35
     }
-  }, teacherTitle(session?.title, 'Sesi Papan Putih'), " - ", teacherText(classroom?.name, 'kelas ini', 54))), /*#__PURE__*/React.createElement("button", {
+  }, teacherTitle(session?.title, t('Sesi Papan Putih', 'Whiteboard Session')), " - ", teacherText(classroom?.name, t('kelas ini', 'this class'), 54))), /*#__PURE__*/React.createElement("button", {
     onClick: onClose,
     style: {
       background: C.surface,
@@ -18021,7 +18109,7 @@ const WhiteboardReplay = ({
       fontSize: 12,
       fontWeight: 900
     }
-  }, "Buka fail")), /*#__PURE__*/React.createElement("div", {
+  }, t('Buka fail', 'Open file'))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       gap: 6,
@@ -18037,6 +18125,9 @@ const WhiteboardCanvas = ({
   classroomId,
   onClose
 }) => {
+  const {
+    t
+  } = useLanguage();
   const canvasRef = React.useRef(null);
   const wsRef = React.useRef(null);
   const drawingRef = React.useRef(false);
@@ -18177,7 +18268,7 @@ const WhiteboardCanvas = ({
     }
   }, /*#__PURE__*/React.createElement("button", {
     onClick: onClose,
-    "aria-label": "Tutup papan putih",
+    "aria-label": t('Tutup papan putih', 'Close whiteboard'),
     style: {
       background: C.surface,
       border: `1px solid ${C.border}`,
@@ -18198,7 +18289,7 @@ const WhiteboardCanvas = ({
       color: C.text,
       flex: 1
     }
-  }, "Papan Putih"), /*#__PURE__*/React.createElement("div", {
+  }, t('Papan Putih', 'Whiteboard')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 10,
       color: connected ? C.green : C.red,
@@ -18296,7 +18387,7 @@ const WhiteboardCanvas = ({
       fontWeight: 800,
       fontSize: 11
     }
-  }, "Padam papan")), /*#__PURE__*/React.createElement("canvas", {
+  }, t('Padam papan', 'Clear board'))), /*#__PURE__*/React.createElement("canvas", {
     ref: canvasRef,
     width: 800,
     height: 600,
@@ -18319,6 +18410,9 @@ const WhiteboardCanvas = ({
 const TeacherWhiteboardScreen = ({
   classrooms
 }) => {
+  const {
+    t
+  } = useLanguage();
   const [selectedClassId, setSelectedClassId] = React.useState(classrooms[0]?.id || '');
   const [activeCanvas, setActiveCanvas] = React.useState(null);
   const [replaySession, setReplaySession] = React.useState(null);
@@ -18345,7 +18439,7 @@ const TeacherWhiteboardScreen = ({
   }, [classrooms, selectedClassId]);
   const startSession = async () => {
     if (!selectedClassId || !isLiveClassId(selectedClassId)) {
-      setMsg('Pilih kelas nyata untuk memulakan sesi.');
+      setMsg(t('Pilih kelas nyata untuk memulakan sesi.', 'Select a real class to start a session.'));
       return;
     }
     setStarting(true);
@@ -18353,7 +18447,7 @@ const TeacherWhiteboardScreen = ({
     try {
       const data = await window.tusyenApi.startWhiteboardSession({
         classroomId: selectedClassId,
-        title: 'Sesi Papan Putih'
+        title: t('Sesi Papan Putih', 'Whiteboard Session')
       });
       const session = data.session || data;
       sessState.refresh();
@@ -18460,7 +18554,7 @@ const TeacherWhiteboardScreen = ({
     }
   }, cls.name))), /*#__PURE__*/React.createElement(TeacherBadge, {
     tone: active ? 'good' : 'neutral'
-  }, active ? 'Sesi aktif' : 'Tiada sesi'), /*#__PURE__*/React.createElement(TeacherBadge, null, whiteboardParticipantCount(active), " peserta"))), msg && /*#__PURE__*/React.createElement("div", {
+  }, active ? t('Sesi aktif', 'Active session') : 'Tiada sesi'), /*#__PURE__*/React.createElement(TeacherBadge, null, whiteboardParticipantCount(active), t('peserta', 'participants')))), msg && /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 11,
       color: msg.includes('tamat') ? C.green : C.red,
@@ -18498,9 +18592,9 @@ const TeacherWhiteboardScreen = ({
       color: C.textMuted,
       fontWeight: 600
     }
-  }, active.title || 'Sesi Papan Putih', " - Bermula ", window.timeAgo(active.started_at || active.createdAt))), /*#__PURE__*/React.createElement(TeacherBadge, {
+  }, active.title || t('Sesi Papan Putih', 'Whiteboard Session'), " - Bermula ", window.timeAgo(active.started_at || active.createdAt))), /*#__PURE__*/React.createElement(TeacherBadge, {
     tone: "good"
-  }, whiteboardParticipantCount(active), " peserta")), /*#__PURE__*/React.createElement("div", {
+  }, whiteboardParticipantCount(active), t('peserta', 'participants'))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       gap: 6,
@@ -18545,7 +18639,7 @@ const TeacherWhiteboardScreen = ({
     style: {
       flex: 1
     }
-  }, "Masuk Papan Putih"), /*#__PURE__*/React.createElement("button", {
+  }, t('Masuk Papan Putih', 'Enter Whiteboard')), /*#__PURE__*/React.createElement("button", {
     onClick: () => shareSummary(active),
     style: {
       background: C.surface,
@@ -18609,17 +18703,17 @@ const TeacherWhiteboardScreen = ({
       fontSize: 14,
       color: C.text
     }
-  }, "Tiada sesi aktif"), /*#__PURE__*/React.createElement("div", {
+  }, t('Tiada sesi aktif', 'No active session')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 12,
       color: C.textMuted,
       fontWeight: 700,
       lineHeight: 1.35
     }
-  }, history.length ? 'Mulakan lagi papan putih untuk kelas yang dipilih.' : 'Mulakan papan putih untuk kelas yang dipilih.'))), /*#__PURE__*/React.createElement(GlowButton, {
+  }, history.length ? t('Mulakan lagi papan putih untuk kelas yang dipilih.', 'Start the whiteboard again for the selected class.') : t('Mulakan papan putih untuk kelas yang dipilih.', 'Start the whiteboard for the selected class.')))), /*#__PURE__*/React.createElement(GlowButton, {
     onClick: startSession,
     disabled: starting
-  }, starting ? 'Memulakan...' : history.length ? 'Mula lagi' : 'Mulakan Sesi Papan Putih')), history.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SectionLabel, null, "Sejarah Sesi"), history.map((s, i) => /*#__PURE__*/React.createElement(Card, {
+  }, starting ? 'Memulakan...' : history.length ? t('Mula lagi', 'Start again') : t('Mulakan Sesi Papan Putih', 'Start Whiteboard Session'))), history.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SectionLabel, null, "Sejarah Sesi"), history.map((s, i) => /*#__PURE__*/React.createElement(Card, {
     key: s.id || i,
     style: {
       marginBottom: 8,
@@ -18645,14 +18739,14 @@ const TeacherWhiteboardScreen = ({
       overflow: 'hidden',
       textOverflow: 'ellipsis'
     }
-  }, teacherTitle(s.title, 'Sesi Papan Putih')), /*#__PURE__*/React.createElement("div", {
+  }, teacherTitle(s.title, t('Sesi Papan Putih', 'Whiteboard Session'))), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 10,
       color: C.textFaint,
       fontWeight: 600,
       marginTop: 2
     }
-  }, formatDateShort(s.started_at), " - ", s.ended_at ? `Tamat ${window.timeAgo(s.ended_at)}` : 'Sedang berjalan', " - ", whiteboardParticipantCount(s), " peserta"), /*#__PURE__*/React.createElement("div", {
+  }, formatDateShort(s.started_at), " - ", s.ended_at ? `Tamat ${window.timeAgo(s.ended_at)}` : t('Sedang berjalan', 'Running'), " - ", whiteboardParticipantCount(s), t('peserta', 'participants')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 10,
       color: C.textMuted,
@@ -18716,6 +18810,9 @@ const ClassroomSettingsModal = ({
   onSaved,
   onArchived
 }) => {
+  const {
+    t
+  } = useLanguage();
   const [form, setForm] = React.useState({
     name: cls?.name || '',
     subject: cls?.subject || subjectText(cls?.subj) || 'Matematik',
@@ -18728,11 +18825,11 @@ const ClassroomSettingsModal = ({
   const live = isLiveClassId(cls?.id);
   const save = async () => {
     if (!form.name.trim()) {
-      setError('Nama kelas diperlukan.');
+      setError(t('Nama kelas diperlukan.', 'Class name is required.'));
       return;
     }
     if (!CLASS_FORM_LEVELS.includes(Number(form.formLevel))) {
-      setError('Tingkatan yang dibenarkan ialah 4 atau 5.');
+      setError(t('Tingkatan yang dibenarkan ialah 4 atau 5.', 'Allowed form levels are 4 or 5.'));
       return;
     }
     setBusy('save');
@@ -18770,7 +18867,7 @@ const ClassroomSettingsModal = ({
       onSaved(updated);
       onClose();
     } catch (err) {
-      setError(classroomFormErrorMessage(err, 'Tidak dapat menyimpan kelas.'));
+      setError(classroomFormErrorMessage(err, t('Tidak dapat menyimpan kelas.', 'Unable to save class.')));
     } finally {
       setBusy('');
     }
@@ -18816,13 +18913,13 @@ const ClassroomSettingsModal = ({
       color: C.text,
       marginBottom: 12
     }
-  }, "Tetapan Kelas"), /*#__PURE__*/React.createElement("div", {
+  }, t('Tetapan Kelas', 'Class Settings')), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gap: 8
     }
   }, /*#__PURE__*/React.createElement(TeacherField, {
-    label: "Nama Kelas"
+    label: t('Nama Kelas', 'Class Name')
   }, /*#__PURE__*/React.createElement("input", {
     value: form.name,
     onChange: e => setForm(prev => ({
@@ -18837,7 +18934,7 @@ const ClassroomSettingsModal = ({
       gap: 8
     }
   }, /*#__PURE__*/React.createElement(TeacherField, {
-    label: "Subjek"
+    label: t('Subjek', 'Subject')
   }, /*#__PURE__*/React.createElement("select", {
     value: form.subject,
     onChange: e => setForm(prev => ({
@@ -18849,7 +18946,7 @@ const ClassroomSettingsModal = ({
     key: item,
     value: item
   }, item)))), /*#__PURE__*/React.createElement(TeacherField, {
-    label: "Tingkatan"
+    label: t('Tingkatan', 'Form')
   }, /*#__PURE__*/React.createElement("select", {
     value: form.formLevel,
     onChange: e => setForm(prev => ({
@@ -18860,8 +18957,8 @@ const ClassroomSettingsModal = ({
   }, CLASS_FORM_LEVELS.map(item => /*#__PURE__*/React.createElement("option", {
     key: item,
     value: String(item)
-  }, "Tingkatan ", item))))), /*#__PURE__*/React.createElement(TeacherField, {
-    label: "Penerangan"
+  }, t('Tingkatan', 'Form'), item))))), /*#__PURE__*/React.createElement(TeacherField, {
+    label: t('Penerangan', 'Description')
   }, /*#__PURE__*/React.createElement("textarea", {
     value: form.description,
     onChange: e => setForm(prev => ({
@@ -18890,7 +18987,7 @@ const ClassroomSettingsModal = ({
     style: {
       flex: 1
     }
-  }, busy === 'save' ? 'Menyimpan...' : 'Simpan'), /*#__PURE__*/React.createElement("button", {
+  }, busy === 'save' ? 'Menyimpan...' : t('Simpan', 'Save')), /*#__PURE__*/React.createElement("button", {
     onClick: onClose,
     style: {
       background: C.surface,
@@ -18903,16 +19000,16 @@ const ClassroomSettingsModal = ({
       fontWeight: 800,
       cursor: 'pointer'
     }
-  }, "Batal")), /*#__PURE__*/React.createElement("div", {
+  }, t('Batal', 'Cancel'))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       justifyContent: 'flex-end',
       marginTop: 4
     }
   }, /*#__PURE__*/React.createElement(TeacherActionMenu, {
-    label: "Tindakan lanjut kelas",
+    label: t('Tindakan lanjut kelas', 'Advanced class actions'),
     items: [{
-      label: busy === 'archive' ? 'Menyahaktifkan...' : 'Nyahaktifkan kelas',
+      label: busy === 'archive' ? 'Menyahaktifkan...' : t('Nyahaktifkan kelas', 'Deactivate class'),
       icon: '!',
       danger: true,
       disabled: busy === 'archive',
@@ -18920,7 +19017,7 @@ const ClassroomSettingsModal = ({
     }]
   }))))), /*#__PURE__*/React.createElement(TeacherConfirmModal, {
     open: archiveConfirm,
-    title: "Nyahaktifkan kelas?",
+    title: t('Nyahaktifkan kelas?', 'Deactivate class?'),
     message: `${cls.name} tidak akan kelihatan kepada pelajar selepas dinyahaktifkan.`,
     confirmLabel: "Nyahaktifkan",
     danger: true,
@@ -18937,6 +19034,9 @@ const TeacherClass = ({
   onClassUpdated,
   onClassArchived
 }) => {
+  const {
+    t
+  } = useLanguage();
   const [tab, setTab] = React.useState(initialTab);
   const [composer, setComposer] = React.useState(null);
   const [postText, setPostText] = React.useState('');
@@ -18979,25 +19079,25 @@ const TeacherClass = ({
   };
   const createCards = [{
     icon: '📢',
-    label: 'Pengumuman',
-    desc: 'Maklumkan jadual, peringatan, atau nota penting.',
+    label: t('Pengumuman', 'Announcement'),
+    desc: t('Maklumkan jadual, peringatan, atau nota penting.', 'Share schedules, reminders, or important notes.'),
     postType: 'announcement',
     enabled: true
   }, {
     icon: '📋',
-    label: 'Tugasan',
-    desc: 'Tetapkan arahan kerja, bahan rujukan, dan tarikh hantar.',
+    label: t('Tugasan', 'Assignment'),
+    desc: t('Tetapkan arahan kerja, bahan rujukan, dan tarikh hantar.', 'Set work instructions, reference materials, and due date.'),
     postType: 'assignment',
     enabled: true
   }, {
     icon: '🧪',
-    label: 'Kuiz baharu',
-    desc: 'Sediakan semakan pantas untuk kelas.',
+    label: t('Kuiz baharu', 'New quiz'),
+    desc: t('Sediakan semakan pantas untuk kelas.', 'Prepare a quick review for the class.'),
     enabled: false
   }, {
     icon: '🎬',
-    label: 'Video pelajaran',
-    desc: 'Kongsi penerangan atau pautan video.',
+    label: t('Video pelajaran', 'Lesson video'),
+    desc: t('Kongsi penerangan atau pautan video.', 'Share an explanation or video link.'),
     enabled: false
   }];
   React.useEffect(() => {
@@ -19036,7 +19136,7 @@ const TeacherClass = ({
   const submitPost = async () => {
     if (!composer || !postText.trim()) return;
     if (composer.postType === 'assignment' && !dueDate) {
-      setPostError('Tarikh hantar diperlukan untuk tugasan.');
+      setPostError(t('Tarikh hantar diperlukan untuk tugasan.', 'Due date is required for assignments.'));
       return;
     }
     setPosting(true);
@@ -19055,7 +19155,7 @@ const TeacherClass = ({
         id: teacherPostId(data?.post || data),
         before: firstBefore
       };
-      setPostStatus('Berjaya dihantar. Pos terkini dipaparkan di bawah.');
+      setPostStatus(t('Berjaya dihantar. Pos terkini dipaparkan di bawah.', 'Sent successfully. The latest post is shown below.'));
       setPostText('');
       setDueDate('');
       setComposer(null);
@@ -19074,9 +19174,9 @@ const TeacherClass = ({
   const copyClassCode = async () => {
     try {
       await copyTextToClipboard(cls.code);
-      setClassNotice('Kod kelas disalin.');
+      setClassNotice(t('Kod kelas disalin.', 'Class code copied.'));
     } catch {
-      setClassNotice('Salin kod gagal. Pilih kod dan salin secara manual.');
+      setClassNotice(t('Salin kod gagal. Pilih kod dan salin secara manual.', 'Copy failed. Select the code and copy it manually.'));
     }
   };
   const shareClassCode = async () => {
@@ -19086,7 +19186,7 @@ const TeacherClass = ({
           title: `Kod kelas ${cls.name}`,
           text: classInviteText(cls)
         });
-        setClassNotice('Kod kelas sedia dikongsi.');
+        setClassNotice(t('Kod kelas sedia dikongsi.', 'Class code is ready to share.'));
       } else {
         await copyTextToClipboard(classInviteText(cls));
         setClassNotice('Teks jemputan disalin.');
@@ -19133,34 +19233,34 @@ const TeacherClass = ({
   const averageCount = items => items.length ? items.reduce((sum, value) => sum + value, 0) / items.length : 0;
   const trendDelta = Math.round(averageCount(lateWeek) - averageCount(earlyWeek));
   const activityTrend = weeklyTotal === 0 ? {
-    label: 'Belum ada data',
+    label: t('Belum ada data', 'No data yet'),
     tone: 'neutral',
-    detail: 'Aktiviti belum cukup untuk membaca corak minggu ini.',
-    why: 'Mengapa penting: trend membantu Cikgu memilih sama ada perlu dorongan kelas atau intervensi kecil.'
+    detail: t('Aktiviti belum cukup untuk membaca corak minggu ini.', 'There is not enough activity to read this week\'s pattern.'),
+    why: t('Mengapa penting: trend membantu Cikgu memilih sama ada perlu dorongan kelas atau intervensi kecil.', 'Why it matters: trends help teachers choose between class encouragement or small interventions.')
   } : trendDelta >= 2 ? {
     label: 'Trend menaik',
     tone: 'good',
     detail: `Aktiviti terkini naik kira-kira ${trendDelta} berbanding awal minggu.`,
-    why: 'Mengapa penting: momentum sedang baik; kekalkan rentak dengan tugasan pendek atau pujian kelas.'
+    why: t('Mengapa penting: momentum sedang baik; kekalkan rentak dengan tugasan pendek atau pujian kelas.', 'Why it matters: momentum is good; keep the pace with short assignments or class praise.')
   } : trendDelta <= -2 ? {
     label: 'Trend menurun',
     tone: 'bad',
     detail: `Aktiviti terkini turun kira-kira ${Math.abs(trendDelta)} berbanding awal minggu.`,
-    why: 'Mengapa penting: penurunan awal memberi peluang untuk hantar peringatan sebelum pelajar tertinggal.'
+    why: t('Mengapa penting: penurunan awal memberi peluang untuk hantar peringatan sebelum pelajar tertinggal.', 'Why it matters: an early dip gives time to send reminders before students fall behind.')
   } : {
     label: 'Trend stabil',
     tone: 'warn',
-    detail: 'Aktiviti kelas stabil tanpa lonjakan atau penurunan besar.',
-    why: 'Mengapa penting: kelas stabil sesuai diberi latihan pengukuhan ringan dan semakan topik lemah.'
+    detail: t('Aktiviti kelas stabil tanpa lonjakan atau penurunan besar.', 'Class activity is stable without major spikes or drops.'),
+    why: t('Mengapa penting: kelas stabil sesuai diberi latihan pengukuhan ringan dan semakan topik lemah.', 'Why it matters: a stable class is ready for light reinforcement practice and weak-topic review.')
   };
-  const riskActionWhy = atRiskRoster.length > 0 ? `${atRiskRoster.length} pelajar memerlukan semakan kerana skor atau kemajuan mereka berada di bawah ambang risiko.` : 'Tiada pelajar berisiko dikesan sekarang; terus pantau selepas tugasan baharu.';
+  const riskActionWhy = atRiskRoster.length > 0 ? `${atRiskRoster.length} pelajar memerlukan semakan kerana skor atau kemajuan mereka berada di bawah ambang risiko.` : t('Tiada pelajar berisiko dikesan sekarang; terus pantau selepas tugasan baharu.', 'No at-risk students detected now; keep monitoring after new assignments.');
   const weakTopicWhy = topic => {
     const score = Number(topic.avgScore) || 0;
     if (score < 50) return 'Mengapa penting: purata bawah 50% biasanya menandakan asas topik belum kukuh dan perlu pemulihan segera.';
     if (score < 60) return 'Mengapa penting: topik ini hampir menjadi risiko kelas; latihan fokus boleh cegah jurang bertambah.';
     return 'Mengapa penting: topik ini masih paling lemah berbanding topik lain dan sesuai untuk pengukuhan ringkas.';
   };
-  const weeklyTrendLabel = weeklyPeak ? `${weeklyTotal} aktiviti minggu ini; hari paling aktif ${weeklyPeak.day} (${weeklyPeak.count}).` : 'Belum ada aktiviti minggu ini.';
+  const weeklyTrendLabel = weeklyPeak ? `${weeklyTotal} aktiviti minggu ini; hari paling aktif ${weeklyPeak.day} (${weeklyPeak.count}).` : t('Belum ada aktiviti minggu ini.', 'No activity this week yet.');
   if (!cls) {
     return /*#__PURE__*/React.createElement("div", {
       style: {
@@ -19171,8 +19271,8 @@ const TeacherClass = ({
       }
     }, /*#__PURE__*/React.createElement(EmptyState, {
       icon: "\uD83C\uDFEB",
-      title: "Pilih kelas dahulu",
-      subtitle: "Buka tab Kelas dan pilih kelas untuk melihat pelajar, analitik, atau mencipta kandungan."
+      title: t('Pilih kelas dahulu', 'Select a class first'),
+      subtitle: t('Buka tab Kelas dan pilih kelas untuk melihat pelajar, analitik, atau mencipta kandungan.', 'Open the Classes tab and select a class to view students, analytics, or create content.')
     }));
   }
   return /*#__PURE__*/React.createElement("div", {
@@ -19213,7 +19313,7 @@ const TeacherClass = ({
       cursor: 'pointer',
       flexShrink: 0
     }
-  }, "Kembali ke Kelas"), /*#__PURE__*/React.createElement("div", {
+  }, t('Kembali ke Kelas', 'Back to Classes')), /*#__PURE__*/React.createElement("div", {
     style: {
       minWidth: 0,
       color: C.textMuted,
@@ -19223,7 +19323,7 @@ const TeacherClass = ({
       overflow: 'hidden',
       textOverflow: 'ellipsis'
     }
-  }, "Kelas / ", cls.name)), /*#__PURE__*/React.createElement("div", {
+  }, t('Kelas /', 'Class /'), cls.name)), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       justifyContent: 'space-between',
@@ -19251,7 +19351,7 @@ const TeacherClass = ({
       color: C.textMuted,
       fontWeight: 600
     }
-  }, cls.subj, " \u2022 ", cls.students, " pelajar")), /*#__PURE__*/React.createElement("button", {
+  }, cls.subj, " \u2022 ", cls.students, t('pelajar', 'students'))), /*#__PURE__*/React.createElement("button", {
     onClick: () => setSettingsOpen(true),
     title: "Sunting kelas",
     style: {
@@ -19276,7 +19376,7 @@ const TeacherClass = ({
   }, /*#__PURE__*/React.createElement(StatPill, {
     icon: "\uD83D\uDCCA",
     value: classAvgLabel,
-    label: "Purata Siap",
+    label: t('Purata Siap', 'Average Completion'),
     color: cls.color
   }), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -19300,7 +19400,7 @@ const TeacherClass = ({
       fontWeight: 900,
       textTransform: 'uppercase'
     }
-  }, "Kod Kelas"), /*#__PURE__*/React.createElement("div", {
+  }, t('Kod Kelas', 'Class Code')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 13,
       color: cls.color,
@@ -19309,7 +19409,7 @@ const TeacherClass = ({
     }
   }, cls.code)), /*#__PURE__*/React.createElement(TeacherSmallButton, {
     onClick: copyClassCode
-  }, "Salin"), /*#__PURE__*/React.createElement(TeacherSmallButton, {
+  }, t('Salin', 'Copy')), /*#__PURE__*/React.createElement(TeacherSmallButton, {
     onClick: shareClassCode
   }, "Kongsi"))), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -19322,7 +19422,7 @@ const TeacherClass = ({
     style: {
       flex: 1
     }
-  }, "Pengumuman baharu"), /*#__PURE__*/React.createElement(TeacherSmallButton, {
+  }, t('Pengumuman baharu', 'New announcement')), /*#__PURE__*/React.createElement(TeacherSmallButton, {
     onClick: () => {
       setTab('students');
       setStudentFilter('risk');
@@ -19331,7 +19431,7 @@ const TeacherClass = ({
     style: {
       flex: 1
     }
-  }, atRiskRoster.length, " Pelajar Berisiko")), /*#__PURE__*/React.createElement("div", {
+  }, atRiskRoster.length, t('Pelajar Berisiko', 'At-Risk Students'))), /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 8,
       fontSize: 11,
@@ -19339,7 +19439,7 @@ const TeacherClass = ({
       fontWeight: 800,
       lineHeight: 1.4
     }
-  }, "Aktiviti terakhir: ", formatActivityStatus(classLastActivity), ". Purata siap berdasarkan rekod pelajaran yang sudah dicuba dalam kelas ini."), classNotice && /*#__PURE__*/React.createElement("div", {
+  }, "Aktiviti terakhir: ", formatActivityStatus(classLastActivity), t('. Purata siap berdasarkan rekod pelajaran yang sudah dicuba dalam kelas ini.', '. Average completion is based on lesson records attempted in this class.')), classNotice && /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 11,
       color: C.accPale,
@@ -19348,7 +19448,7 @@ const TeacherClass = ({
     }
   }, classNotice)), /*#__PURE__*/React.createElement("div", {
     role: "tablist",
-    "aria-label": "Bahagian detail kelas",
+    "aria-label": t('Bahagian detail kelas', 'Class detail section'),
     style: {
       display: 'flex',
       borderBottom: `1px solid ${C.border}`,
@@ -19465,13 +19565,13 @@ const TeacherClass = ({
     radius: 8
   }))) : displayedRoster.length === 0 ? /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement(EmptyState, {
     icon: "\uD83D\uDC65",
-    title: studentFilter === 'risk' ? 'Tiada pelajar berisiko' : 'Belum ada pelajar',
-    subtitle: studentFilter === 'risk' ? 'Tiada pelajar berisiko berdasarkan markah dan kemajuan semasa.' : 'Kongsi kod kelas untuk mula menambah pelajar.'
+    title: studentFilter === 'risk' ? t('Tiada pelajar berisiko', 'No at-risk students') : t('Belum ada pelajar', 'No students yet'),
+    subtitle: studentFilter === 'risk' ? t('Tiada pelajar berisiko berdasarkan markah dan kemajuan semasa.', 'No at-risk students based on current marks and progress.') : t('Kongsi kod kelas untuk mula menambah pelajar.', 'Share the class code to start adding students.')
   })) : /*#__PURE__*/React.createElement("div", null, displayedRoster.map((s, i) => {
     const hasScore = s.score !== null && s.score !== undefined;
     const scoreGood = hasScore && s.score >= 60;
     const scoreColor = !hasScore ? C.textFaint : scoreGood ? C.green : C.red;
-    const progressText = s.attempted > 0 ? `${s.completed}/${s.attempted} selesai` : 'Belum ada pelajaran';
+    const progressText = s.attempted > 0 ? `${s.completed}/${s.attempted} selesai` : t('Belum ada pelajaran', 'No lessons yet');
     return /*#__PURE__*/React.createElement("div", {
       key: s.id || i,
       onClick: () => setSelectedStudent(selectedStudent?.id === (s.id || i) ? null : s),
@@ -19524,11 +19624,11 @@ const TeacherClass = ({
     }, hasScore ? `${s.score}%` : '—'), /*#__PURE__*/React.createElement(TeacherActionMenu, {
       label: `Tindakan ${s.name}`,
       items: [{
-        label: 'Lihat kemajuan',
+        label: t('Lihat kemajuan', 'View progress'),
         icon: '📊',
         onClick: () => setSelectedStudent(s)
       }, isLiveClassId(cls?.id) && {
-        label: removingStudentId === s.id ? 'Membuang...' : 'Buang daripada kelas',
+        label: removingStudentId === s.id ? 'Membuang...' : t('Buang daripada kelas', 'Remove from class'),
         icon: '🗑️',
         danger: true,
         disabled: removingStudentId === s.id,
@@ -19559,7 +19659,7 @@ const TeacherClass = ({
       color: C.textMuted,
       fontWeight: 600
     }
-  }, selectedStudent.lastActive ? `Aktif ${formatDateShort(selectedStudent.lastActive)}` : 'Belum ada aktiviti direkod')), /*#__PURE__*/React.createElement("div", {
+  }, selectedStudent.lastActive ? `Aktif ${formatDateShort(selectedStudent.lastActive)}` : t('Belum ada aktiviti direkod', 'No activity recorded yet'))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       gap: 6
@@ -19567,7 +19667,7 @@ const TeacherClass = ({
   }, /*#__PURE__*/React.createElement(TeacherActionMenu, {
     label: `Tindakan ${selectedStudent.name}`,
     items: [isLiveClassId(cls?.id) && {
-      label: removingStudentId === selectedStudent.id ? 'Membuang...' : 'Buang daripada kelas',
+      label: removingStudentId === selectedStudent.id ? 'Membuang...' : t('Buang daripada kelas', 'Remove from class'),
       icon: '🗑️',
       danger: true,
       disabled: removingStudentId === selectedStudent.id,
@@ -19634,7 +19734,7 @@ const TeacherClass = ({
       color: C.text,
       marginBottom: 7
     }
-  }, "Sejarah Pelajaran"), progressState.loading ? [0, 1, 2].map(i => /*#__PURE__*/React.createElement(Skeleton, {
+  }, t('Sejarah Pelajaran', 'Lesson History')), progressState.loading ? [0, 1, 2].map(i => /*#__PURE__*/React.createElement(Skeleton, {
     key: i,
     width: "100%",
     height: 24,
@@ -19664,7 +19764,7 @@ const TeacherClass = ({
       overflow: 'hidden',
       textOverflow: 'ellipsis'
     }
-  }, compactLessonTitle(p.lesson_title || p.title || '', 'Pelajaran')), /*#__PURE__*/React.createElement("div", {
+  }, compactLessonTitle(p.lesson_title || p.title || '', t('Pelajaran', 'Lessons'))), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 10,
       color: C.textMuted,
@@ -19683,7 +19783,7 @@ const TeacherClass = ({
       color: C.textMuted,
       fontWeight: 600
     }
-  }, "Tiada rekod pelajaran untuk kelas ini.")))), tab === 'analytics' && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+  }, t('Tiada rekod pelajaran untuk kelas ini.', 'No lesson records for this class.'))))), tab === 'analytics' && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       justifyContent: 'space-between',
@@ -19834,7 +19934,7 @@ const TeacherClass = ({
       fontWeight: 900,
       marginBottom: 4
     }
-  }, "Tindakan risiko pelajar"), /*#__PURE__*/React.createElement("div", {
+  }, t('Tindakan risiko pelajar', 'Student risk action')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 11,
       color: C.textMuted,
@@ -19850,7 +19950,7 @@ const TeacherClass = ({
     style: {
       flexShrink: 0
     }
-  }, atRiskRoster.length ? 'Semak risiko' : 'Lihat roster'))), /*#__PURE__*/React.createElement("div", {
+  }, atRiskRoster.length ? t('Semak risiko', 'Review risk') : 'Lihat roster'))), /*#__PURE__*/React.createElement("div", {
     style: {
       fontWeight: 800,
       fontSize: 14,
@@ -19869,7 +19969,7 @@ const TeacherClass = ({
     height: 13,
     radius: 7
   }))) : analyticsState.error ? /*#__PURE__*/React.createElement(ErrorRetry, {
-    message: "Analitik topik tidak dapat dimuat.",
+    message: t('Analitik topik tidak dapat dimuat.', 'Topic analytics could not be loaded.'),
     onRetry: analyticsState.refresh
   }) : analytics.weakTopics.length === 0 ? /*#__PURE__*/React.createElement(Card, {
     style: {
@@ -19883,7 +19983,7 @@ const TeacherClass = ({
       fontWeight: 800,
       lineHeight: 1.4
     }
-  }, "Tiada topik lemah dikesan berdasarkan data kelas semasa.")) : analytics.weakTopics.map((t, i) => {
+  }, t('Tiada topik lemah dikesan berdasarkan data kelas semasa.', 'No weak topics detected from current class data.'))) : analytics.weakTopics.map((t, i) => {
     const weakTone = Number(t.avgScore) < 50 ? 'bad' : Number(t.avgScore) < 60 ? 'warn' : 'neutral';
     const weakLabel = Number(t.avgScore) < 50 ? 'Kritikal' : Number(t.avgScore) < 60 ? 'Perlu pemulihan' : 'Pengukuhan';
     return /*#__PURE__*/React.createElement(Card, {
@@ -19910,7 +20010,7 @@ const TeacherClass = ({
         color: C.text,
         fontWeight: 700
       }
-    }, "\u26A0\uFE0F ", t.topic, " (purata ", t.avgScore, "%)"), /*#__PURE__*/React.createElement("div", {
+    }, "\u26A0\uFE0F ", t.topic, t('(purata', '(average'), t.avgScore, "%)"), /*#__PURE__*/React.createElement("div", {
       style: {
         display: 'flex',
         gap: 6,
@@ -19921,7 +20021,7 @@ const TeacherClass = ({
       tone: weakTone
     }, weakLabel), /*#__PURE__*/React.createElement(TeacherBadge, {
       tone: "neutral"
-    }, "Purata ", t.avgScore, "%")), /*#__PURE__*/React.createElement("div", {
+    }, t('Purata', 'Average'), t.avgScore, "%")), /*#__PURE__*/React.createElement("div", {
       style: {
         fontSize: 11,
         color: C.textMuted,
@@ -19954,7 +20054,7 @@ const TeacherClass = ({
       color: C.text,
       marginBottom: 12
     }
-  }, "Cipta Kandungan"), postStatus && /*#__PURE__*/React.createElement(Card, {
+  }, t('Cipta Kandungan', 'Create Content')), postStatus && /*#__PURE__*/React.createElement(Card, {
     success: true,
     style: {
       marginBottom: 10,
@@ -19997,7 +20097,7 @@ const TeacherClass = ({
       textTransform: 'uppercase',
       marginBottom: 8
     }
-  }, "Tarikh Hantar", /*#__PURE__*/React.createElement("input", {
+  }, t('Tarikh Hantar', 'Due Date'), /*#__PURE__*/React.createElement("input", {
     type: "date",
     value: dueDate,
     onChange: e => setDueDate(e.target.value),
@@ -20016,7 +20116,7 @@ const TeacherClass = ({
   })), /*#__PURE__*/React.createElement("textarea", {
     value: postText,
     onChange: e => setPostText(e.target.value),
-    placeholder: composer.postType === 'assignment' ? 'Tulis arahan tugasan, bahan rujukan, dan kriteria siap...' : 'Tulis pengumuman ringkas untuk kelas...',
+    placeholder: composer.postType === 'assignment' ? t('Tulis arahan tugasan, bahan rujukan, dan kriteria siap...', 'Write assignment instructions, reference materials, and completion criteria...') : t('Tulis pengumuman ringkas untuk kelas...', 'Write a short announcement for the class...'),
     style: {
       width: '100%',
       minHeight: 96,
@@ -20049,7 +20149,7 @@ const TeacherClass = ({
     style: {
       flex: 1
     }
-  }, posting ? 'Menghantar...' : 'Hantar'), /*#__PURE__*/React.createElement("button", {
+  }, posting ? 'Menghantar...' : t('Hantar', 'Send')), /*#__PURE__*/React.createElement("button", {
     onClick: () => setComposer(null),
     style: {
       background: C.surface,
@@ -20062,7 +20162,7 @@ const TeacherClass = ({
       fontWeight: 800,
       cursor: 'pointer'
     }
-  }, "Batal"))), createCards.map(item => /*#__PURE__*/React.createElement(Card, {
+  }, t('Batal', 'Cancel')))), createCards.map(item => /*#__PURE__*/React.createElement(Card, {
     key: item.label,
     style: {
       marginBottom: 10,
@@ -20109,7 +20209,7 @@ const TeacherClass = ({
       color: C.textFaint,
       fontWeight: 600
     }
-  }, "Segera"))), /*#__PURE__*/React.createElement(SectionLabel, null, "Suapan Kelas"), feedState.loading ? [0, 1, 2].map(i => /*#__PURE__*/React.createElement(Card, {
+  }, "Segera"))), /*#__PURE__*/React.createElement(SectionLabel, null, t('Suapan Kelas', 'Class Feed')), feedState.loading ? [0, 1, 2].map(i => /*#__PURE__*/React.createElement(Card, {
     key: i,
     style: {
       marginBottom: 8,
@@ -20151,7 +20251,7 @@ const TeacherClass = ({
       color: C.accPale,
       fontWeight: 900
     }
-  }, teacherTitle(post.title, post.post_type === 'assignment' ? 'Tugasan' : 'Pengumuman')), /*#__PURE__*/React.createElement("div", {
+  }, teacherTitle(post.title, post.post_type === 'assignment' ? t('Tugasan', 'Assignment') : t('Pengumuman', 'Announcement'))), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 10,
       color: C.textFaint,
@@ -20176,7 +20276,7 @@ const TeacherClass = ({
       color: C.textMuted,
       fontWeight: 600
     }
-  }, "Belum ada pos dalam suapan kelas."))), tab === 'quiz' && window.TeacherQuizTab && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(TeacherQuizTimerControls, {
+  }, t('Belum ada pos dalam suapan kelas.', 'No posts in the class feed yet.')))), tab === 'quiz' && window.TeacherQuizTab && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(TeacherQuizTimerControls, {
     classroomId: cls?.id
   }), /*#__PURE__*/React.createElement(window.TeacherQuizTab, {
     classroomId: cls?.id
@@ -20187,9 +20287,9 @@ const TeacherClass = ({
     onArchived: archived => onClassArchived && onClassArchived(archived)
   }), /*#__PURE__*/React.createElement(TeacherConfirmModal, {
     open: Boolean(removeConfirm),
-    title: "Buang pelajar?",
-    message: `${removeConfirm?.name || 'Pelajar'} akan dikeluarkan daripada ${cls?.name || 'kelas ini'}. Rekod kemajuan sedia ada tidak dipadam.`,
-    confirmLabel: "Buang daripada kelas",
+    title: t('Buang pelajar?', 'Remove student?'),
+    message: `${removeConfirm?.name || t('Pelajar', 'Students')} akan dikeluarkan daripada ${cls?.name || t('kelas ini', 'this class')}. Rekod kemajuan sedia ada tidak dipadam.`,
+    confirmLabel: t('Buang daripada kelas', 'Remove from class'),
     danger: true,
     busy: Boolean(removingStudentId),
     onCancel: () => setRemoveConfirm(null),
@@ -20206,6 +20306,9 @@ const TeacherHome = ({
   displayName,
   notice
 }) => {
+  const {
+    t
+  } = useLanguage();
   const classState = useTeacherClassrooms();
   const profileState = useTeacherProfile(displayName);
   const {
@@ -20234,13 +20337,13 @@ const TeacherHome = ({
   const [localNotice, setLocalNotice] = React.useState('');
   const [editingClass, setEditingClass] = React.useState(null);
   const subjects = profileSubjects(profile, list);
-  const subjectLine = profileState.loading ? 'Memuat profil...' : subjects.length ? subjects.slice(0, 3).join(' & ') : 'Subjek belum dikemaskini';
+  const subjectLine = profileState.loading ? t('Memuat profil...', 'Loading profile...') : subjects.length ? subjects.slice(0, 3).join(' & ') : t('Subjek belum dikemaskini', 'Subject not updated yet');
   const attentionItems = isLive ? list.filter(c => Number(c.riskCount) > 0 || c.avg !== null && c.avg < 60).map(c => ({
     text: Number(c.riskCount) > 0 ? `${c.name} - ${c.riskCount} pelajar berisiko` : `${c.name} - Purata siap ${c.avg}%, perlu semakan`,
     classRef: c,
     tab: Number(c.riskCount) > 0 ? 'students' : 'analytics',
     filter: Number(c.riskCount) > 0 ? 'risk' : 'all',
-    action: Number(c.riskCount) > 0 ? 'Lihat roster' : 'Buka intervensi'
+    action: Number(c.riskCount) > 0 ? 'Lihat roster' : t('Buka intervensi', 'Open intervention')
   })) : [{
     text: 'Nurul Ain (4A) - Skor 45%, tiada aktiviti 5 hari',
     classRef: list[0],
@@ -20260,7 +20363,7 @@ const TeacherHome = ({
       await copyTextToClipboard(cls.code);
       setLocalNotice(`Kod ${cls.name} disalin.`);
     } catch {
-      setLocalNotice('Salin kod gagal. Pilih kod dan salin secara manual.');
+      setLocalNotice(t('Salin kod gagal. Pilih kod dan salin secara manual.', 'Copy failed. Select the code and copy it manually.'));
     }
   };
   const shareClassCodeFromCard = async (cls, event) => {
@@ -20271,7 +20374,7 @@ const TeacherHome = ({
           title: `Kod kelas ${cls.name}`,
           text: classInviteText(cls)
         });
-        setLocalNotice('Kod kelas sedia dikongsi.');
+        setLocalNotice(t('Kod kelas sedia dikongsi.', 'Class code is ready to share.'));
       } else {
         await copyTextToClipboard(classInviteText(cls));
         setLocalNotice(`Teks jemputan ${cls.name} disalin.`);
@@ -20300,11 +20403,11 @@ const TeacherHome = ({
   const submitCreateClass = async () => {
     const name = newClass.name.trim();
     if (!name) {
-      setCreateError('Nama kelas diperlukan.');
+      setCreateError(t('Nama kelas diperlukan.', 'Class name is required.'));
       return;
     }
     if (!CLASS_FORM_LEVELS.includes(Number(newClass.formLevel))) {
-      setCreateError('Tingkatan yang dibenarkan ialah 4 atau 5.');
+      setCreateError(t('Tingkatan yang dibenarkan ialah 4 atau 5.', 'Allowed form levels are 4 or 5.'));
       return;
     }
     setCreating(true);
@@ -20334,7 +20437,7 @@ const TeacherHome = ({
         tab: 'students'
       }) : go('class');
     } catch (err) {
-      setCreateError(classroomFormErrorMessage(err, 'Tidak dapat mencipta kelas.'));
+      setCreateError(classroomFormErrorMessage(err, t('Tidak dapat mencipta kelas.', 'Unable to create class.')));
     } finally {
       setCreating(false);
     }
@@ -20374,20 +20477,20 @@ const TeacherHome = ({
     }
   }, [{
     v: String(list.length),
-    l: 'Kelas',
+    l: t('Kelas', 'Class'),
     i: '🏫'
   }, {
     v: String(totalStudents),
-    l: 'Pelajar',
+    l: t('Pelajar', 'Students'),
     i: '👥'
   }, {
     v: avgCompletion === null ? '0%' : `${avgCompletion}%`,
-    l: 'Purata Siap',
+    l: t('Purata Siap', 'Average Completion'),
     i: '📊',
     muted: avgCompletion === null
   }, {
     v: String(riskCount),
-    l: 'Pelajar Berisiko',
+    l: t('Pelajar Berisiko', 'At-Risk Students'),
     i: '⚠️',
     danger: riskCount > 0,
     onClick: riskCount > 0 ? openRiskRoster : undefined
@@ -20486,7 +20589,7 @@ const TeacherHome = ({
       fontWeight: 700,
       padding: '3px 0'
     }
-  }, "Tiada amaran kelas berdasarkan data semasa.")), /*#__PURE__*/React.createElement(SectionLabel, null, "Kelas Saya"), notice && /*#__PURE__*/React.createElement(Card, {
+  }, t('Tiada amaran kelas berdasarkan data semasa.', 'No class alerts based on current data.'))), /*#__PURE__*/React.createElement(SectionLabel, null, t('Kelas Saya', 'My Classes')), notice && /*#__PURE__*/React.createElement(Card, {
     style: {
       marginBottom: 10,
       padding: 10,
@@ -20530,13 +20633,13 @@ const TeacherHome = ({
       color: C.accPale,
       marginBottom: 8
     }
-  }, "Kelas baharu"), /*#__PURE__*/React.createElement("input", {
+  }, t('Kelas baharu', 'New class')), /*#__PURE__*/React.createElement("input", {
     value: newClass.name,
     onChange: e => setNewClass({
       ...newClass,
       name: e.target.value
     }),
-    placeholder: "Nama kelas, contoh: Matematik 4A",
+    placeholder: t('Nama kelas, contoh: Matematik 4A', 'Class name, e.g. Mathematics 4A'),
     style: {
       width: '100%',
       boxSizing: 'border-box',
@@ -20592,13 +20695,13 @@ const TeacherHome = ({
   }, CLASS_FORM_LEVELS.map(level => /*#__PURE__*/React.createElement("option", {
     key: level,
     value: level
-  }, "Tingkatan ", level)))), /*#__PURE__*/React.createElement("textarea", {
+  }, t('Tingkatan', 'Form'), level)))), /*#__PURE__*/React.createElement("textarea", {
     value: newClass.description,
     onChange: e => setNewClass({
       ...newClass,
       description: e.target.value
     }),
-    placeholder: "Penerangan ringkas kelas",
+    placeholder: t('Penerangan ringkas kelas', 'Short class description'),
     style: {
       width: '100%',
       minHeight: 72,
@@ -20631,7 +20734,7 @@ const TeacherHome = ({
     style: {
       flex: 1
     }
-  }, creating ? 'Mencipta...' : 'Cipta Kelas'), /*#__PURE__*/React.createElement("button", {
+  }, creating ? 'Mencipta...' : t('Cipta Kelas', 'Create Class')), /*#__PURE__*/React.createElement("button", {
     onClick: () => setShowCreate(false),
     style: {
       background: C.surface,
@@ -20644,7 +20747,7 @@ const TeacherHome = ({
       fontWeight: 800,
       cursor: 'pointer'
     }
-  }, "Batal"))), classState.loading ? [0, 1, 2].map(i => /*#__PURE__*/React.createElement(Card, {
+  }, t('Batal', 'Cancel')))), classState.loading ? [0, 1, 2].map(i => /*#__PURE__*/React.createElement(Card, {
     key: i,
     style: {
       marginBottom: 10
@@ -20699,8 +20802,8 @@ const TeacherHome = ({
     }
   }, /*#__PURE__*/React.createElement(EmptyState, {
     icon: "\uD83C\uDFEB",
-    title: "Cipta kelas pertama anda",
-    subtitle: "Mulakan kelas untuk jemput pelajar, berkongsi tugasan, dan melihat kemajuan."
+    title: t('Cipta kelas pertama anda', 'Create your first class'),
+    subtitle: t('Mulakan kelas untuk jemput pelajar, berkongsi tugasan, dan melihat kemajuan.', 'Start a class to invite students, share assignments, and view progress.')
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
@@ -20708,7 +20811,7 @@ const TeacherHome = ({
       margin: '0 auto 14px',
       maxWidth: 300
     }
-  }, ['Namakan kelas dan subjek.', 'Kongsi kod kelas kepada pelajar.', 'Tetapkan pelajaran pertama dengan tarikh hantar.'].map((item, index) => /*#__PURE__*/React.createElement("div", {
+  }, [t('Namakan kelas dan subjek.', 'Name the class and subject.'), t('Kongsi kod kelas kepada pelajar.', 'Share the class code with students.'), t('Tetapkan pelajaran pertama dengan tarikh hantar.', 'Assign the first lesson with a due date.')].map((item, index) => /*#__PURE__*/React.createElement("div", {
     key: index,
     style: {
       display: 'flex',
@@ -20723,7 +20826,7 @@ const TeacherHome = ({
     style: {
       marginTop: 4
     }
-  }, "Cipta kelas pertama anda")) : list.map(cls => {
+  }, t('Cipta kelas pertama anda', 'Create your first class'))) : list.map(cls => {
     const hasAvg = cls.avg !== null && cls.avg !== undefined;
     return /*#__PURE__*/React.createElement(Card, {
       key: cls.id,
@@ -20759,7 +20862,7 @@ const TeacherHome = ({
       }
     }, cls.subj, " \u2022 Tingkatan ", cls.form)), Number(cls.riskCount) > 0 && /*#__PURE__*/React.createElement(TeacherBadge, {
       tone: "bad"
-    }, cls.riskCount, " risiko")), /*#__PURE__*/React.createElement("div", {
+    }, cls.riskCount, t('risiko', 'risk'))), /*#__PURE__*/React.createElement("div", {
       onClick: e => e.stopPropagation(),
       style: {
         display: 'grid',
@@ -20783,7 +20886,7 @@ const TeacherHome = ({
         fontWeight: 900,
         textTransform: 'uppercase'
       }
-    }, "Kod Kelas"), /*#__PURE__*/React.createElement("div", {
+    }, t('Kod Kelas', 'Class Code')), /*#__PURE__*/React.createElement("div", {
       style: {
         fontSize: 13,
         fontWeight: 900,
@@ -20792,7 +20895,7 @@ const TeacherHome = ({
       }
     }, cls.code)), /*#__PURE__*/React.createElement(TeacherSmallButton, {
       onClick: event => copyClassCodeFromCard(cls, event)
-    }, "Salin"), /*#__PURE__*/React.createElement(TeacherSmallButton, {
+    }, t('Salin', 'Copy')), /*#__PURE__*/React.createElement(TeacherSmallButton, {
       onClick: event => shareClassCodeFromCard(cls, event)
     }, "Kongsi")), /*#__PURE__*/React.createElement("div", {
       style: {
@@ -20807,7 +20910,7 @@ const TeacherHome = ({
         color: C.textMuted,
         fontWeight: 700
       }
-    }, "\uD83D\uDC65 ", cls.students, " pelajar"), /*#__PURE__*/React.createElement("span", {
+    }, "\uD83D\uDC65 ", cls.students, t('pelajar', 'students')), /*#__PURE__*/React.createElement("span", {
       style: {
         fontSize: 12,
         color: hasAvg ? C.textMuted : C.textFaint,
@@ -20866,21 +20969,21 @@ const TeacherHome = ({
         fontSize: 13,
         cursor: 'pointer'
       }
-    }, "Lihat kelas")));
+    }, t('Lihat kelas', 'View class'))));
   }), /*#__PURE__*/React.createElement(GlowButton, {
     outlined: true,
     onClick: () => setShowCreate(v => !v),
     style: {
       marginTop: 4
     }
-  }, showCreate ? 'Tutup borang' : '+ Cipta kelas baharu'), editingClass && /*#__PURE__*/React.createElement(ClassroomSettingsModal, {
+  }, showCreate ? 'Tutup borang' : t('+ Cipta kelas baharu', '+ Create new class')), editingClass && /*#__PURE__*/React.createElement(ClassroomSettingsModal, {
     cls: editingClass,
     onClose: () => setEditingClass(null),
     onSaved: handleHomeClassSaved,
     onArchived: () => {
       setEditingClass(null);
       classState.refresh();
-      setLocalNotice('Kelas telah dinyahaktifkan.');
+      setLocalNotice(t('Kelas telah dinyahaktifkan.', 'Class has been deactivated.'));
     }
   }), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -20894,6 +20997,9 @@ const TeacherHome = ({
 const TeacherProfile = ({
   displayName
 }) => {
+  const {
+    t
+  } = useLanguage();
   const profileState = useTeacherProfile(displayName);
   const classState = useTeacherClassrooms();
   const profile = profileState.data || emptyTeacherProfile(displayName);
@@ -20961,7 +21067,7 @@ const TeacherProfile = ({
         yearsExperience: Number(profileForm.yearsExperience) || 0,
         location: profileForm.location
       });
-      setProfileStatus('Profil dikemas kini.');
+      setProfileStatus(t('Profil dikemas kini.', 'Profile updated.'));
       setEditing(false);
       profileState.refresh();
     } catch (err) {
@@ -20971,12 +21077,12 @@ const TeacherProfile = ({
     }
   };
   const infoRows = [{
-    label: 'Tajuk',
+    label: t('Tajuk', 'Title'),
     value: profileHeadline || 'Belum dikemaskini',
     icon: '👤'
   }, {
-    label: 'Pengalaman',
-    value: yearsExperience ? `${yearsExperience} tahun mengajar` : 'Belum dikemaskini',
+    label: t('Pengalaman', 'Experience'),
+    value: yearsExperience ? `${yearsExperience} tahun mengajar` : t('Belum dikemaskini', 'Not updated yet'),
     icon: '🎖️'
   }, {
     label: 'Kelayakan',
@@ -20987,7 +21093,7 @@ const TeacherProfile = ({
     value: teacherEmailText(profile.email || window.tusyenUser?.email),
     icon: '✉️'
   }, {
-    label: 'Lokasi',
+    label: t('Lokasi', 'Location'),
     value: profileLocation || 'Belum dikemaskini',
     icon: '📍'
   }];
@@ -21014,13 +21120,13 @@ const TeacherProfile = ({
   const missingCompletion = completionItems.filter(item => !item.done).map(item => item.label);
   const completionPercent = Math.round(completionChecks.filter(Boolean).length / completionChecks.length * 100);
   const previewText = previewAudience === 'parent' ? {
-    title: 'Pratonton ibu bapa',
+    title: t('Pratonton ibu bapa', 'Parent preview'),
     body: profileBio || 'Ibu bapa akan melihat pengenalan cikgu, kelayakan, subjek, dan kelas aktif di sini.',
     meta: profileCredentials || 'Kelayakan belum dikemaskini'
   } : {
-    title: 'Pratonton pelajar',
+    title: t('Pratonton pelajar', 'Student preview'),
     body: profileBio || 'Pelajar akan melihat gaya mengajar dan cara cikgu menyokong pembelajaran mereka.',
-    meta: subjects.length ? subjects.join(', ') : 'Subjek belum dikemaskini'
+    meta: subjects.length ? subjects.join(', ') : t('Subjek belum dikemaskini', 'Subject not updated yet')
   };
   return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -21091,7 +21197,7 @@ const TeacherProfile = ({
       flexWrap: 'wrap',
       justifyContent: 'center'
     }
-  }, (subjects.length ? subjects : ['Subjek belum dikemaskini']).map((s, i) => /*#__PURE__*/React.createElement("span", {
+  }, (subjects.length ? subjects : [t('Subjek belum dikemaskini', 'Subject not updated yet')]).map((s, i) => /*#__PURE__*/React.createElement("span", {
     key: i,
     style: {
       background: C.accDim,
@@ -21102,7 +21208,7 @@ const TeacherProfile = ({
       fontWeight: 700,
       color: C.accPale
     }
-  }, s)))), /*#__PURE__*/React.createElement(SectionLabel, null, "Kelengkapan Profil"), /*#__PURE__*/React.createElement(Card, {
+  }, s)))), /*#__PURE__*/React.createElement(SectionLabel, null, t('Kelengkapan Profil', 'Profile Completion')), /*#__PURE__*/React.createElement(Card, {
     style: {
       marginBottom: 14
     }
@@ -21120,7 +21226,7 @@ const TeacherProfile = ({
       fontSize: 13,
       color: C.text
     }
-  }, "Profil ", completionPercent, "% lengkap"), /*#__PURE__*/React.createElement(TeacherBadge, {
+  }, t('Profil', 'Profile'), completionPercent, "% lengkap"), /*#__PURE__*/React.createElement(TeacherBadge, {
     tone: completionPercent >= 80 ? 'good' : completionPercent >= 50 ? 'warn' : 'bad'
   }, completionChecks.filter(Boolean).length, "/", completionChecks.length)), /*#__PURE__*/React.createElement(ProgressBar, {
     value: completionPercent,
@@ -21134,7 +21240,7 @@ const TeacherProfile = ({
       lineHeight: 1.4,
       marginTop: 8
     }
-  }, "Dikira daripada tajuk, bio, subjek, kelayakan, pengalaman, dan lokasi.", missingCompletion.length ? ` Seterusnya: ${missingCompletion.slice(0, 2).join(', ')}.` : ' Semua item asas lengkap.')), /*#__PURE__*/React.createElement("div", {
+  }, t('Dikira daripada tajuk, bio, subjek, kelayakan, pengalaman, dan lokasi.', 'Calculated from title, bio, subject, credentials, experience, and location.'), missingCompletion.length ? ` Seterusnya: ${missingCompletion.slice(0, 2).join(', ')}.` : ' Semua item asas lengkap.')), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr 1fr',
@@ -21143,15 +21249,15 @@ const TeacherProfile = ({
     }
   }, [{
     v: String(Number(profile.student_count) || 0),
-    l: 'Pelajar',
+    l: t('Pelajar', 'Students'),
     i: '👥'
   }, {
     v: String(Number(profile.classroom_count) || classes.length || 0),
-    l: 'Kelas',
+    l: t('Kelas', 'Class'),
     i: '🏫'
   }, {
     v: String(Number(profile.post_count) || 0),
-    l: 'Pos',
+    l: t('Pos', 'Posts'),
     i: '📢'
   }].map((s, i) => /*#__PURE__*/React.createElement(Card, {
     key: i,
@@ -21225,7 +21331,7 @@ const TeacherProfile = ({
       gap: 6,
       marginBottom: 10
     }
-  }, [['student', 'Sebagai pelajar'], ['parent', 'Sebagai ibu bapa']].map(([value, label]) => /*#__PURE__*/React.createElement("button", {
+  }, [['student', t('Sebagai pelajar', 'As student')], ['parent', t('Sebagai ibu bapa', 'As parent')]].map(([value, label]) => /*#__PURE__*/React.createElement("button", {
     key: value,
     onClick: () => setPreviewAudience(value),
     style: {
@@ -21285,13 +21391,13 @@ const TeacherProfile = ({
       color: C.accPale,
       marginBottom: 8
     }
-  }, "Sunting profil"), /*#__PURE__*/React.createElement("input", {
+  }, t('Sunting profil', 'Edit profile')), /*#__PURE__*/React.createElement("input", {
     value: profileForm.headline,
     onChange: e => setProfileForm({
       ...profileForm,
       headline: e.target.value
     }),
-    placeholder: "Tajuk profil",
+    placeholder: t('Tajuk profil', 'Profile title'),
     style: {
       ...inputStyle,
       marginBottom: 8
@@ -21302,7 +21408,7 @@ const TeacherProfile = ({
       ...profileForm,
       bio: e.target.value
     }),
-    placeholder: "Tentang Cikgu: gaya mengajar, fokus subjek, dan sokongan untuk pelajar",
+    placeholder: t('Tentang Cikgu: gaya mengajar, fokus subjek, dan sokongan untuk pelajar', 'About the teacher: teaching style, subject focus, and student support'),
     style: {
       ...inputStyle,
       minHeight: 80,
@@ -21315,7 +21421,7 @@ const TeacherProfile = ({
       ...profileForm,
       specialties: e.target.value
     }),
-    placeholder: "Kepakaran",
+    placeholder: t('Kepakaran', 'Specialties'),
     style: {
       ...inputStyle,
       marginBottom: 4
@@ -21328,13 +21434,13 @@ const TeacherProfile = ({
       lineHeight: 1.35,
       marginBottom: 8
     }
-  }, "Pisahkan setiap kepakaran dengan koma, contoh: Matematik, Fizik."), /*#__PURE__*/React.createElement("input", {
+  }, t('Pisahkan setiap kepakaran dengan koma, contoh: Matematik, Fizik.', 'Separate each specialty with commas, e.g. Mathematics, Physics.')), /*#__PURE__*/React.createElement("input", {
     value: profileForm.credentials,
     onChange: e => setProfileForm({
       ...profileForm,
       credentials: e.target.value
     }),
-    placeholder: "Kelayakan, sijil, pengalaman peperiksaan, atau pencapaian mengajar",
+    placeholder: t('Kelayakan, sijil, pengalaman peperiksaan, atau pencapaian mengajar', 'Credentials, certificates, exam experience, or teaching achievements'),
     style: {
       ...inputStyle,
       marginBottom: 8
@@ -21353,7 +21459,7 @@ const TeacherProfile = ({
       ...profileForm,
       yearsExperience: e.target.value
     }),
-    placeholder: "Tahun pengalaman",
+    placeholder: t('Tahun pengalaman', 'Years of experience'),
     style: inputStyle
   }), /*#__PURE__*/React.createElement("input", {
     value: profileForm.location,
@@ -21361,7 +21467,7 @@ const TeacherProfile = ({
       ...profileForm,
       location: e.target.value
     }),
-    placeholder: "Lokasi / sekolah",
+    placeholder: t('Lokasi / sekolah', 'Location / school'),
     style: inputStyle
   })), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -21375,7 +21481,7 @@ const TeacherProfile = ({
     style: {
       flex: 1
     }
-  }, saving ? 'Menyimpan...' : 'Simpan Profil'), /*#__PURE__*/React.createElement("button", {
+  }, saving ? 'Menyimpan...' : t('Simpan Profil', 'Save Profile')), /*#__PURE__*/React.createElement("button", {
     onClick: () => setEditing(false),
     style: {
       background: C.surface,
@@ -21388,7 +21494,7 @@ const TeacherProfile = ({
       fontWeight: 800,
       cursor: 'pointer'
     }
-  }, "Batal"))), /*#__PURE__*/React.createElement(SectionLabel, null, "Kelayakan"), /*#__PURE__*/React.createElement(Card, {
+  }, t('Batal', 'Cancel')))), /*#__PURE__*/React.createElement(SectionLabel, null, "Kelayakan"), /*#__PURE__*/React.createElement(Card, {
     style: {
       marginBottom: 14,
       border: `1px solid ${profileCredentials ? C.borderB : C.border}`
@@ -21423,7 +21529,7 @@ const TeacherProfile = ({
       color: C.text,
       marginBottom: 3
     }
-  }, profileCredentials ? 'Kelayakan disiarkan' : 'Kelayakan belum lengkap'), /*#__PURE__*/React.createElement("div", {
+  }, profileCredentials ? 'Kelayakan disiarkan' : t('Kelayakan belum lengkap', 'Credentials incomplete')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 12,
       color: C.textMuted,
@@ -21521,7 +21627,7 @@ const TeacherProfile = ({
       fontWeight: 600,
       padding: '8px 0'
     }
-  }, "Belum ada kelas aktif.")), /*#__PURE__*/React.createElement("div", {
+  }, t('Belum ada kelas aktif.', 'No active classes yet.'))), /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'sticky',
       bottom: 0,
@@ -21552,7 +21658,7 @@ const TeacherProfile = ({
       fontSize: 11,
       cursor: 'pointer'
     }
-  }, "Pelajar"), /*#__PURE__*/React.createElement("button", {
+  }, t('Pelajar', 'Students')), /*#__PURE__*/React.createElement("button", {
     onClick: () => setPreviewAudience('parent'),
     "aria-pressed": previewAudience === 'parent',
     style: {
@@ -21566,7 +21672,7 @@ const TeacherProfile = ({
       fontSize: 11,
       cursor: 'pointer'
     }
-  }, "Ibu bapa"), /*#__PURE__*/React.createElement("button", {
+  }, t('Ibu bapa', 'Parents')), /*#__PURE__*/React.createElement("button", {
     onClick: startEdit,
     disabled: !canEdit,
     style: {
@@ -21582,7 +21688,7 @@ const TeacherProfile = ({
       cursor: canEdit ? 'pointer' : 'not-allowed',
       opacity: canEdit ? 1 : .55
     }
-  }, canEdit ? 'Sunting' : 'Kunci'))), /*#__PURE__*/React.createElement(SectionLabel, null, "Tetapan Akaun"), /*#__PURE__*/React.createElement(Card, {
+  }, canEdit ? t('Sunting', 'Edit') : t('Kunci', 'Locked')))), /*#__PURE__*/React.createElement(SectionLabel, null, t('Tetapan Akaun', 'Account Settings')), /*#__PURE__*/React.createElement(Card, {
     style: {
       marginBottom: 14
     }
@@ -21604,14 +21710,14 @@ const TeacherProfile = ({
       color: C.text,
       fontWeight: 800
     }
-  }, "Tampilan"), /*#__PURE__*/React.createElement("div", {
+  }, t('Tampilan', 'Appearance')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 12,
       color: C.textMuted,
       fontWeight: 700,
       lineHeight: 1.4
     }
-  }, "Pilih tema yang selesa untuk akaun guru ini."))), /*#__PURE__*/React.createElement(ThemeToggle, null), /*#__PURE__*/React.createElement("div", {
+  }, t('Pilih tema yang selesa untuk akaun guru ini.', 'Choose a comfortable theme for this teacher account.')))), /*#__PURE__*/React.createElement(ThemeToggle, null), /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 10
     }
@@ -21626,7 +21732,7 @@ const TeacherProfile = ({
       fontWeight: 800,
       marginBottom: 8
     }
-  }, "Akaun"), /*#__PURE__*/React.createElement("button", {
+  }, t('Akaun', 'Account')), /*#__PURE__*/React.createElement("button", {
     onClick: () => window.tusyenSignOut?.(),
     style: {
       width: '100%',
@@ -21641,7 +21747,7 @@ const TeacherProfile = ({
       fontSize: 13,
       cursor: 'pointer'
     }
-  }, "Log Keluar")), /*#__PURE__*/React.createElement("div", {
+  }, t('Log Keluar', 'Sign Out'))), /*#__PURE__*/React.createElement("div", {
     style: {
       height: 8
     }
@@ -21710,6 +21816,9 @@ const postTeacherQuizTimerAction = async (sessionId, action) => {
 const TeacherQuizTimerControls = ({
   classroomId
 }) => {
+  const {
+    t
+  } = useLanguage();
   const [session, setSession] = React.useState(() => findTeacherQuizSession(classroomId));
   const [paused, setPaused] = React.useState(() => teacherQuizSessionPaused(session));
   const [busy, setBusy] = React.useState(false);
@@ -21743,7 +21852,7 @@ const TeacherQuizTimerControls = ({
       };
       setSession(nextSession);
       setPaused(action === 'pause');
-      setMessage(action === 'pause' ? 'Pemasa kuiz dijeda.' : 'Pemasa kuiz disambung.');
+      setMessage(action === 'pause' ? t('Pemasa kuiz dijeda.', 'Quiz timer paused.') : t('Pemasa kuiz disambung.', 'Quiz timer resumed.'));
       window.dispatchEvent(new CustomEvent('tusyen:quiz-timer-updated', {
         detail: {
           sessionId,
@@ -21781,13 +21890,13 @@ const TeacherQuizTimerControls = ({
       color: C.text,
       fontWeight: 900
     }
-  }, "Pemasa kuiz langsung"), /*#__PURE__*/React.createElement("div", {
+  }, t('Pemasa kuiz langsung', 'Live quiz timer')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 11,
       color: C.textMuted,
       fontWeight: 700
     }
-  }, paused ? 'Dijeda untuk semua peserta.' : 'Sedang berjalan untuk sesi aktif.')), /*#__PURE__*/React.createElement("button", {
+  }, paused ? t('Dijeda untuk semua peserta.', 'Paused for all participants.') : t('Sedang berjalan untuk sesi aktif.', 'Running for the active session.'))), /*#__PURE__*/React.createElement("button", {
     onClick: toggleTimer,
     disabled: busy,
     style: {
@@ -21803,7 +21912,7 @@ const TeacherQuizTimerControls = ({
       cursor: busy ? 'not-allowed' : 'pointer',
       opacity: busy ? 0.6 : 1
     }
-  }, busy ? 'Mengemas kini...' : paused ? 'Resume' : 'Pause')), message && /*#__PURE__*/React.createElement("div", {
+  }, busy ? t('Mengemas kini...', 'Updating...') : paused ? 'Resume' : 'Pause')), message && /*#__PURE__*/React.createElement("div", {
     role: "status",
     style: {
       fontSize: 11,
@@ -21843,8 +21952,8 @@ const TeacherQuizScreen = ({
       }
     }, /*#__PURE__*/React.createElement(EmptyState, {
       icon: "\uD83C\uDFAE",
-      title: "Belum ada kelas",
-      subtitle: "Buat kelas dahulu untuk boleh mulakan sesi kuiz langsung."
+      title: t('Belum ada kelas', 'No classes yet'),
+      subtitle: t('Buat kelas dahulu untuk boleh mulakan sesi kuiz langsung.', 'Create a class first before starting a live quiz session.')
     }));
   }
   return /*#__PURE__*/React.createElement("div", {
@@ -21986,6 +22095,9 @@ const TeacherSidebarStats = ({
 const TeacherApp = ({
   sidebarExtraTop
 } = {}) => {
+  const {
+    t
+  } = useLanguage();
   const [screen, setScreen] = React.useState('home');
   const [cls, setCls] = React.useState(null);
   const [classView, setClassView] = React.useState({
@@ -21999,7 +22111,7 @@ const TeacherApp = ({
   const classes = classState.data?.classes || CLASSES;
   const screenMeta = {
     home: {
-      title: 'Kelas Saya',
+      title: t('Kelas Saya', 'My Classes'),
       en: 'My Classes'
     },
     class: {
@@ -22007,19 +22119,19 @@ const TeacherApp = ({
       en: 'Class Detail'
     },
     posts: {
-      title: 'Suapan & Pos',
+      title: t('Suapan & Pos', 'Feed & Posts'),
       en: 'Feed & Posts'
     },
     lessons: {
-      title: 'Pelajaran',
+      title: t('Pelajaran', 'Lessons'),
       en: 'Lessons'
     },
     quiz: {
-      title: 'Dek Kuiz',
+      title: t('Dek Kuiz', 'Quiz Decks'),
       en: 'Quiz Decks'
     },
     whiteboard: {
-      title: 'Papan Putih',
+      title: t('Papan Putih', 'Whiteboard'),
       en: 'Whiteboard'
     },
     profile: {
@@ -22030,32 +22142,32 @@ const TeacherApp = ({
   const nav = [{
     id: 'home',
     icon: '🏫',
-    label: 'Kelas',
+    label: t('Kelas', 'Class'),
     en: 'Classes'
   }, {
     id: 'posts',
     icon: '📢',
-    label: 'Pos',
+    label: t('Pos', 'Posts'),
     en: 'Posts'
   }, {
     id: 'lessons',
     icon: '📚',
-    label: 'Pelajaran',
+    label: t('Pelajaran', 'Lessons'),
     en: 'Lessons'
   }, {
     id: 'quiz',
     icon: '🎮',
-    label: 'Kuiz',
+    label: t('Kuiz', 'Quiz'),
     en: 'Quiz'
   }, {
     id: 'whiteboard',
     icon: '🖌️',
-    label: 'Papan Putih',
+    label: t('Papan Putih', 'Whiteboard'),
     en: 'Whiteboard'
   }, {
     id: 'profile',
     icon: '👤',
-    label: 'Profil',
+    label: t('Profil', 'Profile'),
     en: 'Profile'
   }];
   const go = next => {
@@ -22081,12 +22193,12 @@ const TeacherApp = ({
       filter: 'all'
     });
     classState.refresh();
-    setHomeNotice('Kelas telah dinyahaktifkan.');
+    setHomeNotice(t('Kelas telah dinyahaktifkan.', 'Class has been deactivated.'));
     setScreen('home');
   };
   const selectNav = next => {
     if (next === 'class' && !cls) {
-      setHomeNotice('Pilih kelas dahulu untuk melihat detail.');
+      setHomeNotice(t('Pilih kelas dahulu untuk melihat detail.', 'Select a class first to view details.'));
       setScreen('home');
       return;
     }
@@ -22171,7 +22283,7 @@ const TeacherApp = ({
     items: nav,
     active: activeNavId,
     onNav: selectNav,
-    label: "Navigasi guru"
+    label: t('Navigasi guru', 'Teacher navigation')
   })));
 };
 window.TeacherApp = TeacherApp;
@@ -22185,6 +22297,7 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
 // Tusyen — Parent Role UI v2
 // Parent dashboard uses linked-child data, progress rows, and local parent preferences.
 
+const t = (ms, en) => languageText(ms, en);
 const SUBJECT_COLORS = {
   matematik: '#8B5CF6',
   mathematics: '#8B5CF6',
@@ -22296,20 +22409,20 @@ const FALLBACK_CHILD = {
   classrooms: [],
   activity: [{
     icon: '✅',
-    label: 'Selesai pelajaran Matematik Bab 3',
-    time: '2j lepas'
+    label: t('Selesai pelajaran Matematik Bab 3', 'Completed Mathematics Chapter 3'),
+    time: t('2j lepas', '2h ago')
   }, {
     icon: '🎯',
     label: 'Skor 90% dalam kuiz Biologi',
-    time: '5j lepas'
+    time: t('5j lepas', '5h ago')
   }, {
     icon: '🔥',
-    label: 'Streak 7 hari! Bonus XP diterima',
-    time: '1 hari lepas'
+    label: t('Streak 7 hari! Bonus XP diterima', '7-day streak! Bonus XP received'),
+    time: t('1 hari lepas', '1 day ago')
   }, {
     icon: '📝',
-    label: 'Mula bab baru: Fizik Bab 5',
-    time: '2 hari lepas'
+    label: t('Mula bab baru: Fizik Bab 5', 'Started new chapter: Physics Chapter 5'),
+    time: t('2 hari lepas', '2 days ago')
   }]
 };
 const EMPTY_CHILD_FALLBACK = {
@@ -22340,26 +22453,26 @@ const DEFAULT_PARENT_PREFS = {
 const DEMO_ALERTS = [{
   childId: 'demo-child',
   icon: '🔴',
-  title: 'Prestasi Fizik Merosot',
-  desc: 'Purata turun dari 58% ke 42% dalam 2 minggu. Disarankan jumpa guru.',
+  title: t('Prestasi Fizik Merosot', 'Physics Performance Dropped'),
+  desc: t('Purata turun dari 58% ke 42% dalam 2 minggu. Disarankan jumpa guru.', 'Average fell from 58% to 42% in 2 weeks. Meeting the teacher is recommended.'),
   severity: 'high',
-  time: 'Hari ini',
-  action: 'Tandai untuk tindak lanjut'
+  time: t('Hari ini', 'Today'),
+  action: t('Tandai untuk tindak lanjut', 'Flag for follow-up')
 }, {
   childId: 'demo-child',
   icon: '🟡',
-  title: 'Kehadiran Log Masuk Rendah',
-  desc: 'Ahmad hanya log masuk 2 kali minggu lepas. Galakkan belajar harian.',
+  title: t('Kehadiran Log Masuk Rendah', 'Low Login Attendance'),
+  desc: t('Ahmad hanya log masuk 2 kali minggu lepas. Galakkan belajar harian.', 'Ahmad only logged in twice last week. Encourage daily study.'),
   severity: 'medium',
-  time: '3 hari lepas',
-  action: 'Semak Kemajuan'
+  time: t('3 hari lepas', '3 days ago'),
+  action: t('Semak Kemajuan', 'Check Progress')
 }, {
   childId: 'demo-child',
   icon: '🟢',
-  title: 'Streak Tujuh Hari!',
-  desc: 'Ahmad berjaya mengekalkan streak 7 hari berturut-turut. Tahniah!',
+  title: t('Streak Tujuh Hari!', 'Seven-Day Streak!'),
+  desc: t('Ahmad berjaya mengekalkan streak 7 hari berturut-turut. Tahniah!', 'Ahmad maintained a 7-day streak. Congratulations!'),
   severity: 'good',
-  time: 'Semalam',
+  time: t('Semalam', 'Yesterday'),
   action: null
 }];
 const currentUser = () => window.tusyenUser || window.tusyenApi.restoreSession()?.user || null;
@@ -22388,22 +22501,22 @@ const parentText = (value, fallback = 'Item', max = 80) => window.cleanUiText ? 
   fallback,
   max
 }) : `${value || fallback}`;
-const parentName = (value, fallback = 'Pengguna') => window.cleanUiName ? window.cleanUiName(value, fallback) : parentText(value, fallback, 42);
+const parentName = (value, fallback = t('Pengguna', 'User')) => window.cleanUiName ? window.cleanUiName(value, fallback) : parentText(value, fallback, 42);
 const parentTitle = (value, fallback = 'Tanpa tajuk') => window.cleanUiTitle ? window.cleanUiTitle(value, fallback) : parentText(value, fallback, 68);
 const parentBodyText = (value, fallback = '', max = 180) => window.cleanUiText ? window.cleanUiText(value, {
   fallback,
   max,
   preserveCase: true
 }) : `${value || fallback}`;
-const parentEmailText = (value, fallback = 'Akaun ibu bapa') => {
+const parentEmailText = (value, fallback = t('Akaun ibu bapa', 'Parent account')) => {
   const text = `${value || ''}`.trim();
   if (!text) return fallback;
   if (/(?:qaqc|qa|test|demo|playwright|automation|abcdef|\d{8,})/i.test(text)) return fallback;
   return text;
 };
-const TEACHER_QUESTION_LABEL = 'Tandai untuk tindak lanjut';
-const TEACHER_FOLLOWUP_TOOLTIP = 'Tiada mesej dihantar; tindakan ini hanya menyimpan tanda tindak lanjut.';
-const TEACHER_FOLLOWUP_CONFIRMATION = 'Tindak lanjut disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah untuk menghantar soalan; aplikasi tidak menghantar mesej automatik.';
+const TEACHER_QUESTION_LABEL = t('Tandai untuk tindak lanjut', 'Flag for follow-up');
+const TEACHER_FOLLOWUP_TOOLTIP = t('Tiada mesej dihantar; tindakan ini hanya menyimpan tanda tindak lanjut.', 'No message is sent; this only saves a follow-up flag.');
+const TEACHER_FOLLOWUP_CONFIRMATION = t('Tindak lanjut disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah untuk menghantar soalan; aplikasi tidak menghantar mesej automatik.', 'Follow-up saved on this device. Use the official class or school channel to send questions; the app does not send automatic messages.');
 const parentStatusIsSuccess = status => /berjaya|dipaut|dikeluarkan|dikemas kini/i.test(`${status || ''}`);
 const parentActionLabel = label => {
   const text = `${label || ''}`.trim();
@@ -22415,37 +22528,37 @@ const parentActionLabel = label => {
 };
 const validateChildIdentifier = value => {
   const id = `${value || ''}`.trim();
-  if (!id) return 'Masukkan ID Tusyen pelajar atau e-mel akaun pelajar.';
-  if (id.length < 4) return 'ID atau e-mel terlalu pendek. Semak semula profil anak.';
-  if (id.length > 120) return 'ID atau e-mel terlalu panjang. Semak semula profil anak.';
-  if (/\s/.test(id)) return 'ID atau e-mel tidak boleh mengandungi ruang.';
+  if (!id) return t('Masukkan ID Tusyen pelajar atau e-mel akaun pelajar.', 'Enter the student Tusyen ID or student account email.');
+  if (id.length < 4) return t('ID atau e-mel terlalu pendek. Semak semula profil anak.', 'The ID or email is too short. Check the child profile again.');
+  if (id.length > 120) return t('ID atau e-mel terlalu panjang. Semak semula profil anak.', 'The ID or email is too long. Check the child profile again.');
+  if (/\s/.test(id)) return t('ID atau e-mel tidak boleh mengandungi ruang.', 'The ID or email cannot contain spaces.');
   if (/^(?:kelas|class|kod|code)[-_\s]*/i.test(id) || /^[0-9][A-Za-z]$/i.test(id)) {
-    return 'Gunakan ID Tusyen pelajar atau e-mel akaun pelajar, bukan kod kelas guru.';
+    return t('Gunakan ID Tusyen pelajar atau e-mel akaun pelajar, bukan kod kelas guru.', 'Use the student Tusyen ID or student account email, not the teacher class code.');
   }
   if (id.includes('@')) {
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(id);
-    if (!emailOk) return 'Format e-mel pelajar tidak sah.';
+    if (!emailOk) return t('Format e-mel pelajar tidak sah.', 'The student email format is invalid.');
   } else if (!/^[A-Za-z0-9._-]+$/.test(id)) {
-    return 'ID pelajar hanya boleh mengandungi huruf, nombor, titik, sengkang, atau garis bawah.';
+    return t('ID pelajar hanya boleh mengandungi huruf, nombor, titik, sengkang, atau garis bawah.', 'The student ID may only contain letters, numbers, dots, hyphens, or underscores.');
   }
   return '';
 };
-const parentLinkErrorMessage = (err, fallback = 'Tidak dapat memaut anak.') => {
+const parentLinkErrorMessage = (err, fallback = t('Tidak dapat memaut anak.', 'Unable to link child.')) => {
   const raw = `${err?.code || ''} ${err?.message || err?.error || err || ''}`.toLowerCase();
   if (raw.includes('network') || raw.includes('fetch') || raw.includes('timeout')) {
-    return 'Sambungan terganggu. Semak internet dan cuba lagi.';
+    return t('Sambungan terganggu. Semak internet dan cuba lagi.', 'Connection interrupted. Check your internet and try again.');
   }
   if (raw.includes('unauthor') || raw.includes('forbidden') || raw.includes('session')) {
-    return 'Sesi akaun tamat atau tidak dibenarkan. Log masuk semula dan cuba lagi.';
+    return t('Sesi akaun tamat atau tidak dibenarkan. Log masuk semula dan cuba lagi.', 'The account session expired or is not allowed. Sign in again and try again.');
   }
   if (raw.includes('not found') || raw.includes('404') || raw.includes('tiada') || raw.includes('not exist')) {
-    return 'Akaun pelajar tidak ditemui. Semak ID Tusyen atau e-mel daripada profil anak.';
+    return t('Akaun pelajar tidak ditemui. Semak ID Tusyen atau e-mel daripada profil anak.', 'Student account not found. Check the Tusyen ID or email from the child profile.');
   }
   if (raw.includes('already') || raw.includes('duplicate') || raw.includes('sudah')) {
-    return 'Anak ini sudah dipaut pada akaun ibu bapa.';
+    return t('Anak ini sudah dipaut pada akaun ibu bapa.', 'This child is already linked to the parent account.');
   }
   if (raw.includes('class') || raw.includes('kelas') || raw.includes('code') || raw.includes('kod')) {
-    return 'Kod kelas guru tidak boleh digunakan. Masukkan ID Tusyen pelajar atau e-mel akaun pelajar.';
+    return t('Kod kelas guru tidak boleh digunakan. Masukkan ID Tusyen pelajar atau e-mel akaun pelajar.', 'Teacher class codes cannot be used. Enter the student Tusyen ID or student account email.');
   }
   const message = parentBodyText(err?.message || err?.error, '', 140);
   return message || fallback;
@@ -22453,7 +22566,7 @@ const parentLinkErrorMessage = (err, fallback = 'Tidak dapat memaut anak.') => {
 const firstName = value => cleanName(value).split(/\s+/).filter(Boolean)[0] || '';
 const emailLocalName = email => firstName(`${email || ''}`.split('@')[0]?.replace(/[._-]+/g, ' '));
 const parentPreferredName = (user = currentUser(), prefs = readParentPrefs()) => {
-  return parentName(cleanName(prefs.preferredName), '') || parentName(cleanName(user?.preferredName || user?.preferred_name || user?.givenName || user?.given_name), '') || parentName(firstName(user?.fullName || user?.full_name), '') || emailLocalName(user?.email) || 'Ibu Bapa';
+  return parentName(cleanName(prefs.preferredName), '') || parentName(cleanName(user?.preferredName || user?.preferred_name || user?.givenName || user?.given_name), '') || parentName(firstName(user?.fullName || user?.full_name), '') || emailLocalName(user?.email) || t('Ibu Bapa', 'Parent');
 };
 const parentGreetingName = (user = currentUser(), prefs = readParentPrefs()) => {
   const salutation = cleanName(user?.salutation || user?.title || prefs.salutation);
@@ -22553,7 +22666,7 @@ const buildSubjectRows = (stats, progressRows, fallbackSubjects = []) => {
     const score = scoreValue(statsRow?.avg_score) ?? average(rows.map(row => row.score)) ?? scoreValue(fallback?.score);
     const hasData = score !== null;
     return {
-      name: parentText(name, 'Subjek', 36),
+      name: parentText(name, t('Subjek', 'Subject'), 36),
       score,
       hasData,
       color: fallback?.color || subjectColor(name),
@@ -22566,11 +22679,11 @@ const buildSubjectRows = (stats, progressRows, fallbackSubjects = []) => {
 const buildActivity = (progressRows, fallbackActivity = []) => {
   const items = [...progressRows].sort((a, b) => new Date(b.updated_at || 0) - new Date(a.updated_at || 0)).slice(0, 5).map(row => {
     const score = scoreValue(row.score);
-    const title = parentTitle(row.lesson_title || row.topic || row.subject, 'Pelajaran');
+    const title = parentTitle(row.lesson_title || row.topic || row.subject, t('Pelajaran', 'Lesson'));
     const done = row.is_completed || Number(row.completion_percentage || 0) >= 100;
     return {
       icon: done ? '✅' : '📘',
-      label: `${done ? 'Selesai' : 'Kemajuan'} ${title}${score !== null ? ` (${score}%)` : ''}`,
+      label: `${done ? t('Selesai', 'Completed') : t('Kemajuan', 'Progress')} ${title}${score !== null ? ` (${score}%)` : ''}`,
       time: window.timeAgo(row.updated_at)
     };
   });
@@ -22601,7 +22714,7 @@ const buildChild = ({
     id: student.id,
     name: parentName(student.full_name, fallback.name),
     form: Number(firstClass?.form_level || student.form_level || fallback.form || 4),
-    cls: childClasses.length > 1 ? `${childClasses.length} kelas` : parentText(firstClass?.name, fallback.cls || 'Belum kelas', 54),
+    cls: childClasses.length > 1 ? `${childClasses.length} kelas` : parentText(firstClass?.name, fallback.cls || t('Belum kelas', 'No class yet'), 54),
     streak: Number(stats?.streak?.current ?? stats?.streak ?? fallback.streak ?? 0),
     xp: Number(stats?.quiz?.quizXpTotal || fallback.xp || 0),
     avg,
@@ -22744,7 +22857,7 @@ const useParentAnnouncements = child => {
     });
     return (posts || []).filter(post => classIds.size === 0 || classIds.has(post.classroom_id)).slice(0, 5).map(post => ({
       icon: postIcon(post.post_type),
-      label: parentTitle(post.title || post.content?.slice(0, 80), 'Pengumuman baharu di kelas'),
+      label: parentTitle(post.title || post.content?.slice(0, 80), t('Pengumuman baharu di kelas', 'New class announcement')),
       time: window.timeAgo(post.created_at),
       meta: parentText(post.classroom_name || post.post_type, '', 54)
     }));
@@ -22788,7 +22901,7 @@ const ChildSwitcher = ({
       textTransform: 'uppercase',
       letterSpacing: 0.6
     }
-  }, "Pilih anak"), /*#__PURE__*/React.createElement("div", {
+  }, t('Pilih anak', 'Select child')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 10,
       color: C.textFaint,
@@ -22848,13 +22961,13 @@ const ChildSwitcher = ({
         fontWeight: 700,
         color: on ? C.accPale : C.textFaint
       }
-    }, on ? 'Sedang dilihat' : `Tingkatan ${child.form}`)));
+    }, on ? t('Sedang dilihat', 'Currently viewing') : `Tingkatan ${child.form}`)));
   })));
 };
 const NoLinkedChild = ({
   onOpenSettings,
   childState,
-  errorMessage = 'Tidak dapat memuat anak terpaut.'
+  errorMessage = t('Tidak dapat memuat anak terpaut.', 'Unable to load linked child.')
 }) => /*#__PURE__*/React.createElement("div", {
   style: {
     padding: '14px 16px 10px'
@@ -22885,7 +22998,7 @@ const NoLinkedChild = ({
   }
 }, /*#__PURE__*/React.createElement(GlowButton, {
   onClick: onOpenSettings
-}, "Buka Tetapan")));
+}, t('Buka Tetapan', 'Open Settings'))));
 const TimelineList = ({
   loading,
   items,
@@ -23033,7 +23146,7 @@ const ParentConfirmModal = ({
   title,
   children,
   confirmLabel = 'Sahkan',
-  cancelLabel = 'Batal',
+  cancelLabel = t('Batal', 'Cancel'),
   onConfirm,
   onCancel,
   danger,
@@ -23157,7 +23270,7 @@ const GuidedAddChildModal = ({
     e.preventDefault();
     const value = identifier.trim();
     const identifierError = validateChildIdentifier(value);
-    const consentError = consent ? '' : 'Sahkan persetujuan anak sebelum memaut akaun.';
+    const consentError = consent ? '' : t('Sahkan persetujuan anak sebelum memaut akaun.', 'Confirm the child consent before linking the account.');
     const nextErrors = {
       ...(identifierError ? {
         identifier: identifierError
@@ -23226,7 +23339,7 @@ const GuidedAddChildModal = ({
       gap: 8,
       marginBottom: 12
     }
-  }, ['Pastikan anak bersetuju untuk berkongsi kemajuan pembelajaran.', 'Pautan ini hanya memaparkan kelas, pos sekolah, dan kemajuan anak.', 'Anda boleh membuang pautan ini pada bila-bila masa di Tetapan.'].map((line, index) => /*#__PURE__*/React.createElement("div", {
+  }, [t('Pastikan anak bersetuju untuk berkongsi kemajuan pembelajaran.', 'Make sure the child agrees to share learning progress.'), t('Pautan ini hanya memaparkan kelas, pos sekolah, dan kemajuan anak.', 'This link only shows the child classes, school posts, and progress.'), t('Anda boleh membuang pautan ini pada bila-bila masa di Tetapan.', 'You can remove this link anytime in Settings.')].map((line, index) => /*#__PURE__*/React.createElement("div", {
     key: line,
     style: {
       display: 'grid',
@@ -23393,7 +23506,7 @@ const GuidedAddChildModal = ({
       fontWeight: 800,
       cursor: busy ? 'not-allowed' : 'pointer'
     }
-  }, "Batal"), /*#__PURE__*/React.createElement("button", {
+  }, t('Batal', 'Cancel')), /*#__PURE__*/React.createElement("button", {
     type: "submit",
     disabled: busy,
     style: {
@@ -23407,7 +23520,7 @@ const GuidedAddChildModal = ({
       cursor: busy ? 'not-allowed' : 'pointer',
       opacity: busy ? 0.6 : 1
     }
-  }, busy ? 'Memaut...' : 'Pautkan Anak'))));
+  }, busy ? t('Memaut...', 'Linking...') : t('Pautkan Anak', 'Link Child')))));
 };
 const parentChipStyle = (tone = 'neutral') => {
   const palette = {
@@ -23466,7 +23579,7 @@ const alertWhyText = alert => {
     return 'Rutin yang terputus biasanya mengurangkan latihan ulang kaji; semakan awal lebih mudah daripada mengejar semula kemudian.';
   }
   if (text.includes('kuiz') || text.includes('tugasan') || text.includes('assignment')) {
-    return 'Tugasan baharu ada tarikh dan arahan kelas; semak awal supaya anak tahu langkah seterusnya.';
+    return t('Tugasan baharu ada tarikh dan arahan kelas; semak awal supaya anak tahu langkah seterusnya.', 'A new assignment has a due date and class instructions; check early so the child knows the next steps.');
   }
   if (alert.severity === 'good' || text.includes('streak') || text.includes('pencapaian')) {
     return 'Pengiktirafan kecil menguatkan tabiat belajar yang sedang menjadi.';
@@ -23479,15 +23592,15 @@ const alertRecommendedAction = alert => {
     return 'Tandai tindak lanjut, kemudian hubungi guru atau pihak sekolah jika corak ini berulang.';
   }
   if (text.includes('log') || text.includes('aktiviti') || text.includes('kehadiran')) {
-    return 'Tetapkan sesi belajar ringkas hari ini dan semak Kemajuan selepas anak selesai.';
+    return t('Tetapkan sesi belajar ringkas hari ini dan semak Kemajuan selepas anak selesai.', 'Set a short study session today and check Progress after the child finishes.');
   }
   if (text.includes('kuiz') || text.includes('tugasan') || text.includes('assignment')) {
-    return 'Baca pos kelas dan pastikan anak faham tugasan yang perlu disiapkan.';
+    return t('Baca pos kelas dan pastikan anak faham tugasan yang perlu disiapkan.', 'Read the class post and make sure the child understands the assignment to complete.');
   }
   if (alert.severity === 'good' || text.includes('streak') || text.includes('pencapaian')) {
-    return 'Ucap tahniah kepada anak dan kekalkan jadual belajar yang sama.';
+    return t('Ucap tahniah kepada anak dan kekalkan jadual belajar yang sama.', 'Congratulate the child and keep the same study schedule.');
   }
-  return 'Semak butiran dan tandai dibaca selepas tindakan sesuai dibuat.';
+  return t('Semak butiran dan tandai dibaca selepas tindakan sesuai dibuat.', 'Check the details and mark as read after the right action is taken.');
 };
 const alertSummaryText = alert => {
   const summary = parentBodyText(alert?.summary || alert?.shortSummary || alert?.short_summary, '', 112);
@@ -23501,13 +23614,13 @@ const alertPrimaryAction = alert => {
   const text = `${alert.title || ''} ${alert.desc || ''} ${alert.action || ''}`.toLowerCase();
   if (text.includes('kuiz') || text.includes('tugasan') || text.includes('assignment')) {
     return {
-      label: parentActionLabel(alert.action) || 'Lihat Pos Kelas',
+      label: parentActionLabel(alert.action) || t('Lihat Pos Kelas', 'View Class Posts'),
       target: 'posts'
     };
   }
   if (text.includes('kemajuan') || text.includes('log') || text.includes('aktiviti') || text.includes('kehadiran')) {
     return {
-      label: parentActionLabel(alert.action) || 'Semak Kemajuan',
+      label: parentActionLabel(alert.action) || t('Semak Kemajuan', 'Check Progress'),
       target: 'progress'
     };
   }
@@ -23525,19 +23638,19 @@ const alertPrimaryAction = alert => {
 const alertFollowUpExplanation = alert => {
   const action = alertPrimaryAction(alert);
   if (action.target === 'followup') {
-    return 'Tindak lanjut menyimpan penanda pada peranti ini supaya ibu bapa boleh menyemak semula dan membawa soalan melalui saluran rasmi kelas atau sekolah.';
+    return t('Tindak lanjut menyimpan penanda pada peranti ini supaya ibu bapa boleh menyemak semula dan membawa soalan melalui saluran rasmi kelas atau sekolah.', 'Follow-up saves a marker on this device so parents can review it again and bring questions through official class or school channels.');
   }
   if (action.target === 'progress') {
-    return 'Butang ini membuka Kemajuan anak untuk melihat subjek, masa belajar, dan corak mingguan.';
+    return t('Butang ini membuka Kemajuan anak untuk melihat subjek, masa belajar, dan corak mingguan.', 'This button opens the child Progress view to see subjects, study time, and weekly patterns.');
   }
   if (action.target === 'posts') {
-    return 'Butang ini membuka Pos Kelas supaya ibu bapa boleh membaca arahan guru dan maklum balas yang dibenarkan.';
+    return t('Butang ini membuka Pos Kelas supaya ibu bapa boleh membaca arahan guru dan maklum balas yang dibenarkan.', 'This button opens Class Posts so parents can read teacher instructions and allowed feedback.');
   }
   return 'Tindakan ini hanya menandakan makluman sebagai dibaca pada peranti ini.';
 };
 const subjectNextStep = subject => {
   const score = scoreValue(subject?.score);
-  if (score === null) return 'Minta guru mengesahkan aktiviti pertama yang perlu dibuat untuk mula merekod kemajuan.';
+  if (score === null) return t('Minta guru mengesahkan aktiviti pertama yang perlu dibuat untuk mula merekod kemajuan.', 'Ask the teacher to confirm the first activity needed to start recording progress.');
   if (score < 50) return `Utamakan ${subject.name}: ulang satu topik asas, buat latihan pendek, kemudian semak dengan guru.`;
   if (score < 60) return `Jadualkan 20 minit latihan ${subject.name} dan minta anak catat soalan yang masih keliru.`;
   if (subject?.trend === '↓') return `Pantau ${subject.name} minggu ini; skor masih lulus tetapi trend menurun.`;
@@ -23576,7 +23689,7 @@ const childStatusSummary = child => {
   }
   return {
     label: 'Belum cukup data',
-    detail: 'Kemajuan akan lebih jelas selepas beberapa pelajaran atau kuiz direkodkan.',
+    detail: t('Kemajuan akan lebih jelas selepas beberapa pelajaran atau kuiz direkodkan.', 'Progress will be clearer after a few lessons or quizzes are recorded.'),
     tone: 'neutral'
   };
 };
@@ -23592,14 +23705,14 @@ const todayPlanForParent = ({
       concern: `${attention.name} berada pada ${formatScore(attention.score)}.`,
       actionLabel: TEACHER_QUESTION_LABEL,
       actionKind: 'teacher',
-      actionDetail: 'Minta anak tunjuk satu soalan yang susah, kemudian bawa konteks itu kepada guru.'
+      actionDetail: t('Minta anak tunjuk satu soalan yang susah, kemudian bawa konteks itu kepada guru.', 'Ask the child to show one difficult question, then bring that context to the teacher.')
     };
   }
   if (alert) {
     const action = alertPrimaryAction(alert);
     return {
       status,
-      concern: parentTitle(alert.title, 'Ada makluman baharu daripada kelas.'),
+      concern: parentTitle(alert.title, t('Ada makluman baharu daripada kelas.', 'There is a new class notification.')),
       actionLabel: action.label,
       actionKind: 'alert',
       actionDetail: alertRecommendedAction(alert),
@@ -23609,16 +23722,16 @@ const todayPlanForParent = ({
   if (status.tone === 'warn') {
     return {
       status,
-      concern: 'Rutin minggu ini masih perlahan.',
-      actionLabel: 'Semak kemajuan',
+      concern: t('Rutin minggu ini masih perlahan.', 'This week routine is still slow.'),
+      actionLabel: t('Semak kemajuan', 'Check progress'),
       actionKind: 'progress',
-      actionDetail: 'Cari masa 15-20 minit untuk ulang kaji ringkas hari ini.'
+      actionDetail: t('Cari masa 15-20 minit untuk ulang kaji ringkas hari ini.', 'Find 15-20 minutes for a short review today.')
     };
   }
   return {
     status,
-    concern: 'Tiada isu besar dikesan daripada data terkini.',
-    actionLabel: 'Lihat kemajuan',
+    concern: t('Tiada isu besar dikesan daripada data terkini.', 'No major issues were detected from the latest data.'),
+    actionLabel: t('Lihat kemajuan', 'View progress'),
     actionKind: 'progress',
     actionDetail: 'Teruskan rutin belajar dan semak trend subjek apabila ada data baharu.'
   };
@@ -23721,13 +23834,13 @@ const ParentHome = ({
           read: true,
           followUp: true
         }).then(() => {
-          setNotice('Tindak lanjut disimpan dan disegerakkan dengan akaun ibu bapa. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.');
+          setNotice(t('Tindak lanjut disimpan dan disegerakkan dengan akaun ibu bapa. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.', 'Follow-up saved and synced with the parent account. Use official class or school channels if a question must be sent.'));
         }).catch(() => {
           setNotice('Tindak lanjut disimpan pada peranti ini. Penyegerakan pelayan belum tersedia.');
         });
         return;
       }
-      setNotice('Tindak lanjut disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.');
+      setNotice(t('Tindak lanjut disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.', 'Follow-up saved on this device. Use official class or school channels if a question must be sent.'));
       return;
     }
     syncHomeAlertRead();
@@ -23763,22 +23876,22 @@ const ParentHome = ({
   };
   const homeInsightCards = [{
     v: formatScore(child?.avg, hasOverallScore),
-    l: 'Purata Skor',
-    sub: hasOverallScore ? 'Purata rekod pelajaran dan kuiz' : 'Belum ada data',
+    l: t('Purata Skor', 'Average Score'),
+    sub: hasOverallScore ? t('Purata rekod pelajaran dan kuiz', 'Average lesson and quiz records') : t('Belum ada data', 'No data yet'),
     target: 'progress',
-    aria: 'Buka Kemajuan untuk melihat purata skor anak'
+    aria: t('Buka Kemajuan untuk melihat purata skor anak', 'Open Progress to view the child average score')
   }, {
     v: weekMetrics?.hasActivity ? formatStudyTime(weekMetrics.timeSeconds) : hasWeekTime ? formatStudyTime(child.weekTimeSeconds) : '—',
     l: 'Minggu Ini',
     sub: weekRange,
     target: 'progress',
-    aria: 'Buka Kemajuan untuk melihat aktiviti minggu ini'
+    aria: t('Buka Kemajuan untuk melihat aktiviti minggu ini', 'Open Progress to view this week activity')
   }, {
     v: child?.rank ? `#${child.rank}` : '—',
-    l: child?.rank ? 'Kedudukan Kelas' : 'Kedudukan belum tersedia',
-    sub: child?.rank ? 'Berdasarkan papan markah kelas' : 'Muncul bila kelas ada papan markah',
+    l: child?.rank ? t('Kedudukan Kelas', 'Class Ranking') : t('Kedudukan belum tersedia', 'Ranking not available yet'),
+    sub: child?.rank ? t('Berdasarkan papan markah kelas', 'Based on the class leaderboard') : t('Muncul bila kelas ada papan markah', 'Appears when the class has a leaderboard'),
     target: 'children',
-    aria: 'Buka profil anak untuk melihat ringkasan kelas'
+    aria: t('Buka profil anak untuk melihat ringkasan kelas', 'Open the child profile to view the class summary')
   }];
   if (!child) return /*#__PURE__*/React.createElement(NoLinkedChild, {
     onOpenSettings: onOpenSettings,
@@ -23813,7 +23926,7 @@ const ParentHome = ({
       marginBottom: 14
     }
   }, /*#__PURE__*/React.createElement(ErrorRetry, {
-    message: childState.error.message || 'Tidak dapat memuat anak terpaut.',
+    message: childState.error.message || t('Tidak dapat memuat anak terpaut.', 'Unable to load linked child.'),
     onRetry: childState.refresh
   })), notice && /*#__PURE__*/React.createElement(Card, {
     success: true,
@@ -24499,7 +24612,7 @@ const ParentProgress = ({
       marginBottom: 14
     }
   }, /*#__PURE__*/React.createElement(ErrorRetry, {
-    message: childState.error.message || 'Tidak dapat memuat kemajuan.',
+    message: childState.error.message || t('Tidak dapat memuat kemajuan.', 'Unable to load progress.'),
     onRetry: childState.refresh
   })), notice && /*#__PURE__*/React.createElement(Card, {
     success: true,
@@ -24542,22 +24655,22 @@ const ParentProgress = ({
     }
   }, [{
     v: metrics.hasActivity ? formatStudyTime(metrics.timeSeconds) : '—',
-    l: 'Masa Belajar',
+    l: t('Masa Belajar', 'Study Time'),
     i: '⏱️',
     c: C.acc
   }, {
     v: metrics.hasActivity ? String(metrics.lessons) : '—',
-    l: 'Pelajaran',
+    l: t('Pelajaran', 'Lesson'),
     i: '📚',
     c: C.blue
   }, {
     v: formatScore(metrics.avg, metrics.hasScore),
-    l: metrics.hasScore ? 'Purata Skor' : 'Purata belum ada data',
+    l: metrics.hasScore ? t('Purata Skor', 'Average Score') : t('Purata belum ada data', 'Average has no data yet'),
     i: '📊',
     c: C.green
   }, {
     v: metrics.rank ? `#${metrics.rank}` : '—',
-    l: metrics.rank ? 'Kedudukan Kelas' : 'Kedudukan belum tersedia',
+    l: metrics.rank ? t('Kedudukan Kelas', 'Class Ranking') : t('Kedudukan belum tersedia', 'Ranking not available yet'),
     i: '🏆',
     c: C.gold
   }].map((s, i) => /*#__PURE__*/React.createElement(Card, {
@@ -24866,7 +24979,7 @@ const ParentAlerts = ({
     const next = uniqueBy([...dismissedIds, id], item => item);
     setDismissedIds(next);
     writeLocal(alertStorageKey(child.id, 'dismissed_alerts'), next);
-    setNotice('Amaran disembunyikan pada peranti ini sahaja. Ia boleh muncul semula pada peranti lain.');
+    setNotice(t('Amaran disembunyikan pada peranti ini sahaja. Ia boleh muncul semula pada peranti lain.', 'Alert hidden on this device only. It may appear again on another device.'));
   };
   const clearAll = () => {
     const next = uniqueBy([...dismissedIds, ...visibleAlerts.map(alertId)], item => item);
@@ -24883,7 +24996,7 @@ const ParentAlerts = ({
     markRead(alert);
     const next = uniqueBy([...readLocal(alertStorageKey(child.id, 'followup_alerts'), []), alertId(alert)], item => item);
     writeLocal(alertStorageKey(child.id, 'followup_alerts'), next);
-    setNotice(teacher ? TEACHER_FOLLOWUP_CONFIRMATION : 'Amaran ditandai untuk tindak lanjut pada peranti ini sahaja.');
+    setNotice(teacher ? TEACHER_FOLLOWUP_CONFIRMATION : t('Amaran ditandai untuk tindak lanjut pada peranti ini sahaja.', 'Alert marked for follow-up on this device only.'));
   };
   const handleAction = alert => {
     const label = `${alert.action || ''}`.toLowerCase();
@@ -24908,7 +25021,7 @@ const ParentAlerts = ({
       fontSize: 17,
       color: C.text
     }
-  }, "Amaran & Notifikasi"), /*#__PURE__*/React.createElement("div", {
+  }, t('Amaran & Notifikasi', 'Alerts & Notifications')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 12,
       color: C.textMuted,
@@ -24954,7 +25067,7 @@ const ParentAlerts = ({
       marginBottom: 14
     }
   }, /*#__PURE__*/React.createElement(ErrorRetry, {
-    message: childState.error.message || 'Tidak dapat memuat anak terpaut.',
+    message: childState.error.message || t('Tidak dapat memuat anak terpaut.', 'Unable to load linked child.'),
     onRetry: childState.refresh
   })), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -25292,13 +25405,13 @@ const ParentAlertsV2 = ({
         alertId: id,
         dismissed: true
       }).then(() => {
-        setNotice('Amaran disembunyikan dan disegerakkan dengan akaun ibu bapa.');
+        setNotice(t('Amaran disembunyikan dan disegerakkan dengan akaun ibu bapa.', 'Alert hidden and synced with the parent account.'));
       }).catch(() => {
-        setNotice('Amaran disembunyikan pada peranti ini. Penyegerakan pelayan belum tersedia.');
+        setNotice(t('Amaran disembunyikan pada peranti ini. Penyegerakan pelayan belum tersedia.', 'Alert hidden on this device. Server syncing is not available yet.'));
       });
       return;
     }
-    setNotice('Amaran disembunyikan pada peranti ini sahaja. Ia boleh muncul semula pada peranti lain.');
+    setNotice(t('Amaran disembunyikan pada peranti ini sahaja. Ia boleh muncul semula pada peranti lain.', 'Alert hidden on this device only. It may appear again on another device.'));
   };
   const clearAll = () => {
     const ids = visibleAlerts.map(alertId);
@@ -25339,13 +25452,13 @@ const ParentAlertsV2 = ({
         read: true,
         followUp: true
       }).then(() => {
-        setNotice('Tindak lanjut disimpan dan disegerakkan dengan akaun ibu bapa. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.');
+        setNotice(t('Tindak lanjut disimpan dan disegerakkan dengan akaun ibu bapa. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.', 'Follow-up saved and synced with the parent account. Use official class or school channels if a question must be sent.'));
       }).catch(() => {
         setNotice('Tindak lanjut disimpan pada peranti ini. Penyegerakan pelayan belum tersedia.');
       });
       return;
     }
-    setNotice('Tindak lanjut disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.');
+    setNotice(t('Tindak lanjut disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.', 'Follow-up saved on this device. Use official class or school channels if a question must be sent.'));
   };
   const handlePrimaryAction = alert => {
     const action = alertPrimaryAction(alert);
@@ -25378,7 +25491,7 @@ const ParentAlertsV2 = ({
       fontSize: 17,
       color: C.text
     }
-  }, "Amaran & Notifikasi"), /*#__PURE__*/React.createElement("div", {
+  }, t('Amaran & Notifikasi', 'Alerts & Notifications')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 12,
       color: C.textMuted,
@@ -25425,7 +25538,7 @@ const ParentAlertsV2 = ({
       marginBottom: 14
     }
   }, /*#__PURE__*/React.createElement(ErrorRetry, {
-    message: childState.error.message || 'Tidak dapat memuat anak terpaut.',
+    message: childState.error.message || t('Tidak dapat memuat anak terpaut.', 'Unable to load linked child.'),
     onRetry: childState.refresh
   })), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -25633,7 +25746,7 @@ const ParentAlertsV2 = ({
         cursor: 'pointer',
         textAlign: 'left'
       }
-    }, /*#__PURE__*/React.createElement("span", null, expanded ? 'Sembunyikan butiran' : 'Lihat sebab dan cadangan'), /*#__PURE__*/React.createElement("span", {
+    }, /*#__PURE__*/React.createElement("span", null, expanded ? t('Sembunyikan butiran', 'Hide details') : t('Lihat sebab dan cadangan', 'View reasons and suggestions')), /*#__PURE__*/React.createElement("span", {
       "aria-hidden": "true"
     }, expanded ? '↑' : '↓')), expanded && /*#__PURE__*/React.createElement("div", {
       id: detailDomId,
@@ -25909,9 +26022,9 @@ const passwordStrength = value => {
   const checks = [password.length >= 8, password.length >= 12, /[a-z]/.test(password) && /[A-Z]/.test(password), /\d/.test(password), /[^A-Za-z0-9]/.test(password)].filter(Boolean).length;
   if (checks <= 2) return {
     score: 1,
-    label: 'Lemah',
+    label: t('Lemah', 'Weak'),
     color: C.red,
-    hint: 'Tambah panjang, huruf besar/kecil, nombor, atau simbol.'
+    hint: t('Tambah panjang, huruf besar/kecil, nombor, atau simbol.', 'Add length, uppercase/lowercase letters, numbers, or symbols.')
   };
   if (checks <= 3) return {
     score: 2,
@@ -26014,7 +26127,7 @@ const ParentSettings = ({
     e.preventDefault();
     const id = studentId.trim();
     const identifierError = validateChildIdentifier(id);
-    const consentError = studentConsent ? '' : 'Sahkan persetujuan anak sebelum memaut akaun.';
+    const consentError = studentConsent ? '' : t('Sahkan persetujuan anak sebelum memaut akaun.', 'Confirm the child consent before linking the account.');
     const nextErrors = {
       ...(identifierError ? {
         identifier: identifierError
@@ -26032,7 +26145,7 @@ const ParentSettings = ({
       setStudentId('');
       setStudentConsent(false);
       setStudentErrors({});
-      setLinkStatus('Anak berjaya dipaut.');
+      setLinkStatus(t('Anak berjaya dipaut.', 'Child linked successfully.'));
       childState.refresh();
     } catch (err) {
       setLinkStatus(parentLinkErrorMessage(err));
@@ -26054,7 +26167,7 @@ const ParentSettings = ({
       if (selectedId === child.id) onSelectChild('');
       childState.refresh();
     } catch (err) {
-      setLinkStatus(err.message || 'Tidak dapat membuang pautan anak.');
+      setLinkStatus(err.message || t('Tidak dapat membuang pautan anak.', 'Unable to remove child link.'));
     } finally {
       setBusy(false);
     }
@@ -26077,7 +26190,7 @@ const ParentSettings = ({
       setConfirmPassword('');
       setPasswordStatus('Kata laluan berjaya dikemas kini.');
     } catch (err) {
-      setPasswordStatus(err.message || 'Tidak dapat menukar kata laluan.');
+      setPasswordStatus(err.message || t('Tidak dapat menukar kata laluan.', 'Unable to change password.'));
     } finally {
       setBusy(false);
     }
@@ -26110,7 +26223,7 @@ const ParentSettings = ({
       fontSize: 17,
       color: C.text
     }
-  }, "Tetapan Ibu Bapa"), /*#__PURE__*/React.createElement("div", {
+  }, t('Tetapan Ibu Bapa', 'Parent Settings')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 12,
       color: C.textMuted,
@@ -26287,7 +26400,7 @@ const ParentSettings = ({
       fontSize: 11,
       cursor: 'pointer'
     }
-  }, selectedId === child.id ? 'Dipilih' : 'Pilih'), unlinkConfirm === child.id ? /*#__PURE__*/React.createElement("div", {
+  }, selectedId === child.id ? t('Dipilih', 'Selected') : t('Pilih', 'Select')), unlinkConfirm === child.id ? /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       gap: 5
@@ -26319,7 +26432,7 @@ const ParentSettings = ({
       fontSize: 11,
       cursor: 'pointer'
     }
-  }, "Batal")) : /*#__PURE__*/React.createElement("button", {
+  }, t('Batal', 'Cancel'))) : /*#__PURE__*/React.createElement("button", {
     onClick: () => unlinkChild(child),
     disabled: busy,
     style: {
@@ -26401,7 +26514,7 @@ const ParentSettings = ({
       cursor: busy ? 'not-allowed' : 'pointer',
       opacity: busy ? 0.6 : 1
     }
-  }, "Tambah")), studentErrors.identifier && /*#__PURE__*/React.createElement("div", {
+  }, t('Tambah', 'Add'))), studentErrors.identifier && /*#__PURE__*/React.createElement("div", {
     id: "parent-inline-child-id-error",
     role: "alert",
     style: {
@@ -26676,7 +26789,7 @@ const ParentSettingsV2 = ({
     setLinkStatus('');
     try {
       await window.tusyenApi.linkParent(id);
-      setLinkStatus('Anak berjaya dipaut.');
+      setLinkStatus(t('Anak berjaya dipaut.', 'Child linked successfully.'));
       setShowAddChild(false);
       markSaved('children');
       childState.refresh();
@@ -26698,7 +26811,7 @@ const ParentSettingsV2 = ({
       markSaved('children');
       childState.refresh();
     } catch (err) {
-      setLinkStatus(err.message || 'Tidak dapat membuang pautan anak.');
+      setLinkStatus(err.message || t('Tidak dapat membuang pautan anak.', 'Unable to remove child link.'));
     } finally {
       setBusy(false);
     }
@@ -26722,7 +26835,7 @@ const ParentSettingsV2 = ({
       setPasswordStatus('Kata laluan berjaya dikemas kini.');
       markSaved('security');
     } catch (err) {
-      setPasswordStatus(err.message || 'Tidak dapat menukar kata laluan.');
+      setPasswordStatus(err.message || t('Tidak dapat menukar kata laluan.', 'Unable to change password.'));
     } finally {
       setBusy(false);
     }
@@ -26743,8 +26856,8 @@ const ParentSettingsV2 = ({
   }];
   const languageOptions = [{
     value: 'ms',
-    label: 'Bahasa Melayu',
-    hint: 'Istilah sekolah dan ibu bapa dikekalkan.'
+    label: t('Bahasa Melayu', 'Malay'),
+    hint: t('Istilah sekolah dan ibu bapa dikekalkan.', 'School and parent terms are preserved.')
   }, {
     value: 'en',
     label: 'English',
@@ -26764,7 +26877,7 @@ const ParentSettingsV2 = ({
       fontSize: 17,
       color: C.text
     }
-  }, "Tetapan Ibu Bapa"), /*#__PURE__*/React.createElement("div", {
+  }, t('Tetapan Ibu Bapa', 'Parent Settings')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 12,
       color: C.textMuted,
@@ -26969,7 +27082,7 @@ const ParentSettingsV2 = ({
       color: C.textFaint,
       fontWeight: 600
     }
-  }, "Tingkatan ", child.form, " - ", child.cls)), /*#__PURE__*/React.createElement("button", {
+  }, t('Tingkatan', 'Form'), " ", child.form, " - ", child.cls)), /*#__PURE__*/React.createElement("button", {
     onClick: () => {
       onSelectChild(child.id);
       markSaved('children');
@@ -26986,7 +27099,7 @@ const ParentSettingsV2 = ({
       fontSize: 11,
       cursor: 'pointer'
     }
-  }, selectedId === child.id ? 'Dipilih' : 'Pilih'), /*#__PURE__*/React.createElement("button", {
+  }, selectedId === child.id ? t('Dipilih', 'Selected') : t('Pilih', 'Select')), /*#__PURE__*/React.createElement("button", {
     onClick: () => setUnlinkTarget(child),
     disabled: busy,
     style: {
@@ -27194,7 +27307,7 @@ const ParentSettingsV2 = ({
   }), unlinkTarget && /*#__PURE__*/React.createElement(ParentConfirmModal, {
     title: "Buang pautan anak?",
     confirmLabel: "Buang Pautan",
-    cancelLabel: "Batal",
+    cancelLabel: t('Batal', 'Cancel'),
     danger: true,
     busy: busy,
     onCancel: () => !busy && setUnlinkTarget(null),
@@ -27224,7 +27337,7 @@ const POST_TYPE_META = {
 };
 const postTypeMeta = type => POST_TYPE_META[(type || '').toLowerCase()] || {
   icon: '✅',
-  label: 'Pos',
+  label: t('Pos', 'Post'),
   color: () => C.textMuted
 };
 const parentPostMode = post => {
@@ -27246,7 +27359,7 @@ const parentPostMode = post => {
       canComment: true,
       reactionLabel: 'Tandai sudah baca',
       commentLabel: 'Maklum balas',
-      hint: 'Semak arahan guru bersama anak. Reaksi menandakan pos sudah dilihat; komen boleh digunakan untuk maklum balas ringkas.'
+      hint: t('Semak arahan guru bersama anak. Reaksi menandakan pos sudah dilihat; komen boleh digunakan untuk maklum balas ringkas.', 'Review teacher instructions with the child. A reaction marks the post as seen; comments can be used for short feedback.')
     };
   }
   return {
@@ -27255,7 +27368,7 @@ const parentPostMode = post => {
     canComment: true,
     reactionLabel: 'Reaksi',
     commentLabel: 'Perbincangan',
-    hint: 'Pos ini membenarkan perbincangan. Ibu bapa boleh memberi reaksi atau menulis komen yang berkaitan kelas.'
+    hint: t('Pos ini membenarkan perbincangan. Ibu bapa boleh memberi reaksi atau menulis komen yang berkaitan kelas.', 'This post allows discussion. Parents can react or write comments related to the class.')
   };
 };
 const ParentPostsPage = ({
@@ -27338,7 +27451,7 @@ const ParentPostsPage = ({
     const seen = new Map();
     postsData.posts.forEach(p => {
       if (p.classroom_id && !seen.has(p.classroom_id)) {
-        seen.set(p.classroom_id, parentText(p.classroom_name, 'Kelas', 54));
+        seen.set(p.classroom_id, parentText(p.classroom_name, t('Kelas', 'Class'), 54));
       }
     });
     return Array.from(seen.entries()).map(([id, name]) => ({
@@ -27529,13 +27642,13 @@ const ParentPostsPage = ({
         fontFamily: 'Nunito',
         transition: 'all .2s'
       }
-    }, parentText(chip.name, 'Kelas', 54));
+    }, parentText(chip.name, t('Kelas', 'Class'), 54));
   })), postsData.error && /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 14
     }
   }, /*#__PURE__*/React.createElement(ErrorRetry, {
-    message: postsData.error.message || 'Tidak dapat memuat pos.',
+    message: postsData.error.message || t('Tidak dapat memuat pos.', 'Unable to load posts.'),
     onRetry: () => loadPosts(filterClassroomId)
   })), postsData.loading ? [0, 1, 2].map(i => /*#__PURE__*/React.createElement("div", {
     key: i,
@@ -27770,7 +27883,7 @@ const ParentPostsPage = ({
         alignItems: 'flex-start'
       }
     }, /*#__PURE__*/React.createElement(Avatar, {
-      name: parentName(comment.author_name, 'Pengguna'),
+      name: parentName(comment.author_name, t('Pengguna', 'User')),
       size: 28
     }), /*#__PURE__*/React.createElement("div", {
       style: {
@@ -27789,7 +27902,7 @@ const ParentPostsPage = ({
         fontSize: 12,
         color: C.text
       }
-    }, parentName(comment.author_name, 'Pengguna')), /*#__PURE__*/React.createElement("span", {
+    }, parentName(comment.author_name, t('Pengguna', 'User'))), /*#__PURE__*/React.createElement("span", {
       style: {
         fontSize: 10,
         color: C.textFaint,
@@ -27819,7 +27932,7 @@ const ParentPostsPage = ({
         padding: '8px 6px',
         minHeight: 44
       }
-    }, "Padam"))) : /*#__PURE__*/React.createElement("div", {
+    }, t('Padam', 'Delete')))) : /*#__PURE__*/React.createElement("div", {
       style: {
         fontSize: 12,
         color: C.textFaint,
@@ -27871,22 +27984,22 @@ const ParentPostsPage = ({
         cursor: 'pointer',
         opacity: (commentDraft[post.id] || '').trim() ? 1 : 0.5
       }
-    }, "Hantar"))));
+    }, t('Hantar', 'Send')))));
   }))) : /*#__PURE__*/React.createElement(EmptyState, {
     icon: "\uD83D\uDCE2",
-    title: "Tiada pos",
-    subtitle: "Pos daripada kelas anak akan muncul di sini."
+    title: t('Tiada pos', 'No posts'),
+    subtitle: t('Pos daripada kelas anak akan muncul di sini.', 'Posts from the child classes will appear here.')
   }), teacherModalId && window.TeacherProfileModal && /*#__PURE__*/React.createElement(window.TeacherProfileModal, {
     teacherId: teacherModalId,
     onClose: () => setTeacherModalId(null)
   }), deleteCommentTarget && /*#__PURE__*/React.createElement(ParentConfirmModal, {
-    title: "Padam komen?",
-    confirmLabel: "Padam",
-    cancelLabel: "Batal",
+    title: t('Padam komen?', 'Delete comment?'),
+    confirmLabel: t('Padam', 'Delete'),
+    cancelLabel: t('Batal', 'Cancel'),
     danger: true,
     onCancel: () => setDeleteCommentTarget(null),
     onConfirm: deleteComment
-  }, "Komen ini akan disembunyikan daripada perbincangan pos kelas."), /*#__PURE__*/React.createElement("div", {
+  }, t('Komen ini akan disembunyikan daripada perbincangan pos kelas.', 'This comment will be hidden from the class post discussion.')), /*#__PURE__*/React.createElement("div", {
     style: {
       height: 8
     }
@@ -27913,7 +28026,7 @@ const ParentChildrenPage = ({
     setLinkStatus('');
     try {
       await window.tusyenApi.linkParent(id);
-      setLinkStatus('Anak berjaya dipaut.');
+      setLinkStatus(t('Anak berjaya dipaut.', 'Child linked successfully.'));
       setShowAddChild(false);
       childState.refresh();
     } catch (err) {
@@ -27936,7 +28049,7 @@ const ParentChildrenPage = ({
       fontSize: 17,
       color: C.text
     }
-  }, "Anak Dipaut"), /*#__PURE__*/React.createElement("div", {
+  }, t('Anak Dipaut', 'Linked Children')), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 12,
       color: C.textMuted,
@@ -28103,7 +28216,7 @@ const ParentChildrenPage = ({
         fontSize: 12,
         cursor: 'pointer'
       }
-    }, isActive ? 'Dipilih' : 'Pilih'), /*#__PURE__*/React.createElement("button", {
+    }, isActive ? t('Dipilih', 'Selected') : t('Pilih', 'Select')), /*#__PURE__*/React.createElement("button", {
       onClick: () => {
         onSelectChild(child.id);
         onNavigate('progress');
@@ -28121,7 +28234,7 @@ const ParentChildrenPage = ({
         cursor: 'pointer'
       }
     }, "Lihat Kemajuan")));
-  }), /*#__PURE__*/React.createElement(SectionLabel, null, "Tambah Anak"), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React.createElement(SectionLabel, null, t('Tambah Anak', 'Add Child')), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("div", {
     style: {
       background: C.accDim,
       border: `1px solid ${C.borderB}`,
@@ -28133,7 +28246,7 @@ const ParentChildrenPage = ({
       fontWeight: 800,
       lineHeight: 1.45
     }
-  }, "Privasi: pautan ibu bapa hanya memaparkan kemajuan, kelas, dan pos berkaitan anak. Pastikan anak bersetuju sebelum memaut akaun."), /*#__PURE__*/React.createElement("button", {
+  }, t('Privasi: pautan ibu bapa hanya memaparkan kemajuan, kelas, dan pos berkaitan anak. Pastikan anak bersetuju sebelum memaut akaun.', 'Privacy: parent links only show progress, classes, and posts related to the child. Make sure the child agrees before linking the account.')), /*#__PURE__*/React.createElement("button", {
     type: "button",
     "data-testid": "add-child",
     onClick: () => setShowAddChild(true),
@@ -28150,7 +28263,7 @@ const ParentChildrenPage = ({
       fontSize: 12,
       cursor: 'pointer'
     }
-  }, "Buka Panduan Tambah Anak"), /*#__PURE__*/React.createElement("div", {
+  }, t('Buka Panduan Tambah Anak', 'Open Add Child Guide')), /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 7,
       fontSize: 11,
@@ -28158,7 +28271,7 @@ const ParentChildrenPage = ({
       color: C.textFaint,
       fontWeight: 600
     }
-  }, "Anda perlukan ID Tusyen pelajar atau e-mel akaun pelajar. Kod kelas guru tidak digunakan di sini."), linkStatus && /*#__PURE__*/React.createElement("div", {
+  }, t('Anda perlukan ID Tusyen pelajar atau e-mel akaun pelajar. Kod kelas guru tidak digunakan di sini.', 'You need the student Tusyen ID or student account email. Teacher class codes are not used here.')), linkStatus && /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 8,
       fontSize: 11,
@@ -28192,15 +28305,15 @@ const ParentSidebarSummary = ({
   const hasWeek = child?.hasWeekData !== false && child?.weekTimeSeconds !== null && child?.weekTimeSeconds !== undefined;
   const rows = [{
     value: loading ? '...' : String(childCount || 0),
-    label: 'Anak dipaut'
+    label: t('Anak dipaut', 'Linked children')
   }, {
     value: child ? formatScore(child.avg, hasScore) : '--',
-    label: 'Purata skor'
+    label: t('Purata skor', 'Average score')
   }, {
     value: child && hasWeek ? formatStudyTime(child.weekTimeSeconds) : '--',
-    label: 'Masa minggu ini'
+    label: t('Masa minggu ini', 'Time this week')
   }];
-  const subtitle = error ? 'Data anak belum dapat dimuat.' : child ? `Memantau ${child.name}` : 'Pautkan anak untuk mula memantau.';
+  const subtitle = error ? t('Data anak belum dapat dimuat.', 'Child data could not be loaded yet.') : child ? t('Memantau %s', 'Monitoring %s').replace('%s', child.name) : t('Pautkan anak untuk mula memantau.', 'Link a child to start monitoring.');
   return /*#__PURE__*/React.createElement("div", {
     className: "parent-sidebar-summary",
     style: {
@@ -28275,7 +28388,7 @@ const ParentSidebarSummary = ({
       fontWeight: 900,
       cursor: 'pointer'
     }
-  }, child ? 'Semak Kemajuan' : 'Tambah Anak'));
+  }, child ? t('Semak Kemajuan', 'Check Progress') : t('Tambah Anak', 'Add Child')));
 };
 const ParentApp = ({
   sidebarExtraTop
@@ -28301,27 +28414,27 @@ const ParentApp = ({
   const nav = [{
     id: 'home',
     icon: '🏠',
-    label: 'Pemantauan'
+    label: t('Pemantauan', 'Monitoring')
   }, {
     id: 'children',
     icon: '👪',
-    label: 'Anak'
+    label: t('Anak', 'Child')
   }, {
     id: 'progress',
     icon: '📈',
-    label: 'Kemajuan'
+    label: t('Kemajuan', 'Progress')
   }, {
     id: 'posts',
     icon: '📢',
-    label: 'Pos Kelas'
+    label: t('Pos Kelas', 'Class Posts')
   }, {
     id: 'alerts',
     icon: '🔔',
-    label: 'Amaran'
+    label: t('Amaran', 'Alerts')
   }, {
     id: 'settings',
     icon: '⚙️',
-    label: 'Tetapan'
+    label: t('Tetapan', 'Settings')
   }];
   const navEnglish = {
     home: 'Monitoring',
@@ -28346,27 +28459,27 @@ const ParentApp = ({
   };
   const screenMeta = {
     home: {
-      title: 'Pemantauan',
-      en: selectedChild ? selectedChild.name : 'Ibu bapa'
+      title: t('Pemantauan', 'Monitoring'),
+      en: selectedChild ? selectedChild.name : t('Ibu bapa', 'Parent')
     },
     children: {
-      title: 'Anak',
-      en: `${childOptions.length} anak`
+      title: t('Anak', 'Child'),
+      en: t('%s anak', '%s children').replace('%s', childOptions.length)
     },
     progress: {
-      title: 'Kemajuan',
-      en: selectedChild ? selectedChild.name : 'Pilih anak'
+      title: t('Kemajuan', 'Progress'),
+      en: selectedChild ? selectedChild.name : t('Pilih anak', 'Select child')
     },
     posts: {
-      title: 'Pos Kelas',
-      en: selectedChild ? selectedChild.name : 'Pos kelas'
+      title: t('Pos Kelas', 'Class Posts'),
+      en: selectedChild ? selectedChild.name : t('Pos kelas', 'Class posts')
     },
     alerts: {
-      title: 'Amaran',
-      en: selectedChild ? selectedChild.name : 'Notifikasi'
+      title: t('Amaran', 'Alerts'),
+      en: selectedChild ? selectedChild.name : t('Notifikasi', 'Notifications')
     },
     settings: {
-      title: 'Tetapan',
+      title: t('Tetapan', 'Settings'),
       en: displayName
     }
   };
@@ -28448,6 +28561,7 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
 // Tusyen - Admin Role UI v2
 // Admin screens use real API data when an admin session is active.
 
+const t = (ms, en) => languageText(ms, en);
 const SYS_FALLBACK = {
   students: 0,
   teachers: 0,
@@ -28461,47 +28575,47 @@ const SYS_FALLBACK = {
   }
 };
 const METRICS_FALLBACK = [{
-  label: 'Pangkalan Data',
+  label: t("Pangkalan Data", "Database"),
   val: null,
   color: '#9B8DB8',
   unit: '',
-  hint: 'Belum disemak',
+  hint: t("Belum disemak", "Not checked yet"),
   tone: 'neutral',
-  detail: 'Status belum dimuat.',
-  threshold: 'Baik: connected. Kritikal: error atau tiada sambungan.'
+  detail: t("Status belum dimuat.", "Status has not loaded."),
+  threshold: t("Baik: connected. Kritikal: error atau tiada sambungan.", "Good: connected. Critical: error or no connection.")
 }, {
-  label: 'Cache (Redis)',
+  label: t("Cache (Redis)", "Cache (Redis)"),
   val: null,
   color: '#9B8DB8',
   unit: '',
-  hint: 'Belum disemak',
+  hint: t("Belum disemak", "Not checked yet"),
   tone: 'neutral',
-  detail: 'Status belum dimuat.',
-  threshold: 'Baik: connected. Kritikal: error atau tiada sambungan.'
+  detail: t("Status belum dimuat.", "Status has not loaded."),
+  threshold: t("Baik: connected. Kritikal: error atau tiada sambungan.", "Good: connected. Critical: error or no connection.")
 }, {
-  label: 'Notifikasi',
+  label: t("Notifikasi", "Notifications"),
   val: null,
   color: '#9B8DB8',
   unit: '',
-  hint: 'Belum disemak',
+  hint: t("Belum disemak", "Not checked yet"),
   tone: 'neutral',
-  detail: 'Status belum dimuat.',
-  threshold: 'Baik: connected/ok atau sengaja disabled. Amaran: degraded/unknown.'
+  detail: t("Status belum dimuat.", "Status has not loaded."),
+  threshold: t("Baik: connected/ok atau sengaja disabled. Amaran: degraded/unknown.", "Good: connected/ok or intentionally disabled. Warning: degraded/unknown.")
 }, {
-  label: 'Storan',
+  label: t("Storan", "Storage"),
   val: null,
   color: '#9B8DB8',
   unit: '',
-  hint: 'Belum disemak',
+  hint: t("Belum disemak", "Not checked yet"),
   tone: 'neutral',
-  detail: 'Saiz storan belum dimuat.',
-  threshold: 'API semasa hanya memaparkan saiz DB dan jumlah fail; tiada ambang kapasiti.'
+  detail: t("Saiz storan belum dimuat.", "Storage size has not loaded."),
+  threshold: t("API semasa hanya memaparkan saiz DB dan jumlah fail; tiada ambang kapasiti.", "The current API only shows DB size and file count; no capacity threshold is available.")
 }];
 const ROLE_LABEL = {
-  student: 'Pelajar',
-  teacher: 'Guru',
-  parent: 'Ibu Bapa',
-  admin: 'Admin'
+  student: t("Pelajar", "Student"),
+  teacher: t("Guru", "Teacher"),
+  parent: t("Ibu Bapa", "Parent"),
+  admin: t("Admin", "Admin")
 };
 const ROLE_VALUE = {
   'Pelajar': 'student',
@@ -28511,22 +28625,22 @@ const ROLE_VALUE = {
 };
 const ROLE_OPTIONS = [{
   value: 'student',
-  label: 'Pelajar'
+  label: t("Pelajar", "Student")
 }, {
   value: 'teacher',
-  label: 'Guru'
+  label: t("Guru", "Teacher")
 }, {
   value: 'parent',
-  label: 'Ibu Bapa'
+  label: t("Ibu Bapa", "Parent")
 }, {
   value: 'admin',
-  label: 'Admin'
+  label: t("Admin", "Admin")
 }];
 const ROLE_DESCRIPTIONS = {
-  student: 'Pelajar boleh menyertai kelas, membuka pelajaran, menjawab kuiz, dan membina rekod kemajuan.',
-  teacher: 'Guru boleh mengurus kelas sendiri, menyiarkan kandungan, memberi tugasan, dan melihat kemajuan pelajar.',
-  parent: 'Ibu bapa boleh memantau pelajar yang dipautkan serta menerima ringkasan dan amaran berkaitan.',
-  admin: 'Admin boleh mengurus pengguna, kelas, kandungan global, konfigurasi sistem, dan tindakan penyelenggaraan.'
+  student: t("Pelajar boleh menyertai kelas, membuka pelajaran, menjawab kuiz, dan membina rekod kemajuan.", "Students can join classes, open lessons, answer quizzes, and build progress records."),
+  teacher: t("Guru boleh mengurus kelas sendiri, menyiarkan kandungan, memberi tugasan, dan melihat kemajuan pelajar.", "Teachers can manage their own classes, publish content, assign work, and view student progress."),
+  parent: t("Ibu bapa boleh memantau pelajar yang dipautkan serta menerima ringkasan dan amaran berkaitan.", "Parents can monitor linked students and receive related summaries and alerts."),
+  admin: t("Admin boleh mengurus pengguna, kelas, kandungan global, konfigurasi sistem, dan tindakan penyelenggaraan.", "Admins can manage users, classes, global content, system configuration, and maintenance actions.")
 };
 const ROLE_STYLE = {
   'Pelajar': {
@@ -28575,12 +28689,12 @@ const optionalNumber = value => {
 const fmt = value => new Intl.NumberFormat('ms-MY').format(metricNumber(value));
 const fmtOptional = value => {
   const number = optionalNumber(value);
-  return number === null ? 'Tidak tersedia' : new Intl.NumberFormat('ms-MY').format(number);
+  return number === null ? t("Tidak tersedia", "Not available") : new Intl.NumberFormat('ms-MY').format(number);
 };
 const formatDateTime = value => {
-  if (!value) return 'Tiada data';
+  if (!value) return t("Tiada data", "No data");
   const date = new Date(value);
-  if (!Number.isFinite(date.getTime())) return 'Tiada data';
+  if (!Number.isFinite(date.getTime())) return t("Tiada data", "No data");
   return date.toLocaleString('ms-MY', {
     dateStyle: 'medium',
     timeStyle: 'short'
@@ -28589,8 +28703,8 @@ const formatDateTime = value => {
 const initials = label => `${label || '?'}`.slice(0, 2).toUpperCase();
 const logIcon = type => type === 'success' ? '✓' : type === 'warn' ? '⚠' : 'ℹ';
 const logColor = type => type === 'success' ? C.green : type === 'warn' ? C.gold : C.blue;
-const statusText = value => value ? 'Aktif' : 'Tidak aktif';
-const compactText = (value, max = 58, fallback = 'Tiada data') => {
+const statusText = value => value ? t("Aktif", "Active") : t("Tidak aktif", "Inactive");
+const compactText = (value, max = 58, fallback = t("Tiada data", "No data")) => {
   const text = `${value || ''}`.replace(/\s+/g, ' ').trim();
   if (!text) return fallback;
   if (text.length <= max) return text;
@@ -28605,7 +28719,7 @@ const shortId = value => {
   return `${text.slice(0, 6)}...${text.slice(-4)}`;
 };
 const normalizeRoleValue = role => ROLE_VALUE[role] || role;
-const roleFallbackLabel = (role, fallback = 'Pengguna') => ROLE_LABEL[normalizeRoleValue(role)] || fallback;
+const roleFallbackLabel = (role, fallback = t("Pengguna", "User")) => ROLE_LABEL[normalizeRoleValue(role)] || fallback;
 const titleCaseWords = value => `${value || ''}`.toLowerCase().replace(/\b\w/g, letter => letter.toUpperCase());
 const stripInternalTokens = value => {
   let text = `${value || ''}`.replace(/\s+/g, ' ').trim();
@@ -28617,12 +28731,12 @@ const stripInternalTokens = value => {
   }).replace(/\s+\([A-Z0-9]{5,12}\)$/g, match => /[0-9]/.test(match) ? '' : match).replace(/[._-]{2,}/g, ' ').replace(/\s*-\s*$/g, '').replace(/\s{2,}/g, ' ').trim();
   return text;
 };
-const cleanDisplayText = (value, max = 58, fallback = 'Tiada data') => {
+const cleanDisplayText = (value, max = 58, fallback = t("Tiada data", "No data")) => {
   const cleaned = stripInternalTokens(value);
   if (/^(?:subject|subjek|topic|topik|subtopic|lesson|pelajaran|content|class|classroom|kelas|user|record|item|abcdef|qa|qaqc|test|demo|internal)$/i.test(cleaned)) return fallback;
   return compactText(cleaned, max, fallback);
 };
-const cleanEmailDisplay = (email, max = 42, fallback = 'Tiada e-mel', role) => {
+const cleanEmailDisplay = (email, max = 42, fallback = t("Tiada e-mel", "No email"), role) => {
   const text = `${email || ''}`.trim();
   if (!text) return fallback;
   const atIndex = text.indexOf('@');
@@ -28657,7 +28771,7 @@ const displayNameFromEmail = (email, role) => {
   if (!cleanLocal || /^(student|teacher|parent|admin|pelajar|guru|ibu bapa|user|demo|test|qa|qaqc)$/i.test(cleanLocal)) return fallback;
   return compactText(titleCaseWords(cleanLocal), 34, fallback);
 };
-const cleanPersonName = (name, email, role, fallback = 'Pengguna') => {
+const cleanPersonName = (name, email, role, fallback = t("Pengguna", "User")) => {
   const address = `${email || ''}`.trim();
   const cleanName = cleanDisplayText(name, 42, '');
   if (/^(student|teacher|parent|admin|user|pelajar|guru|ibu bapa|pengguna)$/i.test(cleanName)) {
@@ -28670,46 +28784,46 @@ const cleanUserName = (u = {}) => {
   const role = u.roleValue || u.role;
   return cleanPersonName(u.full_name || u.fullName || u.name || '', u.email, role, roleFallbackLabel(role));
 };
-const cleanTeacherDisplayName = (name, email = '', fallback = 'Guru') => {
+const cleanTeacherDisplayName = (name, email = '', fallback = t("Guru", "Teacher")) => {
   const cleaned = cleanPersonName(name, email, 'teacher', fallback);
   if (!cleaned || cleaned === fallback) return fallback;
   return /^cikgu\b/i.test(cleaned) ? cleaned : `Cikgu ${cleaned}`;
 };
-const cleanSubjectLabel = (value, fallback = 'Subjek') => cleanDisplayText(value, 34, fallback);
-const cleanClassName = (value, fallback = 'Kelas tanpa nama') => cleanDisplayText(value, 54, fallback);
-const cleanContentTitle = (value, fallback = 'Tanpa tajuk') => cleanDisplayText(value, 68, fallback);
+const cleanSubjectLabel = (value, fallback = t("Subjek", "Subject")) => cleanDisplayText(value, 34, fallback);
+const cleanClassName = (value, fallback = t("Kelas tanpa nama", "Untitled class")) => cleanDisplayText(value, 54, fallback);
+const cleanContentTitle = (value, fallback = t("Tanpa tajuk", "Untitled")) => cleanDisplayText(value, 68, fallback);
 const cleanContentSummary = (value, max = 120) => cleanDisplayText(value, max, '');
-const cleanPersonLogLabel = (value, role, fallback = 'Pengguna') => {
+const cleanPersonLogLabel = (value, role, fallback = t("Pengguna", "User")) => {
   const text = `${value || ''}`.trim();
   if (text.includes('@')) {
     const name = displayNameFromEmail(text, role);
-    if (role || name !== 'Pengguna') return name;
+    if (role || name !== t("Pengguna", "User")) return name;
     return cleanEmailDisplay(text, 42, fallback, role);
   }
   return cleanPersonName(text, '', role, fallback);
 };
 const cleanLogMessage = message => {
   const raw = `${message || ''}`.replace(/\s+/g, ' ').trim();
-  if (!raw) return 'Aktiviti sistem';
+  if (!raw) return t("Aktiviti sistem", "System activity");
   const separator = raw.indexOf(':');
   if (separator > 0) {
-    const prefix = cleanDisplayText(raw.slice(0, separator), 38, 'Aktiviti sistem');
+    const prefix = cleanDisplayText(raw.slice(0, separator), 38, t("Aktiviti sistem", "System activity"));
     const detail = raw.slice(separator + 1).trim();
     const lowerPrefix = prefix.toLowerCase();
     let cleanDetail = cleanDisplayText(detail, 72, '');
-    if (lowerPrefix.includes('pelajaran')) cleanDetail = cleanContentTitle(detail, 'Pelajaran');else if (lowerPrefix.includes('kelas')) cleanDetail = cleanClassName(detail);else if (lowerPrefix.includes('pelajar')) cleanDetail = cleanPersonLogLabel(detail, 'student', 'Pelajar');else if (lowerPrefix.includes('pengguna') || lowerPrefix.includes('akaun')) cleanDetail = cleanPersonLogLabel(detail, undefined, 'Pengguna');
+    if (lowerPrefix.includes('pelajaran')) cleanDetail = cleanContentTitle(detail, t("Pelajaran", "Lesson"));else if (lowerPrefix.includes('kelas')) cleanDetail = cleanClassName(detail);else if (lowerPrefix.includes('pelajar')) cleanDetail = cleanPersonLogLabel(detail, 'student', t("Pelajar", "Student"));else if (lowerPrefix.includes('pengguna') || lowerPrefix.includes('akaun')) cleanDetail = cleanPersonLogLabel(detail, undefined, t("Pengguna", "User"));
     return cleanDetail ? `${prefix}: ${cleanDetail}` : prefix;
   }
-  return cleanDisplayText(raw, 96, 'Aktiviti sistem');
+  return cleanDisplayText(raw, 96, t("Aktiviti sistem", "System activity"));
 };
 const isValidAdminEmail = value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(`${value || ''}`.trim());
 const validateAdminUserForm = (value = {}, mode = 'create') => {
   const errors = {};
-  if (!`${value.fullName || ''}`.trim()) errors.fullName = 'Masukkan nama penuh yang boleh dikenali oleh pentadbir.';
-  if (mode !== 'edit' && !isValidAdminEmail(value.email)) errors.email = 'Masukkan alamat e-mel yang sah, contohnya nama@domain.com.';
+  if (!`${value.fullName || ''}`.trim()) errors.fullName = t("Masukkan nama penuh yang boleh dikenali oleh pentadbir.", "Enter a full name that admins can recognize.");
+  if (mode !== 'edit' && !isValidAdminEmail(value.email)) errors.email = t("Masukkan alamat e-mel yang sah, contohnya nama@domain.com.", "Enter a valid email address, for example name@domain.com.");
   const password = `${value.password || ''}`;
-  if (mode === 'create' && !password.trim()) errors.password = 'Tetapkan kata laluan sementara untuk akaun baharu.';
-  if (password.trim() && password.trim().length < 8) errors.password = 'Kata laluan mesti sekurang-kurangnya 8 aksara.';
+  if (mode === 'create' && !password.trim()) errors.password = t("Tetapkan kata laluan sementara untuk akaun baharu.", "Set a temporary password for the new account.");
+  if (password.trim() && password.trim().length < 8) errors.password = t("Kata laluan mesti sekurang-kurangnya 8 aksara.", "Password must be at least 8 characters.");
   return errors;
 };
 const mapAdminUser = u => ({
@@ -28718,19 +28832,19 @@ const mapAdminUser = u => ({
   rawName: u.full_name || u.fullName || u.name || '',
   shortId: shortId(u.id),
   email: u.email || '',
-  displayEmail: cleanEmailDisplay(u.email, 42, 'Tiada e-mel', u.role),
-  role: ROLE_LABEL[u.role] || u.role || 'Pelajar',
+  displayEmail: cleanEmailDisplay(u.email, 42, t("Tiada e-mel", "No email"), u.role),
+  role: ROLE_LABEL[u.role] || u.role || t("Pelajar", "Student"),
   roleValue: ROLE_VALUE[u.role] || u.role || 'student',
-  last: u.last || window.timeAgo(u.last_login) || 'Belum log masuk',
+  last: u.last || window.timeAgo(u.last_login) || t("Belum log masuk", "Not logged in yet"),
   active: Boolean(u.is_active ?? u.active)
 });
 const mapAdminLog = log => {
-  const rawMsg = log.message || log.msg || 'Aktiviti sistem';
+  const rawMsg = log.message || log.msg || t("Aktiviti sistem", "System activity");
   return {
     type: log.type || 'info',
     msg: cleanLogMessage(rawMsg),
     rawMsg,
-    time: window.timeAgo(log.event_at || log.created_at) || 'Baru sahaja'
+    time: window.timeAgo(log.event_at || log.created_at) || t("Baru sahaja", "Just now")
   };
 };
 const patchAdminUser = (userId, payload) => {
@@ -28876,14 +28990,14 @@ const InlineNotice = ({
 const ConfirmModal = ({
   title,
   children,
-  confirmLabel = 'Sahkan',
-  cancelLabel = 'Batal',
+  confirmLabel = t("Sahkan", "Confirm"),
+  cancelLabel = t("Batal", "Cancel"),
   onConfirm,
   onCancel,
   danger,
   busy,
   expectedText,
-  expectedLabel = 'Taip nilai pengesahan',
+  expectedLabel = t("Taip nilai pengesahan", "Type the confirmation value"),
   maxWidth = 420
 }) => {
   const [typed, setTyped] = React.useState('');
@@ -28973,7 +29087,7 @@ const ConfirmModal = ({
     success: !danger,
     disabled: busy || !canConfirm,
     onClick: onConfirm
-  }, busy ? 'Memproses...' : confirmLabel))));
+  }, busy ? t("Memproses...", "Processing...") : confirmLabel))));
 };
 const AdminDrawer = ({
   title,
@@ -29423,13 +29537,13 @@ const statusTone = value => {
 const serviceHintLabel = value => ({
   connected: 'Bersambung',
   healthy: 'Sihat',
-  ok: 'Baik',
-  enabled: 'Aktif',
-  active: 'Aktif',
+  ok: t("Baik", "Good"),
+  enabled: t("Aktif", "Active"),
+  active: t("Aktif", "Active"),
   error: 'Ralat',
-  failed: 'Gagal',
+  failed: t("Gagal", "Failed"),
   down: 'Tergendala',
-  inactive: 'Tidak aktif',
+  inactive: t("Tidak aktif", "Inactive"),
   disabled: 'Dimatikan',
   degraded: 'Terganggu',
   unknown: 'Tidak pasti'
@@ -29496,7 +29610,7 @@ const ContentStatusBadge = ({
   status
 }) => {
   const tone = status === 'archive' ? 'warn' : status === 'draft' ? 'neutral' : 'good';
-  const label = status === 'archive' ? 'Arkib' : status === 'draft' ? 'Draf' : 'Diterbitkan';
+  const label = status === 'archive' ? t("Arkib", "Archive") : status === 'draft' ? t("Draf", "Draft") : t("Diterbitkan", "Published");
   return /*#__PURE__*/React.createElement(Badge, {
     tone: tone
   }, label);
@@ -29504,7 +29618,7 @@ const ContentStatusBadge = ({
 const maskConfigValue = () => 'Disembunyikan';
 const userOption = user => ({
   value: user.id,
-  label: user.name || displayNameFromEmail(user.email, user.role) || 'Pengguna',
+  label: user.name || displayNameFromEmail(user.email, user.role) || t("Pengguna", "User"),
   description: user.displayEmail || cleanEmailDisplay(user.email, 42, '', user.role)
 });
 const TrendPill = ({
@@ -29638,23 +29752,23 @@ const useAdminHealth = () => {
     const dbSize = h.storage?.database_size || 'Tidak pasti';
     const files = optionalNumber(h.storage?.total_files);
     return [{
-      label: 'Pangkalan Data',
+      label: t("Pangkalan Data", "Database"),
       val: null,
       color: upDb ? C.green : C.red,
       hint: h.database || 'unknown',
       tone: upDb ? 'good' : 'bad',
       detail: 'Status sambungan pangkalan data.',
-      threshold: 'Baik: connected. Kritikal: error atau tiada sambungan.'
+      threshold: t("Baik: connected. Kritikal: error atau tiada sambungan.", "Good: connected. Critical: error or no connection.")
     }, {
-      label: 'Cache (Redis)',
+      label: t("Cache (Redis)", "Cache (Redis)"),
       val: null,
       color: upCache ? C.blue : C.red,
       hint: h.cache || 'unknown',
       tone: upCache ? 'good' : 'bad',
       detail: 'Status sambungan Redis cache.',
-      threshold: 'Baik: connected. Kritikal: error atau tiada sambungan.'
+      threshold: t("Baik: connected. Kritikal: error atau tiada sambungan.", "Good: connected. Critical: error or no connection.")
     }, {
-      label: 'Notifikasi',
+      label: t("Notifikasi", "Notifications"),
       val: null,
       color: upNotif ? '#A78BFA' : C.gold,
       hint: notif.enabled === false ? 'disabled' : notif.connected ? 'connected' : notif.status || 'degraded',
@@ -29662,13 +29776,13 @@ const useAdminHealth = () => {
       detail: notif.enabled === false ? 'Notifikasi dimatikan melalui konfigurasi.' : 'Status sambungan ntfy.',
       threshold: 'Baik: connected/ok atau disabled secara sengaja. Amaran: degraded/unknown.'
     }, {
-      label: 'Storan',
+      label: t("Storan", "Storage"),
       val: null,
       color: C.gold,
       hint: dbSize,
       tone: 'neutral',
-      detail: `Fail aktif: ${files === null ? 'Tidak tersedia' : fmt(files)}`,
-      threshold: 'API semasa hanya memaparkan saiz DB dan jumlah fail; tiada ambang kapasiti.'
+      detail: `Fail aktif: ${files === null ? t("Tidak tersedia", "Not available") : fmt(files)}`,
+      threshold: t("API semasa hanya memaparkan saiz DB dan jumlah fail; tiada ambang kapasiti.", "The current API only shows DB size and file count; no capacity threshold is available.")
     }];
   }, [], METRICS_FALLBACK);
 };
@@ -29835,17 +29949,17 @@ const AdminDash = ({
     label: 'Semua'
   }, {
     id: 'warn',
-    label: 'Amaran'
+    label: t("Amaran", "Warning")
   }, {
     id: 'success',
-    label: 'Berjaya'
+    label: t("Berjaya", "Success")
   }, {
     id: 'info',
     label: 'Maklumat'
   }];
   const logTypeLabel = {
-    warn: 'Amaran',
-    success: 'Berjaya',
+    warn: t("Amaran", "Warning"),
+    success: t("Berjaya", "Success"),
     info: 'Maklumat'
   };
   const filteredLogs = LOGS.filter(log => logFilter === 'all' || log.type === logFilter);
@@ -29924,7 +30038,7 @@ const AdminDash = ({
       color: C.textMuted,
       fontWeight: 600
     }
-  }, "Panel Admin"), /*#__PURE__*/React.createElement("div", {
+  }, t("Panel Admin", "Admin Panel")), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 21,
       fontWeight: 900,
@@ -29977,19 +30091,19 @@ const AdminDash = ({
     radius: 6
   }))) : [{
     v: SYS.students,
-    l: 'Pelajar',
+    l: t("Pelajar", "Student"),
     c: C.acc,
     trend: SYS.trends?.students,
     trendLabel: 'baru 7 hari'
   }, {
     v: SYS.teachers,
-    l: 'Guru',
+    l: t("Guru", "Teacher"),
     c: C.blue,
     trend: SYS.trends?.teachers,
     trendLabel: 'baru 7 hari'
   }, {
     v: SYS.parents,
-    l: 'Ibu Bapa',
+    l: t("Ibu Bapa", "Parent"),
     c: C.gold,
     trend: SYS.trends?.parents,
     trendLabel: 'baru 7 hari'
@@ -30041,7 +30155,7 @@ const AdminDash = ({
       fontWeight: 900,
       color: s.c
     }
-  }, initials(s.l)))))), /*#__PURE__*/React.createElement(SectionLabel, null, "Kesihatan Sistem"), /*#__PURE__*/React.createElement("div", {
+  }, initials(s.l)))))), /*#__PURE__*/React.createElement(SectionLabel, null, t("Kesihatan Sistem", "System Health")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gridTemplateColumns: narrow ? '1fr' : 'repeat(4, minmax(0, 1fr))',
@@ -30236,7 +30350,7 @@ const AdminDash = ({
       marginBottom: 14
     }
   }, [{
-    label: 'Urus Pengguna',
+    label: t("Urus Pengguna", "Manage Users"),
     icon: '👥',
     screen: 'users',
     badge: 'Buka',
@@ -30360,7 +30474,7 @@ const UserForm = ({
       fontSize: 13,
       color: C.accPale
     }
-  }, mode === 'create' ? 'Tambah Pengguna' : 'Edit Pengguna'), /*#__PURE__*/React.createElement(Badge, {
+  }, mode === 'create' ? t("Tambah Pengguna", "Add User") : 'Edit Pengguna'), /*#__PURE__*/React.createElement(Badge, {
     tone: value.isActive ? 'good' : 'warn'
   }, statusText(value.isActive))), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -30368,7 +30482,7 @@ const UserForm = ({
       gap: 8
     }
   }, /*#__PURE__*/React.createElement(Field, {
-    label: "Nama Penuh"
+    label: t("Nama Penuh", "Full Name")
   }, /*#__PURE__*/React.createElement("input", {
     value: value.fullName,
     onChange: e => onChange(prev => ({
@@ -30381,7 +30495,7 @@ const UserForm = ({
   }), /*#__PURE__*/React.createElement(FormFieldError, {
     id: "admin-user-name-error"
   }, errors.fullName)), /*#__PURE__*/React.createElement(Field, {
-    label: "E-mel"
+    label: t("E-mel", "Email")
   }, /*#__PURE__*/React.createElement("input", {
     type: "email",
     value: value.email,
@@ -30401,7 +30515,7 @@ const UserForm = ({
       gap: 8
     }
   }, /*#__PURE__*/React.createElement(Field, {
-    label: "Peranan"
+    label: t("Peranan", "Role")
   }, /*#__PURE__*/React.createElement("select", {
     value: value.roleValue,
     onChange: e => onChange(prev => ({
@@ -30413,7 +30527,7 @@ const UserForm = ({
     key: option.value,
     value: option.value
   }, option.label)))), /*#__PURE__*/React.createElement(Field, {
-    label: "Status"
+    label: t("Status", "Status")
   }, /*#__PURE__*/React.createElement("select", {
     value: value.isActive ? 'true' : 'false',
     onChange: e => onChange(prev => ({
@@ -30423,9 +30537,9 @@ const UserForm = ({
     style: inputBase
   }, /*#__PURE__*/React.createElement("option", {
     value: "true"
-  }, "Aktif"), /*#__PURE__*/React.createElement("option", {
+  }, t("Aktif", "Active")), /*#__PURE__*/React.createElement("option", {
     value: "false"
-  }, "Tidak aktif")))), /*#__PURE__*/React.createElement("div", {
+  }, t("Tidak aktif", "Inactive"))))), /*#__PURE__*/React.createElement("div", {
     style: {
       border: `1px solid ${C.border}`,
       background: C.surface,
@@ -30441,8 +30555,8 @@ const UserForm = ({
       color: C.accPale,
       fontWeight: 900
     }
-  }, ROLE_OPTIONS.find(r => r.value === value.roleValue)?.label || 'Peranan', ":"), ' ', ROLE_DESCRIPTIONS[value.roleValue] || 'Pilih peranan untuk menentukan akses pengguna.'), /*#__PURE__*/React.createElement(Field, {
-    label: mode === 'create' ? 'Kata Laluan Sementara' : 'Reset Kata Laluan'
+  }, ROLE_OPTIONS.find(r => r.value === value.roleValue)?.label || t("Peranan", "Role"), ":"), ' ', ROLE_DESCRIPTIONS[value.roleValue] || 'Pilih peranan untuk menentukan akses pengguna.'), /*#__PURE__*/React.createElement(Field, {
+    label: mode === 'create' ? t("Kata Laluan Sementara", "Temporary Password") : 'Reset Kata Laluan'
   }, /*#__PURE__*/React.createElement("input", {
     type: "password",
     value: value.password || '',
@@ -30477,12 +30591,12 @@ const UserForm = ({
       padding: '10px 12px',
       fontSize: 13
     }
-  }, saving ? 'Menyimpan...' : 'Simpan'), /*#__PURE__*/React.createElement(SmallButton, {
+  }, saving ? 'Menyimpan...' : t("Simpan", "Save")), /*#__PURE__*/React.createElement(SmallButton, {
     onClick: onCancel,
     style: {
       padding: '0 14px'
     }
-  }, "Batal"))));
+  }, t("Batal", "Cancel")))));
 };
 const UserEditModal = ({
   value,
@@ -30549,7 +30663,7 @@ const UserEditModal = ({
       overflowWrap: 'anywhere',
       marginTop: 2
     }
-  }, cleanEmailDisplay(value.email, 48, 'Tiada e-mel', value.roleValue))), /*#__PURE__*/React.createElement(Badge, {
+  }, cleanEmailDisplay(value.email, 48, t("Tiada e-mel", "No email"), value.roleValue))), /*#__PURE__*/React.createElement(Badge, {
     tone: value.isActive ? 'good' : 'warn'
   }, statusText(value.isActive))), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -30557,7 +30671,7 @@ const UserEditModal = ({
       gap: 9
     }
   }, /*#__PURE__*/React.createElement(Field, {
-    label: "Nama Penuh"
+    label: t("Nama Penuh", "Full Name")
   }, /*#__PURE__*/React.createElement("input", {
     value: value.fullName,
     onChange: e => onChange(prev => ({
@@ -30571,7 +30685,7 @@ const UserEditModal = ({
   }), /*#__PURE__*/React.createElement(FormFieldError, {
     id: "admin-edit-user-name-error"
   }, errors.fullName)), /*#__PURE__*/React.createElement(Field, {
-    label: "Peranan"
+    label: t("Peranan", "Role")
   }, /*#__PURE__*/React.createElement("select", {
     value: value.roleValue,
     onChange: e => onChange(prev => ({
@@ -30598,7 +30712,7 @@ const UserEditModal = ({
       color: C.accPale,
       fontWeight: 900
     }
-  }, ROLE_OPTIONS.find(r => r.value === value.roleValue)?.label || 'Peranan', ":"), ' ', ROLE_DESCRIPTIONS[value.roleValue] || 'Pilih peranan untuk menentukan akses pengguna.'), /*#__PURE__*/React.createElement("div", {
+  }, ROLE_OPTIONS.find(r => r.value === value.roleValue)?.label || t("Peranan", "Role"), ":"), ' ', ROLE_DESCRIPTIONS[value.roleValue] || 'Pilih peranan untuk menentukan akses pengguna.'), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       gap: 8,
@@ -30608,7 +30722,7 @@ const UserEditModal = ({
   }, /*#__PURE__*/React.createElement(SmallButton, {
     onClick: onCancel,
     disabled: saving
-  }, "Batal"), /*#__PURE__*/React.createElement(GlowButton, {
+  }, t("Batal", "Cancel")), /*#__PURE__*/React.createElement(GlowButton, {
     onClick: onSave,
     disabled: saving,
     style: {
@@ -30616,7 +30730,7 @@ const UserEditModal = ({
       fontSize: 13,
       flex: '0 0 auto'
     }
-  }, saving ? 'Menyimpan...' : 'Simpan Perubahan')))));
+  }, saving ? 'Menyimpan...' : t("Simpan Perubahan", "Save Changes"))))));
 };
 const DetailRow = ({
   label,
@@ -30645,7 +30759,7 @@ const DetailRow = ({
     textAlign: 'right',
     overflowWrap: 'anywhere'
   }
-}, value || 'Tiada data'));
+}, value || t("Tiada data", "No data")));
 const UserDetailModal = ({
   detail,
   onClose,
@@ -30655,7 +30769,7 @@ const UserDetailModal = ({
   const data = detail.data || {};
   const user = data.user || detail.user || {};
   const userDisplayName = cleanUserName(user);
-  const userDisplayEmail = cleanEmailDisplay(user.email, 48, 'Tiada e-mel', user.role);
+  const userDisplayEmail = cleanEmailDisplay(user.email, 48, t("Tiada e-mel", "No email"), user.role);
   const links = data.parentLinks || [];
   const owned = data.classroomsOwned || [];
   const enrolled = data.classroomEnrollments || [];
@@ -30745,10 +30859,10 @@ const UserDetailModal = ({
     label: "Ref Pengguna",
     value: shortId(user.id || detail.id)
   }), /*#__PURE__*/React.createElement(DetailRow, {
-    label: "Peranan",
+    label: t("Peranan", "Role"),
     value: ROLE_LABEL[user.role] || user.role
   }), /*#__PURE__*/React.createElement(DetailRow, {
-    label: "Status",
+    label: t("Status", "Status"),
     value: statusText(Boolean(user.is_active ?? user.active))
   }), /*#__PURE__*/React.createElement(DetailRow, {
     label: "Telefon",
@@ -30834,7 +30948,7 @@ const UserDetailModal = ({
       fontWeight: 800,
       padding: '4px 0'
     }
-  }, cleanPersonName(link.parent_name || link.parentName, link.parent_email || link.parentEmail, 'parent', 'Ibu Bapa'), " -> ", cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', 'Pelajar')))))))));
+  }, cleanPersonName(link.parent_name || link.parentName, link.parent_email || link.parentEmail, 'parent', t("Ibu Bapa", "Parent")), " -> ", cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', t("Pelajar", "Student"))))))))));
 };
 const AdminUsers = () => {
   const [searchText, setSearchText] = React.useState('');
@@ -30858,7 +30972,7 @@ const AdminUsers = () => {
     user: null
   });
   const narrow = useNarrow(760);
-  const filters = ['Semua', 'Pelajar', 'Guru', 'Ibu Bapa', 'Admin'];
+  const filters = ['Semua', t("Pelajar", "Student"), t("Guru", "Teacher"), t("Ibu Bapa", "Parent"), t("Admin", "Admin")];
   const pageSize = 25;
   const {
     users,
@@ -31002,7 +31116,7 @@ const AdminUsers = () => {
       refresh();
     } catch (err) {
       setMutationError({
-        message: err.message || 'Tidak dapat menyimpan pengguna.',
+        message: err.message || t("Tidak dapat menyimpan pengguna.", "Could not save user."),
         retry: saveEdit
       });
     } finally {
@@ -31232,11 +31346,11 @@ const AdminUsers = () => {
     }
   }, /*#__PURE__*/React.createElement(Badge, {
     tone: "neutral"
-  }, "Pelajar ", fmt(visibleRoleCounts.Pelajar || 0)), /*#__PURE__*/React.createElement(Badge, {
+  }, t("Pelajar", "Student"), " ", fmt(visibleRoleCounts.Pelajar || 0)), /*#__PURE__*/React.createElement(Badge, {
     tone: "neutral"
-  }, "Guru ", fmt(visibleRoleCounts.Guru || 0)), /*#__PURE__*/React.createElement(Badge, {
+  }, t("Guru", "Teacher"), " ", fmt(visibleRoleCounts.Guru || 0)), /*#__PURE__*/React.createElement(Badge, {
     tone: "neutral"
-  }, "Ibu Bapa ", fmt(visibleRoleCounts['Ibu Bapa'] || 0))), /*#__PURE__*/React.createElement("div", null, "Memaparkan ", fmt(pageStart), "-", fmt(pageEnd), " \xB7 ", pageSize, " setiap halaman")), /*#__PURE__*/React.createElement("div", {
+  }, t("Ibu Bapa", "Parent"), " ", fmt(visibleRoleCounts[t("Ibu Bapa", "Parent")] || 0))), /*#__PURE__*/React.createElement("div", null, "Memaparkan ", fmt(pageStart), "-", fmt(pageEnd), " \xB7 ", pageSize, " setiap halaman")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       alignItems: 'center',
@@ -31301,7 +31415,7 @@ const AdminUsers = () => {
     success: true,
     disabled: saving,
     onClick: () => requestBulkStatus(true)
-  }, "Aktifkan"), /*#__PURE__*/React.createElement(SmallButton, {
+  }, t("Aktifkan", "Activate")), /*#__PURE__*/React.createElement(SmallButton, {
     disabled: saving,
     onClick: () => requestBulkStatus(false),
     style: {
@@ -31411,7 +31525,7 @@ const AdminUsers = () => {
       fontSize: 13,
       fontWeight: 700
     }
-  }, "Tiada pengguna ditemui") : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+  }, t("Tiada pengguna ditemui", "No users found")) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       alignItems: 'center',
@@ -31451,11 +31565,11 @@ const AdminUsers = () => {
       textTransform: 'uppercase',
       letterSpacing: .5
     }
-  }, /*#__PURE__*/React.createElement("span", null), /*#__PURE__*/React.createElement("span", null), /*#__PURE__*/React.createElement("span", null, "Pengguna"), /*#__PURE__*/React.createElement("span", null, "Peranan"), /*#__PURE__*/React.createElement("span", null, "Status"), /*#__PURE__*/React.createElement("span", null, "Log masuk"), /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("span", null), /*#__PURE__*/React.createElement("span", null), /*#__PURE__*/React.createElement("span", null, t("Pengguna", "User")), /*#__PURE__*/React.createElement("span", null, t("Peranan", "Role")), /*#__PURE__*/React.createElement("span", null, t("Status", "Status")), /*#__PURE__*/React.createElement("span", null, "Log masuk"), /*#__PURE__*/React.createElement("span", {
     style: {
       textAlign: 'right'
     }
-  }, "Aksi")), users.map((u, i) => {
+  }, t("Aksi", "Actions"))), users.map((u, i) => {
     const rs = ROLE_STYLE[u.role] || ROLE_STYLE.Pelajar;
     const selectedRow = selected.has(u.id);
     return /*#__PURE__*/React.createElement("div", {
@@ -31517,7 +31631,7 @@ const AdminUsers = () => {
         textOverflow: 'ellipsis'
       }
     }, u.name), /*#__PURE__*/React.createElement("div", {
-      title: u.displayEmail || 'Tiada e-mel',
+      title: u.displayEmail || t("Tiada e-mel", "No email"),
       style: {
         fontSize: 10,
         color: C.textFaint,
@@ -31529,7 +31643,7 @@ const AdminUsers = () => {
         overflowWrap: 'anywhere',
         lineHeight: 1.3
       }
-    }, u.displayEmail || 'Tiada e-mel', narrow ? ` · ${u.last}` : ''), narrow && /*#__PURE__*/React.createElement("div", {
+    }, u.displayEmail || t("Tiada e-mel", "No email"), narrow ? ` · ${u.last}` : ''), narrow && /*#__PURE__*/React.createElement("div", {
       style: {
         display: 'flex',
         gap: 5,
@@ -31573,7 +31687,7 @@ const AdminUsers = () => {
         textOverflow: 'ellipsis'
       }
     }, u.last), /*#__PURE__*/React.createElement(AdminActionMenu, {
-      label: "Aksi",
+      label: t("Aksi", "Actions"),
       ariaLabel: `Tindakan untuk ${u.name}`,
       disabled: !u.id,
       items: [{
@@ -31599,14 +31713,14 @@ const AdminUsers = () => {
     }
   }, "Akaun tidak boleh dipadam secara kekal \u2014 gunakan Nyahaktif untuk menyekat akses tanpa kehilangan rekod pelajar.")), confirmBulk && /*#__PURE__*/React.createElement(ConfirmModal, {
     title: confirmBulk.isActive ? 'Aktifkan pengguna dipilih?' : 'Nyahaktifkan pengguna dipilih?',
-    confirmLabel: confirmBulk.isActive ? 'Aktifkan' : 'Nyahaktifkan',
+    confirmLabel: confirmBulk.isActive ? t("Aktifkan", "Activate") : t("Nyahaktifkan", "Deactivate"),
     danger: !confirmBulk.isActive,
     busy: saving,
     onCancel: () => setConfirmBulk(null),
     onConfirm: () => bulkStatus(confirmBulk.isActive, confirmBulk.ids)
   }, "Tindakan ini akan menukar status ", confirmBulk.ids.length, " akaun. ", confirmBulk.isActive ? 'Akaun akan boleh mengakses sistem semula.' : 'Sesi aktif akan dibatalkan dan akses disekat tanpa memadam rekod.', confirmBulk.names.length > 0 ? ` Termasuk: ${confirmBulk.names.join(', ')}${confirmBulk.ids.length > confirmBulk.names.length ? ', ...' : ''}` : ''), confirmStatus && /*#__PURE__*/React.createElement(ConfirmModal, {
     title: confirmStatus.isActive ? 'Aktifkan akaun pengguna?' : 'Nyahaktifkan akaun pengguna?',
-    confirmLabel: confirmStatus.isActive ? 'Aktifkan' : 'Nyahaktifkan',
+    confirmLabel: confirmStatus.isActive ? t("Aktifkan", "Activate") : t("Nyahaktifkan", "Deactivate"),
     danger: !confirmStatus.isActive,
     onCancel: () => setConfirmStatus(null),
     onConfirm: () => toggleStatus(confirmStatus.user)
@@ -31851,7 +31965,7 @@ const AdminAssignLessonModal = ({
       gap: 10
     }
   }, /*#__PURE__*/React.createElement(Field, {
-    label: "Kelas"
+    label: t("Kelas", "Class")
   }, /*#__PURE__*/React.createElement("select", {
     value: classroomId,
     onChange: e => setClassroomId(e.target.value),
@@ -31914,7 +32028,7 @@ const AdminAssignLessonModal = ({
       fontSize: 13,
       cursor: 'pointer'
     }
-  }, "Batal")))));
+  }, t("Batal", "Cancel"))))));
 };
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -31943,7 +32057,7 @@ const PreviewRow = ({
     fontWeight: 800,
     overflowWrap: 'anywhere'
   }
-}, value === 0 ? 0 : value || 'Tiada data'));
+}, value === 0 ? 0 : value || t("Tiada data", "No data")));
 const ContentPublishPreview = ({
   type,
   syllabusForm,
@@ -32001,10 +32115,10 @@ const ContentPublishPreview = ({
     label: "Tajuk pelajaran",
     value: cleanContentTitle(lessonForm.title, 'Pelajaran tanpa tajuk')
   }), /*#__PURE__*/React.createElement(PreviewRow, {
-    label: "Ringkasan",
+    label: t("Ringkasan", "Summary"),
     value: cleanContentSummary(lessonForm.summary, 180) || 'Tiada ringkasan'
   }), /*#__PURE__*/React.createElement(PreviewRow, {
-    label: "Tahap",
+    label: t("Tahap", "Level"),
     value: difficultyLabel
   }), /*#__PURE__*/React.createElement(PreviewRow, {
     label: "Anggaran masa",
@@ -32019,7 +32133,7 @@ const ContentPublishPreview = ({
     label: "Tingkatan",
     value: `Tingkatan ${syllabusForm.formLevel || '-'}`
   }), /*#__PURE__*/React.createElement(PreviewRow, {
-    label: "Topik",
+    label: t("Topik", "Topic"),
     value: cleanContentTitle(syllabusForm.topic, 'Topik tanpa tajuk')
   }), /*#__PURE__*/React.createElement(PreviewRow, {
     label: "Subtopik",
@@ -32028,7 +32142,7 @@ const ContentPublishPreview = ({
     label: "Urutan",
     value: Number(syllabusForm.orderIndex) || 0
   }), /*#__PURE__*/React.createElement(PreviewRow, {
-    label: "Ringkasan",
+    label: t("Ringkasan", "Summary"),
     value: cleanContentSummary(syllabusForm.summary, 180) || 'Tiada ringkasan'
   }))), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -32287,7 +32401,7 @@ const AdminContent = () => {
       marginBottom: 8
     }
   }, /*#__PURE__*/React.createElement(Field, {
-    label: "Subjek"
+    label: t("Subjek", "Subject")
   }, /*#__PURE__*/React.createElement("input", {
     value: subject,
     onChange: e => setSubject(e.target.value),
@@ -32315,7 +32429,7 @@ const AdminContent = () => {
     label: 'Silibus'
   }, {
     id: 'lessons',
-    label: 'Pelajaran'
+    label: t("Pelajaran", "Lesson")
   }].map(item => /*#__PURE__*/React.createElement("button", {
     key: item.id,
     onClick: () => setTab(item.id),
@@ -32365,7 +32479,7 @@ const AdminContent = () => {
       gap: 8
     }
   }, /*#__PURE__*/React.createElement(Field, {
-    label: "Subjek",
+    label: t("Subjek", "Subject"),
     style: narrow ? {
       gridColumn: '1 / -1'
     } : undefined
@@ -32401,7 +32515,7 @@ const AdminContent = () => {
     })),
     style: inputBase
   }))), /*#__PURE__*/React.createElement(Field, {
-    label: "Topik"
+    label: t("Topik", "Topic")
   }, /*#__PURE__*/React.createElement("input", {
     required: true,
     value: syllabusForm.topic,
@@ -32420,7 +32534,7 @@ const AdminContent = () => {
     })),
     style: inputBase
   })), /*#__PURE__*/React.createElement(Field, {
-    label: "Ringkasan"
+    label: t("Ringkasan", "Summary")
   }, /*#__PURE__*/React.createElement("textarea", {
     value: syllabusForm.summary,
     onChange: e => setSyllabusForm(prev => ({
@@ -32539,7 +32653,7 @@ const AdminContent = () => {
   }), shortId(item.id) && /*#__PURE__*/React.createElement(Badge, {
     tone: "neutral"
   }, "Ref ", shortId(item.id)), /*#__PURE__*/React.createElement(AdminActionMenu, {
-    label: "Aksi",
+    label: t("Aksi", "Actions"),
     ariaLabel: `Tindakan silibus ${cleanContentTitle(item.topic, 'tanpa tajuk')}`,
     disabled: busy === item.id,
     items: [{
@@ -32579,7 +32693,7 @@ const AdminContent = () => {
     key: item.id,
     value: item.id
   }, cleanSubjectLabel(item.subject), " T", item.form_level, ": ", cleanContentTitle(item.topic, 'Topik tanpa tajuk'))))), /*#__PURE__*/React.createElement(Field, {
-    label: "Tajuk"
+    label: t("Tajuk", "Title")
   }, /*#__PURE__*/React.createElement("input", {
     required: true,
     value: lessonForm.title,
@@ -32595,7 +32709,7 @@ const AdminContent = () => {
       gap: 8
     }
   }, /*#__PURE__*/React.createElement(Field, {
-    label: "Tahap"
+    label: t("Tahap", "Level")
   }, /*#__PURE__*/React.createElement("select", {
     value: lessonForm.difficulty,
     onChange: e => setLessonForm(prev => ({
@@ -32681,7 +32795,7 @@ const AdminContent = () => {
       textOverflow: 'ellipsis'
     }
   }, question.type === 'multiple_choice' ? 'MCQ' : 'Benar/Salah', " - ", cleanDisplayText(question.questionText, 78, 'Soalan')), /*#__PURE__*/React.createElement(AdminActionMenu, {
-    label: "Aksi",
+    label: t("Aksi", "Actions"),
     ariaLabel: `Tindakan soalan kuiz ${index + 1}`,
     items: [{
       label: 'Buang soalan draf',
@@ -32906,7 +33020,7 @@ const AdminContent = () => {
       marginTop: 2,
       overflowWrap: 'anywhere'
     }
-  }, cleanSubjectLabel(lesson.subject), " - T", lesson.form_level || '-', " - ", cleanDisplayText(lesson.difficulty, 18, 'Tahap')), /*#__PURE__*/React.createElement("div", {
+  }, cleanSubjectLabel(lesson.subject), " - T", lesson.form_level || '-', " - ", cleanDisplayText(lesson.difficulty, 18, t("Tahap", "Level"))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       gap: 6,
@@ -32925,7 +33039,7 @@ const AdminContent = () => {
       flexShrink: 0
     }
   }, /*#__PURE__*/React.createElement(AdminActionMenu, {
-    label: "Aksi",
+    label: t("Aksi", "Actions"),
     ariaLabel: `Tindakan pelajaran ${cleanContentTitle(lesson.title, 'tanpa tajuk')}`,
     disabled: busy === lesson.id,
     items: [{
@@ -33053,7 +33167,7 @@ const AdminSystem = () => {
     });
     try {
       const data = await window.tusyenApi.testAdminNotification({
-        title: 'Tusyen Admin',
+        title: t("Tusyen Admin", "Tusyen Admin"),
         message: 'Semakan notifikasi daripada panel admin.'
       });
       if (data.success === false) throw new Error(data.result?.error || 'Provider notifikasi menolak ujian notifikasi.');
@@ -33071,7 +33185,7 @@ const AdminSystem = () => {
       setBusy('');
     }
   };
-  const configRows = [['Environment', config.nodeEnv || '-'], ['Port API', config.port || '-'], ['Keycloak Realm', config.keycloakRealm || '-'], ['Keycloak Client', config.keycloakClientId || '-'], ['NTFY', config.ntfyEnabled ? 'enabled' : 'disabled'], ['Sync Batch', config.syncBatchSize || '-'], ['Sync History', `${config.maxSyncHistoryDays || '-'} hari`], ['Log masuk contoh admin', config.demoAdminLoginEnabled ? 'Aktif' : 'Tidak aktif'], ['Public Admin Register', config.publicAdminRegistrationEnabled ? 'enabled' : 'disabled']];
+  const configRows = [['Environment', config.nodeEnv || '-'], ['Port API', config.port || '-'], ['Keycloak Realm', config.keycloakRealm || '-'], ['Keycloak Client', config.keycloakClientId || '-'], ['NTFY', config.ntfyEnabled ? 'enabled' : 'disabled'], ['Sync Batch', config.syncBatchSize || '-'], ['Sync History', `${config.maxSyncHistoryDays || '-'} hari`], ['Log masuk contoh admin', config.demoAdminLoginEnabled ? t("Aktif", "Active") : t("Tidak aktif", "Inactive")], ['Public Admin Register', config.publicAdminRegistrationEnabled ? 'enabled' : 'disabled']];
   return /*#__PURE__*/React.createElement("div", {
     style: {
       padding: '14px 16px 10px'
@@ -33089,7 +33203,7 @@ const AdminSystem = () => {
       color: C.textMuted,
       fontWeight: 600
     }
-  }, "Sistem"), /*#__PURE__*/React.createElement("div", {
+  }, t("Sistem", "System")), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 20,
       color: C.text,
@@ -33255,7 +33369,7 @@ const AdminSystem = () => {
       fontWeight: 600,
       marginTop: 8
     }
-  }, "Sync terakhir: ", sync.latestSyncAt ? window.timeAgo(sync.latestSyncAt) : 'Belum ada data')), /*#__PURE__*/React.createElement(SectionLabel, null, "Penyelenggaraan"), /*#__PURE__*/React.createElement(Card, {
+  }, "Sync terakhir: ", sync.latestSyncAt ? window.timeAgo(sync.latestSyncAt) : 'Belum ada data')), /*#__PURE__*/React.createElement(SectionLabel, null, t("Penyelenggaraan", "Maintenance")), /*#__PURE__*/React.createElement(Card, {
     style: {
       marginBottom: 14
     }
@@ -33300,7 +33414,7 @@ const AdminSystem = () => {
       color: C.text,
       fontWeight: 900
     }
-  }, "Notifikasi"), /*#__PURE__*/React.createElement("div", {
+  }, t("Notifikasi", "Notifications")), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 10,
       color: C.textFaint,
@@ -33421,7 +33535,7 @@ const SearchableUserSelect = ({
   value,
   onChange,
   selectedLabel,
-  placeholder = 'Cari pengguna...',
+  placeholder = t("Cari pengguna...", "Search users..."),
   emptyLabel = 'Pilih pengguna'
 }) => {
   const [query, setQuery] = React.useState('');
@@ -33645,7 +33759,7 @@ const AdminClassroomsPage = () => {
         formLevel: Number(editingClassroom.formLevel),
         teacherId: editingClassroom.teacherId
       });
-      setOk('Kelas dikemas kini.');
+      setOk(t("Kelas dikemas kini.", "Class updated."));
       setEditingClassroom(null);
       classroomsState.refresh();
     } catch (e) {
@@ -33751,7 +33865,7 @@ const AdminClassroomsPage = () => {
     onKeyDown: e => {
       if (e.key === 'Enter') applyClassSearch();
     },
-    placeholder: "Cari kelas...",
+    placeholder: t("Cari kelas...", "Search classes..."),
     "aria-label": "Cari kelas",
     style: {
       flex: 1,
@@ -33802,7 +33916,7 @@ const AdminClassroomsPage = () => {
       marginBottom: 8
     }
   }, /*#__PURE__*/React.createElement(Field, {
-    label: "Status"
+    label: t("Status", "Status")
   }, /*#__PURE__*/React.createElement("select", {
     value: activeFilter,
     onChange: e => setActiveFilter(e.target.value),
@@ -33811,9 +33925,9 @@ const AdminClassroomsPage = () => {
     value: "all"
   }, "Semua"), /*#__PURE__*/React.createElement("option", {
     value: "active"
-  }, "Aktif"), /*#__PURE__*/React.createElement("option", {
+  }, t("Aktif", "Active")), /*#__PURE__*/React.createElement("option", {
     value: "inactive"
-  }, "Tidak aktif"))), /*#__PURE__*/React.createElement(Field, {
+  }, t("Tidak aktif", "Inactive")))), /*#__PURE__*/React.createElement(Field, {
     label: "Tingkatan"
   }, /*#__PURE__*/React.createElement("select", {
     value: formFilter,
@@ -33826,7 +33940,7 @@ const AdminClassroomsPage = () => {
   }, "4"), /*#__PURE__*/React.createElement("option", {
     value: "5"
   }, "5"))), /*#__PURE__*/React.createElement(Field, {
-    label: "Guru",
+    label: t("Guru", "Teacher"),
     style: narrow ? {
       gridColumn: '1 / -1'
     } : undefined
@@ -33875,7 +33989,7 @@ const AdminClassroomsPage = () => {
       gap: 8
     }
   }, /*#__PURE__*/React.createElement(Field, {
-    label: "Subjek"
+    label: t("Subjek", "Subject")
   }, /*#__PURE__*/React.createElement("select", {
     value: newCls.subject,
     onChange: e => setNewCls(p => ({
@@ -33899,7 +34013,7 @@ const AdminClassroomsPage = () => {
   }, "4"), /*#__PURE__*/React.createElement("option", {
     value: "5"
   }, "5")))), /*#__PURE__*/React.createElement(Field, {
-    label: "Guru"
+    label: t("Guru", "Teacher")
   }, /*#__PURE__*/React.createElement(SearchableUserSelect, {
     role: "teacher",
     value: newCls.teacherId,
@@ -33924,7 +34038,7 @@ const AdminClassroomsPage = () => {
     }
   }, busy === 'create' ? 'Mencipta...' : 'Cipta Kelas'), /*#__PURE__*/React.createElement(SmallButton, {
     onClick: () => setCreating(false)
-  }, "Batal")))), editingClassroom && /*#__PURE__*/React.createElement(Card, {
+  }, t("Batal", "Cancel"))))), editingClassroom && /*#__PURE__*/React.createElement(Card, {
     style: {
       marginBottom: 10
     }
@@ -33963,7 +34077,7 @@ const AdminClassroomsPage = () => {
       gap: 8
     }
   }, /*#__PURE__*/React.createElement(Field, {
-    label: "Subjek"
+    label: t("Subjek", "Subject")
   }, /*#__PURE__*/React.createElement("select", {
     value: editingClassroom.subject,
     onChange: e => setEditingClassroom(p => ({
@@ -33987,7 +34101,7 @@ const AdminClassroomsPage = () => {
   }, "4"), /*#__PURE__*/React.createElement("option", {
     value: "5"
   }, "5")))), /*#__PURE__*/React.createElement(Field, {
-    label: "Guru"
+    label: t("Guru", "Teacher")
   }, /*#__PURE__*/React.createElement(SearchableUserSelect, {
     role: "teacher",
     value: editingClassroom.teacherId,
@@ -34013,7 +34127,7 @@ const AdminClassroomsPage = () => {
     }
   }, busy === 'editclass' ? 'Menyimpan...' : 'Simpan Kelas'), /*#__PURE__*/React.createElement(SmallButton, {
     onClick: () => setEditingClassroom(null)
-  }, "Batal"))))), /*#__PURE__*/React.createElement("div", {
+  }, t("Batal", "Cancel")))))), /*#__PURE__*/React.createElement("div", {
     style: {
       flex: 1,
       overflowY: 'auto',
@@ -34051,7 +34165,7 @@ const AdminClassroomsPage = () => {
     const isOpen = expanded === cls.id;
     const roster = classStudents[cls.id] || [];
     const rosterStatus = rosterState[cls.id] || {};
-    const teacherLabel = cls.teacher_name ? cleanTeacherDisplayName(cls.teacher_name, '', 'Guru') : '';
+    const teacherLabel = cls.teacher_name ? cleanTeacherDisplayName(cls.teacher_name, '', t("Guru", "Teacher")) : '';
     return /*#__PURE__*/React.createElement(Card, {
       key: cls.id,
       style: {
@@ -34130,7 +34244,7 @@ const AdminClassroomsPage = () => {
         textTransform: 'uppercase',
         lineHeight: 1.1
       }
-    }, "Pelajar")), /*#__PURE__*/React.createElement("div", {
+    }, t("Pelajar", "Student"))), /*#__PURE__*/React.createElement("div", {
       style: {
         display: 'flex',
         gap: 5,
@@ -34141,8 +34255,8 @@ const AdminClassroomsPage = () => {
       }
     }, /*#__PURE__*/React.createElement(Badge, {
       tone: cls.is_active !== false ? 'good' : 'warn'
-    }, cls.is_active !== false ? 'Aktif' : 'Tidak aktif'), /*#__PURE__*/React.createElement(AdminActionMenu, {
-      label: "Aksi",
+    }, cls.is_active !== false ? t("Aktif", "Active") : t("Tidak aktif", "Inactive")), /*#__PURE__*/React.createElement(AdminActionMenu, {
+      label: t("Aksi", "Actions"),
       ariaLabel: `Tindakan kelas ${cleanClassName(cls.name)}`,
       items: [{
         label: isOpen ? 'Tutup butiran' : 'Buka butiran',
@@ -34236,7 +34350,7 @@ const AdminClassroomsPage = () => {
         overflowWrap: 'anywhere'
       }
     }, cleanEmailDisplay(s.email, 42, '', 'student'))), /*#__PURE__*/React.createElement(AdminActionMenu, {
-      label: "Aksi",
+      label: t("Aksi", "Actions"),
       ariaLabel: `Tindakan pelajar ${cleanUserName(s)}`,
       items: [{
         label: 'Keluarkan pelajar',
@@ -34289,7 +34403,7 @@ const AdminClassroomsPage = () => {
       }
     }, /*#__PURE__*/React.createElement("option", {
       value: ""
-    }, "\u2014 Pilih pelajar \u2014"), (studentsState.data || []).map(s => /*#__PURE__*/React.createElement("option", {
+    }, t("— Pilih pelajar —", "Select a student")), (studentsState.data || []).map(s => /*#__PURE__*/React.createElement("option", {
       key: s.id,
       value: s.id
     }, s.name))), /*#__PURE__*/React.createElement(SmallButton, {
@@ -34301,7 +34415,7 @@ const AdminClassroomsPage = () => {
     }, busy === 'addstud' ? 'Mendaftar...' : 'Daftar'))));
   })), confirmClassStatus && /*#__PURE__*/React.createElement(ConfirmModal, {
     title: confirmClassStatus.isActive ? 'Aktifkan kelas?' : 'Nyahaktifkan kelas?',
-    confirmLabel: confirmClassStatus.isActive ? 'Aktifkan' : 'Nyahaktifkan',
+    confirmLabel: confirmClassStatus.isActive ? t("Aktifkan", "Activate") : t("Nyahaktifkan", "Deactivate"),
     danger: !confirmClassStatus.isActive,
     busy: busy === confirmClassStatus.cls?.id,
     onCancel: () => setConfirmClassStatus(null),
@@ -34358,7 +34472,7 @@ const AdminParentLinksSection = () => {
       if (!groups.has(parentId)) {
         groups.set(parentId, {
           id: parentId,
-          parentName: cleanPersonName(link.parent_name || link.parentName, link.parent_email || link.parentEmail, 'parent', 'Ibu Bapa'),
+          parentName: cleanPersonName(link.parent_name || link.parentName, link.parent_email || link.parentEmail, 'parent', t("Ibu Bapa", "Parent")),
           parentEmail: cleanEmailDisplay(link.parent_email || link.parentEmail, 42, '', 'parent'),
           parentRawEmail: link.parent_email || link.parentEmail || '',
           links: []
@@ -34370,19 +34484,19 @@ const AdminParentLinksSection = () => {
   }, [links]);
   const addLink = async () => {
     if (!selectedParent || !selectedStudent) {
-      setErr('Pilih ibu bapa dan pelajar.');
+      setErr(t("Pilih ibu bapa dan pelajar.", "Select a parent and student."));
       return;
     }
     setBusy('add');
     setMsg('');
     try {
       await window.tusyenApi.createAdminParentLink(selectedParent, selectedStudent);
-      setOk('Pautan ditambah.');
+      setOk(t("Pautan ditambah.", "Link added."));
       setSelectedParent('');
       setSelectedStudent('');
       loadLinks();
     } catch (e) {
-      setErr(e.message || 'Tidak dapat menambah pautan.');
+      setErr(e.message || t("Tidak dapat menambah pautan.", "Could not add the link."));
     } finally {
       setBusy('');
     }
@@ -34392,11 +34506,11 @@ const AdminParentLinksSection = () => {
     setMsg('');
     try {
       await deactivateAdminParentLink(id);
-      setOk('Pautan dinyahaktifkan.');
+      setOk(t("Pautan dinyahaktifkan.", "Link deactivated."));
       setConfirmRemove(null);
       loadLinks();
     } catch (e) {
-      setErr(e.message || 'Tidak dapat menyahaktifkan pautan.');
+      setErr(e.message || t("Tidak dapat menyahaktifkan pautan.", "Could not deactivate the link."));
     } finally {
       setBusy('');
     }
@@ -34419,19 +34533,19 @@ const AdminParentLinksSection = () => {
       color: C.accPale,
       marginBottom: 8
     }
-  }, "Tambah Pautan Baharu"), /*#__PURE__*/React.createElement("div", {
+  }, t("Tambah Pautan Baharu", "Add New Link")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gap: 8
     }
   }, /*#__PURE__*/React.createElement(Field, {
-    label: "Ibu Bapa"
+    label: t("Ibu Bapa", "Parent")
   }, /*#__PURE__*/React.createElement(SearchableUserSelect, {
     role: "parent",
     value: selectedParent,
     onChange: setSelectedParent,
-    placeholder: "Cari ibu bapa...",
-    emptyLabel: "Tiada ibu bapa ditemui"
+    placeholder: t("Cari ibu bapa...", "Search parents..."),
+    emptyLabel: t("Tiada ibu bapa ditemui", "No parents found")
   }), /*#__PURE__*/React.createElement("select", {
     value: selectedParent,
     onChange: e => setSelectedParent(e.target.value),
@@ -34443,17 +34557,17 @@ const AdminParentLinksSection = () => {
     }
   }, /*#__PURE__*/React.createElement("option", {
     value: ""
-  }, "\u2014 Pilih ibu bapa \u2014"), (parentsState.data || []).map(p => /*#__PURE__*/React.createElement("option", {
+  }, t("— Pilih ibu bapa —", "Select a parent")), (parentsState.data || []).map(p => /*#__PURE__*/React.createElement("option", {
     key: p.id,
     value: p.id
   }, p.name)))), /*#__PURE__*/React.createElement(Field, {
-    label: "Pelajar"
+    label: t("Pelajar", "Student")
   }, /*#__PURE__*/React.createElement(SearchableUserSelect, {
     role: "student",
     value: selectedStudent,
     onChange: setSelectedStudent,
-    placeholder: "Cari pelajar...",
-    emptyLabel: "Tiada pelajar ditemui"
+    placeholder: t("Cari pelajar...", "Search students..."),
+    emptyLabel: t("Tiada pelajar ditemui", "No students found")
   }), /*#__PURE__*/React.createElement("select", {
     value: selectedStudent,
     onChange: e => setSelectedStudent(e.target.value),
@@ -34465,7 +34579,7 @@ const AdminParentLinksSection = () => {
     }
   }, /*#__PURE__*/React.createElement("option", {
     value: ""
-  }, "\u2014 Pilih pelajar \u2014"), (studentsState.data || []).map(s => /*#__PURE__*/React.createElement("option", {
+  }, t("— Pilih pelajar —", "Select a student")), (studentsState.data || []).map(s => /*#__PURE__*/React.createElement("option", {
     key: s.id,
     value: s.id
   }, s.name)))), /*#__PURE__*/React.createElement(SmallButton, {
@@ -34474,7 +34588,7 @@ const AdminParentLinksSection = () => {
     style: {
       justifySelf: 'start'
     }
-  }, "Tambah Pautan"))), /*#__PURE__*/React.createElement(Card, {
+  }, t("Tambah Pautan", "Add Link")))), /*#__PURE__*/React.createElement(Card, {
     style: {
       marginBottom: 14,
       padding: '10px 14px'
@@ -34500,7 +34614,7 @@ const AdminParentLinksSection = () => {
     style: {
       justifySelf: 'start'
     }
-  }, "Belum dipautkan"), /*#__PURE__*/React.createElement("div", null, "Tiada pautan ibu bapa-pelajar.")) : linksByFamily.map((family, familyIndex) => /*#__PURE__*/React.createElement("div", {
+  }, t("Belum dipautkan", "Not linked yet")), /*#__PURE__*/React.createElement("div", null, t("Tiada pautan ibu bapa-pelajar.", "No parent-student links."))) : linksByFamily.map((family, familyIndex) => /*#__PURE__*/React.createElement("div", {
     key: family.id,
     style: {
       padding: '9px 0',
@@ -34529,14 +34643,14 @@ const AdminParentLinksSection = () => {
       textOverflow: 'ellipsis'
     }
   }, family.parentName), /*#__PURE__*/React.createElement("div", {
-    title: family.parentEmail || 'Tiada e-mel ibu bapa',
+    title: family.parentEmail || t("Tiada e-mel ibu bapa", "No parent email"),
     style: {
       fontSize: 10,
       color: C.textFaint,
       fontWeight: 700,
       overflowWrap: 'anywhere'
     }
-  }, family.parentEmail || 'Tiada e-mel ibu bapa')), /*#__PURE__*/React.createElement("div", {
+  }, family.parentEmail || t("Tiada e-mel ibu bapa", "No parent email"))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       gap: 5,
@@ -34545,7 +34659,7 @@ const AdminParentLinksSection = () => {
     }
   }, /*#__PURE__*/React.createElement(Badge, {
     tone: "good"
-  }, "Dipautkan"), /*#__PURE__*/React.createElement(Badge, null, family.links.length, " pelajar"))), /*#__PURE__*/React.createElement("div", {
+  }, t("Dipautkan", "Linked")), /*#__PURE__*/React.createElement(Badge, null, family.links.length, " ", t("pelajar", "students")))), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
       gap: 6
@@ -34577,15 +34691,15 @@ const AdminParentLinksSection = () => {
         overflow: 'hidden',
         textOverflow: 'ellipsis'
       }
-    }, cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', 'Pelajar')), /*#__PURE__*/React.createElement("div", {
-      title: cleanEmailDisplay(link.student_email || link.studentEmail, 42, 'Tiada e-mel pelajar', 'student'),
+    }, cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', t("Pelajar", "Student"))), /*#__PURE__*/React.createElement("div", {
+      title: cleanEmailDisplay(link.student_email || link.studentEmail, 42, t("Tiada e-mel pelajar", "No student email"), 'student'),
       style: {
         fontSize: 10,
         color: C.textFaint,
         fontWeight: 700,
         overflowWrap: 'anywhere'
       }
-    }, cleanEmailDisplay(link.student_email || link.studentEmail, 42, 'Tiada e-mel pelajar', 'student')), /*#__PURE__*/React.createElement("div", {
+    }, cleanEmailDisplay(link.student_email || link.studentEmail, 42, t("Tiada e-mel pelajar", "No student email"), 'student')), /*#__PURE__*/React.createElement("div", {
       style: {
         display: 'flex',
         gap: 5,
@@ -34594,15 +34708,15 @@ const AdminParentLinksSection = () => {
       }
     }, /*#__PURE__*/React.createElement(Badge, {
       tone: (link.is_active ?? link.isActive) === false ? 'warn' : 'good'
-    }, (link.is_active ?? link.isActive) === false ? 'Tidak aktif' : 'Aktif'), /*#__PURE__*/React.createElement(Badge, null, formatDateTime(link.created_at || link.createdAt)), (link.created_by || link.createdBy) && /*#__PURE__*/React.createElement(Badge, {
-      title: cleanPersonLogLabel(link.created_by || link.createdBy, 'admin', 'Admin')
-    }, "Dicipta oleh ", cleanPersonLogLabel(link.created_by || link.createdBy, 'admin', 'Admin')))), /*#__PURE__*/React.createElement(AdminActionMenu, {
-      label: "Aksi",
+    }, (link.is_active ?? link.isActive) === false ? t("Tidak aktif", "Inactive") : t("Aktif", "Active")), /*#__PURE__*/React.createElement(Badge, null, formatDateTime(link.created_at || link.createdAt)), (link.created_by || link.createdBy) && /*#__PURE__*/React.createElement(Badge, {
+      title: cleanPersonLogLabel(link.created_by || link.createdBy, 'admin', t("Admin", "Admin"))
+    }, t("Dicipta oleh", "Created by"), " ", cleanPersonLogLabel(link.created_by || link.createdBy, 'admin', t("Admin", "Admin"))))), /*#__PURE__*/React.createElement(AdminActionMenu, {
+      label: t("Aksi", "Actions"),
       ariaLabel: `Tindakan pautan ${family.parentName}`,
       items: [{
-        label: 'Nyahaktifkan pautan',
+        label: t("Nyahaktifkan pautan", "Deactivate link"),
         tone: 'danger',
-        description: 'Nyahaktifkan pautan keluarga ini.',
+        description: t("Nyahaktifkan pautan keluarga ini.", "Deactivate this family link."),
         disabled: busy === link.id || !linkActive,
         onClick: () => setConfirmRemove(link)
       }]
@@ -34627,7 +34741,7 @@ const AdminParentLinksSection = () => {
       color: C.textFaint,
       fontWeight: 600
     }
-  }, "Tiada pautan ibu bapa\u2013pelajar.") : links.map((link, i) => /*#__PURE__*/React.createElement("div", {
+  }, t("Tiada pautan ibu bapa–pelajar.", "No parent-student links.")) : links.map((link, i) => /*#__PURE__*/React.createElement("div", {
     key: link.id || i,
     style: {
       display: 'flex',
@@ -34647,31 +34761,31 @@ const AdminParentLinksSection = () => {
       fontWeight: 800,
       color: C.text
     }
-  }, cleanPersonName(link.parent_name || link.parentName, link.parent_email || link.parentEmail, 'parent', 'Ibu Bapa'), " -> ", cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', 'Pelajar')), /*#__PURE__*/React.createElement("div", {
+  }, cleanPersonName(link.parent_name || link.parentName, link.parent_email || link.parentEmail, 'parent', t("Ibu Bapa", "Parent")), " -> ", cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', t("Pelajar", "Student"))), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 10,
       color: C.textFaint,
       fontWeight: 600
     }
   }, cleanEmailDisplay(link.parent_email || link.parentEmail, 42, '', 'parent'), " - ", cleanEmailDisplay(link.student_email || link.studentEmail, 42, '', 'student'))), /*#__PURE__*/React.createElement(AdminActionMenu, {
-    label: "Aksi",
+    label: t("Aksi", "Actions"),
     ariaLabel: `Tindakan pautan ${cleanPersonName(link.parent_name || link.parentName, link.parent_email || link.parentEmail, 'parent', 'ibu bapa')}`,
     disabled: busy === link.id,
     items: [{
-      label: 'Nyahaktifkan pautan',
+      label: t("Nyahaktifkan pautan", "Deactivate link"),
       tone: 'danger',
       disabled: (link.is_active ?? link.isActive) === false,
-      description: 'Nyahaktifkan pautan keluarga ini.',
+      description: t("Nyahaktifkan pautan keluarga ini.", "Deactivate this family link."),
       onClick: () => setConfirmRemove(link)
     }]
   })))), confirmRemove && /*#__PURE__*/React.createElement(ConfirmModal, {
-    title: "Nyahaktifkan pautan keluarga?",
-    confirmLabel: "Nyahaktifkan Pautan",
+    title: t("Nyahaktifkan pautan keluarga?", "Deactivate family link?"),
+    confirmLabel: t("Nyahaktifkan Pautan", "Deactivate Link"),
     danger: true,
     busy: busy === confirmRemove.id,
     onCancel: () => setConfirmRemove(null),
     onConfirm: () => removeLink(confirmRemove.id)
-  }, "Pautan antara ", cleanPersonName(confirmRemove.parent_name || confirmRemove.parentName, confirmRemove.parent_email || confirmRemove.parentEmail, 'parent', 'ibu bapa'), " dan ", cleanPersonName(confirmRemove.student_name || confirmRemove.studentName, confirmRemove.student_email || confirmRemove.studentEmail, 'student', 'pelajar'), " akan dinyahaktifkan."));
+  }, t("Pautan antara", "The link between"), " ", cleanPersonName(confirmRemove.parent_name || confirmRemove.parentName, confirmRemove.parent_email || confirmRemove.parentEmail, 'parent', 'ibu bapa'), " ", t("dan", "and"), " ", cleanPersonName(confirmRemove.student_name || confirmRemove.studentName, confirmRemove.student_email || confirmRemove.studentEmail, 'student', 'pelajar'), " ", t("akan dinyahaktifkan.", "will be deactivated.")));
 };
 
 // ─── Admin App ─────────────────────────────────────────────────────────────
@@ -34687,10 +34801,10 @@ const AdminSidebar = ({
   const {
     language
   } = useLanguage();
-  const displayName = cleanPersonName(user?.fullName || user?.full_name, user?.email, 'admin', user?.email || 'Admin');
+  const displayName = cleanPersonName(user?.fullName || user?.full_name, user?.email, 'admin', user?.email || t("Admin", "Admin"));
   return /*#__PURE__*/React.createElement("aside", {
     className: "sidebar-wrap",
-    "aria-label": "Navigasi admin"
+    "aria-label": t("Navigasi admin", "Admin navigation")
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       padding: '22px 20px 18px',
@@ -34769,11 +34883,11 @@ const AdminSidebar = ({
       color: C.textMuted,
       fontWeight: 600
     }
-  }, "Admin"))), /*#__PURE__*/React.createElement(Badge, {
+  }, t("Admin", "Admin")))), /*#__PURE__*/React.createElement(Badge, {
     tone: "good"
-  }, "Panel Admin")), /*#__PURE__*/React.createElement("nav", {
+  }, t("Panel Admin", "Admin Panel"))), /*#__PURE__*/React.createElement("nav", {
     className: "sidebar-nav",
-    "aria-label": "Navigasi utama admin",
+    "aria-label": t("Navigasi utama admin", "Main admin navigation"),
     style: {
       flex: 1,
       padding: '12px 10px'
@@ -34858,7 +34972,7 @@ const AdminSidebar = ({
     style: {
       justifyContent: 'center'
     }
-  }, "Operasi"), /*#__PURE__*/React.createElement("div", {
+  }, t("Operasi", "Operations")), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 10,
       color: C.textFaint,
@@ -34866,7 +34980,7 @@ const AdminSidebar = ({
       lineHeight: 1.35,
       textAlign: 'center'
     }
-  }, "Urus pengguna, kelas, kandungan, dan sistem.")), /*#__PURE__*/React.createElement(ThemeToggle, null), /*#__PURE__*/React.createElement("div", {
+  }, t("Urus pengguna, kelas, kandungan, dan sistem.", "Manage users, classes, content, and the system."))), /*#__PURE__*/React.createElement(ThemeToggle, null), /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 8
     }
@@ -34875,7 +34989,7 @@ const AdminSidebar = ({
   })), /*#__PURE__*/React.createElement("button", {
     className: "topbar-signout",
     onClick: onSignOut,
-    "aria-label": "Log keluar",
+    "aria-label": t("Log keluar", "Sign out"),
     style: {
       width: '100%',
       marginTop: 8,
@@ -34894,7 +35008,7 @@ const AdminSidebar = ({
     "aria-hidden": "true"
   }, "\uD83D\uDEAA"), " ", /*#__PURE__*/React.createElement("span", {
     className: "sidebar-label"
-  }, "Log Keluar"))));
+  }, t("Log Keluar", "Sign Out")))));
 };
 const AdminApp = ({
   sidebarExtraTop
@@ -34903,58 +35017,58 @@ const AdminApp = ({
   const nav = [{
     id: 'home',
     icon: '📊',
-    label: 'Papan Pemuka',
+    label: t("Papan Pemuka", "Dashboard"),
     en: 'Dashboard'
   }, {
     id: 'users',
     icon: '👥',
-    label: 'Pengguna',
+    label: t("Pengguna", "User"),
     en: 'Users'
   }, {
     id: 'links',
     icon: '🔗',
-    label: 'Ibu Bapa',
-    en: 'Parent Links'
+    label: t("Ibu Bapa", "Parent"),
+    en: t("Parent Links", "Parent Links")
   }, {
     id: 'classrooms',
     icon: '🏫',
-    label: 'Kelas',
-    en: 'Classrooms'
+    label: t("Kelas", "Class"),
+    en: t("Classrooms", "Classrooms")
   }, {
     id: 'content',
     icon: '📚',
-    label: 'Kandungan',
+    label: t("Kandungan", "Content"),
     en: 'Content'
   }, {
     id: 'settings',
     icon: '⚙️',
-    label: 'Sistem',
+    label: t("Sistem", "System"),
     en: 'System'
   }];
   const screenMeta = {
     home: {
-      title: 'Tusyen Admin',
+      title: t("Tusyen Admin", "Tusyen Admin"),
       en: 'Dashboard'
     },
     users: {
-      title: 'Pengguna',
-      en: 'User Mgmt'
+      title: t("Pengguna", "User"),
+      en: t("User Mgmt", "User Mgmt")
     },
     links: {
-      title: 'Ibu Bapa',
-      en: 'Parent Links'
+      title: t("Ibu Bapa", "Parent"),
+      en: t("Parent Links", "Parent Links")
     },
     classrooms: {
-      title: 'Kelas',
-      en: 'Classrooms'
+      title: t("Kelas", "Class"),
+      en: t("Classrooms", "Classrooms")
     },
     content: {
-      title: 'Kandungan',
+      title: t("Kandungan", "Content"),
       en: 'Content'
     },
     settings: {
-      title: 'Sistem',
-      en: 'Operations'
+      title: t("Sistem", "System"),
+      en: t("Operations", "Operations")
     }
   };
   const meta = screenMeta[screen] || screenMeta.home;
@@ -34997,7 +35111,7 @@ const AdminApp = ({
     items: nav,
     active: screen,
     onNav: setScreen,
-    label: "Navigasi admin"
+    label: t("Navigasi admin", "Admin navigation")
   })));
 };
 window.AdminApp = AdminApp;

@@ -11,49 +11,49 @@ const SUBJECTS = [
 ];
 
 const SKILL_NODES = [
-  { id:1, label:'Nombor',       sub:'Numbers',      done:true,  locked:false, cur:false },
-  { id:2, label:'Algebra',      sub:'Algebra',      done:true,  locked:false, cur:false },
-  { id:3, label:'Geometri',     sub:'Geometry',     done:false, locked:false, cur:true  },
-  { id:4, label:'Trigonometri', sub:'Trigonometry', done:false, locked:true,  cur:false },
-  { id:5, label:'Statistik',    sub:'Statistics',   done:false, locked:true,  cur:false },
+  { id:1, label:'Nombor',       sub:'Nombor',       subEn:'Numbers',      done:true,  locked:false, cur:false },
+  { id:2, label:'Algebra',      sub:'Algebra',      subEn:'Algebra',      done:true,  locked:false, cur:false },
+  { id:3, label:'Geometri',     sub:'Geometri',     subEn:'Geometry',     done:false, locked:false, cur:true  },
+  { id:4, label:'Trigonometri', sub:'Trigonometri', subEn:'Trigonometry', done:false, locked:true,  cur:false },
+  { id:5, label:'Statistik',    sub:'Statistik',    subEn:'Statistics',   done:false, locked:true,  cur:false },
 ];
 
 const SUBJECT_SKILL_FALLBACKS = {
   math: SKILL_NODES,
   bio: [
-    { id:'bio-1', label:'Sel', sub:'Struktur dan fungsi', done:false, locked:false, cur:true },
-    { id:'bio-2', label:'Pembahagian Sel', sub:'Mitosis dan meiosis', done:false, locked:true, cur:false },
-    { id:'bio-3', label:'Genetik', sub:'Pewarisan sifat', done:false, locked:true, cur:false },
-    { id:'bio-4', label:'Ekosistem', sub:'Interaksi organisma', done:false, locked:true, cur:false },
-    { id:'bio-5', label:'Homeostasis', sub:'Kawalan dalaman', done:false, locked:true, cur:false },
+    { id:'bio-1', label:'Sel', sub:'Struktur dan fungsi', subEn:'Structure and function', done:false, locked:false, cur:true },
+    { id:'bio-2', label:'Pembahagian Sel', sub:'Mitosis dan meiosis', subEn:'Mitosis and meiosis', done:false, locked:true, cur:false },
+    { id:'bio-3', label:'Genetik', sub:'Pewarisan sifat', subEn:'Inherited traits', done:false, locked:true, cur:false },
+    { id:'bio-4', label:'Ekosistem', sub:'Interaksi organisma', subEn:'Organism interactions', done:false, locked:true, cur:false },
+    { id:'bio-5', label:'Homeostasis', sub:'Kawalan dalaman', subEn:'Internal regulation', done:false, locked:true, cur:false },
   ],
   physics: [
-    { id:'phy-1', label:'Daya dan Gerakan', sub:'Halaju, pecutan, graf', done:false, locked:false, cur:true },
-    { id:'phy-2', label:'Tenaga', sub:'Kerja, kuasa, kecekapan', done:false, locked:true, cur:false },
-    { id:'phy-3', label:'Haba', sub:'Suhu dan pemindahan haba', done:false, locked:true, cur:false },
-    { id:'phy-4', label:'Gelombang', sub:'Bunyi dan cahaya', done:false, locked:true, cur:false },
-    { id:'phy-5', label:'Elektrik', sub:'Arus, voltan, rintangan', done:false, locked:true, cur:false },
+    { id:'phy-1', label:'Daya dan Gerakan', sub:'Halaju, pecutan, graf', subEn:'Velocity, acceleration, graphs', done:false, locked:false, cur:true },
+    { id:'phy-2', label:'Tenaga', sub:'Kerja, kuasa, kecekapan', subEn:'Work, power, efficiency', done:false, locked:true, cur:false },
+    { id:'phy-3', label:'Haba', sub:'Suhu dan pemindahan haba', subEn:'Temperature and heat transfer', done:false, locked:true, cur:false },
+    { id:'phy-4', label:'Gelombang', sub:'Bunyi dan cahaya', subEn:'Sound and light', done:false, locked:true, cur:false },
+    { id:'phy-5', label:'Elektrik', sub:'Arus, voltan, rintangan', subEn:'Current, voltage, resistance', done:false, locked:true, cur:false },
   ],
   chem: [
-    { id:'chem-1', label:'Jirim', sub:'Atom dan molekul', done:false, locked:false, cur:true },
-    { id:'chem-2', label:'Jadual Berkala', sub:'Kumpulan dan kala', done:false, locked:true, cur:false },
-    { id:'chem-3', label:'Ikatan Kimia', sub:'Ion dan kovalen', done:false, locked:true, cur:false },
-    { id:'chem-4', label:'Asid dan Bes', sub:'pH dan peneutralan', done:false, locked:true, cur:false },
-    { id:'chem-5', label:'Kadar Tindak Balas', sub:'Faktor dan graf', done:false, locked:true, cur:false },
+    { id:'chem-1', label:'Jirim', sub:'Atom dan molekul', subEn:'Atoms and molecules', done:false, locked:false, cur:true },
+    { id:'chem-2', label:'Jadual Berkala', sub:'Kumpulan dan kala', subEn:'Groups and periods', done:false, locked:true, cur:false },
+    { id:'chem-3', label:'Ikatan Kimia', sub:'Ion dan kovalen', subEn:'Ionic and covalent', done:false, locked:true, cur:false },
+    { id:'chem-4', label:'Asid dan Bes', sub:'pH dan peneutralan', subEn:'pH and neutralization', done:false, locked:true, cur:false },
+    { id:'chem-5', label:'Kadar Tindak Balas', sub:'Faktor dan graf', subEn:'Factors and graphs', done:false, locked:true, cur:false },
   ],
   hist: [
-    { id:'hist-1', label:'Warisan Negara', sub:'Identiti dan budaya', done:false, locked:false, cur:true },
-    { id:'hist-2', label:'Nasionalisme', sub:'Tokoh dan gerakan', done:false, locked:true, cur:false },
-    { id:'hist-3', label:'Pembentukan Negara', sub:'Perlembagaan dan sistem', done:false, locked:true, cur:false },
-    { id:'hist-4', label:'Kemerdekaan', sub:'Peristiwa utama', done:false, locked:true, cur:false },
-    { id:'hist-5', label:'Malaysia Moden', sub:'Pembangunan negara', done:false, locked:true, cur:false },
+    { id:'hist-1', label:'Warisan Negara', sub:'Identiti dan budaya', subEn:'Identity and culture', done:false, locked:false, cur:true },
+    { id:'hist-2', label:'Nasionalisme', sub:'Tokoh dan gerakan', subEn:'Figures and movements', done:false, locked:true, cur:false },
+    { id:'hist-3', label:'Pembentukan Negara', sub:'Perlembagaan dan sistem', subEn:'Constitution and system', done:false, locked:true, cur:false },
+    { id:'hist-4', label:'Kemerdekaan', sub:'Peristiwa utama', subEn:'Key events', done:false, locked:true, cur:false },
+    { id:'hist-5', label:'Malaysia Moden', sub:'Pembangunan negara', subEn:'National development', done:false, locked:true, cur:false },
   ],
   geo: [
-    { id:'geo-1', label:'Kemahiran Peta', sub:'Skala dan arah', done:false, locked:false, cur:true },
-    { id:'geo-2', label:'Bentuk Muka Bumi', sub:'Tanah tinggi dan saliran', done:false, locked:true, cur:false },
-    { id:'geo-3', label:'Cuaca dan Iklim', sub:'Hujan, suhu, angin', done:false, locked:true, cur:false },
-    { id:'geo-4', label:'Penduduk', sub:'Taburan dan migrasi', done:false, locked:true, cur:false },
-    { id:'geo-5', label:'Sumber', sub:'Pengurusan alam sekitar', done:false, locked:true, cur:false },
+    { id:'geo-1', label:'Kemahiran Peta', sub:'Skala dan arah', subEn:'Scale and direction', done:false, locked:false, cur:true },
+    { id:'geo-2', label:'Bentuk Muka Bumi', sub:'Tanah tinggi dan saliran', subEn:'Highlands and drainage', done:false, locked:true, cur:false },
+    { id:'geo-3', label:'Cuaca dan Iklim', sub:'Hujan, suhu, angin', subEn:'Rainfall, temperature, wind', done:false, locked:true, cur:false },
+    { id:'geo-4', label:'Penduduk', sub:'Taburan dan migrasi', subEn:'Distribution and migration', done:false, locked:true, cur:false },
+    { id:'geo-5', label:'Sumber', sub:'Pengurusan alam sekitar', subEn:'Environmental management', done:false, locked:true, cur:false },
   ],
 };
 
@@ -81,28 +81,28 @@ const QUESTIONS = [
 ];
 
 const BADGES = [
-  { icon:'🔥', name:'Streak 7 Hari',    desc:'Belajar 7 hari berturut', earned:true  },
-  { icon:'⚡', name:'Pelajar Pantas',   desc:'10 pelajaran sehari',      earned:true  },
-  { icon:'🎯', name:'Markah Sempurna',  desc:'Skor 100% dalam ujian',   earned:true  },
-  { icon:'🏆', name:'Top 3 Kelas',      desc:'3 teratas dalam kelas',   earned:false },
-  { icon:'💎', name:'Pelajar Elit',     desc:'Capai 5,000 XP',          earned:false },
-  { icon:'🌟', name:'Penguasa Algebra', desc:'Selesai semua Algebra',   earned:false },
+  { icon:'🔥', name:'Streak 7 Hari',    nameEn:'7-Day Streak',  desc:'Belajar 7 hari berturut', descEn:'Study 7 days in a row', earned:true  },
+  { icon:'⚡', name:'Pelajar Pantas',   nameEn:'Fast Learner',  desc:'10 pelajaran sehari',      descEn:'10 lessons in one day', earned:true  },
+  { icon:'🎯', name:'Markah Sempurna',  nameEn:'Perfect Score', desc:'Skor 100% dalam ujian',   descEn:'Score 100% in a quiz', earned:true  },
+  { icon:'🏆', name:'Top 3 Kelas',      nameEn:'Top 3 in Class', desc:'3 teratas dalam kelas',   descEn:'Top 3 in class', earned:false },
+  { icon:'💎', name:'Pelajar Elit',     nameEn:'Elite Student', desc:'Capai 5,000 XP',          descEn:'Reach 5,000 XP', earned:false },
+  { icon:'🌟', name:'Penguasa Algebra', nameEn:'Algebra Master', desc:'Selesai semua Algebra',   descEn:'Complete all Algebra', earned:false },
 ];
 
 const ACHIEVEMENT_TYPE_META = {
-  streak:{ icon:'7', name:'Rentetan Hari' },
-  streak_7:{ icon:'7', name:'Streak 7 Hari' },
-  daily_streak:{ icon:'7', name:'Rentetan Harian' },
-  fast_learner:{ icon:'XP', name:'Pelajar Pantas' },
-  speed_learner:{ icon:'XP', name:'Pelajar Pantas' },
-  perfect_score:{ icon:'100', name:'Markah Sempurna' },
-  top_3_class:{ icon:'TOP', name:'Top 3 Kelas' },
-  top3_class:{ icon:'TOP', name:'Top 3 Kelas' },
-  elite_student:{ icon:'XP', name:'Pelajar Elit' },
-  subject_mastery:{ icon:'OK', name:'Penguasaan Subjek' },
-  topic_mastery:{ icon:'OK', name:'Penguasaan Topik' },
-  lesson_completion:{ icon:'OK', name:'Selesai Pelajaran' },
-  quiz_mastery:{ icon:'100', name:'Penguasaan Kuiz' },
+  streak:{ icon:'7', name:'Rentetan Hari', nameEn:'Day Streak' },
+  streak_7:{ icon:'7', name:'Streak 7 Hari', nameEn:'7-Day Streak' },
+  daily_streak:{ icon:'7', name:'Rentetan Harian', nameEn:'Daily Streak' },
+  fast_learner:{ icon:'XP', name:'Pelajar Pantas', nameEn:'Fast Learner' },
+  speed_learner:{ icon:'XP', name:'Pelajar Pantas', nameEn:'Fast Learner' },
+  perfect_score:{ icon:'100', name:'Markah Sempurna', nameEn:'Perfect Score' },
+  top_3_class:{ icon:'TOP', name:'Top 3 Kelas', nameEn:'Top 3 in Class' },
+  top3_class:{ icon:'TOP', name:'Top 3 Kelas', nameEn:'Top 3 in Class' },
+  elite_student:{ icon:'XP', name:'Pelajar Elit', nameEn:'Elite Student' },
+  subject_mastery:{ icon:'OK', name:'Penguasaan Subjek', nameEn:'Subject Mastery' },
+  topic_mastery:{ icon:'OK', name:'Penguasaan Topik', nameEn:'Topic Mastery' },
+  lesson_completion:{ icon:'OK', name:'Selesai Pelajaran', nameEn:'Lesson Complete' },
+  quiz_mastery:{ icon:'100', name:'Penguasaan Kuiz', nameEn:'Quiz Mastery' },
 };
 const achievementTypeKey = (value='') => `${value || ''}`.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
 const achievementTypeName = (value='') => {
@@ -684,7 +684,9 @@ const useAchievements = () => {
       return {
         icon: a.icon || a.icon_url || meta.icon,
         name: studentTitle(a.name || a.title || meta.name, meta.name, 64),
+        nameEn: a.name_en || a.title_en || meta.nameEn || '',
         desc: a.description || a.desc || '',
+        descEn: a.description_en || a.desc_en || '',
         earned: Boolean(a.is_earned || a.earned || a.earned_at),
         type,
       };
@@ -2986,6 +2988,12 @@ const progressRowMatchesSyllabusItem = (row={}, item={}) => {
   return rowKey.includes(itemTitleKey) || itemTitleKey.includes(rowKey) || (!!itemKey && itemKey.length >= 4 && rowKey.includes(itemKey));
 };
 
+const localizedSkillSub = (item={}, fallback='') => {
+  const source = item.subtopic || item.sub || item.topic || fallback;
+  const label = studentText(source, '', 64);
+  return item.subEn && !item.subtopic ? tStudent(label, item.subEn) : label;
+};
+
 const buildSkillNodes = (items, subjectId, progress, progressRows=[]) => {
   const source = (items && items.length ? items : SUBJECT_SKILL_FALLBACKS[subjectId] || SKILL_NODES);
   const total = source.length || 1;
@@ -3001,18 +3009,19 @@ const buildSkillNodes = (items, subjectId, progress, progressRows=[]) => {
     : fallbackCurrentIndex;
 
   return source.map((it, i) => {
-    const label = studentTitle(it.topic || it.label, `Topik ${i + 1}`);
+    const label = studentTitle(it.topic || it.label, tStudent(`Topik ${i + 1}`, `Topic ${i + 1}`));
     const done = hasTopicProgress ? topicDoneFlags[i] : i < completed;
     const cur = !done && i === currentIndex;
     const locked = hasTopicProgress ? (!done && currentIndex >= 0 && i > currentIndex) : (progress < 100 && i > currentIndex);
+    const previousTopic = studentTitle(source[i - 1]?.topic || source[i - 1]?.label, tStudent('topik sebelumnya', 'the previous topic'));
     return {
       id: it.id || `${subjectId}-${i}`,
       label,
-      sub: studentText(it.subtopic || it.sub || it.topic, '', 64),
+      sub: localizedSkillSub(it),
       done,
       cur,
       locked,
-      lockReason: locked ? `Selesaikan ${studentTitle(source[i - 1]?.topic || source[i - 1]?.label, 'topik sebelumnya')} dahulu` : '',
+      lockReason: locked ? tStudent(`Selesaikan ${previousTopic} dahulu`, `Complete ${previousTopic} first`) : '',
     };
   });
 };
@@ -3117,7 +3126,7 @@ const SLearn = ({ activeSubject='math', setActiveSubject, openLesson, classInfo,
   const catalogLessons = catalogState.data || [];
   const catalogLessonsForSubject = catalogLessons.filter(lesson => lessonMatchesSubjectForm(lesson, subj, formLevel));
   const allLessonsForSubject = mergeLessonPools(assignedLessonsForSubject, catalogLessonsForSubject);
-  const formLabel = formLevel ? `Tingkatan ${formLevel}` : 'Tingkatan belum ditetapkan';
+  const formLabel = formLevel ? tStudent(`Tingkatan ${formLevel}`, `Form ${formLevel}`) : tStudent('Tingkatan belum ditetapkan', 'Form not set');
   const nodesState = useSyllabusNodes(active, subj.progress, formLevel);
   const nodes = nodesState.data || buildSkillNodes([], active, subj.progress);
   const phone = useNarrow(620);
@@ -3128,10 +3137,10 @@ const SLearn = ({ activeSubject='math', setActiveSubject, openLesson, classInfo,
     null;
   const weakNode = nodes.find(node => !node.done && !node.locked && !node.cur) || currentNode || completedNodes[completedNodes.length - 1] || null;
   const softNote = !isRealStudent ? '' :
-    catalogState.loading ? 'Memuat pelajaran bebas untuk subjek ini.' :
-    !hasClassroom ? 'Guru belum menetapkan pelajaran. Kamu boleh belajar secara bebas dari katalog.' :
-    assignedLessonsForSubject.length ? 'Tugasan kelas diutamakan. Pelajaran bebas masih tersedia untuk latihan tambahan.' :
-    'Guru belum menetapkan pelajaran. Kamu boleh belajar secara bebas dari katalog.';
+    catalogState.loading ? tStudent('Memuat pelajaran bebas untuk subjek ini.', 'Loading free lessons for this subject.') :
+    !hasClassroom ? tStudent('Guru belum menetapkan pelajaran. Kamu boleh belajar secara bebas dari katalog.', 'Your teacher has not assigned lessons yet. You can learn freely from the catalog.') :
+    assignedLessonsForSubject.length ? tStudent('Tugasan kelas diutamakan. Pelajaran bebas masih tersedia untuk latihan tambahan.', 'Class assignments are prioritized. Free lessons are still available for extra practice.') :
+    tStudent('Guru belum menetapkan pelajaran. Kamu boleh belajar secara bebas dari katalog.', 'Your teacher has not assigned lessons yet. You can learn freely from the catalog.');
   const runTopicAction = (type) => {
     if (type === 'next') {
       if (nextLesson) {
@@ -3142,25 +3151,25 @@ const SLearn = ({ activeSubject='math', setActiveSubject, openLesson, classInfo,
         openNodeLesson(currentNode);
         return;
       }
-      setLockedNotice('Semua topik sudah selesai. Ulang kaji topik yang pernah dibuat untuk kekalkan penguasaan.');
+      setLockedNotice(tStudent('Semua topik sudah selesai. Ulang kaji topik yang pernah dibuat untuk kekalkan penguasaan.', 'All topics are complete. Review completed topics to keep your mastery strong.'));
       return;
     }
     if (type === 'revise') {
       const target = completedNodes[completedNodes.length - 1];
       if (target) openNodeLesson(target);
-      else setLockedNotice('Belum ada topik selesai untuk diulang kaji.');
+      else setLockedNotice(tStudent('Belum ada topik selesai untuk diulang kaji.', 'No completed topics to review yet.'));
       return;
     }
     if (type === 'weak') {
       if (weakNode) openNodeLesson(weakNode);
-      else setLockedNotice('Tiada topik lemah dikesan setakat ini.');
+      else setLockedNotice(tStudent('Tiada topik lemah dikesan setakat ini.', 'No weak topics detected yet.'));
       return;
     }
     goProgress?.();
   };
   const openNodeLesson = (node) => {
     if (node.locked) {
-      setLockedNotice(node.lockReason || 'Topik ini masih terkunci.');
+      setLockedNotice(node.lockReason || tStudent('Topik ini masih terkunci.', 'This topic is still locked.'));
       return;
     }
     setLockedNotice('');
@@ -3188,13 +3197,13 @@ const SLearn = ({ activeSubject='math', setActiveSubject, openLesson, classInfo,
         <div style={{ marginBottom:16, minWidth:0, maxWidth:'100%' }}>
           <select
             className="student-native-select"
-            aria-label="Pilih subjek"
+            aria-label={tStudent('Pilih subjek', 'Choose subject')}
             value={active}
             onChange={(e) => selectSubject(e.target.value)}
             style={{ background:C.surface, border:`1px solid ${C.borderB}`, color:C.text }}
           >
             {subjects.map(s => (
-              <option key={s.id} value={s.id}>{s.name} - {s.progress}% siap</option>
+              <option key={s.id} value={s.id}>{tStudent(`${s.name} - ${s.progress}% siap`, `${s.name} - ${s.progress}% complete`)}</option>
             ))}
           </select>
         </div>
@@ -3228,7 +3237,7 @@ const SLearn = ({ activeSubject='math', setActiveSubject, openLesson, classInfo,
               }}>
                 <span aria-hidden="true" style={{ flexShrink:0 }}>{s.icon}</span>
                 <span className="student-wrap-text" style={{ minWidth:0, lineHeight:1.15 }}>{s.name}</span>
-                {isActive && <span aria-hidden="true" style={{ fontSize:11, fontWeight:900, color:s.color }}>Aktif</span>}
+                {isActive && <span aria-hidden="true" style={{ fontSize:11, fontWeight:900, color:s.color }}>{tStudent('Aktif', 'Active')}</span>}
               </button>
             );})}
           </div>
@@ -3242,12 +3251,12 @@ const SLearn = ({ activeSubject='math', setActiveSubject, openLesson, classInfo,
             {subj.icon} {subj.name}
           </div>
           <div className="student-wrap-text" style={{ fontSize:14, color:C.textMuted, fontWeight:600, marginTop:4 }}>
-            {formLabel} · {subj.progress}% siap
+            {formLabel} · {tStudent(`${subj.progress}% siap`, `${subj.progress}% complete`)}
           </div>
         </div>
         <div style={{ minWidth:phone ? 0 : 160, width:phone ? '100%' : undefined, flex:'0 1 220px', maxWidth:'100%' }}>
           <div style={{ display:'flex', justifyContent:'space-between', marginBottom:5 }}>
-            <span style={{ fontSize:11, color:C.textFaint, fontWeight:600 }}>{nodes.filter(n => n.done).length}/{nodes.length} topik</span>
+            <span style={{ fontSize:11, color:C.textFaint, fontWeight:600 }}>{tStudent(`${nodes.filter(n => n.done).length}/${nodes.length} topik`, `${nodes.filter(n => n.done).length}/${nodes.length} topics`)}</span>
             <span style={{ fontSize:11, color:subj.color, fontWeight:900 }}>{subj.progress}%</span>
           </div>
           <ProgressBar value={subj.progress} color={subj.color} height={8} />
@@ -3266,7 +3275,7 @@ const SLearn = ({ activeSubject='math', setActiveSubject, openLesson, classInfo,
 
       {(lessonState.error || catalogState.error) && (
         <ErrorRetry
-          message="Sebahagian pelajaran tidak dapat dimuat. Cuba semula atau teruskan topik yang sudah tersedia."
+          message={tStudent('Sebahagian pelajaran tidak dapat dimuat. Cuba semula atau teruskan topik yang sudah tersedia.', 'Some lessons could not be loaded. Try again or continue with the topics already available.')}
           onRetry={() => { lessonState.refresh?.(); catalogState.refresh?.(); }}
         />
       )}
@@ -3274,7 +3283,7 @@ const SLearn = ({ activeSubject='math', setActiveSubject, openLesson, classInfo,
       {softNote && (
         <Card style={{ marginBottom:18, padding:14, border:'1px solid rgba(59,130,246,.24)', background:'rgba(59,130,246,.08)' }}>
           <div style={{ fontSize:13, color:C.gold, fontWeight:900, marginBottom:4 }}>
-            Belajar fleksibel
+            {tStudent('Belajar fleksibel', 'Flexible learning')}
           </div>
           <div style={{ fontSize:12, color:C.textMuted, fontWeight:700, lineHeight:1.45 }}>
             {softNote}
@@ -3289,10 +3298,10 @@ const SLearn = ({ activeSubject='math', setActiveSubject, openLesson, classInfo,
         marginBottom:18,
       }}>
         {[
-          { key:'next', label:'Pelajaran dicadang', sub:nextLesson?.title || currentNode?.label || 'Pilih topik semasa' },
-          { key:'revise', label:'Ulang kaji selesai', sub:completedNodes.length ? `${completedNodes.length} topik tersedia` : 'Belum ada topik selesai' },
-          { key:'weak', label:'Latih topik lemah', sub:weakNode?.label || 'Ikut rekod semasa' },
-          { key:'mastery', label:'Lihat penguasaan', sub:`${subj.progress}% siap` },
+          { key:'next', label:tStudent('Pelajaran dicadang', 'Suggested lesson'), sub:nextLesson?.title || currentNode?.label || tStudent('Pilih topik semasa', 'Choose current topic') },
+          { key:'revise', label:tStudent('Ulang kaji selesai', 'Review completed'), sub:completedNodes.length ? tStudent(`${completedNodes.length} topik tersedia`, `${completedNodes.length} topics available`) : tStudent('Belum ada topik selesai', 'No completed topics yet') },
+          { key:'weak', label:tStudent('Latih topik lemah', 'Practice weak topics'), sub:weakNode?.label || tStudent('Ikut rekod semasa', 'Based on current records') },
+          { key:'mastery', label:tStudent('Lihat penguasaan', 'View mastery'), sub:tStudent(`${subj.progress}% siap`, `${subj.progress}% complete`) },
         ].map(action => {
           return (
           <button
@@ -3316,7 +3325,7 @@ const SLearn = ({ activeSubject='math', setActiveSubject, openLesson, classInfo,
       {hasClassroom && assignedLessonsForSubject.length > 0 && (
         <div style={{ marginBottom:18 }}>
           <div style={{ fontWeight:800, fontSize:12, color:C.textMuted, textTransform:'uppercase', letterSpacing:.8, marginBottom:10 }}>
-            Tugasan Kelas
+            {tStudent('Tugasan Kelas', 'Class Assignments')}
           </div>
           {lessonState.loading ? (
             <div style={{ display:'grid', gridTemplateColumns:phone ? '1fr' : 'repeat(2, minmax(0, 1fr))', gap:10 }}>
@@ -3338,11 +3347,11 @@ const SLearn = ({ activeSubject='math', setActiveSubject, openLesson, classInfo,
                       {lesson.title}
                     </div>
                     <div className="student-clamp-2" style={{ fontSize:11, color:C.textMuted, fontWeight:700, lineHeight:1.25, marginBottom:8 }}>
-                      {dueLabel || lesson.topic || 'Tugasan guru'}
+                      {dueLabel || lesson.topic || tStudent('Tugasan guru', 'Teacher assignment')}
                     </div>
                     <ProgressBar value={lesson.progress} height={6} />
                     <div style={{ fontSize:10, color:C.textFaint, fontWeight:800, marginTop:5 }}>
-                      {lesson.progress}% siap
+                      {tStudent(`${lesson.progress}% siap`, `${lesson.progress}% complete`)}
                     </div>
                   </Card>
                 );
@@ -3355,9 +3364,9 @@ const SLearn = ({ activeSubject='math', setActiveSubject, openLesson, classInfo,
       {/* Topic timeline */}
       <div style={{ display:'flex', flexDirection:'column', gap:10, paddingBottom:48 }}>
         {nodes.map((node, i) => {
-          const statusLabel = node.done ? 'Selesai' : node.cur ? 'Semasa' : node.locked ? 'Terkunci' : 'Sedia';
+          const statusLabel = node.done ? tStudent('Selesai', 'Done') : node.cur ? tStudent('Semasa', 'Current') : node.locked ? tStudent('Terkunci', 'Locked') : tStudent('Sedia', 'Ready');
           const statusColor = node.done ? C.green : node.cur ? subj.color : node.locked ? C.textFaint : C.accPale;
-          const nodeHint = node.sub || (node.locked ? node.lockReason : 'Topik pembelajaran');
+          const nodeHint = node.sub || (node.locked ? node.lockReason : tStudent('Topik pembelajaran', 'Learning topic'));
           return (
             <button
               key={node.id}
@@ -3408,7 +3417,7 @@ const SLearn = ({ activeSubject='math', setActiveSubject, openLesson, classInfo,
           <div style={{ marginTop:6 }}>
             <GlowButton onClick={() => openNodeLesson(currentNode)}
               style={{ background:`linear-gradient(135deg, ${subj.color}CC, ${subj.color})` }}>
-              Mula topik semasa
+              {tStudent('Mula topik semasa', 'Start current topic')}
             </GlowButton>
           </div>
         )}
@@ -4431,10 +4440,10 @@ const SProfile = ({ displayName, avatarUrl, classInfo, onProfileSave, onClassJoi
         minWidth:0,
       }}>
         {[
-          { id:'profile', label:'Profil' },
-          { id:'achievements', label:`Pencapaian${earnedBadgeCount ? ` ${earnedBadgeCount}` : ''}` },
-          { id:'class', label:'Kelas' },
-          { id:'security', label:'Keselamatan' },
+          { id:'profile', label:tStudent('Profil', 'Profile') },
+          { id:'achievements', label:earnedBadgeCount ? tStudent(`Pencapaian ${earnedBadgeCount}`, `Achievements ${earnedBadgeCount}`) : tStudent('Pencapaian', 'Achievements') },
+          { id:'class', label:tStudent('Kelas', 'Class') },
+          { id:'security', label:tStudent('Keselamatan', 'Security') },
         ].map(tab => {
           const active = profileTab === tab.id;
           return (
@@ -4488,9 +4497,9 @@ const SProfile = ({ displayName, avatarUrl, classInfo, onProfileSave, onClassJoi
       {profileTab === 'profile' && (
       <div style={{ display:'grid', gridTemplateColumns:'repeat(3, minmax(0, 1fr))', gap:12, minWidth:0 }}>
         {[
-          {v:String(stats.daysActive ?? 0), l:'Hari aktif', i:'📅', color:C.accHi},
-          {v:String(stats.lessons ?? 0),    l:'Pelajaran',  i:'📚', color:C.blue},
-          {v:Number(stats.xp || 0).toLocaleString(), l:'Jumlah XP', i:'⚡', color:C.gold},
+          {v:String(stats.daysActive ?? 0), l:tStudent('Hari aktif', 'Active days'), i:'📅', color:C.accHi},
+          {v:String(stats.lessons ?? 0),    l:tStudent('Pelajaran', 'Lessons'),  i:'📚', color:C.blue},
+          {v:Number(stats.xp || 0).toLocaleString(), l:tStudent('Jumlah XP', 'Total XP'), i:'⚡', color:C.gold},
         ].map((s,i) => (
           <Card key={i} style={{ padding:'16px 12px', textAlign:'center' }}>
             <div style={{ fontSize:26, marginBottom:6 }}>{s.i}</div>
@@ -4511,7 +4520,7 @@ const SProfile = ({ displayName, avatarUrl, classInfo, onProfileSave, onClassJoi
 
       {profileTab === 'achievements' && (
       <>
-      <SectionLabel>🏅 Pencapaian</SectionLabel>
+      <SectionLabel>🏅 {tStudent('Pencapaian', 'Achievements')}</SectionLabel>
       <div style={{ display:'grid', gridTemplateColumns:'repeat(2, minmax(0, 1fr))', gap:8, minWidth:0 }}>
         {badgesState.loading ? [0,1,2,3].map(i => (
           <Card key={i} style={{ padding:12 }}>
@@ -4519,7 +4528,10 @@ const SProfile = ({ displayName, avatarUrl, classInfo, onProfileSave, onClassJoi
             <Skeleton width="72%" height={12} radius={6} style={{ marginBottom:6 }} />
             <Skeleton width="100%" height={9} radius={5} />
           </Card>
-        )) : badges.length ? badges.map((b, i) => (
+        )) : badges.length ? badges.map((b, i) => {
+          const badgeName = b.nameEn ? tStudent(b.name, b.nameEn) : b.name;
+          const badgeDesc = b.descEn ? tStudent(b.desc, b.descEn) : b.desc;
+          return (
           <Card key={i} style={{
             padding:12, opacity: b.earned ? 1 : 0.4,
             border: b.earned
@@ -4527,16 +4539,16 @@ const SProfile = ({ displayName, avatarUrl, classInfo, onProfileSave, onClassJoi
               : `1px solid ${C.border}`,
           }}>
             <div style={{ fontSize:24, marginBottom:4 }}>{b.icon}</div>
-            <div style={{ fontWeight:800, fontSize:12, color:C.text, lineHeight:1.2 }}>{b.name}</div>
-            <div title={b.desc} style={{
+            <div style={{ fontWeight:800, fontSize:12, color:C.text, lineHeight:1.2 }}>{badgeName}</div>
+            <div title={badgeDesc} style={{
               fontSize:10, color:C.textMuted, fontWeight:600, lineHeight:1.3, marginTop:2,
               whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis',
-            }}>{b.desc}</div>
+            }}>{badgeDesc}</div>
           </Card>
-        )) : (
+        );}) : (
           <Card style={{ gridColumn:'1 / -1' }}>
             <div style={{ fontSize:12, color:C.textMuted, fontWeight:600, lineHeight:1.5 }}>
-              Belum ada pencapaian. Lengkapkan pelajaran pertama untuk membuka badge.
+              {tStudent('Belum ada pencapaian. Lengkapkan pelajaran pertama untuk membuka badge.', 'No achievements yet. Complete your first lesson to unlock a badge.')}
             </div>
           </Card>
         )}
