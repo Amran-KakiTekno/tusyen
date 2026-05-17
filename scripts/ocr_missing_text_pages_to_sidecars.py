@@ -12,7 +12,7 @@ import numpy as np
 from PIL import Image
 from rapidocr_onnxruntime import RapidOCR
 
-from extract_stem_textbooks_to_db import discover_sources
+from extract_stem_textbooks_to_db import discover_sources, is_fliphtml_header_only_text
 
 
 ROOT = Path("downloads/gurubesar-kssm-textbooks")
@@ -91,7 +91,7 @@ def find_missing_pages(pdf_path: Path) -> list[tuple[Path, int]]:
             page = doc.load_page(page_index)
             text = (page.get_text("text") or "").strip()
             image_count = len(page.get_images(full=False))
-            if len(text) < 20 and image_count > 0:
+            if (len(text) < 20 or is_fliphtml_header_only_text(text)) and image_count > 0:
                 missing.append((pdf_path, page_number))
     return missing
 

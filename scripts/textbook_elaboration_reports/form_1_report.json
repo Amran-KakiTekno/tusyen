@@ -1,0 +1,237 @@
+{
+  "form_level": 1,
+  "books_processed": 14,
+  "books_skipped": 1,
+  "books_skipped_detail": [
+    {
+      "source_key": "form-1-stem-design-and-technology-reka-bentuk-dan-teknologi-tingkatan-1-ms",
+      "form_level": 1,
+      "stream": "STEM",
+      "subject": "Design and Technology",
+      "reason": "partial"
+    }
+  ],
+  "books": [
+    {
+      "source_key": "form-1-other-chinese-language-bahasa-cina-tingkatan-1-ms",
+      "form_level": 1,
+      "stream": "Other",
+      "subject": "Chinese Language",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 1\\Other\\form-1-other-chinese-language-bahasa-cina-tingkatan-1-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-1-other-english-language-bahasa-inggeris-tingkatan-1-ms",
+      "form_level": 1,
+      "stream": "Other",
+      "subject": "English Language",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 1\\Other\\form-1-other-english-language-bahasa-inggeris-tingkatan-1-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-1-other-geography-geografi-tingkatan-1-ms",
+      "form_level": 1,
+      "stream": "Other",
+      "subject": "Geography",
+      "elaborated_count": 0,
+      "skipped_count": 44,
+      "output_file": "downloads\\elaborated\\Tingkatan 1\\Other\\form-1-other-geography-geografi-tingkatan-1-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 3,
+        "skipped_no_teachable_content": 41
+      }
+    },
+    {
+      "source_key": "form-1-other-history-sejarah-tingkatan-1-ms",
+      "form_level": 1,
+      "stream": "Other",
+      "subject": "History",
+      "elaborated_count": 5,
+      "skipped_count": 29,
+      "output_file": "downloads\\elaborated\\Tingkatan 1\\Other\\form-1-other-history-sejarah-tingkatan-1-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 29
+      }
+    },
+    {
+      "source_key": "form-1-other-iban-language-bahasa-iban-tingkatan-1-ms",
+      "form_level": 1,
+      "stream": "Other",
+      "subject": "Iban Language",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 1\\Other\\form-1-other-iban-language-bahasa-iban-tingkatan-1-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-1-other-islamic-education-pendidikan-islam-tingkatan-1-ms",
+      "form_level": 1,
+      "stream": "Other",
+      "subject": "Islamic Education",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 1\\Other\\form-1-other-islamic-education-pendidikan-islam-tingkatan-1-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-1-other-japanese-language-bahasa-jepun-tingkatan-1-ms",
+      "form_level": 1,
+      "stream": "Other",
+      "subject": "Japanese Language",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 1\\Other\\form-1-other-japanese-language-bahasa-jepun-tingkatan-1-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-1-other-malay-language-bahasa-melayu-tingkatan-1-ms",
+      "form_level": 1,
+      "stream": "Other",
+      "subject": "Malay Language",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 1\\Other\\form-1-other-malay-language-bahasa-melayu-tingkatan-1-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-1-other-moral-education-pendidikan-moral-tingkatan-1-ms",
+      "form_level": 1,
+      "stream": "Other",
+      "subject": "Moral Education",
+      "elaborated_count": 5,
+      "skipped_count": 29,
+      "output_file": "downloads\\elaborated\\Tingkatan 1\\Other\\form-1-other-moral-education-pendidikan-moral-tingkatan-1-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 29
+      }
+    },
+    {
+      "source_key": "form-1-other-music-education-pendidikan-muzik-tingkatan-1-ms",
+      "form_level": 1,
+      "stream": "Other",
+      "subject": "Music Education",
+      "elaborated_count": 0,
+      "skipped_count": 5,
+      "output_file": "downloads\\elaborated\\Tingkatan 1\\Other\\form-1-other-music-education-pendidikan-muzik-tingkatan-1-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 4,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-1-other-physical-education-pjpk-tingkatan-1-ms",
+      "form_level": 1,
+      "stream": "Other",
+      "subject": "Physical Education",
+      "elaborated_count": 0,
+      "skipped_count": 8,
+      "output_file": "downloads\\elaborated\\Tingkatan 1\\Other\\form-1-other-physical-education-pjpk-tingkatan-1-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 8
+      }
+    },
+    {
+      "source_key": "form-1-stem-computer-fundamentals-asas-komputer-tingkatan-1-ms",
+      "form_level": 1,
+      "stream": "STEM",
+      "subject": "Computer Fundamentals",
+      "elaborated_count": 0,
+      "skipped_count": 7,
+      "output_file": "downloads\\elaborated\\Tingkatan 1\\STEM\\form-1-stem-computer-fundamentals-asas-komputer-tingkatan-1-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 3,
+        "skipped_no_teachable_content": 4
+      }
+    },
+    {
+      "source_key": "form-1-stem-mathematics-matematik-tingkatan-1-ms",
+      "form_level": 1,
+      "stream": "STEM",
+      "subject": "Mathematics",
+      "elaborated_count": 0,
+      "skipped_count": 33,
+      "output_file": "downloads\\elaborated\\Tingkatan 1\\STEM\\form-1-stem-mathematics-matematik-tingkatan-1-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 33
+      }
+    },
+    {
+      "source_key": "form-1-stem-science-sains-tingkatan-1-ms",
+      "form_level": 1,
+      "stream": "STEM",
+      "subject": "Science",
+      "elaborated_count": 0,
+      "skipped_count": 38,
+      "output_file": "downloads\\elaborated\\Tingkatan 1\\STEM\\form-1-stem-science-sains-tingkatan-1-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 1,
+        "skipped_no_teachable_content": 37
+      }
+    }
+  ],
+  "lessons_elaborated": 10,
+  "lessons_skipped": 199,
+  "lesson_skip_reasons": {
+    "skipped_no_teachable_content": 188,
+    "skipped_low_content": 11
+  },
+  "quiz_questions_generated": 40,
+  "failures": [],
+  "book_skip_reasons": {
+    "partial": 1
+  }
+}

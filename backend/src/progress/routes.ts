@@ -3,6 +3,14 @@ import { db } from '../database';
 import { cacheGet, cacheSet, redis } from '../redis';
 import { getStudentQuizSummary } from '../quiz/store';
 
+const UUID_PATTERN = '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$';
+const uuidPattern = new RegExp(UUID_PATTERN);
+
+interface StudentHeartsRow {
+  current_hearts: number;
+  max_hearts: number;
+}
+
 export async function progressRoutes(fastify: FastifyInstance) {
   // Get student progress (self or parent viewing child)
   fastify.get('/student/:studentId', {
@@ -99,6 +107,17 @@ export async function progressRoutes(fastify: FastifyInstance) {
       [studentId]
     );
 
+    const today = await db.query(
+      `SELECT
+        COUNT(*) as lessons_attempted,
+        COUNT(CASE WHEN completion_percentage >= 100 OR is_completed = true THEN 1 END) as lessons_completed,
+        COALESCE(SUM(time_spent_seconds), 0) as time_spent_seconds
+       FROM progress p
+       WHERE p.student_id = $1
+         AND p.updated_at::date = CURRENT_DATE`,
+      [studentId]
+    );
+
     const streak = await calculateStreak(studentId);
     const quizSummary = await getStudentQuizSummary(user, studentId).catch(() => ({
       quizXpTotal: 0,
@@ -108,6 +127,7 @@ export async function progressRoutes(fastify: FastifyInstance) {
     const result = {
       overall: stats.rows[0],
       bySubject: bySubject.rows,
+      today: today.rows[0],
       streak,
       quiz: quizSummary,
     };
@@ -116,6 +136,62 @@ export async function progressRoutes(fastify: FastifyInstance) {
     await cacheSet(cacheKey, result, 300);
 
     return result;
+  });
+
+  fastify.get('/student/:studentId/hearts', {
+    onRequest: [(fastify as any).authenticate],
+    schema: {
+      params: {
+        type: 'object',
+        required: ['studentId'],
+        properties: {
+          studentId: { type: 'string', pattern: UUID_PATTERN },
+        },
+      },
+      response: {
+        200: {
+          type: 'object',
+          required: ['current', 'max'],
+          properties: {
+            current: { type: 'integer', minimum: 0 },
+            max: { type: 'integer', minimum: 1 },
+          },
+        },
+      },
+    },
+  }, async (request, reply) => {
+    const user = (request as any).user;
+    const { studentId } = request.params as any;
+
+    if (!isUuid(studentId)) {
+      return reply.code(400).send({ error: 'Invalid student id' });
+    }
+
+    const student = await db.query(
+      `SELECT id
+       FROM users
+       WHERE id = $1
+         AND role = 'student'
+         AND is_active = true`,
+      [studentId],
+    );
+
+    if ((student.rowCount ?? 0) === 0) {
+      return reply.code(404).send({ error: 'Student not found' });
+    }
+
+    const hasAccess = await canViewStudentProgress(user, studentId);
+    if (!hasAccess) {
+      return reply.code(403).send({ error: 'Not authorized' });
+    }
+
+    const hearts = await getOrCreateStudentHearts(studentId);
+    if (!hearts) {
+      request.log.error({ studentId }, 'Student hearts row could not be loaded');
+      return reply.code(500).send({ error: 'Student hearts unavailable' });
+    }
+
+    return hearts;
   });
 
   // Get classroom progress (teacher view)
@@ -144,16 +220,26 @@ export async function progressRoutes(fastify: FastifyInstance) {
       `SELECT 
         u.id as student_id,
         u.full_name,
+        u.email,
+        ce.joined_at,
         COUNT(p.id) as lessons_attempted,
         COUNT(CASE WHEN p.completion_percentage >= 100 THEN 1 END) as lessons_completed,
         AVG(p.score) as average_score,
         SUM(p.time_spent_seconds) as total_time,
-        MAX(p.updated_at) as last_activity
+        MAX(p.updated_at) as last_activity,
+        COALESCE((
+          SELECT ss.streak_count
+          FROM student_streaks ss
+          WHERE ss.student_id = u.id
+            AND ss.activity_date >= CURRENT_DATE - INTERVAL '1 day'
+          ORDER BY ss.activity_date DESC
+          LIMIT 1
+        ), 0)::int as current_streak
        FROM classroom_enrollments ce
        JOIN users u ON u.id = ce.student_id
        LEFT JOIN progress p ON p.student_id = ce.student_id AND p.classroom_id = ce.classroom_id
        WHERE ce.classroom_id = $1 AND ce.is_active = true
-       GROUP BY u.id, u.full_name
+       GROUP BY u.id, u.full_name, u.email, ce.joined_at
        ORDER BY u.full_name`,
       [classroomId]
     );
@@ -369,6 +455,42 @@ async function canViewStudentProgress(user: any, studentId: string): Promise<boo
   }
 
   return false;
+}
+
+function isUuid(value: string): boolean {
+  return uuidPattern.test(value);
+}
+
+async function getOrCreateStudentHearts(studentId: string): Promise<{ current: number; max: number } | null> {
+  const result = await db.query<StudentHeartsRow>(
+    `WITH inserted AS (
+       INSERT INTO student_hearts (student_id)
+       VALUES ($1)
+       ON CONFLICT (student_id) DO NOTHING
+       RETURNING current_hearts, max_hearts
+     )
+     SELECT current_hearts, max_hearts
+     FROM inserted
+     UNION ALL
+     SELECT current_hearts, max_hearts
+     FROM student_hearts
+     WHERE student_id = $1
+     LIMIT 1`,
+    [studentId],
+  );
+
+  const row = result.rows[0];
+  if (!row) return null;
+
+  const current = Number(row.current_hearts);
+  const max = Number(row.max_hearts);
+  if (!Number.isFinite(current) || !Number.isFinite(max)) return null;
+
+  const safeMax = Math.max(1, Math.trunc(max));
+  return {
+    current: Math.max(0, Math.min(safeMax, Math.trunc(current))),
+    max: safeMax,
+  };
 }
 
 async function canViewClassroom(user: any, classroomId: string): Promise<boolean> {

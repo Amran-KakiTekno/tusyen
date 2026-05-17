@@ -4,6 +4,34 @@ import { redis, getSyncQueue, clearSyncQueue } from '../redis';
 import { config } from '../config';
 import { protectMediaReferences } from '../media-access';
 
+const syncTableColumns: Record<string, Set<string>> = {
+  progress: new Set([
+    'id',
+    'student_id',
+    'lesson_id',
+    'classroom_id',
+    'score',
+    'time_spent_seconds',
+    'completion_percentage',
+    'answers',
+    'attempts',
+    'is_completed',
+  ]),
+  student_notes: new Set([
+    'id',
+    'student_id',
+    'lesson_id',
+    'content',
+    'is_bookmark',
+  ]),
+  users: new Set([
+    'full_name',
+    'phone_number',
+    'date_of_birth',
+    'avatar_url',
+  ]),
+};
+
 export async function syncRoutes(fastify: FastifyInstance) {
   // Push local changes to server
   fastify.post('/push', {
@@ -138,16 +166,22 @@ async function processSyncOperation(user: any, deviceId: string, operation: any)
 }
 
 async function handleInsert(user: any, table: string, data: any) {
-  // Validate table name to prevent injection
-  const allowedTables = ['progress', 'student_notes', 'bookmarks'];
-  if (!allowedTables.includes(table)) {
+  if (!['progress', 'student_notes'].includes(table)) {
     throw new Error('Invalid table for insert');
   }
 
   return await withTransaction(async (client) => {
-    const columns = Object.keys(data).join(', ');
-    const placeholders = Object.keys(data).map((_, i) => `$${i + 1}`).join(', ');
-    const values = Object.values(data);
+    const safeData = filterSyncData(table, {
+      ...data,
+      student_id: user.userId,
+    });
+    const keys = Object.keys(safeData);
+    if (keys.length === 0) {
+      throw new Error('No valid fields for insert');
+    }
+    const columns = keys.join(', ');
+    const placeholders = keys.map((_, i) => `$${i + 1}`).join(', ');
+    const values = keys.map((key) => safeData[key]);
 
     const result = await client.query(
       `INSERT INTO ${table} (${columns}) VALUES (${placeholders}) RETURNING *`,
@@ -159,8 +193,7 @@ async function handleInsert(user: any, table: string, data: any) {
 }
 
 async function handleUpdate(user: any, table: string, data: any) {
-  const allowedTables = ['progress', 'student_notes', 'bookmarks', 'users'];
-  if (!allowedTables.includes(table)) {
+  if (!syncTableColumns[table]) {
     throw new Error('Invalid table for update');
   }
 
@@ -174,10 +207,27 @@ async function handleUpdate(user: any, table: string, data: any) {
     }
   }
 
-  const setClause = Object.keys(updates)
+  if (table === 'student_notes') {
+    const existing = await db.query('SELECT student_id FROM student_notes WHERE id = $1', [id]);
+    if (existing.rowCount === 0 || existing.rows[0].student_id !== user.userId) {
+      throw new Error('Not authorized to update this record');
+    }
+  }
+
+  if (table === 'users' && id !== user.userId) {
+    throw new Error('Not authorized to update this user');
+  }
+
+  const safeUpdates = filterSyncData(table, updates);
+  const updateKeys = Object.keys(safeUpdates);
+  if (updateKeys.length === 0) {
+    throw new Error('No valid fields for update');
+  }
+
+  const setClause = updateKeys
     .map((key, i) => `${key} = $${i + 2}`)
     .join(', ');
-  const values = [id, ...Object.values(updates)];
+  const values = [id, ...updateKeys.map((key) => safeUpdates[key])];
 
   const result = await db.query(
     `UPDATE ${table} SET ${setClause}, updated_at = NOW() WHERE id = $1 RETURNING *`,
@@ -189,11 +239,32 @@ async function handleUpdate(user: any, table: string, data: any) {
 
 async function handleDelete(user: any, table: string, data: any) {
   const { id } = data;
-  
-  // Soft delete for most tables
-  await db.query(`UPDATE ${table} SET is_deleted = true, deleted_at = NOW() WHERE id = $1`, [id]);
+
+  if (table !== 'student_notes') {
+    throw new Error('Invalid table for delete');
+  }
+
+  await db.query(
+    'DELETE FROM student_notes WHERE id = $1 AND student_id = $2',
+    [id, user.userId]
+  );
   
   return { id, deleted: true };
+}
+
+function filterSyncData(table: string, data: Record<string, any>) {
+  const allowedColumns = syncTableColumns[table];
+  if (!allowedColumns) {
+    throw new Error('Invalid sync table');
+  }
+
+  const safeData: Record<string, any> = {};
+  for (const [key, value] of Object.entries(data || {})) {
+    if (allowedColumns.has(key)) {
+      safeData[key] = value;
+    }
+  }
+  return safeData;
 }
 
 async function handleProgressUpdate(user: any, data: any) {

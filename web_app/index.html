@@ -4,238 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tusyen — EduApp Malaysia</title>
+<meta name="description" content="Platform pembelajaran Malaysia untuk pelajar, guru, dan ibu bapa.">
+<meta name="theme-color" content="#7C3AED">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="styles.css?v=20260517-guide">
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
-<script type="text/babel" src="components/shared.jsx"></script>
-<script type="text/babel" src="components/student.jsx"></script>
-<script type="text/babel" src="components/teacher.jsx"></script>
-<script type="text/babel" src="components/parent.jsx"></script>
-<script type="text/babel" src="components/admin.jsx"></script>
+<a class="skip-link" href="#main-content">Langkau ke kandungan utama</a>
 
 <div id="root"></div>
-
-<script type="text/babel" src="app.js"></script>
-<script type="text/babel">
-const ROLES = [
-  { id:'student', label:'🎓 Pelajar'   },
-  { id:'teacher', label:'👨‍🏫 Guru'    },
-  { id:'parent',  label:'👪 Ibu Bapa'  },
-  { id:'admin',   label:'🛡️ Admin'     },
-];
-
-const SignalIcon = () => (
-  <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor">
-    <rect x="0"    y="8"  width="3"   height="4"  rx="1" />
-    <rect x="4.5"  y="5"  width="3"   height="7"  rx="1" />
-    <rect x="9"    y="2"  width="3"   height="10" rx="1" />
-    <rect x="13.5" y="0"  width="2.5" height="12" rx="1" opacity="0.3" />
-  </svg>
-);
-const BatteryIcon = () => (
-  <svg width="22" height="12" viewBox="0 0 22 12" fill="currentColor">
-    <rect x="0" y="1" width="18" height="10" rx="2" stroke="currentColor" strokeWidth="1.2" fill="none" opacity="0.6" />
-    <rect x="1.5" y="2.5" width="13" height="7" rx="1" opacity="0.9" />
-    <rect x="19" y="4" width="3" height="4" rx="1" opacity="0.5" />
-  </svg>
-);
-
-const LoginScreen = ({ onSignedIn, apiStatus }) => {
-  const [mode, setMode] = React.useState('login');
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [fullName, setFullName] = React.useState('');
-  const [role, setRole] = React.useState('student');
-  const [busy, setBusy] = React.useState(false);
-  const [error, setError] = React.useState('');
-
-  const demoAccounts = [
-    { role:'student', label:'🎓 Pelajar',  email:'student@tusyen.test' },
-    { role:'teacher', label:'👨‍🏫 Guru',    email:'teacher@tusyen.test' },
-    { role:'parent',  label:'👪 Ibu Bapa',  email:'parent@tusyen.test'  },
-    { role:'admin',   label:'🛡️ Admin',     email:'admin@tusyen.test'   },
-  ];
-
-  const submit = async (e) => {
-    e.preventDefault();
-    setBusy(true); setError('');
-    try {
-      const data = mode === 'login'
-        ? await window.tusyenApi.login(email, password)
-        : await window.tusyenApi.register({ fullName, email, password, role });
-      onSignedIn(data);
-    } catch (err) {
-      setError(err.message || 'Ralat tidak dijangka.');
-    } finally {
-      setBusy(false);
-    }
-  };
-
-  return (
-    <div className="login-shell">
-      <div className="login-card">
-        <div className="login-brand">
-          <div className="login-mark">T</div>
-          <div>
-            <div className="login-eyebrow">Tusyen Online</div>
-            <h1 className="login-title">Belajar bersama Tusyen</h1>
-          </div>
-        </div>
-        <div className={'login-status ' + (apiStatus.ok ? 'ok' : apiStatus.checked ? 'bad' : '')}>
-          {apiStatus.text}
-        </div>
-
-        <div className="login-tabs">
-          <button className={'login-tab' + (mode === 'login'    ? ' on' : '')} onClick={() => { setMode('login');    setError(''); }}>Log Masuk</button>
-          <button className={'login-tab' + (mode === 'register' ? ' on' : '')} onClick={() => { setMode('register'); setError(''); }}>Daftar</button>
-        </div>
-
-        <form className="login-form" onSubmit={submit}>
-          {mode === 'register' && (
-            <label>Nama Penuh
-              <input value={fullName} onChange={e => setFullName(e.target.value)} required autoComplete="name" />
-            </label>
-          )}
-          <label>E-mel
-            <input type="email" value={email} onChange={e => setEmail(e.target.value)} required autoComplete="email" />
-          </label>
-          <label>Kata Laluan
-            <input type="password" value={password} onChange={e => setPassword(e.target.value)} required minLength={8} autoComplete={mode === 'login' ? 'current-password' : 'new-password'} />
-          </label>
-          {mode === 'register' && (
-            <label>Peranan
-              <select value={role} onChange={e => setRole(e.target.value)}>
-                <option value="student">Pelajar</option>
-                <option value="teacher">Guru</option>
-                <option value="parent">Ibu Bapa</option>
-                <option value="admin">Admin</option>
-              </select>
-            </label>
-          )}
-          {error && <div className="login-error">{error}</div>}
-          <button className="login-submit" type="submit" disabled={busy}>
-            {busy ? 'Sila tunggu…' : (mode === 'login' ? 'Log Masuk' : 'Cipta Akaun')}
-          </button>
-        </form>
-
-        <div className="login-demo">
-          <div className="login-demo-label">Akaun demo (kata laluan: password123)</div>
-          <div className="login-demo-row">
-            {demoAccounts.map(d => (
-              <button key={d.role} className="login-demo-btn" onClick={() => { setMode('login'); setEmail(d.email); setPassword('password123'); }}>
-                {d.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const App = () => {
-  const [auth, setAuth]   = React.useState(() => window.tusyenApi.restoreSession());
-  const [apiStatus, setApiStatus] = React.useState({ ok:false, checked:false, text:'Memeriksa API…' });
-  const [role, setRole]   = React.useState('student');
-
-  React.useEffect(() => {
-    window.tusyenApi.health()
-      .then(h => setApiStatus({ ok:true, checked:true, text:`API ${h.status} · DB ${h.database}` }))
-      .catch(err => setApiStatus({ ok:false, checked:true, text:`API tidak dicapai: ${err.message}` }));
-  }, []);
-
-  React.useEffect(() => {
-    if (auth?.user?.role) setRole(auth.user.role);
-  }, [auth]);
-
-  // Expose current user to role apps (so they can read fullName, etc.)
-  React.useEffect(() => {
-    window.tusyenUser = auth?.user || null;
-  }, [auth]);
-
-  const [time, setTime] = React.useState(() => {
-    const n = new Date();
-    return `${n.getHours()}:${String(n.getMinutes()).padStart(2,'0')}`;
+<script src="dist/app.bundle.js?v=20260517-guide"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => undefined);
   });
-  React.useEffect(() => {
-    const id = setInterval(() => {
-      const n = new Date();
-      setTime(`${n.getHours()}:${String(n.getMinutes()).padStart(2,'0')}`);
-    }, 30000);
-    return () => clearInterval(id);
-  }, []);
-
-  if (!auth) return <LoginScreen onSignedIn={setAuth} apiStatus={apiStatus} />;
-
-  const RoleApp = {
-    student: window.StudentApp,
-    teacher: window.TeacherApp,
-    parent:  window.ParentApp,
-    admin:   window.AdminApp,
-  }[role];
-
-  const isDemo = auth.user?.email?.endsWith?.('@tusyen.test');
-
-  const signOut = () => {
-    window.tusyenApi.signOut();
-    setAuth(null);
-  };
-
-  return (
-    <>
-      <div className="topbar">
-        <div className="topbar-user">
-          <div className="topbar-avatar">{(auth.user.fullName || auth.user.email || '?').split(' ').map(s => s[0]).slice(0,2).join('').toUpperCase()}</div>
-          <div>
-            <div className="topbar-name">{auth.user.fullName || auth.user.email}</div>
-            <div className={'topbar-status ' + (apiStatus.ok ? 'ok' : 'bad')}>{apiStatus.text}</div>
-          </div>
-        </div>
-        <button className="topbar-signout" onClick={signOut}>Log Keluar</button>
-      </div>
-
-      <div className="roles">
-        {ROLES.map(r => {
-          const allowed = isDemo || r.id === auth.user.role;
-          return (
-            <button key={r.id}
-              className={'role-btn' + (role === r.id ? ' on' : '') + (allowed ? '' : ' locked')}
-              onClick={() => allowed && setRole(r.id)}
-              title={allowed ? '' : 'Akaun anda hanya boleh menggunakan paparan ' + auth.user.role}>
-              {r.label}
-            </button>
-          );
-        })}
-      </div>
-
-      <div className="phone">
-        <div className="statusbar">
-          <span className="statusbar-time">{time}</span>
-          <div className="statusbar-island"></div>
-          <div className="statusbar-icons">
-            <SignalIcon />
-            <BatteryIcon />
-          </div>
-        </div>
-
-        <div className="appwrap">
-          <div className="role-view" key={role}>
-            {RoleApp && React.createElement(RoleApp)}
-          </div>
-        </div>
-      </div>
-
-      <div className="proto-label">Tusyen • Prototaip Interaktif v2.0</div>
-    </>
-  );
-};
-
-ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+}
 </script>
 </body>
 </html>

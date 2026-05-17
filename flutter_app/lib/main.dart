@@ -22,6 +22,8 @@ part 'quiz_support.dart';
 
 const _configuredApiBaseUrl =
     String.fromEnvironment('API_BASE_URL', defaultValue: '/api');
+const _showAdminDemo =
+    bool.fromEnvironment('SHOW_ADMIN_DEMO', defaultValue: false);
 
 String get apiBaseUrl {
   if (_configuredApiBaseUrl.startsWith('/')) {
@@ -83,6 +85,12 @@ class AppTestKeys {
   static const postSave = ValueKey<String>('post-save');
 
   static const lessonsCreate = ValueKey<String>('lessons-create');
+  static const lessonSearchField = ValueKey<String>('lesson-search-field');
+  static const lessonSubjectFilter = ValueKey<String>('lesson-subject-filter');
+  static const lessonFormFilter = ValueKey<String>('lesson-form-filter');
+  static const lessonTopicFilter = ValueKey<String>('lesson-topic-filter');
+  static const lessonStatusFilter = ValueKey<String>('lesson-status-filter');
+  static const lessonClearFilters = ValueKey<String>('lesson-clear-filters');
   static const lessonTitleField = ValueKey<String>('lesson-title-field');
   static const lessonSummaryField = ValueKey<String>('lesson-summary-field');
   static const lessonSubmit = ValueKey<String>('lesson-submit');
@@ -375,25 +383,97 @@ class ApiService {
         )) {
     _dio.interceptors
         .add(InterceptorsWrapper(onRequest: (options, handler) async {
+      if (options.extra['skipAuth'] == true) {
+        handler.next(options);
+        return;
+      }
       final token = _sessionToken ?? await _readStoredToken();
       if (token != null && token.isNotEmpty) {
         options.headers['Authorization'] = 'Bearer $token';
       }
       handler.next(options);
+    }, onError: (error, handler) async {
+      final alreadyRetried = error.requestOptions.extra['authRetried'] == true;
+      if (error.response?.statusCode == 401 &&
+          !alreadyRetried &&
+          error.requestOptions.extra['skipAuth'] != true) {
+        final newToken = await _refreshAccessToken();
+        if (newToken != null) {
+          final retryOptions = error.requestOptions;
+          retryOptions.extra['authRetried'] = true;
+          retryOptions.headers['Authorization'] = 'Bearer $newToken';
+          try {
+            final response = await _dio.fetch(retryOptions);
+            handler.resolve(response);
+            return;
+          } catch (_) {}
+        }
+      }
+      handler.next(error);
     }));
   }
 
   final FlutterSecureStorage _storage;
   final Dio _dio;
   String? _sessionToken;
+  String? _sessionRefreshToken;
 
   void setAuthToken(String? token) {
     _sessionToken = token;
   }
 
+  void setAuthTokens(String? token, String? refreshToken) {
+    _sessionToken = token;
+    _sessionRefreshToken = refreshToken;
+  }
+
   Future<String?> _readStoredToken() async {
     try {
       return await _storage.read(key: 'token');
+    } catch (_) {
+      return null;
+    }
+  }
+
+  Future<String?> _readStoredRefreshToken() async {
+    try {
+      return await _storage.read(key: 'refreshToken') ??
+          await _storage.read(key: 'refresh_token');
+    } catch (_) {
+      return null;
+    }
+  }
+
+  Future<String?> _refreshAccessToken() async {
+    final refreshToken = _sessionRefreshToken ?? await _readStoredRefreshToken();
+    if (refreshToken == null || refreshToken.isEmpty) return null;
+
+    try {
+      final response = await _dio.post(
+        '/auth/refresh',
+        data: {'refreshToken': refreshToken},
+        options: Options(extra: {'skipAuth': true}),
+      );
+      final data = _asMap(response.data);
+      final token = '${data['token'] ?? ''}';
+      final nextRefreshToken = '${data['refreshToken'] ?? ''}';
+      if (token.isEmpty) return null;
+
+      _sessionToken = token;
+      if (nextRefreshToken.isNotEmpty) {
+        _sessionRefreshToken = nextRefreshToken;
+      }
+      try {
+        await _storage.write(key: 'token', value: token);
+        await _storage.write(key: 'access_token', value: token);
+        if (nextRefreshToken.isNotEmpty) {
+          await _storage.write(key: 'refreshToken', value: nextRefreshToken);
+          await _storage.write(key: 'refresh_token', value: nextRefreshToken);
+        }
+      } catch (_) {
+        if (!kIsWeb) rethrow;
+      }
+      return token;
     } catch (_) {
       return null;
     }
@@ -450,9 +530,10 @@ class ApiService {
 }
 
 class LocalSession {
-  const LocalSession({required this.token, required this.user});
+  const LocalSession({required this.token, this.refreshToken, required this.user});
 
   final String token;
+  final String? refreshToken;
   final AppUser user;
 }
 
@@ -515,14 +596,18 @@ class _AppRootState extends State<AppRoot> {
       }
 
       final token = await storage.read(key: 'token');
+      final refreshToken = await storage.read(key: 'refreshToken') ??
+          await storage.read(key: 'refresh_token');
       final userJson = await storage.read(key: 'user');
       if (token != null && userJson != null) {
-        api.setAuthToken(token);
+        api.setAuthTokens(token, refreshToken);
         session = LocalSession(
-            token: token, user: AppUser.fromJson(jsonDecode(userJson)));
+            token: token,
+            refreshToken: refreshToken,
+            user: AppUser.fromJson(jsonDecode(userJson)));
       }
     } catch (error) {
-      api.setAuthToken(null);
+      api.setAuthTokens(null, null);
       startupError = '$error';
     }
     if (mounted) setState(() => loading = false);
@@ -573,20 +658,38 @@ class _AppRootState extends State<AppRoot> {
 
   Future<LocalSession> _persistSession(Map<String, dynamic> data) async {
     final token = '${data['token']}';
+    final refreshToken = '${data['refreshToken'] ?? ''}';
     final user =
         AppUser.fromJson(Map<String, dynamic>.from(data['user'] as Map));
-    api.setAuthToken(token);
+    api.setAuthTokens(token, refreshToken.isEmpty ? null : refreshToken);
     try {
       await storage.write(key: 'token', value: token);
+      await storage.write(key: 'access_token', value: token);
+      if (refreshToken.isNotEmpty) {
+        await storage.write(key: 'refreshToken', value: refreshToken);
+        await storage.write(key: 'refresh_token', value: refreshToken);
+      }
       await storage.write(key: 'user', value: jsonEncode(user.toJson()));
     } catch (_) {
       if (!kIsWeb) rethrow;
     }
-    return LocalSession(token: token, user: user);
+    return LocalSession(
+      token: token,
+      refreshToken: refreshToken.isEmpty ? null : refreshToken,
+      user: user,
+    );
   }
 
   Future<void> _logout() async {
-    api.setAuthToken(null);
+    final refreshToken = session?.refreshToken ??
+        await storage.read(key: 'refreshToken') ??
+        await storage.read(key: 'refresh_token');
+    try {
+      await api.post('/auth/logout', {
+        if (refreshToken != null) 'refreshToken': refreshToken,
+      });
+    } catch (_) {}
+    api.setAuthTokens(null, null);
     await _clearStoredSession();
     setState(() => session = null);
   }
@@ -594,6 +697,9 @@ class _AppRootState extends State<AppRoot> {
   Future<void> _clearStoredSession() async {
     try {
       await storage.delete(key: 'token');
+      await storage.delete(key: 'access_token');
+      await storage.delete(key: 'refreshToken');
+      await storage.delete(key: 'refresh_token');
       await storage.delete(key: 'user');
     } catch (_) {
       if (!kIsWeb) rethrow;
@@ -701,6 +807,13 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 
   void useDemoAccount(String selectedRole) {
+    if (selectedRole == 'admin' && !_showAdminDemo) {
+      setState(() {
+        error = 'Admin demo is disabled on this deployment.';
+      });
+      return;
+    }
+
     setState(() {
       register = false;
       role = selectedRole;
@@ -2033,7 +2146,8 @@ class _AuthPanel extends StatelessWidget {
                     DropdownMenuItem(value: 'student', child: Text('Student')),
                     DropdownMenuItem(value: 'teacher', child: Text('Teacher')),
                     DropdownMenuItem(value: 'parent', child: Text('Parent')),
-                    DropdownMenuItem(value: 'admin', child: Text('Admin')),
+                    if (_showAdminDemo)
+                      DropdownMenuItem(value: 'admin', child: Text('Admin')),
                   ],
                   onChanged: (value) => onRoleChanged(value ?? 'student'),
                 ),
@@ -2505,15 +2619,16 @@ class ResponsiveRoleStrip extends StatelessWidget {
                   width: tileWidth,
                   dense: true,
                   onTap: onDemoRoleSelected),
-              RoleTile(
-                  role: 'admin',
-                  title: 'Admin',
-                  subtitle: 'Demo admin',
-                  color: AppTheme.cream,
-                  icon: Icons.admin_panel_settings_rounded,
-                  width: tileWidth,
-                  dense: true,
-                  onTap: onDemoRoleSelected),
+              if (_showAdminDemo)
+                RoleTile(
+                    role: 'admin',
+                    title: 'Admin',
+                    subtitle: 'Demo admin',
+                    color: AppTheme.cream,
+                    icon: Icons.admin_panel_settings_rounded,
+                    width: tileWidth,
+                    dense: true,
+                    onTap: onDemoRoleSelected),
             ],
           );
         },
@@ -2545,13 +2660,14 @@ class ResponsiveRoleStrip extends StatelessWidget {
             color: AppTheme.rose,
             icon: Icons.family_restroom_rounded,
             onTap: onDemoRoleSelected),
-        RoleTile(
-            role: 'admin',
-            title: 'Admin',
-            subtitle: 'Use demo admin',
-            color: AppTheme.cream,
-            icon: Icons.admin_panel_settings_rounded,
-            onTap: onDemoRoleSelected),
+        if (_showAdminDemo)
+          RoleTile(
+              role: 'admin',
+              title: 'Admin',
+              subtitle: 'Use demo admin',
+              color: AppTheme.cream,
+              icon: Icons.admin_panel_settings_rounded,
+              onTap: onDemoRoleSelected),
       ],
     );
   }
@@ -7345,6 +7461,8 @@ class _SyllabusPageState extends State<SyllabusPage> {
   }
 }
 
+const _allLessonFilterValue = '__all_lessons__';
+
 class LessonsPage extends StatefulWidget {
   const LessonsPage({required this.api, required this.session, super.key});
 
@@ -7357,6 +7475,12 @@ class LessonsPage extends StatefulWidget {
 
 class _LessonsPageState extends State<LessonsPage> {
   late Future<Map<String, dynamic>> future = _loadLessons();
+  final TextEditingController _lessonSearchController =
+      TextEditingController();
+  String _subjectFilter = _allLessonFilterValue;
+  String _formFilter = _allLessonFilterValue;
+  String _topicFilter = _allLessonFilterValue;
+  String _statusFilter = _allLessonFilterValue;
 
   bool get isAdmin => widget.session.user.role == 'admin';
   bool get isTeacher => widget.session.user.role == 'teacher';
@@ -7372,6 +7496,12 @@ class _LessonsPageState extends State<LessonsPage> {
     setState(() {
       future = _loadLessons();
     });
+  }
+
+  @override
+  void dispose() {
+    _lessonSearchController.dispose();
+    super.dispose();
   }
 
   @override
@@ -7397,98 +7527,295 @@ class _LessonsPageState extends State<LessonsPage> {
             if (lessons.isEmpty) {
               return const EmptyState(text: 'No lessons available yet.');
             }
+            final subjects = _lessonFilterValues(
+                lessons, (lesson) => _safeString(lesson['subject']));
+            final forms = _lessonFilterValues(
+                lessons, (lesson) => _safeString(lesson['form_level']),
+                numeric: true);
+            final topics = _lessonFilterValues(
+                lessons, (lesson) => _safeString(lesson['topic']));
+            final subjectFilter =
+                subjects.contains(_subjectFilter)
+                    ? _subjectFilter
+                    : _allLessonFilterValue;
+            final formFilter = forms.contains(_formFilter)
+                ? _formFilter
+                : _allLessonFilterValue;
+            final topicFilter = topics.contains(_topicFilter)
+                ? _topicFilter
+                : _allLessonFilterValue;
+            final statusFilter = _lessonStatusFilterValues()
+                    .contains(_statusFilter)
+                ? _statusFilter
+                : _allLessonFilterValue;
+            final filteredLessons = _filteredLessons(
+              lessons,
+              subjectFilter: subjectFilter,
+              formFilter: formFilter,
+              topicFilter: topicFilter,
+              statusFilter: statusFilter,
+            );
             return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                for (final lesson in lessons)
-                  Builder(builder: (context) {
-                    final canEdit = _canEditLesson(lesson);
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: 12),
-                      child: AppCard(
-                        key: AppTestKeys.lessonCard(lesson['id']),
-                        accent: _subjectColor(_safeString(lesson['subject'])),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                                _safeString(lesson['title'],
-                                    fallback: 'Lesson'),
-                                style: Theme.of(context).textTheme.titleLarge),
-                            const SizedBox(height: 6),
-                            Text(
-                              _joinNonEmpty([
-                                _safeString(lesson['subject']),
-                                _formLabel(lesson['form_level']),
-                                _safeString(lesson['topic']),
-                              ]),
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              _safeString(_asMap(lesson['content'])['summary'],
-                                  fallback: 'No summary yet.'),
-                              style: Theme.of(context).textTheme.bodyLarge,
-                            ),
-                            const SizedBox(height: 14),
-                            Wrap(
-                              spacing: 10,
-                              runSpacing: 10,
+                _LessonFilterBar(
+                  searchController: _lessonSearchController,
+                  subjectFilter: subjectFilter,
+                  formFilter: formFilter,
+                  topicFilter: topicFilter,
+                  statusFilter: statusFilter,
+                  subjectOptions: subjects,
+                  formOptions: forms,
+                  topicOptions: topics,
+                  statusOptions: _lessonStatusFilterOptions(),
+                  statusLabel: isAdmin
+                      ? 'Assignment'
+                      : isTeacher
+                          ? 'Owner'
+                          : 'Status',
+                  visibleCount: filteredLessons.length,
+                  totalCount: lessons.length,
+                  hasActiveFilters: _hasActiveLessonFilters(
+                    subjectFilter: subjectFilter,
+                    formFilter: formFilter,
+                    topicFilter: topicFilter,
+                    statusFilter: statusFilter,
+                  ),
+                  onSearchChanged: (_) => setState(() {}),
+                  onSubjectChanged: (value) =>
+                      setState(() => _subjectFilter = value),
+                  onFormChanged: (value) =>
+                      setState(() => _formFilter = value),
+                  onTopicChanged: (value) =>
+                      setState(() => _topicFilter = value),
+                  onStatusChanged: (value) =>
+                      setState(() => _statusFilter = value),
+                  onClear: _clearLessonFilters,
+                ),
+                const SizedBox(height: 12),
+                if (filteredLessons.isEmpty)
+                  const EmptyState(
+                      text:
+                          'No lessons match those filters. Try a broader search or clear the filters.')
+                else
+                  ...[
+                    for (final lesson in filteredLessons)
+                      Builder(builder: (context) {
+                        final canEdit = _canEditLesson(lesson);
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 12),
+                          child: AppCard(
+                            key: AppTestKeys.lessonCard(lesson['id']),
+                            accent:
+                                _subjectColor(_safeString(lesson['subject'])),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                StatusPill(
-                                    label:
-                                        '${_asInt(lesson['question_count'])} questions',
-                                    color: AppTheme.blue),
-                                if (isAdmin)
-                                  StatusPill(
-                                      label:
-                                          '${_asInt(lesson['assigned_classrooms'])} classrooms',
-                                      color: AppTheme.orange),
-                                if (isTeacher && canEdit)
-                                  const StatusPill(
-                                      label: 'Your lesson',
-                                      color: AppTheme.green),
-                                OutlinedButton.icon(
-                                  onPressed: () =>
-                                      _showLessonPreview(context, lesson),
-                                  icon: const Icon(Icons.visibility_rounded),
-                                  label: const Text('Preview'),
+                                Text(
+                                    _safeString(lesson['title'],
+                                        fallback: 'Lesson'),
+                                    style:
+                                        Theme.of(context).textTheme.titleLarge),
+                                const SizedBox(height: 6),
+                                Text(
+                                  _joinNonEmpty([
+                                    _safeString(lesson['subject']),
+                                    _formLabel(lesson['form_level']),
+                                    _safeString(lesson['topic']),
+                                  ]),
+                                  style: Theme.of(context).textTheme.bodyMedium,
                                 ),
-                                OutlinedButton.icon(
-                                  onPressed: () =>
-                                      _showAssignDialog(context, lesson),
-                                  icon: const Icon(
-                                      Icons.assignment_turned_in_rounded),
-                                  label: const Text('Assign'),
+                                const SizedBox(height: 8),
+                                Text(
+                                  _safeString(
+                                      _asMap(lesson['content'])['summary'],
+                                      fallback: 'No summary yet.'),
+                                  style: Theme.of(context).textTheme.bodyLarge,
                                 ),
-                                if (canEdit)
-                                  OutlinedButton.icon(
-                                    key: AppTestKeys.lessonEdit(lesson['id']),
-                                    onPressed: () => _showLessonDialog(context,
-                                        existing: lesson),
-                                    icon: const Icon(Icons.edit_rounded),
-                                    label: const Text('Edit'),
-                                  ),
-                                if (canEdit)
-                                  OutlinedButton.icon(
-                                    key: AppTestKeys.lessonDelete(lesson['id']),
-                                    onPressed: () => _deleteLesson(lesson),
-                                    icon: const Icon(
-                                        Icons.delete_outline_rounded),
-                                    label: const Text('Delete'),
-                                  ),
+                                const SizedBox(height: 14),
+                                Wrap(
+                                  spacing: 10,
+                                  runSpacing: 10,
+                                  children: [
+                                    StatusPill(
+                                        label:
+                                            '${_asInt(lesson['question_count'])} questions',
+                                        color: AppTheme.blue),
+                                    if (isAdmin)
+                                      StatusPill(
+                                          label:
+                                              '${_asInt(lesson['assigned_classrooms'])} classrooms',
+                                          color: AppTheme.orange),
+                                    if (isTeacher && canEdit)
+                                      const StatusPill(
+                                          label: 'Your lesson',
+                                          color: AppTheme.green),
+                                    OutlinedButton.icon(
+                                      onPressed: () =>
+                                          _showLessonPreview(context, lesson),
+                                      icon:
+                                          const Icon(Icons.visibility_rounded),
+                                      label: const Text('Preview'),
+                                    ),
+                                    OutlinedButton.icon(
+                                      onPressed: () =>
+                                          _showAssignDialog(context, lesson),
+                                      icon: const Icon(
+                                          Icons.assignment_turned_in_rounded),
+                                      label: const Text('Assign'),
+                                    ),
+                                    if (canEdit)
+                                      OutlinedButton.icon(
+                                        key:
+                                            AppTestKeys.lessonEdit(lesson['id']),
+                                        onPressed: () => _showLessonDialog(
+                                            context,
+                                            existing: lesson),
+                                        icon: const Icon(Icons.edit_rounded),
+                                        label: const Text('Edit'),
+                                      ),
+                                    if (canEdit)
+                                      OutlinedButton.icon(
+                                        key: AppTestKeys.lessonDelete(
+                                            lesson['id']),
+                                        onPressed: () => _deleteLesson(lesson),
+                                        icon: const Icon(
+                                            Icons.delete_outline_rounded),
+                                        label: const Text('Delete'),
+                                      ),
+                                  ],
+                                ),
                               ],
                             ),
-                          ],
-                        ),
-                      ),
-                    );
-                  }),
+                          ),
+                        );
+                      }),
+                  ],
               ],
             );
           },
         ),
       ],
     );
+  }
+
+  List<Map<String, dynamic>> _filteredLessons(
+    List<Map<String, dynamic>> lessons, {
+    required String subjectFilter,
+    required String formFilter,
+    required String topicFilter,
+    required String statusFilter,
+  }) {
+    final query = _lessonSearchController.text.trim().toLowerCase();
+    return lessons.where((lesson) {
+      if (subjectFilter != _allLessonFilterValue &&
+          _safeString(lesson['subject']) != subjectFilter) {
+        return false;
+      }
+      if (formFilter != _allLessonFilterValue &&
+          _safeString(lesson['form_level']) != formFilter) {
+        return false;
+      }
+      if (topicFilter != _allLessonFilterValue &&
+          _safeString(lesson['topic']) != topicFilter) {
+        return false;
+      }
+      if (statusFilter == 'mine' && !_canEditLesson(lesson)) return false;
+      if (statusFilter == 'catalog' && _canEditLesson(lesson)) return false;
+      if (statusFilter == 'assigned' &&
+          _asInt(lesson['assigned_classrooms']) == 0) {
+        return false;
+      }
+      if (statusFilter == 'unassigned' &&
+          _asInt(lesson['assigned_classrooms']) > 0) {
+        return false;
+      }
+      if (statusFilter == 'with_questions' &&
+          _asInt(lesson['question_count']) == 0) {
+        return false;
+      }
+      if (query.isEmpty) return true;
+      return _lessonSearchText(lesson).contains(query);
+    }).toList();
+  }
+
+  String _lessonSearchText(Map<String, dynamic> lesson) {
+    final content = _asMap(lesson['content']);
+    return [
+      _safeString(lesson['title']),
+      _safeString(lesson['subject']),
+      _formLabel(lesson['form_level']),
+      _safeString(lesson['topic']),
+      _safeString(lesson['subtopic']),
+      _safeString(content['summary']),
+      _safeString(lesson['difficulty']),
+    ].join(' ').toLowerCase();
+  }
+
+  List<String> _lessonFilterValues(
+    List<Map<String, dynamic>> lessons,
+    String Function(Map<String, dynamic>) read, {
+    bool numeric = false,
+  }) {
+    final values =
+        lessons.map(read).where((value) => value.isNotEmpty).toSet().toList();
+    values.sort((a, b) {
+      if (numeric) return _asInt(a).compareTo(_asInt(b));
+      return a.toLowerCase().compareTo(b.toLowerCase());
+    });
+    return values;
+  }
+
+  List<String> _lessonStatusFilterValues() {
+    if (isAdmin) {
+      return const [_allLessonFilterValue, 'assigned', 'unassigned'];
+    }
+    if (isTeacher) return const [_allLessonFilterValue, 'mine', 'catalog'];
+    return const [_allLessonFilterValue, 'with_questions'];
+  }
+
+  List<FilterOption> _lessonStatusFilterOptions() {
+    if (isAdmin) {
+      return const [
+        FilterOption(value: _allLessonFilterValue, label: 'All lessons'),
+        FilterOption(value: 'assigned', label: 'Assigned'),
+        FilterOption(value: 'unassigned', label: 'Unassigned'),
+      ];
+    }
+    if (isTeacher) {
+      return const [
+        FilterOption(value: _allLessonFilterValue, label: 'All lessons'),
+        FilterOption(value: 'mine', label: 'Your lessons'),
+        FilterOption(value: 'catalog', label: 'Catalog only'),
+      ];
+    }
+    return const [
+      FilterOption(value: _allLessonFilterValue, label: 'All lessons'),
+      FilterOption(value: 'with_questions', label: 'With questions'),
+    ];
+  }
+
+  bool _hasActiveLessonFilters({
+    required String subjectFilter,
+    required String formFilter,
+    required String topicFilter,
+    required String statusFilter,
+  }) {
+    return _lessonSearchController.text.trim().isNotEmpty ||
+        subjectFilter != _allLessonFilterValue ||
+        formFilter != _allLessonFilterValue ||
+        topicFilter != _allLessonFilterValue ||
+        statusFilter != _allLessonFilterValue;
+  }
+
+  void _clearLessonFilters() {
+    setState(() {
+      _lessonSearchController.clear();
+      _subjectFilter = _allLessonFilterValue;
+      _formFilter = _allLessonFilterValue;
+      _topicFilter = _allLessonFilterValue;
+      _statusFilter = _allLessonFilterValue;
+    });
   }
 
   bool _canEditLesson(Map<String, dynamic> lesson) {
@@ -7905,6 +8232,241 @@ class _LessonsPageState extends State<LessonsPage> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _LessonFilterBar extends StatelessWidget {
+  const _LessonFilterBar({
+    required this.searchController,
+    required this.subjectFilter,
+    required this.formFilter,
+    required this.topicFilter,
+    required this.statusFilter,
+    required this.subjectOptions,
+    required this.formOptions,
+    required this.topicOptions,
+    required this.statusOptions,
+    required this.statusLabel,
+    required this.visibleCount,
+    required this.totalCount,
+    required this.hasActiveFilters,
+    required this.onSearchChanged,
+    required this.onSubjectChanged,
+    required this.onFormChanged,
+    required this.onTopicChanged,
+    required this.onStatusChanged,
+    required this.onClear,
+  });
+
+  final TextEditingController searchController;
+  final String subjectFilter;
+  final String formFilter;
+  final String topicFilter;
+  final String statusFilter;
+  final List<String> subjectOptions;
+  final List<String> formOptions;
+  final List<String> topicOptions;
+  final List<FilterOption> statusOptions;
+  final String statusLabel;
+  final int visibleCount;
+  final int totalCount;
+  final bool hasActiveFilters;
+  final ValueChanged<String> onSearchChanged;
+  final ValueChanged<String> onSubjectChanged;
+  final ValueChanged<String> onFormChanged;
+  final ValueChanged<String> onTopicChanged;
+  final ValueChanged<String> onStatusChanged;
+  final VoidCallback onClear;
+
+  @override
+  Widget build(BuildContext context) {
+    final searchActive = searchController.text.trim().isNotEmpty;
+    return AppCard(
+      accent: AppTheme.blue,
+      padding: const EdgeInsets.all(16),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final compact = constraints.maxWidth < 760;
+          final dropdownWidth = compact ? constraints.maxWidth : 190.0;
+          final headerTextWidth = compact
+              ? constraints.maxWidth
+              : math.max(280.0, constraints.maxWidth - 190);
+          final searchWidth = compact
+              ? constraints.maxWidth
+              : math.min(
+                  420.0,
+                  math.max(280.0, constraints.maxWidth - 826),
+                );
+
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Wrap(
+                alignment: WrapAlignment.spaceBetween,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: 12,
+                runSpacing: 10,
+                children: [
+                  SizedBox(
+                    width: headerTextWidth,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Filter lessons',
+                            style: Theme.of(context).textTheme.titleMedium),
+                      ],
+                    ),
+                  ),
+                  StatusPill(
+                      label: '$visibleCount of $totalCount lessons',
+                      color: hasActiveFilters ? AppTheme.green : AppTheme.blue),
+                ],
+              ),
+              const SizedBox(height: 14),
+              Wrap(
+                spacing: 12,
+                runSpacing: 12,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: [
+                  SizedBox(
+                    width: searchWidth,
+                    child: TextField(
+                      key: AppTestKeys.lessonSearchField,
+                      controller: searchController,
+                      onChanged: onSearchChanged,
+                      decoration: InputDecoration(
+                        labelText: 'Search lessons',
+                        hintText: 'Title, topic, summary',
+                        prefixIcon: const Icon(Icons.search_rounded),
+                        suffixIcon: searchActive
+                            ? IconButton(
+                                onPressed: () {
+                                  searchController.clear();
+                                  onSearchChanged('');
+                                },
+                                icon: const Icon(Icons.close_rounded),
+                                tooltip: 'Clear search',
+                              )
+                            : null,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: dropdownWidth,
+                    child: DropdownButtonFormField<String>(
+                      key: AppTestKeys.lessonSubjectFilter,
+                      value: subjectFilter,
+                      isExpanded: true,
+                      decoration: const InputDecoration(
+                        labelText: 'Subject',
+                        prefixIcon: Icon(Icons.category_rounded),
+                      ),
+                      items: [
+                        const DropdownMenuItem(
+                            value: _allLessonFilterValue,
+                            child: Text('All subjects')),
+                        for (final subject in subjectOptions)
+                          DropdownMenuItem(
+                            value: subject,
+                            child: Text(subject,
+                                overflow: TextOverflow.ellipsis),
+                          ),
+                      ],
+                      onChanged: (value) {
+                        if (value != null) onSubjectChanged(value);
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    width: dropdownWidth,
+                    child: DropdownButtonFormField<String>(
+                      key: AppTestKeys.lessonFormFilter,
+                      value: formFilter,
+                      isExpanded: true,
+                      decoration: const InputDecoration(
+                        labelText: 'Form',
+                        prefixIcon: Icon(Icons.school_rounded),
+                      ),
+                      items: [
+                        const DropdownMenuItem(
+                            value: _allLessonFilterValue,
+                            child: Text('All forms')),
+                        for (final form in formOptions)
+                          DropdownMenuItem(
+                              value: form, child: Text(_formLabel(form))),
+                      ],
+                      onChanged: (value) {
+                        if (value != null) onFormChanged(value);
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    width: dropdownWidth,
+                    child: DropdownButtonFormField<String>(
+                      key: AppTestKeys.lessonTopicFilter,
+                      value: topicFilter,
+                      isExpanded: true,
+                      decoration: const InputDecoration(
+                        labelText: 'Topic',
+                        prefixIcon: Icon(Icons.topic_rounded),
+                      ),
+                      items: [
+                        const DropdownMenuItem(
+                            value: _allLessonFilterValue,
+                            child: Text('All topics')),
+                        for (final topic in topicOptions)
+                          DropdownMenuItem(
+                            value: topic,
+                            child:
+                                Text(topic, overflow: TextOverflow.ellipsis),
+                          ),
+                      ],
+                      onChanged: (value) {
+                        if (value != null) onTopicChanged(value);
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    width: dropdownWidth,
+                    child: DropdownButtonFormField<String>(
+                      key: AppTestKeys.lessonStatusFilter,
+                      value: statusFilter,
+                      isExpanded: true,
+                      decoration: InputDecoration(
+                        labelText: statusLabel,
+                        prefixIcon:
+                            const Icon(Icons.filter_alt_rounded),
+                      ),
+                      items: [
+                        for (final option in statusOptions)
+                          DropdownMenuItem(
+                            value: option.value,
+                            child: Text(option.label,
+                                overflow: TextOverflow.ellipsis),
+                          ),
+                      ],
+                      onChanged: (value) {
+                        if (value != null) onStatusChanged(value);
+                      },
+                    ),
+                  ),
+                  if (hasActiveFilters)
+                    SizedBox(
+                      height: 56,
+                      child: OutlinedButton.icon(
+                        key: AppTestKeys.lessonClearFilters,
+                        onPressed: onClear,
+                        icon: const Icon(Icons.restart_alt_rounded),
+                        label: const Text('Clear'),
+                      ),
+                    ),
+                ],
+              ),
+            ],
+          );
+        },
       ),
     );
   }

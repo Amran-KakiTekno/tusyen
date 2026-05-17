@@ -1,0 +1,928 @@
+{
+  "source_key": "form-2-other-bahasa-tamil-bahasa-tamil-tingkatan-2-ms",
+  "title": "Bahasa Tamil Tingkatan 2",
+  "subject": "Bahasa Tamil",
+  "form_level": 2,
+  "stream": "Other",
+  "language": "ms",
+  "metadata": {},
+  "page_count": 240,
+  "extracted_page_count": 240,
+  "needs_ocr_page_count": 0,
+  "extraction_status": "complete",
+  "lesson_count": 2,
+  "lessons": [
+    {
+      "lesson_key": "5-0-f-f-001",
+      "topic_code": "5.0",
+      "topic": "Bab 5",
+      "subtopic": "5.0 Ãfœ¢áfŸ",
+      "title": "5.0 Ãfœ¢áfŸ",
+      "lesson_type": "subtopic",
+      "order_index": 1,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[Bahasa Tamil Tingkatan 2.pdf p132]\n1.0 bjhl¡f«:\nthÇrh‹ njáa ïilÃiy¥gŸËÆ‹ ïy¡»a¡ fHf¤â‹\nV‰gh£oš flªj m¡nlhg® 10M« ehŸ, fhiy kÂ 8:00¡F¥\ngŸË k©lg¤âš ïy¡»a ÉHh Äf ÉkÇirahf eilbg‰wJ.\nï›Éy¡»a ÉHhî¡F¥ gŸËÆ‹ Kjšt® áw¥ò\ntUifaË¤âUªjh®. ï›ÉHhÉš 500¡F« nk‰g£nlh®\nfyªJ áw¥ã¤jd®.\n2.0 tunt‰òiu\n3.0 jiyikíiu\n4.0 âw¥òiu\n5.0 Ãfœ¢áfŸ\n6.0 Koîiu\nm¿¡if jahÇ¤jt®\nnjâ\nthÇrh‹ njáa ïilÃiy¥gŸË ïy¡»a ÉHh Ãfœ¢áa¿¡if 20 .\nÃfœ¢áa¿¡ifia¤ bjhl®ªJ 160 brh‰fËš vGJf.\n1\nïLgÂ\n1\n122\nbga®\ngjÉ\nfHf«\ngŸËÆ‹ bga®\n6.0 Koîiu\nV‰gh£L¡ FGÉ‹ Jiz¢ brayhs® bršt‹ f. KUnfR mt®fŸ gŸË\nKjštU¡F« ïªÃfœ¢á áw¥ghf eilbgw x¤JiH¥ò eš»a midtU¡F« e‹¿\nT¿dh®. ïuî 10:00 kÂ¡F ï¥gšÈd¥ g©gh£L ÉHh ïÅnj Ãiwit vŒâaJ.\nm¿¡if jahÇ¤jt®,\n23 nk 20\nmKj‹ KÅah©o\nbrayhs®,\njÄœbkhÊ¡ fHf«,\ná¥gh§ njáa ïilÃiy¥gŸË, áyh§T® lhUŸ Vrh‹.\nmKj‹ KÅah©o\n11\nbjh\nF\nâ",
+      "char_count": 773,
+      "pages": [
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 132,
+          "global_page_number": 132,
+          "char_count": 737,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "6-0-ko-iu-002",
+      "topic_code": "6.0",
+      "topic": "Bab 6",
+      "subtopic": "6.0 Koîiu",
+      "title": "6.0 Koîiu",
+      "lesson_type": "subtopic",
+      "order_index": 2,
+      "page_count": 109,
+      "extraction_status": "complete",
+      "estimated_minutes": 90,
+      "text_content": "[Bahasa Tamil Tingkatan 2.pdf p132]\n1.0 bjhl¡f«:\nthÇrh‹ njáa ïilÃiy¥gŸËÆ‹ ïy¡»a¡ fHf¤â‹\nV‰gh£oš flªj m¡nlhg® 10M« ehŸ, fhiy kÂ 8:00¡F¥\ngŸË k©lg¤âš ïy¡»a ÉHh Äf ÉkÇirahf eilbg‰wJ.\nï›Éy¡»a ÉHhî¡F¥ gŸËÆ‹ Kjšt® áw¥ò\ntUifaË¤âUªjh®. ï›ÉHhÉš 500¡F« nk‰g£nlh®\nfyªJ áw¥ã¤jd®.\n2.0 tunt‰òiu\n3.0 jiyikíiu\n4.0 âw¥òiu\n5.0 Ãfœ¢áfŸ\n6.0 Koîiu\nm¿¡if jahÇ¤jt®\nnjâ\nthÇrh‹ njáa ïilÃiy¥gŸË ïy¡»a ÉHh Ãfœ¢áa¿¡if 20 .\nÃfœ¢áa¿¡ifia¤ bjhl®ªJ 160 brh‰fËš vGJf.\n1\nïLgÂ\n1\n122\nbga®\ngjÉ\nfHf«\ngŸËÆ‹ bga®\n6.0 Koîiu\nV‰gh£L¡ FGÉ‹ Jiz¢ brayhs® bršt‹ f. KUnfR mt®fŸ gŸË\nKjštU¡F« ïªÃfœ¢á áw¥ghf eilbgw x¤JiH¥ò eš»a midtU¡F« e‹¿\nT¿dh®. ïuî 10:00 kÂ¡F ï¥gšÈd¥ g©gh£L ÉHh ïÅnj Ãiwit vŒâaJ.\nm¿¡if jahÇ¤jt®,\n23 nk 20\nmKj‹ KÅah©o\nbrayhs®,\njÄœbkhÊ¡ fHf«,\ná¥gh§ njáa ïilÃiy¥gŸË, áyh§T® lhUŸ Vrh‹.\nmKj‹ KÅah©o\n11\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p133]\nc§fŸ gŸËÆš ïy¡»a¡ fHf¤â‹ V‰gh£oš kuò¡ fÉij¥ gÆyu§F áw¥ghf\nV‰ghL brŒa¥g£oUªjJ. mâš gšntW m§f§fŸ V‰ghL brŒa¥g£L elªnj¿d.\ngÆyu§»‹ V‰gh£L¡ FG¢ brayhs® v‹w KiwÆš m¿¡if x‹iw vGJf.\nã‹tU« F¿¥òfis¤ Jizahf¡ bfhŸf.\nc‹ gŸËÆš\neilbg‰W Koªj\n‘fÉ¤âw‹ ngh£o’\nbrayhs® v‹w\nKiwÆš 160\nbrh‰fËš\nÃfœ¢áa¿¡if\nx‹wid vGJf.\n1\nïLgÂ\n2\n1\nïLgÂ\n3\nÃfœ¢áa¿¡if mik¥ò Kiw\n• m¿¡if mik¥ãš\nïU¤jš\n• fHf¥ bga® k‰W« jiy¥ò\nvGj¥g£oU¤jš\n• Ãfœ¢áfis¤ Jiz¤\njiy¥òfËš vGâÆU¤jš\n• Jiz¤ jiy¥òfS¡F\nv© F¿¡f¥g£oU¤jš\n• m¿¡if jahÇ¤jt® vD«\nF¿¥ò KjÈš ïU¤jš\n• ifbah¥g« k‰W« bga®\nvGâÆU¤jš\n• gjÉ, fHf¥ bga®\nF¿¡f¥g£oU¤jš\n• njâ - ty¥òw«\nvGj¥g£oU¤jš\nm¿ªJ bfhŸf\njiy¥ò - ehŸ - ïl« - neu«\nÃfœ¢á bjhl¡f«\ntunt‰òiu\njiyikíiu\nm§f§fŸ\nnfŸÉ - gâš\náw¥òiu\nKoîiu\ngÇrË¥ò\nm¿¡if jahÇ¤jt®\n123\n11\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p134]\n124\nâU. ïuF_®¤â Ód® filÆš rikaš ntiy brŒJ tªjh®. mtU¡F ïu©L\nbg© ãŸisfŸ ïUªjd®. _¤jtŸ FKâÅ got« ïu©oš gÆš»whŸ.\nïisatŸ khyâ got« x‹¿š gÆš»whŸ. mt®fË‹ jhah® âUkâ mKjh\nclšey¡ FiwÉdhš å£onyna ïUªJ tªjh®. mt®fS¡bf‹W åLthrš\nïšyhj fhuz¤jhš cwÉd® å£oš j§»ÆUªjd®. x›bthU khjK« å£L¢\nbryî¡F RM500 bfhL¤J tªjd®.\nxU ehŸ âU. ïuF ntiy KoªJ ïšy« âU«ò« tÊÆš rhiyÆš\nÉg¤J¡FŸsh» kuzK‰wh®. mKjhÉ‹ FL«g« Ûsh¤ JaÇš MœªjJ. å£L¢\nbryî¡F cwÉd®fËl« gz« bfhL¡f ïayhkš jÉ¤jd®. FKâÅí« khyâí«\nj§fŸ gŸË MáÇaÇl« FL«g¢ NHiy¥ g‰¿í« j‰nghJ mt®fSila FL«g«\nvâ®neh¡F« á¡fiy¥ g‰¿í«\nmstshÉd®. j§fŸ jªijÆ‹ kiwî¡F¥\nãwF cwÉd®fËl« jh§fŸ x›bthU ehS«\ngh£L th§Ftij¥ g‰¿í«, j§fË‹ jhahÇ‹\nclšÃiyia¥ g‰¿í« ÉÇthf És¡»d®.\nÃiyikia¥ òÇªJ bfh©l MáÇa® vŸssî«\nkd« tUªj nt©lh« v‹W MWjš T¿dh®.\nnkY«, Fiwªj ÉiyÆš xU å£il thlif¡F\nV‰ghL brŒjh®.\nå£L¡fhd thlifiaí« mtnu brY¤j\nK‹ tªjh®. ãŸisfŸ ca®fšÉ Ko¤J ntiy¡F¢ bršY«tiu jhnk\nm¡FL«g¤ij¥ guhkÇ¡f ÉU«òtjhf mt®fË‹ jhahÇl« T¿dh®. MáÇa®\nT¿aij¡ nf£L mt®fŸ c¢á FË®ªjd®.\nkuò¤bjhl®fis¥ bghUŸ És§f th¡»a¤âš mik¤J¡ fh£Lf.\n4.6.2\n• ïu©lh« got¤â‰fhd kuò¤bjhl®fisí« mt‰¿‹ bghUisí«\nm¿ªJ rÇahf¥ ga‹gL¤Jt®.\nghl«\n4\nbrŒíS« bkhÊaÂí«\nkuò¤bjhl®fisí« bghUisí« m¿f.\n1. åLthrš -\nbrh¤JfŸ (F¿¥ghf åL) FL«gK« FL«g¥ bghW¥ò«\n2. mstshîjš -\nfyªJngRjš / To¥ngRjš\n3. gh£L th§Fjš - â£l¥gLjš / Vr¥gLjš\n4. vŸssî« -\ná¿jsî« / »Šá‰W«\n5. c¢á FË®jš - bgU« kdk»œ¢á miljš\nkuò¤bjhl®fS« bghUS«\n1\nïLgÂ\n1\n11\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p135]\n125\nÉs¡f¤â‰F V‰w kuò¤bjhliu vGJf.\nahiu¡ f©L« xU JËTl¥ ga¥gLtâšiy\nxU Éra¤ij¥ g‰¿¡ fyªJ ngRjš\nãwUila V¢R¡F« ng¢R¡F« MshFjš\n1. å£L¥ ghl¤ij¢ brŒahjjhš eFy‹ MáÇaÇl« .\n2. flªj thu« Ãfœªj Ô Ég¤âš åLfis ïHªj\nk¡fS¡F m¥gFâ r£lk‹w cW¥ãd®\n»il¡f V‰ghL brŒtjhf cWâaË¤jh®.\n3. nghij¥ bghUS¡F moikahF« ïisP®fŸ mjdhš\nV‰gL« Éisîfis\nv©Â¥ gh®¥gâšiy.\n4. áth vÞ.ã.v«. nj®Éš 12 V¡fis¥ bg‰wjhš\nmtÅ‹ bg‰nwh®\n.\n5. Ú©l ehŸfshf¥ ãÇªâUªj e©g®fŸ\nÃfœ¢ábah‹¿š rªâ¤J .\nbfhL¡f¥g£l ïU f£l§fËš cŸs kuò bjhl®fSŸ xU f£l¤ij¤ bjÇî brŒJ\nNHš fij TWf.\nV‰w kuò¤bjhliu vGJf.\nåL thrš\nmstshîjš\nc¢á FË®jš\nvŸssî«\ngh£L th§Fjš\nc¢á FË®jš\n1\nïLgÂ\n2\nts¥gL¤Jjš\nFiwÚ¡fš\nkuò¤\nbjhl®fŸ\n11\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p136]\ngŸË¢ á‰W©o¢rhiyÆ‹ öŒikia¥ ngQtJ x›bthU khztÇ‹\nflikahF«. gŸË¢ á‰W©o¢rhiy öŒikahf ïUªjhš czî\nc©Q«nghJ kd« k»œ¢áahf ïU¡F«.\n126\nFGÉš fyªJiuahLf.\nr_fÉaš\nbjhFâ 12\nghl«\n1\ngŸË¢ á‰W©o¢rhiy\nv§fŸ gŸËÆ‹ á‰W©o¢rhiy v¥bghGJ« öŒikahf ïU¡F«.\nXŒî neu¤â‹ bghGJ khzt®fŸ tÇirahf Ã‹W czîfis\nth§»¢ rh¥ãLth®fŸ. gytifahd czîfŸ Rfhjhukhd\nKiwÆš É‰f¥gL»‹wd. khzt®fŸ j§fS¡F¤ njitahd\nczîfis¤ bjÇî brŒJ th§»¢ rh¥ãL»‹wd®. nkY«,\nczîfË‹ Éiy kÈthf ïU¡F«. ešy r¤JŸs Mnuh¡»akhd\nczîfŸ k£Lnk gŸË¢ á‰W©o¢rhiyÆš É‰f¥gL»‹wd.\n\n[Bahasa Tamil Tingkatan 2.pdf p137]\n127\n• brÉkL¤jt‰¿YŸs fU¤Jfis¤ bjhF¤J¡ TWt®.\n1.1.2\ngšÈd khzt®fŸ gÆY«\nïilÃiy¥gŸËÆš khzt®fŸ\nx‰WikílD« ešÈz¡f¤JlD«\nbrašgL»‹wd®. á‰W©o¢rhiyÆš\nxUtU¡F xUt® É£L¡ bfhL¤J¥\nòÇªJz®îl‹ elªJ bfhŸ»‹wd®.\nczî c©Q« K‹ xU ÃÄl«\nãuh®¤jid brŒ»‹wd®. czî\nc©Q« bghGJ mikâia¡\nfil¥ão¡»‹wd®.\nczî c©l ãwF, czî¥ gh¤âu§fis\nKiwahf mL¡» it¡»‹wd®. nkY«,\nF¥igfis¡ F¥ig¤ bjh£oÆš nghL»‹wd®.\ná‰W©o¢rhiyÆš xG¡f¤ij¡ fil¥ão¥gjhš\ná‰W©o¢rhiy el¤Je®fŸ m‹ghf czîfis¥\ngÇkhW»‹wd®.\n\n[Bahasa Tamil Tingkatan 2.pdf p138]\n128\nbrÉkL¤jt‰¿YŸs fU¤Jfis¤ bjhF¤J¡ TWf.\nclš Rfhjhu« ngz¤ jt¿at®fŸ vâ®neh¡F»‹w á¡fšfis¥ gl§fË‹\nJizíl‹ bjhF¤J¡ TWf.\nbrÉkL¤âLf; bjhF¤J¡ TWf.\nó¢á¥ g‰fŸ\nnjhš brh¿ áu§F\njiy KoÆš ng‹\nthªâ ngâ\nfhÈš nr‰W¥ ò©\n1\nïLgÂ\n1\n1\nïLgÂ\n2\n1\nïLgÂ\n3\nclš Rfhjhu¤ij¥ ngz¤ jtWgt®fŸ\nMnuh¡»ak‰w thœ¡if thœ»‹wd®.\nó¢á¥ g‰fŸ, njhÈš brh¿ áu§F,\njiyKoÆš ng‹, fhš ÉušfËš\nnr‰W¥ ò© ngh‹w á¡fšfŸ mid¤J«\nRfhjhu¤ij¥ ngzhjjdhš V‰g£l\nÉisîfŸ v‹whš kW¥gj‰»šiy.\nMnuh¡»ak‰w czîfis c©gjhY«\nbjUnthu§fËš Rfhjhuk‰w NHÈš\nÉ‰f¥gL« czîfis th§»\nc©gjhY« clÈš gy cghijfŸ\nV‰gL»‹wd. tÆ‰WtÈ, thªângâ,\njiytÈ ngh‹w á¡fšfS¡F\nMsh»‹wd®. ïjdhš gz Éua«\nV‰gL»‹wJ. vdnt, eykhd thœî\nthH Rfhjhukhd czîfis\nc©L k»œnth«.\neh‹ got« ïu©oš gÆ‹W tU»‹nw‹. x›bthU ehS«\neh‹ v‹ clš ey¤âš ÄFªj ftd« brY¤J»‹nw‹.\nfhiyÆY« ïuÉY« jtwhkš gš Jy¡F»nw‹. xU ehËš\n_‹W Kiw R¤jkhf¤ njŒ¤J¡ FË¥ng‹. eh‹ v‹ iffis\nmo¡fo fGÉ¤ öŒikahf it¤âU¥ng‹. btËÆš\nbr‹W tªjhš if, fhšfis¡ fGÉ É£L å£oDŸ\nbršnt‹. eh‹ öŒikahd Milfisna cL¤Jnt‹.\nv‹ gŸË¢ ÓUilfŸ, fhYiwfŸ, fhyÂfŸ, ò¤jf¥ig\nM»ait öŒikahf ïU¥gij cWâ brŒJ bfhŸnt‹.\nnkY«, Mnuh¡»akhd czîfis k£Lnk c©Qnt‹. v‹ Mnuh¡»a¤âš v‹\nbg‰nwh®fS« MáÇa®fS« ÄFªj m¡fiw fh£L»‹wd®. eykhf thœnth«,\nãwiuí« eykhf thH¢ brŒnth«.\n12\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p139]\n129\n‘cl«gh® mÊÆ‹ cÆuh® mÊt®’ v‹gJ âU_y® th¡F.\ncl«ig ts®¡F« cgha« m¿ªjt®fŸ nehÆ‹¿ Ú©l\nfhy« thHyh«. cl«ig X«òtJ« clšey« ngQtJ«\nx›bthUtÇ‹ jiyaha flikahF«. clš ts®¢á¡F«,\ntÈik¡F«, brašâwD¡F« czîjh‹ K¡»a¡ fhuzkhf\nmik»‹wJ. Óuhd czî«, r¤JŸs czî«, vËâš\nbrÇ¡»‹w czî« c£bfh©lhš nehŒ e«ik beU§fhJ.\n‘gá¤J¥ òá’ v‹gJ« ‘Ûö© ÉU«ngš’ v‹gJ« czî\nc©Q« Kiw¡fhd bgh‹bkhÊfshF«. cl«ig¥ ghJfh¡f\nnt©Lkhdhš c©Q« czÉY«, gUF« ÚÇY«, EfU«\nfh‰¿Y« ftd« it¡f nt©L«. clYiH¥ò¡F« taJ¡F«\nV‰w czî c©gJ rhy¢ áwªjJ.\ncliy¥ ghJfh¥gj‰F« guhkÇ¥gj‰F« Rfhjhu\nKiwfis¡ fil¥ão¡f nt©L«. Rfhjhu« v‹gJ R¤jkhf,\nöŒikahf ïU¥gij¡ F¿¡F«. clš R¤j«,\ncil¢ R¤j«, czî¢ R¤j«, kd¢R¤j«, ïU¥ãl¢ R¤j«,\nR‰W¥òw¢ R¤j«, braš R¤j«, brhš R¤j« M»a mid¤ijí«\nfil¥ão¤jhš neha‰w thœî thHyh«. cliy mÊ¥gJ nehŒ\nv‹W m¿ªj ãwF« eh« my£áakhf ïU¡f¡TlhJ. clÈš\nnehŒ V‰gLkhdhš, clš tÈik Fiwí«; js®¢á njh‹W«;\nelkh£l« Fiwí«; gL¡ifÆš »l¤J«; gh®ití« cz®î«\nka§F«; cÆ® ãÇí«; clš kÇ¡F«. ïjid m¿ªj e«\nK‹ndh®fŸ ‘nehŒ¡F ïl§bfhnlš’ v‹W T¿íŸsd®.\ncliy Mnuh¡»akhf it¤J¡ bfhŸtj‰F cl‰gÆ‰áí«\nclYiH¥ò« Äfî« mtáakh»‹wJ. vdnt, fâut‹ JÆš\nvGtj‰F K‹djhfnt vGªJ cl‰gÆ‰á brŒa K‰gl\nnt©L«. cl‰gÆ‰áÆ‹ jiyaha neh¡f« clÈYŸs\nfÊîfis btËna‰WtJ. Mrd¥ gÆ‰áfŸ, ÚªJjš,\nbkJnth£l« XLjš, eil gÆYjš ngh‹w gÆ‰áfis¢ brŒJ\ntªjhš nehÆ‹¿ eykhf thHyh«.\nclšey« ngQtj‰F kd mG¤j« ïšyhj thœ¡if\nKiwia¤ bjÇî brŒa nt©L«. kd mG¤j¤âÈUªJ ÉLgl\nïiw tÊghL X® m‰òj ÃthuÂahF«. ïiwtid¤ Jâ¤J kd\nmikâia V‰gL¤â¡ bfhŸs Koí«. mikâahd kd¤âš\nmG¤j§fŸ ïU¡fh. kd mG¤j« ïšyhj cl«ãš nehŒfŸ\nm©lh. nehÆ‹¿ eykhf thH¤ âahd« ngh‹w ïiwtÊgh£L\nKiwfis¡ ifahsyh«.\n129\n2.3.4\n• Rfhjhu« bjhl®ghd ciueil¥ gFâia thá¤J¡ fU¤Jz®\nnfŸÉfS¡F¥ gâyË¥g®.\nghl«\n2\nclš ey« fh¥ngh«\nthá¤J k»œf.\n12\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p140]\n130\n1. cl«ig¥ ghJfh¥gjdhš V‰gL« e‹ikfis¡ TWf.\n2. xUtUila clš Mnuh¡»a¤âš czÉ‹ g§»id És¡Ff.\n3. xUtU¡F nehŒ V‰gLkhdhš mt® vâ®neh¡F« á¡fšfis¥ g£oaÈLf.\n4. ïiwtÊghL eykhd thœî¡F v›thW tÊtF¡»‹wJ v‹gij És¡Ff.\n5. clš Mnuh¡»a¤â‰F« cl‰gÆ‰á¡F« ïilna cŸs bjhl®ãid MuhŒªJ\nTWf; vGJf.\n6. ‘gá¤J¥ òá’, ‘Ûö© ÉU«ngš’ M»a bgh‹bkhÊfŸ cz®¤J« fU¤âid\nÉs¡Ff.\nÉdh¡fS¡F Éil fh©f.\nthá¥ò¥ gFâÆš t©zÄl¥g£l brh‰fS¡F¥ bghUŸ TWf; vGJf.\nc‹ tá¥ãl¤âš Ú v›thW Rfhjhu Kiwia¡ fil¥ão¥ghŒ v‹W TWf; vGJf.\n‘cl«gh® mÊÆ‹ cÆuh® mÊt®’ vD« âUkªâu¥ ghlš cz®¤J« fU¤âid\nMuhŒf.\nx›bthU ehS« Ú fil¥ão¡F« Rfhjhu Kiwfis¡ FÄÊ tiugl¤âš vGJf.\n1\nïLgÂ\n1\n1\nïLgÂ\n2\n1\nïLgÂ\n3\nts¥gL¤Jjš\nFiwÚ¡fš\neh‹\nfil¥ão¡F«\nRfhjhu\nKiwfŸ\n12\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p141]\n131\ngl§fË‹ Jizíl‹ ïUbghUŸgl th¡»a« mik¤âLf.\nã‹tU« brh‰fis¡ bfh©L ïUbghUŸgl th¡»a« mik¤âLf.\n• ïUbghUŸgl th¡»a« mik¥g®.\n3.1.4\ni)\nii)\niii)\niv)\nv)\nvi)\n6\nghl«\n3\neyÄF rKjha«\nthá¤J vGJf.\n1\nïLgÂ\n1\n1\nïLgÂ\n2\nne‰W v‹ tá¥ãl¤âš Rfhjhu ÉÊ¥òz®î¡ fU¤ju§F V‰ghL\nbrŒa¥g£oUªjJ. khiy kÂ 6:00¡F mit¤ jiytÇ‹\ntunt‰òiuíl‹ Ãfœ¢á bjhl§»aJ. m¡fU¤ju§if¢ r¤Jzî\nÃòz® lh¡l® KUifah mt®fŸ tÊ el¤âdh®. r¤JŸs\nczîfŸ ahit v‹gijí« mit v›tif czîfËÈUªJ\n»il¡f¥ bgW»‹wd v‹gij¥ g‰¿í« Äf¤ bjËthf És¡»dh®.\ntªâUªj midtU« ÄFªj gadilªjjhf¡ T¿ k»œªjd®.\nmiu\ngâ\nbkŒ\nrka«\n‘_¤njhiu kâ’ v‹W v‹ bg‰nwh® mo¡fo TWtJ©L. ïuî\nneu¤âš thÅš njh‹W« kâ midtuhY« ngh‰w¥gL»‹wJ.\nmJnghy, ãwiu kâ¤J el¥gtiuí« ïªj cyf¤jh®\nngh‰Wt®. xUtiu xUt® kâ¤J el¡F« rKjhank eyÄF\nrKjhakhf¡ fUj¥gL»‹wJ.\n12\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p142]\n132\n• ïa‰brhš, âir¢brhš, âÇbrhš, tlbrhš m¿ªJ rÇahf¥ ga‹gL¤Jt®.\n5.2.4\nth¡»a§fËš nfhol¥g£l brh‰fŸ v›tif¢ brh‰fŸ vd milahs« f©L\nTWf; vGJf.\n1. ne‰W thiH¤ njh¥ò¡FŸ òFªj fËW thiH\nku§fis¤ nrj¥gL¤âaJ.\n2. rhiy M®¥gh£l¤âš <Lg£lt®fŸ fhtš JiwÆdiu¡\nf©lîl‹ m›Él¤ijÉ£L Ú§»d®.\n3. âU. khjt‹ njh£l¤âš fhŒf¿fis¥ gÆÇ£lh®.\n4. Mdªâ mH»a j¤ijia¡ T©oš it¤J ts®¤jhŸ.\n5. fh£oš FÆšfŸ TÉaij¡ nf£L kŠiPfŸ Mod\nv‹W fiyP® ngádh®.\njÄœ¢ brh‰fŸ ïy¡»a mo¥gilÆš eh‹F tifahf¥ ãÇ¡f¥gL«. mit,\nïa‰brhš, âÇbrhš, âir¢brhš, tlbrhš v‹gdthF«.\nghl«\n4\nïy¡fz«\nïa‰brhš, âÇbrhš m¿f.\n1\nïLgÂ\n1\nm) ïa‰brhš\n• bjh‹Wbjh£L jÄœ k¡fËilna ïašghf tH§» tU»‹w\nbrh‰fŸ ïa‰brh‰fshF«\nv.fh: bgh‹, fš, ku«, Xodh‹, gÆ‹wh‹\nM) âÇbrhš\n• fšyhjtuhš bghUŸ czu KoahjJ«, f‰wt®¡nf És§f¡ ToaJkhd\nbrhšny âÇbrhš vd¥gL«. xU bghUis cz®¤J« gy brh‰fshfî« gy\nbghUis cz®¤J« xU brhšyhfî« âÇbrhš mikªâU¡F«.\nv.fh: »Ÿis (»Ë), gl®ªjh‹ (Ú§»dh‹), besÉ (kh‹), kŠiP (kÆš)\n• xU bghUis cz®¤J« gy brh‰fŸ\nv.fh: »Ÿis - »Ë, mŠRf«, j¤ij\n• gy bghUis cz®¤J« xU brhš\nv.fh: kâ - Ãyî, m¿î, kâ¤jš\n12\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p143]\n133\nbrh‰FÉaÈš cŸs brh‰fis mt‰¿‹ tif¡F V‰g¥ g£oaÈLf.\nm. xU bghUis¡ F¿¡F« gy brh‰fis vGJf.\n»Ÿis\nngh\nâUl‹\nåL\nkÂ\nm»\nM«gš\nbkstš\nnfhÊ\nk©\nbgh‹\ngl®ªjh‹\nbr‹wd®\nâU\nbehŒ\nbe»Ê\nïuî\nåu‹\nm»y«\nF¡fš\nïa‰brhš\nâÇbrhš\n1. PkÈ=\n2. ãËW=\n3. gl®ªjh‹=\n4. jUk«=\n5. mÇkh=\n1. fÊ=\n2. kiw=\n3. fÉ=\n4. gâ=\n5. bkŒ=\nM. gy bghUis cz®¤J« xU brhš.\nv›tif¢ brhš vd¡ F¿¥ãLf.\nFiwÚ¡fš\n,\n,\n,\n,\n,\n,\n,\n,\n,\n,\n,\n,\n,\n,\n,\n1. kd«=\n2. gÇ=\n3. c©lhŸ=\n4. MáÇa®=\n5. fÅ=\n6. üš=\n7. k§if=\n8. f‰wh®=\n9. fâut‹=\n10. gf®ªjh‹=\nts¥gL¤Jjš\n1\nïLgÂ\n2\n12\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p144]\n134\nfyªJiuahLf.\neåd ts®¢á\nbjhFâ 13\nghl«\n1\nkiw¡fhÂ\n\n[Bahasa Tamil Tingkatan 2.pdf p145]\n135\nkiw¡fhÂia¥ g‰¿ ÉtÇ¤J¡ TWf.\n• xU bghUis¥ g‰¿ ÉtÇ¤J¡ TWt®.\n1.4.4\n1\nïLgÂ\n1\n\n[Bahasa Tamil Tingkatan 2.pdf p146]\n‘FuštÊ ïa§F« r¡fu eh‰fhÈ’ (Voice Controlled Wheelchair) g‰¿\nÉtÇ¤J¡ TWf.\n1. ï¡fUÉ ahU¡fhf cUth¡f¥g£LŸsJ?\n2. ï¡fUÉÆ‹ ga‹fis¥ g£oaÈLf.\n3. ïªeåd FuštÊ ïa§F« r¡fu eh‰fhÈ¡F« giHa r¡fu eh‰fhÈ¡F«\ncŸs x‰Wik nt‰Wikfis ïu£o¥ò¡FÄÊ tiugl¤âš vGâ És¡Ff.\nÉdh¡fS¡F Éil TWf.\n1\nïLgÂ\n2\n1\nïLgÂ\n3\n136\n13\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p147]\n137\n137\nmid¤Jyf É©btË MŒî ika« g‰¿ ÉtÇ¤J¡ TWf.\n1\nïLgÂ\n4\n13\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p148]\n138\neh« ekJ m‹whl thœÉš gšntW ïl§fS¡F¥ gaz« nk‰bfh©L tU»‹nwh«.\nMdhš, gaz§fËš Äfî« fodkhd gazkhf¡ fUj¥gLtJ É©btË¥\ngazkhF«. m§F¡ fh‰W »ilahJ. ïU©L nghŒ¡ fUikahf ïU¡F«. òÉ\n<®¥ò Éir »ilahJ. m§F vila‰w j‹ik Ãyî«. mjdhš m§F mid¤J¥\nbghUŸfS« Äj¡F«. kÅj®fŸ m§F thœtJ áuk«. ghJfh¥ghd É©fy«\nk‰W« É©btË cil\nmÂªJ bfh©L m§F cÆ®\nthH Koí« vd e«g¥gL»wJ.\nnfhnsho (uh¡bf£)\nf©Lão¡f¥g£l ã‹dnu\nÉ©btË¥ gaz« v‹gJ\nrh¤âakhdJ. É©btË¡F¢\nbršy nt©Lbk‹whš\nòÉÆ‹ <®¥ò Éiria Û¿\nmântfkhf¥ gaz« brŒa\nnt©L«. flªj 4.10.1957ïš\nnrhÉa¤ uZah, ‘Þò£Å¡ 1’\nv‹»‹w bra‰if¡ nfhis\nbt‰¿fukhf É©btËÆš\nVÉaJ. 83.6 »nyh vil bfh©l\nïJ 92 ehŸfŸ óÄia¢ R‰¿ tªâU¡»wJ. ïj‹ _y«, É©btË íf« ãwªjJ.\nbjhl®ªJ ‘Þò£Å¡ 2’ v‹»‹w É©fy¤ij uZah 03.11.1957ïš É©btË¡F\nmD¥ãaJ. ïJ tuyh‰W¢ áw¥òÄ¡f É©fykhf¡ fUj¥gL»wJ. VbdÅš, ïâš\n‘iy¡fh’ v‹»‹w bg© ehŒ gaz« brŒjJ. ïJ óÄia¢ R‰¿ tªJ 10 ehŸfŸ\nÉ©btËÆš cÆ® thœªjJ. ïj‹ _y« vila‰w j‹ikÆš cÆÇd§fŸ thH\nKoí« v‹gij¡ f©Lão¡f KoªjJ. nkY«, kÅj®fS« É©btË¡F¢ bršy\nKoí« v‹»‹w rh¤âa« V‰g£lJ.\nÉ©btË¡F kÅjid mD¥ò« gaz¤âš nrhÉa¤ uZah bt‰¿ bg‰wJ.\nôÇ ffhÇ‹ v‹gt® 12.04.1961ïš É©btË¡F¢ br‹W tªjh®. ït®\n‘nthÞlh¡ 1’ v‹»‹w É©fy¤â‹ _y« óÄia xU Kiw R‰¿a ã‹d®\nbt‰¿fukhf¤ âU«ãdh®. ïj‹ fhuzkhf¥ óÄia Kj‹KjÈš R‰¿ tªj\nÉ©btË åu® v‹w bgUikia¥ bg‰wh®. 2015M« M©L tiu 549 åu®fŸ\nÉ©btË¡F¢ br‹W tªJŸsd® v‹W m¿a Ko»‹wJ.\n• m¿Éaš bjhl®ghd ciueil¥ gFâia thá¤J¡ fU¤Jz®\nnfŸÉfS¡F¥ gâyË¥g®.\n2.3.6\nghl«\n2\nÉ©btË¥ gaz«\nthá¤J k»œf.\n13\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p149]\n139\nt©zÄl¥g£l brh‰fS¡F¥ bghUŸ TWf; vGJf.\nã‹tU« Édh¡fS¡F Éil vGJf.\nÉdh¡fS¡F Éil TWf.\n1. É©btË v¥go ïU¡F« v‹gij És¡Ff.\n2. É©btË¥ gaz« v¥go¢ rh¤âakhdJ?\n3. É©btË¥ gaz¤âš nrhÉa¤ uZah òÇªj rhjidfis¥ g£oaÈLf.\n4. É©btË¥ gaz¤ij Ú nk‰bfhŸs ÉU«ò»whah? V‹?\nÉ©btË åuh§fid\nfšgdh rh›yh\nÉ©btËÆš Äjªj Kjš\nïªâa¥ bg©kÂ.\nfšgdh rh›yh\nM©L\nÃfœîfŸ\n01.07.1961\nïªâahÉš AÇahdh khÃy¤âš f®dhš v‹w á¿a\nefÇš ãwªjh®.\n1995\nÉ©btË¥ gÆ‰á KoªJ É©btË åuh§fidahf¤\njFâ bg‰wh®.\n19.11.1997\nbfhy«ãah É©fy¤âš Kjš É©btË¥ gaz« nk‰bfh©lh®.\n16.01.2003\nbfhy«ãah É©fy¤âš ïu©lhtJ Kiwahf¥\ngaz« nk‰bfh©lh®.\n01.02.2003\nm›É©fy¤âš 16 ehŸfŸ gaz« nk‰bfh©L, óÄia\nbeU§F« jUthÆš É©fy« áijªJ mfhy kuzK‰wh®.\n1984\nmbkÇ¡fhÉ‹ bl¡rhÞ gšfiy¡ fHf¤âš É©btË bgh¿Æaš\nJiwÆš KJfiy¥ g£lK« eh‹F M©LfS¡F¥ ãwF Kidt®\ng£lK« bg‰wh®.\nÉ©btË¥ gaz« nk‰bfhŸtj‹ mtáa¤ij MuhŒªJ TWf; vGJf.\nÉ©btËÆš fhz¡Toat‰iw¥ g£oaÈLf.\n1\nïLgÂ\n1\n1\nïLgÂ\n2\n1\nïLgÂ\n3\nts¥gL¤Jjš\nFiwÚ¡fš\n1. É©btË åuh§fid fšgdh rh›yhÉ‹ fšÉ¤ jFâ v‹d?\n2. fšgdh rh›yhÉ‹ rhjidfis¡ TWf\n3. 2003M« M©oš Ãfœªjt‰iw És¡Ff.\nv‹id EQFf\n13\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p150]\n140\n‘ÃyÉš M£áòÇa neÇ£lhš’ vD« jiy¥ãš\n160 brh‰fËš F¿¥òfË‹ Jizíl‹ f‰gid¡\nf£Liu vGJf.\n‘vd¡F xU É©fy« »il¤jhš’ vD« jiy¥ãš\n160 brh‰fËš f‰gid¡ f£Liu vGJf.\n‘eh‹ xU É©btË åuuhdhš’ vD« jiy¥ãš 160\nbrh‰fËš f‰gid¡ f£Liu vGJf.\nÃyÉš M£á\nòÇa neÇ£lhš\nx‰WikÄ¡f rKjha¤ij\ncUth¡Fjš.\nïa‰ifia¥ guhkÇ¤jš;\ncÆÇd§fis neá¤jš.\neâfis cUth¡»\nmjid midtU¡F«\nbghJthdjh¡Fjš.\nm¿th‰wš Ä¡f\nxG¡fKŸs kÅjid\ncUth¡Fjš.\nïiwÆ‹ kf¤Jt¤ij\nczu¢ brŒjš.\nehfÇf«, g©ghL,\nfiy ngQjš.\nmidtU¡F« rk\ncÇik tH§Fjš.\nX® ïiw, X® ïd«, xU\nehza«, xU bkhÊ, X®\nmurh£á ngh‹wt‰iw\ntÈíW¤Jjš.\n• 160 brh‰fËš f‰gid¡ f£Liu vGJt®.\n3.4.13\nghl«\n3\nÃyÉY« rh¤âank!\nFGÉš fyªJiuahLf.\n1\nïLgÂ\n1\n1\nïLgÂ\n2\n1\nïLgÂ\n3\n• 27 #]iy 1972ïš nfhyhy«óÇš\nãwªjt®.\n• kU¤Jt¤JiwÆš vY«ãaš\nÃòzuhf¥ gÂòÇªjh®.\n• knyáahÉ‹ Kjš É©btË\nåuuhth®.\n• 10 m¡nlhg® 2007ïš Kj‹\nKjÈš É©btË¥ gaz¤ij 11\nehŸfŸ nk‰bfh©L 21 m¡nlhg®\n2007ïš óÄ¡F¤ âU«ãdh®.\nm¿ªJ bfhŸf\nÉ©btË åu®\nlh¡l® ir£\nK[hgh® õ&¡nfh®\n13\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p151]\n141\njÄH®fË‹ j‰fh¥ò¡ fiyfSŸ x‹whd áy«g¡ fiyÆš gh©oa‹ áwªJ\nÉs§»dh‹. mt‹ áWtaJ Kjny m¡fiyia¡ f‰W tªâUªjh‹. xUehŸ\ngh©oa‹ j‹ e©g‹ KuËíl‹ njh£l¤ âUÉHhî¡F¢ br‹¿Uªjh‹. m§F\nvâ®ghuhj Éjkhf KuË áyUl‹ th¡Fthj¤âš <Lg£lh‹. mjid m¿ªj\ngh©oa‹ m›Él¤âÈUªJ KuËia miH¤J tªJ Ãiyikia¢ Ó®gL¤âdh‹.\ná¿J neu« fÊ¤J KuËia¤ jh¡f mt®fŸ fÊfSl‹ tªjd®. KuË vâ®¤J¥\nngáajhš mtid¡ fÊahš mo¤jd®. brŒtj¿ahJ âif¤j nghJ gh©oa‹\nvâuhËÆ‹ fÊia¥ ãL§» ïyhtfkhf¢ R‰¿ mt®fis¥ gj« gh®¤jh‹.\nj¥ã¤njh« ãiH¤njh« v‹W mt®fŸ m›Él¤ij É£L Xo kiwªjd®. ïšy«\nâU«ò« tÊÆš, “ešy ntis, áy«g¡ fiy f‰wjdhš ï‹W Ú j¥ã¤jhŒ”\nv‹W gh©oa‹ T¿dh‹.\nmj‰F KuË, “v‹Ål« k£L«\nfÊ ïUªâUªjhš, mt®fis\nmo¤J behW¡»ÆU¥ng‹” v‹W\nbgUÄj« ngádh‹. “fÊ RH‰WtJ\nv‹d Rygkhdbth‹W v‹W\nv©ÂÉ£lhah?” v‹wh‹.\n“Mkh«, m~bjh‹W« bgÇa\nÉrak‹W” v‹W kWbkhÊ gf‹wh‹\nKuË. clnd, gh©oa‹ jh‹\nit¤âUªj fÊia¡ bfhL¤J¢\nRH‰W«go T¿dh‹. KuË\nmªj¡ fÊia vL¤J¢ RH‰w¤\nbjhl§»dh‹. Kf«, jiy, if,\nfhš v‹W fÊia¢ RH‰W«nghJ\nj‹id¤ jhnd mo¤J¡\nbfh©lh‹.\n“njhHh! eh‹ fÊ RH‰WtJ vËJ v‹W v©Ând‹. Mdhš, v›tsî\nEQ¡f« njit v‹gij ï¥bghGJjh‹ òÇªJ bfh©nl‹.\n‘brhšYjš ah®¡F« vËa mÇath«\nbrhšÈa t©z« braš’\nv‹w tŸSt‹ T‰iwí« cz®ªJ bfh©nl‹ e©gh! v‹id k‹Å¤JÉL,”\nv‹W T¿ tUªâdh‹.\n• ïu©lh« got¤â‰fhd âU¡Fwisí« mj‹ bghUisí« m¿ªJ TWt®;\nvGJt®.\n4.2.2\nghl«\n4\nbrŒíS« bkhÊaÂí«\nâU¡Fwisí« bghUisí« m¿f.\n13\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p152]\n142\nâU¡FwS« bghUS«\nFGÉš FwS¡F¥ bghU¤jkhd NHš fij x‹wid cUth¡» eo¤âLf.\nFwisí« mj‹ bghUisí« kdd« brŒJ TWf; vGJf.\nbrhšYtJ Ryg«. brŒtJ fod« vD« fU¤J¡F V‰w IªJ cjhuz§fis¡\nTWf; vGJf.\nv.fh: FUÉ TL f£LtJ\nm. Fwis Ãiwî brŒf.\n‘brhšYjš ah®¡F«\n’\nM. FwS¡F¥ bghU¤jkhd fU¤ij¤ bjÇî brŒf.\ni. brŒtJ Ryg« brhštJ fod«.\nii. brhštJ Ryg« brŒtJ vËJ.\niii. brhštJ« brŒtJ« fod«.\niv. brhštJ vËJ brŒtJ fod«.\nbrhšYjš ah®¡F« vËa mÇath«\nbrhšÈa t©z« braš. (FwŸ 664)\nbghUŸ: xU braiy¢ brŒJ Ko¤JÉLtjhf¢ brhštJ\nvšyhU¡F« RygkhdJ. Mdhš, mjid¢ brh‹dgo\nbrŒtJjh‹ fodkhdJ.\nfU¤J: brhštJ Ryg«; brŒtJ fod«\n1.\n2.\n3.\n4.\n5.\n1\nïLgÂ\n1\n1\nïLgÂ\n2\nts¥gL¤Jjš\nFiwÚ¡fš\n13\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p153]\n143\nnkf§fŸ ïšyhj bjËthd ïuî neu¤âš thd¤ij¥\nghU§fŸ. mâš bjÇí« v©z‰w e£r¤âu§fŸ\nc§fis¥ gutr¥gL¤J«. É©Âš cŸs\ne£r¤âu§fis ÉušÉ£L v©z Koíkh? mit\nv©Â¡ifÆš 100 nfho¡F nkš ïU¡F« v‹»‹wd®\nthÅaš tšYe®fŸ.\nxË áªJ« mHfhd e£r¤âu§fË‹ taJ\n10 ïy£r« M©LfŸ Kjš 1000 nfho M©LfŸ\nïU¡F« v‹whš e«g KoahJjh‹. Mdhš, mJjh‹\nc©ik. cUt¤âš NÇaidÉl 100 kl§F bgÇaitjh‹ ïªj e£r¤âu§fŸ.\ncyf¤âš VÊš xU gFâ ghiytdkhŒ cŸsJ. ïJ\ntw©l Ãy¥ gFâahF«. M©L¡F 25 br.Û. msnt\nruhrÇahf kiHia¥ bgw¡ ToaJ. M¥ãÇ¡fhÉš\ncŸs rAhuh ngh‹w ghiytd§fŸ mâf\nbt¥gKilait. mnj rka« JUt§fËš FË®ªj\nghiytd§fS« ïU¡»‹wd. JUt¥ ghiytd§fËš\n»£l¤j£l M©L KGtJ« Ú® ciwªJÉ£oU¡F«.\nghiytd§fËš gfÈš bt¥g« To¡\nbfh©nl nghF«. ïuÉš Ó¡»unk FË®ªJÉL«.\nFiwªj msnt kiH bgŒí«. mJî« kz‰gu¥ghš\nÓ¡»unk c¿Šr¥g£LÉL«. ghiytd« Úu‰w tw©l ãunjrkhŒ ïUªjhY«,\nmoahH¤âš Ú® ïU¡fnt brŒí«.\nVw¡Fiwa 400 nfho M©LfS¡F K‹ óÄÆ‹\nbt¥g« fLikahÆUªjJ. mJ bkšy¡ FË®ªjnghJ\nfh‰W« ÚuhÉí« óÄia¢ NœªJ nkY« FË®¢áaila\nÚuhÉ Úuh», flyhdJ v‹»‹w nfh£ghL ï‹wsî«\nV‰f¥g£ljhÆU¡»‹wJ.\nÃy¥ gFâahd f©l§fŸ â£lt£lkhd\nvšiyfŸ bfh©lit. Ú®¥ gFâahd flšfË‹\nvšiyfŸ â£lt£lkhŒ ïU¥gâšiy. MÆD«, ïit\ngáã¡, m£yh©o¡, ïªâa, M®o¡, m©lh®o¡fh\nbgU§flšfshf¥ ãÇ¤J m¿a¥gL»‹wd. ïªj¥\nbgU§flšfËš flšfŸ, ÉÇFlh¡fŸ, tisFlh¡fŸ, c£òFKf§fŸ\nngh‹wit ml§F«.\ne£r¤âu§fŸ\nghiytd«\nflš v¥go cUthdJ\n_y«: cyf« ãwªj fij\nm\nM\nï\nthá¤J k»œf.\n13\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p154]\n144\n144\nfyªJiuahLf.\nÉisahLnth« thß®\nbjhFâ 14\nghl«\n1\nrJu§f«\nïuhÂ\nFâiu\nïuh#h\n\n[Bahasa Tamil Tingkatan 2.pdf p155]\n145\nrJu§f« g‰¿ ÉtÇ¤J¡ TWf.\n145\n• xU bghUis¥ g‰¿ ÉtÇ¤J¡ TWt®.\n1.4.4\n1\nïLgÂ\n1\nnfh£il\ná¥ghŒ\nkªâÇ\nv‹id EQFf\n\n[Bahasa Tamil Tingkatan 2.pdf p156]\n146\nVnjD« xU Éisah£L¡ fUÉia¥ g‰¿ ÉtÇ¤J¡ TWf.\nÉisah£L¡\nfUÉfŸ\n1\nïLgÂ\n2\n14\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p157]\n147\ng«gu« bjhl®ghd jftšfis ÉtÇ¤J¡ TWf.\nã‹tU« knyáa Éisah£lhs®fSŸ xUtiu¥ g‰¿ ÉtÇ¤J¡ TWf.\nl¤njh Ã¡nfhš nlÉ£\ng©lnyyh Çndh§\nKfkJ mÓRš mÞÅ Mth§\nbrªâš Fku‹ brštuh#]\n1\nïLgÂ\n4\n1\nïLgÂ\n3\n14\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p158]\n148\nNHš:\nknyáahÉš òfœbg‰w Éisah£L åu® xUtiu¥ g‰¿ m¿ªJ bfhŸs j‹\njªijíl‹ Fzh ciuahodh‹.\nghl«\n2\nó¥gªJ åu®\nciuahliy thá¤J m¿f.\nFzh: m¥gh, knyáahÉš òfœbg‰w xU Éisah£L åuiu¥ g‰¿¡\nTw Koíkh?\njªij: f©o¥ghf¡ TW»nw‹ Fzh. knyáahÉš k£LÄ‹¿\ncy»nyna ó¥gªJ Éisah£oš x‰iwa® ãÇÉš\nKjšÃiy åuuhf És§F« l¤njh ä nrh§\nntŒ mt®fis¥ g‰¿¥ gy\njftšfis¡ Twyhnk!\nFzh: e‹¿ m¥gh. cy»nyna\nx‰iwa® ãÇÉš Kjš Ãiy\nåuuh? mtiu¥ g‰¿¡\nTW§fŸ m¥gh.\njªij: nguh¡ ghfh‹ bruhÆš\n21.10.1982 ïš ãwªj ä nrh§\nntŒ jkJ 11 MtJ taâÈUªJ\nó¥gªJ Éisah£oš <Lg£L\ntªâU¡»wh®. jkJ jªijÆ‹\nC¡f¤jhš e‹F Éisahoa\nïtiu knyáa K‹dhŸ\nó¥gªJ Éisah£lhsU«\ngÆ‰WeUkhd ÄZò‹\nánl¡ mt®fŸ njáa\nmÂÆš nr®¤J¡\nbfh©L fLikahd\ngÆ‰áfis tH§»dh®.\n14\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p159]\n149\nFzh: xUtUila K‹nd‰w¤âš gy® g§fh‰W»‹wd® v‹gJ\nc©ikjhnd m¥gh! mtUila rhjidfis¥ g‰¿¢ brhšY§fŸ m¥gh.\njªij: c©ikjh‹ Fzh. l¤njh ä nrh§ ntŒ ó¥gªJ Éisah£oš X®\nc¢r¤ij¤ bjh£LÉ£lh® v‹W T¿dhš mJ ÄifahfhJ. Máah‹\nÉisah£L, bj‹»H¡fháa Éisah£L, fhbk‹btš¤ Éisah£L,\nnjhkÞ »©z«, cyf¡ nfh¥ig, xÈ«ã¡ Éisah£L ngh‹w ÃiyfËš\ne« eh£il¥ ãuâÃâ¤J mt® Éisaho cŸsh®. F¿¥ghf 2008 ïš\nbgŒÍ§»Y«, 2012 ïš ïy©lÅY«, 2016 ïš Çnah O b#ÅnuhÉY« elªj\nxÈ«ã¡ ó¥gªJ Éisah£LfËš bjhl®¢áahf eh£L¡F btŸË¥\ngj¡f¤ij¥ bg‰W¤ jªJŸsh®.\nFzh: mllh! ï¥go¥g£l rhjidahsiu¥ g‰¿ eh‹ ï›tsî fhyK« m¿ahkš\nïUªJ É£nlnd!\njªij: ä nrh§ ntŒ ó¥gªJ Éisah£oš rhâ¤j cyf¢ rhjidfis¥ ghuh£o\nmtU¡F l¤njh ÉUJ tH§f¥g£lJ. ãujk® l¤njh$ eé¥ J‹ urh¡\nmt®fŸ l¤njh ä nrh§ ntŒ mt®fis eh£o‹ njáa ehaf‹\n(National Hero) v‹W tUÂ¤J¥ ghuh£oíŸsh®. tyJ if\nM£l¡fhuuhd l¤njh ä nrh§ ntŒ mâuo M£l§fËY« EQ¡fkhd\nM£l¡ fiyÆY« tšyt®.\nFzh: ó¥gªJ rfh¥j« l¤njh ä nrh§ ntŒ g‰¿a jftšfis¥ g»®ªJ\nbfh©lj‰F Ä¡f e‹¿ m¥gh.\n• ciuahliy¢ rÇahd ntf«, bjhÅ, c¢rÇ¥ò M»at‰Wl‹\nÃW¤j¡F¿fS¡nf‰g thá¥g®.\n2.1.5\nnk‰fhQ« ciuahliy¢ rÇahd ntf«, bjhÅ, c¢rÇ¥ò M»at‰Wl‹\nÃW¤j¡F¿fS¡nf‰g thá¤âLf.\n1\nïLgÂ\n1\nÉdh¡fS¡F Éil TWf.\n1. l¤njh ä nrh§ ntŒ g‰¿ Ú m¿ªJ bfh©l jftšfis¥ g£oaÈLf.\n2. l¤njh ä nrh§ ntŒia¥ ó¥gªJ rfh¥j« v‹W Tw¡ fhuz« v‹d?\n1\nïLgÂ\n2\n14\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p160]\nciuahliy¢ rÇahd ntf«, bjhÅ, c¢rÇ¥ò M»at‰Wl‹\nÃW¤j¡F¿fS¡nf‰g thá¤âLf.\nNHš:\nntYî« ghYî« ãu«ò¥ gªJ (Sepak takraw) Éisah£il¥ g‰¿¥ gŸË\ntshf¤âš ciuahL»‹wd®.\ntz¡f« ghY. ekJ\nÉisah£L¥ bghW¥gháÇa®\nehis ãu«ò¥ gªJ\ngÆ‰á¡F e«ik tu¢\nbrhšÈÆU¡»wh®. mªj\nÉisah£il¥ g‰¿¢ á¿J\nÉs¡f« jUthah?\ntz¡f« ntY, Ã¢rakhf¢ brhš»nw‹. ãu«ò¥ gªij¡ bfh©L ÉisahL«\nï›Éisah£il eh« cŸsu§»Y« btËau§»Y« Éisahlyh«. _‹W\nÉisah£lhs®fŸ xU FGÉš ÉisahLt®. x›bthUtU« X® ïl¤ij M¡»uÄ¥g®.\ntyJ mšyJ ïlJ òw¤âš cŸst® gªij år ã‹òw« eLÉš ïU¥gt® mjid¡\nfhYa®¤â mo¤J vâuhËÆ‹ gFâ¡F mD¥òth®. vâuhËÆ‹ gªij tunt‰gt® 3\nKiw¡F nkš gªij cij¡f¡ TlhJ. nkY«, gªij¡ ifÆš ão¡f¡ TlhJ bjÇíkh?\nmllh! ï›tsî jftš\nïU¡»wjh? nkY« brhš e©gh.\nnf£f¤ jahuhŒ ïU¡»nw‹.\nKjÈš 21 òŸËfŸ vL¡F« FG\nbt‰¿ bg‰wjhf¡ fUj¥gL«. ïªj\nÉisah£L¡F neu tiuaiw »ilahJ.\nï›Éisah£il¥ g‰¿a ãw jftšfis\nehis TW»nw‹.\nc‹ jftY¡F\nÄ¡f e‹¿ ghY.\n1\nïLgÂ\n3\n150\n14\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p161]\n151\nciuahliy¢ rÇahd ntf«, bjhÅ, c¢rÇ¥ò M»at‰Wl‹\nÃW¤j¡F¿fS¡nf‰g thá¤âLf.\nNHš:\nkhÈÅ mKjhÉl« khzt®fSŸ gy® Éisah£L¥ ngh£ofËš M®tÄ‹¿\nïU¥gj‰fhd fhuz§fis¡ nf£l¿»whŸ.\nkhÈÅ: mKjh, e« e©g®fSŸ gy®\nÉisah£L¥ ngh£ofËš M®tÄ‹¿\nïU¥gj‰fhd fhuz§fis¡ Tw\nKoíkh?\nmKjh: f©o¥ghf¡ TW»nw‹ khÈÅ.\nfšÉah? Éisah£lh? v‹W gh®¡F«\nnghJ, ï‹iwa khzt®fŸ Éisah£L¥\nngh£oÆ‹ bt‰¿ahš vªj¥\ngaD« ïšiy v‹W fUJ»‹wd®.\nmJk£Lkh? Éisah£oš <Lg£L bt‰¿\nbg‰whš, mj‰F« cÇa btFkâ\n»il¥gâšiy v‹W« òy«ò»‹wd®.\nkhÈÅ: m¥goah! ïJî« xU fhuzkhf¡ fUj¥gL»‹wjh?\nmKjh: ÉisahLtjhš ntiy thŒ¥òfŸ »il¡Fnkh ïšiynah v‹W\nIíW»‹wd®; ÉisahLtâš M®t¤ij¡ Fiw¤J¡ bfhŸ»‹wd®.\nFiwÚ¡fš\nknyáa ïªâa Éisah£L åu®fSŸ xUtiu¤ bjÇî brŒJ, mtiu¥ g‰¿a\njftšfis¤ âu£o, mjid tF¥ãš thá¤J¡ fh£oLf.\nts¥gL¤Jjš\nl¤njh ‘gŠ¢’ Fzhs‹\nFf‹ r©Kfehj‹\n14\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p162]\n152\nbtŸË¥ gj¡f«\nF¿pLfŸ\nbt©fy¥ gj¡f«\ngj¡f« ïšiy\nt£l¡ F¿tiuÉYŸs Étu§fis¤\nbjhF¤J vGJf.\n2016M« M©L Çnah ãnuáÈš eilbg‰w xÈ«ã¡ Éisah£L¥ ngh£ofËš\nknyáa mÂÆd® g§bfL¤j Éisah£LfS« gj¡f Ãytu§fS«.\n• F¿tiuÉYŸs Étu§fis¤ bjhF¤J vGJt®.\n3.3.2\nghl«\n3\ne«khš Koí«\nthá¤J vGJf.\n1\nïLgÂ\n1\nghŒku¡ f¥gš\nbrY¤Jjš\nâlš jl\nX£l«\nF¤J¢r©il\nm«ò\nvŒjš\nFÊ¥gªJ\n(nfhš~¥)\nÚ¢rš\nó¥gªJ\nir¡»Ÿ\nX£l«\nÚÇš\nghŒjš\nvilö¡Fjš\n3\n1\n1\nx\nx\nx\nx\nx\nx\nx\n14\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p163]\nF¿tiuÉYŸs jftšfis¤ bjhF¤J vGJf.\n1\nïLgÂ\n2\n2017M« M©oš knyáahÉš eilbg‰w\n29MtJ bj‹»H¡fháa Éisah£L¥ ngh£oÆš\nfyªJ bfh©l ehLfË‹ gj¡f Ãytu«.\njhŒyhªJ\ná§f¥ó®\nÉa£dh«\nknyáah\nïªnjhndáah\nÄah‹kh®\nãÈ¥ig‹°\nyhnthÞ\nf«nghoah\nòUiz\nânkh® by°nj\ngj¡f\nv©Â¡if\nehL\n153\n246\n72\n88\n86\n57\n58\n58\n38\n24\n7\n2\n3\n3\n9\n12\n5\n2\n3\n21\n20\n10\n64\n33\n90\n63\n145\n86\n92\n73\n60\n50\n188\n168\n121\n37\n26\n17\n14\n3\n323\nj§f«\nF¿pLfŸ\nbtŸË\nbt©fy«\n14\nbjh\nF\nâ\n191\n\n[Bahasa Tamil Tingkatan 2.pdf p164]\n154\nâU. KÅa‹ xU njh£l¡fhu®. taJ Kâ®ªâUªj nghâY« j«Kila njh£l¤âš\ngyÉjkhd gÆ®fis¥ gÆÇ£oUªjh®. PhÆ‰W¡ »Hika‹W njh£l¤âÅ‹W\ngÂ KoªJ å£L¡F¥ òw¥gL« ntisÆš j«Kila ifÆš mÂªâUªj\nÉiyía®ªj if¡fofhu« fhzhkš nghŒÉ£lij cz®ªjh®. njh£l¤âš všyh\nïl§fËY« ïa‹wtiu njo¥ gh®¤jh®. v§F¤ njoí« »il¡fÉšiy. g¡f¤J¤\nnjh£l¤âÈUªJ áy áWt®fis cjÉ¡F miH¤jh®. j«Kila fofhu«\nbjhiyªJÉ£ljhfî«, mjid¤ njo¤ jUgtU¡F btFkâ bfhL¥gjhfî«\nT¿dh®. áWt®fŸ m¤jUz¤âÈUªJ if¡fofhu¤ij¤ njl Mu«ã¤jd®.\nMS¡bfhU g¡fkhf¤ njod®. fis¥ò ÄFâahš ã‹th§»d®. KâatÇlÄUªJ\njhœikíl‹ Éilbg‰W¡ bfh©ld®. Mdhš,\nmt®fSŸ xU áWt‹ k£L«, “jh¤jh vd¡F\nÛ©L« xU thŒ¥ò¡ bfhL§fŸ,” v‹W\nnf£lh‹. mtid ÉaªJ gh®¤jthnw,\n“rÇ j«ã,” v‹W mDkâaË¤jh®.\ná¿J neu« fÊ¤J¢ áWt‹, “jh¤jh,\nc§fŸ ifia¡ fh£L§fŸ” v‹W T¿\nif¡fofhu¤ij¤ jh¤jhÉ‹ ifÆš it¤jh‹.\nm«Kâat® Éa¥ãÅ‹W Ûs Koahkš,\n“j«ã, v¥go Ú ïjid¡ f©Lão¤jhŒ?”\nv‹W ÉdÉdh®. njh£l¤â‹ eL¥gFâ¡F¢\nbr‹W f©fis _o¡ bfh©L mikâahf\nmk®ªnj‹. r‰W neu¤âš fofhu¤â‹\n‘o¡o¡’ Xiria v‹dhš nf£f KoªjJ.\nm›Él¤âÅ‹W vGªJ Xir tU« âiria\nneh¡»¢ br‹nw‹. ï¡fofhu« »il¤jJ,”\nvd bkhÊªjh‹.\n“nkY«, r‰W K‹ò eh‹ v‹ e©g®fnshL nr®ªJ njL« bghGJ r¤jkhfî«\nryry¥ghfî« ïUªjJ. mjdhš fofhu¤â‹ Xir v‹ fhâš ÉHÉšiy,” v‹W\nT¿dh‹. mikâahd NHÈš mid¤ijí« eh« m¿ayh« v‹W v‹ m¥gh\nmo¡fo brhšth®. mtUila m¿îiuia¡ nf£L elªjjhš bt‰¿ bg‰nw‹\nv‹wh‹ áWt‹. Kâat® m¢áWtid Mu¤ jGÉ¡ bfh©L btFkâia\ntH§»dh®; ghuh£ilí« e‹¿iaí« bjÇÉ¤J¡ bfh©lh®.\n• Iªjh« nt‰Wik cUòfsh»a ïUªJ, Ã‹W v‹gdt‰¿‹ ã‹ tÈÄfhJ\nv‹gij m¿ªJ rÇahf¥ ga‹gL¤Jt®.\n5.5.3\nghl«\n4\nïy¡fz«\nnt‰Wik cUòfis m¿f.\ntÈÄfh ïl§fŸ\n• brh‰bwhl®fËš tUbkhÊ\n¡, ¢, ¤, ¥ M»a tšbyG¤JfËš\nbjhl§»dhš ÃiybkhÊ <‰¿š\náy ïl§fËš tÈÄfhJ.\n• Iªjh« nt‰Wik cUòfshd\nïUªJ, Ã‹W v‹gdt‰¿‹ ã‹\ntÈÄfhJ.\nv.fh:\ni) TiuÆÈUªJ + Fâ¤jh‹\n= TiuÆÈUªJ Fâ¤jh‹\nii) å£oÅ‹W + br‹wh‹\n= å£oÅ‹W br‹wh‹\nm¿ªJ bfhŸf\n14\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p165]\n155\nIªjh« nt‰Wik cUòfsh»a ïUªJ, Ã‹W v‹gdt‰¿‹ã‹ tÈÄfhJ v‹gij\nm¿ªJ brh‰bwhl®fis cUth¡Ff; th¡»a« mik¤âLf.\nv.fh:\nå£oÅ‹W òw¥g£lh‹\nÉg¤âÈUªJ j¥ã¤jh®.\nIªjh« nt‰Wik cUòfsh»a ïUªJ, Ã‹W V‰WŸs brh‰fis milahs«\nf©L TWf; vGJf.\nIªjh« nt‰Wik cUòfsh»a ïUªJ, Ã‹W v‹gdt‰¿‹ã‹ f, r, j, g, tÇ‹\ntÈÄfhJ v‹gij m¿ªJ brh‰bwhl®fis cUth¡Ff.\nv.fh:\nrhiyÆÅ‹W br‹wh®\n1. FL«g¤âÈUªJ\n2. thÅÈUªJ\n3. njh£l¤âÅ‹W\n4. tWikÆÅ‹W\n5. ViHfËlÄUªJ\n6. üÈÅ‹W\n7. k©lg¤âÈUªJ\n8. j©lidÆÅ‹W\nbfhL¡f¥g£LŸs ÃiybkhÊíl‹ mil¥ò¡ F¿ÆYŸs nt‰Wik cUig¢\nnr®¤bjGJf. ã‹d® tUbkhÊÆš f, r, j, g brh‰fis ïiz¤bjGJf.\nv.fh:\nT£l« (Ã‹W) = T£l¤âÅ‹W + br‹wh®\n1. thd« (ïUªJ) =\n2. fhL (Ã‹W) =\n3. ntiy (Ã‹W) =\n4. fG¤J (ïUªJ) =\n5. Fif (ïUªJ) =\n6. FL«g« (Ã‹W) =\n7. ku« (ïUªJ) =\n8. njhšÉ (Ã‹W) =\n9. td« (ïUªJ) =\n10. e©g‹ (Ã‹W) =\n+\n+\n+\n+\n+\n+\n+\n+\n+\n+\nts¥gL¤Jjš\nFiwÚ¡fš\n1\nïLgÂ\n1\n1\nïLgÂ\n2\n14\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p166]\n156\nV‰ghL: cyf¤ jÄHhuhŒ¢á ÃWtd«\nkheh£o‹ neh¡f«:\n• jÄœbkhÊÆ‹ ts®¢áia MuhŒjš.\n• jÄœbkhÊÆ‹ áw¥òfisí« bgUikfisí« Ãiy eh£Ljš.\n• eåd cyf¤â‰F¤ jÄœbkhÊÆ‹ njitia cz®¤Jjš.\n• K¤jÄiH kheh£oš áw¥ã¤jš.\n• jÄH®fisí« jÄœbkhÊiaí« rh®ªJ\nMŒî¥gÂfËš <Lg£LŸs MuhŒ¢áahs®fisí«\nfšÉkh‹fisí« x‹¿iz¤jš.\n• bkhÊ ïy¡»a«, g©ghL, fiyfŸ M»at‰iw¥ g‰¿\nMŒî¡f£Liufis¢ rk®¥ã¤jš.\ncyf¤ jÄœ MuhŒ¢á kheh£L tuyhW g‰¿a TLjš Étu§fŸ bgw¡\nnfŸÉfŸ nf£oLf.\n• TLjš Étu§fŸ bgw¡ nfŸÉfŸ nf£g®.\n1.2.2\nfyªJiuahLf.\ntuyhW m¿nth«\nbjhFâ 15\nghl«\n1\njÄiH ts®¥ngh«\n1\nïLgÂ\n1\n\n[Bahasa Tamil Tingkatan 2.pdf p167]\n157\nghliybah£o TLjš Étu§fŸ bgw nfŸÉfis¤ jahÇ¤âLf.\nãw¥bgh¡F« všyh cÆ®¡F«\nãwªj ã‹d® ahJ« Cnu ahtU« nfË®\nc©gJ ehÊ cL¥gJ ïu©nl\nciwÉl« v‹gJ x‹nwbad\nciu¤J thœªnjh«\nciH¤J thœnth«\nÔJ« e‹W« ãw® ju thuhvD«\ne‹ bkhÊna e« bgh‹ bkhÊah«\nnghiu¥òw« jŸË bghUis¥ bghJth¡fnt\nmikâ tÊ fh£L« m‹ò bkhÊ\nmŒa‹ tŸStÇ‹ thŒbkhÊah«\nbr«bkhÊahd jÄœbkhÊah« x4\nXu¿î Kjš Mw¿î cÆÇd« tiuÆny\ncz®ªâL« clyik¥ig¥ gF¤J¡ TW« x2\nxšfh¥ òfœ bjhšfh¥ãaK«\nx¥g‰w FwŸ TW« ca® g©ghL\nxÈ¡»‹w áy«ò«, nkfiyí«\náªjhkÂílnd tisahgâ F©lynfáí«\nbr«bkhÊahd jÄœbkhÊah« x4\nf«g eh£lhœthU« fÉ muá xsit ešyhS«\nv«kjK« V‰W òfœ»‹w x2\nv¤jidnah MÆu« fÉij beŒnth® jU«\nò¤jhil mid¤J¡F« É¤jhf És§F« bkhÊ\nbr«bkhÊahd jÄœbkhÊah« x4\nmfbk‹W« òwbk‹W« thœit mHfhf tF¤jË¤J\nMâ mªjÄyhJ ïU¡»‹w ïÅabkhÊ\nXâ tsU« cÆuhd cyf bkhÊ x2\ne«bkhÊ e« bkhÊ...mJnt\nbr«bkhÊahd jÄœbkhÊah« x4\nthÊa thÊant x3\n- fiyP® K. fUzhÃâ\n1\nïLgÂ\n2\n1. ï¥ghlš V‹ ïa‰w¥g£lJ?\n2. ï¥ghlÈ‹ rhu« v‹d?\n3. jÄœbkhÊÆ‹ áw¥òfis¡ TWf.\nkhâÇ Édh¡fŸ.\nbr«bkhÊahd jÄœbkhÊah«\nv‹id EQFf\n15\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p168]\n158\nK‰fhy¤âš mur®fË‹ MizfŸ mid¤J« k¡fŸ bjÇªJ bfhŸS« tifÆš\nghiwfËš brJ¡f¥g£ld. f‰ghiwfËš mšyJ f‰fËš cË bfh©L brJ¡»a\nvG¤JfŸ fšbt£L v‹W miH¡f¥g£ld.\njÄœbkhÊÆ‹ tuyh‰¿id m¿a fšbt£LfËš vGâa vG¤Jfns Äf¥\nbgÇa rh‹whf mikªjd. ïªj vG¤Jfis mo¤jš, âU¤Jjš, kh‰¿ vGJjš\nv‹gdt‰iw¢ brŒa Koahjjhš mj‹ e«gf¤j‹ik mâfkhfnt ïUªjJ\nvdyh«. mJnt fšbt£L vG¤JfË‹ áw¥òkhF«.\nï¤jifa fšbt£L vG¤JfËš ».ã. _‹wh« ü‰wh©il¢ nr®ªj\nãuhÄ¡ fšbt£Lfns Äfî« giHikahdit vd¡ Tw¥gL»‹wJ. ï¤jifa\nfšbt£LfËš bgU«ghyhdit FiffËš f©blL¡f¥g£ld.\n».K. _‹wh« ü‰wh©oš thœªjt® mnrhf®. mt® fhy¤âY« gy\ntifahd fšbt£LfŸ ïUªjjhf¡ Tw¥gL»‹wJ. gâdh‹F ghiw fšbt£LfŸ,\nfÈ§f ghiw fšbt£LfŸ, áW ghiw fšbt£LfŸ, VG ö© fšbt£LfŸ, áW\nö© fšbt£LfŸ vd ïUªjd. ïâš gâdh‹F ghiw fšbt£LfŸ Äfî« áw¥ò\nthŒªjit vd¡ Tw¥gL»‹wJ. k‹d® k¡fËl« Miz ãw¥ã¡f ï¡fšbt£L\nvG¤Jfis¥ ga‹gL¤âdh®.\nFiffËY« fšbt£L vG¤JfŸ f©Lão¡f¥g£ld.\ngy® mit ahî« jÄœ vG¤Jfns v‹»‹wd®.\nvG¤JfË‹ tot« ntWg£lhY«, bghUŸ ntWg£lhY«\nïit ahî« gHªjÄG¡F¢ rh‹whfnt âfœ»‹wd.\n158\nghl«\n2\nfšbt£L vG¤JfŸ\nthá¤J m¿f.\njŠir bgÇa nfhÉš\n15\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p169]\n159\nnrhH® fhy¤âš jÄiH m¿í« bghU£L gy fšbt£L vG¤JfŸ\nngUjÉahf ïUªjd. nrhH® fhy¡ fšbt£LfËš tlbkhÊ¢ brh‰fŸ jÄHh¡f«\nbrŒa¥g£oUªjd.\nãwbkhÊÆš cŸs fšbt£LfS« jÄœbkhÊÆ‹\ntuyh‰iw m¿a JizòÇªjd. jÄœbkhÊÆš\nngRgt®fŸ ãw gFâfËY« br‹W thœªJ gHF«\nïašig¥ bg‰¿Uªjd® v‹gij ïj‹ _y« m¿a\nKo»wJ.\njÄœbkhÊÆ‹ tuyh‰iw m¿a fšbt£L\nvG¤JfŸ k£LÄ‹¿¢ br¥ngLfS« Jiz\nÃ‰»‹wd. br«ãdhš Md jfLfËš\nbgh¿¡f¥g£l vG¤Jfisna\nbr¥ngLfŸ v‹»‹wd®. gšyt® M£á¡ fhy«\nKjyhf¢ br¥ngLfŸ Ãiwant »il¡f¥\nbg‰wd. br¥ngLfŸ jÄœbkhÊ v›thW\nvGj¥g£oUªjJ v‹gij m¿tj‰F¥\nbgÇJ« JizòÇªjd.\n159\n2.3.5\n• bkhÊ bjhl®ghd ciueil¥ gFâia thá¤J¡ fU¤Jz® nfŸÉfS¡F¥\ngâyË¥g®.\n15\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p170]\n160\nthá¤J bjhl®ªJ tU« Édh¡fS¡F Éil TWf.\nthá¤J bjhl®ªJ tU« Édh¡fS¡F Éil TWf.\nRaRÇij vGJ»wtU¡F ïu©L bgUikfŸ\nnt©L«. x‹W, mij vGJ«nghJ mtÇ‹ òfœ\nX§» Ã‰f nt©L«. ïu©L, mtÇ‹ thœÉš\nÉa¡f¤j¡f rhjidfŸ ÃfœªâU¡f nt©L«.\nïªj ïu©L« ïUªjhš mtÇ‹ tuyh‰iw¥\ngo¥gj‰F¢ áyng® »il¥gh®fŸ. vdJ tuyhW\nxU bgÇa muáaš jiytÅ‹ tuyhWkšy;\nxU khbgU« fÉPÅ‹ fhÉa thœ¡ifíkšy.\nthœ¡if tÊ¥ngh¡f‹ xUtÅ‹ ca®î jhœîfns\nïªüš. ïâš, eh‹ ãwªj fij brhšyÉšiy.\nm¥gobah‹W« eh‹ uh#nghf¤ânyh, bfhoa\nVœikÆnyh ts®¡f¥glÉšiy.\n1. RarÇijia vGJtbj‹whš vGj¥gL« eg® v›thwhd jFâfis¥ bg‰¿U¡f\nnt©L« v‹W fÉP® TW»wh®?\n2. fÉP® f©zjhrid¥ g‰¿ ckJ fU¤bj‹d?\n3. jÄœbkhÊÆ‹ ts®¢á¡F¡ fÉP® f©zjhr‹ M‰¿a g§»id És¡Ff.\n1. fšbt£LfŸ v‹whš v‹d?\n2. fšbt£LfŸ vj‰fhf cUth¡f¥g£ld?\n3. br¥ngLfis¥ g‰¿ Ú v‹d m¿ªJ bfhŸs Ko»‹wJ?\n4. fšbt£LfŸ j‰fhy kÅj®fS¡F v›thW JizòÇ»‹wJ?\n5. gHªjÄG¡F¢ rh‹whf¡ fšbt£LfŸ âfœ»‹wd vD« fU¤ij És¡Ff.\n1\nïLgÂ\n1\n1\nïLgÂ\n2\nfÉauR f©zjhr‹\nv‹id EQFf\n15\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p171]\n161\njÄœbkhÊ Äfî« bjh‹ikahd bkhÊ. ïjid¡ fšbt£LfS« br¥ngLfS«\nbkŒ¥ã¡»‹wd. g©ila jÄH®fŸ jÄœbkhÊÆ‹ÛJ ÄFªj g‰WŸst®fshf\nïUªjd®; jÄiH neá¤jd®; jÄœ ïÅikahdJ v‹gij cz®ªâUªjd®.\njÄœbkhÊ giHikahdJ v‹whY« v‹W« ïsiknahL f‹Å¤ jÄHhf\ncyh tªJ bfh©oU¡»‹wJ. v£L¤ bjhif, g¤J¥gh£L, I«bgU§fh¥ãa§fŸ,\nÚâ üšfŸ, âU¡FwŸ, ãugªj§fŸ, g¡â ïy¡»a§fŸ KjÈa Vuhskhd\nïy¡»a¢ bršt§fSilaJ ekJ igªjÄœ.\njÄœbkhÊ brhš ts« ÄFªjJ. ekJ K‹ndh® e« jhŒbkhÊah«\njÄœbkhÊia ïa‰wÄœ, ïir¤jÄœ, ehlf¤jÄœ vd _‹whf¥ gF¤J¥\nbgh‹nghy¥ ngh‰¿ ts®¤J¡ fh¤J tªjd®. mÄœâD« nkyhd ÔªjÄiH\nïUÉÊfis¥ nghy¥ ghJfh¥gJ x›bthU jÄHÇ‹ flikahF«. bkhÊ\nmÊªjhš mªj bkhÊ¡FÇa ïd« mÊªJÉL«. mjdhš, mL¤J tU« ïisa\njiyKiwÆdU¡F e«Kila bkhÊia¥ ghJfh¤J it¥gJ e« flikahF«.\nvdnt, eh« jhŒbkhÊÆš ngRnth«; e« ãŸisfS¡F¤ jÄœbkhÊÆ‹\náw¥ig vL¤J¡ TWnth«. jÄGz®it x›bthUtÇ‹ kd¤âY« Éij¥ngh«;\ne«Kila ãŸisfis¤ jÄœ¥gŸËfS¡F mD¥ònth«; jÄiHí«\njÄœ¥gŸËfisí« fh¥ngh«. jÄœbkhÊÆš ngr¤ ja§Fgt®fS¡F«\njÄœ¥gŸËia¥ òw¡fÂ¥gt®fS¡F« jÄÊ‹ nk‹ikia cz®¤Jnth«.\njÄH®fis thH it¡F« áw¥ig nknyh§f¢ brŒtij ekJ jiyaha\nflikahf¡ bfhŸnth«. jÄÊ‹ ïÅikia m¿ahjt®fS¡F, ‘ahk¿ªj\nbkhÊfËny jÄœbkhÊ nghš ïÅjhtJ v§F« fhnzh«’ v‹W ghoa R¥ukÂa\nghuâahiuí«, ‘jÄG¡F mKbj‹W ng®’ v‹W ghoa ghuâjhridí«\nÛ©L« Ãidñ£Lnth«.\nt©zÄl¥g£l brh‰fS¡F¥ bghUŸ TWf; vGJf.\n1. jÄœbkhÊÆ‹ bjh‹ikia És¡F« rh‹WfŸ ahit?\n2. ‘bkhÊ mÊªjhš, mªj bkhÊ¡FÇa ïd« mÊªJÉL«’ v‹W\nTw¥gLtij És¡Ff.\n3. jÄœbkhÊ mÊahkš v›thW fh¡fyh« v‹gij¥ g£oaÈLf.\n4. jÄœ¥gŸËfis¥ òw¡fÂ¥gt®fS¡F Ú TW« m¿îiu v‹d?\n5. jÄGz®it¤ jÄH®fË‹ cŸs¤âš v›thW Éij¡fyh«\nv‹gij¥ gÇªJiu¤âLf.\ngDtiy thá¤J Édh¡fS¡F Éil TWf; vGJf.\n1\nïLgÂ\n3\n1\nïLgÂ\n4\n15\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p172]\n• 160 brh‰fËš mYtš foj« vGJt®.\n3.4.9\nghl«\n3\nbkhÊ¡ fHf«\nthá¤J m¿f.\nckJ gŸËÆ‹ jÄœbkhÊ¡ fHf« thá¥ò thu¤ij K‹Å£L kyhah¥\ngšfiy¡fHf¤â‹ jÄœ üyf¤â‰F¡ fšÉ¢ R‰Wyh x‹wid nk‰bfhŸs V‰ghL\nbrŒJŸsJ. jÄœbkhÊ¡ fHf¤â‹ brayhs® vD« KiwÆš ï¢R‰Wyhit\nnk‰bfhŸs üyf¥ bghW¥ghsU¡F 160 brh‰fËš xU É©z¥g¡ foj« vGJf.\nfoj mik¥ò Kiw\nR‰WyhÉ‹ neh¡f«\nüyf¤âdÇl« c§fË‹\nnfhÇ¡if\nR‰WyhÉ‹ Étu§fŸ\nvâ®gh®¥ò\nmD¥òe® KftÇ\nbgWe® KftÇ\nnjâ\nï¥go¡F\nbga®\nifbah¥g«\ngjÉ\nfHf«\ngŸËÆ‹ bga®\nÉË¥ò\njiy¥ò\nfoj¤â‹\nneh¡f«\nfU¤J\n2.\n3.\n4.\nnt©LnfhŸ\n162\nKoî\n• 160 brh‰fËš mYtš foj« vGJt®.\n3.4.9\n15\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p173]\n163\nïilÃiy¥gŸËÆš\njÄœbkhÊ¡ fHf¤â‹\nkhj ïjœ btËÆLtj‹\nmtáa«.\nkhzt®fË‹\ngil¥òfis btËÆLjš,\nm§ÑfÇ¤jš.\nò¤jh¡f¢ áªjid,\nM¡ffukhd áªjid\ncUth¡Fjš.\nkhzt®fŸ khj ïjœ\nbtËÆl M®t« fh£Ljš.\ngŸËÆ‹ bgaiu¥\nòfœbgw¢ brŒjš.\njÄœbkhÊ MáÇa®fŸ\ntÊfh£l¤ jahuhf\nïU¤jš.\nkhzt®fËilna\nx‰Wikiaí«\nòÇªJz®ití« V‰gL¤Jjš.\njÄiH ts®¡F« Ka‰á.\nbtËÆš jÄœ\nM®ty®fË‹\nnt©LnfhŸ.\nïilÃiy¥gŸËÆš jÄœbkhÊ¡ fHf¤â‹ V‰gh£oš jÄœ khj ïjœ btËÆl¤\nâ£lÄ£LŸç®. bfhL¡f¥g£LŸs F¿¥òfis¡ bfh©L jÄœ khj ïjœ\nbtËp£o‹ mtáa« F¿¤J¤ jÄœbkhÊ¡ fHf¢ brayhs® v‹w KiwÆš gŸË\nKjštÇl« mDkâ nf£L 160 brh‰fËš xU foj« vGJf.\nbfhL¡f¥g£l F¿¥òfis¥ ga‹gL¤â kht£l¡ fšÉ mâfhÇ¡F X® mYtš foj«\nvGJf.\nbkhÊÉHh âw¥ò ÉHh\ngŸË k©lg¤âš\neilbgW« Ãfœ¢á\nkht£l¡ fšÉ mâfhÇia¤\nâw¥òÉHhit Ãiwî\nbrŒa miH¤jš\nbkhÊÉHh tUlhªâu Ãfœ¢á\nehŸ, neu«, ïl«\nkhzt®fËl¤âš\nbkhÊ¥g‰iw tY¥gL¤J«\nÃfœ¢á\n1\nïLgÂ\n1\n1\nïLgÂ\n2\n15\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p174]\n1\nïLgÂ\n3\nfšÉ¢\nR‰Wyh\nngh¡Ftu¤J\nkhzt®\nnjâ, neu«\nMáÇa®fŸ\nV‰ghL -\ntuyh‰W¡ fHf«\ng§nf‰ghs®fË‹\nv©Â¡if\nR‰WyhÉ‹\nneh¡f«\ntuyh‰W¡ fHf«,\nbr«gh¡fh ïilÃiy¥gŸË,\n31350 <¥ngh,\nnguh¡.\njiyik mâfhÇ,\nnjáa mU§fh£áaf«,\n52500 nfhyhy«ó®. 24 m¡nlhg® 20\nIah,\nmU§fh£áaf¡ fšÉ¢ R‰Wyh\ntz¡f«, v§fŸ gŸËÆš tuyh‰W¡ fHf khzt®fŸ mU§fh£áaf¤â‰F¡\nfšÉ¢ R‰Wyh nk‰bfhŸs¤ â£lÄ£LŸsd®. eh§fŸ ï¢R‰Wyhit vâ®tU«\n16 et«g® 20 ïš nk‰bfhŸsÉU¡»nwh«...\nã‹tU« F¿¥òfË‹ Jizíl‹ bfhL¡f¥g£LŸs mYtš foj¤ij¤\nbjhl®ªJ vGJf.\n164\n15\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p175]\nv‹ jh¤jhití« gh£oiaí« eh‹ neá¡»nw‹. v‹ gh£o Äfî« m‹ghdt®. R¤j¤ij¥\nngQgt®. x›bthU ehS« fhiyÆš My§ F¢áÆY« nt¥g§ F¢áÆY« gš Jy¡Ftij\ntH¡fkhf¡ bfh©lt®. ïa‰if¥ bghUŸfËš gš Jy¡»dhš gš cWâahf ïU¡F«\nv‹W mt® mo¡fo TWth®.\nv‹ jh¤jh xU jÄœ¥ òyt®. jÄœ ïy¡fz¤ijí« ïy¡»a¤ijí« fiu¤J¡\nFo¤J it¤âU¡»‹wh®. jÄœ¢ brh‰fis¤ bjËthf c¢rÇ¥gh®. mt® ãwUl‹ ngR«\nnghJ« nkil¥ ng¢Rfis Ãfœ¤J« nghJ« ehyoahÇ‹ ghlšfisí« âU¡Fwisí«\nâw«gl¡ T¿¥ ghuh£Lfis¥ bgWth®. v‹ jh¤jhití« gh£oiaí« gh®¡F«nghJ\nvd¡F MáÇa® brhšÈ¡ bfhL¤j MY« ntY« gšY¡FWâ ehY« ïu©L«\nbrhšY¡FWâ v‹w gHbkhÊjh‹ Ãidî¡F tU»‹wJ.\nv‹ m¥gh j‹d«ã¡ifí« JÂî« Ä¡ft®. mtUila mauhj Ka‰áahš\nï‹W v§fŸ FL«g« k»œ¢áahf ïU¡»‹wJ. ciH¥ò x‹nw\nbt‰¿¡F _yjd« v‹W TWth®. bt‰¿ åL njo tU« v‹W\nbtWknd ïU¡fkh£lh®. kªâu¤jhš kh§fhŒ ÉGªâLkh?\nv‹W mo¡fo TWth®. »il¡»‹w neu¤âš mÇa\nfhÇa§fis¢ brŒí«go v§fis¥ gÂ¥gh®. ïsik¡\nfhy¤âš nrh«ã¤ âÇa¡TlhJ v‹W mo¡fo tÈíW¤Jth®.\nnkY«, áWtaâš Ka‰á brŒahkš ïU¥gt®fŸ KJikÆš\nmšyšgl neÇL«, tWik NœªâL« v‹W ‘ïsikÆ‰ nrh«gš\nKJikÆš Äoik’ vd m¿îW¤Jth®. v‹ m¥ghit Ãid¤J\neh‹ bgUik¥gL»‹nw‹.\n• ïu©lh« got¤â‰fhd gHbkhÊfisí« mt‰¿‹ bghUisí« m¿ªJ\nrÇahf¥ ga‹gL¤Jt®.\n4.7.2\nghl«\n4\nbrŒíS« bkhÊaÂí«\ngHbkhÊfisí« bghUisí« m¿f.\ngHbkhÊí« bghUS«\n• MY« ntY« gšY¡FWâ ehY« ïu©L« brhšY¡FWâ\n- Myku, nt¥gku F¢áia¡ bfh©L gš Jy¡»dhš gš cWâahf ïU¡F«.\neh‹fo bfh©l ehyoahiuí« ïu©lo bfh©l âU¡Fwisí«\ne‹KiwÆš Xâdhš brhšt‹ik bgUF«.\n• kªâu¤jhš kh§fhŒ ÉGªâLkh?\n- thœ¡ifÆš eh« Ãid¤jij mila gšntW Ka‰áfis nk‰bfhŸs\nnt©L«.\n• ïsikÆ‰ nrh«gš KJikÆš Äoik\n- ïsikÆš nrh«gš bfh©L ciH¡fhkš ïUªjhš, KJikÆš\ntWikÆš thl neÇL«.\n165\n15\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p176]\n166\ngHbkhÊfisí« mt‰¿‹ bghUisí« kdd« brŒJ TWf; vGJf.\ngHbkhÊ bjhl®ghd Édh¡fS¡F¥ gâš TWf.\nVnjD« xU gHbkhÊ¡F V‰w NHš fijia¡ TWf; vGJf.\ngHbkhÊia Ãiwî brŒf.\n1. MY« ntY«\n.\n2.\nÉGªâLkh?\n3.\nnrh«gš\nÄoik.\nm. MykuK« nt¥gkuK« kÅj®fS¡F v›thW ga‹gL»‹wd v‹gij vGJf.\nM. ehyoahU¡F« âU¡FwS¡F« ïilna cŸs x‰Wikfis¡ F¿¥ãLf.\nï. kªâu¤jhš kh§fhŒ ÉGªâLkh? vD« gHbkhÊÆÈUªJ Ú v‹d m¿ªJ\nbfhŸ»‹whŒ?\n<. ïsikÆš nrh«gyhf ïU¥gt®fŸ KJikÆš v›thwhd J‹g§fis\nmDgÉ¥gh®fŸ v‹gij¥ g£oaÈLf.\nMyku«\nnt¥gku«\n1\nïLgÂ\n1\n1\nïLgÂ\n2\nts¥gL¤Jjš\nFiwÚ¡fš\ni)\nii)\niii)\niv)\n15\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p177]\n167\n• xU bghUis¥ g‰¿ ÉtÇ¤J¡ TWt®.\n1.4.4\nfyªJiuahLf.\nòÉÆaY« m¿P®fS«\nbjhFâ 16\nghl«\n1\nekJ óÄ\n\n[Bahasa Tamil Tingkatan 2.pdf p178]\n168\nnfhSU (Globe) g‰¿ ÉtÇ¤J¡ TWf.\nÃy mâ®it ms¡F« fUÉia¥ (Richter) g‰¿ ÉtÇ¤J¡ TWf.\nóÄÆ‹ fh‰W k©ly mG¤j¤ij ms¡F«\nfUÉia¥ g‰¿ ÉtÇ¤J¡ TWf.\n1\nïLgÂ\n1\n1\nïLgÂ\n2\n1\nïLgÂ\n3\nm¿ªJ bfhŸf\nghjur bt¥gkhÅ\n• clš bt¥gÃiyia ms¡f¥\nga‹gL« fUÉ.\n• nlÅaš nf¥Çaš ~bgu©iA£\nv‹gtuhš cUth¡f¥g£lJ.\n• f©zho¡nfhš tot¤âš\nïU¡F«.\n• ghjur« mil¡f¥g£oU¡F«.\n• btË¥òw bt¥g Ãiy¡F V‰g\nghjur« nkY« ÑGkhfî«, ÉÇªJ«\nRU§»í« nghF«\n• nfh£lsî¡F V‰g bt¥gÃiy\nms¡f¥gL«.\n16\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p179]\n169\neåd ïa‰ãaY¡F mo¤jsÄ£l Äf K¡»a ÉŠPhÅfSŸ\nÉšÈa« bfšÉ‹ (1824 - 1907) v‹gtU« xUtuhth®.\nï§»yhªij¢ nr®ªj bfšÉ‹ j« bgaU¡F¥ ã‹dhš\nmâf g£l§fis¢ nr®¤J¡ bfh©lt® v‹w bgUik\nc©L. Vbd‹whš, Inuh¥ãa¥ gšfiy¡ fHf§fŸ gyî«\nbfšÉÅ‹ MŒîfis¥ ngh‰¿ mtU¡F¥ ngh£o ngh£L¡\nbfh©L g£l§fis tH§»d. yh®L g£lK« mtU¡F\ntH§»¡ bfsuÉ¡f¥g£lJ. yh®L bfšÉ‹jh‹ Kj‹KjÈš\nóÄÆ‹ taij¡ fz¡»£lt®. mj‰F mt® j£gbt¥g\nkh‰w¤ij mo¥gilahf¡ bfh©lh®. vdnt, mtUila\nbgaÇnyna ‘o»Ç bfšÉ‹’ v‹W ï‹Wtiu j£gbt¥g\nÃiyfŸ ms¡f¥gL»‹wd.\nÉšÈa« bfšÉ‹\nWilliam Kelvin\nthí¡fis¥ g‰¿ eh« ï‹W m¿ªjt‰W¡F¤ jªijahf\nÉs§Fgt® ma®yhªij¢ nr®ªj uhg®£ ghaš (1627 - 1691)\nghaš nfh£ghL (Boyle’s Law) v‹w nfh£gh£oid tH§»¥\nòfœbg‰wh®. thíÉ‹ mG¤j¤â‰F« bfhŸssî¡F«\nbt¥g¤â‰F« beU§»a bjhl®ò c©L v‹gij¤ jkJ\nMuhŒ¢áÆš És¡»dh®; brašgL¤â¡ fh£odh®.\nïªj _‹W m¿Éaš m¿P®fS« j§fsJ\nrka¤ijí« kj¤ijí« ngh‰¿ mt‰WŸ ÄFªj <LghL\nfh£oíŸsd® v‹gJ F¿¥ãl¤j¡fJ.\n_y«: ca® Phd Ôg«\n(br¥l«g® 2016)\nuhg®£ ghaš\nRobert Boyle\nghÞfš v‹w bga® fÂj¤âš ï‹W« Äf¥ ãugykhd\nx‹whf És§F»‹wJ. ãisá ghÞfš (1623 - 1662) ãbuŠR\neh£il¢ nr®ªj xU fÂj tšYe®, ïa‰ãaš tšYe®,\nj¤Jt nkij k‰W« vG¤jhs® Mth®. ‘Ínahbk£Ç’\nvd¥gL« toÉaÈš ghÞfš gy g§fË¥òfis¢\nbrŒJŸsh®. r«gt¤j‹ik (Probability) v‹w go¥ãY«\ngy mÇa És¡f§fis m¿Kf¥gL¤âíŸsh®. nkY«,\nfÂ¥bgh¿ (Calculator) vD« fz¡»aš fUÉiaí«\ncUth¡»íŸsh®. ghÞfš fh‰W, bt‰¿l« M»at‰iw¥\ng‰¿í« m¿a K‰g£lh® v‹gJ F¿¥ãl¤j¡fJ.\nãisá ghÞfš\nBlaise Pascal\n• m¿Éaš bjhl®ghd ciueil¥ gFâia thá¤J¡ fU¤Jz®\nnfŸÉfS¡F¥ gâyË¥g®.\n2.3.6\nghl«\n2\nm¿Éaš m¿P®fŸ\nthá¤J m¿f.\n16\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p180]\n170\nÉdh¡fS¡F Éil TWf.\n1. ïa‰ãaš JiwÆš ÉšÈa« bfšÉÅ‹ rhjid ahJ?\n2. ãisá ghÞfš m¿Éaš cyf¤â‰F M‰¿a g§fË¥ãid¡ TWf; vGJf.\n3. ghaš nfh£ghL vjid cz®¤J»‹wJ?\n4. _‹W m¿P®fSŸ c‹id¡ ft®ªjt® ah®? V‹?\nóÄÆš cŸs kiyfis eh‹F tifahf¥ ãÇ¡fyh«. mit\nko¥ò kiyfŸ, jL¥ò kiyfŸ, vÇkiyfŸ, áijî kiyfŸ\nvd¥gL«. ko¥ò kiyfŸ v‹gd, óÄÆ‹ mG¤j¤âdhš\ntisªJ, koªJ cUthditahF«. óÄÆ‹ òuÂ¥gFâÆš\nV‰gL« mG¤j¤jhš x‹¿‹ ÛJ x‹whf mL¡FfŸ njh‹W«.\njL¥ò kiyfŸ v‹gd óÄÆš ÉGªj ÉÇrš mšyJ\nÑwšfis x£oa gFâfŸ br§F¤jhf cÆ®¤bjGtj‹\nÉisthf¤ njh‹¿ait. ïUg¡fK« jhœªj ãunjr§fis¡\nbfh©L k¤âÆš ca®ªJ fhz¥gL« Ãy¥gFâna\njL¥ò kiyah»wJ.\nòÉ¡foÆš cU»a ÃiyÆYŸs ghiw¡FH«ò,\nj¥ã¥ òÉÆ‹ nk‰gu¥ò¡F tUtjhš V‰gLtJ vÇkiy.\nvÇkiyfŸ v‹gd FK¿ bto¡F« c£ghiw¡ FH«òfŸ\ntÊªJ, R‰W¥òw§fËš goªJa®ªJ bf£oahtjhš\nvÇkiy¡F‹WfŸ vG»‹wd. mt‰¿‹ T«ãa c¢áÆš thŒ\nnghš t£l¡FÊî x‹W« fhz¥gL«. #¥gh‹, ïªnjhndáah\nï¤jhÈ ngh‹w ehLfËš vÇkiyfŸ cŸsd.\náy kiyfŸ gUt kh‰w§fshš áijî©L,\nMWfËdhš mÇ¡f¥g£L¤ njŒªJ btW« nk£L Ãykhf\nk£L« fhz¥gL«. ïitna áijî kiyfŸ vd¥gL»‹wd.\nÉdh¡fS¡F Éil vGJf.\n1. kiyfË‹ tiffŸ ahit?\n2. vÇkiyfŸ bto¥gjdhš V‰gL« ÉisîfŸ ahit?\n3. cd¡F¤ bjÇªj áy kiyfË‹ bga®fisí« mt‰¿‹ Éj« g‰¿í« vGJf.\nthá¤J¡ fU¤Jz® nfŸÉfS¡F Éil vGJf.\n1\nïLgÂ\n1\n1\nïLgÂ\n2\nko¥ò kiy\njL¥ò kiy\nvÇkiy\náijî kiy\n16\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p181]\n171\nm¿Éaš m¿P®fSŸ xUtiu¤ bjÇî brŒJ mtiu¥ g‰¿a F¿¥òfis¤ âu£o\ntF¥ãš ÉtÇ¤âLf.\nfÈÈnah fÈÈ\n(1564 - 1642)\nGalileo Galilei\nik¡nfš ~guhnl\n(1791 - 1867)\nMichael Faraday\nÿÆÞ ghÞl®\n(1822- 1895)\nLouis Pasteur\ngDtiy thá¤J Édh¡fS¡F Éil TWf.\nm¿Éaš nkij jhkÞ Mšth vor‹\nkhj¤â‰F ïu©L f©Lão¥òfŸ åj« 40\nM©LfËš bjhl®ªJ 1093 òâa bghUŸfis¡\nf©Lão¤J mt‰W¡fhd f©Lão¥ò\ncÇikiaí« bg‰wh®. cy»š ntW vªj¡\nf©Lão¥ghsU¡F« ï¤jifa bgUik ïšiy.\nÄ‹És¡F, òif¥gl¡ fUÉ, xÈ¥bgU¡»,\nxÈ¥gâî ehlh ngh‹w f©Lão¥òfŸ ï‹iwa\neåd thœî¡F c‰w JizòÇ»‹wd v‹gij\nahU« kW¤âl ïayhJ. Rakhf¡ fšÉ f‰W\nK‹nd¿a ïªj nkij ÉlhKa‰á, j‹d«ã¡if,\nmŠrh beŠr« ngh‹w e‰g©òfis¡\nfil¥ão¤jjhšjh‹ ï‹W cyf« ngh‰W«\nrhjidahsuhf¤ âfœ»‹wh®.\n1. jhkÞ Mšth vorÅ‹ rhjidfis¡ TWf.\n2. jhkÞ Mšth vor‹ fil¥ão¤j g©òfŸ\nahit?\nts¥gL¤Jjš\nFiwÚ¡fš\njhk° Mšth vor‹\n(1847- 1931)\nThomas Alva Edison\n16\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p182]\n172\ngŠrój§fns cyif ïa¡F»‹wd. ïiwt‹\ngil¤j mÇa tukhf ïjid khªj‹ fUj\nnt©L«. gŠr ój§fSŸ x‹Wjh‹ fh‰W. fh‰iw\ne«khš czu Koínk jÉu gh®¡f KoahJ.\nfh‰W¡F Ãw«, cUt«, Rit »ilahJ. Mdhš,\nbt‰¿l¤ij Ãu¥gtšyJ fh‰W v‹gij eh« m¿a\nnt©L«. kÅj®fS« ÄUf§fS« jhtu§fS«\nRthá¥gj‰F¡ fh‰nw bgU« g§fh‰¿ tU»‹wJ.\nkÅj®fS« ÄUf§fS« cÆ®tËia cŸns\nRthá¤J¡ fÇtËia btËna ÉL»‹wd®.\njhtu§fnsh ïj‰F ne®khwhf¡ fÇtËia¢\nRthá¤J cÆ®tËia btËah¡F»‹wd.\nfh‰W cÆÇd§fS¡F Äfî« mtáa«\nv‹gij eh« czu Ko»‹wJ. ï‹W m¿Éaš\nts®¢áailªJŸsJ. Mdhš, fh‰¿‹ öŒik¤\nju« FiwªJ tU»‹wJ. ïªÃiy khw nt©L«.\neh« Rthá¡F« fh‰iw neá¡f kW¤jhš ek¡F¤\nJ‹gnk »il¡f¥ bgW«.\ngDtÈš t©zÄl¥g£l ufu, wfu¢ brh‰fis¥ bghUŸ ntWghL És§f\nth¡»a¤âš mik¤J¡ fh£Lf.\nm\nM\nMÆu¡fz¡fhd »nyhth£ Ä‹r¡â óÄÆš caukhd\nbghUSl‹ md‰bgh¿ mo¡F«nghJ ghí« Ä‹rhu«jh‹\nïo. ïu©L nkf§fS¡»ilna cŸs Ä‹rhu« XusÉ‰F\nnkš nr®ªJ nghŒ bgh¿ mo¥gJjh‹ Ä‹dš. mJ\ntisªJ beËªJ njh‹w¡ fhuz« <u«, öR, cÆ®tË,\nfÇtË M»a thí¡fË‹ fyit M§fh§nf ntWg£L\nÃ‰gJjh‹. ïoí« Ä‹dY« tË k©ly¤â‹ fLikahd\nFH¥g m¿F¿fŸ v‹whš mJ ÄifahfhJ.\n• ufu, wfu¥ bghUŸ ntWghL És§f th¡»a« mik¥g®.\n3.1.3\nghl«\n3\nneá¥ngh« Rthá¥ngh«\nthá¤J vGJf.\n1\nïLgÂ\n1\n16\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p183]\n173\nufu, wfu¢ brh‰fË‹ bghUŸ ntWghL És§f th¡»a¤âš mik¤âLf.\nbrh‰FÉaÈš kiwªJŸs ufu, wfu¢ brh‰fis milahs§f©L, bghUŸ\nntWghL És§f th¡»a« mik¤âLf.\nmÇ - m¿\nfÇ - f¿\nciu - ciw\ncÇ - c¿\nbjÇ - bj¿\nmiu - miw\nf\nr\nm\nã\nj\nâ\nk\nF\ng\n«\nm\nk\nâ\nî\nu\n‹\nbgh\nk\nK\n«\nÇ\nu\nJ\n¿\nf\nk\nK\nc\nF\nl\nc\n¿\no\nF\n¿\nÉ\ng\nU\n©\nbgh\nf\nî\nR\nâ\niu\nF\nÇ\nL\nF\nw\nJ\nt\nò\nm\n«\no\nâ\nt\nF\nÑ\niu\n‹\nw\nÇ\n1)\n3)\n5)\n7)\n9)\n2)\n4)\n6)\n8)\n10)\nmfuhâÆ‹ Jizíl‹ brh‰fS¡F V‰w bghUis vGJf.\nmUF -\nmWF -\nfUÉ -\nfWÉ -\nFU -\nFW -\nxU -\nxW -\nmuî -\nmwî -\nnfhuš -\nnfhwš -\nMáÇa®\nx‹W\ng¡f«\nMíj«\ngh«ò\nÉU«òjš\nbfhšYjš\nF£ilahd\nj©o\nnfhã¤J\nÚ¡f«\nxUtif¥ òš\n1\nïLgÂ\n2\n1\nïLgÂ\n3\n1\nïLgÂ\n4\n16\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p184]\n174\nâir¢brh‰fŸ\n• gy âirfËÈUªJ jÄœbkhÊÆš tªJ fyªj ãw bkhÊ¢ brh‰fŸ\nâir¢brh‰fŸ vd¥gL«.\n• ïa‰brhš, âir¢brhš, âÇbrhš, tlbrhš m¿ªJ rÇahf¥ ga‹gL¤Jt®.\n5.2.4\nghl«\n4\nïy¡fz«\ntlbrhš, âir¢brhš m¿f.\n• rk°»Uj bkhÊÆ‹ brhš jÄÊš tªJ tH§FtJ tlbrhš vd¥gL«\n• tlbrhš, tlbkhÊ¡F« jÄG¡F« cÇa bghJthd xÈfshš\njÄÊš tH§FtjhF«.\n• tlbrhš ïu©L tif¥gL«\ni) j‰rk« - tlbkhÊ¡F« jÄœbkhÊ¡F« bghJthd vG¤bjhÈfshš mikªj\ntlbrhš jÄÊš tªJ tH§FtJ j‰rk tlbrhšyhF«.\nv.fh: fky«, mDgt«, Ãaha«\nii) j‰gt«- tlbkhÊ¡FÇa áw¥bgG¤JfshY« ïU bkhÊfS¡F« cÇa bghJ\nvG¤JfshY« mikªj tlbrhš j‰gt tlbrhš. tlbrh‰fis¤\njÄÊš vGJ« bghGJ jÄÊÅik¡F V‰wthW tlbkhÊ\nvG¤JfS¡F <lhf¤ jÄbHG¤ij vGJtJ tH¡f«.\nv.fh:\nïªJÞjhÅ\nFšyh\nFÎ\nïyhfh\nghuÓf«\nmyhâ\nf«Ä\n»Þâ\nngh®¤J¡Ñáa«\nmykhÇ\nrhÉ\n#‹dš\nbjY§F\nm¥g£l«\nMÞâ\nbf£oahf\nv.fh:\nM§»y«\nbg‹áš\nla®\nngdh\nf‹dl«\nm¡flh\nm¡fiw\nnfhru«\nmuò\nmã‹\ngh¡»\nMg¤J\n• tUõ« - tUl«\n• #y« - ry«\n• ÉthA« - Éthf«\n• Ûdhø- Ûdh£á • ADk‹- mDk‹\ntlbrhš\n16\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p185]\n175\ntlbrh‰fis¤ j‰rk tlbrhš j‰gt tlbrhš vd tif¥gL¤â vGJf.\nFZl«\nrKjha«\nrf#«\nAÇAu‹\nnfh¤âu«\nrgj«\nfšahz«\n#ynjhõ«\n»uf«\nrÛg«\nnfhZo\nrk¤Jt«\nrªnjf«\nÓnjhZz«\nrªnjhõ«\nrhj«\nâir¢brh‰fis¡ bfh©L th¡»a« mik¤âLf.\n1. m©lh\n2. Mg¤J\n3. ruhrÇ\n4. ãÇahÂ\n5. thÇR\n6. m¡fiw\n7. bg‹áš\n8. ïyhfh\n9. #‹dš\ntlbrhšiyí« âir¢brhšiyí« cUth¡Ff; tif¥gL¤â vGJf.\ntlbrhš\nj‰rk«\nj‰gt«\ntlbrh‰fis¡ bfh©L th¡»a« mik¤âLf.\n1. mDgt«\n2. F§Fk«\n3. Ãaha«\n4. ói#\n5. tUl«\n6. Éõ«\n7. eZl«\n8. gŠrh§f«\n9. bgs®zÄ\nts¥gL¤Jjš\nFiwÚ¡fš\nâir¢brhš\nbjY§F\nM§»y«\nf‹dl«\nghuÓf«\nïªâ\nngh®¤JÑáa«\nmuò\n1)\n2)\n1)\n2)\n1)\n2)\n1)\n2)\n1)\n2)\n1)\n2)\n1)\n2)\n1\nïLgÂ\n1\n1\nïLgÂ\n2\n16\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p186]\n• tÊghL brŒjš\n• nt©Ljš, ne®¤â¡flid\nÃiwnt‰Wjš\n• M‹Äf¢ brh‰bghÊîfŸ\neilbgWjš\n• g‹ÅU âUKiw, ntj« XJjš\n• rh¤âu«, rÇ¤âu«, njh¤âu«\nm¿a¢ brŒjš\n• âahd«, nahf¥gÆ‰á brŒjš\n• fiy g©gh£L ÃfœîfŸ\nel¤Jjš\n• ãurhj« bgWjš\n• âUkz itgt§fŸ\nÃfœ¤Jjš\n176\nfyªJiuahLf.\nïiwaUŸ bgWnth«\nbjhFâ 17\nghl«\n1\ntÊgh£L¤jy§fŸ\n• bjhGifíiu M‰Wjš\n• bjhGifÆš <LgLjš\n• âU¡F®M‹ XJjš\n• òÅj¥ gaz¥ gÆ‰áfŸ\n• bjuhnt bjhGif\n• #fh¤ ÃâÆš ViHfS¡F cjîjš\n• neh‹ò fŠá tH§Fjš\n\n[Bahasa Tamil Tingkatan 2.pdf p187]\n• ãuh®¤jid brŒjš\n• ÉÉÈa« (igãš) thá¤jš\n• ghtk‹Å¥ò tH§Fjš\n• Phd°ehd« bfhL¤jš\n• ÉUªnjh«gš\n• âUkz itgt§fŸ Ãfœ¤Jjš\n• tÊghL brŒjš\n• r‰r§f« brŒjš\n• m‹djhd« tH§Fjš\n• g©gh£L Ãfœ¢áfŸ el¤Jjš\n• âahd« brŒjš\n• fiyfis¡ f‰W¤ jUjš\n• jftšfis ÉtÇ¤J¡ TWt®.\n1.4.3\n177\n\n[Bahasa Tamil Tingkatan 2.pdf p188]\n178\ntÊgh£L¤ jy§fis¥ g‰¿í« m§F eilbgW« brašghLfis¥ g‰¿í«\nÉtÇ¤J¡ TWf.\nãuh®¤jidahš V‰gL« ga‹fis¥ g‰¿a jftšfis ÉtÇ¤J¡ TWf.\nã‹tU« brašghLfË‹ neh¡f§fis ÉtÇ¤J¡ TWf.\nãuh®¤jidÆ‹\nga‹fŸ\nkÅjÅ‹ Raf£L¥gh£L¤\nâw‹ mâfÇ¡»wJ.\nkÅj‹ clyhY«\ncŸs¤jhY« öŒik¤\nj‹ik mila Ko»‹wJ.\nk‹Å¡f¡Toa j‹ik\nmâfÇ¡»‹wJ\nkd mG¤j«, kd cis¢rš\nngh‹w beU¡FjÈš ïUªJ\nÉLgl¢ brŒ»‹wJ.\nkÅj kd¤âš ïiwt‹\nÛjhd e«ã¡if\ntYtil»‹wJ.\n_y«: J§Ñr« (2017)\nfhto vL¤jš\nnahf¥ gÆ‰á\nâahd« brŒjš\nfU«ò¤ bjh£oš\nö¡Fjš\nm®¢rid brŒjš\nghš Fl« VªJjš\n1\nïLgÂ\n1\n1\nïLgÂ\n2\n1\nïLgÂ\n3\n17\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p189]\nm‹ã‰»Åa mit¤ jiyt® mt®fns, m¿îrhš gŸË Kjšt®\nmt®fns, MáÇa¥ bgUªjifÆdnu, khzt e©g®fns c§fŸ\nmidtU¡F« v‹Dila ïÅa tz¡f¤ij cÇajh¡»¡\nbfhŸ»‹nw‹. ‘m‹ng flîŸ’ vD« jiy¥ãš c§fŸ K‹\nciuah‰w tªJŸns‹.\nm‹gh®ªj tUifahs®fns,\nm‹ò v‹gJ bjŒtkhdJ v‹W eh«\nnfŸÉ¥g£oU¡»‹nwh«. ïiwt‹ m‹ghdt® v‹gij\nÉs¡fnt m›thW Tw¥g£oU¡»‹wJ. kÅj‹ v‹gt‹\nbjŒtkhfyh« v‹gij¡ nfŸÉ¥g£oU¡»Ö®fsh? ïiwtÅ‹\ngil¥gh»a kÅj‹, mªj¥ gu«bghUË‹ j‹ikia¥\nbg‰¿U¥gh‹ v‹gJ c©ikjhnd? m‹òjh‹ ï›îyif\nmHFgL¤J»‹wJ; k¡fËilna x‰Wikia tY¥gL¤J»‹wJ.\nòÇªJz®ití« ïz¡f¤ijí« cUth¡F»‹wJ. FL«g k»œ¢á¡F\nÉ¤âL»‹wJ. mid¤J cÆÇd§fisí« neá¡f tÊtF¡»‹wJ. m‹ò cŸs«\nbfh©lt®fis midtU« ÉU«òt®. Mdhš, m‹ãšyhjt®fis ahU« ÉU«g\nkh£lh®fŸ.\nmitnahnu,\nm‹ng flîŸ v‹w kf¤Jt¤ij cz®ªJ m‹òtÊÆš thœªjt®fŸ\nï‹W gyUila kd¤âš thœªJ bfh©oU¡»wh®fŸ; ngh‰w¥gL»wh®fŸ.\nâUt©zhkiy ukz®, jhŒik FzÓy® jhíkhdt®, m‹ã‹ áfu« m‹id\nbjurh, Éntf« ÄFªj RthÄ Éntfhdªj®, fUizÄF ò¤j®, thoa gÆiu¡\nf©L thoa tŸsyh® ngh‹nwh® m‹ãdhšjh‹ cyf k¡fË‹ kd¤âš\nïl«ão¤JŸsd® v‹whš ÄifahfhJ.\nrignahnu!\n‘m‹ò« átK« ïu©bl‹g® m¿Éyh®’ v‹w âUkªâu¥ ghlš m‹ò«\nïiwtD« x‹nw v‹Wjh‹ gf®»‹wJ. ïiwt‹ ÛJ bfh©l m‹ãdhšjh‹\ng¡j®fŸ nfhÉšfis mik¤J tÊghLfis¢ brŒJ tU»‹wd®. njáa¡\nnfh£gh£oš ‘ïiwt‹ ÛJ e«ã¡if it¤jš’ vD« nfh£gh£il Kj‹ikahf\nbkhÊ»‹wd®. bg‰nwh®fŸ j§fË‹ Rf J¡f§fis kwªJ FHªijfË‹\ney¤â‰fhfî« ts¤â‰fhfî« ghLg£L tU»‹wd®. mjdhšjh‹ ãŸisfŸ m‹ò\nbjŒt§fshd j§fŸ bg‰nwhiu¥ ngh‰¿ tz§F»‹wd®. jÅ kÅj‹, FL«g«,\nnjr«, cyf«, ãugŠr« KGikí« m‹òjh‹ M¡»uÄ¤J¡ bfh©oU¡»‹wJ.\nvdnt, m‹ò fyªj thœit thœnthkhf! m‹ghš midtiuí«\nmutiz¥nghkhf! m‹ò jh‹ flîŸ v‹gij cyF¡F¥ giwrh‰Wnthkhf!\nm‹ng flîŸ!\nthŒ¥ò¡F e‹¿ T¿ Éil bgW»‹nw‹.\nghl«\n2\nm‹ng flîŸ\nghfnk‰W thá¤âLf.\n• ciuia¢ rÇahd, ntf«, bjhÅ, c¢rÇ¥ò M»at‰Wl‹\nÃW¤j¡F¿fS¡nf‰g thá¥g®.\n2.1.4\n179\n17\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p190]\n180\nciuia¢ rÇahd ntf«, bjhÅ, c¢rÇ¥ò M»at‰Wl‹ ÃW¤j¡ F¿fS¡nf‰g\nthá¤âLf.\nÉdh¡fS¡F Éil TWf.\nnjáa¡ nfh£gh£o‹ Kjš th¡»a« cz®¤J« fU¤ij És¡Ff.\n1. m‹ã‹ j‹ikfis¥ g£oaÈLf.\n2. m‹ò¡F ïy¡fzkhf thœªjt®fis¡ F¿¥ãLf.\n3. kÅj®fŸ ‘m‹ng flîŸ’ v‹gij v›thW btË¥gL¤J»‹wd®?\n4. c‹ m‹whl thœÉš Ú m‹ig v›thW btË¥gL¤J»‹whŒ?\n‘ïiwt‹ ÛJ e«ã¡if it¤jš’\nrka elto¡iffŸ xUtiu e‰g©òfŸ Ãiwªjtuhf cUth¡F»‹wjh?\nfU¤Jiu¤âLf.\nfU¤Jiuia¢ rÇahd ntf«, bjhÅ, c¢rÇ¥ò M»at‰Wl‹ ÃW¤j¡\nF¿fS¡nf‰g thá¤âLf.\ncyf cÆ®fŸ ahî« ï‹ò‰W thH nt©L«. ïªj itaf« rhªâí« rkhjhdK«\nmila nt©L«. rkhjhd« v›thW V‰gL«? m¿ahik vD« ïUis Éy¡», m¿î\nvD« xËia V‰¿dhš rkhjhd¥ ghij f©Q¡F¥ òy¥gL«. bkŒíz®î bg‰w\nxUt® všyh¢ NHÈY« É£L¡ bfhL¤J thH K‰gLth®. É£L¡ bfhL¥gt®fŸ\nbf£L¥ nghtâšiyna! Mdhš, bf£L¥ nghf Ãid¥gt®fŸ xU nghJ« É£L¡\nbfhL¥gâšiy. ïU£oš ïU¡F«tiu e« ÃHš ekJ f©Q¡F¤ bjÇahJ. mJ\nnghy¤jh‹, Mzt«, f‹k«, khia M»a K«ky§fisí« bfh©oU¥gt®fŸ\nrkhjhd« V‰gl¤ Jiz òÇa kh£lh®fŸ. bkŒíz®it¥ bg‰W¢ rkhjhd¤ij\nV‰gL¤Jnth«. m¿ahik vD« ïU£il Éy¡» m¿î vD« xËia V‰Wnth«.\n1\nïLgÂ\n1\n1\nïLgÂ\n2\n1\nïLgÂ\n3\nts¥gL¤Jjš\nFiwÚ¡fš\n17\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p191]\n181\nÃubyhG§F tiugl¤âš bfhL¡f¥g£LŸs F¿¥òfis¤\nJizahf¡ bfh©L 160 brh‰fËš fij vGJf.\nPhÅ mtDila\ne«ã¡ifia¥\nghuh£odh®.\nïiwt‹ ÛJ\nKGikahd e«ã¡if\nit¤jhš k£Lnk mUŸ\n»£L«.\nmªj CÇš Ú©l ehŸ\nkiH bgŒaÉšiy.\nk¡fŸ mtâ¥gLjš.\nm›ñU¡F PhÅ\nxUt® tUjš.\nk¡fŸ mtÇl«\nKiwÆLjš.\nkWehŸ ahf«\nts®¥gjhf KobtL¤jš.\nmidtU« F¿¥ã£l\nneu¤âš tªJ\nmk®ªjd®.\nxU g¡j‹ k£L« ifÆš\nFilíl‹ tªjh‹.\nvj‰F¡ Fil v‹W PhÅ\nmtid¡ nf£»wh®.\nkiH¡fhf ahf«\nts®¡»nwh«. f©o¥ghf\nkiH tU« v‹wh‹.\n• 160 brh‰fËš fij vGJt®.\n3.4.14\nÑœ¡fhQ« F¿¥òfË‹ Jizíl‹ 160 brh‰fËš xU\nfij vGJf.\nïs« taâš Mzt« - nfhg« - Ku£L¤jd« - r©il\nr¢ruî - jÅik - FUit¢ rªâ¤jš - FUFy¡ fšÉ -\ngÆ‰áfis¥ bgWjš - bkŒíz®î bgWjš - ïiw¢nrit\nbrŒjš - midtU¡F« cjîjš - ghuh£L¥ bgWjš -\ncwîfŸ njo tUjš - ešYiu tH§Fjš - bjhl®ªJ\nïiw¥gÂ brŒjš\nghl«\n3\ne«ã¡if nt©L«\nthá¤J vGJf.\n1\nïLgÂ\n1\n1\nïLgÂ\n2\nm¿ªJ bfhŸf\nfijÆ‹ TWfŸ\n• bjhl¡f«\n• ts®¢á\n• á¡fš\n• c¢r«\n• á¡fš mÉœ¥ò\n• Koî\nbjhl¡f«\nKoî\nts®¢á\ná¡fš\ná¡fš mÉœ¥ò\nc¢r«\n17\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p192]\n182\n• ïu©lh« got¤â‰fhd gštif¢ brŒíisí« mj‹ bghUisí« m¿ªJ\nTWt®; vGJt®.\n4.3.2\nghl«\n4\nbrŒíS« bkhÊaÂí«\nehyhÆu¤ â›Éa¥ ãugªj¤ij m¿f.\nehyhÆu¤ â›Éa¥ãugªjK« bghUS«\nita« jfËah th®flny beŒahf\nbtŒa fânuh‹ És¡fhf - brŒa\nRluhÊ ahdo¡nf N£ond‹ brh‹khiy\nïluhÊ Ú§Ffnt ba‹W\nbghUŸ:\nïiwtÅ‹ mUis¥ bgw¤ jilahf cŸs J‹g§fŸ Ú§f óÄia mfš\nÉs¡fhfî« fliy mfš És¡F¡F beŒahfî« NÇaid És¡»‹\nRlbuhËahfî« ghÉ¤J xË åR« r¡fu¤ij¡ ifÆš Vªâa âUkhÈ‹\nâUtofS¡F¥ ghkhiyia¢ N£L»nw‹.\nNHš:\nKjÈš âU¡nfhtÿ®\ntªjt® bghŒifahœth®.\nmt® ÄUf©L KÅtÇ‹\nMáuk¤âš cŸs xU Äf¢\ná¿a miwÆš j§»¢ raÅ¤J¡\nbfh©oUªjh®. m¥bghGJ\nm§F tªj ój¤jhœth®\njd¡F« m§F¤ j§f ïl«\nïU¡Fkh v‹W ÉdÉdh®.\nmj‰F¥ bghŒifahœth®,\nï§F xUt® gL¡fyh« ïUt®\nïU¡fyh« v‹W T¿ tunt‰wh®.\nïUtU« xUtiu xUt® tz§»\nciuahl Mu«ã¤jh®fŸ. m¥bghGJ m§F tªj ngahœth® mtU« j§f ïl«\nnf£lh®. ï§F xUt® gL¡fyh«, ïUt® ïU¡fyh«, _t® Ã‰fyh« v‹W T¿\nm›ÉUtU« ngahœthiu tunt‰wd®.\nbeU§» Ã‹W bfh©L _tU« ïiwtÅ‹ bgUikia¢ brhšÈí« nf£L«\nk»œªjd®. ïªj k»œ¢áahd NœÃiyÆš m§»U¡f ÉU«ã v«bgUkhD« mªj\nïl¤â‰F tªJ nr®ªjh®. mªj¢ á¿a ïl¤âš tªj mtU« beU¡f Mu«ã¤jJ«,\nah® j§fis beU¡FtJ v‹w nfŸÉ mt®fË‹ kd¤âš vGªjJ. ïuî neu«\nR¤jkhf btË¢r« ïšiy. v¥go¡ fh©gJ? És¡F V‰w Ka‰á el¡»wJ. rhjhuz\nÉs¡»šiy. Phd És¡F. V‹? eh‹fhtJ Mis¤ bjh£L czu KoaÉšiy.\nczu K‰g£L _tU« ïiwt‹ghš â›Éa ãugªj¥ ghlšfis¥ ghl Mu«ã¤jd®.\nKjÈš bghŒifahœth® mªjhâ bjhl§F»wh®.\n_y«: ïiza« (áy kh‰w§fSl‹)\n17\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p193]\n183\nbrŒíisí« mj‹ bghUisí« kdd« brŒJ TWf; vGJf.\nbghUŸ vGJf.\nbrŒísoÆ‹ És¡f¤ij¡ TWf; vGJf.\nm. RluhÊ ahdo¡nf N£ond‹ brh‹khiy\nM. ita« jfËah th®flny beŒahf\nï. ïluhÊ Ú§Ffnt v‹W\nghlš cUthd NHiy eo¤J¡ fh£Lf.\nbrŒíËš ctik¥gL¤j¥g£LŸs ïizíl‹ ïiz¤âLf.\n1. ita« •\n• És¡»YŸs beŒ\n2. th®flš •\n• mfš És¡F\n3. fânuh‹ •\n• És¡bfhË\nita« -\njfË -\nth®flš -\nbeŒ -\nfânuh‹ -\nÉs¡F -\nN£ond‹ -\nRluhÊ -\nïluhÊ -\nbrh‹khiy -\n1\nïLgÂ\n1\n1\nïLgÂ\n2\n1\nïLgÂ\n3\nts¥gL¤Jjš\nFiwÚ¡fš\n17\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p194]\nÉisaho k»œnth«\n184\nÉâKiwfŸ\n• jha¡f£il cU£o\nÉisahlî«.\n• 4 ng® tiu\nÉisahlyh«.\n• Éilia¡ TwÉšiy\nv‹whš ntW f£l¤â‰F\nefu ïayhJ.\n• rÇahd KiwÆš\nÉisaho bt‰¿¡\nf£l¤â‰F¢ bršgtnu\nbt‰¿ahs®.\nMu«g«\nmfÉdh\nx‹wid¡ TWf.\nÉdh\nvG¤Jfis¡\nTWf.\nòwÉdh\nx‹wid¡\nTWf.\nnt©LnfhŸ\nth¡»a«\nx‹wid¡ irif\nbkhÊÆš TWf.\n‘V’ vd Koí«\nÉdhit¡\nnf£fî«\nf£lis\nth¡»a«\nïu©il¡ TWf.\nÉisahoajhš\nnrh®î xU\nM£l« ngh¢R.\ne‹whf\nÉisahoÜ®fŸ\nnkny bršyî«.\nÉiHî th¡»a«\nx‹wid¡ TWf.\nbga®¢brhš\ncÇ¢brhš\nïu©il¡ TWf.\nm«ò¡F¿\nfh£L« ïl«\nbršf.\n17\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p195]\n185\nc›ahid\nv‹w brhšiy¥\nãÇ¤J¡ TWf.\nT£l« (Ã‹W)\ncUò nr®¤J¡\nTWf.\nm¡Fl«\nv‹w brhšiy¥\nãÇ¤J¡ TWf.\njha« ÉGªjhš\nb#a« Ã¢ra«.\nâir¢ brhš\nth¡»a«\nx‹wid¢ irif\nbkhÊÆš TWf.\nIªjh«\nnt‰Wik\ncUòfis¡\nTWf.\ntlbrhš\nïu©il¡ TWf.\nMW (òŸË)\nÉGªjhš bt‰¿\ncWâ.\ncz®¢á\nth¡»a«\nx‹wid¢\nirif\nbkhÊÆš\nfh£Lf.\nVjhtJ\nxU\ntÊia¤\nbjÇî\nbrŒf.\ncÇ¢brhš\ncz®¤JtJ\nahit?\nm + gFâ =\nï + glF =\nth¡»a«\nmik¤âLf.\nbt‰¿\n17\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p196]\n186\nfyªJiuahLf.\nghJfh¥ò« ehK«\nbjhFâ 18\nghl«\n1\ncÆiu kâ¥ngh«\neh« e«Kila cÆiu kâ¡f nt©L« e«Kila\ncÆiu¤ Ô Ég¤âš btWknd gÈah¡»¡\nbfhŸs¡TlhJ. Ô¢r«gt¤â‹nghJ jhkâ¡F«\nx›bthU Édhoí« cÆU¡F Mg¤jh»ÉL«.\nå£oš ghJfh¥ò K‹bd¢rÇ¡if elto¡ifia\nx›bthUtU« m¿ªJ jah® ÃiyÆš\nïU¡f nt©L«.\nå£oš Ô Ég¤J V‰g£lhš eh« áy ghJfh¥ò elto¡iffis\nnk‰bfhŸsyh«. åL KGikí« òif _£l« V‰gL« nghJ\nk©oÆ£L X® m§Fy¤â‰F _¡if jiuÆÈUªJ ca®¤â\nef®ªJ btËnaw nt©L«. btËna tªjîl‹ mU»YŸs\nÔaiz¥ò Ãiya¤â‰F 999 vD« v©iz¤ bjhl®ò\nbfhŸs nt©L«.\neh« mtru tÊia¥ ga‹gL¤â¡ FL«g¤âdiuí« fh¥gh‰¿¡\nbfh©L btËnaw nt©L«. btËnaW«nghJ fjit¢\nrh¤âÉLtJ áw¥ò. m¥bghGJjh‹ btËÆYŸs cÆ®tË\ncŸns bršyhkš jL¡f ïaY«. e«Kila MilÆš Ô¥g‰¿¡\nbfh©lhš Ô nkY« guthkš ïU¡f jiuÆš cU©L\nòus nt©L«.\neh« e«Kila K¡»akhd bghUŸfis vL¤J¡bfh©L\nbtËnaw kw¡f¡TlhJ. mnj ntisÆš, Û©L«\nå£oDŸns EiHa Ka‰á¡f¡TlhJ. bjhl®ªJ,\ngj‰wÄ‹¿ Ãjhd¤Jl‹ ‘Ô! Ô!’ vd cu¡f¡ f¤â¥ ãwiu\nÉÊ¥òw¢ brŒayh«.\n\n[Bahasa Tamil Tingkatan 2.pdf p197]\n187\n_y«: knyáa¤ Ôaiz¥ò¤ Jiw\n• brÉkL¤jt‰¿YŸs fU¤Jfis¤ bjhF¤J¡ TWt®.\n1.1.2\nbrÉkL¤jt‰¿YŸs fU¤Jfis¤ bjhF¤J¡ TWf.\n1\nïLgÂ\n1\nå£L¡F btËna tªj ãwF å£L cW¥ãd®fis¡\nfz¡»£L¡ bfhŸs nt©L«. Ôaiz¥ò¥ gilÆd®\ntªjîl‹ mt®fŸ j§fsJ flikia¢ brŒa tÊÉLtJ\nrhy¢ áwªjJ.\n\n[Bahasa Tamil Tingkatan 2.pdf p198]\nbrÉkL¤jt‰¿YŸs fU¤Jfis¤ bjhF¤J¡ TWf.\n1\nïLgÂ\n2\n188\nnfhil¡ fhy¤âš ãŸisfis Ú¢rš Fs¤â‰F miH¤J¢ br‹W Ú¢rš\ngH¡FtJ bg‰nwh®fË‹ tH¡f«. Ú¢rš Fs¤â‰F¢ bršY« ãŸisfS¡F¥\nghJfh¥ò elto¡iffis m¿îW¤j nt©L«. Ú¢rš Fs ghJfhty® Ú¢rš\nFs¤â‹ R‰W¥òw¤â‰FŸjh‹ ïU¡»whuh v‹gij¡ f©fhÂ¡f nt©L«.\nãŸisfS¡F Ú¢rš Fs¤âš ghJfh¥ghf¡ FË¥gJ F¿¤J¢ brhšÈ¡\nbfhL¡f nt©L«. ghJfh¥ò cgfuz§fis¥ ga‹gL¤â Ú¢rš f‰W¡ bfhL¡f\nnt©L«. Ú¢rš Fs¤â‹ mU»š ãŸisfŸ Ã‹¿U¡F« nghnjh Ú¢rš mo¤J¡\nbfh©oU¡F«nghnjh mt®fis¤ jÅahf É£L¢ bršy¡ TlhJ. Ú¢rš Fs«\nnghJkhd mo¥gil trâfŸ k‰W« Rfhjhukhd NHÈš cŸsjh vd¡ ftÅ¡f\nnt©L«. Ú¢rš Fs¤âš myhu« ïU¥gJ mtáa«. Ú¢rš Fs¤âš j©Ùiu\nmo¡fo kh‰W»wh®fsh, R¤jkhf¥ guhkÇ¡»wh®fsh vd¡ f£lha« ftÅ¡f\nnt©L«. Ú¢rš f‰W¡ bfhŸs¢ bršY«nghJ öŒikahd Ú¢rš cilfis\nmÂa nt©L«.\nm.\nM.\nkhzt®fŸ midtU¡F« tz¡f«. xU\nK¡»akhd jftiy c§fËl« g»®ªJ bfhŸs\nÉiH»‹nw‹. ne‰W e« gŸË khzÉ, gŸË\nKoªJ åL âU«ò«bghGJ gŸË EiHthÆY¡F\nbtËna jÅahf Ã‹¿UªjnghJ áy Mlt®fŸ\nmtÇl« jfhj KiwÆš elªJ bfhŸs Ka‰á\nbrŒâU¡»‹wd®. ešyntisahf e« gŸË\nghJfhty® mt®fis Éu£oao¤âU¡»‹wh®.\nvšyh ntisÆY« ghJfhty®fŸ c§fis¡\nf©fhÂ¤J¡ bfh©oU¡f ïayhJ. Ú§fŸjh‹\nc§fis¥ ghJfh¤J¡ bfhŸs nt©L«.\ngŸË KoªJ c§fŸ bg‰nwh® c§fis\nmiH¤J¢ bršY« tiu Ú§fŸ gŸË¢\ná‰W©o¢ rhiyÆnyna mk®ªâU§fŸ.\nïÅnkš EiHthÆY¡F btËna ngUªJ¡fhf¡\nfh¤âU¥gt®fŸ c§fŸ e©g®fSl‹ nr®ªJ\nïU§fŸ. jÅikÆš Ã‰f nt©lh«. m¿Kf«\nïšyhjt®fSl‹ ciuahl nt©lh«. v¥bghGJ«\nv¢rÇ¡ifíl‹ ïU§fŸ. e‹¿.\n18\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p199]\n189\nNHš:\nå£oš fil¥ão¡f nt©oa ghJfh¥ò elto¡iffis¥ g‰¿¡ f©kÂ jdJ\ngh£oíl‹ ciuahL»‹whŸ.\nf©kÂ: tz¡f« gh£o. v‹d brŒJ bfh©oU¡»Ö®fŸ?\ngh£o:\ntz¡f« f©kÂ. ï‹W jh¤jhî¡F kU¤JtkidÆš bfhL¡f¥g£l\nkUªJfis Ãiy¥ngiHÆš mL¡» it¤J¡ bfh©oU¡»nw‹. jh¤jh\nkUªJfis c£bfh©LÉ£L cztUªJ« nkir nknyna kwâahf\nit¤JÉ£lh®. ešyntis c‹ j«ã gh®¤âUªjhš Ä£lhŒ v‹W\nÃid¤J¢ rh¥ã£oU¥gh‹.\nMkh« gh£o. br‹w thu« Tl\nát¥ò t©z¤âÈUªj kUªij¡\nfh£o, rh¥ãlyhkh? v‹W nf£lh‹.\neh‹ mtÅlÄUªJ mjid th§»\nFË®rhjd¥ bg£oÆš it¤nj‹. áW\nãŸis, mtD¡F v‹d bjÇí« gh£o?\nå£oš fil¥ão¡f nt©oa áy ghJfh¥ò Kiwfis¢\nbrhš»nw‹ nfŸ. rikaš miwÆš Ô¥bg£oia\ncaukhd ïl¤âš it¡f nt©L«. Ôaiz¥ò¡\nfUÉia¡ f©o¥ghf¢ RtÇš bghU¤â it¡f\nnt©L«. ï¡fUÉia v¥go¥ ga‹gL¤j nt©L«\nv‹gijí« m¿ªâU¡f nt©L«. rik¡F«bghGJ\nòif btËah¡F« òif¥ngh¡» Éá¿ia¥ bghU¤â\nit¤âU¡f nt©L«. f¤â ngh‹w T®ikahd\nfUÉfis nkyiwÆš ghJfh¥ghf it¡f nt©L«.\nRLÚ® fy‹fis¥ ãŸisfS¡F v£lh t©z« it¡f\nnt©L«. thí¡ fy‹fŸ ga‹gL¤j¥g£l ãwF mil¤J\nÉ£lij cWâ brŒa nt©L«.\nf©kÂ: mnla¥gh! rikayiwÆš ï›tsî ghJfh¥ò elto¡iffis\nnk‰bfhŸs nt©oíŸsjh gh£o?\nghl«\n2\nå£oš ghJfh¥ò\nciuahliy thá¤J m¿f.\n• ciuahliy¢ rÇahd ntf«, bjhÅ, c¢rÇ¥ò M»at‰Wl‹\nÃW¤j¡F¿fS¡nf‰g thá¥g®.\n2.1.5\n18\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p200]\n190\nciuahliy¢ rÇahd ntf«, bjhÅ, c¢rÇ¥ò M»at‰Wl‹\nÃW¤j¡F¿fS¡nf‰g thá¤âLf.\nå£oš všyh ïl§fËY« ghJfh¥ig eh«jh‹ cWâbrŒJ bfhŸs nt©L«. T®ikahd\njsthl¥ bghUŸfis å£oš it¤âU¥gij¤ jÉ®¡f nt©L«. FËayiwÆš Ú®¤\nbjh£ofËš Ãiwa Ú® ïU¥gij¤ jÉ®¡f nt©L«. Ú®¤ bjh£oia thu¤â‰F xU\nKiwahtJ fGÉ¤ öŒik¥gL¤j nt©L«. FËayiwÆš rt®¡fhu¡ f£oia¤ jiuÆš\nngh£L it¡f¡ TlhJ. ïšiynaš jtWjyhf tG¡» ÉH neÇL«. å£oš Milfis¢\nryit brŒj ãwF ryit¥ bg£oia¥ ghJfh¥ghf it¡f nt©L«. å£oYŸs x›bthU\nÄ‹ÉirÆY« Ä‹ f«ãfŸ ghJfh¥ghd KiwÆš bghU¤j¥g£oU¥gij cWâ brŒa\nnt©L«. nkY«, å£oš KjYjÉ¢ á»¢ir¥ bg£o f©o¥ghf ïU¡f nt©L«.\nMAh! mUikahd\njftšfis¡\nT¿Ü®fŸ gh£o.\nï‹D« å£oš eh«\nfil¥ão¡f nt©oa ghJfh¥ò\nelto¡iffŸ mâfkhfnt\ncŸsd. xUtUila å£ilí«\nå£L¢ NHiyí« bghU¤nj\nmit mik»‹wd.\nc©ikjh‹ gh£o.\nrÇahf¢ brh‹Ü®fŸ.\n1\nïLgÂ\n1\n18\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p201]\n191\nÉdh¡fS¡F Éil TWf.\n1. f©kÂÆl« gh£o T¿a ghJfh¥ò elto¡iffis¥ g£oaÈLf.\nrikayiw\nå£oš ã‹tU« ïl§fËš v›thwhd ghJfh¥ò elto¡iffis nk‰bfhŸsyh«\nv‹gij¡ TWf; vGJf.\ntunt‰giw\ngL¡ifaiw\ntÊgh£liw\nFËayiw\nå£oYŸs ãw\nïl§fŸ\n2. gh£o T¿at‰¿ÈUªJ Ú v‹d m¿ªJ bfh©lhŒ? És¡Ff.\n3. Ú c‹ å£oš v›thwhd ghJfh¥ò elto¡iffis nk‰bfhŸ»whŒ?\n4. å£oš ghJfh¥ò elto¡iffis nk‰bfhŸtjdhš V‰gL« e‹ikfis¡\nTWf.\nc‹ å£oY« c‹ e©gÇ‹ å£oY« V‰gL¤j¥g£LŸs ghJfh¥ò elto¡iffËš\nfhQ« x‰Wik nt‰Wikfis¡ fyªJiuaho ïu£o¥ò¡ FÄÊ tiugl¤âš vGJf.\nc‹ bg‰nwh® cd¡F¡ f‰W¡ bfhL¤j ghJfh¥ò elto¡iffis¥ g£oaÈLf.\nghJfh¥ò\nelto¡iffŸ\nv‹ åL\nv‹\ne©gÅ‹\nåL\n1\nïLgÂ\n2\n1\nïLgÂ\n3\nts¥gL¤Jjš\nFiwÚ¡fš\n18\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p202]\n192\nfU¤J 3\nfU¤J 4\nfU¤J 2\nfU¤J 1\nR‰W¢ NHiy¥\nghJfh¡F«\nbghW¥ò\n• F¥igfis¡ f©l ïl§fËš\når¡ TlhJ.\n• âwªjbtËÆš F¥igfis\nvÇ¡f¡ TlhJ.\n• R‰W¢ NHš g‰¿a ÉÊ¥òz®it\nV‰gL¤j nt©L«.\n• fU¤ju§f«, fyªJiuahlš,\nãu¢rhu« ngh‹wt‰iw¢ brŒa\nnt©L«.\n• T£L¥ gÂfis nk‰bfhŸs\nnt©L«.\n• Clf¤â‹ thÆyhf¥\ngu¥òiu,brŒâ, jftšfŸ\nbtËÆl nt©L«.\n• gŸËÆš f‰wš f‰ã¤jÈš\nR‰W¢ NHš ghJfh¥ò¥ g‰¿¥\nnghâ¡f nt©L«.\n• ãŸisfS¡F¢ R‰W¢ NHiy¥\nghJfh¥gj‹ mtáa¤ij¡ f‰W¤\nju nt©L«.\n• å£ilí« eh£ilí« neá¡f¢\nbrŒa nt©L«.\njÅ kÅj‹\nr_f mik¥òfŸ\nmurh§f«\nFL«g«\nfU¤Jfis¤ Jizahf¡ bfh©L f£Liu¤ jiy¥ã‰nf‰w K‹Diuiaí«\nKoîiuiaí« g¤âÆš vGJf.\n• f£Liu¤ jiy¥ã‰nf‰w K‹Diuiaí« Koîiuiaí« g¤âÆš vGJt®.\n• 160 brh‰fËš fU¤J És¡f¡ f£Liu vGJt®.\n3.2.4\n3.4.12\nghl«\n3\nR‰W¢ NHš ghJfh¥ò\nthá¤J vGJf.\n1\nïLgÂ\n1\n18\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p203]\n193\n‘R‰W¢ NHš ghJfh¥ò’ vD« jiy¥ãš 160 brh‰fËš fU¤J És¡f¡\nf£Liu vGJf.\nÉisah£L ikjhd¤âš fil¥ão¡f nt©oa ghJfh¥ò elto¡iffŸ vD«\njiy¥ò¡F V‰w K‹Diuiaí« Koîiuiaí« g¤âÆš vGJf.\ngl§fË‹ Jizíl‹ ‘fhLfis¥ ghJfh¥gj‹ mtáa«’ vD« jiy¥ãš 160\nbrh‰fËš fU¤J És¡f¡ f£Liu vGJf.\nbfhL¡f¥g£LŸs jiy¥òfS¡F K‹Diu Koîiufis¢ Rakhf vGâ¡ fh£Lf.\n• gŸËÆš ghJfh¥ò\n• rhiy¥ ghJfh¥ã‹ mtáa«\n• å£oš ghJfh¥ò\n1\nïLgÂ\n2\n1\nïLgÂ\n3\n1\nïLgÂ\n4\nts¥gL¤Jjš\n18\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p204]\n194\nfãyÅ‹ khkh _‹W V¡f® Ãy¥ gu¥ãš gH¤njh£l« it¤âU¡»wh®. m¤njh£l¤âš\nkhku§fS« gyh ku§fS« mâfkhf ïUªjd. xU ehŸ j‹ khkhîl‹ fãy‹\ngH¤ njh£l¤â‰F cyh¢ br‹wh‹. khªnjh¥ãš fhŒ¤J¥ gG¤âUªj gH§fis¥\ngh®¤J ctif milªjh‹. Éyh¥ òil¡f m¥gH§fis¢ Rit¤J c©z\nnt©L« v‹W kd¤âš Ãid¤J¡ bfh©lh‹. mtDila khkh áy gH§fis¥\ng¿¤J¡ bfhL¤jh®. xU kh«gH¤ij¢ Rit¤J c©lh‹. gH§fŸ Äfî« ïÅ¥ghf\nïU¥gjhf¡ T¿dh‹.\nbjhl®ªJ gyh¤ njh£l¤â‰F¢ br‹wd®. gyh¥ gH§fŸ bgU¤J¡\nfhŒ¤âUªjd. gyh¥ gH« x‹wid bt£o mâÈUªJ áy gyh¢ Risfis¢ rh¥ãl¢\nbrh‹dh®. áy Risfis¢ rh¥ã£lJnk tÆW ÃiwªJÉ£ljhf¡ T¿dh‹. á¿J\nneu« FoÈš XŒbtL¤jh‹.\nnjh£l¤âš ntiy brŒJ bfh©oU¡F«nghJ fãy‹ j‹ khkhÉ‹ njh£l«\nöŒikahf ïU¥gjhfî« ku§fŸ brÊ¥ghf ts®ªâU¥gjhfî« T¿dh‹. mj‹\nïufáa¤ij m¿a nkY« Édh¤ bjhL¤jh‹. Élh Ka‰áí« <LghL« ïUªjhš ešy\nÉis¢riy¡ fhzyh« v‹W kWbkhÊ gf‹wh® khkh. m‹iwa bghGJ fãyD¡F\nï‹gkhf ïUªjjhfî« j‹Dila Ú©l ehŸ fdh¥ gÈ¤jjhfî« T¿¥\nbgUÄj« milªjh‹.\n• jÅ¡F‰bwG¤ij mL¤J tU« Mfhu¤â‰F¥ ã‹ tÈÄF« v‹gij m¿ªJ\nrÇahf¥ ga‹gL¤Jt®.\n5.4.3\nghl«\n4\nïy¡fz«\ntÈÄFjiy m¿f.\n18\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p205]\n195\nt©zÄl¥g£l brh‰bwhl®fis vGJf; ã‹d® ãÇ¤bjGJf.\nv.fh:\ncyh¢ br‹wh‹= cyh+br‹wh‹\nnr®¤bjGJf.\n1. Édh + jhŸ =\n2. òwh + jiy =\n3. ÉHh + jiyt® =\n4. cyh + nghdh® =\n5. muh + ò‰W =\n6. ïuh + bghGJ =\n7. »lh + bfh£lif =\n8. gyh + Ris =\n1. âU. K. r§f® xU fyh¥ ãÇa® v‹gjhš v§F¡\nfiyÃfœ¢á elªjhY« mjid¡ f©L ïuá¥gh®.\n2. âUkâ itnj» kd mG¤j¤ij¥ ngh¡f ó§fhÉš\ncyh¢ bršth®.\n3. m¿Éaš nkij V.ã.n#. m¥Jš fyh« mt®fŸ\nïisP®fis¡ fdh¡ fhz¢ brhšÈ kd¤âš\nj‹d«ã¡ifia V‰gL¤âat®.\n4. ghl ntisÆš rjh¥ ngá¡ bfh©oUªj khzt®fis\nMáÇa® f©o¤jh®.\nts¥gL¤Jjš\nFiwÚ¡fš\n1\nïLgÂ\n1\nã‹tU« brh‰bwhl®fis th¡»a¤âš\nmik¤J¡ fh£Lf.\n1. òwh¡ T©L\n2. muh¤ Ô©oaJ.\n3. Rwh¡ T£l«\n4. Ãyh¢ nrhW\n5. »lh¡ bfh«ò\n6. fdh¡ f©nl‹\n7. ÉHh¡ nfhy«\n8. rfh¢ rfthr«\ntÈÄF« ïl§fŸ\njÅ¡ F‰bwG¤ij mL¤J tU«\nMfhu¤â‹ ã‹ tÈÄF«.\nv.fh:\ni) fdh +f©lh‹= fdh¡ f©lh‹\nMfhu« (‹+M)\njÅ¡F‰bwG¤J\nii) gyh +gH«= gyh¥gH«\nMfhu« (š+M)\njÅ¡F‰bwG¤J\nm¿ªJ bfhŸf\n1\nïLgÂ\n2\nth¡»a§fËš fhQ« F‰bwG¤ij mL¤J\ntU« Mfhu¢ brh‰fis milahs« f©L\nvGJf.\n18\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p206]\n196\n“mHhnj! mUªjâ, cd¡F x‹W« ïšiy, Ú e‹whfnt ïU¡»whŒ. m§nf gh®.\ne« e©g®fŸ, midtU« ekJ mU»š Ã‰»‹wd®,” v‹W v‹ njhÊ¡F\nMWjš T¿nd‹.\nv‹ njhÊÆ‹ f©fËš f©Ù® MwhŒ XL»wJ. fhuz« tÈ. ehD« mtS«\nïiz ãÇah¤ njhÊfŸ. v§F¢ br‹whY« x‹whfnt bršnth«. ne‰W khiyí«\nm¥go¤jh‹. ehD« v‹ njhÊí« »uhk¤âš cŸs cwÉd® å£o‰F¢ br‹nwh«.\nv‹ njhÊ thfd¤ij¢ áw¥ghfnt brY¤âdhŸ. eh‹ mtŸ mU»š mf«\nk»œªJ mk®ªâUªnj‹.\n“thfd¤ij\nï‹D«\nbfhŠr«\nntfkhf¢\nbrY¤J,”\nv‹W\nmtis\nc‰rhf¥gL¤ând‹. mtS« mj‰F ïirªjtshŒ ïw¡if f£o gw¥gJ nghy¥ gw¡f\nMu«ã¤jhŸ. “VŒ fdfh! cd¡F v¤jid jlt brhšwJ, thfd¤Jy c£fh®ªj\nclnd ghJfh¥ò¥ g£il nghlQ« bjÇíkh?” v‹whŸ r‰W¡ foªjtshf.\n“ml ïU mUªjâ, m¥òwkh ngh£L¡»nw‹. Ú nuh£l¥ gh®¤J t©oa N¥guh\nmG¤J,” v‹nw‹. K‹nd xU fdîªJ. v‹ njhÊ fdîªij Kªâ¢ bršy gyKiw\nKa‰á¤jhŸ, MdhY«, njhšÉjh‹. eh‹ mtis ÉLntdh! “v‹d mUªjâ ï¥go¥\nga¥gLw. ntfkh¥ ngh” v‹W brhšÈ thia _Ltj‰FŸ t©oia¡ fh‰whŒ¥ gw¡f\nÉ£lhŸ. “VŒ! VŒ! m§f¥ghU xU ngUªJ... ngUªJ,” v‹W my¿nd‹. mL¤J v‹d\nelªjJ v‹W bjÇahkny nghdJ.\nï¥nghJ v‹ m‹ò¤ njhÊ mUªjâ kU¤JtkidÆš. mtŸ fhš K¿ªJ\nf£L¥ nghl¥g£oUªjJ. jiyÆY«, iffËY« f£LfŸ jh‹. clÈš ïu¤j« ntW\nbrY¤j¥g£L¡ bfh©oUªjJ. ght« v‹ njhÊahš ngr KoaÉšiy. eh‹ mtis\nm¤jid Kiw T¥ã£L« Vndh bjÇaÉšiy v‹id¥ gh®¡f kW¡»whŸ. xUntis\nmtS¡F¡ nf£fhkš nghdnjh! mtŸjh‹ m¥go v‹whš, mtË‹ bg‰nwh® mtŸ\nmU»š Ã‹W bfh©oUªjhY« Vndh v‹Ål« ngrÉšiyna! v‹nkš mt®fS¡F\nv‹d nfhg«? v‹id¤ j§fË‹ kfŸ nghš mšyth cgrÇ¤jh®fŸ. ï‹W\nk£L« V‹? v‹d MÆ‰W ït®fS¡F?\n“fdfh!\nfdfh!\nv‹d«kh\nï¥go¥\ng©Â£l. Inah! fdfh! fdfh! v‹dhy jh§f\nKoaÉšiyna,” v‹W my¿aJ m¡Fuš.\nc‰W¡ nf£»nw‹. mJ v‹ m«khÉ‹ Fuš\nMÆ‰nw! jiyÆš mo¤J¡ bfh©L Jo¥gJ\nv‹\nm«khjh‹.\nv‹\nbgaiu¢\nbrhšÈ¢\nbrhšÈ¡ fjW»whnu! m¥goba‹whš... eh‹\nv§nf? eh‹... eh‹... thfd¤âš ghJfh¥ò¥\ng£ilia¥ ngh£oUªjhš vd¡F ïªÃiy\ntªâU¡fhjšyth!\nthá¤J cz®f.\n18\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p207]\n_y«: knyáa¢ Rfhjhu mik¢R (22.12.2016)\nknyáa¢ Rfhjhu mik¢á‹ ÃUthf«\nRfhjhu mik¢r®\nRfhjhu¤ Jiz mik¢r®\nRfhjhu mik¢á‹ jiyik¢ brayhs®\nRfhjhu¤ jiyik\nïa¡Fe®\nãw ãÇîfŸ\nRfhjhu¤ Jiz¤\njiyik¢\nbrayhs®\n(Rfhjhu¥ ãÇî)\nRfhjhu¤ Jiz¤\njiyik¢\nbrayhs®\n(bghUshjhu¥ ãÇî)\nKfhik ïa¡Fe®\n(gš Rfhjhu¥ ãÇî)\nJiz¤ jiyik\nïa¡Fe®\n(MŒî k‰W«\nbjhÊšE£g¥ ãÇî)\nKfhik ïa¡Fe®\nghJfh¥ò k‰W«\nczî¤ ju¡\nf£L¥gh£L¥ ãÇî\nkhÃy Rfhjhu\nïa¡Fe®\nKfhik ïa¡Fe®\n(kUªjf¢\nnrit¥ ãÇî)\nJiz¤ jiyik\nïa¡Fe®\n(kU¤Jt¥ ãÇî)\n197\n• tÇgl¡ fUÉÆYŸs jftšfisbah£o¡ fU¤Jiu¥g®; Koî TWt®.\n1.5.2\nfyªJiuahLf.\ngaÜ£lhs® fšÉí« RfhjhuK«\nbjhFâ19\nghl«\n1\nknyáa¢ Rfhjhu mik¢R\nv‹id EQFf\n\n[Bahasa Tamil Tingkatan 2.pdf p208]\ntÇgl¡ fUÉÆYŸs jftšfisbah£o¡ fU¤Jiu¤âLf; Koî TWf.\njhâik¤ bjhÊš g‰¿a jftšfisbah£o¡ fU¤Jiu¤âLf; Koî TWf.\n1\nïLgÂ\n1\n1\nïLgÂ\n2\n198\nj‹dy« fUjhkY« fhy neu« gh®¡fhkY« mÇa nritia¤\njhâa®fŸ M‰¿ tU»‹wd®. ãwUila Mnuh¡»a¤ijí«\nRfhjhu¤ijínk K‹ÅW¤â¡ flikia¢ br›tnd brŒJ\ntU»‹wd®.\njhâik¤ bjhÊš xU òÅjkhd ngh‰Wj‰FÇa bjhÊš. jhâa®fË‹\nm®¥gÂ¥ò¡F <L ïiz ïšiy. bghWik, Ãjhd«, r»¥ò¤ j‹ik,\nÉlhKa‰á, gÂî, m‹ò ngh‹w caÇa g©òfis¤ jhâa®fŸ\nfil¥ão¤J nehŒthŒ¥g£lt®fË‹ clš Mnuh¡»a¤âY«\nRfhjhu¤âY« ftd« brY¤J»‹wd®; m¡fiw fh£L»‹wd®.\nnehahËfS¡F¢ á»¢ir mË¡F«nghJ Äf K¡»akhd\nm«r§fŸ öŒikí« öŒikahd fh‰W« v‹gij cz®ªJ\nRfhjhu¤â‰FÇa kU¤Jt¡ fUÉfis¡ fGÉ¢ R¤j« brŒJ,\nF¥igfis mf‰¿ gy ntiyfisí« jhkhfnt brŒ»‹wd®.\nmid¤J nehahËfË‹ miwiaí« R‰¿¥ gh®¤JÉ£L, nehahËfŸ\nmidtU« mikâahf cw§Ftij cWâ brŒ»‹wd®. nehahËfË‹\nthœ¡ifÆš És¡nf‰W« âahf¢ Rl®fshf¤ jhâa® És§F»‹wd®.\nkhzt®fŸ Rakhf¡ fU¤Jiu¤J Koî TWjš.\n19\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p209]\n199\nÉdh¡fS¡F Éil TWf.\n1. jhâik¤ bjhÊÈ‹ áw¥òfis¥ g£oaÈLf.\n2. jhâa®fŸ v›thwhd g©òey‹fis¡ fil¥ão¡»‹wd®. m›thW\nfil¥ão¥gj‹ neh¡f« ahJ?\n3. cd¡F¤ jhâauhF« v©z« ïU¡»wjh? V‹?\nRfhjhu mik¢á‹ ã‹tU« elto¡iffis¥ g‰¿¡ fU¤Jiu¤âLf; Koî TWf.\n1\nïLgÂ\n3\n1\nïLgÂ\n5\n1\nïLgÂ\n4\ntÇgl¡ fUÉÆ‹ Jizíl‹ gaÜ£lhs® r§f¤â‹ brašghLfis¥ g‰¿¡\nfU¤Jiu¤âLf; Koî TWf.\ngaÜ£lhs®fŸ\nj§fË‹ cÇikia\nm¿ªJ bfhŸs¢ brŒjš\ngaÜ£lhs®fS¡F\nÉÊ¥òz®î\nV‰gL¤Jjš\nMuhŒ¢áfisí«\nMŒîfisí«\nbrŒjš\ngaÜ£lhs®fS¡F¤\nbjËití«\nMnyhridiaí«\ntH§Fjš\nk¡fS¡F¤\njftšfis¥\ngu¥òjš\nòfh®fis¥\ngÇÓyid\nbrŒjš\n19\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p210]\n200\ne« m‹whl thœÉš cgnahf¥gL¤J« bgU«ghyhd bghUŸfËš be»Ê\ncŸsJ. e«ik m¿ahknyna mt‰iw eh« c£bfh©LÉL»nwh«. m¿ahkš\nbrŒí« ï¤jt‰¿dhš eh« gy ï‹dšfS¡F Msh»‹nwh«. be»Ê¥\ngh¤âu§fËš it¡f¥g£oU¡F« czî¥ bghUŸfŸ, ghd§fŸ M»at‰iw\nc£bfhŸS«bghGJ be»Ê¥ bghUŸfS« e« clY¡FŸ brš»‹wd. Nlhd\nczîfis be»Ê¥ gh¤âu§fËš ïL«bghGJ mâYŸs ïurhad§fŸ\nmªj czÉš fy¡»‹wd. ïit e« clY¡FŸ br‹W gšntW cghijfis\nc©lh¡F« v‹gJ cWâ.\nm‹W e«Kila ghu«gÇa czîfis thiH ïiy, jhkiu ïiy,\ngyh ïiy, _§»š M»at‰iw¥ ga‹gL¤â c©ld®. eådK« nk«ghL«\nï«Kiwfis kh‰¿É£ld v‹whš mJ ÄifahfhJ.\nEiu¥g« ga‹gL¤JnthU¡F¥ gytifÆš mit Ô§F ÉisÉ¡»‹wd.\nNlhd czîfis¥ ghÈ¤Ô‹ gh¤âu§fËš th§»¢ brštJ e« eh£oš\nmâfkhfnt fhz¥gL« fh£áahF«. czit be»Ê¥ igfËš »l¤â it¡F«\nbghGJ« rik¡F«bghGJ« bgh£lykh¡f¥gL«nghJ« mâYŸs ïurhad§fŸ\n200\nghl«\n2\nbe»Êahš Mg¤J!\nciueilia thá¤J m¿f.\n19\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p211]\n201\nczî¡FŸ CLUî»‹wd. e«Kila clY¡FŸ\nïit br‹W Mnuh¡»a¤â‰F¡ nfL ÉisÉ¥gjhf\nm¿Éayhs®fŸ TW»‹wd®.\nbgU«ghyhd be»Ê¥ igfis¥ ga‹gL¤âa\nãwF ö¡» v¿»nwh«. be»Êia kWRH‰á brŒtJ«\nKiwahf m¥òw¥gL¤JtJ«Tl mtáakhd\nx‹whF«. be»Êfis kWRH‰á brŒtJ«\nR‰W¢NHiy khRgl¢ brŒ»‹wJ. kWRH‰á¢\nbrŒa¥g£l be»Ê czî¥ gh¤âu§fŸ, j©Ù®\nò£ofŸ ngh‹wt‰iw¡ FHªijfŸ ga‹gL¤J«nghJ\nmt®fË‹ clš Mnuh¡»a¤â‰F« CW\nÉisÉ¡»‹wd v‹gJ kW¡f Koahj c©ikahF«.\nF¥ig¤ bjh£ofËš nrU« be»Ê¥\nigfŸTl áy ehŸfS¡F¥ ãwF\nÃy¤jo Úiu khRgL¤jnt\nbrŒ»‹wd. f¢rh v©bzŒ\nmšyJ ïa‰if thí\nM»at‰iw¢ Nlh¡», Ãiwa\nïurhad§fŸ nr®ªJ Û¢ nr®k\nïizî v‹w KiwÆš be»Ê¥\nigfŸ jahÇ¡f¥gL»‹wd.\nbe»ÊÆ‹\nMg¤Jfis¡\nfU¤âš bfh©L\nj‰rka« áy khÃy§fËš\nbe»ÊÆšyh thœî vD« Kiwia\nmkšgL¤J»‹wd®. vdnt, gaÜ£lhs®fŸ\nmidtU« j«Kila eyidí« vâ®fhy¤\njiyKiwÆdÇ‹ eyidí« fU¤âš\nbfh©L brašgLtJ Äf¢ áw¥ghF«.\n(e‹¿: gaÜ£lhs® Fuš, ãdh§F)\n201\n• Rfhjhu« bjhl®ghd ciueil¥ gFâia thá¤J¡ fU¤Jz®\nnfŸÉfS¡F¥ gâyË¥g®.\n2.3.4\n19\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p212]\n202\nfU¤Jz® nfŸÉfS¡F Éil vGJf.\n1. be»Êahš ek¡F V‰gL« ÉisîfŸ ahit?\n2. be»ÊÆ‹ ïurhad« e«ik m¿ahkš v›thW clY¡FŸ brš»‹wJ?\n3. Eiu¥g« igfŸ v›thW ek¡F¤ Ô§F ÉisÉ¡»‹wd?\n4. ekJ ghu«gÇa rikaš Kiw Ô§»šyhkš ïUªjj‹ fhuz« ahJ?\n5. be»ÊÆ‹ kWRH‰á gaÜ£lhs®fS¡F v›thW Ôikia¤ jU»‹wJ?\nxU bghUis th§F« K‹ Ú brŒí« elto¡iffŸ g‰¿ vGâ¡ TWf.\nbe»Ê¥\nga‹gh£il¤\njÉ®¡F«\ntÊKiwfŸ\nbe»Ê¥ ga‹gh£il¤ jÉ®¡F« tÊKiwfis¡ FÄÊ tiugl¤â‹ _y«\nvGâ És¡Ff.\n1\nïLgÂ\n1\nts¥gL¤Jjš\nFiwÚ¡fš\n19\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p213]\nghl«\n3\nÉÊ¥òz®î\nmYtš foj¤ij thá¤âLf.\nbgh‹. fkyehj‹\n203\n• 160 brh‰fËš mYtš foj« vGJt®.\n3.4.9\nfkyehj‹ j/bg bgh‹DrhÄ,\nbjY¡ l¤njh FoÆU¥ò¢ r§f«,\nv© 12, #hyh‹ ï«ãah‹,\nbjY¡ l¤njh,\n42700 gªâ§,\náyh§T® lhUŸ Vrh‹.\nkht£l Rfhjhu mâfhÇ,\nkht£l Rfhjhu ïyhfh,\n42700 gªâ§,\náyh§T® lhUŸ Vrh‹.\n01 Mf°£ 20\nIah,\nRfhjhu¡ nf£o‰F tÊtF¡F« F¥ig¡ Ts§fis mf‰Wjš.\ntz¡f«. v§fŸ tá¥ãlkhd bjY¡ l¤njh gFâÆš flªj xU khj fhykhf¡\nF¥igfŸ mf‰w¥glhkš nj§»¡ »l¡»‹wd. ïuî ntisfËš, ï›t£lhu¤âš\nR‰¿¤\nâÇí«\nehŒfŸ,\nï¡F¥ig¡\nTs§fisbašyh«\nïiw¤JÉLtjhš,\nïlbkšyh« F¥igfŸ áj¿, my§nfhykhf¡ fh£á mË¡»‹wd. J®eh‰w«\nåR»‹wJ; Rfhjhu¡ nf£L¡F É¤âL»wJ.\n2. ï¡F¥ig¡ Ts§fËdhš <¡fŸ, bfhR¡fŸ, vÈfŸ, fu¥gh‹ ó¢áfŸ\nbgU»íŸsd. flªj xU khj fhykhf eh§fŸ btËÆš elkhl Koahkš\nïU¡»nwh«. ãŸisfŸ btËÆš Éisahlî« mŠR»wh®fŸ. v§fshš å£oš\nÃ«kâahfî« cw§f Kotâšiy. ï¤öŒik¡ nf£odhš nehŒthŒ¥g£l k¡fŸ\ná»¢ir bgw gz« bryî brŒa nt©oíŸsJ. ïªj Mnuh¡»ak‰w NHiy clnd\nkh‰¿aik¡f nt©L«.\n3. vdnt, jh§fŸ m‹ò T®ªJ clnd brašg£L, ïªj¡ F¥ig¡ Ts§fis\nm¥òw¥gL¤j V‰ghL brŒå®fŸ v‹w e«ã¡ifíl‹ ïªj¡ foj¤ij Ãiwî\nbrŒ»nw‹. c§fË‹ bjhl®ò elto¡if¡fhf¡ fh¤âU¡»‹nwh«.\ne‹¿.\nï¡f©,\n(bgh‹. fkyehj‹)\nbrayhs®\n19\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p214]\n204\ngŸËÆš\nRfhjhu\nelto¡iffŸ\ngŸË¢ Rt®fS¡F¢\nrha« óRjš;\nRtnuhÉa§fŸ tiujš.\ngŸË k©lg¤ij¡\nfGÉ¢ R¤j« brŒjš;\nmy§fÇ¤jš.\ná‰W©o¢ rhiyia¤\nöŒik¥gL¤Jjš;\nmHFgL¤Jjš.\ntF¥giwfË‹\nfhyj®fisí« jsthl¥\nbghUŸfisí«\nöŒik¥gL¤Jjš.\nnjh£l§fËš fis\nãL§Fjš; òj®fis\nmÊ¤J¢ R¤j« brŒjš.\nga‹gL¤j¥glhj\nbghUŸfis kWRH‰á\nbrŒjš; ga‹gL¤Jjš.\nc‹ gŸËÆ‹ á‰W©o¢rhiy el¤Je® Rfhjhu¤ij¥ ngQtâšiy v‹gij\nm¿»‹whŒ. mt® ÛJ elto¡if vL¡F«go gŸË KjštU¡F¥ ã‹tU«\nF¿¥òfis¤ Jizahf¡ bfh©L 160 brh‰fËš xU òfh® foj« vGJf.\nc‹ gŸËÆš Rfhjhu elto¡iffis nk‰bfhŸs ïU¡»Ö®fŸ. gŸË\nKjštU¡F mªelto¡iffis És¡» xU foj« vGJf.\ncL¤J« cil\nczî gÇkhW«\nKiw\nga‹gL¤j¥gL«\nbghUŸfŸ\nczî tiffŸ\ná‰W©o¢\nrhiyÆ‹ jsthl¥\nbghUŸfË‹ Ãiy\ná‰W©o¢rhiyÆ‹\nnjh‰w«\n1\nïLgÂ\n1\n1\nïLgÂ\n2\n19\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p215]\n205\ngÂ XŒî bg‰w MáÇa® âU. ïuÉ ca®ªj cŸs«\ngil¤j X® c‹dj kÅj®. v§fŸ »uhk¤âš cŸs\nmidtU¡F« mtiu¥ ão¡F«. ViH vËat®fS¡F¤\nj«khš\nïa‹w\ncjÉfis¤\nja§fhkš\nbrŒth®.\n»uhk¤âYŸs ïisP®fS¡F ešy Mnyhridfisí«\nj‹d«ã¡ifahd th®¤ijfisí« TWth®. gÂ XŒî\nbg‰w MáÇa® v‹gjhš »uhk¤âYŸs áWt®fS¡F\nïytrkhf¡\nfšÉ\nf‰ã¥gh®.\nx›bthUt®\nå£oY«\neilbgW»‹w ãwªjehŸ, âUkz« ngh‹w Ãfœ¢áfËš fyªJ áw¥ã¥gh®; ghuh£L\nkiH bghÊth®. J‹g« ne®ªJŸs å£o‰F¢ br‹W MWjiyí« tU¤j¤ijí«\nbjÇÉ¥gh®. xUnghJ« ãw® kd« ò©gL«go ngr kh£lh®. fLŠbrh‰fis btËÆl\nkh£lh®. nfhg¥glhkš Ãjhdkhf¢ brašgLth®. jk¡F ï‹dš ne®ªjhY« btËÆš\nfh£o¡ bfhŸs kh£lh®. ahÇlK« cjÉ nf£L ifnaªj kh£lh®. ‘òÈ gá¤jhY«\nòšiy¤ â‹dhJ’ vD« gHbkhÊ¡F cjhuzkhf thœªJ tU»‹wh®.\nmnj »uhk¤âš âU. K¤Jî« thœªJ tªjh®. mt® xU fUÄ. ahU¡F« vªj¥\nbghUisí« <a kh£lh®. RaeyÄ¡ft®. nkY«, Ku£L¡ FzKilat®. mtUila\nkidÉiaí« ãŸisfisí« fLikahd th®¤ijfshš â£Lth®. nfhg«\nÄF«nghJ mo¤J¤ J‹òW¤Jth®. kidÉ, ãŸisfis moikahf el¤Jth®.\n»uhk¤âYŸst®fis kâ¡f kh£lh®. mjdhš, mtiu\nahU¡F« ão¡fhJ. xU ehŸ g£lz¤â‰F¢ br‹W åL\nâU«ò«bghGJ rhiy Ég¤âš á¡F©L ïU fhšfisí«\nïHªjh®. å£oš kidÉ, ãŸisfË‹ cjÉÆ‹¿ elkhl\nïayhkš kd« tUªâdh®. ‘mlhJ brŒgt‹ glhJ gLth‹’\nv‹w gHbkhÊ¡F V‰g jdJ thœ¡if mikªJÉ£lij\nv©Â¥ òy«ãdh®; J‹ò‰wh®.\n• ïu©lh« got¤â‰fhd gHbkhÊfisí« mt‰¿‹ bghUisí« m¿ªJ\nrÇahf¥ ga‹gL¤Jt®.\n4.7.2\nghl«\n4\nbrŒíS« bkhÊaÂí«\ngHbkhÊfisí« bghUisí« m¿f.\ngHbkhÊfS« bghUS«\nòÈ gá¤jhY« òšiy¤ â‹dhJ\nbghUŸ:\nca®ªj g©òŸst®fŸ áwªj fhÇa§fisna brŒth®fnsa‹¿, vªÃiyÆY«\nj§fS¡F ïÊî ju¡Toa fhÇa§fis¢ brŒa kh£lh®fŸ.\nmlhJ brŒgt‹ glhJ gLth‹\nbghUŸ:\njfhj brašfis¢ brŒgt®fŸ mj‰FÇa j©lidfis¥ bg‰nw ÔUt®.\n19\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p216]\n206\ngHbkhÊfisí« mt‰¿‹ bghUisí« kdd« brŒJ TWf; vGJf.\nNHY¡F V‰w gHbkhÊia vGJf.\nxU gHbkhÊia¤ bjÇî brŒJ mjid És¡F« NHš fij x‹wid¡\nTWf; vGJf.\ngHbkhÊia Ãiwî brŒf.\n1. òÈ\nâ‹dhJ.\n2. mlhJ\ngLth‹.\n3. kªâu¤jhš\nÉGªâLkh?\n4. ïsikÆ‰\nÄoik.\n1. gy M©Lfshf¡ fl¤jš ntiyfËš <Lg£oUªj kUj‹ br‹w thu« fhtš\nmâfhÇfË‹ ãoÆš á¡»dh‹. mt‹ ïJehŸ tiu brŒj Ôa fhÇa§fS¡F¤\nj©lid »il¤nj ÔU«.\n2. Éky‹ g©òŸs FL«g¤âš ãwªJ ts®ªjt‹. x›bthU ehS«\nïiwtÊghL brŒa¤ jtwkh£lh‹. mt‹ j‹Dila m‹ghd ng¢rhY« g©ghd\nbrayhY« C® k¡fis¡ ft®ªâUªjh‹. Éky‹ j‹Dila nk‰go¥ò¡fhf¥\ng£lz¤âYŸs gšfiy¡fHf¤âš nr®ªJ m§nfna j§»¥ go¡f nt©oa\nNœÃiy V‰g£lJ. ÉkyDl‹ _‹W e©g®fS« nr®ªJ xnu miwÆš j§»d®.\nmt®fŸ âdªnjhW« òif¥ão¥gJ« kJ mUªJtJkhf ïUªjd®. Ékyidí«\nm¢braÈš <LgL«go t‰òW¤âd®. Mdhš, Éky‹ jh‹ fil¥ão¤J tªj\nbfhŸifÆÈUªJ khwhkš mt®fis¥ òw¡fÂ¤jh‹.\n3. tÊ¥g¿¡ bfhŸisfŸ brŒj mªj ïU Mlt®fŸ C®k¡fËl« ãog£ld®. gy\nehŸ j¥ãa nghâY« ï‹W ifí« fsîkhŒ¥ ãog£ld®. ïÅ mt®fS¡F¤\nj©lid »il¥gJ cWâna.\n4. ViH¡ FL«g¤âš ãwªjjdhš khwdhš fšÉia¤ bjhlu ïayÉšiy. X®\ncztf¤âš ntiy brŒjh‹. ne®ikahfî« ehzakhfî« elªJ bfhŸth‹.\nKjyhË, cztf¤âš ïšyhj ntisÆš gz¤ij ehzakhf¡ ifahŸth‹.\nvªj¢ NœÃiyÆY« gz¤ij¡ fsthl kh£lh‹. bfhL¡f¥g£l bghW¥ãÈUªJ\nÉyf kh£lh‹.\n1\nïLgÂ\n1\n1\nïLgÂ\n2\nts¥gL¤Jjš\nFiwÚ¡fš\n19\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p217]\nïa‰if Étrha¤âš njÜ¡fŸ xU K¡»akhd m§fkhF«.\nmit, gÆ®fË‹ kfuªj¢ nr®¡if¡F cjî»‹wd.\nnjÜ¡fŸ xU óÉÈUªJ ï‹bdhU óî¡F¥ gwªJ\nbr‹W njidí« kfuªj¤ijí« nrfÇ¡»‹wd. ï¥go\nxU óÉÈUªJ ï‹bdhU óî¡F¥ gw¡F«bghGJ xU\nóÉš cŸs kfuªj« ï‹bdhU óÉš cŸs NšKoÆš\nx£o¡ bfhŸ»wJ. mjdhš, kfuªj¢ nr®¡ifÆš\nnjÜ¡fŸ K¡»a¥ g§F t»¡»‹wd.\nnjÜ xU kÂ neu¤âš 24 »nyh Û£l® öu« tiu\nbršY«. mit xU ehËš mt‰¿‹ T£oÈUªJ ó¡fis¤\nnjo¡ FiwªjJ 900 KiwahtJ br‹W tU«. gy Kiw xU óÉÈUªJ ï‹bdhU\nóÉ‰F¢ bršY«. ïj‹_y« kfuªj¢ nr®¡if k£LÄ‹¿ jhtu§fË‹ ts®¢áiaí«\nmâfÇ¡F«. nkY«, mt‰¿‹ nehŒ vâ®¥ò¢ r¡âiaí« mâfÇ¤J tY¥gL¤J«.\nnj‹ mUikahd kU¤Jt¤ j‹ikfis¡ bfh©lJ. mJ g‹bdL§fhykhf¥\ngy nehŒfS¡F mUkUªjhf¥ ga‹g£L tªJŸsJ. msî¡F mâfkhd ó¢á¡\nbfhšÈ cgnahfnk nj‹ TLfŸ FiwªJ tUtj‰F¡ fhuz« vd MŒîfŸ\nTW»‹wd. ó¢á¡bfhšÈ bjË¡f¥g£l xU óÉš mkU« xU njÜ mj‹ njid¡\nT£L¡FŸ bfh©L tªJ nrfÇ¡»‹wJ. ïjid ïuhÂ¤ njÜ bjhÊyhs® njÜ¡F¡\nbfhL¡F«bghGJ x£Lbkh¤j njÜ¡fŸ e¢R¡FŸsh» ïw¡»‹wd. ïjdhš, flªj\n20 M©LfËš njÜ¡fŸ âObud¡ FiwªJŸsd.\nkÅj®fŸ njÜ¡fis¥ g‰¿ m¿ªJ bfhŸshjJ« ïj‹ mÊî¡F k‰bwhU\nfhuzkhf¤ âfœ»wJ. áy® nj‹ T£oid¥ gh®¤jJnk fo¤JÉLnkh v‹w ga¤âš\nx£Lbkh¤j T£ilna Ô it¤J¡ bfhS¤âÉL»wh®fŸ. všyh¤ njÜ¡fS«\nMg¤jhdit mšy. xU áy kiy¤njÜ¡fis¤ jÉ®¤J mL¡F¤njÅ, bfhR¤njÜ\nngh‹w tiffis Kiwahf¡ ifah©lhš mit ghJfh¥ghditna.\nbrhªj¤ njÜ¡ T£il cUth¡f ÉU«ògt®fŸ ïa‰ifahd nj‹ T£oid¡\nf©Lão¤J mâš cŸs ïuhÂ¤ njÜia¤ j‹Dila brhªj¤ njÜ¥ bg£o¡F\nkh‰w nt©L«. ïuhÂ¤ njÜahdJ bjhÊyhs® njÜ, M© njÜiaÉl 2.8 kl§F\nbgÇjhF«. ïuhÂ¤ njÜia¤ njÜ¥ bg£o¡FŸ it¤j clnd, k‰w njÜ¡fS«\nïuhÂ¤ njÅia¤ njo tªJÉL«.\nnjÜ¡fŸ ÉtrhÆfË‹ Éis¢riy mâfÇ¥gâš K¡»a¥ g§fh‰W»‹wd\nv‹gij mt®fŸ kwªJÉ£ld®. ó¢á¡ bfhšÈfŸ, fis¡ bfhšÈfŸ ï‹D«\ngy ïurhad§fis¥ òwªjŸËÉ£L ïa‰if Étrha¤ij ehLtnj Äf¢ áw¥ò.\nïj‹_y« ÉtrhÆfË‹ njh£l¤âš njÜ¡fŸ mil¡fy« òF«. mnj ntisÆš\nÉtrhÆfS¡F e‹ik brŒí« ó¢áfS« Ãiwa cUthF«. ÉtrhÆfŸ ïWâÆš\nešy gy‹fisí« milt® v‹gJ c©ikna.\n(e‹¿: ãdh§F gaÜ£lhs® r§f«)\nnjÜ¡fË‹ K¡»a¤Jt«\n207\nthá¤J k»œf.\n19\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p218]\nfyªJiuahLf.\nknyáa®fË‹ g©ghLfŸ\nbjhFâ 20\nghl«\n1\ng©gh£il¡ fh¥ngh«\nNHš:\nknyáa k¡fS« g©ghL« vD« jiy¥ãš khzt®fŸ\nnkilÆš Éthj« brŒ»‹wd®.\nÔghtË fiy Ãfœ¢á, á§f eld«, neh‹ò¥ bgUehŸ áw¥ò Ãfœ¢á\nngh‹wt‰iw Ãfœ¤â midtU« ãw rka¥ g©gh£L¡ TWfis\nm¿a tÊtF¡»‹wd®.\n208\nMkh«, c©ikjh‹. x›bthU rka¤jtU«\nbgUehŸ fhy§fËš ghu«gÇa cilfis\ncL¤â j§fË‹ g©gh£il¥ ngQ»‹wd®.\nï‹W knyáa®fŸ midtU¡F« ãw ïd¤jtÇ‹\nghu«gÇa MilfŸ g‰¿ e‹F bjÇªâU¡»‹wJ.\nnkY«, mt‰iw th§» cL¤â¡ bfh©L\nj§fË‹ x‰Wikia btË¥gL¤J»‹wd®.\nãw ïd¤jtÇ‹ eld§fis¡ f‰W¡ bfh©L,\nnkil Ãfœ¢áfËš gil¡»‹wd®. knyáa®fŸ\nx‰Wikahfî«, ešÈz¡f¤JlD« thœ»‹wd®\nv‹gj‰F ïJnt rh‹W.\nknyáa k¡fŸ x‰WikílD« g©òlD« òÇªJz®îlD« thœtj‰F¥\ng©gh£L¡ TWfŸ K¡»a¥ g§F t»¡»‹wd v‹whš ÄifahfhJ.\nknyáa®fŸ g©oiffis ÉkÇirahf¡ bfh©lhL»‹wd®.\nâwªj ïšy cgrÇ¥òfis¢ brŒ»‹wd®. midtiuí« miH¤J\nmutiz¡»‹wd®. fiy, g©gh£L Ãfœ¢áfis el¤J»‹wd®.\n\n[Bahasa Tamil Tingkatan 2.pdf p219]\n• jiy¥igbah£o¥ g©òl‹ Éthj« brŒt®.\n1.3.4\nï‹W bgU«ghyhd nkil Ãfœ¢áfËš\nnk‰f¤âa eld§fS¡F K¡»a¤Jt«\ntH§F»‹wd®. MilfËš ft®¢áia¡\nfh£L»‹wd®. ïj‰F¥ bga®jh‹\ng©gh£L ts®¢áah? brhšY§fŸ.\n209\neh‹ c§fsJ fU¤J¡F cl‹gl\nkh£nl‹. ÉHh¡fhy§fËš k£Lnk\nghu«gÇa cilfis mÂtjhš eh« ekJ\ng©gh£il¡ fh¡»‹nwh«; ts®¡»‹nwh«\nv‹W bghUŸgLkh?\n\n[Bahasa Tamil Tingkatan 2.pdf p220]\n210\n‘kŠR Éu£L’ vD« jÄH® ghu«gÇa Éisah£il¥ g‰¿¥ g©òl‹\nÉthj« brŒâLf.\n‘irt czî c§fS¡F ešyJ’ vD« jiy¥igbah£o¥ g©òl‹\nÉthj« brŒâLf.\nknyáahÉš thG« _Éd k¡fË‹ ïz¡f¥ ngh¡»id¥ g©òl‹ Éthâ¤âLf.\n1\nïLgÂ\n1\n1\nïLgÂ\n2\n1\nïLgÂ\n3\n20\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p221]\n211\n‘âUÉHh bfh©lh£l« g©gh£il ts®¥gj‰F nghJkhdit’ vD«\njiy¥igbah£o¥ g©òl‹ Éthj« brŒâLf.\n1\nïLgÂ\n4\nrka«\nts®»‹wJ.\nïisa\njiyKiwÆdU¡F\ntÊfh£L»‹wJ.\nk¡fŸ k¤âÆš\nx‰Wik ts®»wJ.\nkd mikâ\nV‰gL»‹wJ.\nflîŸ e«ã¡if\nnknyh§F»wJ.\nghu«gÇa«\nfh¡f¥gL»‹wJ.\nï‹iwa ïisP®fŸ ïªâa®fË‹ rka¥ g©gh£il¡ f£o¡ fh¡»‹wd®.\nï¤jiy¥igbah£o¥ g©òl‹ FGÉš Éthj« brŒâLf.\n1\nïLgÂ\n5\n20\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p222]\ngšÈd k¡fŸ thG« knyáa¤\nâUeh£oš gy g©oiffS«\nÉHh¡fS« bfh©lhl¥g£L\ntU»‹wd. mt‰WŸ Ôg¤ âUehS«\nx‹whF«. k»œ¢á¡F« Föfy¤â‰F«\ncÇa xU âUehshf¤ Ôg¤ âUehŸ\nÉs§F»‹wJ. ÔghtË v‹whny\nmidtÇ‹ kd¤âY« k»œ¢á\nbgU¡bfL¡F«. ïšy§fŸ\nãufhrkhf¡ fh£áaË¡F«.\nÔg« v‹whš És¡F. MtË\nv‹whš tÇir. ï¤âUehËš eh«\nÉs¡Ffis tÇir tÇirahf mL¡»\nit¤J Ôg« V‰¿, å£il¥ ãufhrkhf it¤âU¥ngh«. ï›thW brŒí« bghGJ e«\nkd¤âš cŸs ïUŸ Ú§», xË bgUFtij e«khš czu Ko»‹wJ. J‹g¤â‰F\ntÊtF¡»‹w nfhg«, bghwhik, mf§fhu« ngh‹w Fz§fis Ú¡» e«ik\neštÊ¥gL¤J»‹w xU áwªj âUehshf ïªj¤ Ôg¤ âUehŸ És§F»‹wJ.\nï¥g©oif I¥gá\nkhj¤âš bfh©lhl¥gL»‹wJ.\nÔghtË¥ g©oif¡F K‹d®\nïªâa®fË‹ åLfËš KW¡F,\nmâur«, bf£o cU©il ngh‹w\nghu«gÇa gyfhu§fis¢ brŒt®.\nÔghtË¡F Kjš thu¤âš\nåLfis mHFgL¤Jt®.\nÔghtË¥ g©oifa‹W\nmâfhiyÆš v©bzŒ\nnjŒ¤J¡ FË¥g®. ghu«gÇa\ncilfis mÂªJ bfh©L\nnfhÉY¡F¢ br‹W\nïiwtid tÊgLt®.\n212\nghl«\n2\nÔghtË¤ âUehŸ\nthá¤J m¿f.\n• thá¥ò¥ gFâÆYŸs K¡»a¡ fU¤Jfis milahs« fh©g®.\n2.2.3\n20\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p223]\nÔghtË¥ g©oif g‰¿a K¡»a¡ fU¤Jfis milahs« f©L TWf; vGJf.\nÉdh¡fS¡F ÉilaË¤âLf.\n1\nïLgÂ\n1\n1\nïLgÂ\n2\nïiw tÊgh£L¡F¥ ãwF,\nå£oYŸs bgÇat®fËl«\nãŸisfŸ Má®thj« bgWt®.\nå£L¡F¥ bgÇat®fŸ j§fŸ\nãŸisfŸ všyh ey§fS«\nbg‰W Ú^Ê thH nt©Lbk‹W\nthœ¤Jt®. m‹ig¥ gÇkh¿¡\nbfhŸt®. ã‹d®, midtU« x‹whf\nmk®ªJ k»œ¢áahf czî c©g®.\nÉUªnjh«gš V‰ghL brŒt®.\nÉUªnjh«gš knyáa®fËilna cŸs xU áwªj g©ghF«. x›bthU\nÉHh¡ fhy¤âY« âwªj ïšy cgrÇ¥ò V‰ghL brŒa¥gL«. ï¤Ôg¤ âUehËš\nïšy§fŸnjhW« V‰ghL brŒa¥g£oU¡F« âwªj ïšy cgrÇ¥ãš knyáa®fŸ\nmidtU« fyªJ áw¥ò¢ nr®¥g®.\nknyáa®fŸ xUtiu\nxUt® e‹whf¥ òÇªJ bfhŸsî«\nx‰Wikia tY¥gL¤jî«,\nešYwití« ešÈz¡f¤ijí«\ncUth¡fî« ï¤Ôg¤ âUehŸ\ntÊtF¡»‹wJ v‹whš ÄifahfhJ.\nnkY«, ï¤Ôg¤ âUehË‹ tÊ\nïªâa®fË‹ ghu«gÇa«, fyh¢rhu«,\ngH¡f tH¡f§fŸ M»at‰iw¥ ãw\nïd¤jt®fŸ m¿ªJ bfhŸs thŒ¥ghf\nmik»‹wJ. Ôg¤ âUehŸ x›bthUtÇ‹\nkd ïUis Ú¡»a X® ï‹g¤ âUehshf\nfUâ¡ bfh©lhl¥gL»‹wJ.\n1. ÔghtË v‹whš v‹d v‹gij És¡Ff.\n2. ÔghtËia¡ bfh©lhL« fhuz§fis¢ RU¡fkhf vGJf.\n3. ÉUªnjh«gš Ãfœ¤j¥gL« fhuz¤ij¡ TWf.\n4. g©oiffŸ v›thW ekJ ghu«gÇa¤ij ts®¡f cjî»‹wd?\n213\n20\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p224]\ncyf« KGtJ« cŸs jÄH®fshš ij khj« Kjyh« ehŸ\nc‰rhfkhf¡ bfh©lhl¥gL« âUehŸ bgh§fš âUehshF«.\nbgh§fš v‹gj‰F¥ bgh§» tÊjš mšyJ bgh§Fjš v‹gJ\nbghUshF«. tašfËš ÉisªJ mWtil¡F¤ jahuhf\nïU¡F« be‰fâ®fËš á¿jsit¡ bfh©L tªJ å£oš\ngil¤J tz§FtJ tH¡f«. mWtil bjhl§»aij¡\nF¿¡F« tifÆš, gÆ® Éis¢rY¡F cjÉa kiH, NÇa‹,\nfhšeilfŸ k‰W« Étrha¤ bjhÊyhs®fS¡F e‹¿\nbjÇÉ¡F« ehns ij¥ bgh§fš âUehŸ.\nij¥bgh§fš âUehS¡F Kjš ehŸ\nbfh©lhl¥gLtJ ngh»¥ g©oif. giHad fÊjY«\nòâad òFjY« ngh»Æ‹ j¤Jtkhf vL¤J¡ bfhŸs¥gL»wJ.\nïªj¥ g©oif, Jau§fis¥ ngh¡Ftjhf¡ fUj¥gLtjhš\nmjid¥ ‘ngh¡»’ v‹wh®fŸ. mªj¢ brhšny ehsilÉš\nkUÉ¥ ngh» v‹wh»É£lJ. jhœªj cy»aš Mirah»a\nnghf ò¤âia, Phd« v‹D« m¡»Åahš vÇ¡f nt©L«\nv‹gnj ïªj¥ g©oifÆ‹ j¤Jt«.\nngh»¡F kWehshd ij Kjš njâ bgh§fš\nâUehshF«. m‹W, òJ¥ghidÆš òJ mÇáÆ£L¥\nbgh§fÈLtJ tH¡f«. kŠrŸ, fU«ò, beš, thiH\nv‹W taÈš Éisªjt‰iw všyh« NÇa gfthD¡F¥\ngil¥gh®fŸ. bjhl®ªJ, bgh§fš it¤J¥ bgh§» tªj\nbgh§fiy¤ jiy thiHÆiyÆš ï£L KjÈš NÇa\ngfthD¡F¥ gil¥gh®fŸ.\nbgh§fY¡F mL¤j ehŸ kh£L¥ bgh§fš. cHî¤\nbjhÊš áw¥ghf eilbgw kÅjD¡F cjÉahf ïU¥git\nkhLfŸ. mªj thÆšyh ét‹fS¡F ïªj ehËš e‹¿\nbjÇÉ¡f¥gL»‹wJ. mnjhL, gRití« mj‹ f‹iwí«\nÚuh£o, bfh«òfS¡F t©z« Ô£o, mt‰¿‹ bfh«òfËY«\nfG¤âY« ry§iffisí« khiyfisí« mÂÉ¤J¥\nói# brŒth®fŸ. RitÄF bgh§fiyí«\nc©z¡ bfhL¥gh®fŸ.\nbgh§fš bfh©lh£l¤â‹ filá ehŸ fhQ«\nbgh§fš. ïJ cwÉd®fisí« e©g®fisí« fhQ«\nehshF«. ÔghtËia¥ ngh‹W bgh§fY« xU tif xË¤\nâUÉHhnt. xËia V‰¿ k»œ¢á fh©gJ ÔghtË¤ âUehŸ.\nNÇa xËia¡ f©L k»œ¢á fh©gJ bgh§fš âUehŸ. jÄH®\nâUehshd bgh§fš âUehis¡ bfh©lho k»œnth«.\n(_y«: mŠrÈ 2012 - áy kh‰w§fSl‹)\nbgh§fš âUehŸ g‰¿a thá¥ò¥ gFâÆYŸs K¡»a¡ fU¤Jfis\nmilahs§f©L TWf.\n1\nïLgÂ\n3\n214\n20\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p225]\n215\nÉdh¡fS¡F Éil TWf; vGJf.\n1. bgh§fš âUehŸ vj‰fhf¡ bfh©lhl¥gL»wJ?\n2. ngh»¥ g©oifÆ‹ j¤Jt« v‹d?\n3. NÇa¥ bgh§fš V‹ bfh©lhl¥gL»wJ?\n4. kh£L¥ bgh§fš bfh©lhl¥gLtij¥ g‰¿ c‹Dila fU¤bj‹d?\n5. c§fŸ å£oš bgh§fš âUehis v›thW bfh©lhLå®fŸ v‹W e©gnuhL\nfyªJiuahLf.\nã‹tU« bgh§fš âUehŸ fhy§fËš v‹bd‹d brŒth®fŸ v‹gij¡ TWf;\nvGJf.\ngDtÈYŸs K¡»a¡ fU¤Jis milahs§f©L TWf.\nngh»¥ g©oif\nkh£L¥ bgh§fš\nfhQ« bgh§fš\n1\nïLgÂ\n4\nts¥gL¤Jjš\nFiwÚ¡fš\nknyáa®fŸ gšntW g©ghLfis\ncilat®fŸ v‹gij¡ fh£L»‹wJ.\nx›nth® ïd¤jtU« j§fË‹\nghu«gÇa g©gh£L Milfis\nmÂtij¥ bgUikahf¡\nfUJ»‹wd®. x›nth® ïd¤jtÇ‹\nMilfËY« jÅ¤j‹ikiaí«\ntuyh‰W¥ ã‹dÂiaí« fhz\nKoí«. knyáa¤ jÄH®fŸ mÂí«\nghu«gÇa cil nriy, nt£o,\nÍ¥gh MF«. bghJthfnt ïªj\nMilfis¤ jÄH®fŸ nfhÉY¡F¢\nbršY«nghJ« âUkz itgt§fËY« ÉHh¡ fhy§fËY« mÂt®. ït‰iw¤\njÉu Rojh®, ghthil, jhtÂ, g£L¥ ghthil ngh‹w MilfS« knyáahÉš\nthG« jÄH®fË‹ ghu«gÇa cilfshF«. g©gh£L Ãfœ¢áfËš ï«khâÇahd\nMilfis mÂtij¥ bg‰nwh®fŸ C¡FÉ¡f nt©L«.\n20\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p226]\n216\n• 160 brh‰fËš cwî¡ foj« vGJt®.\n3.4.10\nnk‰fhQ« gl§fis¤ Jizahf¡ bfh©L ïªâa®fË‹ âUkz itgt¤ij\nÉs¡» btËeh£oYŸs c‹Dila m¤ij kfD¡F 160 brh‰fËš xU\nfoj« vGJf.\nghl«\n3\nâUkz itgt«\nfyªJiuaho vGJf.\n1\nïLgÂ\n1\n20\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p227]\n217\nkyhŒ¡fhu®fË‹ âUkz V‰gh£L Kiwfis És¡» rnfhjÇ¡F 160 brh‰fËš\nxU foj« vGJf.\nknyáa®fŸ mtut® K‹ndh®fŸ fil¥ão¤J tªj f£L¥ghLfis¥ ã‹g‰¿\nthœ»‹wd®. m¡f£L¥ghLfSŸ áyt‰iw¡ F¿¤J És¡» c‹ m©z‹\nkfS¡F 160 brh‰fËš xU foj« vGJf.\ne«Kila eh£oš bfh©lhl¥gL« K¡»a¥ g©oiffisí« bfh©lhL« Éj«\ng‰¿í« ïy©lÅš tá¡F« c‹ m©zD¡F xU foj« vGJf.\nâUkz¤â‰F Kjš ehŸ\nkUjhÂ ï£L¡ bfhŸSjš.\nngÇl® ÃfHhkY«, Ôa\náªjidfËÈUªJ ÉLglî«\nkz¥bg©iz mHFgL¤â¤\njah®gL¤jî« kUjhÂ\nïl¥gL»wJ.\nc‰wh®, cwÉd® m¿a\nnkilÆš âUkz« brŒJ\nbfhŸSjš.\nïU FL«g¤jhU« fyªJ\nngá Ã¢ra« brŒa ehŸ,\nneu« F¿¤jš.\nbg©iz¥ g‰¿í« mtuJ\nFL«g¥ ã‹dÂia¥ g‰¿í«\nahU« m¿aht©z«\nÉrhÇ¤jš.\nnkhâu«, bt‰¿iy, kA®\ngz« (wang hantaran)\nM»at‰Wl‹ bg© å£L¡F¢\nbr‹W Ã¢ra« brŒjš.\nâUkz« brŒa¥ bgÇat®fŸ\nK‹ÅiyÆš cWâbkhÊ\nvL¤J¡bfhŸSjš.\n1\nïLgÂ\n2\n1\nïLgÂ\n3\n1\nïLgÂ\n4\n20\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p228]\n218\nuhK:\nIah, vdJ j§if¡F fz¡nf\nbjÇay?\nIah: V‹ m¥go¢ brhš»whŒ?\nuhK:\nne‰W 7 + 3 =10 v‹W brh‹dhŸ.\nMdhš, ï‹W jdJ ng¢ir kh‰¿\n5 + 5 =10 v‹W brhš»whŸ.\nK¤J: v‹Dila ãŠR kdnk\ncilªJ É£lJ lh¡l®.\nlh¡l®: vJ cilªjhY« khî\nf£L¥ ngh£L¢ rÇ brŒâlyh«.\nftiy¥glhÔ®fŸ.\nK¤J: c§fsJ ghr¤â‰F Ä¡f\ne‹¿ lh¡l®.\nÛdh: mtUila jiyÆš\nm›tsî bfh£oí« mtU¡F\ntÈ bjÇaÉšiyah«.\nkhyh: v‹d M¢rÇa«?\nÛdh: M¢rÇa« x‹WÄšiy.\nbfh£oaJ, mtuJ\njiyKojhnd...\nuF:\nï‹W ekJ njhH®fË‹\ncÆiu ïªj kU¤Jt®\nfh¥gh‰¿É£lh®.\nuÉ:\nv¥go¡ fh¥gh‰¿dh®?\nuF:\nï‹W mtUila jiyikÆš\neilbgwÉUªj mWit¢\ná»¢ir jŸË\nit¡f¥g£LÉ£lJ.\n• Mwh« nt‰Wik cUòfsh»a mJ, cila v‹gdt‰¿‹ ã‹ tÈÄfhJ\nv‹gij m¿ªJ rÇahf¥ ga‹gL¤Jt®.\n5.5.4\náÇ¡f\náªâ¡f\nghl«\n4\nïy¡fz«\nMwh« nt‰Wik cUòfis m¿f.\n20\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p229]\n219\neif¢Rit¤ JQ¡»š t©zÄl¥g£l brh‰bwhl®fis vL¤J vGJf.\nã‹tU« brh‰fis¢ nr®¤J vGJf.\n1. ïuhkDila + nj®=\n2. ïiwtdJ + gil¥ò=\n3. njhHUila + foj«=\n4. g©òila + braš=\n5. mtuJ + ng¢R=\n6. bgÇatuJ + FL«g«=\n7. jiytUila + gÂî=\n8. ViHÆdJ + f©Ù®=\n9. áWtDila + áÇ¥ò=\n10. MáÇauJ + nghjid=\nã‹tU« brh‰bwhl®fis¡ bfh©L th¡»a« mik¤âLf.\nMwh« nt‰Wik cUòfSl‹ brh‰fis ïiz¤J vGJf.\n1. fÉPUila fÉij\n2. FUÉÆdJ TL\n3. ng¢rhsuJ brh‰bghÊî\n4. ãwUila bghUŸ\n5. khztUila gil¥ò\n6. ViHfsJ gz«\n7. ïa‰ifÆdJ Ó‰w«\n8. gz¡fhuUila iga‹\ncila\nv.fh:\nj«ã + cila = j«ãíila\nmJ\nv.fh:\nkÅj‹ + mJ = kÅjdJ\nMwh« nt‰Wik cUòfshd mJ,\ncila v‹gdt‰¿‹ ã‹ tÈÄfhJ.\nv.fh:\ni) ghydJ + if =\nghydJ if\nii) v‹Dila + j£L = v‹Dila j£L\nm¿ªJ bfhŸf\nts¥gL¤Jjš\nFiwÚ¡fš\n1\nïLgÂ\n1\n1\nïLgÂ\n2\n20\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p230]\nneh¡f«\n220\n• tÇgl¡ fUÉÆYŸs jftšfisbah£o¡ fU¤Jiu¥g®; Koî TWt®.\n1.5.2\njftšfis m¿f.\nbkhÊí« ehK«\nbjhFâ 21\nghl«\n1\nnlth‹ gAhrh lh‹ òÞjh¡fh\nnjh‰w«\n22 #]‹ 1956\nïy¡F\nbkhÊia\nïa¡fî«\ntY¥gL¤jî«\nnrit\nnjáa bkhÊia\nts¥gL¤Jjš;\ntY¥gL¤Jjš\nj¤Jt«\nbkhÊ ïd¤â‹ cÆ®\n(BAHASA JIWA BANGSA)\ngil¥òfŸ\n• mfuhâfŸ\n• ïy¡»a\nüšfŸ\n• fiy¡\nfsŠáa§fŸ\n• bkhÊbga®¥ò\nüšfŸ\n• k‰W« ãw\nvšyh¤ JiwfËY« njáa bkhÊia ts¥gL¤Jjš; nk«gL¤Jjš.\nbkhÊÆ‹ ïašò¤ j‹ik ÓuÊahkš ghJfh¤jš.\nbkhÊÆ‹ jÅ¤j‹ikia¡ fh¤jš.\nm¿Éaš bjhÊšE£g ts®¢á¡F V‰g òâa brh‰fis cUth¡Fjš.\nãwbkhÊ¥ gil¥òfis bkhÊbga®¤jš.\nòâa üyh¡f§fŸ cUthf thŒ¥ò tH§Fjš; cUth¡Fjš.\nüšfis btËpL brŒjš; m¢áLjš.\nR‰w¿¡if, rŠáif ngh‹wt‰iw m¢nr‰Wjš.\nnjáa bkhÊia¥ gutyhf¥ ga‹gL¤j tÊtF¤jš.\nïy¡»a bkhÊ¤ âwid nk«gL¤Jjš.\nbkhÊ bjhl®ghd MŒîfis nk‰bfhŸSjš.\n\n[Bahasa Tamil Tingkatan 2.pdf p231]\n221\n‘nlth‹ gAhrh lh‹ òÞjh¡fh’ g‰¿ fU¤Jiu¤âLf; Koî TWf.\n‘nlth‹ gAhrh lh‹ òÞjh¡fh’it¥ ngh‹W knyáahÉš jÄœbkhÊ¡ fh¥ò k‹w«\nmik¥gJ g‰¿¡ fU¤Jiu¤âLf; Koî TWf.\njÄœ khzt®fŸ bkhÊÆ‹ ÛJ <Lgh£ilí« M®t¤ijí« V‰gL¤J«\ntÊKiwfis¥ g‰¿¡ fU¤Jiu¤âLf; Koî TWf.\nbkhÊ Éisah£LfË‹ _y« f‰wš elto¡if Äf¢ áw¥ghd ga‹fis¤ jU«.\nï¡T‰¿id V‰W FÄÊ tiugl¤âš bkhÊ Éisah£LfË‹ ga‹fis vGJf.\nbkhÊ Éisah£LfŸ el¤Jjš.\njÄœ rh®ªj Ãfœ¢áfS¡F\nmiH¤J¢ bršYjš.\nf‰wš f‰ã¤jš khzt®fis\n<®¡F« t©z« mikjš.\nüyf¤ij KGikahf¥\nga‹gL¤j tÊtF¤jš.\ntá¥ãl§fËš bghJ¤ jÄœ\nüyf« mik¤jš.\nbg‰nwh®fŸ áwªj jÄœ\nüšfis¥ ãŸisfS¡F\nth§»¡ bfhL¤jš.\nngh£ofis V‰ghL brŒjš.\n• f£Liu¥ ngh£o\n• ng¢R¥ ngh£o\n• fij brhšY« ngh£o\n• âu£nlL jahÇ¡F« ngh£o\n• fÉij brhšY« ngh£o\n1\nïLgÂ\n1\n1\nïLgÂ\n2\n1\nïLgÂ\n3\n1\nïLgÂ\n4\nbkhÊ\nÉisah£L\n21\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p232]\njhÆ‹tÊ tªj bkhÊ jhŒbkhÊ v‹»‹nwh«. eh« ãwªjâÈUªJ I«òy‹fËš\nczu¡ Toa cz®îfnshL C¿a, áªâ¡f¡ f‰W¡ bfhL¡F« bkhÊahf¤\njhŒbkhÊ És§F»‹wJ. jhŒbkhÊ v‹gJ áªjid bkhÊahF«. jhŒbkhÊ¡ fšÉ\nv‹gJ eh« áªâ¡»‹w bkhÊÆš gÆ‰WÉ¡f¥gL»‹w fšÉahF«.\njhŒbkhÊ tÊÆš bjhl¡f¡ fšÉia tH§F« nghJ FHªijfŸ jh«\nÃid¡F« v©z§fisí« jhk¿ªj jftšfisí« jk¡F¤ bjÇªj bkhÊÆš\nclnd btË¥gL¤J»‹wd®. jhŒbkhÊÆš f‰F«nghJ x‹iw¥ g‰¿a KGikahd\njftšfis¤ bjËthf khzt®fshš m¿ªJ bfhŸs Ko»‹wJ. xU khzt‹ jh‹\ncz®ªjt‰iw¤ j§F jilÆ‹¿ btË¥gL¤J« thŒ¥ò¤ jhŒbkhÊ¡ fšÉahš\nV‰gL»‹wJ. nkY«, j‹d«ã¡ifíl‹ gy òJ¢ áªjidfŸ, f©Lão¥òfŸ,\nMŒîfŸ vd¤ j‹id <LgL¤â¡ bfhŸs Ko»‹wJ.\neh« ah® v‹gj‹ milahs¤ijí« ek¡fhd KftÇiaí« jhŒbkhÊjh‹\nbfhL¡»‹wJ. ekJ _jhija®fŸ ek¡F É£L¢ br‹w thœthjhu§fisí«\nghu«gÇa§fisí« ïy¡»a¢ brGikfisí« tuyh‰W¥ gâîfisí« m¿ªJ\nbfhŸs jhŒbkhÊ Jiz òÇ»‹wJ.\neh« ekJ milahs¤ij¥ ngz mo¥gilÆš brŒa nt©oaJ\nv‹dbt‹whš, ekJ jhŒbkhÊia¡ f‰gnjahF«. e«ikí« ekJ g©gh£ilí«\nïiz¡F« K¡»akhd fUÉahf¤ jhŒbkhÊ És§F»‹wJ. jhŒbkhÊÆš\nngRtjhnyh f‰gjhnyh ãwbkhÊfËš ã‹j§»ÉLnth« v‹W bghUŸglhJ.\njhŒbkhÊ m¿îl‹ gŸË¡F¢ bršY« ãŸis ãw bkhÊfisí« ïyFthf¡ f‰W¡\nbfhŸs Ko»‹wJ v‹W MŒîfŸ TW»‹wd. nkY«, áWtaâš gy bkhÊfis¡\nf‰F« M‰wiy¥ ãŸisfŸ ïašghfnt bfh©oU¡»wh®fŸ. jhŒbkhÊia¡\nf‰gj‰F« ngRtj‰F« ïyhg e£l¡ fz¡if¥ gh®¡F« áªjidia KjÈš\nmf‰w nt©L«. ‘c‹ jhŒbkhÊ kâ¡f¥glÉšiyba‹whš, c‹ Fuštis\nbeÇ¡f¥gL»‹wJ v‹W bghUŸ’ v‹D« ãbuŠR¥ gHbkhÊia v©Â¥ gh®¥ngh«.\njhŒbkhÊia¥ ngh‰¿ tz§Fnth«.\n222\n• bkhÊ bjhl®ghd ciueil¥ gFâia thá¤J¡ fU¤Jz® nfŸÉfS¡F¥\ngâyË¥g®.\n2.3.5\nghl«\n2\njhŒbkhÊ¡ fšÉ\nthá¤J m¿f.\n21\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p233]\n223\nt©zÄl¥g£l brh‰fS¡F¥ bghUŸ TWf.\nÉdh¡fS¡F Éil TWf; vGJf.\n1. jhŒbkhÊ v‹whš v‹d? mJ ek¡F v‹d cz®¤J»‹wJ?\n2. jhŒbkhÊ¡ fšÉ f‰gjhš V‰gL« e‹ikfŸ ahit?\n3. jhŒbkhÊia xUt® v›thW ngÂ¡ fh¡fyh«?\n4. jhŒbkhÊ¡ fšÉ f‰gj‹ mtáa¤ij¥ g‰¿ e©gUl‹ g»®ªJ bfhŸf.\njhŒbkhÊ¡ fšÉia¥ bgwhj xUt® vâ®neh¡F« á¡fšfis¡ FÄÊ\ntiugl¤âš vGJf.\njÄœbkhÊia ts®¥gâY« fh¥gâY« ït®fŸ v›thW Jiz òÇayh« v‹W ku\ntiugl¤âš vGJf.\njÄœbkhÊia ts®¤jY« fh¤jY«\nbg‰nwh®fŸ\nMáÇa®fŸ\njÄœ ïa¡f§fŸ\nts¥gL¤Jjš\nFiwÚ¡fš\n1\nïLgÂ\n1\n1\nïLgÂ\n2\nvâ®neh¡F«\ná¡fšfŸ\n21\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p234]\n224\n• ï‹iwa jÄœ¢ r_f¤âdU¡F V‰w\nešYiufis¤ âdK«\nehËjÊš vGJnt‹.\n• ïiw¢ áªjid bjhl®ghd M‹Äf¡\nf£Liufis vGJnt‹.\n• thœ¡ifÆš vâ®bfhŸS« rthšfŸ\ná¡fšfŸ M»at‰iw¡ fisí«\ntÊKiwfisí« ehËjœ nfŸÉ gâš\nm§f¤âš btËÆLnt‹.\n• j‹d«ã¡if C£l¡Toa áªjid¡\nf£Liufis vGâ\nüyhf btËÆLnt‹.\n• gŸË khzt®fS¡fhd ghl¥ gÆ‰á\nüšfis cUth¡Fnt‹.\n• eif¢Rit¤ JQ¡Ffis vGâ\nk¡fË‹ kd mG¤j¤ij¥ ngh¡Fnt‹;\náªâ¡f¢ brŒnt‹.\n• ïy¡»a«, thœÉaš bjhl®ghd\nf£Liufis vGJnt‹.\n• jÄÊš ãiHÆ‹¿ vGj ïy¡fz¥\ngÆ‰á üšfis cUth¡Fnt‹.\n• 160 brh‰fËš f‰gid¡ f£Liu vGJt®.\n3.4.13\n‘eh‹ jÄœ vG¤jhsuhdhš’ vD« jiy¥ãš 160 brh‰fËš f‰gid¡ f£Liu\nx‹wid vGJf.\nghl«\n3\njÄœ vG¤jhsuhdhš...\nfyªJiuaho vGJf.\n1\nïLgÂ\n1\n21\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p235]\n225\n‘eh‹ xU jÄHháÇauhdhš’ vD« jiy¥ãš 160 brh‰fËš f‰gid¡ f£Liu vGJf.\n‘vd¡F¤ jÄœ üyf« mik¡f thŒ¥ò¡ »il¤jhš’ vD« jiy¥ãš ã‹tU«\nF¿¥òfË‹ Jizíl‹ 160 brh‰fËš f‰gid¡ f£Liu vGJf.\nf‰gid¡ f£Liuia¤ bjhl®ªJ vGJf.\njÄœ üšfŸ\ngyt‰iw¤ jUÉ¥ng‹.\nx›bthU Jiw¡F« V‰w\nãÇîfis cUth¡Fnt‹.\njÄœ ïy¡fz¥\ngÆyu§Ffis ïytrkhf\nel¤j V‰ghL brŒnt‹.\nthrf®fS¡F¡ fij,\náWfij vGJ«\nngh£ofis el¤Jnt‹.\nM‹Äf be¿ahs®fË‹\nM‹Äf¢ brh‰bghÊîfis\nÃfœ¤j V‰ghL brŒnt‹.\ngH§fhy üšfis¡\nF¿¥ò ü‰ãÇÉš\nth§» it¥ng‹.\nrka üšfisí« òuhz,\nïâfhr üšfisí«\nth§» it¥ng‹.\nthrf®fS¡F tÊfh£l\njÄœ m¿P®fis\nMnyhrf®fshf\nÃaÄ¥ng‹.\nv‹d Mdªjkhf¥ gw¡»nw‹. Mdhš, v‹id¡ f£L¥gL¤â¡ bfh©lšyth\nïU¡»wh® v‹ KjyhË. v‹ cUt¤ijí« nkÅ mHifí« gh®¡F« nghJ mllh!\nmHnfh mHF!\nfh‰W mo¡F« âirÆš eh‹ Kªâ¡ bfh©L mir»nw‹. fh‰nwhL\nngR»nw‹... gw¡F« gwitnahL ngR»nw‹... mnjh! m§nf v‹id¥ ngh‹W nkY«\náy e©g®fŸ mHfhf¥ gw¡»‹wdnu! Mkh«! mt®fisí« v‹id¥ nghy gy\ntot¤âš cUth¡»¥ gw¡f ÉL»‹wdnu! v‹ ntf« nkf¡ T£l§fis cuRtJ\nnghš ïU¡»wnj! MdhY« üiy¡ f£o v‹id ïG¤J¥ ão¡»wh®, v‹id\ncUth¡»a ïisP®...\n1\nïLgÂ\n2\n1\nïLgÂ\n3\n1\nïLgÂ\n4\n21\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p236]\n226\nâU. KuËí« âUkâ Ékyhî« xU »uhk¤âš vËikahd thœ¡if thœªJ\ntªjd®. âU. KuË xU bjhÊ‰rhiyÆš ghJfhtyuhf¥ gÂòÇ»wh®. âUkâ Ékyh\nïšy¤juá. mt®fS¡F _‹W ãŸisfŸ. _¤jt‹ fUK»y‹ Iªjh« got«\ngÆš»wh‹. ïu©lhtJ FKâÅ got« ïu©oš go¡»whŸ. fil¡F£o rhªâ got«\nx‹¿š gÆš»whŸ. bg© ãŸisfŸ fšÉÆš ftd« brY¤â¥ gÆ‹W tU»‹wd®.\nMdhš, _¤jt‹ fUK»y‹ fšÉÆš eh£lÄ‹¿ ïU¡»‹wh‹. ghl§fËš m¡fiw\nbrY¤Jtâšiy. mjdhš, mo¡fo mtDila m¥ghÉl« ng¢R th§Fth‹. xU\nehŸ j‹ m«khÉl« jd¡F¥ òâa nkh£lh® ir¡»Ÿ nt©L« v‹W ml« ão¤jh‹.\nm¥ghÉl« m«kh jftiy¢ brh‹dJ« m¥gh, “go¡»w taâš cd¡F vj‰F\nnkh£lh® ir¡»Ÿ? ï‹D« nkh£lh® ir¡»Ÿ X£l¡ Toa jFâ cd¡F tuÉšiy.\nnkY«, cd¡F thfd« X£L« cÇkK« »il¡fhJ. KjÈš e‹whf¥ go” v‹W\nm¿îiu T¿dh®.\n“v‹ e©g®fËš áy® nkh£lh® ir¡»Ëšjh‹ gŸË¡F tU»‹wd®...” v‹W\nkWbkhÊ T¿dh‹. nkY«, e©g®fË‹ bg‰nwhiu¥ g‰¿¥ bgUikahf¥ ngádh‹.\nm¥ghÉ‹ kd« nehF«go áy fLikahd th®¤ijfis¥ ngáÉ£L¡ nfhg¤Jl‹\nj‹ miw¡FŸ òFªJbfh©L fjit X§»¢ rh¤âdh‹.\nghl«\n4\nbrŒíS« bkhÊaÂí«\nâU¡Fwisí« bghUisí« m¿f.\n21\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p237]\n227\nm¥gh ï›tsî öu« vL¤J¡ T¿í« nf£f kW¡»‹whnd... FL«g¢\nNœÃiy g‰¿¢ á¿J« m¡fiwÆšyhkš ïU¡»‹whnd v‹W m«kh kd«\ntUªâdh®. kWehŸ fhiyÆš,\nfUK»y‹ gŸË¡F¢\nbršyÉšiy. j‹ e©gDl‹\nbtËna br‹W R‰¿É£L\nkhiyÆš xU nkh£lh® ir¡»is\nX£o¡ bfh©L tªjh‹.\n“ahUila nkh£lh®\nir¡»Ÿ ïJ?” v‹W m¥gh nf£lh®.\n“v‹ thœ¡ifia¥ g‰¿ ahU«\nftiy¥gl¤ njitÆšiy.\neh‹ ïÅnkš gŸË¡F¢ bršy\nkh£nl‹” v‹W Mzt« fyªj\nnfhg¤njhL âÄuhf¥ gâyË¤jh‹.\nm©zÅ‹ ng¢ir¡ f©o¡f Ka‹w j§iffS¡F miw ÉGªjJjh‹ Ä¢r«.\njhŒ jªijaÇ‹ ng¢ir¥ bghU£gL¤jhkš nkh£lh® ir¡»is vL¤J¡ bfh©L\nntfkhf¥ òw¥g£lh‹. ïuî btF neu« M»í« åL âU«gÉšiy. Éoa‰fhiy\n4:00 kÂ¡F kU¤Jtkid mtru¢ á»¢ir¥ ãÇÉÈUªJ tªj bjhiyngá\nmiH¥ig¡ nf£L¡ FL«g¤âd® gj¿ao¤J Éiuªjd®. kfÅ‹ Ãiyia¥ gh®¤J¡\nfj¿aGjd®.\nj‹id¤jh‹ fh¡»‹ ád«fh¡f fhth¡fhš\nj‹idna bfhšY« ád«. (FwŸ 305)\nv‹w FwS¡bfh¥g ád« v‹»w cz®¢áia tsu É£lhš mJ ts®¤jtidna\nbfhšY« v‹gJ bkŒ¥ã¡f¥g£oUªjJ.\n• ïu©lh« got¤â‰fhd âU¡Fwisí« mj‹ bghUisí« m¿ªJ TWt®;\nvGJt®.\n4.2.2\nâU¡FwS« bghUS«\nj‹id¤jh‹ fh¡»‹ ád«fh¡f fhth¡fhš\nj‹idna bfhšY« ád«. (FwŸ 305)\nbghUŸ:\nxUt‹ j‹id¤jh‹ fh¤J¡ bfhŸtjhdhš, ád« tuhkš fh¤J¡\nbfhŸs nt©L«; fh¡fhÉ£lhš, ád« j‹idna mÊ¤JÉL«.\nfU¤J:\nnfhg« xUtiu mÊ¡f tšyJ.\n21\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p238]\n228\nâU¡Fwisí« mj‹ bghUisí« m¿ªJ TWf; vGJf.\nnfhg« V‰g£lhš mjdhš V‰gL« ghâ¥òfis¥ g‰¿¡ FGÉš\nfyªJiuahLf; vGJf.\nnfhg cz®¢áia¡ f£L¥gL¤j xUt® v›thwhd gÆ‰áfis nk‰bfhŸsyh«\nv‹gij¡ FÄÊ tiugl¤âš vGJf.\nnfhg¤ij¡\nf£L¥gL¤J«\ngÆ‰áfŸ\nâU¡Fwisí« mj‹ bghUisí« kdd« brŒJ TWf; vGJf.\nm. âU¡Fwis Ãiwî brŒf.\nj‹id¤jh‹ fh¡»‹\nM. bghUŸ vGJf.\n1. j‹id\n2. fh¡f\n3. ád«\n4. fhth¡fhš\n5. bfhšY«\n1\nïLgÂ\n1\n1\nïLgÂ\n2\n1\nïLgÂ\n3\nts¥gL¤Jjš\nFiwÚ¡fš\n21\nbjh\nF\nâ\n\n[Bahasa Tamil Tingkatan 2.pdf p239]\n229\nM\nMnuh¡»a« 18, 21\nM‰wš 109\nMHkhf 111\nï\nïiza« 25\nïiaªJ 81\nïy¡»a« 118\nc\nclš vil 49\nciwÉl« 90\nC\nC£odh® 35\nv\nv©z§fŸ 222\nvŸssî« 124\nvâ®neh¡F« 124\nv£lhj 189\nV\nV‰ghL 124\nV¢R 125\nI\nIíW»‹wd® 151\nm\nmo¤jskhf 1\nmk®ªJ 3\nmWtil 33\nms¥gÇaJ 33\nm‰òjkhd 106\nmutiz¥ò 179\nf\nfz¥bghGJ 25\nf£Ltj‰fhd 70\nfÂÅ 85\nf©fh£á 93\nfšbt£LfŸ 159\nr\nrnfhjÇfŸ 70\nrkhjhd« 180\nrh\nrh¤âu§fŸ 108\nrh¤âa« 138\nfh\nfhbzhË 30\nbr\nbr¥ngLfŸ 159\nbrh\nbrh‰bghÊî 21\nj\nj‹dy« 198\njftš 222\njiyaha 161\nbjh\nbjh‹ikahd 161\ng\ngH¢rhW 48\nguhkÇ¥ò 74\ngÇzÄ¤J 82\ngÂah‰¿ 109\ngh\nghJfh¤jš 67\nò\nòif¥gl§fŸ 73\nò‰òj® 74\nbg\nbgUÄj« 35\nbgh\nbgh‰fhy« 120\nbgh§fš 214\nPh\nPhd« 214\ne\neWkz« 70\nešYiu 224\neif¢Rit 224\nne\nne®fhzš 95\nk\nk»œ¢á 59\nkd¡ftiy 47\nkWRH‰á 201\nkUÉ 214\nkUjhÂ 217\nkh\nkhYÄ 62\nkhbgU« 160\nÄ\nÄ‹Éir 190\nK\nKjYjÉ 190\nbk\nbkŒÃf® 25\nbkŒíz®it 180\nbt\nbtWknd 106\nbtFkâ 154\nt\ntiy¤js« 27\ntÊtF¤J 47\ntot« 82\nt£blG¤J 82\nts®¢á 110\nth\nthotj§» 51\nthfd« 93\nthu« 189\nthí¡fy‹ 189\nÉ\nÉÇršfŸ 5\nÉŠPhd« 32\nÉ©btË 32\nÉkhÅ 62\nÉiuªJ 227\nik\nika¥gL¤â 25\nmfu Ãuš F¿¥ò\n\n[Bahasa Tamil Tingkatan 2.pdf p240]\nJiz üš g£oaš\n1. ». b#akÂ. (2016). ca® Phd Ôg«. 3Í »Çnar‹. <nuhL.\n2. fh.eh. rªâu‹. (2012). mŠrÈ. mŠrÈ gâ¥gf«. nfhyhy«ó®.\n3. f. ïuhk¢rªâu‹. (2006). ïÅa jÄœ ïy¡fz«. Fku‹ gâ¥gf«.\nbr‹id.\n4. K. fnzr‹. (2015). cÆ®¤bjG« bksd§fŸ. xÇnrh‹ nt›°.\nuth§.\n5. R.». át«. (2007). thœÉaš áªjidfŸ. f‰gf« ò¤jfhya«.\nbr‹id.\n6. k§ifa® íf«. (2016). czî. J§Ñr« btËpL. irnyh¡\nm¢rf«. áyh§T®.\n7. ïiz¥nguháÇa® v°. Fku‹ FGÉd®. (2015). x‹gjhtJ cyf¤\njÄœ MuhŒ¢á khehL. FKj« m¢rf«. br‹id.\n8. m.». guªjhkdh®. (2002). ešy jÄœ vGj nt©Lkh?\nmšÈ Ãiya«. br‹id.\n9. _.M. m¥g‹. (2015). nehÆ‹¿ thH. gh¥òy® g¥Ënfõ‹°.\nbr‹id.\n10. nfh. gukát«. (2017). J§Ñr«. irnyh¡ m¢rf«. áyh§T®.\n11. ï‹g¤ jÄœ ïy¡»a ÉHh ky®. (2011). nfhyhy«ó®.\n12. å. rªâu‹. (2010). gfÈš ïuth? ó®zkh m¢rf«.\náyh§T®.\nïiza¤ js«\n230\nhttp://www.oliviassolutions.com/blog/advantages-disadvantages-of-hydroponics/ g¡f« 34\nhttp://www.itstamil.com/a-p-j-abdul-kalam.html g¡f« 35\nhttp://tamil.oneindia.com/cj/puniyameen/2009/0512-international-nurses-day.html g¡f« 38\nhttps://senthilvayal.com/2014/11/25/âd«-xU-Ñiu-xU-f«¥s/ g¡f« 43\nhttp://www.unavulagam.in/2012/01/blog-post_17.html g¡f« 49\nhttps://www.youtube.com/watch?v=Yg9GEarMBAs g¡f« 91\nhttp://ponmolikal.blogspot.my/p/01_1022.html g¡f« 109\nhttps://www.thirukkural.net/history.php?lang=ta g¡f« 118\nhttp://tamil.oneindia.com/news/india/remembering-kalpana-chawla-on-her-12th-death-anniversary-245727.html g¡f« 139\nhttps://vidhai2virutcham.com/2011/11/14/rJu§f«-ÉâKiwfŸ/ g¡f« 145\nhttps://www.youtube.com/watch?v=lRITPjraXgA g¡f« 157\nhttps://www.moh.gov.my g¡f« 197",
+      "char_count": 90003,
+      "pages": [
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 132,
+          "global_page_number": 132,
+          "char_count": 737,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 133,
+          "global_page_number": 133,
+          "char_count": 716,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 134,
+          "global_page_number": 134,
+          "char_count": 1349,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 135,
+          "global_page_number": 135,
+          "char_count": 635,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 136,
+          "global_page_number": 136,
+          "char_count": 483,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 137,
+          "global_page_number": 137,
+          "char_count": 432,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 138,
+          "global_page_number": 138,
+          "char_count": 1152,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 139,
+          "global_page_number": 139,
+          "char_count": 1608,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 140,
+          "global_page_number": 140,
+          "char_count": 665,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 141,
+          "global_page_number": 141,
+          "char_count": 727,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 142,
+          "global_page_number": 142,
+          "char_count": 996,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 143,
+          "global_page_number": 143,
+          "char_count": 491,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 144,
+          "global_page_number": 144,
+          "char_count": 49,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 145,
+          "global_page_number": 145,
+          "char_count": 75,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 146,
+          "global_page_number": 146,
+          "char_count": 289,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 147,
+          "global_page_number": 147,
+          "char_count": 66,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 148,
+          "global_page_number": 148,
+          "char_count": 1359,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 149,
+          "global_page_number": 149,
+          "char_count": 1004,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 150,
+          "global_page_number": 150,
+          "char_count": 882,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 151,
+          "global_page_number": 151,
+          "char_count": 1237,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 152,
+          "global_page_number": 152,
+          "char_count": 620,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 153,
+          "global_page_number": 153,
+          "char_count": 1260,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 154,
+          "global_page_number": 154,
+          "char_count": 74,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 155,
+          "global_page_number": 155,
+          "char_count": 103,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 156,
+          "global_page_number": 156,
+          "char_count": 79,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 157,
+          "global_page_number": 157,
+          "char_count": 187,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 158,
+          "global_page_number": 158,
+          "char_count": 658,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 159,
+          "global_page_number": 159,
+          "char_count": 1213,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 160,
+          "global_page_number": 160,
+          "char_count": 844,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 161,
+          "global_page_number": 161,
+          "char_count": 746,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 162,
+          "global_page_number": 162,
+          "char_count": 402,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 163,
+          "global_page_number": 163,
+          "char_count": 398,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 164,
+          "global_page_number": 164,
+          "char_count": 1688,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 165,
+          "global_page_number": 165,
+          "char_count": 807,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 166,
+          "global_page_number": 166,
+          "char_count": 507,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 167,
+          "global_page_number": 167,
+          "char_count": 954,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 168,
+          "global_page_number": 168,
+          "char_count": 995,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 169,
+          "global_page_number": 169,
+          "char_count": 592,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 170,
+          "global_page_number": 170,
+          "char_count": 884,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 171,
+          "global_page_number": 171,
+          "char_count": 1517,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 172,
+          "global_page_number": 172,
+          "char_count": 534,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 173,
+          "global_page_number": 173,
+          "char_count": 790,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 174,
+          "global_page_number": 174,
+          "char_count": 472,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 175,
+          "global_page_number": 175,
+          "char_count": 1501,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 176,
+          "global_page_number": 176,
+          "char_count": 521,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 177,
+          "global_page_number": 177,
+          "char_count": 89,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 178,
+          "global_page_number": 178,
+          "char_count": 424,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 179,
+          "global_page_number": 179,
+          "char_count": 1429,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 180,
+          "global_page_number": 180,
+          "char_count": 1176,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 181,
+          "global_page_number": 181,
+          "char_count": 799,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 182,
+          "global_page_number": 182,
+          "char_count": 1072,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 183,
+          "global_page_number": 183,
+          "char_count": 583,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 184,
+          "global_page_number": 184,
+          "char_count": 880,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 185,
+          "global_page_number": 185,
+          "char_count": 590,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 186,
+          "global_page_number": 186,
+          "char_count": 415,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 187,
+          "global_page_number": 187,
+          "char_count": 247,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 188,
+          "global_page_number": 188,
+          "char_count": 506,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 189,
+          "global_page_number": 189,
+          "char_count": 1644,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 190,
+          "global_page_number": 190,
+          "char_count": 1021,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 191,
+          "global_page_number": 191,
+          "char_count": 892,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 192,
+          "global_page_number": 192,
+          "char_count": 1313,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 193,
+          "global_page_number": 193,
+          "char_count": 442,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 194,
+          "global_page_number": 194,
+          "char_count": 475,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 195,
+          "global_page_number": 195,
+          "char_count": 364,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 196,
+          "global_page_number": 196,
+          "char_count": 861,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 197,
+          "global_page_number": 197,
+          "char_count": 239,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 198,
+          "global_page_number": 198,
+          "char_count": 1318,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 199,
+          "global_page_number": 199,
+          "char_count": 1109,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 200,
+          "global_page_number": 200,
+          "char_count": 752,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 201,
+          "global_page_number": 201,
+          "char_count": 618,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 202,
+          "global_page_number": 202,
+          "char_count": 713,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 203,
+          "global_page_number": 203,
+          "char_count": 411,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 204,
+          "global_page_number": 204,
+          "char_count": 970,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 205,
+          "global_page_number": 205,
+          "char_count": 923,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 206,
+          "global_page_number": 206,
+          "char_count": 1675,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 207,
+          "global_page_number": 207,
+          "char_count": 590,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 208,
+          "global_page_number": 208,
+          "char_count": 848,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 209,
+          "global_page_number": 209,
+          "char_count": 520,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 210,
+          "global_page_number": 210,
+          "char_count": 784,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 211,
+          "global_page_number": 211,
+          "char_count": 875,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 212,
+          "global_page_number": 212,
+          "char_count": 442,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 213,
+          "global_page_number": 213,
+          "char_count": 1086,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 214,
+          "global_page_number": 214,
+          "char_count": 680,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 215,
+          "global_page_number": 215,
+          "char_count": 1512,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 216,
+          "global_page_number": 216,
+          "char_count": 1182,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 217,
+          "global_page_number": 217,
+          "char_count": 1816,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 218,
+          "global_page_number": 218,
+          "char_count": 806,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 219,
+          "global_page_number": 219,
+          "char_count": 300,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 220,
+          "global_page_number": 220,
+          "char_count": 218,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 221,
+          "global_page_number": 221,
+          "char_count": 338,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 222,
+          "global_page_number": 222,
+          "char_count": 881,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 223,
+          "global_page_number": 223,
+          "char_count": 987,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 224,
+          "global_page_number": 224,
+          "char_count": 1546,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 225,
+          "global_page_number": 225,
+          "char_count": 900,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 226,
+          "global_page_number": 226,
+          "char_count": 207,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 227,
+          "global_page_number": 227,
+          "char_count": 750,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 228,
+          "global_page_number": 228,
+          "char_count": 681,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 229,
+          "global_page_number": 229,
+          "char_count": 712,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 230,
+          "global_page_number": 230,
+          "char_count": 727,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 231,
+          "global_page_number": 231,
+          "char_count": 732,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 232,
+          "global_page_number": 232,
+          "char_count": 1456,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 233,
+          "global_page_number": 233,
+          "char_count": 494,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 234,
+          "global_page_number": 234,
+          "char_count": 626,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 235,
+          "global_page_number": 235,
+          "char_count": 1003,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 236,
+          "global_page_number": 236,
+          "char_count": 922,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 237,
+          "global_page_number": 237,
+          "char_count": 1097,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 238,
+          "global_page_number": 238,
+          "char_count": 411,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 239,
+          "global_page_number": 239,
+          "char_count": 962,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Tamil Tingkatan 2.pdf",
+          "page_number": 240,
+          "global_page_number": 240,
+          "char_count": 1524,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,505 @@
+{
+  "form_level": 4,
+  "books_processed": 30,
+  "books_skipped": 5,
+  "books_skipped_detail": [
+    {
+      "source_key": "form-4-other-bahasa-tamil-bahasa-tamil-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Bahasa Tamil",
+      "reason": "needs_ocr"
+    },
+    {
+      "source_key": "form-4-other-english-language-bahasa-inggeris-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "English Language",
+      "reason": "needs_ocr"
+    },
+    {
+      "source_key": "form-4-other-islamic-education-pendidikan-islam-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Islamic Education",
+      "reason": "needs_ocr"
+    },
+    {
+      "source_key": "form-4-other-pendidikan-seni-visual-pendidikan-seni-visual-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Pendidikan Seni visual",
+      "reason": "needs_ocr"
+    },
+    {
+      "source_key": "form-4-other-prinsip-perakaunan-prinsip-perakaunan-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Prinsip Perakaunan",
+      "reason": "needs_ocr"
+    }
+  ],
+  "books": [
+    {
+      "source_key": "form-4-other-bahasa-arab-bahasa-arab-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Bahasa Arab",
+      "elaborated_count": 1,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\Other\\form-4-other-bahasa-arab-bahasa-arab-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-4-other-bahasa-kadazandusun-bahasa-kadazandusun-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Bahasa Kadazandusun",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\Other\\form-4-other-bahasa-kadazandusun-bahasa-kadazandusun-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-4-other-bahasa-semai-bahasa-semai-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Bahasa Semai",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\Other\\form-4-other-bahasa-semai-bahasa-semai-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-4-other-chinese-language-bahasa-cina-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Chinese Language",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\Other\\form-4-other-chinese-language-bahasa-cina-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-4-other-ekonomi-ekonomi-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Ekonomi",
+      "elaborated_count": 0,
+      "skipped_count": 14,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\Other\\form-4-other-ekonomi-ekonomi-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 8,
+        "skipped_no_teachable_content": 6
+      }
+    },
+    {
+      "source_key": "form-4-other-geography-geografi-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Geography",
+      "elaborated_count": 0,
+      "skipped_count": 66,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\Other\\form-4-other-geography-geografi-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 1,
+        "skipped_no_teachable_content": 65
+      }
+    },
+    {
+      "source_key": "form-4-other-history-sejarah-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "History",
+      "elaborated_count": 0,
+      "skipped_count": 3,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\Other\\form-4-other-history-sejarah-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 3
+      }
+    },
+    {
+      "source_key": "form-4-other-iban-language-bahasa-iban-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Iban Language",
+      "elaborated_count": 0,
+      "skipped_count": 11,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\Other\\form-4-other-iban-language-bahasa-iban-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 11
+      }
+    },
+    {
+      "source_key": "form-4-other-malay-language-bahasa-melayu-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Malay Language",
+      "elaborated_count": 0,
+      "skipped_count": 7,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\Other\\form-4-other-malay-language-bahasa-melayu-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 5,
+        "skipped_no_teachable_content": 2
+      }
+    },
+    {
+      "source_key": "form-4-other-moral-education-pendidikan-moral-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Moral Education",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\Other\\form-4-other-moral-education-pendidikan-moral-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-4-other-music-education-pendidikan-muzik-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Music Education",
+      "elaborated_count": 0,
+      "skipped_count": 5,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\Other\\form-4-other-music-education-pendidikan-muzik-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 5
+      }
+    },
+    {
+      "source_key": "form-4-other-perniagaan-perniagaan-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Perniagaan",
+      "elaborated_count": 0,
+      "skipped_count": 26,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\Other\\form-4-other-perniagaan-perniagaan-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 26
+      }
+    },
+    {
+      "source_key": "form-4-other-physical-education-pjpk-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Physical Education",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\Other\\form-4-other-physical-education-pjpk-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-4-other-pqs-pqs-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "PQS",
+      "elaborated_count": 1,
+      "skipped_count": 25,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\Other\\form-4-other-pqs-pqs-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 25
+      }
+    },
+    {
+      "source_key": "form-4-other-syariah-islamiah-syariah-islamiah-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Syariah Islamiah",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\Other\\form-4-other-syariah-islamiah-syariah-islamiah-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-4-other-tasawwur-islam-tasawwur-islam-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "Other",
+      "subject": "Tasawwur Islam",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\Other\\form-4-other-tasawwur-islam-tasawwur-islam-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-4-stem-additional-mathematics-matematik-tambahan-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "STEM",
+      "subject": "Additional Mathematics",
+      "elaborated_count": 0,
+      "skipped_count": 30,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\STEM\\form-4-stem-additional-mathematics-matematik-tambahan-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 30
+      }
+    },
+    {
+      "source_key": "form-4-stem-additional-science-sains-tambahan-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "STEM",
+      "subject": "Additional Science",
+      "elaborated_count": 0,
+      "skipped_count": 30,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\STEM\\form-4-stem-additional-science-sains-tambahan-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 30
+      }
+    },
+    {
+      "source_key": "form-4-stem-agriculture-pertanian-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "STEM",
+      "subject": "Agriculture",
+      "elaborated_count": 1,
+      "skipped_count": 7,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\STEM\\form-4-stem-agriculture-pertanian-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 7
+      }
+    },
+    {
+      "source_key": "form-4-stem-asas-kelestarian-asas-kelestarian-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "STEM",
+      "subject": "Asas Kelestarian",
+      "elaborated_count": 1,
+      "skipped_count": 15,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\STEM\\form-4-stem-asas-kelestarian-asas-kelestarian-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 15
+      }
+    },
+    {
+      "source_key": "form-4-stem-biology-biologi-tingkatan-4-en",
+      "form_level": 4,
+      "stream": "STEM",
+      "subject": "Biology",
+      "elaborated_count": 0,
+      "skipped_count": 71,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\STEM\\form-4-stem-biology-biologi-tingkatan-4-en.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 3,
+        "skipped_no_teachable_content": 68
+      }
+    },
+    {
+      "source_key": "form-4-stem-chemistry-kimia-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "STEM",
+      "subject": "Chemistry",
+      "elaborated_count": 0,
+      "skipped_count": 44,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\STEM\\form-4-stem-chemistry-kimia-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 44
+      }
+    },
+    {
+      "source_key": "form-4-stem-computer-science-sains-komputer-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "STEM",
+      "subject": "Computer Science",
+      "elaborated_count": 0,
+      "skipped_count": 13,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\STEM\\form-4-stem-computer-science-sains-komputer-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 13
+      }
+    },
+    {
+      "source_key": "form-4-stem-home-science-sains-rumah-tangga-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "STEM",
+      "subject": "Home Science",
+      "elaborated_count": 0,
+      "skipped_count": 20,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\STEM\\form-4-stem-home-science-sains-rumah-tangga-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 20
+      }
+    },
+    {
+      "source_key": "form-4-stem-mathematics-matematik-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "STEM",
+      "subject": "Mathematics",
+      "elaborated_count": 0,
+      "skipped_count": 18,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\STEM\\form-4-stem-mathematics-matematik-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 18
+      }
+    },
+    {
+      "source_key": "form-4-stem-physics-fizik-tingkatan-4-en",
+      "form_level": 4,
+      "stream": "STEM",
+      "subject": "Physics",
+      "elaborated_count": 0,
+      "skipped_count": 57,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\STEM\\form-4-stem-physics-fizik-tingkatan-4-en.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 22,
+        "skipped_no_teachable_content": 35
+      }
+    },
+    {
+      "source_key": "form-4-stem-reka-cipta-reka-cipta-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "STEM",
+      "subject": "Reka Cipta",
+      "elaborated_count": 0,
+      "skipped_count": 8,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\STEM\\form-4-stem-reka-cipta-reka-cipta-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 8
+      }
+    },
+    {
+      "source_key": "form-4-stem-science-sains-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "STEM",
+      "subject": "Science",
+      "elaborated_count": 0,
+      "skipped_count": 23,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\STEM\\form-4-stem-science-sains-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 23
+      }
+    },
+    {
+      "source_key": "form-4-stem-sports-science-sains-sukan-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "STEM",
+      "subject": "Sports Science",
+      "elaborated_count": 0,
+      "skipped_count": 17,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\STEM\\form-4-stem-sports-science-sains-sukan-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 17
+      }
+    },
+    {
+      "source_key": "form-4-stem-technical-graphics-communication-grafik-komunikasi-teknikal-tingkatan-4-ms",
+      "form_level": 4,
+      "stream": "STEM",
+      "subject": "Technical Graphics Communication",
+      "elaborated_count": 0,
+      "skipped_count": 37,
+      "output_file": "downloads\\elaborated\\Tingkatan 4\\STEM\\form-4-stem-technical-graphics-communication-grafik-komunikasi-teknikal-tingkatan-4-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 37
+      }
+    }
+  ],
+  "lessons_elaborated": 4,
+  "lessons_skipped": 555,
+  "lesson_skip_reasons": {
+    "skipped_no_teachable_content": 516,
+    "skipped_low_content": 39
+  },
+  "quiz_questions_generated": 16,
+  "failures": [],
+  "book_skip_reasons": {
+    "needs_ocr": 5
+  }
+}

@@ -1,7 +1,12 @@
 class ApiEndpoints {
-  // Base URL - Change this to your server IP/domain
-  static const String baseUrl = 'https://tusyen-abc123.trycloudflare.com';
-  static const String wsUrl = 'ws://YOUR_SERVER_IP:8000';
+  static const String baseUrl = String.fromEnvironment(
+    'API_BASE_URL',
+    defaultValue: 'http://localhost:3000',
+  );
+  static const String wsUrl = String.fromEnvironment(
+    'WS_BASE_URL',
+    defaultValue: 'ws://localhost:8000',
+  );
   
   // Auth
   static const String login = '/auth/login';
@@ -22,8 +27,8 @@ class ApiEndpoints {
   static String classroomAnalytics(String id) => '/classroom/$id/analytics';
   
   // Lessons
-  static const String lessons = '/admin/lessons';
-  static String lessonById(String id) => '/admin/lessons/$id';
+  static const String lessons = '/learning/catalog';
+  static String lessonById(String id) => '/learning/lessons/$id';
   static String assignLesson(String classroomId) => '/admin/classrooms/$classroomId/lessons';
   
   // Syllabus

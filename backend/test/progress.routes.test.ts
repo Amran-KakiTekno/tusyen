@@ -42,9 +42,113 @@ function buildApp(user: { userId: string; role: string }) {
   return app;
 }
 
+const STUDENT_ID = '11111111-1111-4111-8111-111111111111';
+const TEACHER_ID = '22222222-2222-4222-8222-222222222222';
+const PARENT_ID = '33333333-3333-4333-8333-333333333333';
+
 describe('progress routes cross-role access', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+  });
+
+  it('returns persisted hearts for the authenticated student', async () => {
+    mocks.query
+      .mockResolvedValueOnce({ rowCount: 1, rows: [{ id: STUDENT_ID }] })
+      .mockResolvedValueOnce({
+        rowCount: 1,
+        rows: [{ current_hearts: 3, max_hearts: 5 }],
+      });
+
+    const app = buildApp({ userId: STUDENT_ID, role: 'student' });
+    await app.ready();
+
+    const response = await app.inject({
+      method: 'GET',
+      url: `/progress/student/${STUDENT_ID}/hearts`,
+    });
+
+    expect(response.statusCode).toBe(200);
+    expect(response.json()).toEqual({ current: 3, max: 5 });
+    expect(mocks.query).toHaveBeenCalledTimes(2);
+    expect(mocks.query.mock.calls[1][0]).toContain('student_hearts');
+
+    await app.close();
+  });
+
+  it('allows teachers to read hearts through classroom access conventions', async () => {
+    mocks.query
+      .mockResolvedValueOnce({ rowCount: 1, rows: [{ id: STUDENT_ID }] })
+      .mockResolvedValueOnce({ rowCount: 1, rows: [{ id: 'enrollment-1' }] })
+      .mockResolvedValueOnce({
+        rowCount: 1,
+        rows: [{ current_hearts: 4, max_hearts: 6 }],
+      });
+
+    const app = buildApp({ userId: TEACHER_ID, role: 'teacher' });
+    await app.ready();
+
+    const response = await app.inject({
+      method: 'GET',
+      url: `/progress/student/${STUDENT_ID}/hearts`,
+    });
+
+    expect(response.statusCode).toBe(200);
+    expect(response.json()).toEqual({ current: 4, max: 6 });
+    expect(mocks.query.mock.calls[1][0]).toContain('classroom_enrollments');
+    expect(mocks.query.mock.calls[2][0]).toContain('student_hearts');
+
+    await app.close();
+  });
+
+  it('blocks unrelated parents from reading student hearts', async () => {
+    mocks.query
+      .mockResolvedValueOnce({ rowCount: 1, rows: [{ id: STUDENT_ID }] })
+      .mockResolvedValueOnce({ rowCount: 0, rows: [] });
+
+    const app = buildApp({ userId: PARENT_ID, role: 'parent' });
+    await app.ready();
+
+    const response = await app.inject({
+      method: 'GET',
+      url: `/progress/student/${STUDENT_ID}/hearts`,
+    });
+
+    expect(response.statusCode).toBe(403);
+    expect(mocks.query).toHaveBeenCalledTimes(2);
+
+    await app.close();
+  });
+
+  it('returns 404 when the requested student does not exist', async () => {
+    mocks.query.mockResolvedValueOnce({ rowCount: 0, rows: [] });
+
+    const app = buildApp({ userId: 'admin-1', role: 'admin' });
+    await app.ready();
+
+    const response = await app.inject({
+      method: 'GET',
+      url: `/progress/student/${STUDENT_ID}/hearts`,
+    });
+
+    expect(response.statusCode).toBe(404);
+    expect(mocks.query).toHaveBeenCalledTimes(1);
+
+    await app.close();
+  });
+
+  it('rejects invalid student ids before querying the database', async () => {
+    const app = buildApp({ userId: 'admin-1', role: 'admin' });
+    await app.ready();
+
+    const response = await app.inject({
+      method: 'GET',
+      url: '/progress/student/not-a-uuid/hearts',
+    });
+
+    expect(response.statusCode).toBe(400);
+    expect(mocks.query).not.toHaveBeenCalled();
+
+    await app.close();
   });
 
   it('blocks unrelated teachers from lesson progress details', async () => {

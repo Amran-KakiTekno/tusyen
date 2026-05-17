@@ -1,0 +1,920 @@
+{
+  "source_key": "form-3-other-moral-education-pendidikan-moral-tingkatan-3-ms",
+  "title": "Pendidikan Moral Tingkatan 3",
+  "subject": "Moral Education",
+  "form_level": 3,
+  "stream": "Other",
+  "language": "ms",
+  "metadata": {},
+  "page_count": 242,
+  "extracted_page_count": 242,
+  "needs_ocr_page_count": 0,
+  "extraction_status": "complete",
+  "lesson_count": 3,
+  "lessons": [
+    {
+      "lesson_key": "2-00-tin-aluminium-001",
+      "topic_code": "2.00",
+      "topic": "Bab 2",
+      "subtopic": "2.00 Tin aluminium",
+      "title": "2.00 Tin aluminium",
+      "lesson_type": "subtopic",
+      "order_index": 1,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[Pendidikan Moral Tingkatan 3.pdf p138]\n8\nUNIT\n129\n8\nUNIT\nA Sekolah anda bercadang untuk melaksanakan program kitar semula.\nBincangkan panduan pelaksanaan program tersebut berdasarkan jadual\ndi bawah.\nB Laksanakan program kitar semula tersebut di sekolah. Kemudian,\nsediakan laporan untuk membuat penilaian dan penambahbaikan program\ntersebut pada masa akan datang.\nObjektif\nprogram.\nAgihan\ndan\njadual tugasan.\nBentuk ganjaran\nyang sesuai.\nP a n d u a n\nP e l a k s a n a a n\nTempoh masa dan\ntarikh program.\nKumpulan sasaran.\nBarangan yang\ningin dikumpulkan.\nPanduan jenis bahan, harga dan cara mengurus barangan.\nJenis Bahan\nHarga (RM/KG)\nCara mengurus\nMajalah, akhbar, kertas putih\n0.20\nSusun dan ikat\nBuku sekolah, katalog\n0.15\nSusun dan ikat\nKotak dan kadbod\n0.16\nBuka, lipat, susun dan ikat\nBotol plastik\n0.35\nBersih\nMinyak masak terpakai\n0.80\nKumpul di dalam bekas\nTin aluminium\n2.00\nBersih, kering dan kemik\nTin makanan\n0.30\nBersih, kering dan kemik\nBesi\n0.20\nBersih, kering dan kemik\nMonitor dan CPU komputer\n4.00\nKering, tidak pecah\ndan berkeadaan baik\nBateri kereta\n15.00\nBersih\nCara\nmempromosikan\nprogram.\nKaedah pengumpulan,\ntempat dan\ncara menilai barangan.",
+      "char_count": 1170,
+      "pages": [
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 138,
+          "global_page_number": 138,
+          "char_count": 1130,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "4-00-monitor-dan-cpu-komputer-002",
+      "topic_code": "4.00",
+      "topic": "Bab 4",
+      "subtopic": "4.00 Monitor dan CPU komputer",
+      "title": "4.00 Monitor dan CPU komputer",
+      "lesson_type": "subtopic",
+      "order_index": 2,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[Pendidikan Moral Tingkatan 3.pdf p138]\n8\nUNIT\n129\n8\nUNIT\nA Sekolah anda bercadang untuk melaksanakan program kitar semula.\nBincangkan panduan pelaksanaan program tersebut berdasarkan jadual\ndi bawah.\nB Laksanakan program kitar semula tersebut di sekolah. Kemudian,\nsediakan laporan untuk membuat penilaian dan penambahbaikan program\ntersebut pada masa akan datang.\nObjektif\nprogram.\nAgihan\ndan\njadual tugasan.\nBentuk ganjaran\nyang sesuai.\nP a n d u a n\nP e l a k s a n a a n\nTempoh masa dan\ntarikh program.\nKumpulan sasaran.\nBarangan yang\ningin dikumpulkan.\nPanduan jenis bahan, harga dan cara mengurus barangan.\nJenis Bahan\nHarga (RM/KG)\nCara mengurus\nMajalah, akhbar, kertas putih\n0.20\nSusun dan ikat\nBuku sekolah, katalog\n0.15\nSusun dan ikat\nKotak dan kadbod\n0.16\nBuka, lipat, susun dan ikat\nBotol plastik\n0.35\nBersih\nMinyak masak terpakai\n0.80\nKumpul di dalam bekas\nTin aluminium\n2.00\nBersih, kering dan kemik\nTin makanan\n0.30\nBersih, kering dan kemik\nBesi\n0.20\nBersih, kering dan kemik\nMonitor dan CPU komputer\n4.00\nKering, tidak pecah\ndan berkeadaan baik\nBateri kereta\n15.00\nBersih\nCara\nmempromosikan\nprogram.\nKaedah pengumpulan,\ntempat dan\ncara menilai barangan.",
+      "char_count": 1170,
+      "pages": [
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 138,
+          "global_page_number": 138,
+          "char_count": 1130,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "15-00-bateri-kereta-003",
+      "topic_code": "15.00",
+      "topic": "Bab 15",
+      "subtopic": "15.00 Bateri kereta",
+      "title": "15.00 Bateri kereta",
+      "lesson_type": "subtopic",
+      "order_index": 3,
+      "page_count": 105,
+      "extraction_status": "complete",
+      "estimated_minutes": 90,
+      "text_content": "[Pendidikan Moral Tingkatan 3.pdf p138]\n8\nUNIT\n129\n8\nUNIT\nA Sekolah anda bercadang untuk melaksanakan program kitar semula.\nBincangkan panduan pelaksanaan program tersebut berdasarkan jadual\ndi bawah.\nB Laksanakan program kitar semula tersebut di sekolah. Kemudian,\nsediakan laporan untuk membuat penilaian dan penambahbaikan program\ntersebut pada masa akan datang.\nObjektif\nprogram.\nAgihan\ndan\njadual tugasan.\nBentuk ganjaran\nyang sesuai.\nP a n d u a n\nP e l a k s a n a a n\nTempoh masa dan\ntarikh program.\nKumpulan sasaran.\nBarangan yang\ningin dikumpulkan.\nPanduan jenis bahan, harga dan cara mengurus barangan.\nJenis Bahan\nHarga (RM/KG)\nCara mengurus\nMajalah, akhbar, kertas putih\n0.20\nSusun dan ikat\nBuku sekolah, katalog\n0.15\nSusun dan ikat\nKotak dan kadbod\n0.16\nBuka, lipat, susun dan ikat\nBotol plastik\n0.35\nBersih\nMinyak masak terpakai\n0.80\nKumpul di dalam bekas\nTin aluminium\n2.00\nBersih, kering dan kemik\nTin makanan\n0.30\nBersih, kering dan kemik\nBesi\n0.20\nBersih, kering dan kemik\nMonitor dan CPU komputer\n4.00\nKering, tidak pecah\ndan berkeadaan baik\nBateri kereta\n15.00\nBersih\nCara\nmempromosikan\nprogram.\nKaedah pengumpulan,\ntempat dan\ncara menilai barangan.\n\n[Pendidikan Moral Tingkatan 3.pdf p139]\n130\nDalam unit ini, saya belajar tentang:\n•\nTanggungjawab sosial dalam konteks hidup bermasyarakat.\n•\nKepentingan menunaikan tanggungjawab sosial dalam konteks kehidupan\nbermasyarakat.\n•\nPeranan individu sebagai anggota masyarakat dalam melaksanakan\ntanggungjawab sosial.\n•\nIdea baharu untuk menggalakkan generasi muda melaksanakan tanggungjawab\nsosial.\n•\nPerasaan apabila menyertai kegiatan sosial dalam kehidupan bermasyarakat.\n•\nContoh tanggungjawab sosial menerusi penglibatan dalam masyarakat majmuk.\n9\nTANGGUNGJAWAB SOSIAL\nTANGGUNGJAWAB BERSAMA\n\n[Pendidikan Moral Tingkatan 3.pdf p140]\n131\n131\n• Kerjasama\n• Bertanggungjawab\n• Kerajinan\n• Toleransi\n• Baik hati\nApakah tanggungjawab sosial anda\nsebagai anggota masyarakat?\n\n[Pendidikan Moral Tingkatan 3.pdf p141]\n132\nContoh\nTanggungjawab\nSosial dalam\nKonteks Hidup\nBermasyarakat\nUNIT 9\nKeharmonian\nMASYARAKAT\nMelibatkan diri\ndalam aktiviti komuniti\nseperti gotong-royong.\nKesihatan\nMenyertai program kesihatan\nseperti kempen derma darah\ndan derma organ.\nTanggungjawab sosial bermaksud tugas serta kewajipan yang dipikul oleh individu\ndalam masyarakat. Tanggungjawab sosial ini meliputi aspek keharmonian, kesihatan,\nkebajikan, keselamatan dan kelestarian alam sekitar.\n\n[Pendidikan Moral Tingkatan 3.pdf p142]\n133\n9\nUNIT\nKelestarian\nAlam Sekitar\nMemelihara dan memulihara flora dan fauna\nseperti mengadakan kempen menanam pokok.\nKebajikan\nMembantu golongan yang mengalami musibah seperti\nmengadakan kutipan derma kilat.\n\n[Pendidikan Moral Tingkatan 3.pdf p143]\n134\nUNIT 9\nKerjasama antara anggota masyarakat amat penting dalam melaksanakan\ntanggungjawab sosial. Tanggungjawab sosial ini tidak boleh dilaksanakan\nsecara individu tetapi memerlukan gandingan semua pihak.\nOleh hal yang demikian, amatlah penting bagi semua anggota masyarakat\nuntuk melaksanakan tanggungjawab sosial mengikut kemampuan masing-masing.\nAntara kepentingannya termasuklah seperti yang di bawah.\nMembantu\nmeringankan\nbeban golongan\nyang kurang\nbernasib baik.\nMelahirkan\nmasyarakat yang\nbersatu padu.\nMemastikan\nkeselamatan\npenduduk\nsetempat.\nMemupuk\nperasaan cinta\nakan negara.\nMelindungi\nkelestarian alam.\nMemastikan tahap\nkesihatan anggota\nmasyarakat dalam\nkeadaan baik.\nMengukuhkan\nhubungan\nantara anggota\nmasyarakat.\nKepentingan Melaksanakan\nTanggungjawab Sosial\nSukarelawan Bulan Sabit Merah Malaysia\nbersedia menghulurkan bantuan kepada\nmangsa bencana.\nAnggota Angkatan Pertahanan Awam Malaysia\nbersedia mengagihkan sumbangan kepada\nmangsa bencana.\n\n[Pendidikan Moral Tingkatan 3.pdf p144]\n9\nUNIT\n135\nMenyumbangkan\nkepakaran diri\nkepada\nmasyarakat\nsetempat.\nTanggungjawab sosial juga membolehkan setiap anggota masyarakat memberikan\nsumbangan mengikut kemampuan dan kepakaran masing-masing. Oleh itu, setiap\nindividu dapat memainkan peranan dalam melaksanakan tanggungjawab sosial\nterhadap masyarakat.\nMelibatkan diri\ndalam aktiviti\nkemasyarakatan.\nMemberikan\nsumbangan masa\ndan tenaga.\nMemberikan\nsumbangan\nkewangan.\nMenyokong\nusaha pelbagai\npihak.\nMenjayakan\naktiviti\nkesukarelawanan.\nPeranan Individu\nSebagai Anggota\nMasyarakat dalam\nMelaksanakan\nTanggungjawab\nSosial\n\n[Pendidikan Moral Tingkatan 3.pdf p145]\n136\nKesimpulannya, penglibatan generasi muda dalam melaksanakan tanggungjawab\nsosial membantu melahirkan masyarakat yang harmoni dan sejahtera. Oleh itu,\nrakyat Malaysia perlu bersyukur dan berbangga dengan keprihatinan yang\ndiamalkan dalam masyarakat.\nu Nilai kerajinan dan bertanggungjawab patut diamalkan dalam melaksanakan\ntanggungjawab sosial.\nu Nilai toleransi dan baik hati dapat menyelesaikan perbezaan pendapat dalam\nkalangan anggota masyarakat.\nu Nilai kerjasama harus dipraktikkan oleh setiap individu bagi menjayakan\ntanggungjawab sosial.\nUNIT 9\nGenerasi muda juga perlu digalakkan dan diberikan kesedaran tentang\nkepentingan melaksanakan tanggungjawab sosial. Oleh itu, beberapa idea baharu\nyang mampu menggalakkan generasi muda melaksanakan tanggungjawab sosial\ndengan aktif telah diperkenalkan.\nPemberian markah\nmerit kepada\ngenerasi muda,\nkhususnya murid\nyang menyertai\naktiviti anjuran\nbadan bukan\nkerajaan (NGO).\nPengiktirafan\nkepada generasi\nmuda yang aktif\ndalam aktiviti\nkemasyarakatan.\nPelantikan\ngenerasi muda\nyang berkebolehan\ndalam aktiviti\nkemasyarakatan\nsebagai duta\nkhidmat sosial.\nPenglibatan tokoh\nterkenal untuk\nmenarik minat\ngenerasi muda.\nPenganugerahan ikon\nkhidmat sosial\nkepada generasi muda\nyang banyak\nmemberikan sumbangan\nkepada masyarakat.\nPenglibatan aktif dalam\naktiviti khidmat sosial\nmembolehkan murid\ndipertimbangkan untuk\nmelanjutkan pelajaran\nke institusi pengajian tinggi.\nIdea Baharu untuk Menggalakkan\nGenerasi Muda Melaksanakan\nTanggungjawab Sosial\n\n[Pendidikan Moral Tingkatan 3.pdf p146]\n9\nUNIT\n137\n9\nUNIT\n3.4.1, 3.4.2, 3.4.6\nA Keratan akhbar di bawah adalah berkaitan dengan kejayaan Kampung\nSri Melur. Teliti keratan akhbar ini dan jawab soalan di bawah.\n31 Oktober – Kerajaan negeri telah memberi Jawatankuasa Kemajuan Keselamatan Kampung\n(JKKK) Sri Melur pengiktirafan Kampung Harmoni.\nKejayaan Kampung Sri Melur ini adalah hasil daripada aktiviti seperti Kempen Mencegah\nDenggi dan Kampung Tanpa Sampah. Bagi mencapai sasaran yang ditetapkan, JKKK\nSri Melur telah menyediakan jadual pembersihan jalan dan longkang, pemotongan rumput\nserta kutipan sampah.\nSemua penduduk Kampung Sri Melur telah memberikan sumbangan untuk\nmemastikan kediaman mereka sentiasa bersih. Tidak ketinggalan, golongan remaja turut\nmemberikan komitmen dalam melaksanakan tanggungjawab sosial bagi menjayakan\nsemua aktiviti.\n1. Nyatakan tanggungjawab sosial yang telah dilaksanakan oleh penduduk Kampung\nSri Melur.\n2. Terangkan kepentingan tanggungjawab sosial yang telah dilaksanakan oleh\npenduduk kampung tersebut.\n3. Apakah sebab golongan remaja perlu melibatkan diri dalam aktiviti yang\ndianjurkan?\nKampung Sri Melur Diiktiraf sebagai Kampung Harmoni\nB Hasilkan folio tentang aktiviti sosial yang telah anda laksanakan di kawasan\nkediaman anda.\nSelamat Datang\nke Kampung Sri Melur\n(Dipetik dan diubah suai daripada: Sinar Harian, 14 Disember 2017)\n\n[Pendidikan Moral Tingkatan 3.pdf p147]\n138\nSituasi Kebajikan\nRam merupakan anak tunggal dalam keluarga. Ayahnya telah menggunakan\nsemua wang simpanannya untuk menghantar Ram belajar ke luar negara. Setelah\nmenamatkan pelajaran, Ram mendapat tawaran lumayan untuk bekerja di luar\nnegara. Ram menolak tawaran tersebut demi menjaga kedua ibu bapanya yang\nsudah berusia dan memerlukan perhatiannya.\nSituasi Keselamatan\nJiran Mok Chee Keong tidak bertegur sapa dengan masyarakat sekitarnya.\nPada suatu petang, beberapa orang remaja cuba memasuki rumah jiran Mok\nChee Keong dari pintu dapurnya. Mok Chee Keong segera menghubungi pihak\npengawal keselamatan. Kesemua remaja dapat ditangkap. Jiran Mok Chee Keong\nberasa terharu dan mohon maaf atas sikap sombongnya.\nSituasi Kelestarian Alam Sekitar\nSuhaimi Muhamad seorang yang aktif dalam aktiviti kemasyarakatan. Atas\ninisiatifnya, dia telah memimpin sendiri sekumpulan remaja untuk menanam\npokok buah-buahan tempatan di kawasan taman perumahannya. Tujuannya\nadalah untuk melindungi kelestarian alam supaya sentiasa hijau.\nUNIT 9\nC Baca dan fahami situasi di bawah. Kemudian, bincangkan peranan dan\nkepentingan individu sebagai anggota masyarakat dalam melaksanakan\ntanggungjawab sosial.\nSituasi 1\nSituasi 2\nSituasi 3\n3.4.2, 3.4.3, 3.4.4\nSituasi\nTANGGUNGJAWAB SOSIAL\nKepentingan\nEncik Ram, seorang sukarelawan yang suka membantu penghuni rumah\norang-orang tua. Beliau mendapat tawaran kerja baharu dengan gaji lumayan\ndaripada sebuah syarikat di luar negara. Walau bagaimanapun, Encik Ram\nmenolak peluang tersebut kerana berasa lebih gembira dapat membantu warga\nemas.\nEncik Mok Chee Keong baik dengan jiran-jirannya. Pada suatu malam, beberapa\norang remaja cuba memasuki rumahnya. Encik Mok Chee Keong pula tiada\ndi rumah ketika itu. Jiran Mok Chee Keong segera menghubungi pihak pengawal\nkeselamatan. Akhirnya, semua remaja tersebut berjaya ditangkap. Encik Mok\nChee Keong berasa terharu dan berterima kasih kepada jiran-jirannya.\nEncik Suhaimi Muhamad aktif dalam aktiviti kemasyarakatan. Melalui inisiatifnya,\nbeliau telah memimpin sekumpulan remaja untuk menanam pokok di kawasan\ntaman perumahannya. Tujuannya adalah untuk mengekalkan kehijauan alam.\nBincangkan idea baharu untuk menggalakkan generasi muda\nmembantu golongan yang mengalami musibah.\n1\n2\n3\n\n[Pendidikan Moral Tingkatan 3.pdf p148]\n9\nUNIT\n139\n3.4.3, 3.4.4, 3.4.5\nBanjir.\nKes ragut.\nA Teliti dan fahami gambar di bawah. Secara berkumpulan, adakan sumbang\nsaran tentang peranan individu dalam membantu mangsa yang terlibat.\nKemudian, bentangkan hasil sumbang saran tersebut kepada rakan-rakan\ndi dalam kelas.\nGAMBAR\nPERANAN INDIVIDU\n1\n2\n1\n2\nB Bagaimanakah anda boleh bekerjasama dengan pihak swasta bagi\nmembantu mangsa yang mengalami bencana? Gunakan teknik rundingan\nmeja bulat dan bentangkan hasil perbincangan tersebut.\nJelaskan perasaan anda apabila dapat membantu meringankan\nbeban mangsa bencana.\n\n[Pendidikan Moral Tingkatan 3.pdf p149]\nUNIT 9\n1. Permainan ini boleh dimainkan oleh dua hingga enam orang pemain.\nPemain mula bergerak apabila mendapat angka 6 pada dadu.\n2. Apabila tiba di petak BONUS, pilih kad cepumas dan jawab soalan.\n3. Maju dua petak apabila dapat menjawab soalan cepumas dengan\nbetul.\n4. Undur dua petak jika gagal menjawab soalan cepumas dengan betul.\n5. Undur jika angka pada dadu melebihi petak TAMAT.\n6. Anda dikira sebagai pemenang jika berjaya berhenti di petak TAMAT.\nCARA PERMAINAN:\nPilihan Jawapan 1\nJeswant Singh\nmenderma darah\nsecara sukarela.\nAmrit Kaur suka\nmembantu mangsa\nyang mengalami\nmusibah.\nA Secara berkumpulan, jalankan aktiviti permainan “Tanggungjawab Sosial\nTanggungjawab Bersama” di bawah.\nSediakan soalan tambahan cepumas mengikut kesesuaian dan tahap\npenguasaan murid.\n140\n\n[Pendidikan Moral Tingkatan 3.pdf p150]\n9\nUNIT\nKad cepumas 1\nPilih contoh\ntanggungjawab sosial\ndari aspek kesihatan.\nKad cepumas 4\nIdea baharu yang\nmanakah yang\ndapat menggalakkan\ngenerasi muda\nmelaksanakan\ntanggungjawab sosial\nkepada masyarakat?\nKad cepumas 3\nPilih peranan anda\nsebagai anggota\nmasyarakat dalam\nmelaksanakan\ntanggungjawab sosial\nberdasarkan situasi\ndi bawah.\nKad cepumas 6\nPilih situasi yang\nmenggambarkan\namalan murid\nmelaksanakan\ntanggungjawab sosial\nkepada masyarakat.\nKad cepumas 2\nPilih pernyataan\nyang menunjukkan\nperanan murid dalam\nmelaksanakan\ntanggungjawab sosial.\nKad cepumas 5\nCeritakan perasaan\nanda apabila\ndapat memberikan\nsumbangan kepada\nmangsa banjir.\nPilihan Jawapan 2\nMurid perlu menyertai\naktiviti melindungi\nkelestarian alam secara\nsukarela.\nMurid perlu menyertai\naktiviti melindungi\nkelestarian alam secara\npaksa rela.\nPilihan Jawapan 3\nMelibatkan diri dalam\naktiviti kesukarelawanan\npada peringkat sekolah.\nMelibatkan diri dalam\naktiviti kokurikulum\npada peringkat sekolah.\nKad cepumas 7\nNyatakan dua nilai\nyang diamalkan\noleh murid yang\nmelibatkan diri dalam\nkhidmat sosial.\nPilihan Jawapan 4\nPelantikan sebagai duta\nkhidmat sosial dengan\nbayaran bagi melibatkan\ndiri dalam aktiviti\nkemasyarakatan.\nPenganugerahan ikon\nkhidmat sosial kepada\ngenerasi muda yang\naktif dalam aktiviti\nkemasyarakatan.\nPilihan Jawapan 5\nGembira.\nSedih.\nPilihan Jawapan 7\nToleransi\nKejujuran\nKeberanian\nHemah tinggi\nPilihan Jawapan 6\nMurid menganjurkan\nkutipan derma bagi\nmembantu mangsa\npeperangan.\nMurid mencuci kereta\nbagi mengumpulkan\ndana untuk\nmengadakan lawatan.\n3.4.1, 3.4.2, 3.4.3, 3.4.4, 3.4.5\n141\n\n[Pendidikan Moral Tingkatan 3.pdf p151]\n142\nUNIT 9\n3.4.1, 3.4.2, 3.4.5, 3.4.6\nB Baca dan fahami memoir yang ditulis oleh seorang pesakit buah pinggang\ndi bawah. Kemudian, jawab soalan yang diberikan.\n1. Andaikan anda terbaca memoir ini dalam laman sosial. Ceritakan perasaan anda.\n2. Bincangkan cara anda membantu pesakit tersebut.\n3. Secara berkumpulan, bincang dan hasilkan satu risalah tentang kempen derma\norgan bagi membantu pesakit tersebut. Kemudian, edarkan risalah tersebut\nkepada warga sekolah.\nMengapakah masih terdapat masyarakat yang belum bersedia\nuntuk menderma organ?\n\n[Pendidikan Moral Tingkatan 3.pdf p152]\n9\nUNIT\n143\nA Situasi di bawah menunjukkan tanggungjawab sosial yang dilaksanakan\noleh ahli korporat kepada masyarakat yang kurang bernasib baik.\nEncik Samad Rahman, ahli korporat yang berjaya. Sebahagian hasil keuntungan\nsyarikatnya digunakan untuk membantu penduduk di kawasan pedalaman. Beliau\nbanyak membantu golongan yang kurang bernasib baik. Bantuannya adalah seperti\nmembina pusat Internet dan perpustakaan.\n1. Nyatakan tanggungjawab sosial yang dilakukan oleh Encik Samad Rahman kepada\npenduduk di kawasan tersebut.\n2. Jelaskan nilai yang diamalkan oleh penduduk yang menerima sumbangan tersebut.\n3. Terangkan kepentingan penglibatan pelbagai pihak dalam membantu golongan\nyang kurang bernasib baik.\n4. Bagaimanakah anda dan rakan-rakan dapat bersama-sama melaksanakan\ntanggungjawab sosial dalam masyarakat?\nB Gambar di bawah menunjukkan sekumpulan remaja melaksanakan\ntanggungjawab sosial dengan menziarahi bapa jiran mereka yang sakit\ndi rumah.\nBagaimanakah amalan ini boleh diterapkan dalam kalangan generasi muda? Jelaskan.\n\n[Pendidikan Moral Tingkatan 3.pdf p153]\nUNIT 9\n144\nUNIT 9\nMembuat landskap di luar dewan orang ramai.\nBergotong-royong membersihkan\nkawasan dewan orang ramai.\nMengecat dewan orang ramai.\nA Secara berkumpulan, anjurkan aktiviti khidmat sosial di dewan orang ramai\nyang berdekatan dengan tempat tinggal anda.\nB Sediakan satu laporan bergambar tentang penglibatan, sumbangan dan\nkepentingan anda dalam aktiviti tersebut.\nDewan orang ramai.\n\n[Pendidikan Moral Tingkatan 3.pdf p154]\n145\n4\nBIDANG\nBidang ini membincangkan peraturan dan undang-undang\nyang menjamin keamanan dan kesejahteraan. Adab di majlis\nrasmi dan tidak rasmi, hindari jenayah kanak-kanak, kebebasan\nbersuara, memelihara tradisi dalam masyarakat majmuk dan\nmenyumbang untuk mengekalkan undang-undang kemanusiaan\nantarabangsa adalah standard yang patut dikuasai oleh murid\nPendidikan Moral. Peraturan, undang-undang dan norma\nmasyarakat ini perlu dituruti oleh murid untuk menjadi seorang\ninsan yang bermoral.\nMoral, Peraturan dan\nUndang-undang\nKebebasan Bersuara Menjamin\nKemakmuran Negara\nAmalan Tradisi Masyarakat Majmuk\nHidup Beradab Cerminan Diri\nHindari Jenayah Kanak-kanak\nKemanusiaan Asas Kemoralan\n\n[Pendidikan Moral Tingkatan 3.pdf p155]\n146\nDalam unit ini, saya belajar tentang:\n• Adab dalam majlis rasmi dan tidak rasmi.\n• Membanding beza adab dalam pelbagai majlis rasmi dan tidak rasmi.\n• Kepentingan adab dalam majlis rasmi dan tidak rasmi.\n• Kesan sekiranya tidak beradab dalam majlis rasmi dan tidak rasmi.\n• Perasaan apabila adab dalam majlis rasmi dan tidak rasmi dipatuhi.\n• Amalan beradab dalam majlis rasmi dan tidak rasmi.\n10\n10\nHIDUP BERADAB\nCERMINAN DIRI\n\n[Pendidikan Moral Tingkatan 3.pdf p156]\n147\n• Kesederhanaan\n• Hemah tinggi\n• Kerajinan\n• Hormat\n• Harga diri\nAdakah saya mengamalkan\ntingkah laku beradab?\n\n[Pendidikan Moral Tingkatan 3.pdf p157]\n148\nUNIT 10\nSetiap majlis mempunyai adab yang tersendiri. Adab merujuk tingkah laku yang baik\ndan tutur kata yang sopan. Adab juga mencerminkan peribadi, identiti dan personaliti\nseseorang. Adab seperti berpakaian, makan dan bercakap perlu dijaga tidak kira\ndalam majlis rasmi atau tidak rasmi. Antara perbezaan majlis rasmi dengan tidak rasmi\nadalah seperti yang di bawah.\nOleh itu, setiap individu perlu peka dalam setiap majlis yang dihadiri. Peraturan\nyang ditetapkan dalam sesuatu majlis juga perlu dipatuhi. Walau bagaimanapun,\nterdapat perbezaan antara adab dalam majlis rasmi dengan tidak rasmi yang perlu\ndiketahui.\nMajlis\nrasmi\nMajlis\ntidak rasmi\n- Dianjurkan oleh pihak\nkerajaan atau pihak swasta.\n- Tatacara dan protokol yang\nditetapkan perlu dipatuhi.\n- Suasananya lebih santai.\n- Tatacara yang disusun oleh\npihak penganjur tidak terlalu\nketat.\nperbezaan MAJLIS RASMI Dengan TIDAK RASMI\nBerpakaian seragam semasa\nMajlis Anugerah Cemerlang.\nBerpakaian sopan semasa majlis hari lahir.\n\n[Pendidikan Moral Tingkatan 3.pdf p158]\n10\nUNIT\n149\nHal ini menunjukkan bahawa adab perlu diikuti dan dihormati sama ada dalam\nmajlis rasmi atau tidak rasmi. Identiti individu akan terserlah melalui perlakuan\nberadab yang ditonjolkan dalam sesuatu majlis.\nPersamaan\nPerbezaan\nMajlis rasmi\nMajlis rasmi\nMajlis Tidak Rasmi\nMajlis Tidak Rasmi\nbanding beza ADAB MAJLIS RASMI\nDAN TIDAK RASMI\nBerpakaian kemas semasa majlis tidak rasmi.\nBerpakaian formal semasa majlis rasmi.\nAdab berpakaian\nAdab makan\nAdab berpakaian\nAdab makan\nAdab bercakap\nPakaian sopan.\nMengambil makanan\ndengan sopan.\nMematuhi etika pakaian yang\ntelah ditetapkan.\nMemegang sudu dengan\ntangan kanan dan memegang\ngarpu dengan tangan kiri.\nBercakap apabila perlu\nsahaja.\nPakaian sopan.\nMengambil makanan\ndengan sopan.\nMengikut kesesuaian majlis.\nBoleh menggunakan tangan\natau cara lain yang sesuai.\nBebas bercakap dengan\nsesiapa sahaja.\n\n[Pendidikan Moral Tingkatan 3.pdf p159]\nUNIT 10\n150\nDisiplin Diri Dapat Dibentuk\nMajlis Berjalan dengan\nSempurna\nAtur Cara Majlis\nMengikut Jadual\nImej Penganjur\ndan Tetamu Terpelihara\nSekiranya adab dipatuhi, atur cara majlis rasmi atau tidak rasmi akan berjalan\nlancar. Oleh itu, semua pihak perlu mengetahui kepentingan adab dan peranan mereka\ndalam sesuatu majlis.\nMajlis Berjalan Lancar\nKepentingan\nAdab dalam Majlis\nRasmi dan\nTidak Rasmi\n• Penganjur menerima\nsemua tetamu dengan\nsopan.\n• Tetamu berpakaian\nsopan dan bertegur\nsapa dengan penganjur.\n• Tetamu duduk dengan\nsopan.\n• Tetamu bercakap\napabila perlu.\n• Warga emas diberi\nkeutamaan tempat duduk.\n• Masalah yang timbul\ndiselesaikan dengan\nsegera.\n• Penganjur\nmenyempurnakan\nmajlis dengan baik.\n• Tetamu menghargai\nperjalanan majlis yang\nlancar.\n• Pengacara majlis berucap\ndengan sopan.\n• Masa dipatuhi mengikut\natur cara majlis.\n\n[Pendidikan Moral Tingkatan 3.pdf p160]\n151\nKesimpulannya, adab yang diamalkan dalam majlis rasmi atau tidak rasmi\nakan mencerminkan perwatakan seseorang individu. Semua tetamu akan berasa\ngembira apabila majlis berjalan dengan sempurna.\nu Nilai hormat perlu diamalkan ketika menghadiri majlis rasmi dan tidak\nrasmi.\nu Nilai kerajinan dan kesederhanaan yang diamalkan akan memberikan\nkeselesaan kepada semua pihak dalam setiap majlis.\nu Nilai hemah tinggi juga perlu diamalkan supaya pelaksanaan majlis berjalan\nlancar seperti yang dirancang.\nSebaliknya, adab yang tidak dijaga akan menimbulkan kesan yang kurang\nsenang kepada semua pihak. Antara kesan sekiranya tidak beradab dalam majlis\nrasmi dan tidak rasmi termasuklah seperti yang berikut.\nKesan sekiranya\ntidak beradab\ndalam\nmajlis rasmi dan\ntidak rasmi\nAtur cara majlis tidak berjalan lancar.\nTumpuan tetamu akan terganggu.\nSuasana majlis kurang menyenangkan.\nTetamu berasa kurang selesa.\nPenganjur berasa malu.\nOleh hal yang demikian, amalan beradab ketika berada dalam apa-apa juga majlis\nperlu dipupuk sejak kecil. Amalan beradab ini dapat memelihara keharmonian majlis\ndan perhubungan sesama individu.\n10\nUNIT\n\n[Pendidikan Moral Tingkatan 3.pdf p161]\nUNIT 10\n152\nA Secara berkumpulan, teliti gambar di bawah. Kemudian, jawab soalan\ndi bawah.\nAyah Manjit Kaur baru sahaja meninggal dunia. Sarah dan Wai Ling menziarahi keluarga\nManjit Kaur untuk memberikan penghormatan terakhir. Semasa mengucapkan takziah,\nWai Ling berasa tidak selesa dengan sikap Sarah yang tidak menghormati majlis.\n1. Wajarkah perlakuan yang ditunjukkan oleh watak-watak di atas?\n2. Apakah yang sepatutnya dilakukan oleh kedua-dua watak semasa menghadiri\nmajlis tersebut?\n3. Mengapakah anda perlu beradab ketika menghadiri majlis?\nYoshini memakai baju tidak formal pada Hari Anugerah Cemerlang. Apabila sampai\ndi sekolah, Yoshini berasa terkejut kerana semua kawannya memakai pakaian seragam\nsekolah.\n4.1.1, 4.1.2, 4.1.3, 4.1.4, 4.1.6\nApakah tindakan anda sekiranya berada dalam situasi di atas?\n\n[Pendidikan Moral Tingkatan 3.pdf p162]\n10\nUNIT\n153\nB Main peranan situasi di bawah dengan memfokuskan adab dalam majlis\nrasmi dan tidak rasmi. Kemudian, jawab soalan yang diberikan.\nKaveri dipertanggungjawabkan\nuntuk memberikan taklimat\nkepada semua murid tingkatan 3\ntentang adab dalam Majlis\nAnugerah Kokurikulum\ndi sekolahnya.\n(i) Bantu Kaveri menyediakan nota\ntaklimat yang meliputi perkara\ndi bawah:\n- Adab berpakaian.\n- Adab bercakap.\n- Adab menerima hadiah.\nJohn akan mengadakan Majlis\nRumah Terbuka Hari Krismas pada\n25 Disember. Kawan-kawannya akan\nmenghadiri majlis tersebut buat\npertama kali.\n(i) Terangkan adab dalam Majlis\nRumah Terbuka Hari Krismas\nkepada kawan-kawan John.\n4.1.1, 4.1.2, 4.1.5, 4.1.6\nSEKOLAH MENENGAH\nBUKIT HARMONI\n31 OKTOBER\nCeritakan perasaan anda apabila dapat mengamalkan adab\ndalam majlis rasmi dan tidak rasmi.\nMengapakah tingkah laku beradab dikatakan cerminan diri?\n\n[Pendidikan Moral Tingkatan 3.pdf p163]\nUNIT 10\n154\nUNIT 10\nUNIT 10\nA Baca dan fahami cerita di bawah.\nMasyarakat lebah dijemput untuk\nmenghadiri majlis kesyukuran\ndi rumah Ratu Lebah.\nBibi:\nHaku, jangan gelojoh.\nAda banyak lagi kawan\nkita yang belum makan madu.\nHaku: Saya tidak peduli. Perut saya lapar.\nBibi: Saya faham. Ingat, adab makan\nperlu dipatuhi juga.\nRatu:\nHaku, Bibi,\nmari sini sekejap.\nBibi dan\nBaik, Ratu.\nHaku:\nRatu:\nApakah pesanan\nsaya semalam?\nBibi:\nMakan secara sederhana\ndan beradab, Ratu.\nKisah Lebah yang Gelojoh\nBibi:\nHaku, mari cepat. Kita sudah\nboleh makan sekarang.\nHaku: Wah, madu percuma! Jom,\nkita makan sepuas-puasnya.\n1\n3\n2\n\n[Pendidikan Moral Tingkatan 3.pdf p164]\n155\n10\nUNIT\n• Secara berkumpulan, sediakan satu blog tentang adab\nketika makan dalam majlis rasmi dan tidak rasmi.\n• Kaji adab makan yang berbeza dalam masyarakat\npelbagai kaum di Malaysia.\n• Pautkan blog tersebut dengan laman sesawang yang boleh\nmembantu rakan anda mengetahui adab\ndalam majlis rasmi dan tidak rasmi.\n1. Apakah adab makan yang patut\ndiamalkan oleh Haku?\n2. Ramalkan tindakan yang sepatutnya\ndiamalkan oleh Haku.\n3. Secara berkumpulan, lakonkan cerita\ndi atas dengan kesudahan cerita yang\nkreatif dan inovatif.\nRatu:\nApakah yang telah kamu lakukan,\nHaku?\nHaku: Maafkan saya, Ratu. Saya makan\ndengan gelojoh.\nBibi: Saya sudah ingatkan.\nRatu: Kalau terlebih makan madu, lebah\nyang lain tidak dapat makan madu.\nRatu:\nSaya memang\nmenyediakan\nmadu yang banyak\nuntuk semua tetamu.\nKalau ada lebih,\nbarulah boleh tambah\nlagi.\n4.1.1, 4.1.2, 4.1.4, 4.1.6\n5\n4\n6\nHaku: ...\n\n[Pendidikan Moral Tingkatan 3.pdf p165]\nUNIT 10\n156\nB Sekolah anda akan mengadakan Program Minggu Moral. Sebagai setiausaha,\nanda dikehendaki mengendalikan mesyuarat jawatankuasa yang akan\nmembincangkan adab yang perlu diamalkan dalam program tersebut.\nAdakan simulasi mesyuarat tersebut.\n4.1.1, 4.1.3\nDengan hormatnya perkara di atas dirujuk.\n2. Sehubungan dengan itu, semua AJK dijemput untuk menghadiri mesyuarat\ntersebut yang akan diadakan pada 18 September ____ di Kelas 3 Aspirasi.\n3. Antara agenda yang akan dibincangkan adalah tentang adab dan protokol\nyang perlu diamalkan untuk perkara di bawah sepanjang program tersebut\nberlangsung.\n• Tempat majlis\n• Senarai jemputan\n• Atur cara majlis\n• Kod pakaian\n• Kad jemputan\n• Menu untuk jamuan\n• Susunan tempat duduk\n• Juruacara\n• Atur cara pentadbiran majlis\n• Penyambut tetamu\n• Raptai\n• Laporan bertulis\nKehadiran anda dalam mesyuarat ini diwajibkan.\nSekian, terima kasih.\nAnthony Fernandez\nSetiausaha Program Minggu Moral\nDaripada:\nKepada:\nHantar:\nCc:\nPerkara:\nanthony@coolmail.com\nazilawathy@vmail.com\nMesyuarat Jawatankuasa Program Minggu Moral\n1. Berdasarkan simulasi tersebut, apakah\nadab yang perlu diutamakan dalam\nProgram Minggu Moral?\n2. Jelaskan kepentingan menjaga adab dalam\nmajlis tersebut.\nDaripada:\nKepada:\nHantar:\nCc:\nPerkara:\nanthony@coolmail.com\nazilawathy@vmail.com\nMesyuarat Jawatankuasa Program Minggu Moral\n\n[Pendidikan Moral Tingkatan 3.pdf p166]\n10\nUNIT\n157\nA Lengkapkan peta pemikiran yang membandingkan adab dalam majlis rasmi\ndan tidak rasmi.\nJelaskan perasaan anda apabila melihat rakan anda tidak mematuhi adab bercakap\ndalam majlis.\nB Keluarga anda mengadakan majlis rumah terbuka bersempena dengan\nsambutan majlis perayaan. Lakonkan cara anda menyambut tetamu secara\nberadab.\nPakaian\nformal\nBersopan\nPakaian\nselesa dan\nsopan\n4.1.1, 4.1.2, 4.1.5\nAdab dalam Majlis\nMajlis\nTidak\nRasmi\nMajlis\nRasmi\nAdakah adab berpakaian menjadi masalah kepada anda apabila\nmenghadiri majlis rasmi atau tidak rasmi? Jelaskan.\nPerbezaan\nPersamaan\nPerbezaan\n\n[Pendidikan Moral Tingkatan 3.pdf p167]\nUNIT 10\n158\nC Secara berkumpulan, adakan demonstrasi tentang adab makan dalam majlis\nrasmi dan tidak rasmi.\n4.1.1, 4.1.6\nCeritakan pengalaman anda menghadiri majlis rasmi atau tidak\nrasmi.\nD Dapatkan maklumat tentang adab\nmakan dalam majlis rasmi dan\ntidak rasmi melalui Internet atau\nsumber lain. Hasilkan buku skrap\nberdasarkan maklumat tersebut.\n\n[Pendidikan Moral Tingkatan 3.pdf p168]\n10\nUNIT\n159\nE Baca dan fahami haiku berkaitan dengan adab dalam majlis rasmi dan\ntidak rasmi.\nHaiku ialah sejenis puisi pendek dari Jepun yang kaedah penulisannya ialah tiga baris,\ndalam 17 suku kata, dengan pola 5-7-5 (go-shichi-go) sahaja.\nBerdasarkan haiku di atas, lengkapkan jadual di bawah tentang perlakuan beradab\ndan kesannya dalam majlis rasmi dan tidak rasmi.\n4.1.1\nTetamu datang\nPatuhi adab majlis\nSemua riang\nAdab protokol\nPenghormatan diberikan\nMajlis sempurna\nContoh haiku.\nMajlis selesai\nKesempurnaan capai\nAdab menyerlah\nPerlakuan beradab dalam majlis\n1.\n2.\n3.\nKesan perlakuan beradab dalam majlis\nSemua tetamu berasa gembira.\nPatuhi adab dalam majlis.\n\n[Pendidikan Moral Tingkatan 3.pdf p169]\n160\nPerlakuan dalam Majlis rasmi dan tidak rasmi\nUNIT 10\nA Baca dan jawab soalan berdasarkan gambar di bawah.\n1. Namakan pakaian yang digunakan dalam gambar tersebut.\n2. Jelaskan majlis yang sesuai dihadiri dengan menggunakan pakaian tersebut.\n3. Mengapakah mereka berpakaian sedemikian untuk majlis tersebut?\n4. Nyatakan tiga kepentingan memakai pakaian mengikut adab dalam majlis.\n5. Jelaskan nilai yang diamalkan apabila anda mematuhi adab majlis rasmi dan\ntidak rasmi.\n6. Gambarkan perasaan anda apabila mengamalkan perlakuan beradab dalam\nsesuatu majlis.\nB Lengkapkan rajah di bawah.\nPerlakuan Beradab\n1.\n2.\n3.\nPerlakuan Tidak Beradab\n1.\n2.\n3.\nKesan\n1.\n2.\n3.\nPerasaan\nKesan\n1.\n2.\n3.\nPerasaan\n\n[Pendidikan Moral Tingkatan 3.pdf p170]\n10\nUNIT\n161\n10\nUNIT\nA Secara berkumpulan, reka pakaian yang sesuai untuk majlis rasmi dan tidak\nrasmi. Berikan penerangan tentang setiap pakaian yang direka mengikut\nkesesuaian majlis yang dihadiri.\n\n[Pendidikan Moral Tingkatan 3.pdf p171]\n162\n11\n11\nHINDARI\nJENAYAH KANAK-KANAK\nDalam unit ini, saya belajar tentang:\n• Contoh jenayah kanak-kanak.\n• Faktor yang menyumbang kepada jenayah kanak-kanak.\n• Kesan jenayah kanak-kanak ke atas diri, mangsa, keluarga dan masyarakat.\n• Cara menghindari jenayah kanak-kanak.\n• Perasaan apabila tidak terlibat dalam jenayah kanak-kanak.\n• Sikap antijenayah kanak-kanak.\n\n[Pendidikan Moral Tingkatan 3.pdf p172]\n163\n• Harga diri\n• Rasional\n• Kepercayaan kepada\nTuhan\n• Kebebasan\n• Kesederhanaan\nBagaimanakah anda boleh membantu\npihak polis menghindari jenayah kanak-kanak?\n\n[Pendidikan Moral Tingkatan 3.pdf p173]\n11\nUNIT\n164\nJenayah secara umumnya bermaksud perbuatan yang menyalahi undang-undang\nnegara. Terdapat beberapa jenis jenayah, antaranya jenayah ringan, jenayah siber\ndan jenayah berat. Perlakuan jenayah yang dilakukan oleh golongan remaja pula\ndikategorikan sebagai jenayah kanak-kanak. Antara jenayah kanak-kanak yang perlu\ndihindari termasuklah seperti yang berikut.\nContoh\nJenayah\nkanak-kanak\nBULI\nPENYELUK SAKU\nCURI MOTOSIKAL\nJENAYAH SIBER\nBERJUDI\nBULI\nVANDALISME\nRAGUT\nGANGSTER\nPECAH RUMAH\nPENYELUK SAKU\nBerdasarkan Akta Kanak-kanak, kanak-kanak merujuk seseorang di bawah umur\n18 tahun. Tanggungjawab atas kesalahan jenayah yang dilakukan oleh kanak-kanak\nperlulah berdasarkan perkara yang berikut:\n• Kanak-kanak di bawah umur 10 tahun dibebaskan daripada apa-apa jua tanggungjawab\njenayah.\n• Kanak-kanak yang berusia antara 10 tahun hingga 12 tahun bergantung pada keupayaan\nmembuktikan kanak-kanak tersebut berupaya melakukan jenayah.\n• Kanak-kanak yang berumur lebih daripada 12 tahun bertanggungjawab sepenuhnya\natas jenayah yang dilakukan.\n\n[Pendidikan Moral Tingkatan 3.pdf p174]\n165\nTerdapat pelbagai faktor berlakunya jenayah dalam kalangan remaja di negara\nkita. Antara faktor tersebut adalah seperti yang berikut.\nDiri Sendiri\n• Perasaan ingin\nmencuba.\n• Kurangnya amalan\najaran agama dan\nnilai murni.\n• Berfikiran singkat dan\nkurang matang.\nKeluarga\n• Pengabaian oleh ibu\nbapa.\n• Ibu bapa tidak\nmenjadi suri teladan\nyang baik.\n• Kesibukan ibu bapa\nyang bekerja.\nRakan Sebaya\n• Pengaruh negatif\ndaripada rakan sebaya.\n• Menghabiskan masa\nyang lama dengan\nrakan yang terlibat\ndengan jenayah.\n• Disisih oleh rakan.\nMedia Massa\n• Pemaparan adegan\nganas dan perlakuan\nnegatif.\n• Pengaruh rangkaian\nmedia sosial yang tidak\nterkawal.\n• Media yang lebih\nmengutamakan\nkeuntungan berbanding\ndengan tanggungjawab\nsosial.\nPersekitaran\n• Kewujudan pusat\nhiburan dan kafe siber.\n• Komuniti yang tidak\nprihatin dan bersikap\nindividualistik.\n• Ikatan kejiranan yang\nlonggar.\nFaktor\nberlakunya jenayah\nkanak-kanak\n11\nUNIT\n•\nMenurut Undang-undang Malaysia, Akta 611 Akta Kanak-kanak 2001 pindaan\n2006, Mahkamah Juvana 1974 telah dimansuhkan dan digantikan dengan Akta\nKanak-kanak.\n•\nMahkamah Khas Bagi Kanak-kanak merupakan mahkamah yang menggantikan\nMahkamah Juvana bagi membicarakan segala salah laku jenayah yang dilakukan\noleh kanak-kanak.\n\n[Pendidikan Moral Tingkatan 3.pdf p175]\n166\n11\nUNIT\nKegagalan menangani jenayah kanak-kanak akan memberikan kesan kepada\nkehidupan sekeliling termasuklah diri, mangsa, keluarga dan masyarakat.\nDiri\n• Masa hadapan terjejas.\n• Dibuang sekolah.\n• Berisiko melakukan\nkesalahan lain.\n• Hilang maruah diri.\nMasyarakat\n• Merugikan harta benda\nawam.\n• Merosakkan hubungan\nsilaturahim.\n• Mengancam\nkeselamatan komuniti.\n• Menggugat\nkeharmonian dan\nkesejahteraan\nmasyarakat.\nKesan\nJenayah\nkanak-kanak\nMANGSA\n• Rasa trauma dan fobia.\n• Kurang keyakinan diri.\n• Berasa tertekan.\n• Boleh mencederakan diri.\nKELUARGA\n• Imej keluarga tercemar.\n• Keluarga dipandang\nserong oleh masyarakat.\n• Keluarga menanggung\nmalu.\n• Keluarga mengalami\ntekanan perasaan.\n\n[Pendidikan Moral Tingkatan 3.pdf p176]\n11\nUNIT\n167\nOleh itu, semua pihak perlulah memainkan peranan masing-masing untuk\nmenghindari jenayah kanak-kanak. Banyak usaha boleh dilaksanakan untuk\nmenghindari jenayah kanak-kanak.\nDiri Sendiri\n• Kesedaran diri sendiri bahawa\njenayah boleh merosakkan masa\nhadapan.\n• Memilih kawan yang boleh\nmemimpin ke arah kebaikan.\n• Mengisi masa lapang dengan aktiviti\nberfaedah.\nKeluarga\n• Memberikan pendidikan agama dan\namalan nilai murni.\n• Memantau pergaulan anak-anak.\n• Memberikan perhatian dan kasih\nsayang secukupnya.\nMasyarakat\n• Mengambil tahu dan saling membantu.\n• Memberikan teguran dan nasihat.\n• Menjadi “mata dan telinga” kepada pihak\nsekolah dan pihak berkuasa.\nSekolah\n• Menyediakan persekitaran yang kondusif.\n• Memantau disiplin murid.\n• Bekerjasama dengan pihak polis.\nPihak Berkuasa dan Badan\nBukan Kerajaan (NGO)\n• Lawatan ke sekolah.\n• Memperkenalkan pendidikan\npencegahan jenayah.\n• Menguatkuasakan undang-undang\ndengan tegas.\nCARA\nMENGHINDARI\nJENAYAH\nKANAK-KANAK\nKesimpulannya, setiap individu tidak boleh terlibat dalam sebarang jenayah.\nHidup seseorang itu akan bahagia jika bebas daripada jenayah.\nu Nilai kepercayaan kepada Tuhan dapat memelihara diri daripada melakukan\nsebarang kesalahan.\nu Nilai rasional dan harga diri membantu individu membuat keputusan dengan\nbijak.\nu Nilai kebebasan perlu diamalkan dengan mematuhi peraturan dan\nundang-undang yang ditetapkan.\nu Nilai kesederhanaan akan membantu individu itu melakukan sesuatu\nperkara tanpa mengabaikan kepentingan diri dan orang lain.\n\n[Pendidikan Moral Tingkatan 3.pdf p177]\n11\nUNIT\n168\nA Baca situasi jenayah di bawah. Kemudian, jawab soalan yang berikut.\n1. Apakah perasaan anda apabila membaca situasi di atas?\n2. Pada pendapat anda, wajarkah remaja yang terlibat dengan perbuatan jenayah\nkanak-kanak dikenakan tindakan undang-undang? Jelaskan.\n3. Anda mendapati rakan anda terlibat dengan jenayah kanak-kanak. Apakah nasihat\nyang patut anda berikan?\nDua orang remaja lelaki di sebuah sekolah yang berumur 15 dan 16 tahun ditahan\noleh pihak polis. Mereka dipercayai melakukan peras ugut terhadap seorang\nremaja tingkatan tiga di sebuah sekolah. Setiap hari mangsa dipaksa memberikan\nwang sebagai wang perlindungan ketika pulang ke rumah. Kejadian terbongkar\napabila ibu bapa mangsa mendapati anak mereka sering meminta wang untuk\nmembeli pelbagai barang.\nLapan orang remaja telah membelasah seorang remaja lain di taman\nrekreasi.\nKejadian\ntersebut\nberpunca\ndaripada\nkeengganan\nmangsa\nuntuk\nmengikut\narahan\nmereka.\nSekiranya\ndidapati\nbersalah,\nlapan\norang remaja tersebut akan berdepan dengan tindakan gantung sekolah sejurus\nselesai proses siasatan polis.\nLima orang remaja diberkas kerana terlibat dalam kegiatan mencuri motosikal.\nDalam kejadian pada awal pagi tersebut, dua orang remaja ditahan dalam satu\nsekatan jalan raya kerana menunggang motosikal yang dicuri. Hasil siasatan\nlanjut, pihak polis berjaya menangkap tiga orang remaja lagi. Pihak polis berjaya\nmenemukan beberapa buah motosikal lain yang dilaporkan hilang sebelum ini.\n4.2.2, 4.2.3, 4.2.4, 4.2.5\nRamalkan kesan kepada negara sekiranya golongan remaja\nterlibat dengan jenayah.\nPeras ugut: Dua remaja ditahan polis\nBuli: Lapan remaja berdepan tindakan gantung sekolah\nCuri motosikal: Lima remaja diberkas\n\n[Pendidikan Moral Tingkatan 3.pdf p178]\n11\nUNIT\n169\nC Jalankan simulasi berdasarkan situasi antijenayah di atas.\n1. Apakah pandangan anda terhadap sikap Calvin? Jelaskan.\n2. Mengapakah Calvin berupaya menolak ajakan Joseph?\n3. Andaikan anda rakan Calvin. Bagaimanakah anda memberikan sokongan kepada\nCalvin supaya kekal dengan pendiriannya itu?\nJoseph mendapat tahu Robert membawa\nduit yang banyak ke sekolah dan\nmenyimpannya di dalam beg. Ketika\naktiviti pendidikan jasmani di padang,\nJoseph mengajak Calvin untuk mencuri\nduit Robert. Calvin menolak ajakan\nJoseph itu. Sebaliknya, Calvin menasihati\nJoseph agar tidak mencuri kerana\nperbuatan itu merupakan satu jenayah.\n1. Wajarkah Tony dan Mathew bertindak sedemikian terhadap Thomas? Berikan\nalasan anda.\n2. Pada pendapat anda, apakah faktor yang menyebabkan perbuatan buli berlaku\ndi sekolah?\n3. Ramalkan perkara yang akan berlaku sekiranya tiada tindakan yang dikenakan\nterhadap kedua-dua orang remaja tersebut.\nB Secara berkumpulan, teliti dan selesaikan situasi di bawah.\n4.2.2, 4.2.4, 4.2.6\n1\n2\nTony dan Mathew suka membuli\nThomas di sekolah. Thomas berasa\ntertekan dan sedih. Lalu, dia mula\nmenyendiri.\n\n[Pendidikan Moral Tingkatan 3.pdf p179]\n11\nUNIT\n170\nA Teliti carta pai di bawah tentang cadangan penyelesaian isu buli. Kemudian,\njawab soalan yang berikut.\nSaluran\naduan kes\nbuli.\nProgram\nberkala\ndengan\nPolis Diraja\nMalaysia.\nTindakan\ntegas\nterhadap\npembuli.\nPantau\npelajar\nbermasalah.\n1. Cadangan manakah yang berkesan bagi menyelesaikan isu buli di atas?\n2. Kemukakan satu saluran aduan yang lebih praktikal dan selamat bagi murid yang\nmenjadi mangsa buli yang berlaku sama ada di sekolah atau di luar sekolah.\nBentangkan dan kongsikan idea anda.\nB Secara berkumpulan, dapatkan maklumat tentang jenayah kanak-kanak.\nBuat refleksi dan hasilkan buku skrap tentang:\n(i)\nStatistik atau data jenayah kanak-kanak.\n(ii) Pengajaran yang diperoleh.\n(iii) Cara anda mempraktikkan tindakan antijenayah kanak-kanak tersebut.\n33%\n17%\n42%\n8%\n4.2.2, 4.2.4, 4.2.6\n(Dipetik dan diubah suai daripada: Metro Ahad, 20 Ogos 2017)\nCADANGAN PENYELESAIAN ISU BULI\n\n[Pendidikan Moral Tingkatan 3.pdf p180]\n11\nUNIT\n171\nC Kelab Pencegahan Jenayah sekolah anda ingin mendapatkan maklumat\nlanjut tentang Volunteer Smartphone Patrol atau lebih dikenali sebagai VSP.\nSecara berkumpulan, adakan satu lawatan dan temu bual khas dengan\npegawai polis di balai polis berhampiran.\nPANDUAN TUGASAN:\n1. Maklumat penting temu bual.\n• Konsep VSP.\n• Pelaksanaan VSP.\n• Cara-cara menggunakan VSP.\n• Faedah menggunakan VSP.\nKumpulan 1\nMerancang tarikh dan masa yang sesuai.\nMenjalankan temu bual dan mencatat\nmaklumat yang diperoleh.\nKumpulan 3\nMenetapkan tarikh dan masa untuk\nmenyebarluaskan maklumat.\nKumpulan 2\nMenyusun maklumat yang diperoleh\ndan membentangkan maklumat\ntersebut kepada semua ahli.\nKumpulan 4\nMenyediakan bahan sokongan untuk\nmenyebarkan maklumat seperti\nmembuat kain rentang dan risalah.\nTUGASAN\nKUMPULAN\n2. Agihkan tugasan kepada beberapa kumpulan.\n4.2.1, 4.2.4, 4.2.5, 4.2.6\nJelaskan perasaan anda apabila berjaya menjadi sebahagian\ndaripada individu yang berperanan untuk membantu mengatasi\nmasalah jenayah kanak-kanak.\n\n[Pendidikan Moral Tingkatan 3.pdf p181]\n11\nUNIT\n172\nD Jenayah kanak-kanak memberikan implikasi yang sangat besar jika tidak\nditangani dengan berkesan. Jalankan satu bual bicara berkaitan dengan\njenayah kanak-kanak di sekolah.\nPanduan Bual Bicara\nE Buat rakaman khas bual bicara tersebut dan sebarkannya melalui laman\nsosial yang sesuai.\nCadangan Ahli Panel\n- Murid.\n- Guru Disiplin.\n- Guru Kaunseling.\n- Wakil PIBG.\n- Pegawai Perhubungan Sekolah.\nPelaksanaan\n1. Bincangkan isu berkaitan dalam kumpulan.\n2. Pilih wakil setiap kumpulan.\n3. Setiap wakil kumpulan akan main peranan mengikut\nahli panel yang diwakili.\nIsu Perbincangan\n- Contoh jenayah.\n- Punca berlakunya jenayah.\n- Cara mengatasi jenayah.\n- Kesan jenayah.\n- Penglibatan dan tindakan\nproaktif yang perlu dilakukan.\n4.2.1, 4.2.2, 4.2.3, 4.2.4\n\n[Pendidikan Moral Tingkatan 3.pdf p182]\n11\nUNIT\n173\nA Berdasarkan jadual, cari enam perkataan yang berkaitan dengan jenayah\nkanak-kanak.\nJ\nB\nG\nA\nN\nG\nS\nT\nE\nR\nI\nS M\nE\nC U\nR\nI\nR\nG\nP\nA\nK\nR\nS\nI\nM U\nA L\nB\nI\nO\nJ\nO T\nE\nK\nA\nN A\nN\nS\nI\nK\nB\nM U\nL\nA\nN\nT\nA\nA\nS\nA\nB\nP\nT\nU\nP\nD\nI\nB\nD\nK\nC\nN Y\nP\nU E\nI\nB\nA\nI\nS\nU\nI\nK\nE\nD A\nE\nN N\nR\nA\nK\nA\nN D\nH\nD M H\nR\nR\nU\nJ\nI\nP\nK\nA\nI\nI\nI\nI\nU\nP\nK\nA\nH A\nD\nA\nD\nD\nL\nB\nN\nD\nH\nE\nA\nS\nI\nR\nU\nT\nH\nK\nD A\nA\nI\nA\nN\nT\nU\nM A\nL\nU\nG\nN\nA G\nA\nK\nN\nJ\nM G\nA T\nN\nG\nT\nO\nR\nK\nE\nA\nL\nA\nR\nU\nK U\nB\nI\nD\nE\nN D\nA\nN\nG\nR\nN\nT\nB\nI\nS\nE\nB\nA\nT\nA\nN\nK\nJ\nA H\nO\nCONTOH JENAYAH\nKANAK-KANAK\nCURI\n...........\n...........\n...........\n...........\n...........\n...........\nKESAN JENAYAH\nMALU\n...........\n...........\n...........\n...........\n...........\n...........\nCara mengatasi\nDIRI:\nIBU BAPA: Memberikan pendidikan agama yang secukupnya kepada anak-anak.\nPIBG:\nPOLIS:\nBADAN BUKAN\nKERAJAAN (NGO):\n4.2.1, 4.2.3, 4.2.4\nLengkapkan jadual di bawah.\n\n[Pendidikan Moral Tingkatan 3.pdf p183]\n11\nUNIT\n174\n1. Adakah anda bersetuju dengan bentuk hukuman bagi kesalahan\nyang dinyatakan di atas? Jelaskan.\n2. Apakah perasaan anda apabila mengetahui pelbagai bentuk\nhukuman bagi kesalahan jenayah kanak-kanak?\nC Hasilkan poster bertemakan antijenayah kanak-kanak\ndengan kreatif.\nB Teliti maklumat dalam poster di bawah tentang bentuk hukuman bagi\nkesalahan jenayah kanak-kanak yang dilakukan.\n4.2.1, 4.2.3, 4.2.6\n(Sumber: Kesatuan Perkhidmatan Perguruan Kebangsaan Malaysia [NUTP])\nMENGEDAR DADAH\nSEKSYEN 39B ADB 1952\n• Mengedar apa-apa dadah\nberbahaya sabit kesalahan\nboleh dihukum gantung\nsampai mati\nMEMASUKKAN DADAH\nDALAM BADAN\nSEKSYEN 15(1)(a) ADB 1952\n• Hukuman penjara 2 tahun/\ndenda RM5 000 dan\npengawasan 2 tahun\nMEMILIKI DADAH\nSEKSYEN 39A(2) ADB 1952\n• Hukuman penjara seumur hidup/\n5 tahun dan sebatan\nSEKSYEN 39A(1) ADB 1952\n• Hukuman penjara 5 tahun dan\n3 kali sebatan\nSEKSYEN 12(20) ADB 1952\n• Hukuman penjara 5 tahun/\ndenda tidak lebih RM100 000\nKESALAHAN AKTA RACUN 1952\nSEKSYEN 30(3) (AKTA RACUN)\n• Hukuman denda RM10 000/penjara\n4 tahun/kedua-duanya sekali\n\n[Pendidikan Moral Tingkatan 3.pdf p184]\n11\nUNIT\n175\nD Penyalahgunaan dadah merupakan antara punca berlakunya jenayah.\nFahami lirik lagu Dadah Durjana di bawah.\n4.2.1, 4.2.5\n1.  Apakah mesej yang anda peroleh daripada lirik lagu tersebut?\n2.  Adakan pertandingan nyanyian lagu tersebut secara berkumpulan.\nApakah perasaan anda apabila berjaya menghindari diri daripada\nterjebak dalam penyalahgunaan dadah?\nDADAH DURJANA\n(Sumber: Agensi Antidadah Kebangsaan [AADK])\n\n[Pendidikan Moral Tingkatan 3.pdf p185]\n176\n11\nUNIT\nA Baca petikan rencana tentang jenayah kanak-kanak di bawah.\n1. Nyatakan contoh jenayah yang melibatkan murid sekolah berdasarkan petikan\nrencana tersebut.\n2. Jelaskan perasaan anda selepas membaca petikan rencana tersebut.\n3. Nyatakan pihak yang patut dihubungi sekiranya anda mengetahui ada dalam\nkalangan murid sekolah terlibat dalam jenayah tersebut.\n4. Apakah usaha yang patut dilakukan untuk mengatasi jenayah kanak-kanak\ndi sekolah?\n5. Jelaskan kesan jangka panjang jika jenayah kanak-kanak dibiarkan berterusan.\n6. Bagaimanakah amalan nilai moral dalam kalangan murid boleh membantu\nmengatasi jenayah kanak-kanak?\nB Bincangkan sebab dan akibat peningkatan jenayah kanak-kanak di negara\nkita berdasarkan statistik yang diberikan.\nKes jenayah kanak-kanak membimbangkan\nPembabitan golongan remaja termasuk murid sekolah dalam jenayah amat\nmembimbangkan, terutamanya membabitkan jenayah narkotik, pergaduhan,\ndan kecurian.\nSebanyak sembilan kes seumpama itu dicatat pada dua bulan pertama tahun\nini. Perkara yang lebih membimbangkan apabila berlakunya peningkatan kes\njenayah kanak-kanak yang direkodkan dari setahun ke setahun. Kebanyakan\njenayah kanak-kanak yang berlaku membabitkan murid sekolah dan mereka\nyang tidak bersekolah.\nKANAK-KANAK YANG TERLIBAT DENGAN JENAYAH\n2015\nTahun\n2016\n2017\n4669\nJumlah orang\n4886\n5443\n(Sumber: Jabatan Kebajikan Masyarakat)\n\n[Pendidikan Moral Tingkatan 3.pdf p186]\n11\nUNIT\n177\n11\nUNIT\nA Adakan satu program bersama-sama penghuni Sekolah Tunas Bakti yang\nberhampiran dengan sekolah anda.\nBincangkan perkara di bawah semasa melaksanakan program tersebut.\nPanduan program\nPelaksanaan program\n• Tempat program.\n• Tarikh dan tempat.\n• Rasional dan objektif.\n• Kumpulan sasaran.\n• AJK Pelaksana.\n• Surat kebenaran.\n• Anggaran perbelanjaan.\n• Tentatif program.\n• Pelaporan.\nB Buat laporan tentang pengajaran yang diperoleh hasil daripada program\ntersebut.\nMaklumat yang akan diperoleh\n• Sejarah Sekolah Tunas Bakti.\n• Jenis kesalahan.\n• Tempoh masa perintah.\n• Bentuk pemulihan yang dilakukan.\n• Kemahiran yang diajarkan.\n• Peraturan dan prosedur lawatan\nkeluarga.\n• Statistik jumlah pesalah.\n• Perkara-perkara lain\nyang sesuai.\nSelain Sekolah Tunas Bakti, murid juga boleh mengadakan program\nke Asrama Akhlak Jabatan Kebajikan Masyarakat yang berhampiran.\n\n[Pendidikan Moral Tingkatan 3.pdf p187]\n178\n12\n12\nKEBEBASAN BERSUARA\nMENJAMIN KEMAKMURAN NEGARA\nDalam unit ini, saya belajar tentang:\n•\nKebebasan bersuara.\n•\nKeperluan kebebasan bersuara dengan batasan.\n•\nCara menyuarakan pendapat mengikut saluran yang betul.\n•\nKesan penyalahgunaan hak kebebasan bersuara terhadap keharmonian\nhidup bermasyarakat.\n•\nPerasaan apabila menyuarakan pendapat melalui saluran yang betul.\n•\nAmalan hak kebebasan bersuara mengikut landasan undang-undang.\n\n[Pendidikan Moral Tingkatan 3.pdf p188]\n179\n• Kebebasan\n• Keberanian\n• Patriotisme\n• Rasional\n• Bertanggungjawab\nBagaimanakah anda mengamalkan\nkebebasan bersuara?\n\n[Pendidikan Moral Tingkatan 3.pdf p189]\nUNIT 12\n180\nMalaysia ialah sebuah negara demokrasi berparlimen. Setiap rakyat mempunyai\nhak kebebasan untuk menyampaikan pandangannya tentang sesuatu perkara. Hak\nkebebasan ini dijamin oleh Perlembagaan Malaysia.\nKebebasan berucap dan mengeluarkan\npendapat dengan batasan tertentu.\nPerlembagaan Malaysia merupakan undang-undang tertinggi negara bagi\nmemastikan rakyat mematuhi undang-undang yang telah ditetapkan. Perlembagaan\nMalaysia juga menjamin hak kebebasan bersuara dalam kalangan rakyat Malaysia.\nOleh itu, setiap rakyat boleh menyuarakan pandangan dan pendapat mereka dengan\nbatasan tertentu.\nUNDANG-UNDANG MALAYSIA\nPERLEMBAGAAN PERSEKUTUAN\nMengandungi pindaan terkini – P.U.(A) 164/2009\nBahagian II\nKebebasan Asasi\nKebebasan bercakap, berhimpun dan\nberpersatuan\n10. (1) Tertakluk kepada Fasal (2), (3) dan (4)–\n(a) tiap-tiap warganegara berhak kepada\nkebebasan bercakap dan bersuara;\n(b) semua warganegara berhak untuk berhimpun\nsecara aman dan tanpa senjata;\n(c) semua warganegara berhak untuk membentuk\npersatuan.\nKebebasan\nBersuara\n\n[Pendidikan Moral Tingkatan 3.pdf p190]\n12\nUNIT\n181\nBatasan dalam kebebasan bersuara berdasarkan undang-undang Malaysia\nbertujuan untuk menjamin keharmonian negara. Batasan ini juga bagi memastikan\nsetiap individu bertanggungjawab tentang apa-apa perkara yang disuarakan.\nSebagai warganegara Malaysia, pandangan dan pendapat hendaklah disuarakan\nmengikut saluran yang betul seperti di bawah.\nMelakukan\nperbincangan\nsecara\nberhemah.\nMengadakan\nmesyuarat dalam\nkumpulan.\nMenulis\nsurat kepada pihak\nberkenaan.\nMenghubungi\nBiro Pengaduan\nAwam\nmelalui laman\nsesawang.\nMenyampaikan\naduan melalui\npeti aduan\natau cadangan.\nCara\nMenyuarakan\nPendapat\nMengikut\nSaluran yang\nBetul\nKeperluan\nBatasan dalam\nKebebasan\nBersuara\nMemelihara\nketenteraman\nawam.\nMengelakkan\nprasangka dan\nprovokasi.\nMengelakkan\nperselisihan faham\nantara kaum.\nMengekalkan\nkeharmonian\nnegara.\nMeningkatkan\nkemakmuran dan\nkemajuan negara.\nMerapatkan\nperpaduan antara\nkaum.\nMenghindari\nperbuatan fitnah.\n\n[Pendidikan Moral Tingkatan 3.pdf p191]\nUNIT 12\n182\nPenggunaan saluran menyuarakan pendapat yang betul dapat menyelesaikan\nkonflik secara berhemah. Sebaliknya, kesan buruk dan kurang menyenangkan akan\ntimbul jika hak kebebasan bersuara disalahgunakan.\nKesan\nPenyalahgunaan\nHak Kebebasan\nBersuara\nMewujudkan\nprasangka\nantara\nindividu.\nMenimbulkan\nsuasana\nhuru-hara.\nMenjejaskan\nkestabilan politik.\nMencemarkan\nimej negara.\nMempengaruhi\ngaya hidup\nyang tidak\nsihat.\nMenggugat\nkeamanan\nnegara.\nMencetuskan\npergaduhan\nantara kaum.\n\n[Pendidikan Moral Tingkatan 3.pdf p192]\n12\nUNIT\n183\nKesimpulannya, rakyat Malaysia akan hidup aman dan damai jika hak\nkebebasan bersuara diamalkan dengan sewajarnya. Seterusnya, setiap anggota\nmasyarakat dapat hidup dalam suasana harmoni dan gembira.\nu Nilai patriotisme dan keberanian hendaklah diamalkan semasa memberikan\npandangan selagi tidak melanggar undang-undang negara.\nu Nilai rasional perlu digunakan bagi menyelesaikan sesuatu isu melalui\nsaluran yang betul.\nu Nilai bertanggungjawab diutamakan semasa berkomunikasi bagi menjamin\nkeharmonian antara masyarakat.\n183\nAkta Komunikasi dan Multimedia 1998\n(Akta 588)\nMengawal selia industri komunikasi dan\nmultimedia di Malaysia. Pada masa yang\nsama, Akta Komunikasi dan Multimedia\n1998 turut digubal dan diluluskan untuk\nmemenuhi keperluan pengawalseliaan\nindustri penumpuan komunikasi dan\nmultimedia yang semakin berkembang.\nAkta Komunikasi dan Multimedia 1998\nmengetengahkan prinsip asas ketelusan\ndan kejelasan, menggalakkan persaingan\ndan kawal selia kendiri, fleksibiliti\ndan cenderung ke arah peraturan\nprinsip umum. Akta ini bertujuan untuk\nmenyediakan satu set peruntukan\npengawalseliaan yang berdasarkan definisi\ngenerik pasaran dan aktiviti industri\nkomunikasi dan multimedia.\n(Sumber: Suruhanjaya Komunikasi dan\nMultimedia Malaysia)\nSetiap rakyat Malaysia perlu tahu bahawa terdapat beberapa akta diwujudkan bagi\nmelindungi hak kebebasan bersuara. Antaranya termasuklah seperti yang berikut.\nAkta Rahsia Rasmi 1972\n(Akta 88)\nSatu undang-undang yang berperanan\nuntuk menyemak dan menyatukan\nundang-undang yang berhubungan\ndengan perlindungan rahsia rasmi. “Rahsia\nrasmi” ertinya sebarang dokumen, rekod\nkeputusan dan penyampaian Jemaah\nMenteri atau Majlis Mesyuarat Kerajaan,\ndokumen-dokumen mengenai keselamatan\nnegara, pertahanan dan perhubungan\nantarabangsa dan sebarang maklumat dan\nbahan berkaitan dengannya termasuklah\njuga sebarang dokumen rasmi, maklumat\ndan material yang dikelaskan sebagai\n‘Rahsia Besar’,‘Rahsia’, ‘Sulit’ atau ‘Terhad’.\nPada amnya, undang-undang ini\nmelarang orang yang tidak dibenarkan\n(unauthorised person) untuk memiliki,\nmenyimpan, mengedar atau memaklumkan\nkepada orang ramai sebarang rahsia\nkerajaan. Mereka yang berbuat demikian\nadalah melanggar peruntukan\nundang-undang ini dan boleh dihukum.\n(Sumber: Akta Rahsia Rasmi 1972 [Akta 88])\nAKTA Kebebasan Bersuara\n\n[Pendidikan Moral Tingkatan 3.pdf p193]\n184\nUNIT 12\nA Baca dan fahami dialog antara S9 dengan K7 di bawah. Kemudian, jawab\nsoalan yang berikut.\nS9 : Mengapakah muram sahaja?\nKamu ada masalah?\nK7 : Saya amat kecewa dengan tuan\nsaya yang bernama Anis.\nS9 : Mengapa? Apakah masalah\ndengan tuan kamu?\nK7 : Dia selalu menggunakan saya\nuntuk menghantar maklumat\npalsu dan mengenakan\nkawan-kawannya.\nS9 : Golongan remaja memang suka\nmengusik. Mengapakah kamu\npula berasa kecewa?\nK7 : Bukan setakat mengusik malah dia\nmenyebarkan fitnah terhadap\norang yang dia benci.\nS9 : Sedihnya!\nK7 : Saya berharap agar dia sedar\ndengan kesalahannya itu.\n1. Adakah anda bersetuju dengan perbuatan Anis? Berikan alasan anda.\n2. Jelaskan perasaan anda terhadap perbuatan Anis.\n3. Ramalkan kesan jika Anis terus bersikap demikian.\n4. Apakah akta yang boleh digunakan atas kesalahan yang dilakukan oleh Anis?\nJelaskan.\n4.3.1, 4.3.4, 4.3.5\nAdakah kebebasan bersuara dengan batasan akan membawa\nkemajuan kepada pembangunan negara? Jelaskannya dengan\ncontoh yang sesuai.\n\n[Pendidikan Moral Tingkatan 3.pdf p194]\n12\nUNIT\n185\nB Secara berkumpulan, teliti dan fahami peringatan di bawah. Lengkapkan\njadual di bawah dengan maklumat akta yang berkaitan. Kemudian,\nbentangkan hasil penemuan secara kreatif.\nAkta yang Mengawal\nKebebasan Bersuara\nHukuman Jika Sabit Kesalahan\n4.3.1, 4.3.2, 4.3.4\nOrang ramai dinasihatkan untuk tidak menyebarkan, memuat naik, atau\nberkongsi kandungan gambar mangsa kemalangan yang berlaku di\nKM33.3 Lebuhraya Karak menghala Kuala Lumpur melalui media sosial\ndan aplikasi komunikasi seperti WhatsApp.\nPerbuatan yang tidak beretika seperti ini merupakan satu kesalahan\ndi bawah undang-undang negara, khususnya Akta Komunikasi dan\nMultimedia 1998. Jika didapati bersalah, hukumannya ialah denda tidak\nmelebihi RM50 000 dan/atau tidak lebih satu tahun penjara.\nC Jelaskan kesan penyalahgunaan hak kebebasan bersuara\nkepada keharmonian hidup bermasyarakat dengan bantuan\npeta pemikiran. Kemudian, pamerkannya secara kreatif\ndi Sudut Pendidikan Moral.\n\n[Pendidikan Moral Tingkatan 3.pdf p195]\nUNIT 12\n186\n1. Jelaskan reaksi anda kepada rakan mengikut situasi di atas.\n2. Apakah tindakan yang boleh diambil oleh pihak sekolah terhadap ketiga-tiga\nsituasi di atas.\n3. Bagaimanakah anda mengamalkan kebebasan bersuara di sekolah?\nD Secara berpasangan, teliti dan fahami situasi di bawah. Kemudian, jawab\nsoalan yang berikut.\n4.3.3, 4.3.4\nSituasi 3\nSituasi 1\nTiada makanan vegetarian\nPemilihan ketua murid\nTandas kotor\nAduan secara bersemuka\nTular dalam laman sosial\nAduan melalui surat\nSituasi 2\nSaya tidak\nbersetuju!\n\n[Pendidikan Moral Tingkatan 3.pdf p196]\n12\nUNIT\n187\nNOTA PIDATO\nHURAIAN\n• Bebas berucap dan\nmengeluarkan pendapat.\n• Perlu batasan demi menjaga\nketenteraman awam.\n•\n•\n• Bebas bercakap mengikut\nsaluran yang betul.\n• Menjadi ahli dalam persatuan\nyang berdaftar.\n•\n•\n• Memelihara keharmonian\nmasyarakat.\n• Merapatkan perpaduan antara\nkaum.\n•\n•\n• Aduan atau cadangan boleh\ndisampaikan melalui saluran\nyang betul.\n• Sebarang ketidakpuasan hati\ndisampaikan secara berhemah.\n•\n•\n1. Maksud kebebasan bersuara.\n2. Contoh kebebasan bersuara\ndengan batasan.\n3. Kepentingan kebebasan\nbersuara dengan batasan.\n4. Peranan murid dalam\nmelaksanakan kebebasan\nbersuara di sekolah.\nA Bincangkan dan sediakan huraian nota pidato yang bertajuk “Kebebasan\nBersuara dengan Batasan Asas Keharmonian Negara”.\n4.3.1, 4.3.2, 4.3.6\nRamalkan kesan penyalahgunaan hak kebebasan bersuara\nkepada keharmonian hidup bermasyarakat.\nAdakan aktiviti berpidato di dalam kelas. Pastikan anda\nmenggunakan prinsip kebebasan bersuara dengan batasan.\n\n[Pendidikan Moral Tingkatan 3.pdf p197]\nUNIT 12\n188\nUNIT 12\nB Secara berkumpulan, bincangkan maklumat untuk forum yang bertajuk\n“Kebebasan Bersuara Mengikut Landasan Undang-undang”. Kemudian,\nanjurkan dan ambil bahagian dalam forum tersebut.\nPANDUAN PELAKSANAAN FORUM:\n1. Setiap kumpulan diberi satu topik untuk dibincangkan.\n2. Setiap kumpulan menggunakan teknik sumbang saran untuk membincangkan\ntopik tersebut.\nKUMPULAN\nTOPIK PERBINCANGAN\nA\nTakrifan kebebasan bersuara.\nB\nKeperluan kebebasan bersuara.\nC\nUndang-undang berkaitan dengan kebebasan bersuara.\nD\nKesan penyalahgunaan hak kebebasan bersuara kepada\nkeamanan negara.\n3. Setiap kumpulan memilih seorang wakil sebagai ahli panel.\n4. Seorang pengerusi dan penjaga masa dilantik untuk mengawal forum.\n5. Pengerusi forum mengemukakan soalan kepada ahli panel mengikut topik\nyang dibincangkan dalam kumpulan sebanyak dua pusingan.\n6. Setiap ahli panel diberi masa selama tiga minit untuk menjawab soalan yang\ndikemukakan.\n7. Tulis rumusan tentang tajuk forum dalam bentuk peta pemikiran.\n4.3.1, 4.3.2, 4.3.3, 4.3.4, 4.3.5\nApakah perasan anda apabila rakan anda menggunakan bahasa\nkasar dengan anda? Jelaskan.\n\n[Pendidikan Moral Tingkatan 3.pdf p198]\n12\nUNIT\n189\n1. Menulis surat layang untuk memalukan rakan.\n2. Menyebarkan fitnah tentang orang lain melalui laman sosial.\n3. Menyebarkan berita palsu bagi mengelirukan orang ramai.\n4. Berasa gembira dengan perbuatan provokasi yang menyebabkan\nberlakunya pergaduhan antara rakan.\n5. Sebarang aduan tentang kemudahan sekolah hendaklah\nditularkan melalui media sosial.\n6. Perasaan tidak puas hati tentang peraturan sekolah yang\nketat perlu dibincangkan dengan pihak luar.\n4.3.3, 4.3.4\nA Baca dan fahami senarai semak di bawah. Tandakan (✓) jika anda bersetuju\ndan (✗) jika anda tidak bersetuju dengan pernyataan tersebut.\n1. Berdasarkan senarai semak di atas, berikan sebab bagi setiap pernyataan tersebut.\n2. Berikan cadangan anda untuk menyuarakan pendapat tentang kebebasan bersuara\ndengan batasan bagi setiap pernyataan di atas.\nSekiranya anda tidak bersetuju dengan semua pernyataan di atas, anda merupakan\nseorang yang mengamalkan kebebasan bersuara tanpa batasan.\nBil.\nPerlakuan\n(✗) (✓)\nBanyakkan senarai semak mengikut bilangan murid di dalam kelas.\nApakah perasaan anda apabila dapat mengikut peraturan\ndi sekolah seperti yang ditetapkan?\n\n[Pendidikan Moral Tingkatan 3.pdf p199]\nUNIT 12\n190\nUNIT 12\nB Jalankan aktiviti permainan “Mencari Harta Karun” di bawah.\nCARA PERMAINAN:\n1. Pemain dibahagikan mengikut kumpulan.\n2. Kad disembunyikan di lima lokasi yang berlainan.\n3. Pada setiap kad, terdapat petunjuk tentang kedudukan kad seterusnya.\n4. Setiap kad juga mengandungi satu soalan.\n5. Pemain perlu mencari semua kad dan menulis jawapan pada kad jawapan.\n6. Kumpulan yang berjaya menjawab semua soalan akan menyerahkan kad jawapan\nkepada guru.\n7. Kumpulan yang berjaya menjawab soalan dengan betul dan pantas akan menjadi\npemenang.\nLokasi:\nTempat letak kereta.\nKebebasan bersuara bermaksud\nbebas untuk (berucap/\ntidak berucap).\nKad 2\nCari di kantin sekolah.\nKad\n1\nLokasi:\nKantin sekolah.\nKebebasan bersuara perlu (dengan\nbatasan/tanpa batasan).\nKad 3\nCari di halaman bilik disiplin.\nKad\n2\nLokasi:\nHalaman bilik disiplin.\nMurid yang ingin membuat aduan\nboleh menulis surat\ndan memasukkannya ke dalam\npeti (cadangan/undi).\nKad 4\nCari di padang sekolah.\nKad\n3\n\n[Pendidikan Moral Tingkatan 3.pdf p200]\n12\nUNIT\n191\n4.3.1, 4.3.2, 4.3.3, 4.3.5\nApakah perasaan anda apabila\nmenyuarakan pandangan berdasarkan\nundang-undang? Huraikan.\nSoalan pada kad boleh direka oleh guru jika perlu. Permainan ini boleh\ndiubah suai mengikut keperluan.\nLokasi:\nPadang sekolah.\nMenyebarkan berita palsu\n(betul/salah) di sisi undang-undang.\nKad 5\nCari di halaman bilik kaunseling.\nKad\n4\nNyatakan satu akta\nyang mengawal kebebasan\nbersuara dengan batasan.\n(Akta Rahsia Rasmi/\nAkta Pencegahan\nRahsia)\nLokasi:\nHalaman bilik kaunseling.\nBiro Pengaduan\n(awam/awan) ialah saluran\nyang boleh digunakan untuk\nmenyuarakan pendapat.\nSerahkan kad\njawapan kepada guru.\nKad\n5\nKAD JAWAPAN\nJ1 ...............................\nJ2 ...............................\nJ3 ...............................\nJ4 ...............................\nJ5 ...............................\n\n[Pendidikan Moral Tingkatan 3.pdf p201]\nUNIT 12\n192\nA Jawab soalan berdasarkan petikan di bawah.\nPihak polis telah menahan dua orang remaja berusia 15 tahun untuk membantu\nsiasatan berhubung dengan kes penularan maklumat palsu melalui laman sosial.\nMenurut pihak polis, kedua-dua orang remaja tersebut telah mengaku salah. Oleh\nitu, pihak polis menasihati semua pihak supaya berwaspada dengan maklumat\nyang dihantar. Menyebarkan maklumat palsu adalah salah di sisi undang-undang\ndan boleh dikenakan hukuman denda atau penjara.\n1. Wajarkah tindakan yang dilakukan oleh remaja tersebut? Terangkan.\n2. Ramalkan kesan yang akan dialami oleh remaja tersebut jika disabitkan kesalahan.\n3. Jelaskan tindakan yang patut diambil oleh remaja apabila menerima sesuatu\nmaklumat melalui laman sosial.\n4. Huraikan nilai yang perlu anda amalkan apabila menyuarakan pendapat.\nTulis esei yang bertajuk “Wajarkah Menyuarakan Rasa Ketidakpuasan Hati\ndalam Laman Sosial?” Huraikan.\nB Maklumat di bawah menunjukkan penggunaan Internet dan media sosial\noleh masyarakat Malaysia.\n(Dipetik dan diubah suai daripada:\nwww.wearesocial.org)\nPengguna Internet\nPengguna aktif\nFacebook\nPurata masa digunakan oleh\npengguna Internet\nPurata masa digunakan oleh pengguna\nInternet melalui telefon pintar\nPeratus pengguna\nmedia sosial daripada\njumlah populasi\nPeratus pengguna telefon pintar\nmenggunakan aplikasi\nmedia sosial\nPurata masa pengguna\nmenggunakan media sosial\nsetiap hari\nPeratus pengguna telefon pintar\nmenggunakan perkhidmatan\npenjejak tempat (maps)\n19 200 408\n15 600 408\n5 jam 36 min\n3 jam 3 min\n64%\n58%\n28%\n3 jam 17 min\nPenggunaan Internet dan Media Sosial di Malaysia\nPetunjuk Internet\nPetunjuk Sosial\n\n[Pendidikan Moral Tingkatan 3.pdf p202]\n12\nUNIT\n193\nSecara berkumpulan, bincangkan dan gunakan maklumat dalam rajah\ndi bawah untuk menghasilkan gegantung secara kreatif. Kemudian, pamerkan\ngegantung tersebut di pekarangan sekolah.\nKebebasan Bersuara di Malaysia\nKebebasan bersuara berdasarkan Perlembagaan\nMalaysia, iaitu Perkara 10 Perlembagaan\nPersekutuan.\nRakyat Malaysia mempunyai hak untuk menyuarakan\npendapat dan pandangan mengikut batasan yang\nbetul.\nAkta yang Mengawal Kebebasan Bersuara\nAkta Komunikasi dan Multimedia 1998 (Akta 588).\nAkta Rahsia Rasmi 1972.\nTujuan Undang-undang Berkaitan dengan\nKebebasan Bersuara Diwujudkan\nMenjaga perasaan pelbagai kaum.\nMenjaga keamanan dan keharmonian negara.\nCara Rakyat Menyuarakan Pendapat\nterhadap Sesuatu Perkara\nMenulis surat.\nBerbincang secara bersemuka.\n\n[Pendidikan Moral Tingkatan 3.pdf p203]\n194\n194\n13\n13\nAMALAN TRADISI\nMASYARAKAT MAJMUK\nDalam unit ini, saya belajar tentang:\n•\nTradisi yang diamalkan dalam masyarakat majmuk.\n•\nKepentingan mengekalkan tradisi dalam masyarakat majmuk.\n•\nContoh tanggungjawab individu bagi mengekalkan tradisi dalam masyarakat\nmajmuk.\n•\nKesan pengabaian tradisi dalam masyarakat majmuk.\n•\nPerasaan apabila dapat mengekalkan tradisi dalam masyarakat majmuk.\n•\nTradisi dalam masyarakat majmuk demi menjamin perpaduan negara.\n\n[Pendidikan Moral Tingkatan 3.pdf p204]\n195\n195\n• Kerjasama\n• Kesederhanaan\n• Harga diri\n• Hormat\n• Toleransi\nApakah tanggungjawab anda dalam\nmengekalkan tradisi gotong-royong\ndalam masyarakat majmuk?\n\n[Pendidikan Moral Tingkatan 3.pdf p205]\nUNIT 13\n196\nUNIT 13\nMalaysia sangat unik kerana masyarakatnya terdiri daripada pelbagai agama, budaya,\nbangsa dan bahasa. Hasil daripada kepelbagaian inilah, lahirnya tradisi masyarakat\nmajmuk. Tradisi ini menjadi identiti masyarakat majmuk di Malaysia. Tradisi ini juga\nmenjadi khazanah negara. Setiap individu mempunyai tanggungjawab mengekalkan\ntradisi dalam masyarakat majmuk. Yang berikut ialah contoh tradisi yang diamalkan\ndalam masyarakat majmuk.\n• Saling membantu dan\nmengutamakan kepentingan\nuntuk menyiapkan projek yang\ndijalankan bersama-sama.\n• Melakukannya dengan hati yang\nikhlas dan sukarela.\n• Saling menziarahi sesama rakan\ntaulan dan saudara-mara.\n• Mengeratkan hubungan\nsilaturahim.\n• Pulang ke kampung semasa cuti\nperayaan atau cuti sekolah.\n• Menghargai sanak saudara\ndi kampung.\nContoh tradisi\nyang diamalkan\ndalam masyarakat\nmajmuk\n\n[Pendidikan Moral Tingkatan 3.pdf p206]\n13\nUNIT\n197\n13\nUNIT\n• Bertukar-tukar makanan.\n• Mengeratkan hubungan\npersahabatan dan kejiranan.\n• Mengundang orang ramai\nke rumah tanpa mengira kaum\nsemasa sambutan sesuatu\nperayaan.\n• Memupuk persefahaman dalam\nkalangan masyarakat majmuk.\n• Memberikan angpau kepada\nkanak-kanak semasa sambutan\nperayaan Tahun Baharu Cina.\n• Menggembirakan hati\nkanak-kanak dengan pemberian\nduit raya secara ikhlas.\n\n[Pendidikan Moral Tingkatan 3.pdf p207]\n198\nUNIT 13\nMenjadi\nlambang\nidentiti\nmasyarakat\nmajmuk\nMalaysia.\nMengukuhkan\nperpaduan.\nMenyumbang\nkepada\nkeamanan\ndalam\nnegara.\nMengenali\nkepelbagaian\nbudaya.\nMenghindari\nkonflik budaya.\nPada awalnya, contoh tradisi tersebut bermula sebagai norma sebelum diterima\nsebagai satu tradisi. Masyarakat Malaysia bertanggungjawab untuk mengekalkan\ntradisi ini. Apabila tradisi ini dipelihara, secara tidak langsung masyarakat dapat hidup\ndalam suasana aman dan harmoni. Terdapat beberapa kepentingan lain dalam usaha\nmengekalkan tradisi dalam masyarakat majmuk.\nKepentingan mengekalkan tradisi\ndalam masyarakat majmuk\nMurid pelbagai kaum bermain gendang Cina.\n\n[Pendidikan Moral Tingkatan 3.pdf p208]\n13\nUNIT\n199\nOleh itu, kita perlu sentiasa prihatin dan bangga mengamalkan tradisi dalam\nmasyarakat majmuk. Pengabaian tradisi ini akan menjejaskan perpaduan rakyat dan\nmemberikan kesan kepada keharmonian negara. Yang berikut ialah kesan pengabaian\ntradisi dalam masyarakat majmuk.\nKesimpulannya, tradisi masyarakat majmuk menjadi kebanggaan semua\nrakyat Malaysia. Rakyat bersyukur dan gembira apabila dapat mengekalkan\ntradisi ini.\nu Nilai toleransi yang diamalkan dapat mengukuhkan hubungan antara kaum\ndi Malaysia.\nu Nilai hormat, kerjasama dan kesederhanaan membolehkan masyarakat\nMalaysia melaksanakan sesuatu aktiviti dengan aman.\nu Nilai harga diri membantu rakyat Malaysia mudah menerima kepelbagaian\ntradisi.\nSikap hormat\nberkurangan.\nAmalan hidup\nbersatu padu\nterjejas.\nSikap\nbekerjasama\ndipinggirkan.\nPerpaduan\nnegara tergugat.\nIdentiti dan\nkhazanah negara\nbangsa akan\nhilang.\nBerasa sakit\nhati dan mula\nmengasingkan\ndiri.\nKesan\npengabaian tradisi\ndalam\nmasyarakat\nmajmuk\n\n[Pendidikan Moral Tingkatan 3.pdf p209]\nUNIT 13\n200\n1. Apakah tradisi dalam masyarakat majmuk yang diamalkan di Sarawak?\n2. Apakah kepentingan tradisi pengirih kepada tuan rumah yang menganjurkannya?\n3. Apakah persamaan antara tradisi pengirih dengan tradisi gotong-royong?\n4. Sekiranya anda diminta untuk melibatkan diri dalam tradisi pengirih, apakah yang\nboleh anda lakukan?\n5. Apakah kesan sekiranya tradisi pengirih diabaikan oleh masyarakat Sarawak?\nBudaya tolong-menolong dalam kalangan\nmasyarakat di Malaysia telah wujud sejak\nturun-temurun. Etnik Bidayuh di Sarawak\nmengamalkan satu bentuk muafakat yang\nunik dikenali sebagai pengirih dan kiroja\nratus (gotong-royong).\nPengirih merupakan satu budaya saling\nmembantu dalam kalangan ahli komuniti.\nSumbangan tenaga seseorang yang odi\nngirih (turut serta dalam aktiviti pengirih)\ndalam sesebuah keluarga akan dirapas\n(dibalas) dengan sumbangan tenaga juga.\nSuatu kerja terasa lebih ringan dan dapat\ndisiapkan dalam tempoh yang lebih singkat\njika dilaksanakan secara pengirih. Hasil\nkerja pengirih dapat dinikmati oleh sesebuah\nkeluarga. Golongan tua pula bernyanyi dan\nbergurau senda.\nEtnik lain di Sarawak juga mengamalkan\nbudaya muafakat tetapi dikenali dengan\nA Analisis gambar dan petikan tentang tradisi bekerjasama di Sarawak.\nB Secara berkumpulan, layari Internet dan muat turun maklumat tentang\naktiviti yang dijayakan dengan kerjasama pelbagai kaum. Bentangkan\nmaklumat tersebut melalui aktiviti jelajah ilmu di dalam kelas.\n4.4.1, 4.4.2, 4.4.4\nistilah yang berlainan. Dalam kalangan\nmasyarakat Iban, budaya ini dikenali\nsebagai bedurok, manakala etnik Kayan pula\nmenggunakan istilah paladau ngelumau\nuntuk aktiviti menuai padi huma secara\nbergilir-gilir.\n(Sumber: Pengirih Budaya Muafakat Etnik Bidayuh, 2015)\nBUDAYA GOTONG-ROYONG\n\n[Pendidikan Moral Tingkatan 3.pdf p210]\n13\nUNIT\n201\nC Baca dan fahami puisi masyarakat setempat di bawah.\n1. Berdasarkan puisi di atas, jelaskan kepentingan mengekalkan tradisi dalam\nmasyarakat majmuk.\n2. Ramalkan keadaan yang akan berlaku sekiranya budaya kuning semakin menular\ndalam kalangan murid.\n3. Apakah tanggungjawab anda dalam mengekalkan tradisi masyarakat majmuk?\nBincangkan.\n4.4.2, 4.4.3, 4.4.4, 4.4.5\nTradisi masyarakat simpan di sisi,\nPerpaduan negara menjadi visi.\nTradisi dipelihara teras keamanan,\nTidak mungkin hilang ditelan zaman.\nMasyarakat majmuk tinggi pekerti,\nBudaya kuning terus dihindari.\nTradisi majmuk diterima bersama,\nJunjung martabat negara ternama.\nOrang berbudi, kita berbahasa,\nMakanan diberikan kita merasa.\nTradisi masyarakat dilupa jangan,\nHati gembira sepanjang zaman.\nCeritakan perasaan anda apabila dapat mengekalkan tradisi\ndalam masyarakat majmuk.\nNukilan: Vishalache a/p Balakrishnan\n\n[Pendidikan Moral Tingkatan 3.pdf p211]\nUNIT 13\n202\n4.4.1, 4.4.2, 4.4.3, 4.4.4, 4.4.5\nA Secara berkumpulan, sediakan teks pidato yang bertajuk “Penerimaan\nKepelbagaian Tradisi Kaum Menjamin Perpaduan Negara”.\n•\nTradisi masyarakat majmuk menggalakkan persefahaman dan kerjasama antara kaum.\n•\nSikap bertolak ansur dan hormat-menghormati akan bertambah baik apabila tradisi\nmasyarakat majmuk diamalkan oleh semua anggota masyarakat.\n•\n•\nPANDUAN TEKS PIDATO\nProgram silang budaya membantu mengeratkan integrasi\nkaum di Malaysia. Adakah anda bersetuju dengan pernyataan\ntersebut? Jelaskan.\nGalakkan murid untuk menyampaikan pidato di hadapan kelas.\nSilang budaya ialah program yang berkaitan dengan perbandingan\natau pertembungan antara dua atau lebih budaya yang berlainan.\n\n[Pendidikan Moral Tingkatan 3.pdf p212]\n13\nUNIT\n203\nAntara perkara yang perlu diambil kira termasuklah seperti yang di bawah:\n1. Petrol.\n2. Makanan dan minuman.\n3. Buah tangan untuk sanak saudara di kampung.\n4. Tol.\n5. Perbelanjaan lain.\nBentangkan anggaran perbelanjaan tersebut di dalam kelas. Kongsikan anggaran\nperbelanjaan tersebut dengan anggota keluarga. Jika kos pulang ke kampung\nadalah tinggi, apakah alternatif lain untuk mengekalkan tradisi ini?\nB Pulang ke kampung merupakan satu contoh tradisi yang diamalkan oleh\nmasyarakat majmuk di Malaysia. Sejauh manakah anggaran perbelanjaan\nmempengaruhi amalan tradisi ini?\n4.4.1, 4.4.3, 4.4.5, 4.4.6\nAKTIVITI\ntradisi ketika\ndi kampung\nC Analisis dan bincangkan aktiviti yang menjadi tradisi semasa berada\ndi kampung. Ceritakan pengalaman anda ketika melakukan amalan tradisi\ntersebut.\nApakah perasaan anda apabila melihat jiran pelbagai kaum\nmembantu meraikan majlis rumah terbuka sesuatu perayaan?\n\n[Pendidikan Moral Tingkatan 3.pdf p213]\nUNIT 13\n204\n4.4.2, 4.4.4, 4.4.6\nE Aktiviti persediaan menyambut perayaan merupakan satu tradisi bagi\nmasyarakat majmuk di Malaysia. Layari Internet untuk mendapatkan\nmaklumat tentang aktiviti tersebut yang melibatkan pelbagai kaum.\nD Secara berkumpulan, buat persediaan untuk perayaan yang melibatkan\npelbagai kaum seperti di bawah. Kemudian, jawab soalan yang berikut.\n1. Apakah kepentingan mengekalkan tradisi dalam masyarakat majmuk berdasarkan\naktiviti di atas?\n2. Bincangkan kesan pengabaian tradisi tersebut dalam masyarakat majmuk.\nMenganyam ketupat untuk\nperayaan Hari Raya Aidilfitri.\nMenghasilkan tanglung untuk\nperayaan Kuih Bulan.\nMencorakkan rangoli untuk perayaan Ponggal.\nBerikan cadangan untuk menggalakkan tradisi\nziarah-menziarahi dalam masyarakat majmuk.\n\n[Pendidikan Moral Tingkatan 3.pdf p214]\n13\nUNIT\n205\nA Nyanyikan lagu di bawah mengikut melodi lagu “Negaraku”.\nPerpaduan\nPerpaduan\nHidup aman dan bersama\nPelbagai bangsa\nBertekun dan jaya\nHormat semua\nKita mengamalkan\nSatu padu\nMalaysia maju\nHormat semua\nKita mengamalkan\nSatu padu\nMalaysia maju\n1. Ceritakan cara anda mengamalkan sikap kerjasama dalam masyarakat majmuk.\n2. Apakah kebaikan anda menjalin perpaduan dalam masyarakat majmuk?\n4.4.1, 4.4.2, 4.4.3\nB Secara berkumpulan, rakam persembahan anda dan muat naik rakaman\ntersebut di laman sesawang sekolah.\nLagu: Vishalache a/p Balakrishnan\n\n[Pendidikan Moral Tingkatan 3.pdf p215]\nUNIT 13\n206\n4.4.1, 4.4.5, 4.4.6\nC Baca dan fahami cerita tentang usaha pengekalan tradisi di bawah. Secara\nberkumpulan, lakukan simulasi tarian tradisi tersebut.\nPada minggu lepas, Alyn Robert telah mengikut kawannya, Aliesha pulang ke kampung.\nAliesha pulang ke kampungnya untuk meraikan upacara penerokaan kawasan baharu\nyang akan dijadikan kawasan pertanian oleh masyarakat Orang Asli di kampungnya.\nSalah satu acara penting dalam upacara tersebut ialah tarian Sewang. Tarian\nSewang pada asalnya bukanlah satu tarian tetapi upacara perubatan yang diamalkan\noleh masyarakat Orang Asli. Tarian ini menggabungkan unsur muzik dan nyanyian.\nTarian Sewang diiringi dengan alat muzik Orang Asli yang dibuat daripada buluh dan\nkayu. Penari-penari akan bergerak dalam satu bulatan besar sambil bernyanyi.\nAlat muzik yang mengiringi tarian Sewang.\nTarian Sewang.\n1. Apakah keistimewaan mengekalkan tradisi tarian Sewang dalam kalangan\nmasyarakat majmuk?\n2. Tunjukkan tarian tradisi yang diamalkan oleh kaum anda. Galakkan rakan daripada\npelbagai kaum untuk turut serta dalam tarian tersebut. Anda boleh melayari laman\nsesawang yang sesuai untuk menonton contoh tarian tersebut.\nCeritakan perasaan anda apabila terlibat dalam tarian kaum lain.\n(Sumber: Jabatan Kemajuan\nOrang Asli [JAKOA])\n\n[Pendidikan Moral Tingkatan 3.pdf p216]\n13\nUNIT\n207\nUpacara miring dan upacara Niti Daun merupakan antara aktiviti yang diadakan dalam perayaan\npelbagai jenis Gawai Amat (Ritual Festival) dalam masyarakat Iban.\nTarian Mongigol oleh suku kaum Tindal\ndalam perayaan Pesta Kaamatan.\nPesta Regatta Lepa.\nD Cari gambar dan kumpulkan maklumat tentang perayaan tradisi masyarakat\nSabah dan Sarawak. Adakan aktiviti jelajah ilmu berdasarkan maklumat\nyang anda peroleh.\n4.4.1\n(Sumber: Majlis Adat Istiadat Sarawak)\n(Sumber: Kadazandusun Cultural Association)\n(Sumber: Lembaga Kebudayaan Negeri Sabah)\n\n[Pendidikan Moral Tingkatan 3.pdf p217]\nUNIT 13\n208\nA Fahami tradisi yang diamalkan di bawah dan jawab soalan yang berikut.\n1. Nyatakan tradisi yang diamalkan\nberdasarkan dua gambar ini.\n2. Apakah kepentingan mengekalkan\ntradisi tersebut?\n3. Jelaskan perasaan anda apabila\ntradisi dalam masyarakat majmuk\ndikekalkan.\n4. Huraikan nilai yang diamalkan apabila tradisi dalam masyarakat majmuk\ndipelihara.\n5. Terangkan kesan sekiranya tradisi ini diabaikan dalam masyarakat majmuk.\nB Tulis esei tentang cara mengekalkan tradisi dalam masyarakat majmuk\ndemi menjamin perpaduan negara.\n\n[Pendidikan Moral Tingkatan 3.pdf p218]\n13\nUNIT\n209\nAnjurkan satu jamuan muhibah di dalam kelas berteraskan tradisi masyarakat\nmajmuk.\nPanduan Penyediaan Makanan:\n•\nMakanan bersih.\n•\nMakanan tradisi yang boleh dimakan\ndan diterima oleh murid pelbagai\nkaum.\nPanduan Pelaksanaan Aktiviti:\n•\nMengundang semua kawan dan guru\ndaripada pelbagai kaum.\n•\nKonsep rumah terbuka.\nPanduan “Amalan Hijau”:\n•\nMemastikan kebersihan ruang jamuan\ndijaga.\n\n[Pendidikan Moral Tingkatan 3.pdf p219]\n210\n14\n14\nKEMANUSIAAN\nASAS KEMORALAN\nDalam unit ini, saya belajar tentang:\n•\nPeraturan-peraturan asas dalam undang-undang kemanusiaan antarabangsa.\n•\nKepentingan pengekalan undang-undang kemanusiaan antarabangsa bagi\nkeamanan dan keharmonian sesebuah negara.\n•\nContoh pencabulan undang-undang kemanusiaan antarabangsa di negara\nberkonflik.\n•\nKesan pengabaian undang-undang kemanusiaan antarabangsa.\n•\nPerasaan apabila undang-undang kemanusiaan antarabangsa diguna pakai.\n•\nAmalan menyuarakan pendapat berkaitan konflik kemanusiaan antarabangsa\nmelalui saluran yang betul.\n\n[Pendidikan Moral Tingkatan 3.pdf p220]\n211\n• Hormat\n• Rasional\n• Kebebasan\n• Bertanggungjawab\n• Keberanian\nPeperangan juga ada batasannya.\nBersetujukah anda?\n\n[Pendidikan Moral Tingkatan 3.pdf p221]\n212\nUNIT 14\nUndang-undang kemanusiaan antarabangsa digubal untuk melindungi mereka\nyang tidak atau tidak lagi terlibat dalam pertempuran serta mengehadkan\npenggunaan senjata dan kaedah peperangan. Undang-undang ini dapat melindungi\nmaruah manusia dan mengurangkan penderitaan dalam konflik bersenjata.\nUndang-undang ini juga dikenali sebagai undang-undang peperangan atau\nundang-undang konflik bersenjata.\nPeraturan Asas dalam Undang-undang\nKemanusiaan Antarabangsa\nDilarang membuat sebarang serangan atau menggunakan senjata yang boleh\nmemusnahkan orang awam atau harta benda awam dan mengakibatkan kecederaan\natau penderitaan berpanjangan.\nDilarang membunuh orang\nawam, kombatan yang\ncedera dan sakit serta\ntawanan perang. Mereka\nperlu diberi perlindungan\ndan dilayan secara\nberperikemanusiaan.\nKombatan ialah sesiapa yang\nmengambil bahagian secara langsung\ndalam pertempuran.\n1\n2\n\n[Pendidikan Moral Tingkatan 3.pdf p222]\n14\nUNIT\n213\nSebarang serangan hendaklah terhad kepada kombatan dan\ntentera sahaja.\nMelindungi, menghormati dan memberikan bantuan kepada petugas dan kemudahan\nperubatan tentera dan awam seperti hospital, klinik dan ambulans.\n(Sumber: Jawatankuasa Antarabangsa Palang Merah [ICRC])\n3\n4\n\n[Pendidikan Moral Tingkatan 3.pdf p223]\nUNIT 14\n214\nUNIT 14\nUndang-undang kemanusiaan antarabangsa perlu dikekalkan demi keamanan\ndan keharmonian sesebuah negara. Semua negara perlu menyebarkan peraturan dan\nundang-undang ini kepada angkatan bersenjatanya dan masyarakat awam. Terdapat\nbanyak kepentingan pengekalan undang-undang kemanusiaan antarabangsa.\nMasyarakat berasa selamat\n• Nyawa manusia dilindungi.\n• Rakyat bebas bergerak ke\nmana-mana sahaja dengan aman.\nHubungan dengan negara lain\nterus kukuh\n• Hubungan diplomatik dengan\nnegara lain diteruskan.\n• Mendapat sokongan moral dan\nkebendaan dari negara lain.\nKanak-kanak dapat membesar\ndalam suasana gembira\n• Mendapat perlindungan\nsewajarnya.\n• Mendapat pendidikan yang\nterbaik.\nKepentingan\nPengekalan\nUndang-undang\nKemanusiaan\nAntarabangsa\n\n[Pendidikan Moral Tingkatan 3.pdf p224]\n14\nUNIT\n215\nMengekalkan ketamadunan dan warisan bangsa\n• Peninggalan sejarah dapat dikekalkan.\n• Ilmu dan ketamadunan dapat diwarisi.\nFlora dan fauna terpelihara\n• Melestarikan alam semula jadi.\n• Mengelak berlakunya\nkepupusan.\nKerajaan dapat membangunkan\nnegara\n• Kemakmuran dapat dikecapi.\n• Khazanah negara dapat\ndikekalkan.\n\n[Pendidikan Moral Tingkatan 3.pdf p225]\nUNIT 14\n216\nSekiranya undang-undang kemanusiaan antarabangsa tidak dikekalkan, pelbagai\nkesengsaraan semasa konflik akan berlaku. Contoh pencabulan undang-undang\nkemanusiaan antarabangsa di negara yang berkonflik adalah seperti yang berikut.\nSuasana aman dan damai dapat dikecapi jika undang-undang kemanusiaan\nantarabangsa dipatuhi oleh negara yang sedang berkonflik. Sebaliknya, jika\nundang-undang ini dicabul, kesan buruk yang berpanjangan perlu ditanggung oleh\nnegara terlibat dan negara sekitarnya.\nMembuat\nserangan\nterhadap\norang awam\nyang tidak\nbersenjata.\nMenyeksa dan\nmembunuh orang awam,\ntentera yang cedera dan\ntawanan perang.\nMembuat\nserangan\nterhadap\nbangunan\nawam.\nMenyerang\npetugas\nhospital dan\nambulans.\nMenggunakan senjata pemusnah\nsecara besar-besaran, iaitu senjata\nkimia, senjata biologi atau\nbom atom yang mengandungi\nuranium dan fosforus.\nMerosakkan\nalam semula\njadi.\nContoh Pencabulan Undang-undang\nKemanusiaan Antarabangsa\nBantuan kemanusiaan kepada mangsa peperangan.\n\n[Pendidikan Moral Tingkatan 3.pdf p226]\n217\nKesimpulannya, undang-undang kemanusiaan antarabangsa berperanan\npenting untuk menjamin kehidupan masyarakat antarabangsa yang lebih harmoni.\nHidup pasti aman apabila setiap konflik kemanusiaan antarabangsa dapat diatasi\ntanpa mengabaikan undang-undang kemanusiaan antarabangsa.\nu Nilai bertanggungjawab dan hormat perlu dipraktikkan oleh setiap rakyat\ndengan mematuhi undang-undang kemanusiaan antarabangsa yang ditetapkan.\nu Nilai keberanian dan nilai kebebasan perlu diamalkan dalam membuat laporan\nkes pencabulan undang-undang kemanusiaan antarabangsa di negara yang\nberkonflik.\nu Nilai rasional yang diamalkan dapat menangani konflik yang berlaku melalui\nbukti dan alasan yang kukuh.\nKrisis kemanusiaan antarabangsa timbul apabila berlakunya peperangan\ndi suatu tempat atau antara negara dengan negara lain. Oleh itu, setiap individu\nberperanan untuk menyuarakan pendapat tentang konflik yang berlaku melalui\nsaluran yang betul.\nContoh saluran menyuarakan pendapat:\n• Membuat laporan kepada pihak berkuasa.\n• Membuat bantahan secara rasmi kepada pihak yang berkenaan.\nAlam sekitar\nmusnah.\nInstitusi kekeluargaan\nruntuh.\nKecacatan anggota.\nEkonomi negara\nterjejas.\nKonflik berterusan.\nKesan pengabaian undang-undang\nkemanusiaan antarabangsa\n14\nUNIT\n\n[Pendidikan Moral Tingkatan 3.pdf p227]\n218\n4.5.1, 4.5.4, 4.5.5\n1. Apakah perasaan anda tentang tindakan negara X? Jelaskan.\n2. Tindakan negara X menyerang negara jirannya adalah tidak wajar. Mengapa?\n3. Jelaskan kesan pengabaian undang-undang kemanusiaan antarabangsa dalam\nkonflik di atas.\nA Rajah di bawah menunjukkan tindakan negara X dalam konfliknya dengan\nnegara jiran.\nSerangan ketenteraan\n• Membunuh anak-anak\nkecil dan orang tua yang\ntidak berdaya.\n• Tiada jaminan keselamatan\nterhadap pekerja bantuan kecemasan\ndan wartawan.\n• Menyeksa dan tidak memberikan\nrawatan kepada tawanan\nperang yang cedera.\nPenggunaan Senjata\n• Menggunakan senjata\nterlarang seperti bom kimia.\n• Menggugurkan lebih daripada\n1.5 juta kilogram bom dari\nsemua arah, iaitu daratan,\nlautan dan udara.\nSasaran Serangan\n• Menyasarkan bangunan\npenting seperti pusat pentadbiran\nkerajaan, hospital, universiti,\nmasjid, gereja, sekolah,\njana kuasa elektrik, bekalan\nair bersih dan lain-lain.\n•\n• Memusnahkan hampir\nkeseluruhan infrastruktur\nutama bandar.\nMenghalang\nBantuan Luar\n• Menghalang usaha pihak\nlain dalam memberikan\nbantuan kemanusiaan kepada\nmangsa peperangan.\n• Menghalang pesakit daripada\nmendapatkan kemudahan perubatan.\n• Menghalang kemasukan\nbahan keperluan asas\ntermasuklah makanan,\nminyak dan perubatan.\nTindakan\nnegara X\nUNIT 14\nSejauh manakah undang-undang kemanusiaan antarabangsa\ndapat mengatasi masalah ini?\n\n[Pendidikan Moral Tingkatan 3.pdf p228]\n14\nUNIT\n219\n4.5.1, 4.5.2\nPeristiwa 1\nPasukan tentera membenarkan kami membawa salah seorang tentera musuh\nyang cedera. Konvoi perubatan dan makanan telah diiringi dengan selamat\nke sebuah kem kemanusiaan yang dikendalikan oleh Jawatankuasa Antarabangsa\nPalang Merah.\n(Sukarelawan bantuan kemanusiaan)\nPeristiwa 2\nKami berjaya menakluk sebuah bandar. Tentera musuh didapati telah menukar\npakaian tentera kepada pakaian orang awam. Walaupun berbahaya, kami tidak boleh\nmenyasarkan serangan yang boleh mengancam orang awam lain, terutamanya\nkanak-kanak dan orang tua.\n(Askar)\nPeristiwa 3\nBeberapa orang askar musuh telah cedera semasa peperangan. Mereka tidak\nberdaya untuk bergerak. Kami memberikan bantuan dengan membawa mereka\nberjumpa dengan doktor dan menjaga mereka. Mereka diberi makanan dan minuman\nwalaupun sedar mereka telah mengebom kediaman kami.\n(Orang awam)\nPeristiwa 4\nAskar-askar yang tewas telah melalui bandar kami. Walaupun mereka pihak musuh,\npenduduk tidak bertindak terhadap mereka. Kami memberikan bantuan yang\nsebaik-baiknya. Mereka diberi laluan selamat sehingga sampai di sempadan.\n(Penduduk bandar)\nPeristiwa 1\nPeristiwa 2\nPeristiwa 3\nPeristiwa 4\nB Teliti peristiwa di bawah. Secara berkumpulan, bincangkan dan analisis\nperistiwa tersebut dan lengkapkan jadual yang diberikan.\nPeristiwa\nAnalisis Peristiwa\nPeraturan Asas dalam Undang-undang\nKemanusiaan yang Dipatuhi\nKepentingan Pengekalan\nUndang-undang\nC Kongsi analisis peristiwa yang anda peroleh dengan rakan-rakan di dalam\nkelas.\n\n[Pendidikan Moral Tingkatan 3.pdf p229]\n220\nUNIT 14\n4.5.1, 4.5.2, 4.5.4, 4.5.6\nD Dengan melayari Internet, dapatkan maklumat tentang perkara yang berikut.\nE Berdasarkan maklumat yang diperoleh, hasilkan satu risalah dan\nedarkannya kepada warga sekolah.\n• Peraturan asas dalam undang-undang kemanusiaan antarabangsa.\n• Kepentingan pengekalan undang-undang kemanusiaan antarabangsa.\n• Contoh pencabulan undang-undang kemanusiaan antarabangsa.\n• Kesan pengabaian undang-undang kemanusiaan antarabangsa.\nBentangkan maklumat tersebut secara kreatif.\n(Sumber: BH Online)\n\n[Pendidikan Moral Tingkatan 3.pdf p230]\n14\nUNIT\n221\n4.5.4, 4.5.5, 4.5.6\nA Baca dan fahami cara membantu mangsa pencabulan undang-undang\nkemanusiaan antarabangsa. Kemudian, pilih satu cara yang sesuai dan\nanjurkan projek berpandukan kertas projek di bawah.\nB Bentangkan laporan projek secara kreatif di dalam kelas.ngkan dengan\ncontoh.\nCARA\nMEMBANTU MANGSA\nPEperangan\n• Memberikan bantuan kewangan seperti derma.\n• Memberikan sumbangan seperti khemah, pakaian,\nminuman, makanan dan ubatan.\n• Memberikan khidmat sebagai sukarelawan.\n• Menganjurkan pameran tentang kesan peperangan.\n• Memberikan sokongan moral melalui laman sosial.\nKERTAS PROJEK\nTajuk projek:\nHari Amal Keusahawanan\nObjektif:\nMengumpulkan dana untuk membantu mangsa peperangan\nPelaksanaan:\nTarikh:\nMasa:\nTempat: kawasan sekolah\nAnjuran:\nSekolah dan Persatuan Ibu Bapa dan Guru (PIBG)\nKumpulan 1\nMencuci kereta dan motosikal.\nKumpulan 2\nMenjual barangan seni kraf tangan.\nKumpulan 3\nMenjual makanan dan minuman.\nKumpulan 4\nMenjual buku dan alat tulis.\nBantuan disampaikan kepada Bulan Sabit Merah Malaysia cawangan berdekatan\natau tabung mangsa peperangan.\nCeritakan perasaan anda apabila dapat membantu mangsa\npeperangan.\n\n[Pendidikan Moral Tingkatan 3.pdf p231]\nUNIT 14\n222\n4.5.4, 4.5.6\nSekumpulan murid sedang\nmelakukan kutipan derma untuk\nmembantu mangsa peperangan.\nAnda memujuk ayah anda untuk\nmenderma apabila melihat\nkumpulan tersebut.\nAnda sedang mendapatkan\ntandatangan warga sekolah\nbagi membantah serangan\nbersenjata terhadap orang awam\ndi sebuah negara. Anda cuba\nmeyakinkan warga sekolah untuk\nmenandatangani petisyen tersebut\ndalam usaha membantu mangsa\npeperangan.\n1\n2\n3\nC Secara berkumpulan, tunjukkan cara anda membantu mangsa peperangan\ndengan menggunakan kaedah main peranan dalam situasi di bawah.\nD Jelaskan kesan pengabaian undang-undang kemanusiaan antarabangsa\nkepada generasi akan datang dengan menggunakan peta pemikiran secara\nkreatif. Bentangkannya dengan bantuan pelbagai media.\nMangsa peperangan ditempatkan\ndi sebuah hospital. Anda sebagai\ndoktor sukarelawan yang mewakili\nBulan Sabit Merah Malaysia\nsedang memberikan rawatan.\nAnda menasihati mangsa supaya\nmenjaga diri dengan sebaik-baiknya.\n\n[Pendidikan Moral Tingkatan 3.pdf p232]\n14\nUNIT\n223\n4.5.5, 4.5.6\nA Hasilkan satu poster berkaitan dengan pengekalan undang-undang\nkemanusiaan antarabangsa berpandukan contoh di bawah. Kemudian, cetak\ndan tampal poster tersebut di kawasan sekolah untuk memberikan kesedaran\nkepada warga sekolah.\nCadangan slogan poster:\n• Selamatkan Dunia\n• Lindungilah Nyawa Kami\n• Kami Cinta akan Keamanan\n• Perang Bukan Penyelesaian\nApakah perasaan anda apabila dapat memberikan kesedaran\nkepada warga sekolah tentang undang-undang kemanusiaan\nantarabangsa melalui poster yang dihasilkan? Jelaskan.\n\n[Pendidikan Moral Tingkatan 3.pdf p233]\nUNIT 14\n224\nB Lengkapkan teka silang kata berkaitan dengan bantuan\nkemanusiaan di bawah.\nMELINTANG\n2. Kain yang dicari oleh mangsa\npeperangan semasa musim sejuk.\n4. Pemberian bantuan ini mampu\nmengurangkan kesusahan\nmangsa peperangan.\n5. Mangsa peperangan memerlukan\ncecair ini untuk hidup.\n7. Cara orang awam menyokong\nmangsa peperangan melalui\ntandatangan.\n8. Kecederaan yang dialami oleh\nmangsa peperangan.\n9. Sumbangan ini akan\nmembantu memulihkan\nkehidupan harian mangsa\npeperangan.\nMENEGAK\n1. Salah satu organisasi sukarelawan\nyang bersedia untuk membantu\nmangsa peperangan.\n2. Isu peperangan ialah isu\nmasyarakat sejagat.\n3. Penggunaan senjata kimia jenis ini\ndilarang dalam peperangan.\n6. Sifat pemurah dan suka\nmemberikan bantuan\nkepada mangsa peperangan.\n1.\nS\nM\nN\nN\nU\nL\nS\nR\nW\nJ\n2.\n3.\n4.\n7.\n8.\n5.\nK\nA\nR\nM\nR\nP\nT\nY\nN\nK\nM\nL\nA\nR\nD\n6.\nD\n9.\nC Berdasarkan contoh di bawah, secara berpasangan, layari Internet dan\nbuat catatan tentang pihak yang dilindungi mengikut Undang-undang\nKemanusiaan Antarabangsa (UUKA). Kemudian, bentangkannya secara\nkreatif di dalam kelas.\n4.5.1, 4.5.2, 4.5.3, 4.5.4\nUNDANG-UNDANG KEMANUSIAAN ANTARABANGSA\nSiapakah yang dilindungi oleh Undang-undang Kemanusiaan Antarabangsa?\n•\nOrang awam\n•\n•\n•\n\n[Pendidikan Moral Tingkatan 3.pdf p234]\n14\nUNIT\n225\nA Baca petikan tentang mangsa peperangan di bawah dan jawab soalan\nyang diberikan.\nB Soalan Esei\nHuraikan kesan pengabaian undang-undang kemanusiaan antarabangsa terhadap\norang awam.\n1. Apakah nilai yang patut diamalkan semasa berlakunya peperangan?\n2. Senaraikan empat peraturan asas undang-undang kemanusiaan antarabangsa\nyang perlu dipatuhi dalam situasi di atas.\n3. Mengapakah undang-undang kemanusiaan antarabangsa perlu dikekalkan?\n4. Ceritakan perasaan anda apabila dapat menyumbang dalam menegakkan\nundang-undang kemanusiaan antarabangsa.\n5. Bagaimanakah anda menyuarakan pendapat berkaitan dengan pengekalan\nundang-undang kemanusiaan antarabangsa?\nKhoi Yu merupakan mangsa peperangan di negaranya. Dia\ndihantar ke negara X dan tinggal di sebuah kem pelarian\nsementara selama dua tahun sebelum berhijrah ke negara Y.\nDi negaranya, Khoi Yu mengalami pelbagai pengalaman\nburuk akibat peperangan. Ibu dan ayahnya telah ditembak\noleh pihak pengganas. Bantuan ubat-ubatan dan makanan tidak\nsampai di kampungnya dan banyak rakannya yang telah mati\nkebuluran. Banyak kanak-kanak dan wanita terkorban dalam\npeperangan tersebut.\n\n[Pendidikan Moral Tingkatan 3.pdf p235]\nUNIT 14\n226\nUNIT 14\nCADANGAN MAKLUMAT DALAM PAMERAN:\n• Maklumat peraturan asas dalam undang-undang kemanusiaan antarabangsa.\n• Kepentingan pematuhan undang-undang kemanusiaan antarabangsa.\n• Contoh pencabulan undang-undang kemanusiaan antarabangsa.\n• Kesan pengabaian undang-undang kemanusiaan antarabangsa.\n• Koleksi gambar pencabulan undang-undang kemanusiaan antarabangsa.\n• Cadangan pendapat berkaitan dengan konflik kemanusiaan antarabangsa.\nA Adakan satu pameran tentang undang-undang kemanusiaan antarabangsa\ndi sekolah anda.\nB Promosikan pameran yang akan diadakan melalui pelbagai sumber media.\nUNDANG-UNDANG KEMANUSIAAN\nANTARABANGSA (UUKA)\n• Satu badan peraturan yang mengehadkan\npenderitaan semasa peperangan dengan\nmelindungi maruah manusia.\nBagaimanakah UUKA memberikan\nperlindungan?\n• Mengehadkan penggunaan senjata\ndan kaedah peperangan yang\nmengakibatkan kecederaan yang tidak\nwajar, kecederaan yang melampau atau\nyang dilakukan secara rambang.\n• Melindungi mereka yang tidak atau\ntidak lagi mengambil bahagian dalam\npertempuran.\n1. Wanita.\n2. Kanak-kanak.\n3. Warga emas.\n4. Pelarian.\n5. Kombatan yang cedera atau sakit.\nUUKA juga dikenali sebagai:\n1. Undang-undang peperangan.\n2. Undang-undang konflik\nbersenjata.\nUNDANG-UNDANG KEMANUSIAAN ANTARABANGSA (UUKA)\nApakah itu UUKA?\nUndang-undang Kemanusiaan Antarabangsa (UUKA) ialah satu badan\nperaturan yang mengenakan had terhadap penggunaan senjata dan kaedah\npeperangan serta melindungi mereka yang tidak, atau tidak lagi mengambil\nbahagian dalam pertempuran. UUKA bertujuan untuk melindungi maruah\nmanusia dan mengehadkan penderitaan semasa peperangan. UUKA juga\ndikenali sebagai undang-undang peperangan atau undang-undang konflik\nbersenjata.\n\n[Pendidikan Moral Tingkatan 3.pdf p236]\n227\nglosari\nbom kimia  bom yang membebaskan asap yang mengandungi bahan yang boleh melumpuhkan\nsistem saraf.\nbudaya kuning  budaya barat yang dianggap mempunyai unsur-unsur barat atau negatif.\ndilema  keadaan yang menyebabkan sukarnya membuat pilihan antara dua alternatif.\ndemokrasi berparlimen  demokrasi yang menurut aturan parlimen.\nekosistem  sistem lingkungan hidup semula jadi yang terbentuk hasil daripada tindakan\nyang menyaling antara benda hidup dengan persekitarannya.\nfauna  keseluruhan haiwan yang hidup di sesuatu daerah atau habitat.\nflora  keseluruhan tumbuhan yang terdapat di sesuatu daerah atau habitat.\nfosforus  unsur bukan logam yang berwarna kekuning-kuningan dan mudah terbakar serta\nkelihatan berkilat-kilat dalam gelap.\nglobalisasi  menyebarkan atau meluaskan sesuatu aktiviti ekonomi, kebudayaan dan lain-lain\nke peringkat antarabangsa atau ke seluruh dunia.\nhujan asid  air hujan yang dicemari asid yang dibebaskan ke udara daripada kilang, asap\nkereta dan lain-lain.\nidentiti  aspek tertentu yang dapat menunjukkan sifat diri seseorang; keperibadian.\nimplikasi  kesan kemungkinan sesuatu yang berlaku.\nindividualistik  bersifat individu.\ninisiatif  daya usaha yang mula-mula.\ninovasi  sesuatu yang baru diperkenalkan seperti sistem, kaedah dan lain-lain.\ninovatif  sesuatu yang bersifat perubahan secara kreatif.\nintegriti  kejujuran atau ketulusan.\njenayah narkotik  perbuatan yang salah dari segi undang-undang berkaitan dengan najis\ndadah yang melemahkan deria, melalikan, melegakan kesakitan, ketagihan dan sebagainya.\njenayah siber  perbuatan yang salah dari segi undang-undang berkaitan dengan komputer\natau Internet.\nkebahasaan  hal yang berkaitan dengan bahasa.\nkelestarian  keadaan (hutan, persekitaran dan lain-lain) yang tidak berubah atau terpelihara\nseperti asal.\nkepupusan  hilang lenyap; hapus sama sekali.\nkerohanian  sifat dalaman, jiwa.\nketamadunan  perihal cara hidup yang serba maju.\nkondusif  sesuai, baik dan sebagainya untuk membantu mencapai atau mendorong\nmenghasilkan sesuatu.\nkonflik  perselisihan atau pertentangan antara individu, idea, kepentingan dan lain-lain.\nkurniaan  sesuatu pemberian.\nmartabat  kedudukan pada mata masyarakat.\nmemoir  biografi yang berasaskan kenang-kenangan seseorang tentang pengalaman dan\nperistiwa.\n\n[Pendidikan Moral Tingkatan 3.pdf p237]\n228\nmusibah  bencana atau malapetaka.\nnorma  peraturan atau ketentuan yang telah menjadi kebiasaan yang dijangka akan dipatuhi\noleh setiap anggota masyarakat.\npelupusan  perihal melupuskan sesuatu barangan.\npenaakulan  perbuatan membuat pertimbangan dan penilaian dengan menggunakan akal.\npencabulan undang-undang kemanusiaan  perbuatan yang melanggar undang-undang\nkemanusiaan.\npetisyen  surat permohonan atau rayuan yang biasanya ditandatangani oleh sekumpulan orang\nkepada pihak berkuasa untuk meminta sesuatu pertimbangan.\npolisi  rancangan tindakan yang dipersetujui, yang menjadi dasar sesebuah pergerakan,\npertubuhan dan lain-lain dalam melaksanakan sesuatu keputusan.\npopulasi  kumpulan haiwan atau tumbuh-tumbuhan yang terdapat di sesuatu kawasan atau\nhabitat tertentu.\nprovokasi  perbuatan atau kata-kata yang membangkitkan kemarahan.\nrangoli  sejenis hiasan yang dibuat di atas lantai dengan menggunakan beras berwarna,\ntepung kering, pasir berwarna atau ranggi bunga.\nsabit  terbukti melakukan sesuatu kesalahan.\nsilambam  seni mempertahankan diri dengan menggunakan kayu, tongkat dan lain-lain dalam\nkalangan masyarakat India.\nsilat  sejenis seni atau kepandaian berjuang dengan menggunakan ketangkasan menyerang\ndan mempertahankan diri.\nsilaturahim  hubungan persaudaraan atau persahabatan.\nsketsa  karangan atau lakonan pendek.\nstatistik  keterangan tentang sesuatu yang ditunjukkan dengan angka.\nsumbang saran  perbincangan intensif untuk menyelesaikan masalah tertentu, mendapatkan\nidea baharu dan lain-lain.\ntakziah  pernyataan turut bersedih atau turut berdukacita kerana kematian dan lain-lain.\ntoksin  bahan beracun yang dihasilkan oleh bakteria dalam organisma hidup atau mati yang\nboleh menyebabkan penyakit tertentu.\ntransformasi  perubahan beransur-ansur sehingga mencapai perubahan yang disasarkan\ntular  sesuatu keadaan yang merebak atau diedarkan dengan cepat dan meluas menerusi\nalam maya.\nuranium  sejenis logam yang radioaktif, berwarna kelabu keperakan. Uranium digunakan\nuntuk menghasilkan tenaga nuklear yang berbahaya, senjata nuklear dan sebagainya.\nVaisakhi  hari pertama bulan Vaisakh bersamaan dengan 14 April bagi kaum Sikh.\nwusyu  seni mempertahankan diri kaum Cina.\n\n[Pendidikan Moral Tingkatan 3.pdf p238]\n229\nAbdul Rahman Abdul Aziz, 2000. Kemahiran Sosialisasi. Kuala Lumpur: Utusan Publication & Distributors\nSdn. Bhd.\nAhmad Ali Seman, Warti Kimi, 2013. Hubungan Etnik. Kuala Lumpur: Freemind Horizons Sdn. Bhd.\nAinamardia Nazarudin dan Lutifah Natrah Abbas@Ahmad, 2017. Asas Kelestarian Tingkatan 5. Kajang:\nAras Mega (M) Sdn. Bhd.\nAjien Nyigor, 2015. Pengirih Budaya Muafakat Etnik Bidayuh. Kuching: Institut Pendidikan Guru Kampus\nBatu Lintang.\nAnita Abdul Rahim, 2012. Jenayah Kanak-kanak & Undang-undang Malaysia. Kuala Lumpur: Dewan Bahasa\ndan Pustaka.\nAwang Had Salleh, 1980. Pendidikan ke Arah Perpaduan. Kuala Lumpur: Penerbit Fajar Bakti Sdn. Bhd.\nAziz Deraman, 1995. Adat dan Pantang Larang Orang Melayu. Kuala Lumpur: Penerbit Fajar Bakti Sdn. Bhd.\nBalakrishnan, V., 2009. Pendidikan Moral untuk Universiti dan Kolej. Subang Jaya: Arah Pendidikan.\nBalakrishnan, V., 2014. Aplikasi I-Think dalam Pendidikan. Kuala Lumpur: Dewan Bahasa dan Pustaka.\nHasnah bt Ghani dan Mat Saat Abd. Rahman, 1995. Jenayah Remaja: Permasalahan dan Penyelesaian. Shah\nAlam: HIZB.\nHasnah Hussin dan Mardiana Nordin, 2007. Pengajian Malaysia. Shah Alam: Oxford Fajar.\nLena Abdullah, 2007. The Earth’s Flora (First Edition). Seri Kembangan: Shamalis Enterprise, Percetakan\nSermaju Sdn. Bhd.\nRajantheran M & S. Manimaran, 1994 Adat dan Pantang Larang Orang India. Kuala Lumpur: Penerbit Fajar\nBakti Sdn. Bhd.\nRozmi Ismail, 2011. Psikologi Sosial. Bangi: Penerbit Universiti Kebangsaan Malaysia.\nTesaurus Bahasa Melayu Dewan, 1998. Kuala Lumpur: Dewan Bahasa dan Pustaka.\nWan Sang Ann, 1994. Adat dan Pantang Larang Orang Cina. Kuala Lumpur: Penerbit Fajar Bakti Sdn. Bhd.\nYeong Pak Foo, 2005. Hidupan Unik. Kuala Lumpur: Edu Quest Publisher, Percetakan Advanco Sdn. Bhd.\nZainal Abidin Abdul Wahid, 1971. Konsep Negara Bangsa. Kuala Lumpur: Nurin Enterprise.\nZulhilmi Paidi dan Rohani Ab Ghani, 2003. Masyarakat di Malaysia. Petaling Jaya: PTS Publications\nSdn. Bhd.\nLAMAN SESAWANG\nhttp://www.teknikhidup.com/hubungan/ciri-ciri-sahabat-yang-baik (dicapai pada 9 September 2017).\nhttp://bebasplastik.my/ (dicapai pada 12 Disember 2017).\nhttp://bicaramentari.blogspot.my/2017/06/ppk.html. (dicapai pada 12 Disember 2017).\nhttp://dwnkosmik.dbp.my/wordpress/?p=706. (dicapai pada 1 Oktober 2017).\nhttp://journalarticle.ukm.my/4741/1/V17_2.pdf (dicapai pada 8 Oktober 2017).\nhttp://jpspn.kpkt.gov.my/ 24/1/2018 (dicapai pada 1 Februari 2018).\nhttp://jpspn.kpkt.gov.my/index.php/pages/view/134 / (dicapai pada 1 Oktober 2017).\nhttp://jpspn.kpkt.gov.my/index.php/pages/view/134. (dicapai pada 12 Disember 2017).\nhttp://pissal.blogspot.my/2011/08/program-3r-di-sek-men-convent.html (dicapai pada 20 Januari 2017).\nhttp://pmr.penerangan.gov.my/index.php/alam-sekitar/6612-hari-tanpa-beg-plastik.html (dicapai pada\n1 Oktober 2017).\nhttp://pmr.penerangan.gov.my/index.php/component/content/article/445-kolumnis/15970-perpaduan\n(dicapai pada 15 September 2017).\nhttp://purpleturtle-impianinsan.blogspot.com/2010/08/tanggungjawab-sosial-korporat.html\n(dicapai pada 5 Oktober 2017).\nhttp://qeh.moh.gov.my/v8/index.php/en/profil-hospital/piagam-pelanggan (dicapai pada 20 September 2017).\nhttp://www.academia.edu/5404932/HAK_KEBEBASAN_BERSUARA (dicapai pada 8 Oktober 2017).\nhttp://www.bomba.gov.my/ (dicapai pada 2 Oktober 2017).\nhttp://www.dmpm.nre.gov.my/index.php (dicapai pada 4 Februari 2018).\nhttp://www.forest.sabah.gov.my/my/ (dicapai pada 2 Oktober 2017).\nhttp://www.hersays.com/category/Relationship/Friendzone/1101/Cara-Menyelesaikan-Konflik-dengan-\nsenarai rujukan\n\n[Pendidikan Moral Tingkatan 3.pdf p239]\n230\nSahabat (dicapai pada 23 November 2017).\nhttp://www.jpm.gov.my/ (dicapai pada 28 September 2017).\nhttp://www.kptg.gov.my/sites/def ault/files/article/perlembagaanpersekutuan.pdf\n(dicapai pada 5 Oktober 2017).\nhttp://www.mampu.gov.my/ms/penerbitan-mampu/send/2-buku/44-tinta-inovasi-perkhidmatan-awam\n(dicapai pada 20 September 2017).\nhttp://www.mot.gov.my/my/darat/pengangkutan-jalan/perkhidmatan-ditawar-oleh-pengangkutan\n(dicapai pada 28 September 2017).\nhttp://www.norcalcompactors.net/safeguard-environment-three-rs-reduce-reuse-recycle/\n23/11/2017(dicapai pada 11 November 2017).\nhttp://www.nutp.org/new/ms/ (dicapai pada 12 Disember 2017).\nhttp://www.pcb.gov.my/bm/aduan/sistem-pengurusan-aduan-awam-sispaa (dicapai pada 22 September 2017).\nhttp://www.pcb.gov.my/bm/kategori-blog/item/337-saluran-aduan-di-300-pejabat-pos-dan-pos-mini\n(dicapai pada 28 September 2017).\nhttp://www.ppj.gov.my/portal/page?_pageid=311,1&_dad=portal&_schema=PORTAL#1582\n(dicapai pada 1 Februari 2018).\nhttp://www.prison.gov.my/ (dicapai pada 10 November 2017).\nhttp://www.sinarharian.com.my/kolumnis/syahredzan-johan/kebebasan-bersuara-amalan-demokrasi\n(dicapai pada 8 Oktober 2017).\nhttp://www.sinarharian.com.my/rencana/mengubah-imej-kuala-lumpur-menjadi-bandar-hijau-1.126608\n(dicapai pada 19 November 2017).\nhttp://www.townplan.gov.my/download/Laporan_Draf_Garis_Panduan.pdf. (dicapai pada 12 Disember 2017).\nhttp://www.utusan.com.my/rencana/utama/ancaman-ser ius-terhadap-tenggiling-\n1.453663#ixzz4qmEiCSPu (dicapai pada 11 Disember 2017).\nhttp://www.wildlife.gov.my/ (dicapai pada 20 Disember 2017).\nhttp://www.adk.gov.my/ (dicapai pada 1 Februari 2018).\nhttp://www.bharian.com.my/node/146556 (dicapai pada 11 Februari 2018).\nhttp://www.bharian.com.my/node/247261 (dicapai pada 5 Oktober 2017).\nhttp://www.bharian.com.my/node/33302 (dicapai pada 8 Oktober 2017).\nhttp://www.doe.gov.my/portalv1/ (dicapai pada 12 Disember 2017).\nhttp://www.forestry.gov.my/index.php/my/ (dicapai pada 12 Disember 2017).\nhttp://www.hmetro.com.my/node/166466 (dicapai pada 11 Februari 2018).\nhttp://www.redcrescent.org.my/ (dicapai pada 10 Oktober 2017).\nhttp://www.researchgate.net/publication/258383935_MEMUPUK_KESEDARAN_TANGGUNGJAWAB\n(dicapai pada 5 Oktober 2017).\nhttp://www.rmc.edu.my/(dicapai pada 12 September 2017).\nhttp://www.mstar.com.my/kolumnis/2013/03/13/negara-akan-terus-maju-jika-perpaduan-kaum\n(dicapai pada 12 September 2017).\nhttps://sediaberkorban.wordpress.com/2013/05/02/undang-undang-kemanusiaan-antarabangsa/\n(dicapai pada 10 Oktober 2017).\nhttps://www.rmp.gov.my/infor-korporate/g-piagam-pelanggan (dicapai pada 15 September 2017).\nhttps://www.scribd.com/document/21962638/Apa-Itu-5r-Complete (dicapai pada 12 Disember 2017)\nhttps://www.sistemguruonline.my/2014/11/cabaran-hubungan-etnik-di-malaysia.html (dicapai pada 15\nSeptember 2017).\nhttps://www.slideshare.net/puteraeyone/undangundang-kebangsaaan-dan-antarabangsa-palang-merah\n(dicapai pada 10 Oktober 2017).\nhttps://www.slideshare.net/rosdiramli80/pencemaran-alam-sekitar-23511948 (dicapai pada 12 Disember 2017).\nhttps://www.lamankerjaya.com/kerjaya-jururawat-di-kementerian-kesihatan/(dicapai pada 9 September\n2017).\nhttps://www.rmp.gov.my/program-pdrm/volunteer-smartphone-patrol-(vsp)/pelaksanaannya-vsp (dicapai\npada 16 Julai 2018).\n\n[Pendidikan Moral Tingkatan 3.pdf p240]\n231\nindeks\nagama 4, 69, 70,77,82, 84-87, 92, 96, 165, 167,\n173, 196\nakhlak 38\nakta 164-165, 174, 183-185, 191,193\namalan 24, 39, 52-54, 69-70, 84-87, 151, 165,\n167, 199\namalan 5R 114\nanjal 100\nanugerah 20, 22-28, 30-32, 36\naspirasi 103\nbahasa  68, 71, 82, 84-86, 89, 96, 188, 196\nbangga  199\nbangsa 84-87, 196, 199, 215\nbatasan 181, 184, 187, 189-191\nbebas 7, 149, 167, 214\nberinteraksi 37\nberkomunikasi 41, 70-71, 183\nbrosur 113\nbudaya 69-70, 84-87, 196, 198\nbumi hijau 116-126, 128\ncabaran hidup 39, 87\ncabaran 179\nciptaan 20, 22-24\ncogan kata 95\ndemokrasi berparlimen  180\nderma organ 132, 142\ndilema  6-7, 11\ndiplomatik 214\ndisiplin diri 39, 150\nekosistem 23, 120\nfitnah 181, 184, 189\nforum  60, 188\nglobalisasi 87, 103\nharta karun 190\nidentiti 52, 54, 56, 148-149, 196, 198-199\nikon 136\ninovatif 36, 45, 100, 106, 119\nintegriti  45, 69\njati diri  52, 87\njenayah 164-167\njururawat 12, 111\njurusan 11-12\nkampung harmoni 137\nkanak-kanak 162-168, 170-171, 173-174, 176,\n197, 214, 219, 225-226\nkeamanan  84, 96, 145, 182, 188, 193, 198, 201,\n214, 223\nkebahasaan  84\nkebanggaan 199\nkebebasan bersuara  180-193\nkental 38\nkeperluan 5, 10, 12, 15-16, 22, 34, 38, 46, 48,\n61, 70, 101, 119, 125, 178, 181, 183, 188, 191,\n218\nkerjasama 5, 51, 56, 86, 88, 95, 115, 120, 131,\n134, 136, 139, 195, 199-200, 202, 205\nkerjaya  4, 12, 16, 43\nkeseimbangan 23, 120\nkeselamatan 132, 134, 137-138, 166, 183, 218\nkesenian 52, 55, 93\nkesukarelawanan 135, 141\nketamadunan 215\nkewajipan 132\nkhazanah 21, 196, 199, 215\nkombatan 212-213\nkomuniti 87-88, 90, 132, 165-166\nkonflik 6, 17, 66-73, 75-80, 86-87, 94, 182, 198,\n216-217\nkonsisten 4, 15\nkotak misteri 94\nkualiti 101-103\nmaklumat palsu  87, 184, 192\nmasyarakat 6, 24, 39, 43, 64, 81, 83-88, 90-91,\n94, 96, 102-104, 112, 116, 119, 128, 130-132,\n134-136, 138, 141-143, 145, 154-155, 162,\n166-167, 176-178, 183, 187, 192, 194-209,\n214, 217, 224\nmemelihara dan memulihara 133\nmemoir 75, 142\nmenziarahi 58-59, 64, 196, 204\n\n[Pendidikan Moral Tingkatan 3.pdf p241]\n232\nmesra pelanggan 101, 107\nmusibah 133, 138, 140\nnorma 52, 145, 198\npameran 12, 16, 29, 221, 226\npelarian  225\npenarafan 119\npencabulan 216-217, 220-221, 226\npenyelesaian 13, 33, 45, 70-73, 75, 77-79, 91,\n112, 170\nperaturan dan undang-undang 4, 7, 36, 145,\n167, 214\nperibadi 148\nperkhidmatan awam 101-106, 109-113\nperlembagaan Malaysia  180, 193\nperpaduan  5, 84-90, 92, 94-96, 181, 187, 198,\n199, 201-202, 205, 208\npersahabatan 14-15, 68-69, 72-80, 197\npersefahaman 85, 197, 202\npiagam pelanggan 101, 104, 112-113\npidato 187, 202\npilihan bermoral 4-7, 9-11, 13, 15-16\nproaktif 37, 106, 118, 172\nprovokasi 181, 189\nrisalah 142, 171, 220\nRukun Negara 85\nsaluran 111, 170, 181-183, 187, 217\nsebati 52\nsumbang saran 139, 188\ntakziah 152\ntanggungjawab sosial 132, 134-138, 140-141,\n143, 165\ntradisi 52-65, 86, 196, 198-204, 206-209\ntransformasi 100, 106\nundang-undang kemanusiaan antarabangsa\n212, 214, 216-218, 220-226\nvegetarian 186\nwarisan  21, 53, 93, 215\nCadangan\nJawapan\n\n[Pendidikan Moral Tingkatan 3.pdf p242]\nSkim Pinjaman Buku Teks\nSekolah\nTahun\nTingkatan\nNama Penerima\nTarikh\nTerima\nNombor Perolehan:\nTarikh Penerimaan:\nBUKU INI TIDAK BOLEH DIJUAL\nDengan ini, SAYA BERJANJI akan menjaga buku ini\ndengan baiknya dan bertanggungjawab atas kehilangannya,\nserta mengembalikannya kepada pihak sekolah pada\ntarikh yang ditetapkan.",
+      "char_count": 102771,
+      "pages": [
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 138,
+          "global_page_number": 138,
+          "char_count": 1130,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 139,
+          "global_page_number": 139,
+          "char_count": 550,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 140,
+          "global_page_number": 140,
+          "char_count": 135,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 141,
+          "global_page_number": 141,
+          "char_count": 455,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 142,
+          "global_page_number": 142,
+          "char_count": 209,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 143,
+          "global_page_number": 143,
+          "char_count": 967,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 144,
+          "global_page_number": 144,
+          "char_count": 580,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 145,
+          "global_page_number": 145,
+          "char_count": 1499,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 146,
+          "global_page_number": 146,
+          "char_count": 1341,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 147,
+          "global_page_number": 147,
+          "char_count": 2263,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 148,
+          "global_page_number": 148,
+          "char_count": 569,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 149,
+          "global_page_number": 149,
+          "char_count": 785,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 150,
+          "global_page_number": 150,
+          "char_count": 1587,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 151,
+          "global_page_number": 151,
+          "char_count": 543,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 152,
+          "global_page_number": 152,
+          "char_count": 1035,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 153,
+          "global_page_number": 153,
+          "char_count": 396,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 154,
+          "global_page_number": 154,
+          "char_count": 690,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 155,
+          "global_page_number": 155,
+          "char_count": 431,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 156,
+          "global_page_number": 156,
+          "char_count": 114,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 157,
+          "global_page_number": 157,
+          "char_count": 995,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 158,
+          "global_page_number": 158,
+          "char_count": 860,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 159,
+          "global_page_number": 159,
+          "char_count": 850,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 160,
+          "global_page_number": 160,
+          "char_count": 1131,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 161,
+          "global_page_number": 161,
+          "char_count": 815,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 162,
+          "global_page_number": 162,
+          "char_count": 865,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 163,
+          "global_page_number": 163,
+          "char_count": 614,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 164,
+          "global_page_number": 164,
+          "char_count": 878,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 165,
+          "global_page_number": 165,
+          "char_count": 1345,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 166,
+          "global_page_number": 166,
+          "char_count": 596,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 167,
+          "global_page_number": 167,
+          "char_count": 348,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 168,
+          "global_page_number": 168,
+          "char_count": 669,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 169,
+          "global_page_number": 169,
+          "char_count": 696,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 170,
+          "global_page_number": 170,
+          "char_count": 198,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 171,
+          "global_page_number": 171,
+          "char_count": 367,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 172,
+          "global_page_number": 172,
+          "char_count": 160,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 173,
+          "global_page_number": 173,
+          "char_count": 1049,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 174,
+          "global_page_number": 174,
+          "char_count": 1250,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 175,
+          "global_page_number": 175,
+          "char_count": 700,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 176,
+          "global_page_number": 176,
+          "char_count": 1516,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 177,
+          "global_page_number": 177,
+          "char_count": 1702,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 178,
+          "global_page_number": 178,
+          "char_count": 1121,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 179,
+          "global_page_number": 179,
+          "char_count": 902,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 180,
+          "global_page_number": 180,
+          "char_count": 1019,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 181,
+          "global_page_number": 181,
+          "char_count": 763,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 182,
+          "global_page_number": 182,
+          "char_count": 865,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 183,
+          "global_page_number": 183,
+          "char_count": 1076,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 184,
+          "global_page_number": 184,
+          "char_count": 423,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 185,
+          "global_page_number": 185,
+          "char_count": 1377,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 186,
+          "global_page_number": 186,
+          "char_count": 884,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 187,
+          "global_page_number": 187,
+          "char_count": 440,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 188,
+          "global_page_number": 188,
+          "char_count": 122,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 189,
+          "global_page_number": 189,
+          "char_count": 1044,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 190,
+          "global_page_number": 190,
+          "char_count": 924,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 191,
+          "global_page_number": 191,
+          "char_count": 486,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 192,
+          "global_page_number": 192,
+          "char_count": 2323,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 193,
+          "global_page_number": 193,
+          "char_count": 1002,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 194,
+          "global_page_number": 194,
+          "char_count": 958,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 195,
+          "global_page_number": 195,
+          "char_count": 521,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 196,
+          "global_page_number": 196,
+          "char_count": 968,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 197,
+          "global_page_number": 197,
+          "char_count": 1123,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 198,
+          "global_page_number": 198,
+          "char_count": 1144,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 199,
+          "global_page_number": 199,
+          "char_count": 980,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 200,
+          "global_page_number": 200,
+          "char_count": 824,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 201,
+          "global_page_number": 201,
+          "char_count": 1641,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 202,
+          "global_page_number": 202,
+          "char_count": 771,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 203,
+          "global_page_number": 203,
+          "char_count": 463,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 204,
+          "global_page_number": 204,
+          "char_count": 160,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 205,
+          "global_page_number": 205,
+          "char_count": 855,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 206,
+          "global_page_number": 206,
+          "char_count": 399,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 207,
+          "global_page_number": 207,
+          "char_count": 653,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 208,
+          "global_page_number": 208,
+          "char_count": 981,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 209,
+          "global_page_number": 209,
+          "char_count": 1756,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 210,
+          "global_page_number": 210,
+          "char_count": 888,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 211,
+          "global_page_number": 211,
+          "char_count": 730,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 212,
+          "global_page_number": 212,
+          "char_count": 914,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 213,
+          "global_page_number": 213,
+          "char_count": 773,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 214,
+          "global_page_number": 214,
+          "char_count": 556,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 215,
+          "global_page_number": 215,
+          "char_count": 1281,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 216,
+          "global_page_number": 216,
+          "char_count": 551,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 217,
+          "global_page_number": 217,
+          "char_count": 539,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 218,
+          "global_page_number": 218,
+          "char_count": 397,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 219,
+          "global_page_number": 219,
+          "char_count": 571,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 220,
+          "global_page_number": 220,
+          "char_count": 118,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 221,
+          "global_page_number": 221,
+          "char_count": 882,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 222,
+          "global_page_number": 222,
+          "char_count": 284,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 223,
+          "global_page_number": 223,
+          "char_count": 760,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 224,
+          "global_page_number": 224,
+          "char_count": 327,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 225,
+          "global_page_number": 225,
+          "char_count": 992,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 226,
+          "global_page_number": 226,
+          "char_count": 1256,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 227,
+          "global_page_number": 227,
+          "char_count": 1367,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 228,
+          "global_page_number": 228,
+          "char_count": 1508,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 229,
+          "global_page_number": 229,
+          "char_count": 524,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 230,
+          "global_page_number": 230,
+          "char_count": 1146,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 231,
+          "global_page_number": 231,
+          "char_count": 960,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 232,
+          "global_page_number": 232,
+          "char_count": 543,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 233,
+          "global_page_number": 233,
+          "char_count": 1223,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 234,
+          "global_page_number": 234,
+          "char_count": 1139,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 235,
+          "global_page_number": 235,
+          "char_count": 1711,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 236,
+          "global_page_number": 236,
+          "char_count": 2286,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 237,
+          "global_page_number": 237,
+          "char_count": 2207,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 238,
+          "global_page_number": 238,
+          "char_count": 3545,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 239,
+          "global_page_number": 239,
+          "char_count": 3294,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 240,
+          "global_page_number": 240,
+          "char_count": 1949,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 241,
+          "global_page_number": 241,
+          "char_count": 974,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Moral Tingkatan 3.pdf",
+          "page_number": 242,
+          "global_page_number": 242,
+          "char_count": 317,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    }
+  ]
+}

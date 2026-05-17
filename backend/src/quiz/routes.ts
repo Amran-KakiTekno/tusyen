@@ -1,9 +1,12 @@
 import { FastifyInstance } from 'fastify';
 import {
   advanceQuizSession,
+  controlQuizSessionTimer,
   createQuizSession,
   deleteQuizDeck,
+  duplicateQuizDeck,
   getQuizDeck,
+  getQuizSessionParticipantByToken,
   getQuizSessionById,
   getQuizSessionSnapshot,
   getStudentQuizSummary,
@@ -18,11 +21,16 @@ import {
 } from './store';
 import { publishQuizSessionEvent } from './realtime';
 import { publishQuizSessionNotification } from '../notifications';
+import { config } from '../config';
+import { checkRateLimit } from '../redis';
 
 type AuthUser = {
   userId: string;
   role: 'student' | 'teacher' | 'parent' | 'admin';
 };
+
+const QUIZ_JOIN_IP_RATE_LIMIT = { max: 5, windowSeconds: 60 };
+const QUIZ_JOIN_PIN_RATE_LIMIT = { max: 25, windowSeconds: 60 };
 
 function isTeacherOrAdmin(user: AuthUser) {
   return user.role === 'teacher' || user.role === 'admin';
@@ -98,6 +106,19 @@ export async function quizRoutes(fastify: FastifyInstance) {
       return { success: true, deck };
     } catch (error) {
       return reply.code(400).send({ error: error instanceof Error ? error.message : 'Failed to save quiz deck' });
+    }
+  });
+
+  fastify.post('/decks/:deckId/duplicate', {
+    onRequest: [(fastify as any).authenticate],
+  }, async (request, reply) => {
+    try {
+      const user = (request as any).user as AuthUser;
+      const { deckId } = request.params as any;
+      const deck = await duplicateQuizDeck(user, deckId);
+      return { success: true, deck };
+    } catch (error) {
+      return reply.code(400).send({ error: error instanceof Error ? error.message : 'Failed to duplicate quiz deck' });
     }
   });
 
@@ -192,8 +213,14 @@ export async function quizRoutes(fastify: FastifyInstance) {
   fastify.get('/sessions/:sessionId/state', async (request, reply) => {
     const { sessionId } = request.params as any;
     const participantToken = String((request.query as any)?.participantToken || '').trim() || null;
+    const user = await resolveOptionalUser(fastify, request);
 
     if (participantToken) {
+      const participantAccess = await canUseParticipantToken(fastify, request, sessionId, participantToken, user);
+      if (!participantAccess.allowed) {
+        return reply.code(participantAccess.statusCode).send({ error: participantAccess.error });
+      }
+
       const snapshot = await loadQuizSessionState(sessionId, {
         participantToken,
         revealCorrectAnswer: false,
@@ -206,7 +233,6 @@ export async function quizRoutes(fastify: FastifyInstance) {
       return { snapshot };
     }
 
-    const user = await resolveOptionalUser(fastify, request);
     if (!user) {
       return reply.code(401).send({ error: 'Authentication required' });
     }
@@ -228,6 +254,11 @@ export async function quizRoutes(fastify: FastifyInstance) {
     const body = request.body as any;
     const user = await resolveOptionalUser(fastify, request);
     const authenticatedStudent = user && user.role === 'student' ? user : undefined;
+    if (!(await enforceQuizJoinRateLimit(request, reply, body?.pin))) return;
+
+    if (!authenticatedStudent && !config.ALLOW_GUEST_QUIZ_JOIN) {
+      return reply.code(user ? 403 : 401).send({ error: 'Student authentication is required to join quiz sessions' });
+    }
 
     try {
       const result = await joinQuizSession({
@@ -322,6 +353,30 @@ export async function quizRoutes(fastify: FastifyInstance) {
     }
   });
 
+  fastify.post('/sessions/:sessionId/timer', {
+    onRequest: [(fastify as any).authenticate],
+  }, async (request, reply) => {
+    try {
+      const user = (request as any).user as AuthUser;
+      const { sessionId } = request.params as any;
+      const body = request.body as any;
+      const snapshot = await controlQuizSessionTimer(user, sessionId, {
+        action: body?.action,
+        seconds: body?.seconds,
+      });
+      const publicSnapshot = await getQuizSessionSnapshot(sessionId, { revealCorrectAnswer: false });
+
+      await publishQuizSessionEvent(sessionId, {
+        type: 'QUIZ_TIMER_UPDATED',
+        snapshot: publicSnapshot,
+      });
+
+      return { success: true, snapshot };
+    } catch (error) {
+      return reply.code(400).send({ error: error instanceof Error ? error.message : 'Failed to update quiz timer' });
+    }
+  });
+
   fastify.post('/sessions/:sessionId/end', {
     onRequest: [(fastify as any).authenticate],
   }, async (request, reply) => {
@@ -347,10 +402,27 @@ export async function quizRoutes(fastify: FastifyInstance) {
     const body = request.body as any;
 
     try {
+      if (!config.ALLOW_GUEST_QUIZ_JOIN) {
+        const user = await resolveOptionalUser(fastify, request);
+        const participantAccess = await canUseParticipantToken(
+          fastify,
+          request,
+          sessionId,
+          String(body.participantToken || ''),
+          user
+        );
+        if (!participantAccess.allowed) {
+          return reply.code(participantAccess.statusCode).send({ error: participantAccess.error });
+        }
+      }
+
       const result = await submitQuizAnswer({
         sessionId,
         participantToken: body.participantToken,
-        selectedOptionIndex: Number(body.selectedOptionIndex),
+        ...(body.selectedOptionIndex === undefined
+          ? {}
+          : { selectedOptionIndex: Number(body.selectedOptionIndex) }),
+        selectedAnswer: body.selectedAnswer ?? body.answer,
       });
 
       await publishQuizSessionEvent(sessionId, {
@@ -395,4 +467,72 @@ export async function quizRoutes(fastify: FastifyInstance) {
       return reply.code(400).send({ error: error instanceof Error ? error.message : 'Failed to load quiz summary' });
     }
   });
+}
+
+async function canUseParticipantToken(
+  fastify: FastifyInstance,
+  request: any,
+  sessionId: string,
+  participantToken: string,
+  user: AuthUser | null,
+) {
+  const participant = await getQuizSessionParticipantByToken(sessionId, participantToken);
+  if (!participant) {
+    return { allowed: false, statusCode: 404, error: 'Quiz session participant not found' };
+  }
+
+  if (config.ALLOW_GUEST_QUIZ_JOIN && Boolean(participant.is_guest)) {
+    return { allowed: true, statusCode: 200, error: '' };
+  }
+
+  if (!user) {
+    return { allowed: false, statusCode: 401, error: 'Authentication required' };
+  }
+
+  if (user.role === 'admin') {
+    return { allowed: true, statusCode: 200, error: '' };
+  }
+
+  if (participant.user_id && participant.user_id === user.userId) {
+    return { allowed: true, statusCode: 200, error: '' };
+  }
+
+  if (user.role === 'teacher' && await canAccessSession(user, sessionId)) {
+    return { allowed: true, statusCode: 200, error: '' };
+  }
+
+  return { allowed: false, statusCode: 403, error: 'Access denied' };
+}
+
+async function enforceQuizJoinRateLimit(request: any, reply: any, pin: unknown) {
+  const normalizedPin = `${pin ?? ''}`.replace(/\D/g, '').slice(0, 6) || 'blank';
+  const ipAllowed = await checkRateLimit(
+    `rate:quiz:join:ip:${clientIp(request)}`,
+    QUIZ_JOIN_IP_RATE_LIMIT.max,
+    QUIZ_JOIN_IP_RATE_LIMIT.windowSeconds
+  );
+  const pinAllowed = await checkRateLimit(
+    `rate:quiz:join:pin:${normalizedPin}`,
+    QUIZ_JOIN_PIN_RATE_LIMIT.max,
+    QUIZ_JOIN_PIN_RATE_LIMIT.windowSeconds
+  );
+
+  if (!ipAllowed || !pinAllowed) {
+    reply.code(429).send({ error: 'Too many quiz join attempts. Please try again shortly.' });
+    return false;
+  }
+
+  return true;
+}
+
+function clientIp(request: any) {
+  const forwardedFor = firstHeader(request.headers?.['x-forwarded-for']);
+  const cfConnectingIp = firstHeader(request.headers?.['cf-connecting-ip']);
+  return (cfConnectingIp || forwardedFor?.split(',')[0]?.trim() || request.ip || 'unknown')
+    .replace(/[^a-zA-Z0-9:._-]/g, '_')
+    .slice(0, 80);
+}
+
+function firstHeader(value: string | string[] | undefined): string | null {
+  return Array.isArray(value) ? value[0] || null : value || null;
 }

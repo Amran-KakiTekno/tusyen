@@ -12,16 +12,16 @@ describe('Keycloak auth helpers', () => {
     expect(roleFromKeycloakClaims({ app_role: 'parent' })).toBe('parent');
   });
 
-  it('allows same-origin and trycloudflare callback URLs only', () => {
+  it('allows exact configured/local callback URLs only', () => {
     expect(validateRedirectUriForRequest(
       'http://localhost/keycloak-callback',
       'http://localhost',
     )).toBe('http://localhost/keycloak-callback');
 
-    expect(validateRedirectUriForRequest(
+    expect(() => validateRedirectUriForRequest(
       'https://realistic-jersey-pierre-palace.trycloudflare.com/keycloak-callback',
       'https://realistic-jersey-pierre-palace.trycloudflare.com',
-    )).toBe('https://realistic-jersey-pierre-palace.trycloudflare.com/keycloak-callback');
+    )).toThrow(/not allowed/);
 
     expect(() => validateRedirectUriForRequest(
       'https://evil.test/keycloak-callback',

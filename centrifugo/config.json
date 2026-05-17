@@ -1,7 +1,7 @@
 {
   "token_hmac_secret_key": "${CENTRIFUGO_SECRET}",
   "api_key": "${CENTRIFUGO_API_KEY}",
-  "allowed_origins": ["*"],
+  "allowed_origins": ["http://localhost", "http://127.0.0.1"],
   "engine": "redis",
   "redis_address": "redis://redis:6379",
   "namespaces": [

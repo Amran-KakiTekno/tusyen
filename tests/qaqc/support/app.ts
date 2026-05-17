@@ -4,7 +4,7 @@ export const demoUsers = {
   student: {
     email: 'student@tusyen.test',
     password: 'password123',
-    homeText: 'Misi Hari Ini',
+    homeText: 'Misi hari ini',
   },
   teacher: {
     email: 'teacher@tusyen.test',
@@ -14,7 +14,7 @@ export const demoUsers = {
   parent: {
     email: 'parent@tusyen.test',
     password: 'password123',
-    homeText: 'Prestasi Subjek',
+    homeText: 'Pemantauan',
   },
   admin: {
     email: 'admin@tusyen.test',
@@ -48,23 +48,22 @@ export async function expectApiHealthy(request: APIRequestContext) {
   return health;
 }
 
-export async function gotoV2Login(page: Page) {
-  await page.goto('/v2/');
+export async function gotoLogin(page: Page) {
+  await page.goto('/');
   await page.evaluate(() => localStorage.clear());
   await page.reload({ waitUntil: 'domcontentloaded' });
   await expect(page.locator('.login-card')).toBeVisible();
 }
 
-export async function loginToV2(page: Page, role: DemoRole) {
+export async function loginAs(page: Page, role: DemoRole) {
   const user = demoUsers[role];
 
-  await gotoV2Login(page);
+  await gotoLogin(page);
   await page.locator('input[type="email"]').fill(user.email);
   await page.locator('input[type="password"]').fill(user.password);
   await page.locator('button.login-submit').click();
 
   await expect(page.locator('.phone')).toBeVisible();
-  await expect(page.locator('.topbar-signout')).toBeVisible();
   await expect(page.locator('.role-view')).toContainText(user.homeText, { timeout: 15_000 });
 }
 

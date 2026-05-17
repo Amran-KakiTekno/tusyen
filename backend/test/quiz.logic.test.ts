@@ -3,6 +3,7 @@ import {
   calculateQuestionScore,
   buildLeaderboard,
   normalizeQuizQuestion,
+  quizAnswersMatch,
 } from '../src/quiz/logic';
 
 describe('quiz logic', () => {
@@ -37,6 +38,42 @@ describe('quiz logic', () => {
     );
 
     expect(question.correctAnswer).toEqual({ optionIndex: 1 });
+  });
+
+  it('normalizes STEM-style quiz questions', () => {
+    const question = normalizeQuizQuestion(
+      {
+        questionText: 'Estimate gravitational acceleration.',
+        questionType: 'numeric',
+        correctAnswer: '9.8 m/s^2',
+        points: 750,
+      },
+      2
+    );
+
+    expect(question.questionType).toBe('numeric');
+    expect(question.correctAnswer).toBe('9.8 m/s^2');
+    expect(question.options).toEqual([]);
+    expect(question.orderIndex).toBe(2);
+  });
+
+  it('grades non-choice quiz answers with lesson-style semantics', () => {
+    expect(quizAnswersMatch('9.81 m/s^2', '9.8 m/s^2', 'numeric', [])).toBe(true);
+    expect(quizAnswersMatch(
+      ['Expand brackets', 'Collect like terms', 'Solve for x'],
+      '',
+      'step_order',
+      ['Expand brackets', 'Collect like terms', 'Solve for x'],
+    )).toBe(true);
+    expect(quizAnswersMatch(
+      { 'F = ma': 'Newton second law', 'V = IR': 'Ohm law' },
+      '',
+      'representation_match',
+      [
+        { prompt: 'F = ma', answer: 'Newton second law' },
+        { prompt: 'V = IR', answer: 'Ohm law' },
+      ],
+    )).toBe(true);
   });
 
   it('applies speed scoring within the expected range', () => {

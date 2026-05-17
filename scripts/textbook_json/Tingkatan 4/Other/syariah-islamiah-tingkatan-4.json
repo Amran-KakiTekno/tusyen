@@ -1,0 +1,48 @@
+{
+  "source_key": "form-4-other-syariah-islamiah-syariah-islamiah-tingkatan-4-ms",
+  "title": "Syariah Islamiah Tingkatan 4",
+  "subject": "Syariah Islamiah",
+  "form_level": 4,
+  "stream": "Other",
+  "language": "ms",
+  "metadata": {},
+  "page_count": 2,
+  "extracted_page_count": 2,
+  "needs_ocr_page_count": 0,
+  "extraction_status": "complete",
+  "lesson_count": 1,
+  "lessons": [
+    {
+      "lesson_key": "file-001-source",
+      "topic_code": null,
+      "topic": "Syariah Islamiah Tingkatan 4",
+      "subtopic": "تيغكتن",
+      "title": "تيغكتن",
+      "lesson_type": "file",
+      "order_index": 1,
+      "page_count": 2,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[KSSM_2019_DP_Ting4_PendidikanSyariahIslamiyah_Cover.pdf p1]\nتيغكتن\nRM14.00\nISBN 978-967-388-495-7\nFT 474001\nڤنديديقن شريعة إسالميه\n4\nKEMENTERIAN\nPENDIDIKAN\nMALAYSIA\n\n[KSSM_2019_DP_Ting4_PendidikanSyariahIslamiyah_Cover.pdf p2]\nRUKUN NEGARA\nBahawasanya Negara Kita Malaysia\nmendukung cita-cita hendak;\nMencapai perpaduan yang lebih erat dalam kalangan\nseluruh masyarakatnya;\nMemelihara satu cara hidup demokrasi;\nMencipta satu masyarakat yang adil di mana kemakmuran negara\nakan dapat dinikmati bersama secara adil dan saksama;\nMenjamin satu cara yang liberal terhadap\ntradisi-tradisi kebudayaannya yang kaya dan pelbagai corak;\nMembina satu masyarakat progresif yang akan menggunakan\nsains dan teknologi moden;\nMAKA KAMI, rakyat Malaysia,\nberikrar akan menumpukan seluruh tenaga dan usaha kami\nuntuk mencapai cita-cita tersebut berdasarkan prinsip-prinsip\nyang berikut:\nKEPERCAYAAN KEPADA TUHAN\nKESETIAAN KEPADA RAJA DAN NEGARA\nKELUHURAN PERLEMBAGAAN\nKEDAULATAN UNDANG-UNDANG\nKESOPANAN DAN KESUSILAAN\n(Sumber: Jabatan Penerangan, Kementerian Komunikasi dan Multimedia Malaysia)\nDengan ini SAYA BERJANJI akan menjaga buku ini\ndengan baiknya dan bertanggungjawab atas kehilangannya,\nserta mengembalikannya kepada pihak sekolah pada\ntarikh yang ditetapkan\nTahun\nTingkatan\nNama Penerima\nTarikh\nTerima\nSkim Pinjaman Buku Teks\nSekolah\nBUKU INI TIDAK BOLEH DIJUAL\nNombor Perolehan:\nTarikh Penerimaan:",
+      "char_count": 1394,
+      "pages": [
+        {
+          "file_name": "KSSM_2019_DP_Ting4_PendidikanSyariahIslamiyah_Cover.pdf",
+          "page_number": 1,
+          "global_page_number": 1,
+          "char_count": 104,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_Ting4_PendidikanSyariahIslamiyah_Cover.pdf",
+          "page_number": 2,
+          "global_page_number": 2,
+          "char_count": 1166,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    }
+  ]
+}

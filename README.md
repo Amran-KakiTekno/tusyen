@@ -17,6 +17,7 @@ This is no longer a static prototype. The stack currently includes:
 - Centrifugo and ntfy services included in the stack for real-time/push infrastructure.
 - ntfy notification publishing for classroom posts, lesson assignments, quiz rooms, and whiteboard sessions.
 - Keycloak service integrated as a self-hosted OIDC identity provider. Flutter web can start a Keycloak login, the API completes the authorization-code + PKCE callback, links/provisions the local user, and returns the same app JWT used by existing routes.
+- Optional Gurubesar KSSM Form 4/Form 5 STEM textbook importer that preserves source/file/page traceability, creates linked syllabus and lesson records, and uses TOC-aware subtopic segmentation with printed-page fallback anchors.
 
 For roadmap gaps and root-cause notes, see [docs/feature-gap-audit.md](docs/feature-gap-audit.md).
 
@@ -40,7 +41,7 @@ Caddy reverse proxy :80/:443
         v
 Docker network
         |
-        |-- PostgreSQL: users, syllabus, lessons, progress, classrooms, posts, quiz rooms
+        |-- PostgreSQL: users, syllabus, lessons, progress, classrooms, posts, quiz rooms, textbook extraction trace tables
         |-- Redis: cache, sessions, pub/sub
         |-- MinIO: uploaded files and recordings
         |-- Keycloak: self-hosted identity, SSO, and role source
@@ -70,9 +71,9 @@ After running the demo seed, all demo accounts use `password123`.
 | Student | `student@tusyen.test` | `password123` | Learning path, classes, posts, exercises, progress, quiz history |
 | Teacher | `teacher@tusyen.test` | `password123` | Classrooms, teacher profile, posts, lessons assignment, quizzes, whiteboard sessions |
 | Parent | `parent@tusyen.test` | `password123` | Linked child, child progress, classroom posts |
-| Admin | `admin@tusyen.test` | `password123` | Platform stats, users, parent links, classrooms, syllabus, lessons, system health |
+| Admin | `admin@tusyen.test` | `password123` | Platform stats, users, parent links, classrooms, syllabus, lessons, system health. Disabled on production Docker deployments unless `DEMO_ADMIN_LOGIN_ENABLED=true`. |
 
-The login screen also has demo role tiles that fill these credentials automatically. Keycloak sign-in is available from the web login screen; if the Keycloak account email matches an existing local user, the backend links that account, otherwise it provisions a new local user from the Keycloak profile and roles.
+The login screen also has student, teacher, and parent demo role tiles that fill these credentials automatically. The public admin demo shortcut is hidden by default, and the backend blocks `admin@tusyen.test` in production unless explicitly enabled for QA. Keycloak sign-in is available from the web login screen; if the Keycloak account email matches an existing local user, the backend links that account, otherwise it provisions a new local user from the Keycloak profile and roles.
 
 ## Features By Role
 
@@ -276,6 +277,13 @@ Student progress
   -> answers
   -> attempts
   -> completed flag
+
+Imported textbook content
+  -> textbook_sources, textbook_files, and textbook_pages preserve raw PDF extraction
+  -> textbook_lessons groups pages into subtopic-sized lessons
+  -> linked syllabus_items and lessons expose imported content in the app
+  -> OCR sidecars fill image-heavy pages that have little embedded text
+  -> TOC-aware segmentation uses numbered headings plus printed-page fallback anchors
 ```
 
 Seeded demo content includes:
@@ -495,7 +503,19 @@ Copy-Item .env.example .env
 notepad .env
 ```
 
-Set strong values for database, JWT, MinIO, Centrifugo, Keycloak, and ntfy fields. For local and trycloudflare testing, `KEYCLOAK_PUBLIC_URL` can stay blank so the API derives the public Keycloak URL from the current browser origin and uses `/auth`. For a fixed domain, set it to something like `https://learn.example.com/auth` and add that origin to `KEYCLOAK_ALLOWED_REDIRECT_ORIGINS`.
+Set strong values for database, JWT, MinIO, Centrifugo, Keycloak, and ntfy fields. The API now fails fast in `NODE_ENV=production` if critical secrets are missing or left as placeholders. `KEYCLOAK_ALLOWED_REDIRECT_ORIGINS` and `CORS_ALLOWED_ORIGINS` must be exact origins, such as `https://learn.example.com`; do not use wildcard tunnel domains in production.
+
+Production admin safety defaults:
+
+- `DEMO_ADMIN_LOGIN_ENABLED=false` blocks `admin@tusyen.test` from logging in through the public app.
+- `PUBLIC_ADMIN_REGISTRATION_ENABLED=false` prevents open `/auth/register` calls from creating admin accounts.
+- `JWT_ACCESS_EXPIRES_IN=1h` and `JWT_REFRESH_TTL_SECONDS=604800` enable short-lived access tokens with rotating refresh tokens.
+- `AUTH_COOKIE_SECURE=true` keeps browser tokens in httpOnly, SameSite=Strict, Secure cookies.
+- `MINIO_USE_SSL=true` is required in production; use an S3-compatible endpoint with trusted TLS or provision MinIO TLS certificates in `MINIO_CERTS_DIR` before enabling production mode.
+- `ALLOW_GUEST_QUIZ_JOIN=false` requires authenticated student accounts for live quiz PIN joins.
+- Use a real admin account or temporarily set these to `true` only for controlled QA.
+
+Set `CADDY_SITE_ADDRESS` to the stable production hostname so Caddy can terminate TLS and manage certificates. The default `http://localhost` address is for local development only; do not use Cloudflare quick tunnels as production ingress.
 
 ntfy has two URLs by design:
 
@@ -521,9 +541,10 @@ Run this after PostgreSQL and API dependencies are available:
 
 ```powershell
 docker compose exec api npm run db:seed-demo
+docker compose exec api node scripts/seed-stem-lessons.js
 ```
 
-This creates demo users, teacher profile, syllabus, lessons, questions, classrooms, enrollments, posts, comments, reactions, progress, streaks, whiteboard session, quiz deck, quiz session, and quiz XP.
+This creates demo users, teacher profile, classrooms, enrollments, posts, comments, reactions, streaks, whiteboard session, quiz deck, quiz session, quiz XP, and the Form 4/Form 5 STEM lesson catalogue.
 
 ### 4. Build Flutter web for Caddy
 
@@ -551,12 +572,6 @@ http://localhost/
 
 Use the demo role tiles or the demo credentials listed above.
 
-The dark-cosmos React/Babel design preview (`web_app/`, built from the Tusyen v2 handoff) is served by the same Caddy at:
-
-```text
-http://localhost/v2/
-```
-
 Sign in with the same demo accounts. Auth, profile, admin platform stats, teacher classroom list, parent linked-child progress, and student progress stats hit the real `/api`. Per-screen mock data (subjects, leaderboard, alerts, schedule, weekly bars) is design-parity placeholder pending its own wiring. Demo accounts can preview all four role layouts; non-demo accounts see only their own role.
 
 Keycloak admin console is available at:
@@ -577,25 +592,19 @@ String.fromEnvironment('API_BASE_URL', defaultValue: '/api')
 
 That works automatically when the web app is served by Caddy from the same origin.
 
-For mobile devices or a public tunnel, pass the full API URL:
+For mobile devices on the same network, pass the full API URL:
 
 ```powershell
 flutter run --dart-define=API_BASE_URL=http://YOUR_PC_IP/api
 ```
 
-For a temporary Cloudflare Tunnel:
+For staging or production, use the stable Caddy hostname:
 
 ```powershell
-cloudflared tunnel --url http://localhost:80
+flutter run --dart-define=API_BASE_URL=https://learn.example.com/api
 ```
 
-Then run/build Flutter mobile with:
-
-```powershell
-flutter run --dart-define=API_BASE_URL=https://YOUR-TRYCLOUDFLARE-URL.trycloudflare.com/api
-```
-
-If you open the web app through the same Cloudflare URL, you usually do not need to change `API_BASE_URL` because `/api` stays same-origin.
+If you open the web app through the same Caddy hostname, you usually do not need to change `API_BASE_URL` because `/api` stays same-origin.
 
 ## Development Commands
 
@@ -611,6 +620,7 @@ npm run db:migrate
 npm run db:hygiene -- --dry-run
 npm run db:hygiene
 npm run db:seed-demo
+node scripts/seed-stem-lessons.js
 ```
 
 Flutter:
@@ -647,7 +657,7 @@ npm run qaqc
 npm run qaqc:full
 ```
 
-The Playwright suite runs browser smoke checks and a comprehensive feature workflow against the Docker/Caddy app: `/api/health`, Flutter web root, `/v2/` role preview, demo logins, role switching, mobile layout, auth, admin, classrooms, learning, progress, feed, storage, sync, whiteboard, quiz, and WebSocket paths. Use `npm run qaqc:stack` to rebuild/start Docker before testing, `npm run qaqc:smoke` for fast checks, `npm run qaqc:full` for the broad feature workflow, and `PLAYWRIGHT_BASE_URL` to test a tunnel or staging host. See [docs/playwright-qaqc.md](docs/playwright-qaqc.md).
+The Playwright suite runs browser smoke checks and a comprehensive feature workflow against the Docker/Caddy app: `/api/health`, React web root, demo logins, role switching, mobile layout, auth, admin, classrooms, learning, progress, feed, storage, sync, whiteboard, quiz, and WebSocket paths. Use `npm run qaqc:stack` to rebuild/start Docker before testing, `npm run qaqc:smoke` for fast checks, `npm run qaqc:full` for the broad feature workflow, and `PLAYWRIGHT_BASE_URL` to test a tunnel or staging host. Hardened production-style deployments block the seeded demo admin by default, so run full admin regression only against a QA stack with `DEMO_ADMIN_LOGIN_ENABLED=true` or a real QA admin account. See [docs/playwright-qaqc.md](docs/playwright-qaqc.md).
 
 Docker:
 
@@ -666,6 +676,26 @@ docker compose exec api npm run db:hygiene
 ```
 
 The hygiene task normalizes embed metadata, reconciles whiteboard recording state, ends stale live sessions, refreshes `student_classroom_stats`, clamps progress values into valid ranges, analyzes tables, and soft-deletes unreferenced media after the configured grace period. Use `--aggressive` only for local QA cleanup when recent unreferenced uploads should also be soft-deleted.
+
+Textbook extraction utilities:
+
+```powershell
+cd D:\2026\tusyen
+
+# Download/update Gurubesar textbook PDFs into downloads/gurubesar-kssm-textbooks
+python scripts/download_gurubesar_textbooks.py
+
+# Add OCR sidecars for image-heavy STEM pages that lack embedded text
+python scripts/ocr_missing_text_pages_to_sidecars.py
+
+# Preview discovered Form 4/Form 5 STEM sources without writing to Postgres
+python scripts/extract_stem_textbooks_to_db.py --dry-run
+
+# Import traceable textbook pages and linked app-facing syllabus/lesson records
+python scripts/extract_stem_textbooks_to_db.py --forms 4 5
+```
+
+The importer reads `DATABASE_URL` or `DB_*` values from `.env`, writes the `textbook_*` trace tables from migration `011_textbook_extraction.sql`, and upserts linked `syllabus_items`, `lessons`, and `lesson_syllabus_links`. Lesson detection now combines visible numbered headings with detailed table-of-contents parsing, split-line TOC recovery, inferred printed-page offsets, and synthetic TOC anchors when a subtopic heading is missing from extracted page text.
 
 ## Verification Checklist
 
@@ -690,6 +720,7 @@ Use this list after changes:
 - MinIO storage is protected by signed media URLs. Whiteboard recordings are stored in the private whiteboard bucket and validated as MP4/WebM/MOV before they can be attached.
 - External video embeds are server-normalized and restricted to YouTube, Vimeo, and Loom. The web app renders them in sandboxed iframes with canonical provider embed URLs.
 - The API container runs pending PostgreSQL migrations before starting, so existing Docker volumes receive new schema changes on upgrade.
+- Textbook extraction is intentionally traceable: imported app lessons keep source metadata and page references, while raw PDF text remains queryable in separate `textbook_sources`, `textbook_files`, `textbook_pages`, `textbook_lessons`, and `textbook_lesson_pages` tables.
 - Centrifugo and ntfy are included as self-hosted real-time/push services. Current live quiz rooms use the Fastify WebSocket route `/ws/quiz/:sessionId`; classroom notifications are published to ntfy topics named like `tusyen_classroom_<classroomUuid>`.
 - ntfy publishing is intentionally non-blocking for product flows: failed notification delivery is logged and reported in health checks, but it does not make post/lesson/quiz/whiteboard creation fail.
 - User deletion and classroom deletion are soft disables, preserving database history.
@@ -716,18 +747,18 @@ Invoke-RestMethod http://localhost/api/health
 docker compose logs -f api
 ```
 
-### Cloudflare tunnel opens the web app but login/API fails
+### Deployed web app opens but login/API fails
 
-Use the tunnel root URL for the app, and make sure API calls go to the same origin `/api`. Keycloak is proxied on the same origin under `/auth`, so the web login button should open a URL like:
+Use the Caddy site URL for the app, and make sure API calls go to the same origin `/api`. Keycloak is proxied on the same origin under `/auth`, so the web login button should open a URL like:
 
 ```text
-https://YOUR-TRYCLOUDFLARE-URL.trycloudflare.com/auth/realms/eduapp/protocol/openid-connect/auth...
+https://learn.example.com/auth/realms/eduapp/protocol/openid-connect/auth...
 ```
 
 If Keycloak was already initialized before these settings were added, recreate the Keycloak realm or update the `eduapp-api` client redirect URIs to include `/keycloak-callback` for your public origin. For mobile builds, pass:
 
 ```powershell
---dart-define=API_BASE_URL=https://YOUR-TRYCLOUDFLARE-URL.trycloudflare.com/api
+--dart-define=API_BASE_URL=https://learn.example.com/api
 ```
 
 ### Demo accounts do not exist

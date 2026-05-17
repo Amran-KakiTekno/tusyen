@@ -6,6 +6,8 @@ import {
   calculateQuestionScore,
   formatQuizParticipantDisplayName,
   generateQuizPin,
+  quizAnswerIsBlank,
+  quizAnswersMatch,
   normalizeQuizQuestion,
   questionRowForClient,
   type QuizQuestionInput,
@@ -34,12 +36,32 @@ type QuizJoinInput = {
 type QuizAnswerInput = {
   sessionId: string;
   participantToken: string;
-  selectedOptionIndex: number;
+  selectedOptionIndex?: number;
+  selectedAnswer?: unknown;
+};
+
+type QuizTimerAction = 'pause' | 'resume' | 'add_time';
+
+type QuizTimerControlInput = {
+  action: QuizTimerAction;
+  seconds?: number;
 };
 
 const SESSION_STATE_TTL_SECONDS = 60 * 60 * 24 * 7;
 const SESSION_PIN_KEY_PREFIX = 'quiz:pin:';
 const SESSION_STATE_KEY_PREFIX = 'quiz:session:';
+const quizSessionUpdateColumns = new Set([
+  'status',
+  'current_question_index',
+  'current_question_id',
+  'question_started_at',
+  'question_ends_at',
+  'question_paused_at',
+  'question_remaining_ms',
+  'started_at',
+  'ended_at',
+  'leaderboard_snapshot',
+]);
 
 function stateKey(sessionId: string) {
   return `${SESSION_STATE_KEY_PREFIX}${sessionId}:state`;
@@ -90,6 +112,20 @@ async function getActiveQuizSessionByPin(pin: string) {
      JOIN quiz_decks qd ON qd.id = qs.deck_id
      JOIN classrooms c ON c.id = qs.classroom_id
      WHERE qs.pin = $1 AND qs.status IN ('lobby', 'active')
+     LIMIT 1`,
+    [normalizePin(pin)]
+  );
+}
+
+async function getLatestQuizSessionByPin(pin: string) {
+  return db.query(
+    `SELECT qs.*, qd.title as deck_title, qd.description as deck_description, qd.subject, qd.form_level,
+            c.name as classroom_name, c.subject as classroom_subject
+     FROM quiz_sessions qs
+     JOIN quiz_decks qd ON qd.id = qs.deck_id
+     JOIN classrooms c ON c.id = qs.classroom_id
+     WHERE qs.pin = $1
+     ORDER BY qs.created_at DESC
      LIMIT 1`,
     [normalizePin(pin)]
   );
@@ -153,6 +189,63 @@ async function loadLeaderboard(sessionId: string) {
   );
 }
 
+async function buildSessionResults(sessionId: string, questions: any[], participants: any[]) {
+  const answerStats = await db.query(
+    `SELECT question_id,
+            COUNT(*)::int as answer_count,
+            COUNT(*) FILTER (WHERE is_correct = true)::int as correct_count,
+            COALESCE(ROUND(AVG(response_time_ms)), 0)::int as average_response_time_ms
+     FROM quiz_session_answers
+     WHERE session_id = $1
+     GROUP BY question_id`,
+    [sessionId]
+  );
+
+  const statsByQuestion = new Map(answerStats.rows.map((row) => [row.question_id, row]));
+  const participantCount = participants.length;
+  const totalPossibleAnswers = participantCount * questions.length;
+  const totalAnswers = answerStats.rows.reduce((sum, row) => sum + Number(row.answer_count || 0), 0);
+  const totalCorrect = answerStats.rows.reduce((sum, row) => sum + Number(row.correct_count || 0), 0);
+
+  return {
+    summary: {
+      participantCount,
+      questionCount: questions.length,
+      totalAnswers,
+      totalCorrect,
+      averageAccuracy: totalAnswers > 0 ? Math.round((totalCorrect / totalAnswers) * 100) : 0,
+      completionRate: totalPossibleAnswers > 0 ? Math.round((totalAnswers / totalPossibleAnswers) * 100) : 0,
+    },
+    questionAccuracy: questions.map((question, index) => {
+      const row = statsByQuestion.get(question.id) || {};
+      const answerCount = Number((row as any).answer_count || 0);
+      const correctCount = Number((row as any).correct_count || 0);
+      return {
+        questionId: question.id,
+        questionText: question.question_text,
+        orderIndex: Number(question.order_index ?? index),
+        answerCount,
+        correctCount,
+        noAnswerCount: Math.max(0, participantCount - answerCount),
+        accuracy: answerCount > 0 ? Math.round((correctCount / answerCount) * 100) : 0,
+        averageResponseMs: Number((row as any).average_response_time_ms || 0),
+      };
+    }),
+    topPerformers: buildLeaderboard(
+      participants.map((participant) => ({
+        participantId: participant.id,
+        displayName: participant.display_name,
+        totalScore: Number(participant.total_score || 0),
+        correctCount: Number(participant.correct_count || 0),
+        answeredCount: Number(participant.answered_count || 0),
+        isGuest: Boolean(participant.is_guest),
+        userId: participant.user_id || null,
+      })),
+      5
+    ),
+  };
+}
+
 async function storeSessionState(sessionId: string, state: Record<string, unknown>) {
   await redis.setex(stateKey(sessionId), SESSION_STATE_TTL_SECONDS, JSON.stringify(state));
 }
@@ -185,6 +278,12 @@ function buildQuestionSnapshot(question: any, revealCorrectAnswer: boolean) {
 
 async function updateSessionRows(sessionId: string, updates: Record<string, unknown>) {
   const keys = Object.keys(updates);
+  if (keys.length === 0) return;
+  for (const key of keys) {
+    if (!quizSessionUpdateColumns.has(key)) {
+      throw new Error('Invalid quiz session update field');
+    }
+  }
   const setClause = keys.map((key, index) => `${key} = $${index + 2}`).join(', ');
   const values = [sessionId, ...keys.map((key) => updates[key])];
 
@@ -254,10 +353,15 @@ async function createSessionSnapshot(sessionId: string, viewer?: { participantTo
   const currentQuestion = currentIndex >= 0 ? questions[currentIndex] || null : null;
   const participants = await loadParticipants(sessionId);
   const leaderboard = await loadLeaderboard(sessionId);
+  const isEnded = session.status === 'ended' || session.status === 'cancelled';
+  const results = isEnded ? await buildSessionResults(sessionId, questions, participants) : null;
 
   let participant: any = null;
   if (viewer?.participantToken) {
     participant = await findParticipantByToken(sessionId, viewer.participantToken);
+    if (!participant) {
+      return null;
+    }
   }
 
   return {
@@ -275,6 +379,10 @@ async function createSessionSnapshot(sessionId: string, viewer?: { participantTo
       currentQuestionId: session.current_question_id,
       questionStartedAt: session.question_started_at,
       questionEndsAt: session.question_ends_at,
+      questionPausedAt: session.question_paused_at || null,
+      questionRemainingMs: session.question_remaining_ms === null || session.question_remaining_ms === undefined
+        ? null
+        : Number(session.question_remaining_ms),
       startedAt: session.started_at,
       endedAt: session.ended_at,
       deckTitle: session.deck_title,
@@ -293,6 +401,7 @@ async function createSessionSnapshot(sessionId: string, viewer?: { participantTo
     },
     currentQuestion: buildQuestionSnapshot(currentQuestion, Boolean(viewer?.revealCorrectAnswer || session.status === 'ended')),
     leaderboard,
+    results,
     participant: participant
       ? {
           id: participant.id,
@@ -459,6 +568,33 @@ export async function deleteQuizDeck(user: AuthUser, deckId: string) {
   return true;
 }
 
+export async function duplicateQuizDeck(user: AuthUser, deckId: string) {
+  if (!isTeacherOrAdmin(user)) {
+    throw new Error('Only teachers can manage quiz decks');
+  }
+
+  const source = await getQuizDeck(user, deckId);
+  if (!source) {
+    throw new Error('Quiz deck not found');
+  }
+
+  return saveQuizDeck(user, {
+    title: `${source.title} (Copy)`,
+    description: source.description || null,
+    subject: source.subject,
+    formLevel: Number(source.form_level ?? source.formLevel),
+    questions: (source.questions || []).map((question: any) => ({
+      questionText: question.questionText,
+      questionType: question.questionType,
+      options: question.options,
+      correctAnswer: question.correctAnswer,
+      explanation: question.explanation,
+      points: question.points,
+      timeLimitSeconds: question.timeLimitSeconds,
+    })),
+  });
+}
+
 export async function listQuizSessions(user: AuthUser, classroomId: string) {
   if (!isTeacherOrAdmin(user)) {
     throw new Error('Only teachers can view quiz sessions');
@@ -588,7 +724,12 @@ export async function joinQuizSession(input: QuizJoinInput) {
   const pin = normalizePin(input.pin);
   const sessionResult = await getActiveQuizSessionByPin(pin);
   if (sessionResult.rowCount === 0) {
-    throw new Error('Quiz session not found');
+    const latestSession = await getLatestQuizSessionByPin(pin);
+    const latestStatus = latestSession.rows[0]?.status;
+    if (latestStatus === 'ended' || latestStatus === 'cancelled') {
+      throw new Error('Quiz session has ended');
+    }
+    throw new Error('Invalid quiz PIN');
   }
 
   const session = sessionResult.rows[0];
@@ -676,6 +817,10 @@ export async function getQuizSessionById(sessionId: string) {
   return loadSessionRecord(sessionId);
 }
 
+export async function getQuizSessionParticipantByToken(sessionId: string, participantToken: string) {
+  return findParticipantByToken(sessionId, participantToken);
+}
+
 export async function getQuizSessionQuestions(sessionId: string) {
   const session = await loadSessionRecord(sessionId);
   if (!session) return null;
@@ -715,6 +860,8 @@ export async function startQuizSession(user: AuthUser, sessionId: string) {
          current_question_id = $2,
          question_started_at = $3,
          question_ends_at = $4,
+         question_paused_at = NULL,
+         question_remaining_ms = NULL,
          started_at = COALESCE(started_at, NOW()),
          updated_at = NOW()
      WHERE id = $1`,
@@ -731,6 +878,8 @@ export async function startQuizSession(user: AuthUser, sessionId: string) {
     currentQuestionId: firstQuestion.id,
     questionStartedAt: startedAt.toISOString(),
     questionEndsAt: endsAt.toISOString(),
+    questionPausedAt: null,
+    questionRemainingMs: null,
   });
 
   return createSessionSnapshot(sessionId, { revealCorrectAnswer: true });
@@ -766,6 +915,8 @@ export async function advanceQuizSession(user: AuthUser, sessionId: string) {
          current_question_id = $3,
          question_started_at = $4,
          question_ends_at = $5,
+         question_paused_at = NULL,
+         question_remaining_ms = NULL,
          updated_at = NOW()
      WHERE id = $1`,
     [sessionId, nextIndex, nextQuestion.id, startedAt, endsAt]
@@ -781,9 +932,120 @@ export async function advanceQuizSession(user: AuthUser, sessionId: string) {
     currentQuestionId: nextQuestion.id,
     questionStartedAt: startedAt.toISOString(),
     questionEndsAt: endsAt.toISOString(),
+    questionPausedAt: null,
+    questionRemainingMs: null,
   });
 
   return createSessionSnapshot(sessionId, { revealCorrectAnswer: true });
+}
+
+export async function controlQuizSessionTimer(user: AuthUser, sessionId: string, input: QuizTimerControlInput) {
+  const session = await loadSessionRecord(sessionId);
+  if (!session) {
+    throw new Error('Quiz session not found');
+  }
+
+  await ensureTeacherCanAccessSession(user, session);
+
+  if (session.status !== 'active') {
+    throw new Error('Quiz session is not active');
+  }
+
+  if (!session.current_question_id || !session.question_started_at) {
+    throw new Error('No active question');
+  }
+
+  const action = String(input.action || '').trim() as QuizTimerAction;
+  const questions = await loadDeckQuestions(session.deck_id);
+  const currentQuestion = questions.find((question) => question.id === session.current_question_id);
+  if (!currentQuestion) {
+    throw new Error('Current question not found');
+  }
+
+  const now = new Date();
+  const paused = Boolean(session.question_paused_at);
+  const rawTimeLimitSeconds = Number(currentQuestion.time_limit_seconds || 20);
+  const timeLimitMs = (Number.isFinite(rawTimeLimitSeconds) && rawTimeLimitSeconds > 0 ? rawTimeLimitSeconds : 20) * 1000;
+
+  if (action === 'pause') {
+    if (!paused) {
+      const endsAt = session.question_ends_at ? new Date(session.question_ends_at) : now;
+      const remainingMs = Math.max(0, endsAt.getTime() - now.getTime());
+      await db.query(
+        `UPDATE quiz_sessions
+         SET question_paused_at = $2,
+             question_remaining_ms = $3,
+             updated_at = NOW()
+         WHERE id = $1`,
+        [sessionId, now, remainingMs]
+      );
+    }
+  } else if (action === 'resume') {
+    if (paused) {
+      const remainingMs = Math.max(0, Number(session.question_remaining_ms || 0));
+      const newEndsAt = new Date(now.getTime() + remainingMs);
+      const elapsedBeforePauseMs = Math.max(0, Math.min(timeLimitMs, timeLimitMs - remainingMs));
+      const adjustedStartedAt = new Date(now.getTime() - elapsedBeforePauseMs);
+      await db.query(
+        `UPDATE quiz_sessions
+         SET question_started_at = $2,
+             question_ends_at = $3,
+             question_paused_at = NULL,
+             question_remaining_ms = NULL,
+             updated_at = NOW()
+         WHERE id = $1`,
+        [sessionId, adjustedStartedAt, newEndsAt]
+      );
+    }
+  } else if (action === 'add_time') {
+    const rawSeconds = Number(input.seconds || 15);
+    const seconds = Math.min(300, Math.max(1, Number.isFinite(rawSeconds) ? rawSeconds : 15));
+    const incrementMs = Math.round(seconds * 1000);
+
+    if (paused) {
+      const remainingMs = Math.max(0, Number(session.question_remaining_ms || 0)) + incrementMs;
+      await db.query(
+        `UPDATE quiz_sessions
+         SET question_remaining_ms = $2,
+             updated_at = NOW()
+         WHERE id = $1`,
+        [sessionId, remainingMs]
+      );
+    } else {
+      const currentEndsAt = session.question_ends_at ? new Date(session.question_ends_at) : now;
+      const baseTime = Math.max(currentEndsAt.getTime(), now.getTime());
+      const newEndsAt = new Date(baseTime + incrementMs);
+      await db.query(
+        `UPDATE quiz_sessions
+         SET question_ends_at = $2,
+             updated_at = NOW()
+         WHERE id = $1`,
+        [sessionId, newEndsAt]
+      );
+    }
+  } else {
+    throw new Error('Invalid timer action');
+  }
+
+  const snapshot = await createSessionSnapshot(sessionId, { revealCorrectAnswer: true });
+  if (snapshot) {
+    await storeSessionState(sessionId, {
+      sessionId,
+      status: snapshot.session.status,
+      pin: snapshot.session.pin,
+      classroomId: snapshot.session.classroomId,
+      deckId: snapshot.session.deckId,
+      currentQuestionIndex: snapshot.session.currentQuestionIndex,
+      currentQuestionId: snapshot.session.currentQuestionId,
+      questionStartedAt: snapshot.session.questionStartedAt,
+      questionEndsAt: snapshot.session.questionEndsAt,
+      questionPausedAt: snapshot.session.questionPausedAt,
+      questionRemainingMs: snapshot.session.questionRemainingMs,
+      endedAt: snapshot.session.endedAt || null,
+    });
+  }
+
+  return snapshot;
 }
 
 export async function endQuizSession(user: AuthUser, sessionId: string) {
@@ -887,6 +1149,8 @@ export async function endQuizSession(user: AuthUser, sessionId: string) {
     currentQuestionId: session.current_question_id,
     questionStartedAt: session.question_started_at,
     questionEndsAt: session.question_ends_at,
+    questionPausedAt: null,
+    questionRemainingMs: null,
     endedAt: new Date().toISOString(),
   });
 
@@ -906,7 +1170,8 @@ export async function submitQuizAnswer(input: QuizAnswerInput) {
     throw new Error('Quiz session is not active');
   }
 
-  if (!session.question_started_at || !session.question_ends_at || !session.current_question_id) {
+  const questionPaused = Boolean(session.question_paused_at);
+  if (!session.question_started_at || (!session.question_ends_at && !questionPaused) || !session.current_question_id) {
     throw new Error('No active question');
   }
 
@@ -932,25 +1197,47 @@ export async function submitQuizAnswer(input: QuizAnswerInput) {
 
   const now = new Date();
   const startedAt = new Date(session.question_started_at);
-  const endsAt = new Date(session.question_ends_at);
+  const endsAt = session.question_ends_at ? new Date(session.question_ends_at) : now;
 
-  if (now.getTime() > endsAt.getTime()) {
+  if (!questionPaused && now.getTime() > endsAt.getTime()) {
     throw new Error('Question time expired');
   }
 
-  const selectedIndex = Number(input.selectedOptionIndex);
-  if (!Number.isInteger(selectedIndex)) {
-    throw new Error('Selected answer must be an option index');
+  const options = Array.isArray(currentQuestion.options) ? currentQuestion.options : [];
+  const hasSelectedOptionIndex = input.selectedOptionIndex !== undefined && input.selectedOptionIndex !== null;
+  const submittedAnswer = hasSelectedOptionIndex
+    ? { optionIndex: Number(input.selectedOptionIndex) }
+    : input.selectedAnswer;
+
+  if (quizAnswerIsBlank(submittedAnswer)) {
+    throw new Error('Selected answer is required');
   }
 
-  const options = Array.isArray(currentQuestion.options) ? currentQuestion.options : [];
-  if (selectedIndex < 0 || selectedIndex >= options.length) {
-    throw new Error('Selected answer is out of range');
+  if (hasSelectedOptionIndex) {
+    const selectedIndex = Number(input.selectedOptionIndex);
+    if (!Number.isInteger(selectedIndex)) {
+      throw new Error('Selected answer must be an option index');
+    }
+
+    if (selectedIndex < 0 || selectedIndex >= options.length) {
+      throw new Error('Selected answer is out of range');
+    }
   }
 
   const correctAnswerIndex = Number(currentQuestion.correct_answer?.optionIndex ?? -1);
-  const isCorrect = selectedIndex === correctAnswerIndex;
-  const elapsedMs = Math.max(0, now.getTime() - startedAt.getTime());
+  const isCorrect = quizAnswersMatch(
+    submittedAnswer,
+    currentQuestion.correct_answer,
+    currentQuestion.question_type,
+    options,
+  );
+  const rawAnswerTimeLimitSeconds = Number(currentQuestion.time_limit_seconds || 20);
+  const timeLimitMs = (Number.isFinite(rawAnswerTimeLimitSeconds) && rawAnswerTimeLimitSeconds > 0
+    ? rawAnswerTimeLimitSeconds
+    : 20) * 1000;
+  const elapsedMs = questionPaused
+    ? Math.max(0, timeLimitMs - Math.max(0, Number(session.question_remaining_ms || 0)))
+    : Math.max(0, now.getTime() - startedAt.getTime());
   const pointsAwarded = isCorrect
     ? calculateQuestionScore(Number(currentQuestion.points || 1000), Number(currentQuestion.time_limit_seconds || 20), elapsedMs)
     : 0;
@@ -967,7 +1254,7 @@ export async function submitQuizAnswer(input: QuizAnswerInput) {
         input.sessionId,
         participant.id,
         currentQuestion.id,
-        JSON.stringify({ optionIndex: selectedIndex }),
+        JSON.stringify(submittedAnswer),
         isCorrect,
         elapsedMs,
         pointsAwarded,

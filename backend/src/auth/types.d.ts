@@ -13,5 +13,9 @@ declare module 'fastify' {
 
   interface FastifyInstance {
     authenticate: (request: FastifyRequest, reply: any) => Promise<void>;
+    jwt: {
+      sign: (payload: Record<string, unknown>, options?: { expiresIn?: string | number }) => string;
+      verify: (token: string) => Promise<any>;
+    };
   }
 }

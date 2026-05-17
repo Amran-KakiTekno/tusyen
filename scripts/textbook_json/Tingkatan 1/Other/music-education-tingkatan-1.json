@@ -1,0 +1,1032 @@
+{
+  "source_key": "form-1-other-music-education-pendidikan-muzik-tingkatan-1-ms",
+  "title": "Pendidikan Muzik Tingkatan 1",
+  "subject": "Music Education",
+  "form_level": 1,
+  "stream": "Other",
+  "language": "ms",
+  "metadata": {},
+  "page_count": 123,
+  "extracted_page_count": 120,
+  "needs_ocr_page_count": 1,
+  "extraction_status": "complete",
+  "lesson_count": 5,
+  "lessons": [
+    {
+      "lesson_key": "1-1-menyanyikan-lagu-secara-ensembel-001",
+      "topic_code": "1.1",
+      "topic": "Bab 1",
+      "subtopic": "1.1 Menyanyikan Lagu secara Ensembel",
+      "title": "1.1 Menyanyikan Lagu secara Ensembel",
+      "lesson_type": "subtopic",
+      "order_index": 1,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[Pendidikan Muzik Tingkatan 1.pdf p10]\nUnit 1\nUNIT 1\nMUZIK ALAT\nPENYATUAN\n1.1 Menyanyikan Lagu secara Ensembel\ndaripada Pelbagai Repertoir\n1.1.1 Bernyanyi secara unison dengan:\ni. Pic yang betul\nii. Dinamik yang sesuai\niii. Tempo yang betul\n2.1 Memainkan Muzik secara Ensembel\n2.1.1 Memainkan muzik secara ensembel\nberdasarkan skor:\ni. Bermain alat muzik dengan teknik\nyang betul\nii. Bermain alat muzik dengan pic yang\nbetul atau ton yang baik\niii. Bermain alat muzik dengan irama\nyang betul mengikut tempo\niv. Mengamalkan cara penjagaan alat\nUnit ini mengandungi\npersembahan\nAugmented Reality\nCode (AR Code) di\nhalaman 8, 13 dan 14.\nInfo boleh didapati di\nhalaman Kandungan.\nAR CODE\nDapatkan\nStandard Pembelajaran\nPada akhir pembelajaran ini,\nmurid berupaya:\nCONTOH\nwww.arasmega.com\n2",
+      "char_count": 785,
+      "pages": [
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 10,
+          "global_page_number": 10,
+          "char_count": 746,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "2-1-memainkan-muzik-secara-ensembel-002",
+      "topic_code": "2.1",
+      "topic": "Bab 2",
+      "subtopic": "2.1 Memainkan Muzik secara Ensembel",
+      "title": "2.1 Memainkan Muzik secara Ensembel",
+      "lesson_type": "subtopic",
+      "order_index": 2,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[Pendidikan Muzik Tingkatan 1.pdf p10]\nUnit 1\nUNIT 1\nMUZIK ALAT\nPENYATUAN\n1.1 Menyanyikan Lagu secara Ensembel\ndaripada Pelbagai Repertoir\n1.1.1 Bernyanyi secara unison dengan:\ni. Pic yang betul\nii. Dinamik yang sesuai\niii. Tempo yang betul\n2.1 Memainkan Muzik secara Ensembel\n2.1.1 Memainkan muzik secara ensembel\nberdasarkan skor:\ni. Bermain alat muzik dengan teknik\nyang betul\nii. Bermain alat muzik dengan pic yang\nbetul atau ton yang baik\niii. Bermain alat muzik dengan irama\nyang betul mengikut tempo\niv. Mengamalkan cara penjagaan alat\nUnit ini mengandungi\npersembahan\nAugmented Reality\nCode (AR Code) di\nhalaman 8, 13 dan 14.\nInfo boleh didapati di\nhalaman Kandungan.\nAR CODE\nDapatkan\nStandard Pembelajaran\nPada akhir pembelajaran ini,\nmurid berupaya:\nCONTOH\nwww.arasmega.com\n2",
+      "char_count": 785,
+      "pages": [
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 10,
+          "global_page_number": 10,
+          "char_count": 746,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "3-1-menghasilkan-idea-muzik-kreatif-003",
+      "topic_code": "3.1",
+      "topic": "Bab 3",
+      "subtopic": "3.1 Menghasilkan Idea Muzik Kreatif",
+      "title": "3.1 Menghasilkan Idea Muzik Kreatif",
+      "lesson_type": "subtopic",
+      "order_index": 3,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[Pendidikan Muzik Tingkatan 1.pdf p11]\nUnit 1\n3\n3.1 Menghasilkan Idea Muzik Kreatif\n3.1.1 Mencipta corak irama berdasarkan meter\n4.1 Menghayati Muzik daripada Pelbagai Genre\n4.1.1 Memberikan ulasan tentang muzik tradisional Malaysia yang didengar\natau ditonton daripada aspek:\ni. Genre muzik\nii. Alat muzik\niii. Fungsi muzik\niv. Cara persembahan\nv. Latar belakang muzik\n5.1 Membaca dan Menulis Notasi Muzik\n5.1.1 Membaca dan menulis jenis not serta tanda rehat mengikut nilai:\ni. Semibrif\nii. Minim\niii. Krocet\n5.1.2 Membaca dan menulis not serta tanda rehat berdasarkan meter dan\n4\n4\n4\n4\n2\n4\n3",
+      "char_count": 594,
+      "pages": [
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 11,
+          "global_page_number": 11,
+          "char_count": 555,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "4-1-menghayati-muzik-daripada-pelbagai-genre-004",
+      "topic_code": "4.1",
+      "topic": "Bab 4",
+      "subtopic": "4.1 Menghayati Muzik daripada Pelbagai Genre",
+      "title": "4.1 Menghayati Muzik daripada Pelbagai Genre",
+      "lesson_type": "subtopic",
+      "order_index": 4,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[Pendidikan Muzik Tingkatan 1.pdf p11]\nUnit 1\n3\n3.1 Menghasilkan Idea Muzik Kreatif\n3.1.1 Mencipta corak irama berdasarkan meter\n4.1 Menghayati Muzik daripada Pelbagai Genre\n4.1.1 Memberikan ulasan tentang muzik tradisional Malaysia yang didengar\natau ditonton daripada aspek:\ni. Genre muzik\nii. Alat muzik\niii. Fungsi muzik\niv. Cara persembahan\nv. Latar belakang muzik\n5.1 Membaca dan Menulis Notasi Muzik\n5.1.1 Membaca dan menulis jenis not serta tanda rehat mengikut nilai:\ni. Semibrif\nii. Minim\niii. Krocet\n5.1.2 Membaca dan menulis not serta tanda rehat berdasarkan meter dan\n4\n4\n4\n4\n2\n4\n3",
+      "char_count": 594,
+      "pages": [
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 11,
+          "global_page_number": 11,
+          "char_count": 555,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "5-1-membaca-dan-menulis-notasi-muzik-005",
+      "topic_code": "5.1",
+      "topic": "Bab 5",
+      "subtopic": "5.1 Membaca dan Menulis Notasi Muzik",
+      "title": "5.1 Membaca dan Menulis Notasi Muzik",
+      "lesson_type": "subtopic",
+      "order_index": 5,
+      "page_count": 113,
+      "extraction_status": "complete",
+      "estimated_minutes": 90,
+      "text_content": "[Pendidikan Muzik Tingkatan 1.pdf p11]\nUnit 1\n3\n3.1 Menghasilkan Idea Muzik Kreatif\n3.1.1 Mencipta corak irama berdasarkan meter\n4.1 Menghayati Muzik daripada Pelbagai Genre\n4.1.1 Memberikan ulasan tentang muzik tradisional Malaysia yang didengar\natau ditonton daripada aspek:\ni. Genre muzik\nii. Alat muzik\niii. Fungsi muzik\niv. Cara persembahan\nv. Latar belakang muzik\n5.1 Membaca dan Menulis Notasi Muzik\n5.1.1 Membaca dan menulis jenis not serta tanda rehat mengikut nilai:\ni. Semibrif\nii. Minim\niii. Krocet\n5.1.2 Membaca dan menulis not serta tanda rehat berdasarkan meter dan\n4\n4\n4\n4\n2\n4\n3\n\n[Pendidikan Muzik Tingkatan 1.pdf p12]\nmo mu mi ma ma mi mu mo mo ma\nMa - ri ka - wan se - mua ma - ri ki - ta nya - nyi ber - sa - ma sa - ma yeah\n\nLatihan Pemanasan Suara\nNota\nGuru\nTAHUKAH\nANDA?\nPic\nPic ialah tinggi atau rendah nada suara atau bunyi. Dalam\nnyanyian, pic tinggi atau rendah terhasil akibat daripada\ngetaran yang berlaku pada pita suara. Untuk menghasilkan\npic tinggi, pita suara bergetar laju sementara untuk\nmenghasilkan pic rendah pita suara bergetar perlahan.\nNyanyian unison\nmerupakan nyanyian\nkumpulan atau nyanyian\nsecara beramai-ramai\ntanpa lapisan suara.\n• Durasi pembelajaran 60 minit melibatkan muka surat 4 hingga 5.\n• Dengarkan keseluruhan lagu Kita Bersatu.\n• Nyanyikan lagu baris demi baris. Membetulkan kesalahan nyanyian murid.\n• Nyanyikan lagu secara keseluruhan.\n• Bernyanyi sambil menepuk detik lagu Kita Bersatu dalam tempo yang berbeza.\n• Minta murid mencadangkan aktiviti lain selain menepuk untuk pengukuhan detik lagu\nsemasa menyanyi.\nLatihan\npemanasan\nsuara 1\nEnsembel Nyanyian\nDurasi Pembelajaran\n1\n1\nKebiasaannya,\nlelaki menghasilkan\npic yang rendah\nketika bercakap.\nPerempuan pula\nmenghasilkan pic yang\ntinggi ketika bercakap.\nSP\n1.1.1\nRongga hidung\nRongga mulut\nLidah\nPita suara\nTrakea\nRajah 1.1 Pita suara.\nUnit 1\n4\n\n[Pendidikan Muzik Tingkatan 1.pdf p13]\nLirik di bawah dinyanyikan secara rap semasa\nnyanyian korus rangkap kedua (bar 12).\nMari semua, tak kira apa bangsa\nPerkara yang lalu, jangan dikenang juga\nBersama-sama kita, menuju puncak jaya\nMenuju cita-cita, membangunkan negara.\nLagu Kita\nBersatu\n- Vokal\nLagu Kita\nBersatu\n- Instrumental\nLagu Kita\nBersatu\n- Minus one\n2\n3\n4\nLagu: Muhammad Fahmi Yusri\nLirik: Yusri Hussain\nMari Bernyanyi\nRap merupakan satu\nstail dalam nyanyian\nyang dinyanyikan secara\npercakapan.\nUnit 1\n5\n\n[Pendidikan Muzik Tingkatan 1.pdf p14]\nQR CODE\nSP\nEnsembel Muzik\nBahagian-bahagian Gitar\nFret\nNut\nTuning pegs\n(Penala)\nPenanda\nfret\nFretboard\nKepala\nLeher\nBadan\nSound hole\n(Lubang bunyi)\nTali gitar\nSaddle\nPick guard\nBridge\n(Penyokong tali gitar)\nSound box\n(Kotak penghasil bunyi)\nMengenal jenis gitar.\nGitar\nGitar ialah alat muzik popular yang diklasifikasikan sebagai\nalat muzik bertali. Asal usul gitar dapat dikesan sejak\n3300 tahun dahulu bermula dari Mesir dan Mesopotamia\nkemudian telah berkembang ke Eropah. Pada abad ke-18\ngitar mula mengalami perubahan. Pada asalnya\ngitar mempunyai empat utas tali dan kini gitar\ndimainkan dengan enam utas tali. Reka\nbentuknya pula telah berubah di Sepanyol\npada abad ke-19 menjadi bentuk gitar\nmoden seperti yang ada sekarang.\nPick guard berfungsi untuk\nmengelakkan berlakunya\ncalar pada badan gitar\napabila dimainkan.\nPlektrum (Pick gitar)\nDurasi Pembelajaran\nhttp://arasmega.com/qr-link/\nmengenal-jenis-gitar/\n2.1.1\n(i) (ii)\nMari kita mengenal pasti dan\nmenamakan bahagian-bahagian\nyang terdapat pada gitar.\nRajah 1.2 Bahagian gitar.\nNota\nGuru\n• Durasi pembelajaran 60 minit melibatkan muka surat 6 hingga 10.\n• Minta murid mengenal dan menghafal bahagian-bahagian gitar.\n• Tunjukkan postur bermain gitar kepada murid dalam keadaan berdiri dan duduk.\nAbad\n21\nke-\nBersifat\ningin tahu\nUnit 1\n6\n\n[Pendidikan Muzik Tingkatan 1.pdf p15]\nPostur Bermain Gitar\nPenalaan Gitar\nPenalaan gitar ialah penting sebelum dimainkan. Terdapat beberapa cara untuk menala\ngitar. Antaranya, menggunakan keyboard atau piano dan alat penalaan gitar.\n2. Alat penalaan gitar.\na. Pitch pipe tuner\nb. Electronic tuner\n1. Keyboard atau piano.\nPostur berdiri\nPostur duduk\nFoto 1.1 Postur bermain gitar.\nE\nA\nD\nG\nB\nE\nPostur merupakan aspek penting bagi menjamin keselesaan dan kualiti persembahan\nsemasa bermain gitar. Foto di bawah menunjukkan postur bermain gitar yang betul.\nRajah 1.3 Penalaan gitar menggunakan keyboard.\nTali keenam\nTali kelima\nTali keempat\nTali ketiga\nTali kedua\nTali pertama\nE\nA\nD\nG\nB\nE\nUnit 1\n7\n\n[Pendidikan Muzik Tingkatan 1.pdf p16]\nGitar dimainkan dengan cara memetik tali gitar.\nJari tangan kanan digunakan untuk memetik gitar,\nmanakala jari tangan kiri pula menekan tali gitar\npada fretboard. Terdapat dua cara memetik gitar:\n1. Strumming\nMembunyikan tali gitar menggunakan kuku jari\natau plectrum secara serentak\ngerakan ke bawah (down\nstroke) dan ke atas\n(up stroke).\n2. Plucking\nMembunyikan tali gitar\nsecara satu persatu dengan\nmenggunakan jari.\nStrum tali gitar pada bahagian sound\nhole untuk menghasilkan bunyi ton\nyang lebih baik dan jelas.\nStrum ke bawah\n(down stroke)\nStrum ke atas\n(up stroke)\nSimbol Memetik\nCara Bermain Gitar\nImbas di sini!\nSesuatu yang menarik\nuntuk diterokai.\nCODE\nAR\nTerdapat beberapa\nkaedah yang\ndigunakan untuk\nplucking gitar.\nAntaranya,\nkaedah PIMA.\nPIMA ialah satu\nkaedah untuk\nplucking yang\nmenjelaskan\njari mana yang\ndigunakan.\nP\nPulgar\nIndice\nMedio\nAnular\nI\nM A\nEMK TMK\nUnit 1\n8\n\n[Pendidikan Muzik Tingkatan 1.pdf p17]\nDurasi Pembelajaran\nMari Belajar Bermain Kord C Major\nRajah 1.5 Kord C Major.\nTali dipetik\nTali tidak dipetik\nNut\nNombor pada jari\nPerletakan\njari\nX\nO\nFret 1\nFret 2\nFret 3\nFret 4\nTali 6 (E)\nTali 5 (A)\nTali 4 (D)\nTali 3 (G)\nTali 2 (B)\nTali 1 (E)\n1\n2\n1\n1\n1\nT\n2\n3\n4\n2\n3\n4\nPetunjuk Memegang Kord dan Memetik Gitar\nRajah 1.4 Petunjuk memegang kord.\nTali gitar mestilah\nditekan dengan\nhujung jari pada fret.\nKord biasanya dipegang menggunakan jari tangan kiri. Kaedah memegang kord\nadalah seperti rajah di bawah.\nC\nO\nX\nO\n3\n1\n2\n1\n2\n3\n4\n5\nPetunjuk:\nO = Tali perlu dimainkan tanpa menekan tali\npada fret.\n= Tali perlu dimainkan secara menekan tali\npada fret dengan penjarian yang betul.\nX = Tali tidak perlu dimainkan.\nUnit 1\n9\n\n[Pendidikan Muzik Tingkatan 1.pdf p18]\n1\n2\nJari 2 menekan\ntali keempat pada\nfret kedua.\n3\nJari 3 menekan\ntali kelima pada\nfret ketiga.\nJari 1 menekan\ntali kedua pada\nfret pertama.\n1\n2\nC C C C\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nLatihan bermain kord C Major dalam nilai semibrif\nLatihan bermain kord C Major dalam nilai minim\nLatihan bermain\nkord C Major\ndalam nilai\nsemibrif\nLatihan bermain\nkord C Major\ndalam nilai minim\n6\n7\nPenjarian Kord C Major\nKord\nC Major\n5\nFoto 1.2 Kord C Major.\nUnit 1\n10\n\n[Pendidikan Muzik Tingkatan 1.pdf p19]\nKenek-kenek Ode\nTempo\nTempo ialah kelajuan sesuatu karya muzik. Dalam sesebuah karya, muzik mempunyai\ntempo cepat (Allegro), sederhana cepat (Andante), sederhana (Moderato) atau lambat\n(Adagio). Tempo juga boleh ditulis dengan kaedah Maelzel Metronome (m m)  = 100.\nLatihan\npemanasan\nsuara 2\nLagu\nKenek-kenek\nOde - vokal\nLagu\nKenek-kenek\nOde -\ninstrumental\nLagu\nKenek-kenek\nOde\n- minus one\nLatihan Pemanasan Suara\ndo re mi fa so la ti do ti la so fa mi re do\n\nEnsembel Nyanyian\na Menyanyikan lagu Kenek-kenek Ode.\nb Bernyanyi sambil menepuk detik pertama dalam lagu Kenek-kenek Ode.\nc\nBernyanyi sambil menepuk detik pertama dan ketiga dalam lagu Kenek-kenek Ode.\n2\nDurasi Pembelajaran\n8\n9\n10\n11\nNota\nGuru\n• Durasi pembelajaran 60 minit melibatkan muka surat 11 hingga 12.\n• Mendengarkan keseluruhan lagu Kenek-kenek Ode.\n• Menyanyikan lagu Kenek-kenek Ode secara baris demi baris.\n• Minta murid membunyikan detik lagu Kenek-keneklah Ode selain menepuk.\nSP\n1.1.1\n2.1.1\nUnit 1\n11\n\n[Pendidikan Muzik Tingkatan 1.pdf p20]\nAktiviti bermain gitar mengiringi lagu Kenek-kenek Ode secara berkumpulan.\nMurid akan dibahagikan kepada dua kumpulan, iaitu kumpulan A dan\nkumpulan B. Kumpulan A akan bermain gitar mengiringi lagu Kenek-kenek\nOde, sementara kumpulan B menyanyikan lagu Kenek-kenek Ode. Kemudian,\nkedua-dua kumpulan akan bertukar peranan.\nAktiviti\nCadangan\nEnsembel Muzik\nPada pelajaran yang lepas, murid telah mempelajari kord C Major secara strum ke bawah.\nSekarang mari kita bermain gitar dalam nilai not semibrif (  ) dan minim (  ).\n1. Bermain gitar diiringi rentak yang disediakan.\n2. Bermain gitar mengiringi lagu.\nLatihan\nbermain gitar\nDurasi Pembelajaran\nC C C C C C C C\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nC C C C\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nLagu\nKenek-kenek\nOde\n- minus one\n12\n14\nMari Bermain Gitar\nKenek-kenek Ode\nKenek-kenek la ode\nLembu patoh tanduk\nCek Mek kenolah gode\nCek Awe keno tumbok\nUu wa uu wa uu wa uu wa uu wa uu wa uu\nLatihan gitar\nlagu Kenek-\nkenek Ode\n13\nKenek-kenek Ode\nAbad\n21\nke-\nKerja\nberpasukan\n:\n:\nG\n1\n2.\nUnit 1\n12\n\n[Pendidikan Muzik Tingkatan 1.pdf p21]\nDurasi Pembelajaran\n\n\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\nNilai not\nNilai not ialah bunyi panjang atau pendek\nsesuatu pic mengikut kiraan nilai detik.\nSetiap jenis not mempunyai nilai not yang\nberbeza. Rujuk jadual di bawah.\nRajah 1.6 Garis bar.\nRajah di bawah menunjukkan bar, garis bar dan garis penamat.\nGaris\npenamat\nGaris bar\nbar 1\nbar 2\nbar 3\nbar 4\n• Durasi pembelajaran 60 minit melibatkan muka surat 13 hingga 15.\n• Bimbing murid cara menepuk nilai not krocet (  ), minim (  ) dan semibrif (  ).\n• Latihan tepukan boleh juga dilakukan secara kaedah undur (retrograde).\nLatihan\nmenepuk\nirama 2\nLatihan\nmenepuk\nirama 1\nNotasi Muzik\nLatihan menepuk irama 1\nLatihan menepuk irama 2\nGaris Bar\nJadual 1.1 Nilai not krocet, minim dan semibrif.\nJenis Not\nSimbol Not\nSimbol Tangan\nTanda Rehat\nNilai Not\nSemibrif\n4 detik\nMinim\n2 detik\nKrocet\n1 detik\n\n\nw\n\nNota\nGuru\n15\n16\nSP\n5.1.1\n(i)(ii)\n(iii)\nImbas di sini!\nCara menepuk tangan\nmengikut not.\nCODE\nAR\n1 2 3 4\n1 2\n1\nUnit 1\n13\n\n[Pendidikan Muzik Tingkatan 1.pdf p22]\nGamelan\nMembranofon\nMembranofon\nGendang\nKenong\nSaron baron\nSaron pekin\nGong besar dan kecil\nGambang kayu\nKromong\nIdiofon\nIdiofon\nApresiasi Muzik\nGamelan ialah sejenis muzik\ntradisional Malaysia yang mula\nberkembang di Pahang. Muzik Gamelan\ndimainkan secara ensembel dengan menggunakan\ntujuh alat muzik asas. Alat-alat itu terdiri daripada alat\nkumpulan idiofon dan membranofon.\nKesemua alat mempunyai peranan tertentu dalam\nensembel gamelan. Saron baron, saron pekin, gambang\nkayu dan kromong memainkan melodi utama. Gendang\nmemainkan rentak. Gong berfungsi sebagai penanda\nmasa sementara kenong berfungsi sebagai penanda frasa.\nGamelan kini popular dipelajari di institusi pengajian\ntinggi dan sekolah-sekolah di Malaysia. Muzik gamelan\nsering dimainkan dalam majlis diraja, acara rasmi dan\njuga majlis keramaian.\nDurasi Pembelajaran\n17\nGamelan\nImbas di sini!\nSesuatu yang menarik\nuntuk diterokai.\nCODE\nAR\nAntara lagu-lagu yang\ndimainkan dengan muzik\ngamelan ialah Topeng,\nTimang Burung, Togok,\nAyak-ayak, Lambang\nSari, Geliung, Ketam\nRenjong, Nongga dan\nAntawada.\nKlasifikasi\nSach-Hornbostel\nAlat muzik tradisional\nterdiri daripada empat\nkategori seperti\nmembranofon, idiofon,\nkordofon dan erofon.\nUnit 1\n14\n\n[Pendidikan Muzik Tingkatan 1.pdf p23]\nSaron baron\nGambang\nKromong/bonang\nGendang\nKenong\nSaron pekin\nGong besar dan gong kecil\n1. Cari informasi tentang gamelan Melayu. Tuliskan tentang perkara berikut:\n(a) Sejarah ringkas\n(b) Contoh lagu gamelan\n2. Muat turun video berkaitan permainan gamelan.\nKenong\n20\nSaron\nBaron\nGambang\nKromong\nGong\nSaron pekin\nGendang\n21\n22\n23\n24\n19\n18\nUnit 1\n15\n\n[Pendidikan Muzik Tingkatan 1.pdf p24]\nSP\nTanda Rehat\nPada pelajaran yang lepas, kamu telah mempelajari\njenis not krocet (  ), minim (  ) dan semibrif (  ).\nTerdapat juga simbol yang tidak dibunyikan.\nSimbol-simbol tersebut dikenali sebagai tanda rehat.\nTanda\nrehat\nKrocet\nMinim\nSemibrif\nSimbol\ntangan\nNilai\n1\n2\n4\nJadual 1. 2 Tanda rehat.\n1. Isikan tanda rehat yang betul pada ruang yang disediakan.\nNotasi Muzik\n1\n1 - 2\n1 - 2 - 3 - 4\na  +  + = w\nb + + =\nb  + + = w\nd + + = \nnot\nnot\nnot\nnot\ntanda rehat\ntanda rehat\n2. Isikan satu not atau tanda rehat pada ruang yang disediakan.\nc  +  =\ntanda rehat\na + =\nDurasi Pembelajaran\n• Durasi pembelajaran 60 minit melibatkan muka surat 16 hingga 19.\n• Perbanyakkan halaman 19 untuk diedarkan kepada murid.\nNota\nGuru\n5.1.1\n3.1.1\nTanda rehat krocet\njuga dilukis seperti:\nUnit 1\n16\n\n[Pendidikan Muzik Tingkatan 1.pdf p25]\n3. Teliti dan tepuk corak irama di bawah.\nBermain\nAyuh\nSiapa\n?\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\nBilangan pemain: 5 orang murid\nPeralatan: Kertas dan pensel untuk menulis nilai not\nArahan:\nLima orang murid dipilih untuk menulis corak irama yang ditepuk dan diimlak\n(dictation) oleh guru. Sesiapa yang salah menulis corak irama akan diganti dengan\nmurid baru sehinggalah tinggal seorang murid yang akan menjadi juara.\nUnit 1\n17\n\n[Pendidikan Muzik Tingkatan 1.pdf p26]\nPenghasilan Muzik\nPermainan Mencipta Irama Mudah\nCorak Irama\nPetunjuk\n=\n=\nKeperluan Peralatan\n=\n=\n4 unit\n4 unit\nDurasi Pembelajaran\nCara bermain:\n1. Bahagikan murid kepada kumpulan kecil seramai empat orang dalam satu kumpulan.\n2. Aturkan empat cawan kertas dan empat piring kertas di atas meja yang disambung.\nKumpulan yang seterusnya akan menepuk ciptaan irama kumpulan yang satu lagi.\n3. Ulang aktiviti dengan corak irama baharu bersama-sama kumpulan lain.\n4. Murid juga boleh menggunakan perkusi lain selain perkusi badan.\nUnit 1\n18\n\n[Pendidikan Muzik Tingkatan 1.pdf p27]\nPENILAIAN\n1. Mainkan gitar secara strumming mengikut skor di bawah.\n2. Dengar audio berikut dan padankan dengan irama yang diberi di bawah.\n3. Berikut merupakan audio alat muzik daripada sebuah persembahan\ngamelan. Namakan alat muzik yang digunakan dalam persembahan\ntersebut dan senaraikannya mengikut klasifikasi alat muzik.\nCorak Irama A\nCorak Irama B\nCorak Irama C\nCorak Irama D\nKordofon\nErofon\nMembranofon\nIdiofon\n26\n27\n28\n29\nAlat 4\n33\nAlat 1\n30\nAlat 5\n34\nAlat 2\n31\nAlat 3\n32\nUsaha lagi\nBaik\nCemerlang\nUsaha lagi\nBaik\nCemerlang\nUsaha lagi\nBaik\nCemerlang\nCorak Irama A\nCorak Irama B\nCorak Irama C\nCorak Irama D\nY\nZ\nW\nX\nPetikan gitar\n25\nMenilai\nMenganalisis\nC C C C C C\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nC C C C C C\nUnit 1\n19\n\n[Pendidikan Muzik Tingkatan 1.pdf p28]\n20\nUnit 2\nUNIT 2\nSENI BUDAYA\nMALAYSIA\nStandard Pembelajaran\nPada akhir pembelajaran ini,\nmurid berupaya:\n1.1 Menyanyikan Lagu secara Ensembel\ndaripada Pelbagai Repertoir\n1.1.1 Bernyanyi secara unison dengan:\ni. Pic yang betul\nii. Dinamik yang sesuai\niii. Tempo yang betul\n1.1.2 Bernyanyi dengan teknik yang betul:\ni. Postur\nii. Pernafasan\n2.1 Memainkan Muzik secara Ensembel\n2.1.1 Memainkan muzik secara ensembel\nberdasarkan skor:\ni. Bermain alat muzik dengan teknik\nyang betul\nii. Bermain alat muzik dengan pic yang\nbetul atau ton yang baik\niii. Bermain alat muzik dengan irama\nyang betul mengikut tempo\nUnit ini mengandungi\npersembahan\nAugmented Reality\nCode (AR Code) di\nhalaman 30.\nInfo boleh didapati di\nhalaman Kandungan.\nDapatkan\nCONTOH\nAR CODE\nwww.arasmega.com\n20\n\n[Pendidikan Muzik Tingkatan 1.pdf p29]\nUnit 2\n3.1 Menghasilkan Idea Muzik Kreatif\n3.1.1 Mencipta corak irama berdasarkan meter\n4.1 Menghayati Muzik daripada Pelbagai Genre\n4.1.1 Memberikan ulasan tentang muzik tradisional Malaysia yang didengar\natau ditonton daripada aspek:\ni. Genre muzik\nii. Alat muzik\niii. Fungsi muzik\niv. Cara persembahan\nv. Latar belakang muzik\n5.1 Membaca dan Menulis Notasi Muzik\n5.1.1 Membaca dan menulis jenis not serta tanda rehat mengikut nilai:\ni. Semibrif\nii. Minim\niii. Krocet\n5.1.2 Membaca dan menulis not serta tanda rehat berdasarkan meter dan\n4\n4\n4\n4\n2\n4\n21\n\n[Pendidikan Muzik Tingkatan 1.pdf p30]\nPostur dalam Nyanyian\nPostur penting dalam teknik vokal. Postur yang baik\ndapat membantu pernafasan serta meningkatkan mutu\npengeluaran suara. Terdapat dua postur yang lazim dalam\naktiviti nyanyian iaitu postur berdiri dan postur duduk.\nPostur Berdiri\nPan - dang ke de - pan, ba - dan te - gak, ka - ki ja - rak\n\nPan - dang ke de - pan, ba - dan te - gak, ka - ki ja - rak\n\nLatihan Pemanasan Suara 3\nEnsembel Nyanyian\n• Durasi pembelajaran 60 minit melibatkan muka surat 22 hingga 23.\n• Dengarkan keseluruhan lagu Keutuhan Bangsa.\n• Nyanyikan lagu baris demi baris. Membetulkan kesalahan nyanyian murid.\n• Nyanyikan lagu secara keseluruhan.\n• Nyanyikan lagu Keutuhan Bangsa dengan postur berdiri betul.\nLatihan\npemanasan\nsuara 3\nDurasi Pembelajaran\n1 2\n3\n4\n5\nKepala dan leher\n• Pandang ke hadapan posisi lazim\nseiring dengan tulang belakang.\nBadan\n• Tegak dan mendada.\nTangan\n• Di sisi secara relaks.\nLutut\n• Relaks dan tidak kaku.\nKaki\n• Direnggangkan sedikit dan sebelah\nkaki ke hadapan sedikit untuk\nmengawal keseimbangan badan.\nNota\nGuru\n1.1.1. (i)\n1.1.2. (i)\n35\nBerlatih\npostur\nberdiri\nyang betul\ndi hadapan\ncermin.\nUnit 2\n22\n\n[Pendidikan Muzik Tingkatan 1.pdf p31]\nLagu\nKeutuhan\nBangsa\n- vokal\nLagu\nKeutuhan\nBangsa\n- instrumental\nLagu\nKeutuhan\nBangsa\n- minus one\n36\n37\n38\nMari Bernyanyi\nLagu dan Lirik: Yusri Hussain\nKeutuhan Bangsa\nma-ngat per-pa-du-an di - ri de-mi ke - u-tu-han bang-sa dan ne-ga - ra\nUnit 2\n23\n\n[Pendidikan Muzik Tingkatan 1.pdf p32]\n2.1.1 (iv)\nPenjagaan\nGitar\nGitar perlu dibersihkan\nsetiap kali selepas bermain\nLetakkan gitar pada tempat\nyang betul\n• Gilap gitar menggunakan\nbahan penggilap.\n• Bersihkan gitar\ndengan kain yang\nlembut.\n• Kendurkan tali\ngitar sekiranya\ntidak digunakan\nuntuk jangka\nmasa yang\npanjang.\n• Gitar perlu diletakkan pada\nguitar stand apabila\ntidak digunakan.\n• Elakkan daripada\nmenyandarkan gitar atau\nmeletakkannya di atas lantai.\n• Simpan di tempat yang\nkering.\n• Jauhkan gitar daripada\nkeadaan suhu yang\npanas.\n• Gunakan guitar case\nuntuk menyimpan gitar.\nEnsembel Muzik\nDurasi Pembelajaran\n• Durasi pembelajaran 60 minit melibatkan muka surat 24 hingga 27.\n• Membimbing murid bermain kord C Major dan G Major.\nNota\nGuru\nSP\n2.1.1\n(i)(ii)\n(iv)\nAbad\n21\nke-\nPrihatin\nUnit 2\n24\n\n[Pendidikan Muzik Tingkatan 1.pdf p33]\nMari Belajar Bermain Kord G Major\nPenjarian Kord G Major\nKord\nG Major\n39\nRajah 2.1 Kord G Major.\nFoto 2.1 Kord G Major.\n2\n4\n3\nJari 4 menekan\ntali pertama pada\nfret ketiga.\nJari 2 menekan\ntali kelima pada\nfret kedua.\nJari 3 menekan\ntali keenam pada\nfret ketiga.\nG\nO\nO\nO\n4\n2\n3\n1\n2\n3\n4\n5\nPetunjuk:\nO = Tali perlu dimainkan tanpa menekan tali\npada fret.\n= Tali perlu dimainkan secara menekan tali\npada fret dengan penjarian yang betul.\nX = Tali tidak perlu dimainkan.\nUnit 2\n25\n\n[Pendidikan Muzik Tingkatan 1.pdf p34]\n1\n2\n3\nG C G C\nG C G C G C G C\nG G G G C C C C G G G G C C C C\nG G C C G G C C C C G G C C G G\nG G G G G G G G\nG G G G G G G G\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nLatihan bermain kord C Major dan G Major\nLatihan bermain kord C Major dan G Major\nLatihan bermain kord G Major\nLatihan\nbermain\nkord\nG Major\nLatihan\nbermain\nkord\nC Major\ndan\nG Major\nLatihan\nbermain\nkord\nC Major\ndan\nG Major\n40\n41\n42\nUnit 2\n26\n\n[Pendidikan Muzik Tingkatan 1.pdf p35]\n4\nKenek-kenek Ode\nKenek-kenek Ode\nKenek-keneklah ode, lembu patoh tanduk.\nCek Mek kenolah gode, Cik Awe keno tumbuk\nUu wa uu wa uu wa uu wa Uu wa uu wa Uu\n:\n:\nG\n1\n2.\nLatihan bermain kord\nLagu\nKenek-kenek\nOde\n- vokal\nLagu\nKenek-kenek Ode\n- minus one\nBentukkan kepada dua kumpulan iaitu kumpulan A dan B,\nKumpulan A menyanyikan lagu Kenek-kenek Ode manakala\nkumpulan B bermain gitar mengikut kord lagu tersebut. Kumpulan\nbertukar peranan.\n43\n44\nAbad\n21\nke-\nKerja\nberpasukan\nAktiviti\nCadangan\nUnit 2\n27\n\n[Pendidikan Muzik Tingkatan 1.pdf p36]\nEnsembel Nyanyian\nDengar melodi berikut. Kemudian nyanyikan.\n• Durasi pembelajaran 60 minit melibatkan muka surat 28 hingga 29.\n• Nyanyi lagu Keutuhan Bangsa dengan postur duduk yang betul.\n• Minta murid memainkan alat perkusi mengikut detik lagu Keutuhan Bangsa.\n• Nyanyi sambil menepuk detik mengikut lagu yang didengar.\nPostur Duduk\nMinda harus dalam keadaan tenang supaya\ntubuh berada dalam keadaan relaks untuk\nmenghasilkan kualiti suara yang baik.\nLatihan Pemanasan Suara 4\nLatihan\npemanasan\nsuara 4\nDurasi Pembelajaran\nNota\nGuru\n45\nSP\n2.1.1\n1\n3\n4\n5\nTangan\n• Diletakkan di atas paha.\nPunggung\n• Duduk pada setengah atau ¾ di atas\ntempat duduk dan tidak menyandar.\nKaki\n• Letakkan di lantai, sebelah\nkaki ke hadapan sedikit.\nBadan\n• Tegak dan mendada.\nKepala dan leher\n• Pandang ke hadapan posisi\nlazim seiring dengan\ntulang belakang.\nUnit 2\n28\n\n[Pendidikan Muzik Tingkatan 1.pdf p37]\n1. Latihan bermain gitar.\nAktiviti bermain gitar mengiringi lagu Keutuhan Bangsa dilakukan secara\nberkumpulan. Murid akan dibahagikan kepada tiga kumpulan iaitu Kumpulan\nA, B dan C. Kumpulan A bermain gitar sementara kumpulan B menepuk detik\ndan kumpulan C menyanyi. Kemudian, kumpulan akan bertukar peranan.\n2. Bermain gitar mengiringi lagu.\nLagu Keutuhan\nBangsa\n- minus one\nLatihan\nbermain gitar\nDurasi Pembelajaran\nEnsembel Muzik\nC G C C\nC G C C\nC C C C\nG C G C\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nLagu Keutuhan\nBangsa\n- instrumental\n47\n48\n46\nMari Bermain Gitar\nAktiviti\nCadangan\nAbad\n21\nke-\nKerja\nberpasukan\nMari kita hidup bekerjasama tak kira kaum ataupun bangsa\nTolak ansur sikap yang perlu ada demi masa depan kita bersama\nMelayu Cina India dan lainnya mari kita hidup dengan harmoni\nSemangat perpaduan diri demi keutuhan bangsa dan negara\nKeutuhan Bangsa\nC C C C G G C C\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nC C C C G G C C\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nF F F F G G C C\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nF F F F G G C C\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nKeutuhan Bangsa\nUnit 2\n29\n\n[Pendidikan Muzik Tingkatan 1.pdf p38]\nGereteh\nSauwa\nTingkah\nGendang anak\ndan gendang ibu\nTAHUKAH\nANDA?\nCaklempong\nApresiasi Muzik\nTahukah kamu bahan\nyang digunakan untuk\nmembuat bonang\ncaklempong?\nBonang caklempong\ndiperbuat daripada\nlogam tembaga dan\ncampuran besi.\nCaklempong ialah muzik tradisional Malaysia yang\npopular di Negeri Sembilan. Caklempong dimainkan\ndalam kalangan masyarakat Minangkabau sejak awal\nkurun ke-14.\nDurasi Pembelajaran\nImbas di sini!\nSesuatu yang menarik\nuntuk diterokai.\nCODE\nAR\nGereteh\n50\nCaklempong\n49\nTingkah\n51\nGendang ibu\ndan gendang\nanak\n53\nSauwa\n52\nAbad\n21\nke-\nBersifat\ningin tahu\nUnit 2\n30\n\n[Pendidikan Muzik Tingkatan 1.pdf p39]\n1. Senaraikan nama lagu yang sering dimainkan menggunakan caklempong.\n2. Bincang dan namakan alatan yang bertanda A, B, C dan D.\nBerdasarkan gambar dan lengkapkan jadual di bawah.\n3. Apakah yang kamu perlu lakukan jika kamu ingin menubuhkan sebuah pasukan\ncaklempong?\nHuruf\nNama alat\nCara dimainkan\nKategori\nA\nB\nC\nD\nA\nC\nB\nD\nNota\nGuru\n• Durasi pembelajaran 60 minit melibatkan muka surat 30 hingga 32.\n• Layari Internet dengan carian kata kunci caklempong bagi mendapatkan\ninformasi berkenaan caklempong dan asal usulnya.\n• Muat turun video permainan caklempong untuk dipertontonkan.\n• Dapatkan nama lagu caklempong tradisional dan lagu kontemporari.\nGereteh ialah alat utama dalam ensembel yang memainkan melodi utama dalam\nlagu. Gereteh mempunyai 15 buah bonang disusun dua baris. Tingkah dan sauwa\nmempunyai lapan bonang dan memainkan ostinato dalam lagu. Gendang anak dan\ngendang ibu berfungsi memainkan rentak lagu. Serunai, bangsi dan salong pula ialah\nalat tiupan yang mengiringi lagu caklempong.\nCaklempong sering dimainkan di majlis perkahwinan, keraian dan keramaian.\nCaklempong popular di Malaysia. Kini caklempong diajar di sekolah-sekolah dan pusat\npengajian tinggi.\nSP\n5.1.2\n4.1.1\nMenganalisis\nEMK TMK\nGendang Ibu\nIdiofon\nMembranofon\nGendang Anak\nGereteh\nTingkah\nSauwa\nBangsi\nSerunai\nSalong\nErofon\nUnit 2\n31\n\n[Pendidikan Muzik Tingkatan 1.pdf p40]\n\na\nb\na\nb\nc\n\n1\n2\n1\n2\n1\n2\n1\n2\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\n1\n2\n3\n4\n2 detik\nJenis not: krocet\nJenis not: krocet\n4 detik\n1 2\n1 2 3 4\n\n\n2 detik\nJenis not: krocet\nJenis not: krocet\n4 detik\n1 2\n1 2 3 4\n\n\nMeter ialah tanda masa yang mengandungi dua\nangka. Satu angka berada di bahagian atas dan satu\nangka lagi berada di bahagian bawah. Angka di atas\nmenunjukkan jumlah detik dalam satu bar, sementara\nangka di bawah pula menunjukkan jenis not.\nMeter dan\n2\n4\n4\n4\nNotasi Muzik\n1. Kenal pasti meter yang betul bagi setiap corak irama berikut:\n4\n4 = c\nCommon time\nDurasi Pembelajaran\n2. Letakkan jenis not yang sesuai pada setiap bar di bawah:\nRajah 2.2 Meter.\nUnit 2\n32\n\n[Pendidikan Muzik Tingkatan 1.pdf p41]\na\nb\n\n\nNotasi Muzik\nMeter dan Tanda Rehat\nKita telah pun mempelajari meter di atas nilai not krocet\n(  ), minim (  ) dan semibrif (). Sekarang, mari kita\nteruskan pelajaran ini dengan meletakkan tanda rehat di\ntempat yang betul.\nTanda rehat\nMinim\nKrocet\n\nSemibrif\n\na\n2. Lukiskan garis bar dan bar penamat pada corak irama berikut:\nJika sesuatu bar tidak\ndimainkan tanda rehat\npenuh\n(whole bar\nrest) wajib diletakkan.\nDurasi Pembelajaran\n• Durasi pembelajaran 60 minit melibatkan muka surat 33 hingga 37.\n• Berikan latihan tambahan untuk mengukuhkan pemahaman murid.\n• Boleh menggunakan perkusi badan untuk mencipta corak irama.\n• Perbanyakkan halaman 37 untuk diedarkan kepada murid.\nNota\nGuru\nSP\n5.1.6\n3.1.1\nMari kita tepuk corak irama yang berikut.\na\n\nb\n\nc\n\nd\n\n1. Letakkan tanda rehat pada tempat yang bertanda\n.\nUnit 2\n33\n\n[Pendidikan Muzik Tingkatan 1.pdf p42]\n1. Notasikan not-not berikut menggunakan jenis semibrif.\n2. Namakan not-not mengikut kedudukan pada baluk berikut.\nC D E F G A B C D E F G A\nE G B D F\nNot pada garis\nNot pada ruang\nNot pada lejer\nF A C E\nRajah di bawah menunjukkan nama-nama not mengikut susunan dalam klef trebel\natau klef G.\nG - garis\nF - garis\nE - ruang\nC - ruang\nE - garis\nA - ruang\nB - garis\nF - ruang\n1\n2\n3\n4\n5\nG\n1\n2\n3\n4\n5\nKedudukan Not pada Klef G\nKlef trebel juga dikenali sebagai klef G. Jika diteliti, klef\ntrebel membuat lilitan bulatan pada garis baluk nombor\ndua dari bawah. Lilitan bulatan ini menandakan bahawa\nnot yang terletak pada garis nombor dua itu adalah not G.\nRajah 2.3 Nama-nama not.\nUnit 2\n34\n\n[Pendidikan Muzik Tingkatan 1.pdf p43]\nMencipta corak irama berdasarkan meter\nMenghasilkan Idea Muzik Kreatif\nDurasi Pembelajaran\nPenghasilan Muzik\nCorak\nIrama 1\nCorak\nIrama 3\nCorak\nIrama 2\nCorak\nIrama 4\nCorak Irama 1\nCorak Irama 2\n54\n56\n57\n55\n1. Dengar audio dan tepuk semula corak irama di bawah.\nCorak Irama 3\nCorak Irama 4\nUnit 2\n35\n\n[Pendidikan Muzik Tingkatan 1.pdf p44]\nCorak Irama 5\nCorak Irama 6\nSoal\nJawab\nJawab\nSoal\nCiptakan corak irama tiga bar berdasarkan kreativiti kamu dengan\nmenggunakan not dan tanda rehat berikut.\nCorak\nirama 7\nCorak\nirama 8\nSoal dan Jawab Corak Irama\nDengarkan contoh corak irama soal dan jawab.\nJawab soalan corak irama berikut berdasarkan contoh di atas.\nCorak\nIrama 5\nCorak\nIrama 6\n58\n59\n60\n61\nEMK\nKreativiti dan\ninovasi\nMencipta\nCorak Irama 7\nCorak Irama 8\nSoal\nJawab\nSoal\nJawab\nSoal\nJawab\nSoal\nJawab\nUnit 2\n36\n\n[Pendidikan Muzik Tingkatan 1.pdf p45]\n1. Namakan not-not mengikut kedudukannya dalam baluk.\nUsaha lagi\nBaik\nCemerlang\n2. Letakkan garis bar pada keratan melodi di bawah mengikut meter.\na\nb\nc\nUsaha lagi\nBaik\nCemerlang\n3. Cipta corak irama empat bar menggunakan nilai not dan tanda rehat yang\ntelah dipelajari.\nUsaha lagi\nBaik\nCemerlang\nPENILAIAN\n\n\n\n\nUnit 2\n37\n\n[Pendidikan Muzik Tingkatan 1.pdf p46]\nUnit 3\nUNIT 3\nMUZIK\nSEGAR\nMINDA\nStandard Pembelajaran\nPada akhir pembelajaran ini,\nmurid berupaya:\n1.1 Menyanyikan Lagu secara Ensembel\ndaripada Pelbagai Repertoir\n1.1.1 Bernyanyi secara unison dengan:\ni. Pic yang betul\nii. Dinamik yang sesuai\niii. Tempo yang betul\n1.1.2 Bernyanyi dengan teknik yang betul:\ni. Pernafasan\n1.13 Mengamalkan etika persembahan dan\nnilai murni dalam aktiviti muzik\ni. Sebelum, semasa dan selepas latihan\n2.1 Memainkan Muzik secara Ensembel\n2.1.1 Memainkan muzik secara ensembel\nberdasarkan skor:\ni. Bermain alat muzik dengan teknik\nyang betul\nii. Bermain alat muzik dengan pic yang\nbetul atau ton yang baik\niii. Bermain alat muzik dengan irama\nyang betul mengikut tempo\nUnit ini mengandungi\npersembahan Quick\nResponse Code (QR\nCode) di halaman 48.\nInfo boleh didapati di\nhalaman Kandungan.\nCONTOH\nQR CODE\nDapatkan\nwww.arasmega.com\n38\n\n[Pendidikan Muzik Tingkatan 1.pdf p47]\nUnit 3\n3.1 Menghasilkan Idea Muzik Kreatif\n3.1.1 Mencipta corak irama berdasarkan meter\n4.1 Menghayati Muzik daripada Pelbagai Genre\n4.1.1 Memberikan ulasan tentang muzik tradisional Malaysia yang didengar\natau ditonton daripada aspek:\ni. Genre muzik\nii. Alat muzik\niii. Fungsi muzik\niv. Cara persembahan\nv. Latar belakang muzik\n5.1 Membaca dan Menulis Notasi Muzik\n5.1.3 Membaca, memahami dan menulis terminologi dinamik:\ni. Piano\nii. Forte\n5.1.4 Membaca, memahami dan menulis terminologi tempo:\ni. Andante\nii. Allegro\n5.1.5 Membaca, memahami dan menulis arahan persembahan:\ni. Tanda ulangan\nii. Tanda penamat\niii. Tanda kromat\n5.1.6 Membaca, memahami dan menulis not dalam klef trebel\nsehingga satu garis lejer\n4\n4\n39\n\n[Pendidikan Muzik Tingkatan 1.pdf p48]\nEtika\nLatihan\nBersedia dengan\npensel dan\npemadam untuk\nmembuat catatan.\nMembuat latihan sendiri\nuntuk memahirkan diri.\nBersedia dengan\nskor muzik.\nBersedia lebih awal.\nMemastikan bilik latihan bersih\nsebelum meninggalkannya.\nMengamalkan amalan\nberterima kasih kepada ketua\ndan rakan.\n1\n1\n2\n2\n3\n4\nEnsembel Nyanyian\nDurasi Pembelajaran\n• Durasi pembelajaran 60 minit melibatkan muka surat 40 hingga 42.\n• Bimbing murid menyanyi dengan cara pernafasan yang betul.\n• Bimbing murid menyanyi mengikut frasa lagu Segar Minda.\nNota\nGuru\nEMK\nNilai murni\nUnit 3\n40\n\n[Pendidikan Muzik Tingkatan 1.pdf p49]\nSetiap teguran\ndaripada ketua perlu\ndiperbaiki.\nMembuat catatan jika\nada sebarang\npindaan pada skor.\nMemberi tumpuan\nsepenuhnya.\nMengikut arahan ketua\natau konduktor.\nMerujuk kepada ketua atau\nkonduktor jika tidak\nmemahami sesuatu perkara.\nMemastikan\nbarang-barang yang\ndibawa tidak ditinggalkan\ndi dalam bilik latihan.\n1\n2\n3\n3\n4\n5\nSP\n1.1.1\n(i)\n1.1.2\n(ii)\n1.1.3\n(i)\nUnit 3\n41\n\n[Pendidikan Muzik Tingkatan 1.pdf p50]\nLatihan Pemanasan Suara 5\nLatihan\npemanasan\nsuara 5\nLagu Segar\nMinda\n- Vokal\nLagu Segar\nMinda\n- Instrumental\nLagu Segar\nMinda\n- Minus one\nSegar Minda\n= 130\n62\n63\n64\n65\nMari Bernyanyi\nMari kita bernyanyi mengikut frasa.\nLagu dan Lirik: Rosman Adam\nUnit 3\n42\n\n[Pendidikan Muzik Tingkatan 1.pdf p51]\nEnsembel Muzik\nMari Belajar Bermain Kord F Major\nPenjarian Kord F Major\n(A)\nKord\nF Major\nDurasi Pembelajaran\nTerdapat dua cara penjarian untuk memainkan kord F Major.\n66\n• Durasi pembelajaran 60 minit melibatkan muka surat 43 hingga 45.\n• Bimbing murid bermain kord F Major.\nNota\nGuru\nSP\n2.1.1\n(i)(ii)\n(iii)\n(iv)\nRajah 3.1 Kord F Major.\nFoto 3.1 Kord F Major.\n1\n2\n4\n3\nJari 2 menekan\ntali ketiga pada\nfret kedua.\nJari 1 menekan\ntali pertama dan\nkedua pada\nfret pertama.\nJari 3 menekan\ntali kelima pada\nfret ketiga.\nJari 4 menekan\ntali keempat pada\nfret ketiga.\nO = Tali perlu dimainkan tanpa menekan tali\npada fret.\n= Tali perlu dimainkan secara menekan tali\npada fret dengan penjarian yang betul.\nX = Tali tidak perlu dimainkan.\nF\n4\n3\n1\n1\n2\n1\n2\n3\n4\n5\nPetunjuk:\nX\nUnit 3\n43\n\n[Pendidikan Muzik Tingkatan 1.pdf p52]\n4\n3\nJari 2 menekan\ntali ketiga pada\nfret kedua.\nJari 1 menekan\nsemua tali pada\nfret pertama.\nJari 3 menekan\ntali kelima pada\nfret ketiga.\nJari 4 menekan\ntali keempat pada\nfret ketiga.\n1\n2\nPenjarian Kord F Major\n(B)\nRajah 3.2 Kord F Major.\nFoto 3.2 Kord F Major.\nO = Tali perlu dimainkan tanpa menekan tali\npada fret.\n= Tali perlu dimainkan secara menekan tali\npada fret dengan penjarian yang betul.\nX = Tali tidak perlu dimainkan.\n4\n3\n1\n1\n2\n1\n2\n3\n4\n5\nPetunjuk:\nF\nUnit 3\n44\n\n[Pendidikan Muzik Tingkatan 1.pdf p53]\n1\n2\n3\n4\nF F F F\nC G C G C F C G\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nKetipang Payung\nLatihan bermain kord F Major\nLatihan bermain kord F Major, C Major dan G Major\nLatihan bermain kord F Major, C Major dan G Major\nMari belajar bermain kord F Major, C Major dan G Major\nuntuk lagu berikut.\nLatihan gitar\nkord F Major\nLatihan gitar\nkord F Major,\nC Major dan\nG Major\nLatihan gitar\nkord F Major,\nC Major dan\nG Major\nLagu\nKetipang\nPayung\n68\n69\n70\n67\nUnit 3\n45\n\n[Pendidikan Muzik Tingkatan 1.pdf p54]\nLight rock\nHa ha ha ha ha____ ha ha ha ha ha____\nHa ha ha ha ha____ ha ha ha ha ha____\nEnsembel Nyanyian\nLatihan Pemanasan Suara\nLatihan\npemanasan\nsuara 6\nLagu Selamat\nHari Jadi\n- vokal\nLagu Selamat\nHari Jadi\n- instrumental\nLagu Selamat\nHari Jadi\n- minus one\nSelamat Hari Jadi\nDurasi Pembelajaran\n• Durasi pembelajaran 60 minit melibatkan muka surat 46 hingga 47.\n• Bimbing murid menepuk detik sambil menyanyi lagu Selamat Hari Jadi.\n• Bimbing murid bermain gitar mengiringi lagu Selamat Hari Jadi.\nNota\nGuru\n6\n71\n72\n73\n74\nSP\n1.1.1\n(i)(iii)\n2.1.1\n(i)(ii)\nLagu: Yusri Hussain\nLirik: Hamidah Yaakob\nUnit 3\n46\n\n[Pendidikan Muzik Tingkatan 1.pdf p55]\n1. Latihan bermain gitar.\n2. Bermain gitar mengiringi lagu.\nAktiviti\nCadangan\nAktiviti bermain gitar mengiringi lagu Selamat Hari Jadi secara berkumpulan.\nMurid akan dibahagikan kepada dua kumpulan, iaitu kumpulan A dan\nkumpulan B. Kumpulan A akan bermain gitar mengiringi lagu Selamat Hari\nJadi sementara kumpulan B menyanyikan lagu Selamat Hari Jadi. Kemudian,\nkumpulan akan bertukar peranan.\nLagu Selamat\nHari Jadi\n- minus one\nLatihan\nbermain gitar\nEnsembel Muzik\nDurasi Pembelajaran\n75\nLagu Selamat\nHari Jadi\n76\n77\nMari Bermain Gitar\nSelamat Hari Jadi\nSelamat hari jadi kepada sahabatku\nMoga murah rezeki dan bahagia selalu\nSelamat hari jadi kepada sahabatku\nMoga murah rezeki dan bahagia selalu\nAbad\n21\nke-\nKerja\nberpasukan\n:\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nUnit 3\n47\n\n[Pendidikan Muzik Tingkatan 1.pdf p56]\nQR CODE\nApresiasi Muzik\nGhazal\nGhazal merupakan muzik tradisional masyarakat Melayu\ndi negeri Johor dan menjadi salah satu warisan negeri\ntersebut.\nMuzik ghazal dimainkan secara ensembel dengan\nmenggunakan beberapa jenis alat muzik seperti\nharmonium, tabla, gambus, gitar, violin, marakas dan\ntamborin. Tema lagu ghazal ialah berkaitan dengan\ncinta, nasihat dan kemasyarakatan.\nPenggunaan alat muzik dan pengaruh dari\nArab, India dan barat menjadikan muzik ghazal\ntergolong dalam muzik sinkratik.\nKumpulan ghazal kini memainkan lagu\nberentak asli, joget, keroncong dan pop. Ghazal\nsering dipersembahkan dalam, majlis-majlis\nrasmi, majlis perkahwinan dan perayaan-\nperayaan lain.\nDurasi Pembelajaran\nTAHUKAH\nANDA?\nGambus ialah alat muzik\nyang berasal dari Yaman\ndan tersebar luas ke\nSemenanjung Arab yang\ndinamakan al-khonbus\n(\n).\nhttps://arasmega.com/qr-link/\nghazal-melayu/\nGhazal\n78\nEMK\nTMK\nGhazal Melayu Pak Ngah Balik\nUnit 3\n48\n\n[Pendidikan Muzik Tingkatan 1.pdf p57]\nHarmonium\nTabla\nAlat\nMuzik\nIndia\nAlat\nMuzik\nArab\nGambus\nAlat\nMuzik\nBarat\nGitar\nMarakas\nViolin\nTamborin\n1. Senaraikan alat muzik yang digunakan dalam persembahan ghazal.\n________________________________________________________\n2. Dari manakah asal usul muzik ghazal?\n_______________________________________________________\nAlat-alat muzik yang\nmemainkan melodi\nHarmonium\nViolin\nGambus\n• Durasi pembelajaran 60 minit melibatkan muka surat 48 hingga 50.\n• Layari Internet dengan carian kata kunci ghazal bagi mendapatkan informasi\nberkenaan ghazal dan asal usulnya.\n• Muat turun video berkaitan permainan ghazal untuk dipertontonkan.\n• Dapatkan nama lagu ghazal tradisional dan lagu kontemporari.\nNota\nGuru\nViolin\nTabla\nHarmonium\nGitar\n79\n80\nGambus\n83\nMarakas\n84\nTamborin\n85\n81\n82\nSP\n4.1.1\n5.1.6\nEMK\nTMK\nUnit 3\n49\n\n[Pendidikan Muzik Tingkatan 1.pdf p58]\nNotasi Muzik\nGarisan Lejer\nGarisan lejer merupakan garisan tambahan yang terletak di atas atau di bawah baluk\nmuzik.\nNamakan setiap not di bawah.\nDi atas merupakan antara nama-nama not yang terdapat dalam baluk\nsecara berturutan.\nApakah yang akan terjadi selepas not G atau sebelum not D, di tempat\nbertanda soal ?\nDengan meletakkan garisan lejer di atas baluk, not A akan terbentuk dan\ndi bawah baluk pula ialah not C. Masalah daripada soalan tadi akan diselesaikan\ndengan garisan lejer.\nMari kita berbincang mengenai garis lejer yang terdapat pada klef trebel (klef G).\nC D E F G A B C D E F G A\nC D E F G A B C D E F G A\nJawapan\nDurasi Pembelajaran\na\nb\nUnit 3\n50\n\n[Pendidikan Muzik Tingkatan 1.pdf p59]\nSimbol\nIstilah\nTanda\nIsyarat\nMaksud\nMaksud\nTerminologi\nTanda Kromat\nKuat\nLembut\nSederhana lambat ( = 76 – 108)\nLaju\nLagu perlu diulang\nTamatnya sesebuah komposisi\natau lagu\nPic pada not diturunkan semiton\nPic pada not dinaikkan semiton\nKembali ke not asal\nAndante\nAllegro\n1\n1\n2\n2\n1\n3\n2\n1\n2\nForte\nTanda\nulangan\nTanda\npenamat\nPiano\nFlet\nSyap\nNatural\nSimbol\nIstilah\nTanda\nIsyarat\nMaksud\nMaksud\nTerminologi\nTanda Kromat\nKuat\nLembut\nSederhana lambat ( = 76 – 108)\nLaju\nLagu perlu diulang\nTamatnya sesebuah komposisi\natau lagu\nPic pada not diturunkan semiton\nPic pada not dinaikkan semiton\nKembali ke not asal\nAndante\nAllegro\n1\n1\n2\n2\n1\n3\n2\n1\n2\nForte\nTanda\nulangan\nTanda\npenamat\nPiano\nFlet\nSyap\nNatural\nNotasi Muzik\nTerminologi Muzik dan Tanda Isyarat\nKegunaan terminologi muzik dan tanda isyarat adalah untuk memberitahu kepada para\npemuzik kaedah sesuatu karya lagu itu patut dimainkan mengikut kehendak komposer.\nKadangkala arahan diberikan melalui istilah-istilah atau tanda isyarat.\nIstilah dan tanda isyarat ini juga ditulis dalam skor notasi muzikal. Ini termasuklah\nsimbol-simbol yang biasa kita lihat seperti klef trebel dan baluk yang juga digunakan\nuntuk mewakili pic, irama dan tempo.\nJadual 3.1 Dinamik, tempo dan tanda isyarat.\nJadual 3.2 Tanda kromat.\nDurasi Pembelajaran\nNota\nGuru • Durasi pembelajaran 60 minit melibatkan muka surat 51 hingga 55.\n• Perbanyakkan halaman 52 dan 53 untuk diedarkan kepada murid.\nSP\n3.1.1\n5.1.3\n(i)(ii)\n5.1.4\n5.1.5\nUnit 3\n51\n\n[Pendidikan Muzik Tingkatan 1.pdf p60]\n1. Jawab soalan di bawah.\n(a) Berikan nama dan maksud dinamik yang terdapat dalam skor lagu di atas.\n(b) Tempo andante bermaksud ________________.\n(c) Jelaskan tanda isyarat yang terdapat di permulaan bar 1 dan di hujung bar 4.\n2. Lukis dan letakkan istilah dan tanda isyarat pada skor melodi di bawah dengan\nbetul mengikut arahan yang disediakan.\n(a) Letakkan istilah tempo laju.\n(b) Simbol  di not pertama bar 1.\n(c) Simbol  di not pertama bar 6.\n(d) Tanda kromat flet (  ) pada not A di bar 3.\n(e) Tanda isyarat ulangan dari bar 1 hingga bar 4.\n(f) Lukiskan garis bar penamat pada bar 8.\nKeheningan\nMenganalisis\nUnit 3\n52\n\n[Pendidikan Muzik Tingkatan 1.pdf p61]\n2SX\u0003QMRMQ\u0003EHEPEL\u0003\nWEQE\u0003RMPEM\u0003HIRKER\u0003\nHYE\u0003RSX\u0003OVSGIX\u0012\nNot\nkrocet\nTanda\nrehat\nkrocet\nKita telah pun mempelajari kaedah\nmembentuk corak irama meter .\nSekarang kita gabungkan not krocet dan not minim .\n1\n1\n4\n1\n1\n2\n2\n4\nIni pula tanda rehat\nminim ( ). Nilai tanda\nrehat minim bersamaan\n2 tanda rehat krocet ( ).\n= +\n1 2\n3 4\n1 2\n3 4\n1 2\n3 4\n1 2\n3 4\nPenghasilan Muzik\nDurasi Pembelajaran\nUnit 3\n53\n\n[Pendidikan Muzik Tingkatan 1.pdf p62]\n3. Lengkapkan corak irama dengan menggunakan not krocet ( ), not minim ( ),\ntanda rehat krocet ( ) dan tanda rehat minim ( ).\n2. Tepuk irama di bawah.\na\nb\n1. Berdasarkan nilai not dan tanda rehat yang telah dipelajari, lengkapkan corak irama\nberdasarkan meter yang diberikan.\na\nb\na\nb\nc\nd\ne\nUnit 3\n54\n\n[Pendidikan Muzik Tingkatan 1.pdf p63]\nPENILAIAN\n1. Anda telah dilantik menjadi ketua dalam kumpulan koir sekolah.\nKumpulan koir tersebut akan membuat persembahan dalam satu majlis\nHari Anugerah Gemilang di sekolah anda. Anda diberi masa tiga bulan\nuntuk melatih kumpulan koir anda. Pada perjumpaan pertama dengan\nkumpulan koir nanti, anda sebagai ketua berhasrat untuk memberikan\nsatu taklimat kepada ahli-ahli koir tentang amalan etika persembahan\nsebelum, semasa dan selepas latihan.\nBuat satu peta minda mengenai etika untuk disampaikan kepada semua\nahli koir dalam majlis perjumpaan yang pertama itu nanti.\n2. Mainkan gitar secara strumming ke bawah (down stroke) dan ke atas (up stroke)\nberdasarkan kord di bawah.\n3. Nyanyikan lagu Segar Minda diiringi dengan pic, tempo dan pernafasan\nyang betul.\n4. Mainkan gitar mengiringi lagu Selamat Hari Jadi dengan kord dan tempo\nyang betul.\nLagu Segar\nMinda\n- minus one\nLatihan\nstrumming\nLagu Selamat\nHari Jadi\n- minus one\nUsaha lagi\nBaik\nCemerlang\nUsaha lagi\nBaik\nCemerlang\nUsaha lagi\nBaik\nCemerlang\nUsaha lagi\nBaik\nCemerlang\n86\n87\n88\nMengaplikasi\n:\n:\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nUnit 3\n55\n\n[Pendidikan Muzik Tingkatan 1.pdf p64]\nUNIT 4\nALAM\nSATU\nANUGERAH\nStandard Pembelajaran\nPada akhir pembelajaran ini,\nmurid berupaya:\n1.1 Menyanyikan Lagu secara Ensembel\ndaripada Pelbagai Repertoir\n1.1.1 Bernyanyi secara unison dengan:\ni. Pic yang betul\nii. Dinamik yang sesuai\niii. Tempo yang betul\n1.13 Mengamalkan etika persembahan dan\nnilai murni dalam aktiviti muzik\ni. Sebelum, semasa dan selepas latihan\nii. Sebelum, semasa dan selepas\npersembahan\n2.1 Memainkan Muzik secara Ensembel\n2.1.1 Memainkan muzik secara ensembel\nberdasarkan skor:\ni. Bermain alat muzik dengan teknik\nyang betul\nii. Bermain alat muzik dengan pic yang\nbetul atau ton yang baik\niii. Bermain alat muzik dengan irama\nyang betul mengikut tempo\nUnit ini mengandungi\npersembahan Quick\nResponse Code (QR\nCode) di halaman 67.\nInfo boleh didapati di\nhalaman Kandungan.\nCONTOH\nQR CODE\nDapatkan\nwww.arasmega.com\nUnit 4\nUNIT 4\nALAM\nSATU\nANUGERAH\nStandard Pembelajaran\nPada akhir pembelajaran ini,\nmurid berupaya:\n1.1 Menyanyikan Lagu secara Ensembel\ndaripada Pelbagai Repertoir\n1.1.1 Bernyanyi secara unison dengan:\ni. Pic yang betul\nii. Dinamik yang sesuai\niii. Tempo yang betul\n1.13 Mengamalkan etika persembahan dan\nnilai murni dalam aktiviti muzik\ni. Sebelum, semasa dan selepas latihan\nii. Sebelum, semasa dan selepas\npersembahan\n2.1 Memainkan Muzik secara Ensembel\n2.1.1 Memainkan muzik secara ensembel\nberdasarkan skor:\ni. Bermain alat muzik dengan teknik\nyang betul\nii. Bermain alat muzik dengan pic yang\nbetul atau ton yang baik\niii. Bermain alat muzik dengan irama\nyang betul mengikut tempo\nUnit ini mengandungi\npersembahan Quick\nResponse Code (QR\nCode) di halaman 67.\nInfo boleh didapati di\nhalaman Kandungan.\nCONTOH\nQR CODE\nDapatkan\nwww.arasmega.com\n56\n\n[Pendidikan Muzik Tingkatan 1.pdf p65]\n3.1 Menghasilkan Idea Muzik Kreatif\n3.1.1 Mencipta corak irama berdasarkan meter\n4.1 Menghayati Muzik daripada Pelbagai Genre\n4.1.1 Memberikan ulasan tentang muzik tradisional Malaysia yang didengar\natau ditonton daripada aspek:\ni. Genre muzik\nii. Alat muzik\niii. Fungsi muzik\niv. Cara persembahan v. Latar belakang muzik\n5.1 Membaca dan Menulis Notasi Muzik\n5.1.1 Membaca dan menulis jenis not serta tanda rehat mengikut nilai:\ni. Semibrif\nii. Minim\niii. Krocet\n5.1.2 Membaca dan menulis not serta tanda rehat berdasarkan meter dan\n5.1.4 Membaca, memahami dan menulis terminologi tempo:\ni. Andante\nii. Allegro\n5.1.5 Membaca, memahami dan menulis arahan persembahan:\ni. Tanda ulangan\nii. Tanda penamat\niii. Tanda kromat\n4\n4\n2\n4\nUnit 4\n3.1 Menghasilkan Idea Muzik Kreatif\n3.1.1 Mencipta corak irama berdasarkan meter\n4.1 Menghayati Muzik daripada Pelbagai Genre\n4.1.1 Memberikan ulasan tentang muzik tradisional Malaysia yang didengar\natau ditonton daripada aspek:\ni. Genre muzik\nii. Alat muzik\niii. Fungsi muzik\niv. Cara persembahan v. Latar belakang muzik\n5.1 Membaca dan Menulis Notasi Muzik\n5.1.1 Membaca dan menulis jenis not serta tanda rehat mengikut nilai:\ni. Semibrif\nii. Minim\niii. Krocet\n5.1.2 Membaca dan menulis not serta tanda rehat berdasarkan meter dan\n5.1.4 Membaca, memahami dan menulis terminologi tempo:\ni. Andante\nii. Allegro\n5.1.5 Membaca, memahami dan menulis arahan persembahan:\ni. Tanda ulangan\nii. Tanda penamat\niii. Tanda kromat\n4\n4\n2\n4\n57\n\n[Pendidikan Muzik Tingkatan 1.pdf p66]\nSebelum\nSemasa\nSelepas\nEtika\nEnsembel Nyanyian\nNota\nGuru\nDurasi Pembelajaran\n• Durasi pembelajaran 60 minit melibatkan muka surat 58 hingga 61.\n• Minta murid dengar keseluruhan lagu Alam Satu Anugerah.\n• Bimbing murid menyanyi mengikut frasa lagu Alam Satu Anugerah.\nSP\n1.1.1\n(ii)\n1.1.3\n(i)\nEMK\nNilai murni\nUnit 4\n58\n\n[Pendidikan Muzik Tingkatan 1.pdf p67]\n1\n1\n1\n2\n2\n3\n3\n5\n2\n4\n4\n3\n4\nBersedia lebih awal.\nBerbaris di tempat yang telah\ndisediakan.\nBerkumpul di tempat yang telah\nditetapkan untuk menerima arahan\ndaripada konduktor atau ketua.\nElakkan daripada melakukan\nperbuatan yang boleh mengganggu\npeserta atau penonton.\nSebelum meninggalkan bilik\npersalinan pastikan semua barang\nanda tidak tertinggal.\nPastikan anda berada dalam keadaan\nyang selesa dan bersedia untuk\nmemulakan persembahan.\nBerdiri dalam keadaaan postur\nyang betul.\nTumpukan sepenuh perhatian\nkepada konduktor.\nBergerak keluar pentas dalam\nkeadaan tertib.\nBersedia dengan kostum dan\nsolekan.\nMelaksanakan sesi pemanasan\nsuara (warming up).\nKostum dan segala alat yang\ndipinjam perlu dipulangkan kepada\nyang berkenaan.\nPeka dengan setiap arahan yang\ndiberikan oleh ketua atau konduktor.\nUnit 4\n59\n\n[Pendidikan Muzik Tingkatan 1.pdf p68]\nDinamik\nDinamik merupakan kuat atau lembut sesuatu bunyi. Muzik boleh dimainkan secara kuat\natau lembut. Misalnya, lagu Rasa Sayang boleh dinyanyikan secara lembut atau secara\nkuat mengikut kesesuaian.\nLatihan Pemanasan Suara 7\nLatihan\npemanasan\nsuara 7\nGuru menyediakan dua kad imbasan dan\n. Minta seorang murid\nuntuk memimpin nyanyian lagu Selamat Hari Jadi secara dinamik\ndengan menunjukkan kad imbasan yang ada. Semua murid akan\nbernyanyi mengikut dinamik yang ditunjukkan.\nPiano\nBermaksud lembut\nForte\nBermaksud kuat\nTi ti ti ti ti ti Ti ti ti ti ti ti\nPer - la - han - kan sua - ra Nya - nyi de - ngan lem - but\nKu - at - kan su - ra - mu yang mer - du\nTa ta ta ta ta ta Ta ta ta\n89\nAktiviti\nCadangan\n1.\n2.\nUnit 4\n60\n\n[Pendidikan Muzik Tingkatan 1.pdf p69]\nLagu\nAlam Satu\nAnugerah\n- vokal\nLagu Alam\nSatu Anugerah\n- instrumental\nLagu Alam\nSatu Anugerah\n- minus one\nAlam Satu Anugerah\n90\n91\n92\nMari Bernyanyi\nLagu dan Lirik: Yusri Hussain\nGunung Santubong\nUnit 4\n61\n\n[Pendidikan Muzik Tingkatan 1.pdf p70]\nMari Belajar Bermain Kord D Minor\n• Durasi pembelajaran 60 minit melibatkan muka surat 62 hingg 63.\n• Mulakan latihan dengan tempo yang lambat sehingga mahir.\n• Fokuskan pada penjarian yang betul.\nEnsembel Muzik\nNota\nGuru\nKord\nD minor\nDurasi Pembelajaran\nPenjarian Kord D Minor\nRajah 4.1 Kord D minor.\nFoto 4.1 Kord D minor.\n93\nSP\n2.1.1\n(i)(ii)\n1\n3\n2\nJari 2 menekan\ntali ketiga pada\nfret kedua.\nJari 3 menekan\ntali kedua pada\nfret ketiga.\nJari 1 menekan\ntali pertama pada\nfret pertama.\nDm\nO\nO\n3\n1\n2\n1\n2\n3\n4\n5\nPetunjuk:\nO = Tali perlu dimainkan tanpa menekan tali\npada fret.\n= Tali perlu dimainkan secara menekan tali\npada fret dengan penjarian yang betul.\nX = Tali tidak perlu dimainkan.\nX\nUnit 4\n62\n\n[Pendidikan Muzik Tingkatan 1.pdf p71]\n1\n2\n4\n3\nDm Dm Dm Dm\nDm Dm G Dm Dm G C C F C C F\nF F G F F G F F C Dm Dm C\nKenangan\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nLagu: Yusri Hussain\nLatihan bermain kord D minor\nLatihan bermain kord F Major, C Major, G Major dan D minor\nLatihan bermain kord G Major, C Major, F Major dan D minor\nLatihan bermain kord\nLatihan\nbermain kord\nD minor\nLatihan bermain\nkord F Major, C\nMajor, G Major\ndan D minor\nLatihan bermain\nkord G Major,\nC Major,\nF Major dan\nD minor\nLagu Kenangan\n- instrumental\n94\n95\n96\n97\nUnit 4\n63\n\n[Pendidikan Muzik Tingkatan 1.pdf p72]\nMembina Martabat Negara\nLagu: Yusri Hussain\nLirik: Hamidah Yaakob\nEnsembel Nyanyian\nLatihan\npemanasan\nsuara 8\nLagu Membina\nMartabat Negara\n- vokal\nLagu Membina\nMartabat Negara\n- instrumental\nLagu Membina\nMartabat Negara\n- minus one\nDurasi Pembelajaran\nLatihan Pemanasan Suara 8\n98\n99\n100\n101\nNota\nGuru\n• Durasi pembelajaran 60 minit melibatkan muka surat 62 hingga 63.\n• Bimbing murid menyanyi lagu Membina Martabat Negara sambil menepuk detik.\n• Bimbing murid bermain gitar mengiringi lagu Membina Martabat Negara.\nMari Bernyanyi\nSP\n1.1.1\n(i)(iii)\n2.1.1\n(i)(ii)\nUnit 4\n64\n\n[Pendidikan Muzik Tingkatan 1.pdf p73]\n1. Latihan bermain gitar\nEnsembel Muzik\nAktiviti bermain gitar mengiringi lagu Membina Martabat Negara secara\nberkumpulan. Murid akan dibahagikan kepada dua kumpulan. Kumpulan A\nakan bermain gitar mengiringi lagu Membina Martabat Negara sepanjang\nlapan bar. Kemudian, kumpulan B pula akan bermain gitar mengiringi lagu\ntersebut dari bar 9 hingga bar 16. Akhirnya, kedua-dua kumpulan akan\nbermain bersama-sama pada tanda ulangan sehingga tamat.\n2. Bermain gitar mengiringi lagu.\nMembina Martabat Negara\nTanah airku indah dan permai\nRakyat hidup aman dan sejahtera\nBersama membina martabat negara\nMenuju cita yang sama\nBersumpah setia bebaskan negara\nDari musuh durjana\nLatihan\nbermain gitar\nLagu Membina\nMartabat Negara\n- instrumental\nLagu Membina\nMartabat Negara\n- minus one\nDurasi Pembelajaran\n102\n103\n104\nMari Bermain Gitar\nAktiviti\nCadangan\nAbad\n21\nke-\nKerja\nberpasukan\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1\n2.\nUnit 4\n65\n\n[Pendidikan Muzik Tingkatan 1.pdf p74]\nViolin\nMarakas\nRebana\nTamborin\nGitar\nGong\nAkordian\nApresiasi Muzik\nDondang sayang merupakan nyanyian tradisi negeri\nMelaka. Dondang sayang wujud dari zaman Kesultanan\nMelayu Melaka kira-kira 500 tahun yang lalu.\nDondang sayang biasanya dinyanyikan secara\nberpasangan dengan diiringi oleh alat muzik seperti\nviolin, rebana dan gong. Kini, alat seperti gitar, akordion,\ngendang, marakas dan tamborin turut digunakan.\nDondang Sayang\nDurasi Pembelajaran\nLagu Dondang\nSayang\nGitar\nMarakas\n110\n105\nViolin\n106\nAkordian\n107\nTamborin\n112\n111\nRebana\n108\nGong\n109\nUnit 4\n66\n\n[Pendidikan Muzik Tingkatan 1.pdf p75]\nQR CODE\nDengarkan lagu dondang sayang.\n1. Nyatakan alat yang memulakan dengan alunan melodi lagu dondang sayang.\n________________________________________________________________\n2. Nyatakan alat-alat yang memainkan rentak dalam lagu dondang sayang.\n________________________________________________________________\n3. Nyatakan alat yang dikategorikan sebagai membranofon.\n________________________________________________________________\n4. Terangkan secara ringkas mengenai alat membranofon?\n________________________________________________________________\nLazimnya dondang sayang dipersembahkan dalam majlis\nperkahwinan, majlis kebudayaan dan majlis-majlis rasmi.\nPersembahan dondang sayang dimulakan dengan alunan\nmelodi yang dimainkan oleh alat violin diikuti oleh permainan\nrebana dan gong.\nNyanyian dondang sayang berteraskan pantun empat\nkerat yang dilagukan oleh penyanyi. Kebiasaannya pantun ini\nbertemakan kasih sayang, nasihat, sindir-menyindir dan jenaka.\nSelain Melaka, dondang sayang juga dimainkan di Pulau\nPinang. Nyanyian ini dipersembahkan pada hari Chap Goh\nMeh, iaitu hari ke-15 Tahun Baru Cina.\nhttps://http://arasmega.com/\nqr-link/dondang-sayang\n• Layari Internet dengan carian kata kunci Dondang Sayang bagi mendapatkan informasi\nberkenaan Dondang Sayang dan asal usulnya.\n• Muat turun video permainan Dondang Sayang untuk dipertontonkan.\n• Dapatkan nama lagu Dondang Sayang tradisional dan lagu kontemporari.\n• Bimbing murid menulis skel C Major pada kedudukan not yang betul.\nNota\nGuru\nSP\n1.1.4\n5.1.3\n5.1.4\nEMK TMK\nEMK TMK\nDondang Sayang\nSri Mersing\nUnit 4\n67\n\n[Pendidikan Muzik Tingkatan 1.pdf p76]\nSkel\nSkel ialah susunan diatonik 8 not yang ditulis secara menaik, menurun atau menaik\ndan menurun.\nNotasi Muzik\nNotasikan skel berikut.\na\nNotasikan skel C Major menaik dengan menggunakan not krocet ( ).\nb Notasikan skel C Major menurun dengan menggunakan not minim ( ).\nc\nNotasikan skel C Major secara menaik dan menurun dengan menggunakan not\nsemibrif ( ).\nC D E F G A B C\nC B A G F E D C\nMenaik\nC Major Menaik dan Menurun\nBinaan Skel C Major\nMenurun\nC Major\n1\n2\n3\n4\n5\n6\n7\n8\nC\nD\nE\nF\nG\nA\nB\nC\nC\nD\nE\nF\nG\nA\nB\nC\nB\nA\nG\nF\nE\nD\nC\nDurasi Pembelajaran\nRajah 4.2 Skel C Major.\nUnit 4\n68\n\n[Pendidikan Muzik Tingkatan 1.pdf p77]\nPembinaan Skel C Major\nSebelum anda dapat memahami skel Major dan skel minor harmonik terbentuk,\nterlebih dahulu ada beberapa perkara yang perlu anda ketahui. Antaranya, ialah:\n1. Kedudukan not pada papan keyboard.\n2. Jarak dua langkah (ton) dan satu\nlangkah (semiton).\n3. Peraturan pembentukan skel Major.\nKedudukan not pada papan keyboard\nJarak antara papan not pada keyboard\nTerdapat dua jenis jarak di antara satu not ke satu not pada papan keyboard. Iaitu\nsemiton (satu langkah) dan jarak satu ton (dua langkah).\nNotasi Muzik\nDurasi Pembelajaran\nEnharmonic bermaksud satu pic yang\nmempunyai dua nama yang berbeza.\nContoh: C# = Db, D# = Eb, F# = Gb\nc C ke D = 1 ton (2 langkah)\nd Eb ke F = 1 ton (2 langkah)\nC\nC\nD\nE\nF\nG\nA\nB\nSemiton\n(satu langkah)\nNota\nGuru\n• Perbanyakkan halaman 70 dan 73 untuk diedarkan kepada murid.\n• Gunakan perkusi badan untuk mencipta corak irama.\nSP\n2.1.1\n(i) (ii)\n3.1.1\n5.1.4\n5.1.5\n5.1.7\nRajah 4.3 Kedudukan not pada papan keyboard.\nRajah 4.4 Langkah semiton.\nContoh jarak:\na\nC ke C#/Db = semiton (1 langkah)\nb E ke F = semiton (1 langkah)\nD\nE\nD\nE\nF\nG\nA\nB\nC\nD#\nEb\nD#\nEb\nF#\nGb\nG#\nAb\nA#\nBb\nC#\nDb\nC\nUnit 4\n69\n\n[Pendidikan Muzik Tingkatan 1.pdf p78]\n2. Tuliskan nama not yang berjarak semiton dalam skel di bawah.\na\nSkel C Major menaik.\n(i) Not ____ ke not _____\n(ii) Not ____ ke not _____\nb Apakah jarak antara not-not yang dikaitkan ( ) di bawah?\nPeraturan Pembentukan Skel Major\na\nSkel Major mempunyai lapan not.\nb Terdapat jarak semiton (S) dan ton (T) dalam skel Major.\nc\nSemua skel Major mempunyai jarak yang sama antara satu not dan satu\nnot yang lain.\nContohnya:\nd Carta pembentukan skel Major.\ne Contoh skel C Major.\n1. Nyatakan jarak dua not berikut sama ada ton atau semiton.\na\nb\nc\nT\n1\n1\n1\n1\n1\n½\n½\nT\nT\nT\nS\nT\nS\nC\nC\nD\nE\nF\nG\nA\nB\nUnit 4\n70\n\n[Pendidikan Muzik Tingkatan 1.pdf p79]\nMencipta Corak Irama\nDalam unit ini, anda akan mencipta corak irama.\nKemudian, mainkan corak irama dengan menggunakan\nalat perkusi. Latihan ini dijalankan serentak\nmenggunakan dua buah alatan perkusi. Sebagai\npermulaan, kita mainkan sepanjang dua bar.\n1. Ciptakan corak irama not krocet dan tanda rehat krocet ( ) dan mainkan.\nPerkusi 1\nPerkusi 2\nCorak Irama\nPenghasilan Muzik\nPastikan anda\nboleh menepuk\ncorak irama\nyang dicipta.\nDurasi Pembelajaran\n113\nMencipta\nPerkusi 1\n1 2 3 4 1 2 3 4\nPerkusi 2\n1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4\nPerkusi 1\n1 2 3 4 1 2 3 4\nPerkusi 2\n1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4\nUnit 4\n71\n\n[Pendidikan Muzik Tingkatan 1.pdf p80]\n2. Mainkan corak irama di bawah.\n3. Cipta corak irama empat bar berdasarkan perkara-perkara berikut:\na\nMeter .\nb Menggunakan nilai not krocet ( ), not minim ( ), tanda rehat krocet ( )\ndan tanda rehat minim (\n).\nc\nMenggunakan sekurang-kurangnya tiga perkusi yang sesuai.\n4\n4\nPerkusi 1: _________________\nPerkusi 2: _________________\nPerkusi 3: _________________\nPerkusi 1\nPerkusi 2\nMencipta\nUnit 4\n72\n\n[Pendidikan Muzik Tingkatan 1.pdf p81]\nPENILAIAN\n1. Dondang sayang merupakan muzik tradisional Malaysia yang popular\ndi negeri Melaka. Dengar audio lagu dondang sayang ini dan berikan\nulasan secara kritis daripada segi fungsi, alat muzik, cara persembahan\ndan latar belakang muzik tersebut.\n2. Main gitar secara individu mengiringi lagu Membina Martabat Negara\ndengan penjarian kord dan tempo yang betul.\n3. Tulis skel berikut menggunakan not semibrif dan kaitkan jeda dan\ntanda ( ) semitonnya dalam skel tersebut.\na Skel C Major menurun\nb Skel C Major menaik\nc\nSkel C Major menaik dan menurun\nLagu\nDondang\nSayang\nLagu\nMembina\nMartabat\nNegara\nUsaha lagi\nBaik\nCemerlang\nUsaha lagi\nBaik\nCemerlang\nUsaha lagi\nBaik\nCemerlang\n114\n115\nMenilai\nUnit 4\n73\n\n[Pendidikan Muzik Tingkatan 1.pdf p82]\nUnit 5\nUNIT 5\nSIHAT\nMALAYSIA\nStandard Pembelajaran\nPada akhir pembelajaran ini,\nmurid berupaya:\n1.1 Menyanyikan Lagu secara Ensembel\ndaripada Pelbagai Repertoir\n1.1.1 Bernyanyi secara unison dengan:\ni. Pic yang betul\nii. Dinamik yang sesuai\niii. Tempo yang betul\n1.1.2 Bernyanyi dengan teknik yang betul:\ni. Postur\nii. Pernafasan\n2.1 Memainkan Muzik secara Ensembel\n2.1.1 Memainkan muzik secara ensembel\nberdasarkan skor:\ni. Bermain alat muzik dengan teknik\nyang betul\nii. Bermain alat muzik dengan pic yang\nbetul atau ton yang baik\niii. Bermain alat muzik dengan irama\nyang betul mengikut tempo\n2.1.2 Mengamalkan etika persembahan dan\nnilai murni dalam aktiviti muzik\ni. Sebelum, semasa dan selepas latihan\nii. Sebelum, semasa dan selepas\npersembahan\nUnit ini mengandungi\npersembahan Quick\nResponse Code (QR\nCode) di halaman 84.\nInfo boleh didapati di\nhalaman Kandungan.\nCONTOH\nQR CODE\nDapatkan\nwww.arasmega.com\n74\n\n[Pendidikan Muzik Tingkatan 1.pdf p83]\nUnit 5\n3.1 Menghasilkan Idea Muzik Kreatif\n3.1.1 Mencipta corak irama berdasarkan meter\n4.1 Menghayati Muzik daripada Pelbagai Genre\n4.1.1 Memberikan ulasan tentang muzik tradisional Malaysia yang didengar\natau ditonton dari aspek:\ni. Genre muzik\nii. Alat muzik\niii. Fungsi muzik\niv. Cara persembahan\nv. Latar belakang muzik\n5.1 Membaca dan Menulis Notasi Muzik\n5.1.1 Membaca dan menulis jenis not serta tanda rehat mengikut nilai:\ni. Semibrif\nii. Minim\niii. Krocet\n5.1.2 Membaca dan menulis not serta tanda rehat berdasarkan meter dan 4\n4\n2\n4\n75\n\n[Pendidikan Muzik Tingkatan 1.pdf p84]\nUnit 5\nRasional\nBaik hati\nBersemangat kewarganegaraan\nKeadilan\nHormat-menghormati\nBerdikari\nKeberanian\nKejujuran\nKerajinan\nKesyukuran\nHemah tinggi\nSemangat bermasyarakat\nKesederhanaan\nKebersihan ﬁzikal dan mental\nKerjasama\nKasih sayang\nKebebasan\n• Durasi pembelajaran 60 minit melibatkan muka surat 76 hingga 77.\n• Minta murid dengar keseluruhan lagu Sihat Malaysia.\n• Bimbing murid menyanyi mengikut frasa lagu Sihat Malaysia.\n• Guru menerangkan etika persembahan.\nNota\nGuru\nNilai murni bermaksud perlakuan yang baik, peradaban dan tatasusila manusia dalam\nkehidupan manusia.\nNilai Murni\nBincangkan nilai-nilai murni yang boleh\nditerapkan dalam aktiviti nyanyian koir.\nLatihan Pemanasan Suara 9\nEnsembel Nyanyian\nA k t i v i t i\nPerbincangan\nLatihan\npemanasan\nsuara 9\nFoto 5.1\nMengangkat tangan dan\nmenunggu giliran untuk\nmengajukan soalan\nmerupakan contoh nilai\nmurni yang perlu dipupuk\napabila melakukan tugasan\nsecara berkumpulan.\nDurasi Pembelajaran\n116\nSP\n1.1.1\n(i) (ii)\n1.1.2\nMenilai\n76\n\n[Pendidikan Muzik Tingkatan 1.pdf p85]\nUnit 5\nSihat\nMalaysia\n= 124\nLagu Sihat\nMalaysia\n- vokal\nLagu Sihat\nMalaysia\n- instrumental\nLagu Sihat\nMalaysia\n- minus one\n117\n118\n119\nLagu dan Lirik: Rosman Adam\nMari Bernyanyi\n77\n\n[Pendidikan Muzik Tingkatan 1.pdf p86]\nUnit 5\nMari Belajar Bermain Kord A Minor\nPenjarian Kord A Minor\nEnsembel Muzik\nNota\nGuru\n• Durasi pembelajaran 60 minit melibatkan muka surat 78 hingga 81.\n• Mulakan latihan dengan tempo yang lambat sehingga mahir.\n• Fokuskan pada penjarian yang betul.\nKord\nA minor\nDurasi Pembelajaran\n120\nRajah 5.1 Kord A minor.\nFoto 5.2 Penjarian kord A minor.\nSP\n2.1.1\n(i)(ii)\n1\n3\n2\nJari 3 menekan\ntali ketiga pada\nfret kedua.\nJari 1 menekan\ntali kedua pada\nfret pertama.\nJari 2 menekan\ntali keempat pada\nfret kedua.\nAm\nO\nO\n3\n1\n2\n1\n2\n3\n4\n5\nPetunjuk:\nO = Tali perlu dimainkan tanpa menekan tali\npada fret.\n= Tali perlu dimainkan secara menekan tali\npada fret dengan penjarian yang betul.\nX = Tali tidak perlu dimainkan.\nX\nUnit 5\n78\n\n[Pendidikan Muzik Tingkatan 1.pdf p87]\nUnit 5\n1\n2\n3\n4\nAm Am Am Am Dm Dm Dm Dm G G G G C C C C\nAm Am Dm Dm Am Am G G\nAm Am G G G G Am Am\nF F F F G G G G Am Am Am Am Am Am Am Am\nAm Am Am Am Am Am Am Am\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nLatihan bermain kord A minor\nLatihan bermain kord A minor\nLatihan bermain kord A minor, D minor dan G Major\nLatihan bermain kord A minor, D minor, G Major, C Major\ndan F Major\nLatihan bermain\nkord A minor\nLatihan bermain\nkord A minor\nLatihan bermain\nkord A minor,\nD minor dan\nG Major\nLatihan bermain\nkord A minor,\nD minor,\nG Major,\nC Major dan\nF Major\n121\n122\n123\n124\nUnit 5\n79\n\n[Pendidikan Muzik Tingkatan 1.pdf p88]\nUnit 5\n3\n2\nJari 3 menekan\ntali keempat pada\nfret kedua.\n1\nJari 1 menekan\ntali ketiga pada\nfret pertama.\nJari 2 menekan\ntali kelima pada\nfret kedua.\nMari Belajar Bermain Kord E Major\nPenjarian Kord E Major\nKord\nE Major\n125\nRajah 5.2 Kord E Major.\nFoto 5.3 Penjarian kord E Major.\nE\nO O\n3\n1\n2\n1\n2\n3\n4\n5\nPetunjuk:\nO = Tali perlu dimainkan tanpa menekan tali\npada fret.\n= Tali perlu dimainkan secara menekan tali\npada fret dengan penjarian yang betul.\nX = Tali tidak perlu dimainkan.\nO\n80\n\n[Pendidikan Muzik Tingkatan 1.pdf p89]\nUnit 5\n1\n2\n3\nAm E Am E Am E Am E\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n= 100\nLatihan bermain kord E Major\nLatihan bermain kord A minor dan E Major\nLatihan bermain kord A minor, E Major, F Major dan G Major\nLatihan\nbermain\nkord\nE Major\nLatihan\nbermain\nkord A\nminor dan\nE Major\nLagu Katak\nSi Katak\nLompat\n126\n127\n128\nLompat Si Katak Lompat\nLompat si katak lompat\nLompatlah tinggi-tinggi\nCepatlah adik cepat\nCepatlah bangun pagi-pagi\n81\n\n[Pendidikan Muzik Tingkatan 1.pdf p90]\nUnit 5\nJong-Jong Inai\nTradisional\nLatihan Pemanasan Suara\nEnsembel Nyanyian\nLatihan\npemanasan\nsuara 10\n• Durasi pembelajaran 60 minit melibatkan muka surat 82 hingga 83.\n• Bimbing murid melakukan latihan memanaskan suara.\n• Bimbing murid menepuk detik menggunakan perkusi badan sambil menyanyi lagu\nJong Jong Inai.\n• Bimbing murid bermain gitar mengiringi lagu Jong Jong Inai.\nNota\nGuru\nLagu\nJong-Jong\nInai\nDurasi Pembelajaran\n10\nDengar dan nyanyikan bersama-sama.\n129\n130\nSP\n1.1.1\n(i)(iii)\n2.1.1\n(i)(ii)\n82\n\n[Pendidikan Muzik Tingkatan 1.pdf p91]\nUnit 5\nEnsembel Muzik\nLatihan\nbermain gitar\n1. Latihan bermain gitar.\nAktiviti bermain gitar mengiringi lagu Jong-jong Inai secara berkumpulan.\nMurid akan dibahagikan kepada empat kumpulan. Setiap kumpulan\nakan membuat persembahan bermain gitar mengiringi lagu Jong-jong\nInai di hadapan kelas sambil dinilai oleh guru dan kumpulan lain.\n2. Bermain gitar mengiringi lagu.\nJong-jong Inai\nJong jong inai mak ipung Rajawali\nJong jong inai mak ipung Rajawali\nJong jong inai mak ipung Rajawali\nSepak tunggul inai berdarah ibu kaki\nJong jong inai mak ipung Rajawali\nJong jong inai mak ipung Rajawali\nLagu Jong-Jong\nInai\n- instrumental\nLagu Jong-Jong\nInai\nDurasi Pembelajaran\n131\n132\n133\nMari Bermain Gitar\nAktiviti\nCadangan\nAbad\n21\nke-\nKerja\nberpasukan\n83\n\n[Pendidikan Muzik Tingkatan 1.pdf p92]\nUnit 5\nApresiasi Muzik\nKompang\nKompang ialah alat muzik tradisional daripada keluarga\nmembranofon. Merujuk kepada pendapat ahli sejarah,\npermainan kompang berasal dari Timur Tengah yang\ndibawa masuk ke Tanah Melayu oleh pedagang Arab\nyang datang berdagang.\nPersembahan kompang dimainkan secara beramai-\nramai atau ensembel. Kebiasaannya, jumlah pemain\nkompang ialah seramai 10 hingga 20 orang. Kompang\nboleh dimainkan secara duduk, berdiri dan berjalan\nsambil berarak.\nDurasi Pembelajaran\nBelulang\nhttps://arasmega.com/\nqr-link/kompang/\n• Durasi pembelajaran 60 minit melibatkan muka surat 84 hingga 86.\n• Bimbing murid menulis skel A minor hamonik pada kedudukan not yang betul.\nNota\nGuru\nPermainan\nKompang\n134\nKompang\n135\nSP\n3.1.1\nBaluh\nPaluan kompang\nmengiring pengantin\nQR CODE\n84\n\n[Pendidikan Muzik Tingkatan 1.pdf p93]\nUnit 5\n1. Apakah keunikan permainan kompang?\n2. Kompang berasal dari Timur Tengah.\nPada pandangan kamu, apakah faktor utama yang mengukuhkan pernyataan di atas?\nFungsi dan peranan persembahan kompang adalah bertujuan untuk memeriahkan\nsesuatu upacara antaranya; mengiringi nyanyian solo atau kumpulan secara ensembel\nseperti nasyid, marhaban, mengarak pengantin, kanak-kanak berkhatan, khatam al-Quran,\ndan upacara rasmi.\nTiga jenis paluan iaitu melalu, menyilang dan meningkah bagi menghasilkan bunyi\ndalam ensembel kompang.\n•\nPaluan melalu memainkan rentak asas.\n•\nPaluan menyilang memainkan rentak silihan (up beat) kepada pukulan melalu.\n•\nPaluan meningkah menjadi penghias antara paluan melalu dan menyilang.\nMenganalisis\n85\n\n[Pendidikan Muzik Tingkatan 1.pdf p94]\nUnit 5\nSkel Minor Harmonik\nNotasi Muzik\nDurasi Pembelajaran\nMengenal not-not yang terdapat dalam skel A minor harmonik\nDalam skel minor harmonik, not ke-7 dinaikkan semiton.\nA B C D E F G A\nA B C D E F G A G F E D C B A\nA G F E D C B A\nMenaik\nA Minor Menaik dan Menurun\nSkel A Minor Harmonik\nMenurun\nA minor\nharmonik\n1\n2\n3\n4\n5\n6\n7\n8\nA\nB\nC\nD\nE\nF\nG#\nA\n\n\n\n\nKedudukan skel A minor harmonik\nMenulis skel A minor hamonik dalam klef trebel.\na\nTuliskan skel A minor hamonik menaik dengan menggunakan not krocet ( ).\nb Tuliskan skel A minor hamonik menurun dengan menggunakan not minim ( ).\nc\nTuliskan skel A minor hamonik menaik dan menurun dengan menggunakan\nnot semibrif ( ).\nRajah 5.3 Skel A minor harmonik.\n86\n\n[Pendidikan Muzik Tingkatan 1.pdf p95]\nUnit 5\nNotasi Muzik\nSkel A minor harmonik menaik dan menurun\nSkel A minor harmonik menaik\nSkel A minor harmonik menurun\n½\n½\n½\n½\n½\n½\n\n\n½\n½\n½\n\n½\n½\n½\n\nSkel A minor harmonik menaik dan menurun\nSkel A minor harmonik menaik\nSkel A minor harmonik menurun\n½\n½\n½\n½\n½\n½\n\n\n½\n½\n½\n\n½\n½\n½\n\n• Durasi pembelajaran 60 minit melibatkan muka surat 87 hingga 91.\n• Perbanyakkan halaman 91 untuk diedarkan kepada murid.\nNota\nGuru\nDurasi Pembelajaran\nSP\n5.1.2\n3.1.1\n\nA\nB\nC\nD\nE\nF\nG\nA\n1\n1\n1\n½\n½\n½\n1½\n1. Jarak antara setiap not adalah seperti di atas.\n2. Not ke-7 dinaikkan satu semiton.\nPembinaan Skel A Minor Harmonik\nSkel A minor harmonik\n87\n\n[Pendidikan Muzik Tingkatan 1.pdf p96]\nUnit 5\n1. Namakan skel di bawah dan tandakan ( ) jarak semitonnya.\na\n________________________\nb\n________________________\n2. Notasikan skel berikut dalam klef trebel menggunakan jenis not semibrif dan\ntandakan not-not semiton.\na\nSkel A minor harmonik menaik.\nb Skel A minor harmonik menurun.\nc\nSkel A minor harmonik menaik dan menurun.\nMenganalisis\n88\n\n[Pendidikan Muzik Tingkatan 1.pdf p97]\nUnit 5\nPenghasilan Muzik\nNot semibrif mempunyai nilai not yang panjang. Nilainya\nbersamaan empat kiraan detik. Antara alat perkusi yang\nsesuai untuk memainkan not semibrif ialah kerincing.\nMainkan corak irama di bawah dengan menggunakan alat-alat yang sesuai.\nUlang kaji nilai not.\n1. Isikan not dan tanda rehat yang sesuai supaya\nmenjadi satu corak irama:\nDurasi Pembelajaran\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nPerkusi 1\nPerkusi 2\nPerkusi 3\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nPerkusi 1\nPerkusi 2\nPerkusi 3\n= boleh ditulis =\n= boleh ditulis =\nPenggunaan:\nNot semibrif =\nTanda rehat semibrif =\nMencipta Corak Irama\n89\n\n[Pendidikan Muzik Tingkatan 1.pdf p98]\nUnit 5\n1. Anda boleh mula mencipta corak irama sendiri sepanjang empat\nbar menggunakan tiga jenis alat perkusi. Anda harus menggunakan\nnot semibrif (  ) dan tanda rehat semibrif (\n) dan semua not yang\ntelah dipelajari. Mainkan semula corak irama yang anda hasilkan.\n2. Guru membahagikan murid kepada tiga kumpulan.\nSetiap kumpulan akan mempersembahkan corak\nirama yang telah mereka cipta menggunakan\nperkusi yang sesuai.\nPerkusi 1\nPerkusi 2\nPerkusi 3\nMengaplikasi\nAktiviti\nCadangan\nPencipta\nMuda\nAbad\n21\nke-\nKerja\nberpasukan\n90\n\n[Pendidikan Muzik Tingkatan 1.pdf p99]\nUnit 5\n1. Nyanyi lagu Sihat Malaysia secara individu dengan pic yang tepat dan\ntempo yang betul.\nUsaha lagi\nBaik\nCemerlang\n2. Ciptakan corak irama mengikut meter yang diberikan dengan\nmenggunakan not dan tanda rehat krocet, minim dan semibrif.\na\nb\n3. Tuliskan skel menggunakan not semibrif dan tanda ( ) jarak semiton.\na\nSkel A minor harmonik menurun.\nb Tuliskan skel A minor harmonik menaik dan menurun.\nPENILAIAN\nLagu Sihat\nMalaysia\n- minus one\n136\nUsaha lagi\nBaik\nCemerlang\nUsaha lagi\nBaik\nCemerlang\nMencipta\n91\n\n[Pendidikan Muzik Tingkatan 1.pdf p100]\nUNIT 6\nMALAYSIA\nBERADAB\nMULIA\nStandard Pembelajaran\nPada akhir pembelajaran ini,\nmurid berupaya:\n1.1 Menyanyikan Lagu secara Ensembel\ndaripada Pelbagai Repertoir\n1.1.1 Bernyanyi secara unison dengan:\ni. Pic yang betul\nii. Dinamik yang sesuai\niii. Tempo yang betul\n1.1.2 Bernyanyi dengan teknik yang betul:\ni. Postur\nii. Pernafasan\n2.1 Memainkan Muzik secara Ensembel\n2.1.1 Memainkan muzik secara ensembel\nberdasarkan skor:\ni. Bermain alat muzik dengan teknik\nyang betul\nii. Bermain alat muzik dengan pic yang\nbetul atau ton yang baik\niii. Bermain alat muzik dengan irama\nyang betul mengikut tempo\niv. Mengamalkan cara penjagaan alat\n2.1.2 Mengamalkan etika persembahan dan\nnilai murni dalam aktiviti muzik\ni. Sebelum, semasa dan selepas latihan\nii. Sebelum, semasa dan selepas\npersembahan\nUnit ini mengandungi\npersembahan Quick\nResponse Code (QR\nCode) di halaman 102.\nInfo boleh didapati di\nhalaman Kandungan.\nCONTOH\nQR CODE\nDapatkan\nwww.arasmega.com\nUnit 6\n92\n\n[Pendidikan Muzik Tingkatan 1.pdf p101]\n3.1 Menghasilkan Idea Muzik Kreatif\n3.1.1 Mencipta corak irama berdasarkan meter\n4.1 Menghayati Muzik daripada Pelbagai Genre\n4.1.1 Memberikan ulasan tentang muzik tradisional Malaysia yang didengar atau\nditonton daripada aspek:\ni. Genre muzik\nii. Alat muzik\niii. Fungsi muzik\niv. Cara persembahan v. Latar belakang muzik\n5.1 Membaca dan Menulis Notasi Muzik\n5.1.1 Membaca dan menulis jenis not serta tanda rehat mengikut nilai:\ni. Semibrif\nii. Minim\niii. Krocet\n5.1.2 Membaca dan menulis not serta tanda rehat berdasarkan meter dan\n5.1.3 Membaca, memahami dan menulis terminologi dinamik:\ni. Piano\nii. Forte\n5.1.4 Membaca, memahami dan menulis terminologi tempo:\ni. Andante\nii. Allegro\n5.1.5 Membaca, memahami dan menulis arahan persembahan:\ni. Tanda ulangan\nii. Tanda penamat\niii. Tanda kromat\n5.1.6 Membaca, memahami dan menulis not dalam klef trebel\nsehingga satu garisan lejer\n4\n4\n4\n4\n2\n4\nUnit 6\n93\n\n[Pendidikan Muzik Tingkatan 1.pdf p102]\nMembuka Mulut Ketika Menyanyi\nCara membuka mulut dengan betul merupakan\naspek penting dalam nyanyian untuk penghasilan\nsuara dan sebutan yang jelas.\nLatihan Pemanasan Suara 11\nEnsembel Nyanyian\nDurasi Pembelajaran\nLatihan\npemanasan\nsuara 11\n137\nNota\nGuru\n• Durasi pembelajaran 60 minit melibatkan muka surat 94 hingga 96.\n• Minta murid mendengar keseluruhan lagu Budi Bahasa Amalan Kita.\n• Bimbing murid menyanyi mengikut frasa lagu Budi Bahasa Amalan Kita.\n• Bimbing murid bernyanyi mengikut dinamik lagu dengan betul.\n• Bimbing murid melakukan latihan memanaskan suara.\n• Bimbing murid menepuk dengan tepat irama melodi yang didengar semasa aktiviti\nPermainan Menepuk Irama.\nSP\n1.1.1\n(i) (iii)\n1.1.2\nDengar audio. Kemudian nyanyi bersama.\nBermain\nAyuh\nBilangan pemain:\n8 hingga 10 orang.\nPerkakas:\n1. Kotak\n2. Genre lagu yang biasa dinyanyikan oleh murid seperti lagu-lagu:\nlagu rakyat jazz patriotik pop rap\ntradisional\nArahan:\n1. Setiap genre lagu tersebut ditulis dalam kertas kecil sebanyak tiga salinan dan\ndimasukkan ke dalam kotak.\n2. Murid berbaris di hadapan kelas. Guru akan memainkan muzik sambil murid\nmengedarkan kotak kepada murid sebelah.\n3. Apabila muzik terhenti, murid terakhir memegang kotak akan mencabut sehelai\nkertas dari dalam kotak dan menyanyikan genre lagu yang tertulis dalam kertas\ntersebut sepanjang satu rangkap.\n4. Murid yang tidak berjaya menyanyikan lagu yang telah ditetapkan akan\nmeneruskan permainan. Murid yang berjaya menyanyikan lagu boleh duduk di\ntempatnya dan menjadi penonton.\nRagam\nEMK TMK\nRajah 6.1 Rajah membuka mulut.\naa\nee\nuu\nUnit 6\n94\n\n[Pendidikan Muzik Tingkatan 1.pdf p103]\nLatihan Pemanasan Suara 12\nPermainan Menepuk Irama\nDengar dengan teliti melodi yang dimainkan. Kemudian, tepuk\nirama melodi tersebut mengikut tempo pada bar yang kosong.\nTepuk irama\nLatihan\npemanasan\nsuara 12\nDinamik\nSelain piano () dan forte (  ), crescendo dan descrescendo juga memainkan peranan\nyang penting dalam aspek dinamik .\nCrescendo bermaksud beransur kuat.\nDecrescendo bermaksud beransur lembut.\nGerakkan nada menaik dan menurun dalam semiton.\n138\n139\nAktiviti\nCadangan\nDengar\nDengar\nDengar\nDengar\nDengar\nDengar\nDengar\nDengar\nDengar\nDengar\nTepuk\nTepuk\nTepuk\nTepuk\nTepuk\nTepuk\nTepuk\nTepuk\nTepuk\nTepuk\nGerakkan nada mengikut tanda dinamik yang betul.\n(a) Ha Ha Ha Ha Ha (b) Ca Ca Ca Ca Ca (c) Ma Ma Ma Ma Ma Mi Mi Mi Mi Mi\n1\n2\nUnit 6\n95\n\n[Pendidikan Muzik Tingkatan 1.pdf p104]\nBudi Bahasa Amalan Kita\nLagu Budi\nBahasa\nAmalan Kita\n- vokal\nLagu Budi\nBahasa Amalan\nKita\n- instrumental\nLagu Budi\nBahasa\nAmalan Kita\n- minus one\n140\n141\n142\nMari Bernyanyi\nLagu dan Lirik: Yusri Hussain\nDashed/ Dotted/ Broken slur\nSlur terputus: Satu suku kata\ndinyanyikan secara slur untuk\nbeberapa not.\nContoh yang terdapat dalam lagu\ndi atas adalah pada bar 11 iaitu:\n…hilanglah… bangsa\nUnit 6\n96\n\n[Pendidikan Muzik Tingkatan 1.pdf p105]\n1\n2\n3\nAm Am Am Am F F F F C C C C G G G G\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nAm Am Dm Dm Dm G G G C C C C\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nAm Am Am Am F F F F C C C C G G G G\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nLatihan bermain kord A minor, C Major, F Major dan G Major\nLatihan bermain kord A minor, E Major, C Major dan F Major\nLatihan bermain kord C Major, G Major, F Major, A minor,\nD minor dan E Major E Major dan D minor\nEnsembel Muzik\nMari Bermain Gitar\nAnda telah mempelajari kord C Major, G Major, F Major, A minor, D minor dan E Major.\nMari kita gabungkan kesemuanya dalam satu lagu.\nLatihan bermain\nkord A minor,\nC Major, F Major\ndan G Major\nLatihan\nbermain kord\nA minor,\nE Major,\nC Major dan\nF Major\nLatihan bermain\nkord C Major,\nG Major,\nF Major,\nA minor,\nD minor dan\nE Major\nDurasi Pembelajaran\n143\n144\n145\nNota\nGuru\n• Durasi pembelajaran 60 minit melibatkan muka surat 97 hingga 99.\n• Guru menyediakan alatan untuk melakukan pembentangan pada muka surat 99.\nSP\n2.1.2\n(i) (ii)\nUnit 6\n97\n\n[Pendidikan Muzik Tingkatan 1.pdf p106]\n4\n5\nAm Am Am Am E E E E Am Am Am Am\n1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4\nBermain gitar\nLagu\nSenandung\nInang\n- instrumental\nLatihan bermain gitar\nLatihan bermain gitar mengiringi lagu\n146\n147\nAktiviti\nCadangan Bahagikan murid kepada dua kumpulan yang akan\nbermain gitar.\nKumpulan A\nMemainkan gitar mengikut blok kord\ndi atas dari bar 1 hingga bar 4\nKumpulan B\nMemainkan gitar mengikut blok kord di\natas dari bar 5 hingga bar 8\nSeterusnya, kumpulan bertukar peranan.\nLagu: Yusri Hussain\nAbad\n21\nke-\nKerja\nberpasukan\nUnit 6\n98\n\n[Pendidikan Muzik Tingkatan 1.pdf p107]\nEtika Persembahan dan Nilai Murni dalam Aktiviti Muzik\nA k t i v i t i\nPerbincangan\nAnda akan mengadakan ensemble gitar, bincangkan\nbersama rakan anda:\n(a) Etika sebelum, semasa dan selepas latihan.\n(b) Etika sebelum, semasa dan selepas persembahan.\n(c) Bentangkan hasil perbincangan anda.\nMenganalisis\nAbad\n21\nke-\nKerja berpasukan/\nMahir berkomunikasi\nEMK\nBahasa\nUnit 6\n99\n\n[Pendidikan Muzik Tingkatan 1.pdf p108]\nJong-jong Inai\nLatihan Pemanasan Suara\nLatihan\npemanasan\nsuara 13\nEnsembel Nyanyian\nLagu Jong-jong\nInai\n- vokal\nDurasi Pembelajaran\n13\nNota\nGuru • Durasi pembelajaran 60 minit\nmelibatkan muka surat 100 hingga 101.\n• Bimbing murid menepuk detik sambil\nmenyanyi lagu Jong Jong Inai.\n• Bimbing murid bermain gitar\nmengiringi lagu Jong Jong Inai.\n148\n149\nSP\n1.1.1\n(i)(iii)\n2.1.1\n(i)(ii)\nMari Bernyanyi\nUnit 6\n100\n\n[Pendidikan Muzik Tingkatan 1.pdf p109]\nEnsembel Muzik\n1. Latihan bermain gitar.\nAktiviti bermain gitar mengiringi lagu Jong-jong Inai secara berkumpulan.\nMurid akan dibahagikan kepada kumpulan-kumpulan kecil untuk\nmembuat persembahan di hadapan kelas. Setiap kumpulan terdiri\ndaripada dua orang murid. Seorang menyanyikan lagu dan seorang lagi\nbermain gitar.\n2. Bermain gitar mengiringi lagu.\nLatihan\nbermain gitar\nLagu Jong-jong Inai\n- instrumental\nJong-jong Inai\nJong jong inai mak ipung Rajawali, Jong jong inai mak ipung Rajawali\nJong jong inai mak ipung Rajawali, Sepak tunggul inai berdarah ibu kaki\nJong jong inai mak ipung Rajawali, Sepak tunggul inai berdarah ibu kaki\nSemangkuk jeluk sepinggan dadar, Tak cukup pulut tambah nasi dagang\nSemangkuk jeluk sepinggan dadar, Tak cukup pulut tambah nasi dagang\nJong jong inai mak ipung Rajawali, Jong jong inai mak ipung Rajawali\nDurasi Pembelajaran\nAm Am E E Dm Dm Am Am Am Am E E Am Am Am\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n150\n152\nMari Bermain Gitar\nAktiviti\nCadangan\nAm Am Am Am Am Am Am Am\nAm Am Dm Am Dm Am E Am\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nAm Am Am Am Am Am Am Am\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nAm Am Am Am E E E E F F G G E E Am Am\n1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4\nLagu Jong-jong\nInai\n- instrumental\n151\nAbad\n21\nke-\nKerja berpasukan\nUnit 6\n101\n\n[Pendidikan Muzik Tingkatan 1.pdf p110]\nDikir barat merupakan kumpulan muzik tradisional Malaysia dan\nterkenal di negeri Kelantan. Namun, dikir barat kini popular di\nseluruh Malaysia.\nSetiap kumpulan biasanya diketuai oleh seorang\nTukang Karut dan Tok Juara. Tukang Karut akan\nmembawa mesej nyanyian secara spontan yang\ndisampaikan secara berirama.\nTok Juara pula akan mendahului nyanyian\nsambil berbalas-balas pantun dan diikuti oleh\nawak-awak. Awak-awak ialah satu kumpulan\npenyanyi yang akan menyahut lirik Tok Juara\nsecara berirama dan beramai-ramai.\nDikir Barat\nhttp://arasmega.com/\nqr-link/dikir-barat\nQR CODE\nDikir barat merupakan kumpulan muzik tradisional Malaysia dan\nterkenal di negeri Kelantan. Namun, dikir barat kini popular di\nseluruh Malaysia.\nSetiap kumpulan biasanya diketuai oleh seorang\nTukang Karut dan Tok Juara. Tukang Karut akan\nmembawa mesej nyanyian secara spontan yang\ndisampaikan secara berirama.\nTok Juara pula akan mendahului nyanyian\nsambil berbalas-balas pantun dan diikuti oleh\nawak-awak. Awak-awak ialah satu kumpulan\npenyanyi yang akan menyahut lirik Tok Juara\nsecara berirama dan beramai-ramai.\nDikir Barat\nhttp://arasmega.com/\nqr-link/dikir-barat\nQR CODE\nApresiasi Muzik\nDikir Barat\nDurasi Pembelajaran\nDikir Barat\n153\nNota\nGuru • Durasi pembelajaran 60 minit melibatkan muka surat 102 hingga 104.\n• Bimbing murid menulis skel C Major pada kedudukan not yang betul.\n• Minta murid memuat turun video persembahan dikir barat di laman sesawang.\nSP\n5.1.(i)\nUnit 6\n102\n\n[Pendidikan Muzik Tingkatan 1.pdf p111]\nAlat muzik yang digunakan untuk\nmengiringi dikir barat adalah seperti\nrebana ibu, rebana anak, gong, canang\ndan marakas.\nSelain pertandingan, dikir barat berfungsi\nsebagai hiburan yang dipersembahkan dalam\nmajlis perkahwinan dan selepas menuai padi.\n1.\nApakah gelaran yang diberikan kepada penyanyi yang mengetuai\nkumpulan dikir barat?\n2. Apakah alat edofon yang terdapat dalam muzik dikir barat?\nCanang\nMarakas\nGong\nRebana Ibu\nRebana Anak\nAlat muzik yang digunakan untuk\nmengiringi dikir barat adalah seperti\nrebana ibu, rebana anak, gong, canang\ndan marakas.\nSelain pertandingan, dikir barat berfungsi\nsebagai hiburan yang dipersembahkan dalam\nmajlis perkahwinan dan selepas menuai padi.\n1.\nApakah gelaran yang diberikan kepada penyanyi yang mengetuai\nkumpulan dikir barat?\n2. Apakah alat edofon yang terdapat dalam muzik dikir barat?\nCanang\nMarakas\nGong\nRebana Ibu\nRebana Anak\nRebana ibu\nRebana anak\nMarakas\nCanang\nGong\n156\n157\n154\n155\n158\nUnit 6\n103\n\n[Pendidikan Muzik Tingkatan 1.pdf p112]\n1. Namakan kord-kord primer dalam nada C Major menggunakan huruf Roman\nbesar (I, IV dan V).\n2. Tuliskan kord-kord primer dalam nada C Major dengan menggunakan jenis not\nsemibrif (  ).\nApakah itu Kord Primer?\nBerikut merupakan kord-kord yang terbentuk dalam skel C Major.\nKord-kord primer terdiri daripada kord I, IV dan V dalam skel Major.\nBerikut merupakan kord-kord primer yang terdapat dalam skel C Major\nBiasanya kord-kord ini ditulis dengan huruf Roman besar.\nContohnya:\nKord I ialah kord C Major\nKord IV ialah kord F Major\nKord V ialah kord G Major\nI\nIV\nV\n(I)\n(IV)\n(V)\nNotasi Muzik\nKord Primer dalam Nada C Major\nApa itu Kord?\nKord ialah dua atau lebih not yang disusun dan dimainkan secara serentak. Kord yang\nterdiri daripada tiga not dikenali sebagai triad. Triad terdiri daripada not pertama, ketiga\ndan kelima daripada sesuatu skel.\nKord dimainkan\nserentak\nI\nIV\nV\nDurasi Pembelajaran\n159\nRajah 6.3 Kord primer dalam nada C Major.\nUnit 6\n104\n\n[Pendidikan Muzik Tingkatan 1.pdf p113]\nKord Primer dalam Skel A Minor Harmonik\nPada pelajaran yang lepas, kita telah membincangkan tentang triad, kord dan kord\nprimer dalam nada atau skel C Major. Kita juga telah didedahkan tentang kaedah triad\nMajor atau kord Major terbentuk.\nSekarang, mari kita lihat pula kord-kord primer yang terdapat dalam skel A minor\nharmonik.\nMasihkah anda ingat bahawa dalam mana-mana skel minor harmonik, not ke-7\nmestilah dinaikkan satu semiton? Dalam skel A minor harmonik, not ke-7 tersebut\nadalah not G. Maka, not tersebut menjadi not G#.\nNotasi Muzik\nSebagaimana yang anda ketahui, kord primer terdiri daripada kord-kord I, IV dan V\ndalam sesuatu skel atau nada.\nKord triad A minor\nKord A minor dibina secara menegak dengan not pertama, kemudian not ke-3 dan\nke-5 (A-C-E).\nKord primer terdiri daripada kord i, iv dan V dalam skel A minor harmonik. Berikut\nmerupakan kord-kord primer yang terdapat dalam skel A minor.\nBiasanya, kord-kord ini ditulis dengan huruf Roman.\nContohnya:\nKord i ialah kord A minor\nKord iv ialah kord D minor\nKord V ialah kord E Major\nNombor Roman kecil (i) dan (iv) menunjukkan kord minor dan nombor Roman besar\nmenunjukkan kord Major.\ni\niv\nV\n\nE\nC\nA\nA\nF\nD\nB\nG#\nE\nDurasi Pembelajaran\n• Durasi pembelajaran 60 minit melibatkan muka surat 105 hingga110.\n• Halaman 106 boleh dibuat salinan untuk diedarkan kepada murid.\n• Halaman 110 boleh dibuat salinan untuk diedarkan kepada murid.\nNota\nGuru\nSP\n3.1.1\n5.1.4\n5.1.5\ni\niv\nV\n\nRajah 6.5 Kord triad dalam nada A minor\nUnit 6\n105\n\n[Pendidikan Muzik Tingkatan 1.pdf p114]\n1. Namakan setiap kord primer dalam nada A minor menggunakan huruf Roman.\n2. Tuliskan kord-kord primer dalam nada A minor dengan menggunakan jenis not\nsemibrif (  ).\n3. Notasikan kord primer dalam skel C Major berikut.\n4. Notasikan kord primer dalam skel A minor harmonik berikut.\n5. Berikut merupakan kord-kord primer dalam nada A minor harmonik.\nNyatakan pergerakan kord di bawah berasaskan kord primer.\n6. Berikut merupakan kord-kord primer dalam nada C Major. Nyatakan\npergerakan kord di bawah berasaskan kord primer.\ni\niv\nI\nIV\nI\nIV\nV\ni\niv\nv\nUnit 6\n106\n\n[Pendidikan Muzik Tingkatan 1.pdf p115]\nPenghasilan Muzik\nCipta Corak Irama\nUntuk aktiviti seterusnya, kita akan membuat ciptaan\ncorak irama yang sama pada dua bar pertama dan\nmenukar corak irama pada bar 3 dan bar 4.\nAlat yang sesuai:\nCorak irama 4 bar (A dan B).\n=\n=\n= Tepuk - kastenet\natau petik jari\nPerkusi 1\nPerkusi 2\nPerkusi 3\nA\nB\nDurasi Pembelajaran\nContoh\nPerkusi 1\nA\nB\nLatihan corak irama 1\n1. Cipta corak irama mengikut jenis perkusi.\nUnit 6\n107\n\n[Pendidikan Muzik Tingkatan 1.pdf p116]\nPerkusi 2\nA\nB\nPerkusi 3\nA\nB\nLatihan corak irama 2\nLatihan corak irama 3\nA\nB\nPerkusi 1\nPerkusi 2\nPerkusi 3\n2. Lengkapkan ruangan di bawah dengan corak irama yang telah dicipta\ndan mainkan.\nUnit 6\n108\n\n[Pendidikan Muzik Tingkatan 1.pdf p117]\nPENILAIAN\n1.\nPilih salah satu lagu di atas dan nyanyikan secara individu dengan pic\nyang tepat dan tempo yang betul.\n2. Cipta corak irama pada bar 2, bar 3 dan bar 4.\na\nb\nc\n3. Jawab soalan di bawah.\na\nNotasikan kord primer yang terdapat dalam skel C Major menggunakan\nnot semibrif (  ).\nb Notasikan kord primer yang terdapat dalam skel A minor harmonik\nmenggunakan not minim (  ).\nLagu Segar Minda\nLagu Budi Bahasa Amalan Kita\nLagu Segar\nMinda\n- minus one\nLagu Budi\nBahasa Amalan\nKita\n- minus one\n160\n161\nUsaha lagi\nBaik\nCemerlang\nUsaha lagi\nBaik\nCemerlang\nUsaha lagi\nBaik\nCemerlang\nMencipta\nUnit 6\n109\n\n[Pendidikan Muzik Tingkatan 1.pdf p118]\n4. Bentuk kumpulan yang terdiri daripada enam orang ahli. Bincang dan\nletakkan tanda dinamik  ,  , dan pada skor lagu Jong-jong\nInai di bawah. Kemudian, nyanyikan lagu tersebut mengikut dinamik\nyang telah diletakkan.\nJong-jong Inai\nMengaplikasi\nTradisional\nUnit 6\n110\n\n[Pendidikan Muzik Tingkatan 1.pdf p119]\nRujukan Pantas\n1\n8\n35\n45\n62\n71\n89\nmo mu mi ma ma mi mu mo mo ma\nMa - ri ka - wan se - mua ma - ri ki - ta nya - nyi ber - sa - ma sa - ma yeah\n\ndo re mi fa so la ti do ti la so fa mi re do\n\nPan - dang ke de - pan, ba - dan te - gak, ka - ki ja - rak\n\nHa ha ha ha ha____ ha ha ha ha ha____\nHa ha ha ha ha____ ha ha ha ha ha____\nLatihan\nPemanasan\nSuara\n1\nLatihan\nPemanasan\nSuara\n2\nLatihan\nPemanasan\nSuara\n3\nLatihan\nPemanasan\nSuara\n4\nLatihan\nPemanasan\nSuara\n5\nLatihan\nPemanasan\nSuara\n6\nLatihan\nPemanasan\nSuara\n7\n111\n\n[Pendidikan Muzik Tingkatan 1.pdf p120]\nRujukan Pantas\nAm\nO\nO\n3\n1\n2\n1\n2\n3\n4\n5\nX\nE\nO O\n3\n1\n2\n1\n2\n3\n4\n5\nO\nDm\nO\nO\n3\n1\n2\n1\n2\n3\n4\n5\nO\nX\nX\n4\n3\n1\n1\n2\n1\n2\n3\n4\n5\nF\nF\n4\n3\n1\n1\n2\n1\n2\n3\n4\n5\nX\nG\nO\nO\nO\n4\n2\n3\n1\n2\n3\n4\n5\nC\nO\nX\nO\n3\n1\n2\n1\n2\n3\n4\n5\n98\n116\n129\n137\n138\n148\nLatihan\nPemanasan\nSuara\n8\nLatihan\nPemanasan\nSuara\n9\nLatihan\nPemanasan\nSuara\n10\nLatihan\nPemanasan\nSuara\n11\nLatihan\nPemanasan\nSuara\n12\nLatihan\nPemanasan\nSuara\n13\n112\n\n[Pendidikan Muzik Tingkatan 1.pdf p121]\nGlosari\nPerkataan\nPenerangan\nAllegro\nTempo laju.\nAndante\nKelajuan seperti berjalan.\nBaluk\nTerdiri daripada lima garisan dan empat ruang.\nDinamik (Dynamic)\nPerubahan bunyi sama ada kuat atau lembut dalam persembahan\nmuzik. Antara istilah yang digunakan ialah:\nIstilah\nSimbol\nMakna\nPiano\nlembut\nForte\nkuat\nMezzo piano\nmp\nsederhana lembut\nMezzo forte\nmf\nsederhana kuat\nSimbol\nMakna\nBunyi beransur kuat\nBunyi beransur lembut\nErofon\nKumpulan alat muzik yang sumber bunyinya berupa udara yang\nditiup. Udara ini dikawal oleh lubang-lubang atau lidah yang ada\npada alat muzik tersebut.\nContoh:\n• Seruling\n• Serunai\n• Nafiri\nGaris lejer\nGarisan tambahan yang terletak di atas atau di bawah\nbaluk muzik.\nGaris bar\nGaris menegak yang membahagikan notasi dengan segmen\nyang sama.\nGenre\nJenis-jenis muzik.\nIrama\nPergerakan bunyi muzikal yang terhasil daripada gabungan bunyi\npanjang dan pendek.\nKlef\nTanda kunci pada notasi baluk.\nKordofon\nKumpulan alat muzik yang sumber bunyinya berasal daripada tali\natau dawai yang dipetik, digesek mahupun dipukul.\nContoh:\n• Sitar\n• Erhu\n• Rebab\n113\n\n[Pendidikan Muzik Tingkatan 1.pdf p122]\nGlosari\nMembranofon\nKumpulan alat muzik yang sumber bunyinya berasal daripada\nmembran atau selaput kulit yang dipasang pada sebuah kotak\natau tabung. Bunyi pada alat ini dihasilkan oleh getaran pada\nbahagian yang dipalu.\nContoh:\n• Gendang\n• Rebana ubi\n• Kompang\nNot\nSimbol yang digunakan untuk menunjukkan bunyi muzikal.\nPerkusi (Percussion)\nAlat muzik yang dipalu, ketuk atau goncang untuk menghasilkan\nbunyi.\nContoh:\n• Kompang\n• Kerincing\n• Kastenet\n• Tamborin\nPic (Pitch)\nBunyi tinggi, rendah dan sederhana.\nPostur\nKedudukan atau posisi tubuh badan yang betul semasa menyanyi\natau bermain alat muzik.\nRepertoire lagu\nKoleksi lagu.\nSkel\nSatu susunan corak not-not tertentu yang diaturkan secara\nbertangga menaik atau menurun dalam satu oktaf.\nSemiton\nJarak satu semiton.\nTempo\nKelajuan sesuatu karya muzik.\nContoh:\n• Tempo cepat\n• Tempo lambat\nTon\nJarak dua semiton.\nUnison\nNyanyian kumpulan yang tiada lapisan suara.\nIdiofon\nKumpulan alat muzik yang sumber bunyinya berasal daripada\ngetaran alat muzik itu sendiri.\nContoh:\n• Angklung\n• Gong\n• Bonang\n114\n\n[Pendidikan Muzik Tingkatan 1.pdf p123]\nDengan ini SAYA BERJANJI akan menjaga buku ini\ndengan baik dan bertanggungjawab atas kehilangannya\nserta mengembalikannya kepada pihak sekolah pada\ntarikh yang ditetapkan.\nSkim Pinjaman Buku Teks\nSekolah\nNombor Perolehan:\nTarikh Penerimaan:\nBUKU INI TIDAK BOLEH DIJUAL\nTahun\nTingkatan\nNama Penerima\nTarikh\nTerima",
+      "char_count": 86620,
+      "pages": [
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 11,
+          "global_page_number": 11,
+          "char_count": 555,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 12,
+          "global_page_number": 12,
+          "char_count": 1226,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 13,
+          "global_page_number": 13,
+          "char_count": 475,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 14,
+          "global_page_number": 14,
+          "char_count": 1299,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 15,
+          "global_page_number": 15,
+          "char_count": 655,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 16,
+          "global_page_number": 16,
+          "char_count": 886,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 17,
+          "global_page_number": 17,
+          "char_count": 718,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 18,
+          "global_page_number": 18,
+          "char_count": 549,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 19,
+          "global_page_number": 19,
+          "char_count": 980,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 20,
+          "global_page_number": 20,
+          "char_count": 1033,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 21,
+          "global_page_number": 21,
+          "char_count": 1010,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 22,
+          "global_page_number": 22,
+          "char_count": 1209,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 23,
+          "global_page_number": 23,
+          "char_count": 347,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 24,
+          "global_page_number": 24,
+          "char_count": 790,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 25,
+          "global_page_number": 25,
+          "char_count": 456,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 26,
+          "global_page_number": 26,
+          "char_count": 536,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 27,
+          "global_page_number": 27,
+          "char_count": 758,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 28,
+          "global_page_number": 28,
+          "char_count": 771,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 29,
+          "global_page_number": 29,
+          "char_count": 554,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 30,
+          "global_page_number": 30,
+          "char_count": 1134,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 31,
+          "global_page_number": 31,
+          "char_count": 249,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 32,
+          "global_page_number": 32,
+          "char_count": 769,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 33,
+          "global_page_number": 33,
+          "char_count": 473,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 34,
+          "global_page_number": 34,
+          "char_count": 558,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 35,
+          "global_page_number": 35,
+          "char_count": 499,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 36,
+          "global_page_number": 36,
+          "char_count": 849,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 37,
+          "global_page_number": 37,
+          "char_count": 1173,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 38,
+          "global_page_number": 38,
+          "char_count": 588,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 39,
+          "global_page_number": 39,
+          "char_count": 1320,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 40,
+          "global_page_number": 40,
+          "char_count": 698,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 41,
+          "global_page_number": 41,
+          "char_count": 841,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 42,
+          "global_page_number": 42,
+          "char_count": 684,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 43,
+          "global_page_number": 43,
+          "char_count": 297,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 44,
+          "global_page_number": 44,
+          "char_count": 474,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 45,
+          "global_page_number": 45,
+          "char_count": 328,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 46,
+          "global_page_number": 46,
+          "char_count": 862,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 47,
+          "global_page_number": 47,
+          "char_count": 719,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 48,
+          "global_page_number": 48,
+          "char_count": 554,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 49,
+          "global_page_number": 49,
+          "char_count": 375,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 50,
+          "global_page_number": 50,
+          "char_count": 256,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 51,
+          "global_page_number": 51,
+          "char_count": 772,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 52,
+          "global_page_number": 52,
+          "char_count": 472,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 53,
+          "global_page_number": 53,
+          "char_count": 577,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 54,
+          "global_page_number": 54,
+          "char_count": 606,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 55,
+          "global_page_number": 55,
+          "char_count": 772,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 56,
+          "global_page_number": 56,
+          "char_count": 931,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 57,
+          "global_page_number": 57,
+          "char_count": 810,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 58,
+          "global_page_number": 58,
+          "char_count": 665,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 59,
+          "global_page_number": 59,
+          "char_count": 1464,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 60,
+          "global_page_number": 60,
+          "char_count": 627,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 61,
+          "global_page_number": 61,
+          "char_count": 389,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 62,
+          "global_page_number": 62,
+          "char_count": 299,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 63,
+          "global_page_number": 63,
+          "char_count": 1135,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 64,
+          "global_page_number": 64,
+          "char_count": 1693,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 65,
+          "global_page_number": 65,
+          "char_count": 1465,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 66,
+          "global_page_number": 66,
+          "char_count": 316,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 67,
+          "global_page_number": 67,
+          "char_count": 809,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 68,
+          "global_page_number": 68,
+          "char_count": 722,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 69,
+          "global_page_number": 69,
+          "char_count": 206,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 70,
+          "global_page_number": 70,
+          "char_count": 699,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 71,
+          "global_page_number": 71,
+          "char_count": 564,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 72,
+          "global_page_number": 72,
+          "char_count": 572,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 73,
+          "global_page_number": 73,
+          "char_count": 919,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 74,
+          "global_page_number": 74,
+          "char_count": 562,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 75,
+          "global_page_number": 75,
+          "char_count": 1582,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 76,
+          "global_page_number": 76,
+          "char_count": 576,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 77,
+          "global_page_number": 77,
+          "char_count": 1135,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 78,
+          "global_page_number": 78,
+          "char_count": 596,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 79,
+          "global_page_number": 79,
+          "char_count": 641,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 80,
+          "global_page_number": 80,
+          "char_count": 400,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 81,
+          "global_page_number": 81,
+          "char_count": 707,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 82,
+          "global_page_number": 82,
+          "char_count": 915,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 83,
+          "global_page_number": 83,
+          "char_count": 546,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 84,
+          "global_page_number": 84,
+          "char_count": 993,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 85,
+          "global_page_number": 85,
+          "char_count": 180,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 86,
+          "global_page_number": 86,
+          "char_count": 717,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 87,
+          "global_page_number": 87,
+          "char_count": 698,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 88,
+          "global_page_number": 88,
+          "char_count": 484,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 89,
+          "global_page_number": 89,
+          "char_count": 491,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 90,
+          "global_page_number": 90,
+          "char_count": 507,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 91,
+          "global_page_number": 91,
+          "char_count": 748,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 92,
+          "global_page_number": 92,
+          "char_count": 784,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 93,
+          "global_page_number": 93,
+          "char_count": 729,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 94,
+          "global_page_number": 94,
+          "char_count": 713,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 95,
+          "global_page_number": 95,
+          "char_count": 628,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 96,
+          "global_page_number": 96,
+          "char_count": 350,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 97,
+          "global_page_number": 97,
+          "char_count": 738,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 98,
+          "global_page_number": 98,
+          "char_count": 528,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 99,
+          "global_page_number": 99,
+          "char_count": 514,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 100,
+          "global_page_number": 100,
+          "char_count": 960,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 101,
+          "global_page_number": 101,
+          "char_count": 903,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 102,
+          "global_page_number": 102,
+          "char_count": 1586,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 103,
+          "global_page_number": 103,
+          "char_count": 748,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 104,
+          "global_page_number": 104,
+          "char_count": 399,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 105,
+          "global_page_number": 105,
+          "char_count": 1023,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 106,
+          "global_page_number": 106,
+          "char_count": 550,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 107,
+          "global_page_number": 107,
+          "char_count": 373,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 108,
+          "global_page_number": 108,
+          "char_count": 408,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 109,
+          "global_page_number": 109,
+          "char_count": 1329,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 110,
+          "global_page_number": 110,
+          "char_count": 1460,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 111,
+          "global_page_number": 111,
+          "char_count": 953,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 112,
+          "global_page_number": 112,
+          "char_count": 952,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 113,
+          "global_page_number": 113,
+          "char_count": 1491,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 114,
+          "global_page_number": 114,
+          "char_count": 557,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 115,
+          "global_page_number": 115,
+          "char_count": 416,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 116,
+          "global_page_number": 116,
+          "char_count": 198,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 117,
+          "global_page_number": 117,
+          "char_count": 604,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 118,
+          "global_page_number": 118,
+          "char_count": 269,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 119,
+          "global_page_number": 119,
+          "char_count": 518,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 120,
+          "global_page_number": 120,
+          "char_count": 373,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 121,
+          "global_page_number": 121,
+          "char_count": 1074,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 122,
+          "global_page_number": 122,
+          "char_count": 1056,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Pendidikan Muzik Tingkatan 1.pdf",
+          "page_number": 123,
+          "global_page_number": 123,
+          "char_count": 312,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    }
+  ]
+}

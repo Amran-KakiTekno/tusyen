@@ -13,6 +13,7 @@ export type QaRole = DemoRole;
 
 export type AuthSession = {
   token: string;
+  refreshToken: string;
   user: {
     id: string;
     email: string;
@@ -76,6 +77,14 @@ export function uniqueRunId(prefix = 'qaqc') {
   return `${prefix}-${Date.now()}-${random}`;
 }
 
+export function visibleRunSuffix(runId: string) {
+  const parts = runId.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+  const randomPart = parts.length > 0 ? parts[parts.length - 1] : runId;
+  const timestamp = parts.length > 1 ? Number(parts[parts.length - 2]) : NaN;
+  const timePart = Number.isFinite(timestamp) ? Math.trunc(timestamp).toString(36).slice(-2) : '';
+  return `${timePart}${randomPart}`.replace(/[^a-z0-9]/gi, '').slice(0, 6).toUpperCase() || 'RUN';
+}
+
 export async function expectJson<T = any>(response: APIResponse, expectedStatus?: number) {
   const text = await response.text();
   const body = text ? JSON.parse(text) : {};
@@ -91,6 +100,10 @@ export async function expectJson<T = any>(response: APIResponse, expectedStatus?
 }
 
 export async function loginAsDemo(request: APIRequestContext, role: QaRole) {
+  if (role === 'admin' && process.env.QA_ADMIN_EMAIL && process.env.QA_ADMIN_PASSWORD) {
+    return loginAs(request, process.env.QA_ADMIN_EMAIL, process.env.QA_ADMIN_PASSWORD);
+  }
+
   const demo = demoUsers[role];
   return loginAs(request, demo.email, demo.password);
 }
@@ -98,13 +111,15 @@ export async function loginAsDemo(request: APIRequestContext, role: QaRole) {
 export async function loginAs(request: APIRequestContext, email: string, password: string) {
   const body = await expectJson<{
     token: string;
+    refreshToken: string;
     user: AuthSession['user'];
   }>(await request.post('/api/auth/login', {
-    data: { email, password, deviceId: `playwright-${uniqueRunId('device')}` },
+    data: { email, password, deviceId: `tablet-sekolah-${uniqueRunId('device')}` },
   }));
 
   return {
     token: body.token,
+    refreshToken: body.refreshToken,
     user: body.user,
     api: new AuthedApi(request, body.token),
   } satisfies AuthSession;
@@ -133,20 +148,21 @@ export async function createUserAndLogin(
 
 export async function createQaActors(request: APIRequestContext, runId = uniqueRunId()) {
   const admin = await loginAsDemo(request, 'admin');
+  const suffix = visibleRunSuffix(runId);
   const teacher = await createUserAndLogin(request, admin.api, {
     role: 'teacher',
     email: `teacher.${runId}@tusyen.test`,
-    fullName: `QA Teacher ${runId}`,
+    fullName: `Cikgu Hana Rahman ${suffix}`,
   });
   const student = await createUserAndLogin(request, admin.api, {
     role: 'student',
     email: `student.${runId}@tusyen.test`,
-    fullName: `QA Student ${runId}`,
+    fullName: `Nur Iman Razak ${suffix}`,
   });
   const parent = await createUserAndLogin(request, admin.api, {
     role: 'parent',
     email: `parent.${runId}@tusyen.test`,
-    fullName: `QA Parent ${runId}`,
+    fullName: `Puan Laila Ismail ${suffix}`,
   });
 
   return { runId, admin, teacher, student, parent };

@@ -1,32 +1,45 @@
 import { expect, test } from '@playwright/test';
-import { attachQaScreenshot, demoUsers, loginToV2, type DemoRole } from './support/app';
+import { attachQaScreenshot, demoUsers, loginAs, type DemoRole } from './support/app';
 
-const roles = Object.keys(demoUsers) as DemoRole[];
+const demoAdminEnabled = process.env.QA_DEMO_ADMIN_ENABLED === 'true';
+const roles = (Object.keys(demoUsers) as DemoRole[])
+  .filter((role) => demoAdminEnabled || role !== 'admin');
 
-test.describe('v2 role smoke', () => {
+test.describe('role smoke', () => {
   for (const role of roles) {
     test(`${role} demo account can sign in and render its home view`, async ({ page }, testInfo) => {
-      await loginToV2(page, role);
+      await loginAs(page, role);
 
-      await attachQaScreenshot(page, testInfo, `v2-${role}-home`);
+      await attachQaScreenshot(page, testInfo, `${role}-home`);
     });
   }
 
-  test('demo account can switch between all role previews', async ({ page }, testInfo) => {
-    await loginToV2(page, 'student');
+  test('role navigation does not expose demo-only role switching by default', async ({ page }, testInfo) => {
+    await loginAs(page, 'student');
 
-    const roleExpectations = [
-      { label: 'Guru', text: demoUsers.teacher.homeText },
-      { label: 'Ibu Bapa', text: demoUsers.parent.homeText },
-      { label: 'Admin', text: demoUsers.admin.homeText },
-      { label: 'Pelajar', text: demoUsers.student.homeText },
-    ];
+    await expect(page.locator('.role-switcher')).toHaveCount(0);
+    await expect(page.locator('.roles .role-btn')).toHaveCount(0);
+    await expect(page.locator('.role-view')).toContainText(demoUsers.student.homeText);
 
-    for (const roleView of roleExpectations) {
-      await page.locator('.roles .role-btn').filter({ hasText: roleView.label }).click();
-      await expect(page.locator('.role-view')).toContainText(roleView.text, { timeout: 15_000 });
-    }
+    await attachQaScreenshot(page, testInfo, 'role-navigation-no-demo-controls');
+  });
 
-    await attachQaScreenshot(page, testInfo, 'v2-role-switching');
+  test('student home and learning surfaces expose complete subject and progress states', async ({ page }) => {
+    const streakCheck = page.waitForResponse(
+      response => response.url().includes('/api/progress/streak/check') && response.request().method() === 'POST',
+      { timeout: 15_000 },
+    );
+
+    await loginAs(page, 'student');
+    await streakCheck;
+
+    await expect(page.locator('.role-view')).toContainText('Geografi');
+    await expect(page.locator('.role-view')).toContainText('Kamu');
+
+    await page.getByRole('button', { name: 'Belajar' }).first().click();
+    await page.getByRole('button', { name: /Geografi/ }).click();
+
+    await expect(page.locator('.role-view')).toContainText('Semasa');
+    await expect(page.locator('.role-view')).toContainText('Terkunci');
   });
 });

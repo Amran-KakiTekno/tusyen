@@ -35,6 +35,7 @@ interface KeycloakUserRecord {
   email: string;
   role: AppRole;
   full_name: string;
+  avatar_url?: string | null;
   is_active: boolean;
   keycloak_subject?: string | null;
   auth_provider?: string | null;
@@ -232,8 +233,12 @@ export function requestOriginFromHeaders(headers: Record<string, string | string
   const host = forwardedHost || firstHeader(headers.host);
   if (!host) return null;
 
-  const forwardedProto = firstHeader(headers['x-forwarded-proto']);
-  const protocol = forwardedProto || (host.startsWith('localhost') || host.startsWith('127.0.0.1') ? 'http' : 'https');
+  const cloudflareProto = schemeFromCloudflareVisitor(firstHeader(headers['cf-visitor']))
+    || (firstHeader(headers['cf-ray']) ? 'https' : null);
+  const forwardedProto = firstForwardedValue(firstHeader(headers['x-forwarded-proto']));
+  const protocol = cloudflareProto
+    || forwardedProto
+    || (host.startsWith('localhost') || host.startsWith('127.0.0.1') ? 'http' : 'https');
   return normalizeOrigin(`${protocol}://${host}`);
 }
 
@@ -384,7 +389,7 @@ async function upsertKeycloakUser(
   if (!claims.sub) throw new KeycloakAuthError('Keycloak token is missing subject.', 401);
 
   const existingBySubject = await db.query<KeycloakUserRecord>(
-    `SELECT id, email, role, full_name, is_active, keycloak_subject, auth_provider
+    `SELECT id, email, role, full_name, avatar_url, is_active, keycloak_subject, auth_provider
      FROM users
      WHERE keycloak_subject = $1`,
     [claims.sub],
@@ -412,7 +417,7 @@ async function upsertKeycloakUser(
   }
 
   const existingByEmail = await db.query<KeycloakUserRecord>(
-    `SELECT id, email, role, full_name, is_active, keycloak_subject, auth_provider
+    `SELECT id, email, role, full_name, avatar_url, is_active, keycloak_subject, auth_provider
      FROM users
      WHERE lower(email) = lower($1)
      LIMIT 1`,
@@ -436,7 +441,7 @@ async function upsertKeycloakUser(
            last_login = NOW(),
            updated_at = NOW()
        WHERE id = $1
-       RETURNING id, email, role, full_name, is_active, keycloak_subject, auth_provider`,
+       RETURNING id, email, role, full_name, avatar_url, is_active, keycloak_subject, auth_provider`,
       [user.id, claims.sub, provider, emailVerifiedFromClaims(claims, userInfo), fullNameFromClaims(claims, userInfo)],
     );
     return updated.rows[0];
@@ -449,7 +454,7 @@ async function upsertKeycloakUser(
     `INSERT INTO users
        (id, email, password_hash, role, full_name, is_active, auth_provider, keycloak_subject, email_verified, last_login)
      VALUES ($1, $2, $3, $4, $5, true, 'keycloak', $6, $7, NOW())
-     RETURNING id, email, role, full_name, is_active, keycloak_subject, auth_provider`,
+     RETURNING id, email, role, full_name, avatar_url, is_active, keycloak_subject, auth_provider`,
     [uuidv4(), email, passwordHash, role, fullName, claims.sub, emailVerifiedFromClaims(claims, userInfo) || false],
   );
 
@@ -492,7 +497,8 @@ function extractRoles(value: unknown): string[] {
 }
 
 function allowedRedirectOrigins(requestOrigin?: string | null): string[] {
-  const configured = splitCsv(config.KEYCLOAK_ALLOWED_REDIRECT_ORIGINS);
+  const configured = splitCsv(config.KEYCLOAK_ALLOWED_REDIRECT_ORIGINS)
+    .filter((origin) => !origin.includes('*') && !origin.includes('trycloudflare.com'));
   const defaults = [
     'http://localhost',
     'http://localhost:80',
@@ -501,9 +507,8 @@ function allowedRedirectOrigins(requestOrigin?: string | null): string[] {
     'http://127.0.0.1',
     'http://127.0.0.1:80',
     'http://127.0.0.1:3000',
-    'https://*.trycloudflare.com',
   ];
-  return unique([...configured, ...defaults, requestOrigin].filter(Boolean) as string[]);
+  return unique([...configured, ...defaults].filter(Boolean) as string[]);
 }
 
 function allowedKeycloakIssuers(requestOrigin?: string | null): string[] {
@@ -551,6 +556,20 @@ function stringClaim(value: unknown): string | null {
 
 function firstHeader(value: string | string[] | undefined): string | null {
   return Array.isArray(value) ? value[0] || null : value || null;
+}
+
+function firstForwardedValue(value: string | null): string | null {
+  return value?.split(',')[0]?.trim() || null;
+}
+
+function schemeFromCloudflareVisitor(value: string | null): string | null {
+  if (!value) return null;
+  try {
+    const parsed = JSON.parse(value) as { scheme?: unknown };
+    return parsed.scheme === 'http' || parsed.scheme === 'https' ? parsed.scheme : null;
+  } catch {
+    return null;
+  }
 }
 
 function normalizeOrigin(value: string): string | null {

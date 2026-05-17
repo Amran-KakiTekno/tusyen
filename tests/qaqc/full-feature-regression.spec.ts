@@ -6,6 +6,7 @@ import {
   expectJson,
   uniqueRunId,
   uploadSmallFile,
+  visibleRunSuffix,
 } from './support/api';
 
 test.describe('full project feature coverage', () => {
@@ -14,8 +15,9 @@ test.describe('full project feature coverage', () => {
 
     const runId = uniqueRunId('full');
     const qa = await createQaActors(request, runId);
-    const subject = `QAQC Mathematics ${runId}`;
-    const secondarySubject = `QAQC Science ${runId}`;
+    const suffix = visibleRunSuffix(runId);
+    const subject = `Matematik KSSM ${suffix}`;
+    const secondarySubject = `Sains KSSM ${suffix}`;
     const youtubeUrl = 'https://youtu.be/dQw4w9WgXcQ';
 
     let classroomId = '';
@@ -36,13 +38,15 @@ test.describe('full project feature coverage', () => {
           email: `registered.${runId}@tusyen.test`,
           password: 'password123',
           role: 'student',
-          fullName: `Registered Student ${runId}`,
+          fullName: `Nur Aina Zulkifli ${suffix}`,
         },
       }));
       expect(registered.user.role).toBe('student');
       expect(registered.token).toBeTruthy();
 
-      const refresh = await qa.student.api.postJson<{ token: string }>('/api/auth/refresh');
+      const refresh = await qa.student.api.postJson<{ token: string }>('/api/auth/refresh', {
+        refreshToken: qa.student.refreshToken,
+      });
       expect(refresh.token).toBeTruthy();
 
       const keycloakStatus = await expectJson<{
@@ -94,7 +98,7 @@ test.describe('full project feature coverage', () => {
 
       const adminClass = await qa.admin.api.postJson<{ classroom: { id: string } }>('/api/admin/classrooms', {
         teacherId: qa.teacher.user.id,
-        name: `Admin CRUD Class ${runId}`,
+        name: `Kelas Sains 4 Bestari ${suffix}`,
         subject: secondarySubject,
         formLevel: 4,
         isPublic: false,
@@ -102,7 +106,7 @@ test.describe('full project feature coverage', () => {
       expect(adminClass.classroom.id).toBeTruthy();
 
       await qa.admin.api.patchJson(`/api/admin/classrooms/${adminClass.classroom.id}`, {
-        name: `Admin CRUD Class Updated ${runId}`,
+        name: `Kelas Sains 4 Bestari Tambahan ${suffix}`,
         isPublic: true,
       });
       await qa.admin.api.postJson(`/api/admin/classrooms/${adminClass.classroom.id}/students`, {
@@ -117,40 +121,40 @@ test.describe('full project feature coverage', () => {
       const crudSyllabus = await qa.admin.api.postJson<{ item: { id: string } }>('/api/admin/syllabus', {
         subject: secondarySubject,
         formLevel: 4,
-        topic: `Admin CRUD Topic ${runId}`,
-        subtopic: 'Setup',
+        topic: `Respirasi Sel ${suffix}`,
+        subtopic: 'Pengenalan',
         orderIndex: 1,
-        content: { summary: 'Admin CRUD coverage' },
+        content: { summary: 'Murid mengenal pasti proses respirasi sel dan keperluan tenaga.' },
       });
       await qa.admin.api.patchJson(`/api/admin/syllabus/${crudSyllabus.item.id}`, {
         subject: secondarySubject,
         formLevel: 4,
-        topic: `Admin CRUD Topic Updated ${runId}`,
-        subtopic: 'Updated',
+        topic: `Respirasi Sel dan Tenaga ${suffix}`,
+        subtopic: 'Latihan berstruktur',
         orderIndex: 2,
-        content: { summary: 'Updated admin CRUD coverage' },
+        content: { summary: 'Latihan dikemaskini untuk mengaitkan respirasi sel dengan penghasilan tenaga.' },
       });
 
       const adminLesson = await qa.admin.api.postJson<{ lessonId: string }>('/api/admin/lessons', {
         syllabusId: crudSyllabus.item.id,
-        title: `Admin CRUD Lesson ${runId}`,
-        content: { summary: 'Admin lesson coverage' },
+        title: `Latihan Respirasi Sel ${suffix}`,
+        content: { summary: 'Latihan ringkas tentang respirasi sel untuk kelas Sains Tingkatan 4.' },
         difficulty: 'easy',
         estimatedMinutes: 5,
         quizData: {
           questions: [{
-            questionText: 'Admin question?',
+            questionText: 'Respirasi sel berlaku dalam sel hidup.',
             questionType: 'true_false',
             correctAnswer: true,
-            explanation: 'Yes.',
+            explanation: 'Betul. Respirasi sel membebaskan tenaga untuk kegunaan sel.',
           }],
         },
       });
       await qa.admin.api.getJson(`/api/admin/lessons/${adminLesson.lessonId}`);
       await qa.admin.api.patchJson(`/api/admin/lessons/${adminLesson.lessonId}`, {
         syllabusId: crudSyllabus.item.id,
-        title: `Admin CRUD Lesson Updated ${runId}`,
-        content: { summary: 'Updated admin lesson coverage' },
+        title: `Latihan Respirasi Sel Lanjutan ${suffix}`,
+        content: { summary: 'Latihan dikemaskini dengan fokus pada tenaga dan glukosa.' },
         difficulty: 'medium',
         estimatedMinutes: 6,
       });
@@ -165,8 +169,8 @@ test.describe('full project feature coverage', () => {
       const notificationSmoke = await qa.admin.api.postJson<{ result: unknown }>(
         '/api/admin/notifications/test',
         {
-          title: `QAQC smoke ${runId}`,
-          message: 'Playwright notification route coverage.',
+          title: `Makluman Kelas Matematik ${suffix}`,
+          message: 'Peringatan ringkas untuk semakan jadual ulang kaji minggu ini.',
         },
       );
       expect(notificationSmoke.result).toBeTruthy();
@@ -178,15 +182,15 @@ test.describe('full project feature coverage', () => {
 
     await test.step('teacher profile, classroom lifecycle, parent access, and lesson assignment', async () => {
       const profile = await qa.teacher.api.patchJson<{ profile: { headline: string } }>('/api/profile/me', {
-        headline: `QAQC Teacher ${runId}`,
-        bio: 'Generated by Playwright full feature coverage.',
-        specialties: ['Mathematics', 'QA'],
-        credentials: 'QA Coverage Certificate',
+        headline: 'Cikgu Matematik KSSM Tingkatan 4',
+        bio: 'Membimbing murid membina asas graf linear melalui latihan berfokus dan maklum balas cepat.',
+        specialties: ['Matematik KSSM', 'Ulang kaji SPM'],
+        credentials: 'Ijazah Pendidikan Matematik',
         yearsExperience: 7,
-        location: 'Penang',
+        location: 'Pulau Pinang',
         links: { website: 'https://example.com' },
       });
-      expect(profile.profile.headline).toBe(`QAQC Teacher ${runId}`);
+      expect(profile.profile.headline).toBe('Cikgu Matematik KSSM Tingkatan 4');
 
       const publicProfile = await qa.student.api.getJson<{ profile: { id: string } }>(
         `/api/profile/teachers/${qa.teacher.user.id}`,
@@ -196,8 +200,8 @@ test.describe('full project feature coverage', () => {
       const classroom = await qa.teacher.api.postJson<{
         classroom: { id: string; joinCode: string };
       }>('/api/classroom', {
-        name: `Main QA Class ${runId}`,
-        description: 'Main full feature coverage classroom.',
+        name: `Kelas Matematik 4 Cemerlang ${suffix}`,
+        description: 'Kelas ulang kaji fungsi linear, graf, dan latihan kuiz mingguan.',
         subject,
         formLevel: 4,
         isPublic: false,
@@ -226,7 +230,7 @@ test.describe('full project feature coverage', () => {
       const leaveClass = await qa.teacher.api.postJson<{ classroom: { id: string; joinCode: string } }>(
         '/api/classroom',
         {
-          name: `Join Leave QA Class ${runId}`,
+          name: `Kumpulan Latihan Graf ${suffix}`,
           subject,
           formLevel: 4,
         },
@@ -238,7 +242,7 @@ test.describe('full project feature coverage', () => {
       await qa.teacher.api.deleteJson(`/api/classroom/${leaveClass.classroom.id}`);
 
       await qa.teacher.api.patchJson(`/api/classroom/${classroomId}`, {
-        description: 'Updated by Playwright.',
+        description: 'Jadual ulang kaji minggu ini telah dikemaskini untuk latihan graf.',
         isPublic: true,
       });
 
@@ -255,10 +259,10 @@ test.describe('full project feature coverage', () => {
       const createdSyllabus = await qa.admin.api.postJson<{ item: { id: string } }>('/api/admin/syllabus', {
         subject,
         formLevel: 4,
-        topic: `Linear Functions ${runId}`,
-        subtopic: 'Gradient',
+        topic: `Fungsi Linear ${suffix}`,
+        subtopic: 'Kecerunan',
         orderIndex: 10,
-        content: { summary: 'Slope and intercept QA topic.' },
+        content: { summary: 'Fokus kepada kecerunan, pintasan-y, dan tafsiran graf linear.' },
       });
       syllabusId = createdSyllabus.item.id;
 
@@ -270,12 +274,12 @@ test.describe('full project feature coverage', () => {
 
       const createdLesson = await qa.teacher.api.postJson<{ lessonId: string }>('/api/learning/lessons', {
         syllabusId,
-        title: `Teacher QA Lesson ${runId}`,
+        title: `Latihan Kecerunan Graf ${suffix}`,
         content: {
-          summary: 'A content-first lesson generated by Playwright.',
+          summary: 'Pelajar membaca konsep ringkas sebelum menjawab kuiz kecerunan.',
           blocks: [
-            { type: 'section', title: 'Concept', body: 'Gradient is rise over run.' },
-            { type: 'embed', title: 'Reference Video', url: youtubeUrl },
+            { type: 'section', title: 'Konsep', body: 'Kecerunan menunjukkan kadar perubahan pada garis lurus.' },
+            { type: 'embed', title: 'Video Rujukan', url: youtubeUrl },
           ],
         },
         difficulty: 'easy',
@@ -283,11 +287,11 @@ test.describe('full project feature coverage', () => {
         quizData: {
           questions: [
             {
-              questionText: 'Which value is the gradient in y = 2x + 1?',
+              questionText: 'Nilai manakah ialah kecerunan bagi y = 2x + 1?',
               questionType: 'multiple_choice',
               options: ['2', '1', 'x', 'y'],
               correctAnswer: 0,
-              explanation: 'The coefficient of x is the gradient.',
+              explanation: 'Pekali bagi x ialah nilai kecerunan.',
               points: 2,
             },
           ],
@@ -299,11 +303,11 @@ test.describe('full project feature coverage', () => {
       await qa.teacher.api.getJson(`/api/learning/authoring/lessons/${lessonId}`);
       await qa.teacher.api.patchJson(`/api/learning/lessons/${lessonId}`, {
         syllabusId,
-        title: `Teacher QA Lesson Updated ${runId}`,
+        title: `Latihan Kecerunan Graf Lanjutan ${suffix}`,
         content: {
-          summary: 'Updated lesson summary.',
+          summary: 'Ringkasan dikemaskini dengan contoh pintasan-y.',
           blocks: [
-            { type: 'text', title: 'Reminder', body: 'Check the coefficient of x.' },
+            { type: 'text', title: 'Peringatan', body: 'Semak pekali x untuk mengenal pasti kecerunan.' },
           ],
         },
         difficulty: 'medium',
@@ -337,7 +341,7 @@ test.describe('full project feature coverage', () => {
 
       const answers = detail.questions.map((question) => ({
         questionId: question.id,
-        answer: Array.isArray(question.options) && question.options.length ? question.options[0] : 'True',
+        answer: Array.isArray(question.options) && question.options.length ? question.options[0] : 'Betul',
       }));
 
       const submission = await qa.student.api.postJson<{
@@ -392,19 +396,19 @@ test.describe('full project feature coverage', () => {
         '/api/feed/posts',
         {
           classroomId,
-          title: `QA Announcement ${runId}`,
-          content: 'This post was created by Playwright full feature coverage.',
+          title: `Makluman Ulang Kaji Graf ${suffix}`,
+          content: 'Sila siapkan latihan graf linear sebelum kelas bimbingan seterusnya.',
           postType: 'announcement',
           isPinned: true,
-          attachments: [{ type: 'embed', url: youtubeUrl, name: 'Reference video' }],
+          attachments: [{ type: 'embed', url: youtubeUrl, name: 'Video rujukan graf' }],
         },
       );
       postId = createdPost.post.id;
       expect(postId).toBeTruthy();
 
       await qa.teacher.api.patchJson(`/api/feed/posts/${postId}`, {
-        title: `QA Announcement Updated ${runId}`,
-        content: 'Updated post content from Playwright.',
+        title: `Makluman Ulang Kaji Graf Dikemaskini ${suffix}`,
+        content: 'Latihan tambahan telah ditambah untuk soalan kecerunan.',
       });
 
       const studentFeed = await qa.student.api.getJson<{ posts: Array<{ id: string }> }>('/api/feed/posts', {
@@ -416,14 +420,14 @@ test.describe('full project feature coverage', () => {
       const comment = await qa.student.api.postJson<{ comment: { id: string } }>(
         `/api/feed/posts/${postId}/comments`,
         {
-          content: 'Student comment from Playwright.',
-          attachments: [{ type: 'embed', url: youtubeUrl, name: 'Comment video' }],
+          content: 'Saya sudah cuba soalan pertama dan akan semak semula pintasan-y.',
+          attachments: [{ type: 'embed', url: youtubeUrl, name: 'Video ulang kaji' }],
         },
       );
       expect(comment.comment.id).toBeTruthy();
 
       await qa.student.api.patchJson(`/api/feed/comments/${comment.comment.id}`, {
-        content: 'Updated student comment from Playwright.',
+        content: 'Saya sudah betulkan jawapan selepas semak video ulang kaji.',
       });
 
       const comments = await qa.teacher.api.getJson<{ comments: Array<{ id: string }> }>(
@@ -441,17 +445,17 @@ test.describe('full project feature coverage', () => {
 
       const disposable = await qa.teacher.api.postJson<{ post: { id: string } }>('/api/feed/posts', {
         classroomId,
-        title: `Disposable Post ${runId}`,
-        content: 'Temporary post for delete coverage.',
+        title: `Nota Sementara ${suffix}`,
+        content: 'Draf pengumuman yang akan dipadam selepas semakan guru.',
       });
       await qa.teacher.api.deleteJson(`/api/feed/posts/${disposable.post.id}`);
     });
 
     await test.step('storage upload/download/list/content/delete and sync endpoints', async () => {
       const upload = await uploadSmallFile(qa.teacher.api, {
-        name: `qaqc-${runId}.txt`,
+        name: `nota-graf-${suffix}.txt`,
         mimeType: 'text/plain',
-        content: `QAQC upload ${runId}`,
+        content: `Nota ringkas kecerunan graf linear ${suffix}`,
       });
       expect(upload.success).toBe(true);
       expect(upload.fileId).toBeTruthy();
@@ -469,7 +473,7 @@ test.describe('full project feature coverage', () => {
 
       await qa.teacher.api.deleteJson(`/api/storage/files/${upload.fileId}`);
 
-      const deviceId = `playwright-${runId}`;
+      const deviceId = `tablet-pelajar-${suffix}`;
       const pushed = await qa.student.api.postJson<{ success: number; failed: number }>('/api/sync/push', {
         deviceId,
         lastSyncAt: null,
@@ -490,7 +494,7 @@ test.describe('full project feature coverage', () => {
       await qa.student.api.postJson('/api/sync/resolve', {
         conflictId: randomUUID(),
         resolution: 'server',
-        winningValue: { source: 'playwright' },
+        winningValue: { source: 'tablet-pelajar' },
       });
     });
 
@@ -499,8 +503,8 @@ test.describe('full project feature coverage', () => {
         '/api/whiteboard/session',
         {
           classroomId,
-          title: `Whiteboard QA ${runId}`,
-          description: 'Whiteboard created by Playwright.',
+          title: `Papan Putih Graf Linear ${suffix}`,
+          description: 'Sesi papan putih untuk membina graf dan menanda pintasan-y.',
         },
       );
       whiteboardSessionId = started.session.id;
@@ -530,9 +534,9 @@ test.describe('full project feature coverage', () => {
 
       const recordingUpload = await uploadSmallFile(qa.teacher.api, {
         bucket: 'whiteboard',
-        name: `whiteboard-${runId}.webm`,
+        name: `rakaman-graf-${suffix}.webm`,
         mimeType: 'video/webm',
-        content: Buffer.from('playwright whiteboard recording'),
+        content: Buffer.from('rakaman papan putih graf linear'),
       });
 
       const recording = await qa.teacher.api.postJson<{ recording: { fileId: string; url: string } }>(
@@ -558,13 +562,13 @@ test.describe('full project feature coverage', () => {
       const deck = await qa.teacher.api.postJson<{ deck: { id: string; question_count?: string } }>(
         '/api/quiz/decks',
         {
-          title: `QA Speed Round ${runId}`,
-          description: 'Quiz deck created by Playwright.',
+          title: `Kuiz Pantas Graf Linear ${suffix}`,
+          description: 'Kuiz pantas untuk semak kefahaman kecerunan dan pintasan.',
           subject,
           formLevel: 4,
           questions: [
             {
-              questionText: 'What is 2 + 2?',
+              questionText: 'Berapakah nilai 2 + 2?',
               questionType: 'multiple_choice',
               options: ['4', '5', '22', '0'],
               correctAnswer: 0,
@@ -583,13 +587,13 @@ test.describe('full project feature coverage', () => {
       expect(fetchedDeck.deck.questions.length).toBe(1);
 
       await qa.teacher.api.patchJson(`/api/quiz/decks/${deck.deck.id}`, {
-        title: `QA Speed Round Updated ${runId}`,
-        description: 'Updated quiz deck.',
+        title: `Kuiz Pantas Graf Linear Dikemaskini ${suffix}`,
+        description: 'Kuiz dikemaskini dengan soalan benar atau palsu.',
         subject,
         formLevel: 4,
         questions: [
           {
-            questionText: 'True or false: 2 + 2 = 4.',
+            questionText: 'Betul atau salah: 2 + 2 = 4.',
             questionType: 'true_false',
             correctAnswer: true,
             timeLimitSeconds: 30,
@@ -611,27 +615,32 @@ test.describe('full project feature coverage', () => {
         participant: { joinToken: string };
       }>('/api/quiz/join', {
         pin: session.session.pin,
-        nickname: 'Ignored for authenticated student',
+        nickname: 'Nur Iman',
       });
       quizParticipantToken = joined.participant.joinToken;
       expect(quizParticipantToken).toBeTruthy();
 
-      const guest = await expectJson<{ participant: { isGuest: boolean } }>(
-        await request.post('/api/quiz/join', {
-          data: { pin: session.session.pin, nickname: `Guest ${runId}` },
-        }),
-      );
-      expect(guest.participant.isGuest).toBe(true);
+      const guestJoinResponse = await request.post('/api/quiz/join', {
+        data: { pin: session.session.pin, nickname: `Tetamu ${suffix}` },
+      });
+      if (process.env.ALLOW_GUEST_QUIZ_JOIN === 'true') {
+        const guest = await expectJson<{ participant: { isGuest: boolean } }>(guestJoinResponse);
+        expect(guest.participant.isGuest).toBe(true);
+      } else {
+        expect(
+          [401, 403],
+          `Guest quiz join should be rejected when ALLOW_GUEST_QUIZ_JOIN is disabled. Response: ${await guestJoinResponse.text()}`,
+        ).toContain(guestJoinResponse.status());
+      }
 
       await qa.teacher.api.postJson(`/api/quiz/sessions/${quizSessionId}/start`);
 
       const quizSocketMessages = await exerciseQuizWebSocket(page, quizSessionId, quizParticipantToken);
       expect(quizSocketMessages).toEqual(expect.arrayContaining(['CONNECTED', 'AUTH_SUCCESS', 'QUIZ_STATE', 'PONG']));
 
-      const participantState = await expectJson<{ snapshot: { session: { id: string } } }>(
-        await request.get(`/api/quiz/sessions/${quizSessionId}/state`, {
-          params: { participantToken: quizParticipantToken },
-        }),
+      const participantState = await qa.student.api.getJson<{ snapshot: { session: { id: string } } }>(
+        `/api/quiz/sessions/${quizSessionId}/state`,
+        { params: { participantToken: quizParticipantToken } },
       );
       expect(participantState.snapshot.session.id).toBe(quizSessionId);
 
@@ -640,13 +649,12 @@ test.describe('full project feature coverage', () => {
       );
       expect(teacherState.snapshot.session.id).toBe(quizSessionId);
 
-      const answer = await expectJson<{ isCorrect: boolean }>(
-        await request.post(`/api/quiz/sessions/${quizSessionId}/answers`, {
-          data: {
-            participantToken: quizParticipantToken,
-            selectedOptionIndex: 0,
-          },
-        }),
+      const answer = await qa.student.api.postJson<{ isCorrect: boolean }>(
+        `/api/quiz/sessions/${quizSessionId}/answers`,
+        {
+          participantToken: quizParticipantToken,
+          selectedOptionIndex: 0,
+        },
       );
       expect(answer.isCorrect).toBe(true);
 
@@ -672,7 +680,7 @@ test.describe('full project feature coverage', () => {
 });
 
 async function exerciseClassroomWebSocket(page: any, classroomId: string, token: string) {
-  await page.goto('/v2/');
+  await page.goto('/');
   return page.evaluate(
     ({ classroomId: targetClassroomId, token: authToken }) => new Promise<string[]>((resolve, reject) => {
       const origin = window.location.origin.replace(/^http/, 'ws');
@@ -716,7 +724,7 @@ async function exerciseClassroomWebSocket(page: any, classroomId: string, token:
 }
 
 async function exerciseQuizWebSocket(page: any, sessionId: string, participantToken: string) {
-  await page.goto('/v2/');
+  await page.goto('/');
   return page.evaluate(
     ({ sessionId: targetSessionId, participantToken: joinToken }) => new Promise<string[]>((resolve, reject) => {
       const origin = window.location.origin.replace(/^http/, 'ws');

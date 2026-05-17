@@ -1,71 +1,57 @@
-# Caddy reverse proxy configuration
-# Using trycloudflare for temporary public URL
+# Caddy reverse proxy configuration.
+# Production must use a stable DNS name, for example:
+# CADDY_SITE_ADDRESS=tusyen.example.com
 
-{
-    auto_https off
-    http_port 80
+(tusyen_routes) {
+	root * /srv/web-v2
+
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		X-Frame-Options DENY
+	}
+
+	# Health check endpoint
+	respond /health 200
+
+	# API routes
+	handle_path /api/* {
+		reverse_proxy api:3000
+	}
+
+	# WebSocket routes for classroom and live quiz sessions
+	handle /ws/* {
+		reverse_proxy api:3000
+	}
+
+	handle /auth/* {
+		reverse_proxy keycloak:8080
+	}
+
+	# Internal service surfaces are intentionally not exposed through Caddy.
+	handle /connection/* {
+		respond 404
+	}
+
+	handle /centrifugo/* {
+		respond 404
+	}
+
+	handle /minio/* {
+		respond 404
+	}
+
+	handle /minio-console/* {
+		respond 404
+	}
+
+	# Web app
+	handle {
+		try_files {path} /index.html
+		file_server
+	}
 }
 
-:80 {
-    root * /srv/web
-
-    # Health check endpoint
-    respond /health 200
-
-    # API routes
-    handle_path /api/* {
-        reverse_proxy api:3000
-    }
-
-    # WebSocket routes for classroom and live quiz sessions
-    handle /ws/* {
-        reverse_proxy api:3000
-    }
-
-    handle /auth/* {
-        reverse_proxy keycloak:8080
-    }
-
-    # Centrifugo WebSocket
-    handle /connection/* {
-        reverse_proxy centrifugo:8000
-    }
-    
-    handle /centrifugo/* {
-        reverse_proxy centrifugo:8000
-    }
-
-    # MinIO S3 API
-    handle_path /minio/* {
-        reverse_proxy minio:9000
-    }
-
-    # MinIO Console
-    handle_path /minio-console/* {
-        reverse_proxy minio:9001
-    }
-
-    # Tusyen v2 design preview (React/Babel-standalone prototype)
-    handle_path /v2/* {
-        root * /srv/web-v2
-        try_files {path} /index.html
-        file_server
-    }
-
-    # Web app
-    handle {
-        try_files {path} /index.html
-        file_server
-    }
+{$CADDY_SITE_ADDRESS:http://localhost} {
+	import tusyen_routes
 }
-
-# Production: Uncomment when using custom domain
-# ${DOMAIN} {
-#     reverse_proxy api:3000
-#     
-#     @websockets {
-#         header Connection *Upgrade*
-#         header Upgrade websocket
-#     }
-#     reverse_proxy @websockets centrifugo:8000
-# }

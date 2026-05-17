@@ -101,8 +101,9 @@ export async function setupWebSocketHandlers(fastify: FastifyInstance) {
 
         // Handle whiteboard draw events
         const canManageWhiteboard = userRole === 'teacher' || userRole === 'admin';
+        const canDrawWhiteboard = canManageWhiteboard || userRole === 'student';
 
-        if (data.type === 'WHITEBOARD_DRAW' && canManageWhiteboard) {
+        if (data.type === 'WHITEBOARD_DRAW' && canDrawWhiteboard) {
           const event = await persistWhiteboardEvent(classroomId, userId, 'draw', {
             strokes: data.strokes,
           });

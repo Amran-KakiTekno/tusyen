@@ -1,0 +1,272 @@
+{
+  "form_level": 2,
+  "books_processed": 17,
+  "books_skipped": 0,
+  "books_skipped_detail": [],
+  "books": [
+    {
+      "source_key": "form-2-other-bahasa-kadazandusun-bahasa-kadazandusun-tingkatan-2-ms",
+      "form_level": 2,
+      "stream": "Other",
+      "subject": "Bahasa Kadazandusun",
+      "elaborated_count": 0,
+      "skipped_count": 5,
+      "output_file": "downloads\\elaborated\\Tingkatan 2\\Other\\form-2-other-bahasa-kadazandusun-bahasa-kadazandusun-tingkatan-2-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 5
+      }
+    },
+    {
+      "source_key": "form-2-other-bahasa-tamil-bahasa-tamil-tingkatan-2-ms",
+      "form_level": 2,
+      "stream": "Other",
+      "subject": "Bahasa Tamil",
+      "elaborated_count": 0,
+      "skipped_count": 2,
+      "output_file": "downloads\\elaborated\\Tingkatan 2\\Other\\form-2-other-bahasa-tamil-bahasa-tamil-tingkatan-2-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 1,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-2-other-chinese-language-bahasa-cina-tingkatan-2-ms",
+      "form_level": 2,
+      "stream": "Other",
+      "subject": "Chinese Language",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 2\\Other\\form-2-other-chinese-language-bahasa-cina-tingkatan-2-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-2-other-english-language-bahasa-inggeris-tingkatan-2-ms",
+      "form_level": 2,
+      "stream": "Other",
+      "subject": "English Language",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 2\\Other\\form-2-other-english-language-bahasa-inggeris-tingkatan-2-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-2-other-geography-geografi-tingkatan-2-ms",
+      "form_level": 2,
+      "stream": "Other",
+      "subject": "Geography",
+      "elaborated_count": 1,
+      "skipped_count": 48,
+      "output_file": "downloads\\elaborated\\Tingkatan 2\\Other\\form-2-other-geography-geografi-tingkatan-2-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 2,
+        "skipped_no_teachable_content": 46
+      }
+    },
+    {
+      "source_key": "form-2-other-history-sejarah-tingkatan-2-ms",
+      "form_level": 2,
+      "stream": "Other",
+      "subject": "History",
+      "elaborated_count": 2,
+      "skipped_count": 25,
+      "output_file": "downloads\\elaborated\\Tingkatan 2\\Other\\form-2-other-history-sejarah-tingkatan-2-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 25
+      }
+    },
+    {
+      "source_key": "form-2-other-iban-language-bahasa-iban-tingkatan-2-ms",
+      "form_level": 2,
+      "stream": "Other",
+      "subject": "Iban Language",
+      "elaborated_count": 0,
+      "skipped_count": 3,
+      "output_file": "downloads\\elaborated\\Tingkatan 2\\Other\\form-2-other-iban-language-bahasa-iban-tingkatan-2-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 3
+      }
+    },
+    {
+      "source_key": "form-2-other-islamic-education-pendidikan-islam-tingkatan-2-ms",
+      "form_level": 2,
+      "stream": "Other",
+      "subject": "Islamic Education",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 2\\Other\\form-2-other-islamic-education-pendidikan-islam-tingkatan-2-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-2-other-malay-language-bahasa-melayu-tingkatan-2-ms",
+      "form_level": 2,
+      "stream": "Other",
+      "subject": "Malay Language",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 2\\Other\\form-2-other-malay-language-bahasa-melayu-tingkatan-2-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-2-other-moral-education-pendidikan-moral-tingkatan-2-ms",
+      "form_level": 2,
+      "stream": "Other",
+      "subject": "Moral Education",
+      "elaborated_count": 0,
+      "skipped_count": 15,
+      "output_file": "downloads\\elaborated\\Tingkatan 2\\Other\\form-2-other-moral-education-pendidikan-moral-tingkatan-2-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 15
+      }
+    },
+    {
+      "source_key": "form-2-other-music-education-pendidikan-muzik-tingkatan-2-ms",
+      "form_level": 2,
+      "stream": "Other",
+      "subject": "Music Education",
+      "elaborated_count": 0,
+      "skipped_count": 1,
+      "output_file": "downloads\\elaborated\\Tingkatan 2\\Other\\form-2-other-music-education-pendidikan-muzik-tingkatan-2-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 1
+      }
+    },
+    {
+      "source_key": "form-2-other-pendidikan-seni-visual-pendidikan-seni-visual-tingkatan-2-ms",
+      "form_level": 2,
+      "stream": "Other",
+      "subject": "Pendidikan Seni Visual",
+      "elaborated_count": 0,
+      "skipped_count": 44,
+      "output_file": "downloads\\elaborated\\Tingkatan 2\\Other\\form-2-other-pendidikan-seni-visual-pendidikan-seni-visual-tingkatan-2-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 33,
+        "skipped_no_teachable_content": 11
+      }
+    },
+    {
+      "source_key": "form-2-other-physical-education-pjpk-tingkatan-2-ms",
+      "form_level": 2,
+      "stream": "Other",
+      "subject": "Physical Education",
+      "elaborated_count": 1,
+      "skipped_count": 3,
+      "output_file": "downloads\\elaborated\\Tingkatan 2\\Other\\form-2-other-physical-education-pjpk-tingkatan-2-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 3
+      }
+    },
+    {
+      "source_key": "form-2-stem-computer-fundamentals-asas-komputer-tingkatan-2-ms",
+      "form_level": 2,
+      "stream": "STEM",
+      "subject": "Computer Fundamentals",
+      "elaborated_count": 0,
+      "skipped_count": 5,
+      "output_file": "downloads\\elaborated\\Tingkatan 2\\STEM\\form-2-stem-computer-fundamentals-asas-komputer-tingkatan-2-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 5
+      }
+    },
+    {
+      "source_key": "form-2-stem-design-and-technology-reka-bentuk-dan-teknologi-tingkatan-2-ms",
+      "form_level": 2,
+      "stream": "STEM",
+      "subject": "Design and Technology",
+      "elaborated_count": 0,
+      "skipped_count": 5,
+      "output_file": "downloads\\elaborated\\Tingkatan 2\\STEM\\form-2-stem-design-and-technology-reka-bentuk-dan-teknologi-tingkatan-2-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 5
+      }
+    },
+    {
+      "source_key": "form-2-stem-mathematics-matematik-tingkatan-2-ms",
+      "form_level": 2,
+      "stream": "STEM",
+      "subject": "Mathematics",
+      "elaborated_count": 0,
+      "skipped_count": 35,
+      "output_file": "downloads\\elaborated\\Tingkatan 2\\STEM\\form-2-stem-mathematics-matematik-tingkatan-2-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 35
+      }
+    },
+    {
+      "source_key": "form-2-stem-science-sains-tingkatan-2-ms",
+      "form_level": 2,
+      "stream": "STEM",
+      "subject": "Science",
+      "elaborated_count": 0,
+      "skipped_count": 32,
+      "output_file": "downloads\\elaborated\\Tingkatan 2\\STEM\\form-2-stem-science-sains-tingkatan-2-ms.elaborated.json",
+      "lesson_skip_counts": {
+        "skipped_status": 0,
+        "skipped_empty": 0,
+        "skipped_low_content": 0,
+        "skipped_no_teachable_content": 32
+      }
+    }
+  ],
+  "lessons_elaborated": 4,
+  "lessons_skipped": 227,
+  "lesson_skip_reasons": {
+    "skipped_no_teachable_content": 191,
+    "skipped_low_content": 36
+  },
+  "quiz_questions_generated": 16,
+  "failures": [],
+  "book_skip_reasons": {}
+}

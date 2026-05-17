@@ -25,6 +25,8 @@ Then run the suite:
 npm run qaqc
 ```
 
+Production-hardened deployments block the seeded demo admin by default. For the full regression suite, either run against a QA stack with `DEMO_ADMIN_LOGIN_ENABLED=true` or provide a real test admin path before running `npm run qaqc:full`.
+
 You can also let the QA script start or rebuild Docker before running:
 
 ```powershell
@@ -45,10 +47,10 @@ npm run qaqc:report
 
 ## Target Another URL
 
-Use `PLAYWRIGHT_BASE_URL` when testing a tunnel, staging host, or non-default port:
+Use `PLAYWRIGHT_BASE_URL` when testing a staging host or non-default port:
 
 ```powershell
-$env:PLAYWRIGHT_BASE_URL = "https://your-tunnel.trycloudflare.com"
+$env:PLAYWRIGHT_BASE_URL = "https://staging.example.com"
 npm run qaqc
 ```
 
@@ -73,4 +75,4 @@ The full feature regression creates isolated QA users and content each run, then
 - Sync: push, pull, status, conflict resolution route.
 - Whiteboard: session start/active/join/end/history, classroom WebSocket auth/ping/draw event persistence, recording upload/attach/remove.
 - Quiz: deck create/read/update/delete, session create/start/advance/end, authenticated student join, guest join, participant and teacher state, quiz WebSocket, answer submission, student/parent summaries.
-- UI smoke: Caddy `/api/health`, Flutter root shell, `/v2/` role logins, role switching, and mobile student rendering.
+- UI smoke: Caddy `/api/health`, React web app root, role logins, role switching, and mobile student rendering.

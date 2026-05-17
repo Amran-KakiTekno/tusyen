@@ -39,6 +39,8 @@ __pycache__/
 .codex-tunnel/
 .design-fetch/
 downloads/
+minio/certs/*
+!minio/certs/.gitkeep
 
 # Local container volumes
 postgres_data/
@@ -51,3 +53,7 @@ ntfy_data/
 Thumbs.db
 .idea/
 .vscode/
+
+# The static web app loads this precompiled production bundle directly.
+!web_app/dist/
+!web_app/dist/app.bundle.js

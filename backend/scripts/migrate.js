@@ -8,7 +8,7 @@ dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 const connectionString =
   process.env.DATABASE_URL ||
-  `postgres://${process.env.DB_USER || 'tusyen-online'}:${process.env.DB_PASSWORD || 'tusyen-online123'}@${process.env.DB_HOST || 'localhost'}:${process.env.DB_PORT || '5432'}/${process.env.DB_NAME || 'eduapp'}`;
+  databaseUrlFromParts();
 
 const MIGRATIONS_DIR = path.resolve(__dirname, '../../database/migrations');
 const APP_BASE_MIGRATION = '001_initial.sql';
@@ -76,3 +76,11 @@ main().catch((error) => {
   console.error(error);
   process.exit(1);
 });
+
+function databaseUrlFromParts() {
+  if (!process.env.DB_PASSWORD) {
+    throw new Error('DATABASE_URL or DB_PASSWORD must be set');
+  }
+
+  return `postgres://${process.env.DB_USER || 'eduuser'}:${process.env.DB_PASSWORD}@${process.env.DB_HOST || 'localhost'}:${process.env.DB_PORT || '5432'}/${process.env.DB_NAME || 'eduapp'}`;
+}

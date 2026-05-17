@@ -1,6 +1,7 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
-import jwt from '@fastify/jwt';
+import helmet from '@fastify/helmet';
+import jwt from 'jsonwebtoken';
 import websocket from '@fastify/websocket';
 import multipart from '@fastify/multipart';
 import { config } from './config';
@@ -19,6 +20,7 @@ import { quizRoutes } from './quiz/routes';
 import { profileRoutes } from './profile/routes';
 import { setupWebSocketHandlers } from './websocket/handlers';
 import { authenticateKeycloakBearerToken, KeycloakAuthError, requestOriginFromHeaders } from './auth/keycloak';
+import { accessTokenFromCookies, isAccessTokenRevoked } from './auth/session';
 import { ntfyHealth } from './notifications';
 
 const fastify = Fastify({
@@ -36,20 +38,66 @@ const fastify = Fastify({
 async function main() {
   try {
     // Register plugins
-    await fastify.register(cors, {
-      origin: '*',
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-      allowedHeaders: ['Content-Type', 'Authorization']
+    await fastify.register(helmet, {
+      contentSecurityPolicy: {
+        directives: {
+          defaultSrc: ["'self'"],
+          baseUri: ["'self'"],
+          objectSrc: ["'none'"],
+          frameAncestors: ["'none'"],
+          scriptSrc: ["'self'", 'https://unpkg.com'],
+          styleSrc: ["'self'", 'https://fonts.googleapis.com'],
+          fontSrc: ["'self'", 'https://fonts.gstatic.com', 'data:'],
+          imgSrc: ["'self'", 'data:', 'blob:', 'https:'],
+          mediaSrc: ["'self'", 'blob:', 'https:'],
+          connectSrc: ["'self'", 'ws:', 'wss:', 'http:', 'https:'],
+          frameSrc: ["'self'", 'https://www.youtube.com', 'https://www.youtube-nocookie.com', 'https://player.vimeo.com', 'https://www.loom.com'],
+        },
+      },
+      hsts: config.NODE_ENV === 'production'
+        ? { maxAge: 15552000, includeSubDomains: true }
+        : false,
     });
 
-    await fastify.register(jwt, {
-      secret: config.JWT_SECRET
+    await fastify.register(cors, {
+      origin: (origin, callback) => {
+        if (!origin || originAllowed(origin)) {
+          callback(null, true);
+          return;
+        }
+        callback(null, false);
+      },
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+      credentials: true
+    });
+
+    fastify.decorate('jwt', {
+      sign: (payload: Record<string, unknown>, options?: { expiresIn?: string | number }) => {
+        return jwt.sign(payload, config.JWT_SECRET, {
+          algorithm: 'HS256',
+          ...(options || {}),
+        } as jwt.SignOptions);
+      },
+      verify: async (token: string) => {
+        return jwt.verify(token, config.JWT_SECRET, {
+          algorithms: ['HS256'],
+        });
+      },
     });
 
     // Shared JWT middleware for protected routes
     fastify.decorate('authenticate', async (request: any, reply: any) => {
       try {
-        const decoded = await request.jwtVerify();
+        const token = bearerAccessToken(request.headers?.authorization)
+          || accessTokenFromCookies(request.headers?.cookie);
+        if (!token) {
+          return reply.code(401).send({ error: 'Unauthorized' });
+        }
+        const decoded = await fastify.jwt.verify(token);
+        if (await isAccessTokenRevoked(decoded)) {
+          return reply.code(401).send({ error: 'Unauthorized' });
+        }
         request.user = decoded;
       } catch (err) {
         try {
@@ -139,3 +187,43 @@ process.on('SIGTERM', async () => {
   await redis.quit();
   process.exit(0);
 });
+
+function originAllowed(origin: string) {
+  let normalizedOrigin: string;
+  try {
+    normalizedOrigin = new URL(origin).origin;
+  } catch {
+    return false;
+  }
+
+  return splitCsv(config.CORS_ALLOWED_ORIGINS).some((allowed) => originMatchesAllowed(normalizedOrigin, allowed));
+}
+
+function originMatchesAllowed(origin: string, allowed: string) {
+  const normalizedAllowed = allowed.replace(/\/+$/, '');
+  if (normalizedAllowed === '*') return true;
+  if (!normalizedAllowed.includes('*')) return origin === normalizedAllowed;
+
+  try {
+    const allowedUrl = new URL(normalizedAllowed.replace('*.', 'wildcard.'));
+    const originUrl = new URL(origin);
+    const wildcardSuffix = allowedUrl.hostname.replace('wildcard.', '.');
+    return originUrl.protocol === allowedUrl.protocol && originUrl.hostname.endsWith(wildcardSuffix);
+  } catch {
+    return false;
+  }
+}
+
+function splitCsv(value?: string | null) {
+  return (value || '')
+    .split(',')
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+}
+
+function bearerAccessToken(value: string | string[] | undefined) {
+  const header = Array.isArray(value) ? value[0] : value;
+  if (!header) return null;
+  const [scheme, token] = header.split(' ');
+  return scheme?.toLowerCase() === 'bearer' && token ? token : null;
+}

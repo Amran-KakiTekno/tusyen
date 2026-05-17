@@ -5,7 +5,7 @@
   "displayName": "EduApp Malaysia",
   "displayNameHtml": "<div class=\"kc-logo-text\"><span>EduApp Malaysia</span></div>",
   "sslRequired": "external",
-  "registrationAllowed": true,
+  "registrationAllowed": false,
   "registrationEmailAsUsername": false,
   "loginWithEmailAllowed": true,
   "duplicateEmailsAllowed": false,
@@ -65,20 +65,16 @@
       "bearerOnly": false,
       "standardFlowEnabled": true,
       "implicitFlowEnabled": false,
-      "directAccessGrantsEnabled": true,
+      "directAccessGrantsEnabled": false,
       "serviceAccountsEnabled": true,
       "authorizationServicesEnabled": false,
       "redirectUris": [
         "http://localhost/keycloak-callback",
-        "http://localhost:*/keycloak-callback",
-        "http://127.0.0.1:*/keycloak-callback",
-        "https://*.trycloudflare.com/keycloak-callback"
+        "http://127.0.0.1/keycloak-callback"
       ],
       "webOrigins": [
         "http://localhost",
-        "http://localhost:*",
-        "http://127.0.0.1:*",
-        "https://*.trycloudflare.com"
+        "http://127.0.0.1"
       ]
     },
     {
@@ -90,14 +86,12 @@
       "publicClient": true,
       "bearerOnly": false,
       "standardFlowEnabled": true,
-      "implicitFlowEnabled": true,
-      "directAccessGrantsEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
       "redirectUris": [
         "eduapp://callback",
-        "http://localhost:*",
         "http://localhost/keycloak-callback",
-        "http://localhost:*/keycloak-callback",
-        "https://*.trycloudflare.com/keycloak-callback"
+        "http://127.0.0.1/keycloak-callback"
       ]
     }
   ],

@@ -4,6 +4,7 @@
   "private": true,
   "description": "Playwright QA/QC suite for Tusyen.",
   "scripts": {
+    "build:web": "node scripts/build-web-app.js",
     "test": "npm run qaqc",
     "qaqc": "playwright test",
     "qaqc:full": "playwright test tests/qaqc/full-feature-regression.spec.ts --project=chromium-desktop",
@@ -15,6 +16,8 @@
     "qaqc:install": "playwright install chromium"
   },
   "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-react": "^7.28.5",
     "@playwright/test": "^1.60.0"
   }
 }

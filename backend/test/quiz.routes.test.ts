@@ -7,15 +7,18 @@ vi.mock('../src/quiz/store', () => ({
   listQuizDecks: vi.fn(),
   saveQuizDeck: vi.fn(),
   deleteQuizDeck: vi.fn(),
+  duplicateQuizDeck: vi.fn(),
   getQuizDeck: vi.fn(),
   listQuizSessions: vi.fn(),
   createQuizSession: vi.fn(),
   getQuizSessionById: vi.fn(),
+  getQuizSessionParticipantByToken: vi.fn(),
   getQuizSessionSnapshot: vi.fn(),
   loadQuizSessionState: vi.fn(),
   joinQuizSession: vi.fn(),
   startQuizSession: vi.fn(),
   advanceQuizSession: vi.fn(),
+  controlQuizSessionTimer: vi.fn(),
   endQuizSession: vi.fn(),
   submitQuizAnswer: vi.fn(),
   getStudentQuizSummary: vi.fn(),
@@ -27,6 +30,16 @@ vi.mock('../src/quiz/realtime', () => ({
 
 vi.mock('../src/notifications', () => ({
   publishQuizSessionNotification: vi.fn().mockResolvedValue({ ok: true }),
+}));
+
+vi.mock('../src/config', () => ({
+  config: {
+    ALLOW_GUEST_QUIZ_JOIN: true,
+  },
+}));
+
+vi.mock('../src/redis', () => ({
+  checkRateLimit: vi.fn().mockResolvedValue(true),
 }));
 
 const mockedStore = vi.mocked(store);
@@ -184,5 +197,45 @@ describe('quiz routes', () => {
 
     expect(response.statusCode).toBe(400);
     expect(JSON.parse(response.body).error).toContain('Participant already answered');
+  });
+
+  it('supports teacher deck duplication and timer controls', async () => {
+    mockedStore.duplicateQuizDeck.mockResolvedValue({
+      id: 'deck-copy',
+      title: 'Speed Round (Copy)',
+    } as any);
+    mockedStore.controlQuizSessionTimer.mockResolvedValue({
+      session: { id: 'session-1', status: 'active' },
+    } as any);
+    mockedStore.getQuizSessionSnapshot.mockResolvedValue({
+      session: { id: 'session-1', status: 'active' },
+    } as any);
+
+    const app = buildApp({ userId: 'teacher-1', role: 'teacher' });
+    await app.ready();
+
+    const copyResponse = await app.inject({
+      method: 'POST',
+      url: '/quiz/decks/deck-1/duplicate',
+    });
+
+    expect(copyResponse.statusCode).toBe(200);
+    expect(mockedStore.duplicateQuizDeck).toHaveBeenCalledWith(
+      { userId: 'teacher-1', role: 'teacher' },
+      'deck-1'
+    );
+
+    const timerResponse = await app.inject({
+      method: 'POST',
+      url: '/quiz/sessions/session-1/timer',
+      payload: { action: 'add_time', seconds: 15 },
+    });
+
+    expect(timerResponse.statusCode).toBe(200);
+    expect(mockedStore.controlQuizSessionTimer).toHaveBeenCalledWith(
+      { userId: 'teacher-1', role: 'teacher' },
+      'session-1',
+      { action: 'add_time', seconds: 15 }
+    );
   });
 });

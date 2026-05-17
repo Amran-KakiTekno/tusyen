@@ -8,8 +8,8 @@ test.describe('platform health', () => {
     expect(health.status, 'overall health').toBe('healthy');
   });
 
-  test('serves the v2 React design preview', async ({ page }) => {
-    await page.goto('/v2/');
+  test('serves the React web app', async ({ page }) => {
+    await page.goto('/');
 
     await expect(page).toHaveTitle(/Tusyen/i);
     await expect(page.locator('.login-card')).toBeVisible();

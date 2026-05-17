@@ -1,0 +1,928 @@
+{
+  "source_key": "form-4-other-iban-language-bahasa-iban-tingkatan-4-ms",
+  "title": "Bahasa Iban Tingkatan 4",
+  "subject": "Iban Language",
+  "form_level": 4,
+  "stream": "Other",
+  "language": "ms",
+  "metadata": {},
+  "page_count": 228,
+  "extracted_page_count": 226,
+  "needs_ocr_page_count": 2,
+  "extraction_status": "complete",
+  "lesson_count": 11,
+  "lessons": [
+    {
+      "lesson_key": "1-0-jaku-pengelalu-chairman-aum-001",
+      "topic_code": "1.0",
+      "topic": "Bab 1",
+      "subtopic": "1.0 Jaku Pengelalu Chairman Aum",
+      "title": "1.0 Jaku Pengelalu Chairman Aum",
+      "lesson_type": "subtopic",
+      "order_index": 1,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[Bahasa Iban Tingkatan 4 KSSM.pdf p147]\nRaban Kelab Jaku Iban SMK Munggu Perawan udah baum pasal aktiviti Minggu\nTeknologi Gadung. Bacha minit aum nya.\nAram Nulis\nMinit Aum Minggu Teknologi Gadung\nKelab Jaku Iban SMK Munggu Perawan\nHaribulan:\n21 Jun 2020\nJam:\n2:00 lemai\nEndur:\nLibrari, SMK Munggu Perawan\nOrang ti datai:\nPengajar Unsie, Pengajar Grace, Lika, Ujai, Runin, Mendu, Lema, Empawie\n1.0 Jaku Pengelalu Chairman Aum\n1.1 Chairman ngelaluka penatai bala pengajar enggau nembiak ngagai aum lalu\nngarapka agenda aum dipejurai enggau mujur.\n1.2 Batang pekara ke deka dipejurai iya nya aktiviti dikena nyukung program\nteknologi gadung tikas sekula.\n2.0 Aktiviti Maya Minggu Teknologi Gadung\n2.1 Pekit Licha\n2.1.1 Topik Licha: “Penguntung enggau Pemanah Ngulihka Kuasa Solar.”\n2.2 Pekit Nero Poster\n2.2.1 Tema “Teknologi Gadung Nyelamatka Dunya”\n2.2.2 Pekit dibuka ngagai nembiak pom empat enggau pom lima SMK Munggu\nPerawan\n2.2.3 Perais Pekit\ni. Lumur satu: RM250.00, trofi enggau setipikit.\nii. Lumur dua: RM200.00, trofi enggau setipikit.\niii. Lumur tiga: RM150.00, trofi enggau setipikit.\niv. Tiga iti perais sagu ati: RM50.00 trofi enggau setipikit.\n3.0 Komiti Pengereja Pengawa\n3.1 Lima iku raban Kelab Jaku Iban nyadi komiti ke tiap iti program ke disebut di atas.\n3.2 Tuduh penemu ke dibantaika Pengajar Rekan diterima semua ke bisi datai baum.\n4.0 Hal-hal Bukai\n4.1 Pengajar Limbai meransang nembiak sampal datai maya Minggu Teknologi\nGadung. Iya madah nengah aktiviti kelab tu nembiak ulih belajarka mayuh\npekara senentang jaku Iban. Iya nyimpulka penemu ngena jaku tuai “buah\ndikelala ari langgu, bansa dikelala ari jaku, basa dikelala ari penyiru.”\n5.0 Aum tembu diatur pukul 3:30 lemai.\nMinit ditulis,\n..............................................\n(EMPAWIE ANAK BALANG )\nSekretari,\nKelab Jaku Iban,\nSMK Munggu Perawan.\nUNIT 10\nTema 5\n135",
+      "char_count": 1854,
+      "pages": [
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 147,
+          "global_page_number": 147,
+          "char_count": 1814,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "1-1-chairman-ngelaluka-penatai-bala-pengajar-enggau-nembiak-ngagai-aum-lalu-002",
+      "topic_code": "1.1",
+      "topic": "Bab 1",
+      "subtopic": "1.1 Chairman ngelaluka penatai bala pengajar enggau nembiak ngagai aum lalu",
+      "title": "1.1 Chairman ngelaluka penatai bala pengajar enggau nembiak ngagai aum lalu",
+      "lesson_type": "subtopic",
+      "order_index": 2,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[Bahasa Iban Tingkatan 4 KSSM.pdf p147]\nRaban Kelab Jaku Iban SMK Munggu Perawan udah baum pasal aktiviti Minggu\nTeknologi Gadung. Bacha minit aum nya.\nAram Nulis\nMinit Aum Minggu Teknologi Gadung\nKelab Jaku Iban SMK Munggu Perawan\nHaribulan:\n21 Jun 2020\nJam:\n2:00 lemai\nEndur:\nLibrari, SMK Munggu Perawan\nOrang ti datai:\nPengajar Unsie, Pengajar Grace, Lika, Ujai, Runin, Mendu, Lema, Empawie\n1.0 Jaku Pengelalu Chairman Aum\n1.1 Chairman ngelaluka penatai bala pengajar enggau nembiak ngagai aum lalu\nngarapka agenda aum dipejurai enggau mujur.\n1.2 Batang pekara ke deka dipejurai iya nya aktiviti dikena nyukung program\nteknologi gadung tikas sekula.\n2.0 Aktiviti Maya Minggu Teknologi Gadung\n2.1 Pekit Licha\n2.1.1 Topik Licha: “Penguntung enggau Pemanah Ngulihka Kuasa Solar.”\n2.2 Pekit Nero Poster\n2.2.1 Tema “Teknologi Gadung Nyelamatka Dunya”\n2.2.2 Pekit dibuka ngagai nembiak pom empat enggau pom lima SMK Munggu\nPerawan\n2.2.3 Perais Pekit\ni. Lumur satu: RM250.00, trofi enggau setipikit.\nii. Lumur dua: RM200.00, trofi enggau setipikit.\niii. Lumur tiga: RM150.00, trofi enggau setipikit.\niv. Tiga iti perais sagu ati: RM50.00 trofi enggau setipikit.\n3.0 Komiti Pengereja Pengawa\n3.1 Lima iku raban Kelab Jaku Iban nyadi komiti ke tiap iti program ke disebut di atas.\n3.2 Tuduh penemu ke dibantaika Pengajar Rekan diterima semua ke bisi datai baum.\n4.0 Hal-hal Bukai\n4.1 Pengajar Limbai meransang nembiak sampal datai maya Minggu Teknologi\nGadung. Iya madah nengah aktiviti kelab tu nembiak ulih belajarka mayuh\npekara senentang jaku Iban. Iya nyimpulka penemu ngena jaku tuai “buah\ndikelala ari langgu, bansa dikelala ari jaku, basa dikelala ari penyiru.”\n5.0 Aum tembu diatur pukul 3:30 lemai.\nMinit ditulis,\n..............................................\n(EMPAWIE ANAK BALANG )\nSekretari,\nKelab Jaku Iban,\nSMK Munggu Perawan.\nUNIT 10\nTema 5\n135",
+      "char_count": 1854,
+      "pages": [
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 147,
+          "global_page_number": 147,
+          "char_count": 1814,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "1-2-batang-pekara-ke-deka-dipejurai-iya-nya-aktiviti-dikena-nyukung-program-003",
+      "topic_code": "1.2",
+      "topic": "Bab 1",
+      "subtopic": "1.2 Batang pekara ke deka dipejurai iya nya aktiviti dikena nyukung program",
+      "title": "1.2 Batang pekara ke deka dipejurai iya nya aktiviti dikena nyukung program",
+      "lesson_type": "subtopic",
+      "order_index": 3,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[Bahasa Iban Tingkatan 4 KSSM.pdf p147]\nRaban Kelab Jaku Iban SMK Munggu Perawan udah baum pasal aktiviti Minggu\nTeknologi Gadung. Bacha minit aum nya.\nAram Nulis\nMinit Aum Minggu Teknologi Gadung\nKelab Jaku Iban SMK Munggu Perawan\nHaribulan:\n21 Jun 2020\nJam:\n2:00 lemai\nEndur:\nLibrari, SMK Munggu Perawan\nOrang ti datai:\nPengajar Unsie, Pengajar Grace, Lika, Ujai, Runin, Mendu, Lema, Empawie\n1.0 Jaku Pengelalu Chairman Aum\n1.1 Chairman ngelaluka penatai bala pengajar enggau nembiak ngagai aum lalu\nngarapka agenda aum dipejurai enggau mujur.\n1.2 Batang pekara ke deka dipejurai iya nya aktiviti dikena nyukung program\nteknologi gadung tikas sekula.\n2.0 Aktiviti Maya Minggu Teknologi Gadung\n2.1 Pekit Licha\n2.1.1 Topik Licha: “Penguntung enggau Pemanah Ngulihka Kuasa Solar.”\n2.2 Pekit Nero Poster\n2.2.1 Tema “Teknologi Gadung Nyelamatka Dunya”\n2.2.2 Pekit dibuka ngagai nembiak pom empat enggau pom lima SMK Munggu\nPerawan\n2.2.3 Perais Pekit\ni. Lumur satu: RM250.00, trofi enggau setipikit.\nii. Lumur dua: RM200.00, trofi enggau setipikit.\niii. Lumur tiga: RM150.00, trofi enggau setipikit.\niv. Tiga iti perais sagu ati: RM50.00 trofi enggau setipikit.\n3.0 Komiti Pengereja Pengawa\n3.1 Lima iku raban Kelab Jaku Iban nyadi komiti ke tiap iti program ke disebut di atas.\n3.2 Tuduh penemu ke dibantaika Pengajar Rekan diterima semua ke bisi datai baum.\n4.0 Hal-hal Bukai\n4.1 Pengajar Limbai meransang nembiak sampal datai maya Minggu Teknologi\nGadung. Iya madah nengah aktiviti kelab tu nembiak ulih belajarka mayuh\npekara senentang jaku Iban. Iya nyimpulka penemu ngena jaku tuai “buah\ndikelala ari langgu, bansa dikelala ari jaku, basa dikelala ari penyiru.”\n5.0 Aum tembu diatur pukul 3:30 lemai.\nMinit ditulis,\n..............................................\n(EMPAWIE ANAK BALANG )\nSekretari,\nKelab Jaku Iban,\nSMK Munggu Perawan.\nUNIT 10\nTema 5\n135",
+      "char_count": 1854,
+      "pages": [
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 147,
+          "global_page_number": 147,
+          "char_count": 1814,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "2-1-pekit-licha-004",
+      "topic_code": "2.1",
+      "topic": "Bab 2",
+      "subtopic": "2.1 Pekit Licha",
+      "title": "2.1 Pekit Licha",
+      "lesson_type": "subtopic",
+      "order_index": 4,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[Bahasa Iban Tingkatan 4 KSSM.pdf p147]\nRaban Kelab Jaku Iban SMK Munggu Perawan udah baum pasal aktiviti Minggu\nTeknologi Gadung. Bacha minit aum nya.\nAram Nulis\nMinit Aum Minggu Teknologi Gadung\nKelab Jaku Iban SMK Munggu Perawan\nHaribulan:\n21 Jun 2020\nJam:\n2:00 lemai\nEndur:\nLibrari, SMK Munggu Perawan\nOrang ti datai:\nPengajar Unsie, Pengajar Grace, Lika, Ujai, Runin, Mendu, Lema, Empawie\n1.0 Jaku Pengelalu Chairman Aum\n1.1 Chairman ngelaluka penatai bala pengajar enggau nembiak ngagai aum lalu\nngarapka agenda aum dipejurai enggau mujur.\n1.2 Batang pekara ke deka dipejurai iya nya aktiviti dikena nyukung program\nteknologi gadung tikas sekula.\n2.0 Aktiviti Maya Minggu Teknologi Gadung\n2.1 Pekit Licha\n2.1.1 Topik Licha: “Penguntung enggau Pemanah Ngulihka Kuasa Solar.”\n2.2 Pekit Nero Poster\n2.2.1 Tema “Teknologi Gadung Nyelamatka Dunya”\n2.2.2 Pekit dibuka ngagai nembiak pom empat enggau pom lima SMK Munggu\nPerawan\n2.2.3 Perais Pekit\ni. Lumur satu: RM250.00, trofi enggau setipikit.\nii. Lumur dua: RM200.00, trofi enggau setipikit.\niii. Lumur tiga: RM150.00, trofi enggau setipikit.\niv. Tiga iti perais sagu ati: RM50.00 trofi enggau setipikit.\n3.0 Komiti Pengereja Pengawa\n3.1 Lima iku raban Kelab Jaku Iban nyadi komiti ke tiap iti program ke disebut di atas.\n3.2 Tuduh penemu ke dibantaika Pengajar Rekan diterima semua ke bisi datai baum.\n4.0 Hal-hal Bukai\n4.1 Pengajar Limbai meransang nembiak sampal datai maya Minggu Teknologi\nGadung. Iya madah nengah aktiviti kelab tu nembiak ulih belajarka mayuh\npekara senentang jaku Iban. Iya nyimpulka penemu ngena jaku tuai “buah\ndikelala ari langgu, bansa dikelala ari jaku, basa dikelala ari penyiru.”\n5.0 Aum tembu diatur pukul 3:30 lemai.\nMinit ditulis,\n..............................................\n(EMPAWIE ANAK BALANG )\nSekretari,\nKelab Jaku Iban,\nSMK Munggu Perawan.\nUNIT 10\nTema 5\n135",
+      "char_count": 1854,
+      "pages": [
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 147,
+          "global_page_number": 147,
+          "char_count": 1814,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "2-2-pekit-nero-poster-005",
+      "topic_code": "2.2",
+      "topic": "Bab 2",
+      "subtopic": "2.2 Pekit Nero Poster",
+      "title": "2.2 Pekit Nero Poster",
+      "lesson_type": "subtopic",
+      "order_index": 5,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[Bahasa Iban Tingkatan 4 KSSM.pdf p147]\nRaban Kelab Jaku Iban SMK Munggu Perawan udah baum pasal aktiviti Minggu\nTeknologi Gadung. Bacha minit aum nya.\nAram Nulis\nMinit Aum Minggu Teknologi Gadung\nKelab Jaku Iban SMK Munggu Perawan\nHaribulan:\n21 Jun 2020\nJam:\n2:00 lemai\nEndur:\nLibrari, SMK Munggu Perawan\nOrang ti datai:\nPengajar Unsie, Pengajar Grace, Lika, Ujai, Runin, Mendu, Lema, Empawie\n1.0 Jaku Pengelalu Chairman Aum\n1.1 Chairman ngelaluka penatai bala pengajar enggau nembiak ngagai aum lalu\nngarapka agenda aum dipejurai enggau mujur.\n1.2 Batang pekara ke deka dipejurai iya nya aktiviti dikena nyukung program\nteknologi gadung tikas sekula.\n2.0 Aktiviti Maya Minggu Teknologi Gadung\n2.1 Pekit Licha\n2.1.1 Topik Licha: “Penguntung enggau Pemanah Ngulihka Kuasa Solar.”\n2.2 Pekit Nero Poster\n2.2.1 Tema “Teknologi Gadung Nyelamatka Dunya”\n2.2.2 Pekit dibuka ngagai nembiak pom empat enggau pom lima SMK Munggu\nPerawan\n2.2.3 Perais Pekit\ni. Lumur satu: RM250.00, trofi enggau setipikit.\nii. Lumur dua: RM200.00, trofi enggau setipikit.\niii. Lumur tiga: RM150.00, trofi enggau setipikit.\niv. Tiga iti perais sagu ati: RM50.00 trofi enggau setipikit.\n3.0 Komiti Pengereja Pengawa\n3.1 Lima iku raban Kelab Jaku Iban nyadi komiti ke tiap iti program ke disebut di atas.\n3.2 Tuduh penemu ke dibantaika Pengajar Rekan diterima semua ke bisi datai baum.\n4.0 Hal-hal Bukai\n4.1 Pengajar Limbai meransang nembiak sampal datai maya Minggu Teknologi\nGadung. Iya madah nengah aktiviti kelab tu nembiak ulih belajarka mayuh\npekara senentang jaku Iban. Iya nyimpulka penemu ngena jaku tuai “buah\ndikelala ari langgu, bansa dikelala ari jaku, basa dikelala ari penyiru.”\n5.0 Aum tembu diatur pukul 3:30 lemai.\nMinit ditulis,\n..............................................\n(EMPAWIE ANAK BALANG )\nSekretari,\nKelab Jaku Iban,\nSMK Munggu Perawan.\nUNIT 10\nTema 5\n135",
+      "char_count": 1854,
+      "pages": [
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 147,
+          "global_page_number": 147,
+          "char_count": 1814,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "3-0-komiti-pengereja-pengawa-006",
+      "topic_code": "3.0",
+      "topic": "Bab 3",
+      "subtopic": "3.0 Komiti Pengereja Pengawa",
+      "title": "3.0 Komiti Pengereja Pengawa",
+      "lesson_type": "subtopic",
+      "order_index": 6,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[Bahasa Iban Tingkatan 4 KSSM.pdf p147]\nRaban Kelab Jaku Iban SMK Munggu Perawan udah baum pasal aktiviti Minggu\nTeknologi Gadung. Bacha minit aum nya.\nAram Nulis\nMinit Aum Minggu Teknologi Gadung\nKelab Jaku Iban SMK Munggu Perawan\nHaribulan:\n21 Jun 2020\nJam:\n2:00 lemai\nEndur:\nLibrari, SMK Munggu Perawan\nOrang ti datai:\nPengajar Unsie, Pengajar Grace, Lika, Ujai, Runin, Mendu, Lema, Empawie\n1.0 Jaku Pengelalu Chairman Aum\n1.1 Chairman ngelaluka penatai bala pengajar enggau nembiak ngagai aum lalu\nngarapka agenda aum dipejurai enggau mujur.\n1.2 Batang pekara ke deka dipejurai iya nya aktiviti dikena nyukung program\nteknologi gadung tikas sekula.\n2.0 Aktiviti Maya Minggu Teknologi Gadung\n2.1 Pekit Licha\n2.1.1 Topik Licha: “Penguntung enggau Pemanah Ngulihka Kuasa Solar.”\n2.2 Pekit Nero Poster\n2.2.1 Tema “Teknologi Gadung Nyelamatka Dunya”\n2.2.2 Pekit dibuka ngagai nembiak pom empat enggau pom lima SMK Munggu\nPerawan\n2.2.3 Perais Pekit\ni. Lumur satu: RM250.00, trofi enggau setipikit.\nii. Lumur dua: RM200.00, trofi enggau setipikit.\niii. Lumur tiga: RM150.00, trofi enggau setipikit.\niv. Tiga iti perais sagu ati: RM50.00 trofi enggau setipikit.\n3.0 Komiti Pengereja Pengawa\n3.1 Lima iku raban Kelab Jaku Iban nyadi komiti ke tiap iti program ke disebut di atas.\n3.2 Tuduh penemu ke dibantaika Pengajar Rekan diterima semua ke bisi datai baum.\n4.0 Hal-hal Bukai\n4.1 Pengajar Limbai meransang nembiak sampal datai maya Minggu Teknologi\nGadung. Iya madah nengah aktiviti kelab tu nembiak ulih belajarka mayuh\npekara senentang jaku Iban. Iya nyimpulka penemu ngena jaku tuai “buah\ndikelala ari langgu, bansa dikelala ari jaku, basa dikelala ari penyiru.”\n5.0 Aum tembu diatur pukul 3:30 lemai.\nMinit ditulis,\n..............................................\n(EMPAWIE ANAK BALANG )\nSekretari,\nKelab Jaku Iban,\nSMK Munggu Perawan.\nUNIT 10\nTema 5\n135",
+      "char_count": 1854,
+      "pages": [
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 147,
+          "global_page_number": 147,
+          "char_count": 1814,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "3-1-lima-iku-raban-kelab-jaku-iban-nyadi-komiti-ke-tiap-iti-program-ke-disebut-di-at-007",
+      "topic_code": "3.1",
+      "topic": "Bab 3",
+      "subtopic": "3.1 Lima iku raban Kelab Jaku Iban nyadi komiti ke tiap iti program ke disebut di atas",
+      "title": "3.1 Lima iku raban Kelab Jaku Iban nyadi komiti ke tiap iti program ke disebut di atas",
+      "lesson_type": "subtopic",
+      "order_index": 7,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[Bahasa Iban Tingkatan 4 KSSM.pdf p147]\nRaban Kelab Jaku Iban SMK Munggu Perawan udah baum pasal aktiviti Minggu\nTeknologi Gadung. Bacha minit aum nya.\nAram Nulis\nMinit Aum Minggu Teknologi Gadung\nKelab Jaku Iban SMK Munggu Perawan\nHaribulan:\n21 Jun 2020\nJam:\n2:00 lemai\nEndur:\nLibrari, SMK Munggu Perawan\nOrang ti datai:\nPengajar Unsie, Pengajar Grace, Lika, Ujai, Runin, Mendu, Lema, Empawie\n1.0 Jaku Pengelalu Chairman Aum\n1.1 Chairman ngelaluka penatai bala pengajar enggau nembiak ngagai aum lalu\nngarapka agenda aum dipejurai enggau mujur.\n1.2 Batang pekara ke deka dipejurai iya nya aktiviti dikena nyukung program\nteknologi gadung tikas sekula.\n2.0 Aktiviti Maya Minggu Teknologi Gadung\n2.1 Pekit Licha\n2.1.1 Topik Licha: “Penguntung enggau Pemanah Ngulihka Kuasa Solar.”\n2.2 Pekit Nero Poster\n2.2.1 Tema “Teknologi Gadung Nyelamatka Dunya”\n2.2.2 Pekit dibuka ngagai nembiak pom empat enggau pom lima SMK Munggu\nPerawan\n2.2.3 Perais Pekit\ni. Lumur satu: RM250.00, trofi enggau setipikit.\nii. Lumur dua: RM200.00, trofi enggau setipikit.\niii. Lumur tiga: RM150.00, trofi enggau setipikit.\niv. Tiga iti perais sagu ati: RM50.00 trofi enggau setipikit.\n3.0 Komiti Pengereja Pengawa\n3.1 Lima iku raban Kelab Jaku Iban nyadi komiti ke tiap iti program ke disebut di atas.\n3.2 Tuduh penemu ke dibantaika Pengajar Rekan diterima semua ke bisi datai baum.\n4.0 Hal-hal Bukai\n4.1 Pengajar Limbai meransang nembiak sampal datai maya Minggu Teknologi\nGadung. Iya madah nengah aktiviti kelab tu nembiak ulih belajarka mayuh\npekara senentang jaku Iban. Iya nyimpulka penemu ngena jaku tuai “buah\ndikelala ari langgu, bansa dikelala ari jaku, basa dikelala ari penyiru.”\n5.0 Aum tembu diatur pukul 3:30 lemai.\nMinit ditulis,\n..............................................\n(EMPAWIE ANAK BALANG )\nSekretari,\nKelab Jaku Iban,\nSMK Munggu Perawan.\nUNIT 10\nTema 5\n135",
+      "char_count": 1854,
+      "pages": [
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 147,
+          "global_page_number": 147,
+          "char_count": 1814,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "3-2-tuduh-penemu-ke-dibantaika-pengajar-rekan-diterima-semua-ke-bisi-datai-baum-008",
+      "topic_code": "3.2",
+      "topic": "Bab 3",
+      "subtopic": "3.2 Tuduh penemu ke dibantaika Pengajar Rekan diterima semua ke bisi datai baum",
+      "title": "3.2 Tuduh penemu ke dibantaika Pengajar Rekan diterima semua ke bisi datai baum",
+      "lesson_type": "subtopic",
+      "order_index": 8,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[Bahasa Iban Tingkatan 4 KSSM.pdf p147]\nRaban Kelab Jaku Iban SMK Munggu Perawan udah baum pasal aktiviti Minggu\nTeknologi Gadung. Bacha minit aum nya.\nAram Nulis\nMinit Aum Minggu Teknologi Gadung\nKelab Jaku Iban SMK Munggu Perawan\nHaribulan:\n21 Jun 2020\nJam:\n2:00 lemai\nEndur:\nLibrari, SMK Munggu Perawan\nOrang ti datai:\nPengajar Unsie, Pengajar Grace, Lika, Ujai, Runin, Mendu, Lema, Empawie\n1.0 Jaku Pengelalu Chairman Aum\n1.1 Chairman ngelaluka penatai bala pengajar enggau nembiak ngagai aum lalu\nngarapka agenda aum dipejurai enggau mujur.\n1.2 Batang pekara ke deka dipejurai iya nya aktiviti dikena nyukung program\nteknologi gadung tikas sekula.\n2.0 Aktiviti Maya Minggu Teknologi Gadung\n2.1 Pekit Licha\n2.1.1 Topik Licha: “Penguntung enggau Pemanah Ngulihka Kuasa Solar.”\n2.2 Pekit Nero Poster\n2.2.1 Tema “Teknologi Gadung Nyelamatka Dunya”\n2.2.2 Pekit dibuka ngagai nembiak pom empat enggau pom lima SMK Munggu\nPerawan\n2.2.3 Perais Pekit\ni. Lumur satu: RM250.00, trofi enggau setipikit.\nii. Lumur dua: RM200.00, trofi enggau setipikit.\niii. Lumur tiga: RM150.00, trofi enggau setipikit.\niv. Tiga iti perais sagu ati: RM50.00 trofi enggau setipikit.\n3.0 Komiti Pengereja Pengawa\n3.1 Lima iku raban Kelab Jaku Iban nyadi komiti ke tiap iti program ke disebut di atas.\n3.2 Tuduh penemu ke dibantaika Pengajar Rekan diterima semua ke bisi datai baum.\n4.0 Hal-hal Bukai\n4.1 Pengajar Limbai meransang nembiak sampal datai maya Minggu Teknologi\nGadung. Iya madah nengah aktiviti kelab tu nembiak ulih belajarka mayuh\npekara senentang jaku Iban. Iya nyimpulka penemu ngena jaku tuai “buah\ndikelala ari langgu, bansa dikelala ari jaku, basa dikelala ari penyiru.”\n5.0 Aum tembu diatur pukul 3:30 lemai.\nMinit ditulis,\n..............................................\n(EMPAWIE ANAK BALANG )\nSekretari,\nKelab Jaku Iban,\nSMK Munggu Perawan.\nUNIT 10\nTema 5\n135",
+      "char_count": 1854,
+      "pages": [
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 147,
+          "global_page_number": 147,
+          "char_count": 1814,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "4-0-hal-hal-bukai-009",
+      "topic_code": "4.0",
+      "topic": "Bab 4",
+      "subtopic": "4.0 Hal-hal Bukai",
+      "title": "4.0 Hal-hal Bukai",
+      "lesson_type": "subtopic",
+      "order_index": 9,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[Bahasa Iban Tingkatan 4 KSSM.pdf p147]\nRaban Kelab Jaku Iban SMK Munggu Perawan udah baum pasal aktiviti Minggu\nTeknologi Gadung. Bacha minit aum nya.\nAram Nulis\nMinit Aum Minggu Teknologi Gadung\nKelab Jaku Iban SMK Munggu Perawan\nHaribulan:\n21 Jun 2020\nJam:\n2:00 lemai\nEndur:\nLibrari, SMK Munggu Perawan\nOrang ti datai:\nPengajar Unsie, Pengajar Grace, Lika, Ujai, Runin, Mendu, Lema, Empawie\n1.0 Jaku Pengelalu Chairman Aum\n1.1 Chairman ngelaluka penatai bala pengajar enggau nembiak ngagai aum lalu\nngarapka agenda aum dipejurai enggau mujur.\n1.2 Batang pekara ke deka dipejurai iya nya aktiviti dikena nyukung program\nteknologi gadung tikas sekula.\n2.0 Aktiviti Maya Minggu Teknologi Gadung\n2.1 Pekit Licha\n2.1.1 Topik Licha: “Penguntung enggau Pemanah Ngulihka Kuasa Solar.”\n2.2 Pekit Nero Poster\n2.2.1 Tema “Teknologi Gadung Nyelamatka Dunya”\n2.2.2 Pekit dibuka ngagai nembiak pom empat enggau pom lima SMK Munggu\nPerawan\n2.2.3 Perais Pekit\ni. Lumur satu: RM250.00, trofi enggau setipikit.\nii. Lumur dua: RM200.00, trofi enggau setipikit.\niii. Lumur tiga: RM150.00, trofi enggau setipikit.\niv. Tiga iti perais sagu ati: RM50.00 trofi enggau setipikit.\n3.0 Komiti Pengereja Pengawa\n3.1 Lima iku raban Kelab Jaku Iban nyadi komiti ke tiap iti program ke disebut di atas.\n3.2 Tuduh penemu ke dibantaika Pengajar Rekan diterima semua ke bisi datai baum.\n4.0 Hal-hal Bukai\n4.1 Pengajar Limbai meransang nembiak sampal datai maya Minggu Teknologi\nGadung. Iya madah nengah aktiviti kelab tu nembiak ulih belajarka mayuh\npekara senentang jaku Iban. Iya nyimpulka penemu ngena jaku tuai “buah\ndikelala ari langgu, bansa dikelala ari jaku, basa dikelala ari penyiru.”\n5.0 Aum tembu diatur pukul 3:30 lemai.\nMinit ditulis,\n..............................................\n(EMPAWIE ANAK BALANG )\nSekretari,\nKelab Jaku Iban,\nSMK Munggu Perawan.\nUNIT 10\nTema 5\n135",
+      "char_count": 1854,
+      "pages": [
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 147,
+          "global_page_number": 147,
+          "char_count": 1814,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "4-1-pengajar-limbai-meransang-nembiak-sampal-datai-maya-minggu-teknologi-010",
+      "topic_code": "4.1",
+      "topic": "Bab 4",
+      "subtopic": "4.1 Pengajar Limbai meransang nembiak sampal datai maya Minggu Teknologi",
+      "title": "4.1 Pengajar Limbai meransang nembiak sampal datai maya Minggu Teknologi",
+      "lesson_type": "subtopic",
+      "order_index": 10,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[Bahasa Iban Tingkatan 4 KSSM.pdf p147]\nRaban Kelab Jaku Iban SMK Munggu Perawan udah baum pasal aktiviti Minggu\nTeknologi Gadung. Bacha minit aum nya.\nAram Nulis\nMinit Aum Minggu Teknologi Gadung\nKelab Jaku Iban SMK Munggu Perawan\nHaribulan:\n21 Jun 2020\nJam:\n2:00 lemai\nEndur:\nLibrari, SMK Munggu Perawan\nOrang ti datai:\nPengajar Unsie, Pengajar Grace, Lika, Ujai, Runin, Mendu, Lema, Empawie\n1.0 Jaku Pengelalu Chairman Aum\n1.1 Chairman ngelaluka penatai bala pengajar enggau nembiak ngagai aum lalu\nngarapka agenda aum dipejurai enggau mujur.\n1.2 Batang pekara ke deka dipejurai iya nya aktiviti dikena nyukung program\nteknologi gadung tikas sekula.\n2.0 Aktiviti Maya Minggu Teknologi Gadung\n2.1 Pekit Licha\n2.1.1 Topik Licha: “Penguntung enggau Pemanah Ngulihka Kuasa Solar.”\n2.2 Pekit Nero Poster\n2.2.1 Tema “Teknologi Gadung Nyelamatka Dunya”\n2.2.2 Pekit dibuka ngagai nembiak pom empat enggau pom lima SMK Munggu\nPerawan\n2.2.3 Perais Pekit\ni. Lumur satu: RM250.00, trofi enggau setipikit.\nii. Lumur dua: RM200.00, trofi enggau setipikit.\niii. Lumur tiga: RM150.00, trofi enggau setipikit.\niv. Tiga iti perais sagu ati: RM50.00 trofi enggau setipikit.\n3.0 Komiti Pengereja Pengawa\n3.1 Lima iku raban Kelab Jaku Iban nyadi komiti ke tiap iti program ke disebut di atas.\n3.2 Tuduh penemu ke dibantaika Pengajar Rekan diterima semua ke bisi datai baum.\n4.0 Hal-hal Bukai\n4.1 Pengajar Limbai meransang nembiak sampal datai maya Minggu Teknologi\nGadung. Iya madah nengah aktiviti kelab tu nembiak ulih belajarka mayuh\npekara senentang jaku Iban. Iya nyimpulka penemu ngena jaku tuai “buah\ndikelala ari langgu, bansa dikelala ari jaku, basa dikelala ari penyiru.”\n5.0 Aum tembu diatur pukul 3:30 lemai.\nMinit ditulis,\n..............................................\n(EMPAWIE ANAK BALANG )\nSekretari,\nKelab Jaku Iban,\nSMK Munggu Perawan.\nUNIT 10\nTema 5\n135",
+      "char_count": 1854,
+      "pages": [
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 147,
+          "global_page_number": 147,
+          "char_count": 1814,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "5-0-aum-tembu-diatur-pukul-3-30-lemai-011",
+      "topic_code": "5.0",
+      "topic": "Bab 5",
+      "subtopic": "5.0 Aum tembu diatur pukul 3:30 lemai",
+      "title": "5.0 Aum tembu diatur pukul 3:30 lemai",
+      "lesson_type": "subtopic",
+      "order_index": 11,
+      "page_count": 82,
+      "extraction_status": "complete",
+      "estimated_minutes": 90,
+      "text_content": "[Bahasa Iban Tingkatan 4 KSSM.pdf p147]\nRaban Kelab Jaku Iban SMK Munggu Perawan udah baum pasal aktiviti Minggu\nTeknologi Gadung. Bacha minit aum nya.\nAram Nulis\nMinit Aum Minggu Teknologi Gadung\nKelab Jaku Iban SMK Munggu Perawan\nHaribulan:\n21 Jun 2020\nJam:\n2:00 lemai\nEndur:\nLibrari, SMK Munggu Perawan\nOrang ti datai:\nPengajar Unsie, Pengajar Grace, Lika, Ujai, Runin, Mendu, Lema, Empawie\n1.0 Jaku Pengelalu Chairman Aum\n1.1 Chairman ngelaluka penatai bala pengajar enggau nembiak ngagai aum lalu\nngarapka agenda aum dipejurai enggau mujur.\n1.2 Batang pekara ke deka dipejurai iya nya aktiviti dikena nyukung program\nteknologi gadung tikas sekula.\n2.0 Aktiviti Maya Minggu Teknologi Gadung\n2.1 Pekit Licha\n2.1.1 Topik Licha: “Penguntung enggau Pemanah Ngulihka Kuasa Solar.”\n2.2 Pekit Nero Poster\n2.2.1 Tema “Teknologi Gadung Nyelamatka Dunya”\n2.2.2 Pekit dibuka ngagai nembiak pom empat enggau pom lima SMK Munggu\nPerawan\n2.2.3 Perais Pekit\ni. Lumur satu: RM250.00, trofi enggau setipikit.\nii. Lumur dua: RM200.00, trofi enggau setipikit.\niii. Lumur tiga: RM150.00, trofi enggau setipikit.\niv. Tiga iti perais sagu ati: RM50.00 trofi enggau setipikit.\n3.0 Komiti Pengereja Pengawa\n3.1 Lima iku raban Kelab Jaku Iban nyadi komiti ke tiap iti program ke disebut di atas.\n3.2 Tuduh penemu ke dibantaika Pengajar Rekan diterima semua ke bisi datai baum.\n4.0 Hal-hal Bukai\n4.1 Pengajar Limbai meransang nembiak sampal datai maya Minggu Teknologi\nGadung. Iya madah nengah aktiviti kelab tu nembiak ulih belajarka mayuh\npekara senentang jaku Iban. Iya nyimpulka penemu ngena jaku tuai “buah\ndikelala ari langgu, bansa dikelala ari jaku, basa dikelala ari penyiru.”\n5.0 Aum tembu diatur pukul 3:30 lemai.\nMinit ditulis,\n..............................................\n(EMPAWIE ANAK BALANG )\nSekretari,\nKelab Jaku Iban,\nSMK Munggu Perawan.\nUNIT 10\nTema 5\n135\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p148]\n136\nAktiviti 2, 3\nPBTT\n1. Pejuraika batang pekara ke ditulis dalam minit aum nya.\n2. Terangka pemanah nembiak aktif dalam aktiviti kokurikulum.\n3. Ba penemu nuan, nama aktiviti bukai ke ulih digaga maya Minggu Teknologi Gadung?\n4. Tukar ayat aktif di baruh ngagai ayat pasif.\nChunto:\nIya macha bup pasal inovasyen teknologi gadung.\nBup pasal inovasyen teknologi gadung dibacha iya.\nb. Pengajar Grace ngajar topik polisi teknologi gadung.\nd. Asun bisi ngembuan kerita hibrid ti dibeli ari menua luar.\na. Iya masang panel solar di atas perabung rumah.\nc. Iya ngiga penerang pasal aplikasyen teknologi gadung.\ne. Sida iya nyaga pemeresi ngelingi rumah ke endur sida diau.\n...\n...\n...\n...\n...\nAktiviti\nUNIT 10\nTema 5\n5. Tembuka kar runding di baruh.\n...\n...\n...\n...\nChara\nnyukung\nteknologi gadung\n3.1.1\n3.1.2\n3.3.1\n3.3.3\n4.3.2\n4.3.3\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p149]\nLangkar karang:\na. Pemuka karang\nb. Isi karang\nc. Penutup karang\n137\nLatih 2, 3, 4\nPBTT\n1. Tembuka grafik di baruh.\n2. Gaga ayat ngena sempama ba latih 1.\n3. Dalam raban, pejuraika reti jaku tuai di baruh.\n“Buah dikelala ari langgu, damun dikelala ari kayu,\nbansa dikelala ari jaku, basa dikelala ari penyiru.”\nLatih\nUNIT 10\nTema 5\n4. Tulis siti karang belalauka jaku tuai nya.\nSempama ke\nulih dikaitka enggau\npemendar ngerembaika\nguna teknologi gadung\n...\n...\n...\n...\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p150]\n138\n5. Gaga dua ayat ti beujungka rambai jaku adjektif, rambai jaku penempat enggau rambai\njaku nama.\nLatih 2, 3, 4\nPBTT\nChunto:\nSida iya numbakka teda ti betoksik.\nAyat ti beujungka\nrambai\njaku adjektif\nAyat ti beujungka\nrambai\njaku penempat\nAyat ti beujungka\nrambai\njaku nama\n...\n...\n...\n...\n...\n...\n...\n...\nUNIT 10\nTema 5\n6. Isi endur puang ngena rambai jaku nama ti engkeman di baruh.\na. Temuai rindu meda ... enggau jelu siga ke bisi di menua tu.\nb. Mayuh kayu kampung udah ditebang endur ngaga ... bedandang.\nc. Pengajar Mujan meransang nembiak ngerembaika penemu pasal ... .\nd. Betebangka ... ulih ngerusak habitat jelu siga enggau utai idup ke bukai.\ne. Teknologi gadung ulih ngurangka empas negatif bekenaka energi ari ... .\nf. Pemeresi ... patut dijaga dikena narit ati bala temuai datai ngagai menua tu.\ng. Pengajar Meling nerangka polisi teknologi gadung ngagai bala nembiak ngena ... .\npuncha asal\nrampa menua\nkayu kampung\nkereban sanding\nladang kelapa sawit\nteknologi gadung\nkandang menua\nJaku Pengawa Intransitif\nJaku pengawa intransitif mesti bisi penembu nya baru iya bisi reti menyana.\nElemen penembu tu ukai objek laban iya ngundan elemen ti enda ulih ditukar\nnyadi ayat pasif. Elemen ti nyadi penembu jaku pengawa nya, bisi tiga bengkah:\ni. Jaku Adjektif\nii. Jaku Penempat\nTibang\nPenemu\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p151]\n139\nLatih 4, 5\nPBTT\n8. Tembuka grafik di baruh.\nUNIT 10\nTema 5\n...\n...\n...\n...\n...\nInovasyen\nteknologi\ngadung\nkerita hibrid\n7. Tipakka sempama enggau reti iya.\nRagak riang, enti dipansuh enda bulih\nseputung munti.\nLelabu enda bula ke peputan, tukul\nenda bula ke tempan.\nDatai dipeda mua, pulai dipeda\nbelakang.\nMansai sungai ngena tapa,\nnebang tapang ngena lungga.\nBaka dampa ngumbaka langkau,\nbaka tangga ngumbaka lalau.\nSempama\nOrang ti ngereja pengawa nitihka jaku\niya empu.\nOrang ti nadai ngaga penanggul lebuh\ndatai ba siti-siti tempat.\nOrang ti ngempu asil kereja ti enda\nngipakka seregah diri.\nOrang ti ngereja pengawa ke temu\nenda ulih dikereja.\nAsil kereja ti nitihka perangai enggau\ngaya orang ti ngereja pengawa nya.\nReti\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p152]\n140\n1. Tembuka grafik di baruh.\n2. Gaga bup skrap pasal bansa kayu kampung ke bisi di menua kitai bemalinka pekara\ndi baruh.\na. Nama kayu dalam jaku Iban\nb. Nama saintifik kayu\nc. Gambar kayu\nd. Guna kayu\nIsi endur lapang ngena leka jaku ti disediaka.\npasar, toksik, kilang, menua, atmosfera, kimpin, solar, barang, asap\na. Tiap pagi iya ke ... meli sayur ngena basikal.\nb. Injin rumput ke baru dibeli iya ngena kuasa ... .\nc. Pengawa nguna baru ... lama nyukung teknologi gadung.\nd. Lori ke baru dibeli apai Lily nya kurang ngeluarka ... kamah.\ne. Pengangat ti enda ulih keluar ari ... ngujungka pemanas global.\nf. Teda ... ti dibuai ba sebarang endur ulih ngerusak rampa menua.\ng. Kitai patut selalu ngaga ... meransang inovasyen dalam teknologi gadung.\nh. Asap ke dikeluarka ... enggau kereban pengangkut puncha pengamah angin.\ni. Pemansang ti digaga ngena chara ti enda sistematik ulih ngerusak rampa ... .\nPengaya\nUNIT 10\nTema 5\nKlimet\nEkosistem\nEkonomi\nGenerasyen\ndeka datai\nPenguntung nyaga\npemeresi rampa menua\n...\n...\n...\n...\nSeridi\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p153]\n1. Tipakka situasyen di baruh ngena sempama ti engkeman.\n2. Tulis siti karang pasal penguntung ngena teknologi gadung.\n141\nTisih\nUNIT 10\nTema 5\nSituasyen\nApai Munting endang siku orang kaya\nti mentas, nelap sereta enda sayau\nke utai.\nTuai Rumah Meling ngatur laya orang\nenda ngarika ari sepiak lalu enda\nmega ngeringka ari sepiak.\nTaja pan di menua tu mayuh endur\nbekereja ke meri gaji besai tang iya\nkeran deka ngiga kereja di menua ke\njauh taja pan di menua tu agi meri\ngaji ti besai.\nIya diukum ketegal ngereja penyalah\nti ukai digaga iya. Orang ke ngereja\npenyalah nya lepas.\nTeam Kumpang Pali enggau Team\nMunggu Perawan seri maya pekit\nbemain bol kemari.\nIdung antara mata, dilah antara nyawa.\nGerah jari.\nOrang di ili munsi tubu, orang di\nulu dibalut miang.\nBelah rutan.\nKunchit di tisi langit deka ditunu,\nrusa di kaki tangga enda diemparu.\nSempama\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p154]\nUNIT 11\nTema 6\n142\nNama bansa dagang ke bisi\ndipejalaika ba genturung\npendiau nuan?\nUnit\n11\nNYUNGKAK\nPENGIDUP NGENA\nDAGANG\nNYUNGKAK\nPENGIDUP NGENA\nDAGANG\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p155]\nUNIT 11\nTema 6\nNemu kita reti pasar tamu?\nKala kita ngelawa pasar tamu\nlalu meli barang dia?\n143\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p156]\n144\n144\nEngkelulut tauka Stingless Bees nya\nsebansa manyi ke ulih ngasilka madu.\nLebih 500 spesies engkelulut ba serata\ndunya. Bansa engkelulut ke dikena\nngasilka madu iya nya Heterotrigona\nItama, Geniotrigona Thoracica enggau\nLepidotrigona Terminata.\n1\nEngkelulut tu suah agi besarang ba\nbatang kayu panjai tauka tunggul kayu\ndalam kampung. Orang ke nupi engkelulut\ntu ngambi sarang iya tauka lumpung\nsarang tu ba kampung. Kayu ti endur\nengkelulut besarang dilumpung pandak\nlalu dibai ngagai palan nupi engkelulut.\nKadang-kadang, orang ke nupi engkelulut\nnya meli sarang engkelulut nya ari orang\nke sigi begigaka sarang tu ba kampung.\n2\nLumpung sarang engkelulut nya\ndigagaka kutak baru ti diengkah ba\natas iya. Kutak nya tadi bisi lubang ti\nbesambung enggau sarang engkelulut\nba lumpung kayu. Kutak nya mega\nditutup ngena plastik tauka utai bukai\nngambika sarang engkelulut enda\nbasah tauka dikachau jelu bukai. Kutak\nnya mih endur engkelulut ngaga idang\nti ngundan madu. Kayu ke engkeman\ndikena ngaga kutak nya iya nya kayu\nke bisi kelasau ngambika enda diempa\nderung. Palan ke manah endur nupi\nengkelulut iya nya endur ke mayuh\nutai tumbuh ke bebungai sepemanjai\ntaun. Bungai kayu nya mega mesti\nmayuh nektar ke guna engkelulut\nngasilka madu. Sekeda kayu enggau\nbansa bungai ke manah ditanam ba\npalan nupi engkelulut baka, Isau,\nChain of Love, Japanese Rose enggau\nGoldenrod.\n3\nAram Mending enggau Bejaku\nUNIT 11\nTema 6\nAR CODE\nBacha penerang pasal nupi engkelulut di baruh.\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p157]\n145\n145\n145\n(Sumber: Nyanjau Anak Gajah, 2019)\nProses ngambi madu engkelulut mayuh\nbengkah. Keterubah iya, ambi kutak iya\nke udah bisi madu. Udah nya, tutup lubang\nba lumpung sarang nya ngena gelas tauka\nutai bukai dikena nyeliahka indu engkelulut\nlari. Nangkanka nya, buka plastik ba atas\nkutak nya begadai-gadai. Kambut madu\nnya, ditebuk mit dikena nyirut madu iya\nngena pam penyirut madu. Udah tembu,\ntutup baru kutak nya ngena penutup lalu\nengkah baru kutak iya ba sarang tauka\nba lumpung asal nya tadi.\n4\nMadu engkelulut ke udah diambi disimpan dalam butul\ntauka pek plastik lalu tau dijual. Asai madu engkelulut\nbebida ari madu manyi. Rega madu engkelulut tu mega\nbebida nitihka kualiti iya. Madu engkelulut tu mayuh guna\nsereta manah ke pengerai.\n5\nPekara ke patut ditemu nuan sebedau nupi engkelulut:\n1. Nemu bida engkelulut enggau indu manyi.\n2. Nemu chara ngelumpung sarang enggau ngaga kutak engkelulut ti betul.\n3. Pansik palan nupi engkelulut enggau spesies ke ulih ngeluarka madu.\n4. Chara proses enggau nyual madu engkelulut.\n5. Ngulu kus sereta nemuai ngagai kebun engkelulut bukai.\nTibang\nPenemu\nUNIT 11\nTema 6\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p158]\n146\n1. Kerandauka dalam raban batang pekara ari penerang nya.\n2. Rintaika rurun chara nupi engkelulut.\n3. Ba runding nuan, padahka endur ke manah alai nupi engkelulut. Beri kebuah.\n4. Tembuka kar runding di baruh.\n...\n...\n...\n...\nPenguntung nupi\nengkelulut\nAktiviti\nUNIT 11\nTema 6\nAktiviti 3, 4\nPBTT\n1.3.2\n1.4.1\n1.4.2\nNgiga batang kayu ke\nbisi engkelulut\n...\n...\n...\n...\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p159]\n147\n1. Tembuka kar runding di baruh.\n2. Gaga poster dikena ngelakuka madu engkelulut. Poster nuan patut ngundan sulu\njaku pasal pemanah madu engkelulut.\n3. Tembuka pitak di baruh.\n4. Gaga ayat ngena leka jaku di baruh.\nChara ngemansangka\nindustri nupi engkelulut\n...\n...\n...\n...\n...\nLeka Jaku\nAyat\nkelasau\nnyirut\nmadang\nidang\nbesarang\n...\n...\n...\n...\n...\nPenerang\nGuna\nlumpung sarang engkelulut\npam penyirut madu\nmadu engkelulut\nkutak kayu\nkambut madu\n...\n...\n...\n...\n...\nLatih\nUNIT 11\nTema 6\nLatih 1, 2, 3, 4\nPBTT\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p160]\nNama pasar tamu nya datai ari dua leka jaku iya nya “pasar”\nti mai reti palan endur orang bejual enggau “tamu” iya nya\norang ke datai meli barang. Asal iya pasar tamu tu dulu suba\nnyadi palan orang berikan, betanam enggau betupi nyual\nasil tauka barang sida. Pasar tamu digaga ba palan ke udah\nditagaka perintah. Pasar tamu tu suah dibuka maya ujung\nminggu. Maya tu mensia mayuh datai besun-sun laban deka\nmeli mayuh macham produk ti bisi dijual dia. Ba sekeda\nmenua, pasar tamu dibuka tiap-tiap hari. Sekeda sida ti bejual\nnya udah lama bedaja lalu sida bisi ngaga langkau endur\nbejual mayuh macham asil kampung baka sayur babas, upa\nenggau buah.\nBansa sayur ke bisi dijual ba pasar tamu baka daun\nsabung, daun kesindu, paku, kemiding enggau ke bukai.\nKelimpah ari nya, asil kampung ke bukai ke bisi dijual ba\npasar tamu iya nya baka upa pantu, upa lalis, upa kechala\nenggau ke bukai agi. Mayuh macham bansa buah kampung\nmega bisi dijual ba pasar tamu baka buah maram, buah\nridan, buah lemayung, buah lempaung enggau buah ti bukai.\nAsil pengelandik jari mega bisi dijual ba pasar tamu baka\nbakul, tikai, sengkalan, raga, pua kumbu, bansa asil marik\nenggau ke bukai agi. Ba pasar tamu mega bisi dijual asil utai\ntupi baka ikan, dagin jelu tupi, madu engkelulut, madu manyi\nenggau ke bukai agi. Asil sayur mega bisi dijual ba pasar\ntamu baka buah entimun, buah labu, sayur kuchai, ensabi\nenggau ke bukai.\nOrang ke bejual ba pasal tamu nya nyual barang tauka produk sida ba palan ke\nudah diungkupka. Pasar tamu tu mayuh mai penguntung ngagai rayat. Iya mega ulih\nmeri peluang ngagai sida bejual ba pasar tamu. Kelimpah ari nya, produk ke dijual ba\npasar tamu ngembuan kualiti ke manah sereta agi baru. Produk tu tadi endang dibai\nterus ari kebun. Pasar tamu tu tau dikumbai kitai palan dagang mikro laban iya ngayanka\ninteraksyen sosial rayat menua ke mayuh pupu raban bansa ke datai ngagai palan nya\nbaka bansa Iban, Melayu, China, Kayan, Punan, Kenyah, Melanau enggau mayuh agi\nbansa bukai. Sida rindu ngelawa pasar tamu. Ari nya, pengawa ke bansa tu tau ngerapatka\nagi kaul rayat menua tu ke diuan mayuh pupu raban bansa. Nyau deka tiap-tiap bansa\nbisi enggau orang bejual ba pasar tamu. Aktiviti baka tu manah amat laban ulih nyungkak\npenatai pemisi kelebih agi rayat ke diau ba menua pesisir. Nya alai, mayuh infrastruktur\nti genap patut digaga ba pasar tamu ngambi ngemudahka agi mensia ke bejual enggau\norang ke datai ngulu pasar tamu nya.\nPasar Tamu\nBacha teks di baruh.\nAram Macha\n148\nAyat Pelasar\nUNIT 11\nTema 6\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p161]\n149\n1. Kerandauka pekara dalam teks nya.\n2. Nama penguntung enti bisi pasar tamu?\n3. Tembuka pitak di baruh.\n6. Dalam raban, kerandauka chara pengawa dagang nyungkak tikas pengidup kitai.\nBantaika asil randau kita nya ba mua kelas.\n4. Gaga ayat ngena rambai jaku ti udah dirintaika dalam aktiviti 3.\n5. Tembuka grafik di baruh.\n...\n...\n...\n...\n...\nInfrastruktur ti patut\nbisi ba pasar tamu\nBansa Rambai Jaku\npasar tamu\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\nRambai Jaku\nNama\nRambai Jaku\nAdjektif\nRambai Jaku\nPengawa\nRambai Jaku\nPenempat\nlama bedagang\nngaga langkau\nba menua pesisir\nAktiviti\nUNIT 11\nTema 6\nAktiviti 4, 5, 6\nPBTT\n2.1.2\n2.3.1\n2.3.2\n5.2.2\n5.2.4\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p162]\n150\na. Sida rindu ngelawa pasar tamu.\n...\n...\n...\n...\n1. Giga lalu tulis ayat pelasar dalam teks nya tadi.\n3. Padahka chara dikena nuan ngelakuka barang.\n...\n...\n...\n2. Tembuka kar runding di baruh.\na.\nChara\nngemansangka\npasar tamu\n...\n...\n...\n...\nb.\nChara meransang\nnembiak rinduka\npengawa dagang\n...\n...\n...\n...\nLatih\nUNIT 11\nTema 6\nLatih 2, 3\nPBTT\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p163]\n151\n4. Gaga ayat pelasar nitihka pola iya bepelasarka pitak di baruh.\n5. Sambung ayat tunggal di baruh awakka nyadi ayat turu.\nJaku Penyambung\nJaku penyambung nya sebengkah ari jaku tugas ti dikena\nnyambung dua tauka lebih ayat tunggal nyadi siti ayat turu.\nTibang\nPenemu\nRambai Jaku Nama (RJN)\nRambai Jaku Nama (RJN)\n...\n...\nRambai Jaku Nama (RJN)\nRambai Jaku Adjektif (RJA)\n...\n...\nRambai Jaku Nama (RJN)\nRambai Jaku Pengawa (RJP)\n...\n...\nRambai Jaku Nama (RJN)\nRambai Jaku Penempat (RJPt)\n...\n...\nAyat Tunggal\nAyat Turu\na. Indai iya ke pasar tamu.\nb. Indai iya meli ikan empurau.\na. Menyadi iya enggai makai ikan keli.\nb. Menyadi iya enggai makai tinduh.\na. Kami enda nyadi nurun ke pasar.\nb. Hari ujan nyau munyi ke diruruk.\na. Indai Dom ngalu ke pasar tamu.\nb. Indai Dom meli ikan enggau sayur babas.\na. Buah rian sida iya lunak.\nb. Buah nyekak sida Meringai lusing.\na. Ba pasar tamu mayuh orang bejualka asil babas.\nb. Ba pasar tamu mayuh orang bejualka asil berikan.\na. Maya peremisi sekula Ujai bisi ngumpul buah rian.\nb. Maya peremisi sekula Ujai bisi ngumpul buah isu.\nc. Maya peremisi sekula Ujai bisi ngumpul buah pakan.\n...\n...\n...\n...\n...\n...\n...\nUNIT 11\nTema 6\nLatih 4\nPBTT\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p164]\nDingaka audio sanggai tu.\nAram Nulis\nJaku Sebut\nJaku ke disebut pasal siti-siti pekara,\nnya alai jaku sebut lebih ngagai jaku\nrandau tauka dialog.\nJaku Tusui\nJaku sebut ke ditulis baru ngagai ayat\npenerang. Ayat jaku tusui tu mega\nnadai ngena tanda pemuka enggau\npenutup jaku.\nTibang\nPenemu\nLeka Main Invokasyen\nLeka main ke disaguka ngagai Petara\ndalam pengarap lama.\nLeka Main Adat Basa\nLeka main ti fokus ngagai atur\ntradisional, lalau pendiau sereta basa\nngagai temuai tauka orang mayuh\nlebuh bisi pengawa tauka pengerami.\nLeka Main Pemerindang\nLeka main ke dikena beperindang,\nngelantangka ati, ngaum, bungah, muji,\nngelugi, ngelangkung tauka meransang\norang.\nTibang\nPenemu\nEh… dinga-dinga kita wai nangi aya laba,\nSemua kitai ke indu lelaki sama,\nEnda ngira iya tuai biak sebaka,\nAram mih kitai angkat sereta,\nSerunyut nitihka pemansang ubah dunya,\nNyungkak ekonomi diri sebilik,\nAwakka kitai enda suntuk belanja,\nWang sigi enda kurang.\nEh… dinga jaku siru,\nKami orang indu nuju semua,\nEnti kelia menya,\nKitai ngintu umai tempalai,\nNangkal getah bekebun lada,\nNgintu bilik penaik reremba,\nTang diatu, kitai patut berubah,\nNitihka singkang pemansang dunya,\nTuai kitai bansa suah udah ngerah,\nMeri licha nengah media massa,\nNesau kitai semua ngiga belanja,\nNgena chara bedagang.\nEh... dinga... dinga kita mawa bakih lindung,\nAnang mih kita telunga,\nAnang mih kita betinung,\nAram mih kitai ringga bedaja,\nAnang kitai tinggal singkang,\nSama belumba kitai mansang,\nAram mih kitai bedagang,\nAti lantang bulih penguntung.\nEh... dinga kita nangi bakih main,\nPengerajin kunchi pengelantang kitai idup di dunya,\nPendiau kitai nyamai,\nPengidup kitai menyana,\nPemakai kitai bisi,\nSereba ada nadai kurang.\nEh... aram mih kitai mawa bakih nangi,\nSama mih kitai kereja mantu sida lelaki,\nKereja mih kitai ngena chara bedagang,\nAnang kitai lembau,\nAnang kitai tebelenga,\nJam enda nganti,\nDunya seruran bepusin belama,\nEnti kitai rajin bekereja,\nPenguntung betugung,\nPenyamai deka diasai,\nReta pengeraja penuh temera,\nAram-aram mih bakih mawa,\nKitai semua sama-sama bedagang.\n(Ditengkebang: Helen Manjan, 2019)\nPeransang Orang Bedagang\nUNIT 11\nTema 6\n152\nAUDIO\n16\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p165]\nAktiviti\n153\n1. Sadaka sanggai nya.\n2. Sapa orang ti diperansang bedagang dalam sanggai nya?\n3. Terangka reti rambai jaku “pengerajin kunchi penyamai kitai idup di dunya”.\n4. Lansa batang pekara ke dikenataika dalam leka main.\n5. Terangka reti leka jaku di baruh belalauka teks leka main.\n6. Nama kebuah orang ke besanggai sama bebai kereja mantu sida ke lelaki?\n7. Tembuka grafik di baruh.\nLeka Jaku\nReti\nsingkang\nkunchi\nmenyana\ntebelenga\ntemera\nringga\n...\n...\n...\n...\n...\n...\nPemanah enti kitai\nrajin bekereja\n...\n...\n...\n...\nUNIT 11\nTema 6\nAktiviti 6, 7\nPBTT\n3.3.3\n3.4.1\n4.1.1\n4.2.1\n4.2.3\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p166]\n154\n9. Kalihka ayat selama ngagai ayat tunsang.\n8. Gaga ayat ngena jaku bekaling sebut di baruh.\n10. Tukar ayat jaku sebut ngagai ayat penerang.\nUNIT 11\nTema 6\nAktiviti 8, 9\nPBTT\nJaku Bekaling Sebut\nAyat\nindu lelaki\ntuai biak\numai tempalai\nbilik penaik\nreta pengeraja\n...\n...\n...\n...\n...\nAyat Selama\nAyat Tunsang\nIndai Bajik suah diasuh orang nyadaka\nsanggai maya bisi pengerami.\nApai Sigat benung mindahka sum lada nya\nngagai langkau kebun iya.\nSingkang iya enda tentu panjai lebuh ke\nngema buah temedak.\nIndai iya rajin bendar bedaja ba tamu maya\nujung minggu.\nMayuh sayur ke dijual ba tamu nya baru\ndiambi ari kebun.\nKutak madu engkelulut nya ditutup iya\nngena plastik.\n...\n...\n...\n...\n...\n...\nJaku Sebut\nAyat Penerang\nTang diatu kitai patut berubah.\nKereja mih kitai ngena chara bedagang.\nLemambang madahka kitai diatu\npatut berubah.\n...\nSama belumba kitai mansang.\nSama mih kitai kereja mantu sida lelaki.\n...\n...\n...\n...\nKitai semua sama-sama bedagang.\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p167]\n155\n1. Tembuka kar runding di baruh.\n2. Tembuka pitak di baruh.\n3. Baka ni pengawa dagang ulih nyungkak ekonomi diri sebilik?\n4. Ba runding nuan, nama kebuah orang ke besanggai tu meransang orang bedagang?\n5. Tulis siti karang pasal chara meransang nembiak bedagang.\n6. Tengkebang siti sanggai pasal pengawa dagang.\nLatih 1, 3, 4, 5, 6\nPBTT\nJaku Sebut\nJaku Tusui\n“Tu chunto leka main sanggai digaga aku,” terang Pengajar Unsie.\n“Apu, landik amat pengajar nengkebang leka main sanggai!”\npuji Lika.\n“Uji sadaka leka main sanggai nya Ujai,” pinta Meringai.\n“Akai rai, amat manah patah nyawa nuan Ujai!” ku Runin.\n“Tak agi belala ninga nuan besanggai Ujai,” ku Empawie.\n“Dini nuan nyimpan lauk ke dibeli tadi?” tanya Sebi ngagai Usah.\n“Aram tua ngalu ke pasar tamu indai,” ku Deanzly.\n...\n...\n...\n...\n...\n...\n...\nLatih\nUNIT 11\nTema 6\nAjar manah ari\nteks sanggai\n...\n...\n...\n...\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p168]\n1. Tukar jaku tusui di baruh ngagai jaku sebut.\na. Jok minta dua butul madu engkelulut ari Nyanjau.\nb. Empawie nusui diri rindu berikan maya peremisi sekula.\nc. Indai iya ngasuh Ujai meli sayur enggau ikan ba pasar tamu.\nd. Pengajar Unsie nagang nembiak ngebakka kutak engkelulut nya.\ne. Ujai madahka diri baru pulai nulung indai iya bejual ba pasar tamu.\nf. Meringai mai bakih iya meda orang bepekit besanggai ba balai sekula.\n2. Tukar jaku sebut di baruh ngagai jaku tusui.\na. “Apu, besai amat kebun sayur apai nuan Meringai!” ku Jok.\nb. “Ulih nuan nguluka kami ke pasar tamu Siew Fong?” tanya Runin.\nc. “Dini palan kebun engkelulut nuan unggal,” ku Intoi nanya Amping.\nd. “Uji ambika aku chabi mansau ba mija nya Lika,” ku menyadi iya ngasuh Lika.\ne. “Anang guai nanam tambak sayur nya enggaika layu,” ku indai iya madahka Lenjau.\nf. “Sapa kita ditu landik nyadaka sanggai?” ku Pengajar Unsie nanya bala nembiak iya.\n1. Gaga ayat ngena jaku penyambung berentayan di baruh.\n2. Kita sekelas baru pulai nemuai sambil belajar ngagai siti palan nupi engkelulut ba\npelilih menua kita. Gaga siti bup skrap pasal nupi engkelulut.\n156\nPengaya\nSeridi\nUNIT 11\nTema 6\nJaku Penyambung Berentayan\nAyat\nudah nya\nnya alai\nagi mega\ntaja pia\nukai semina\nentudika nya\nketerubah iya\n...\n...\n...\n...\n...\n...\n...\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p169]\n1. Nuan bisi berandau enggau siku orang ke nyual barang ba pasar tamu. Cheritaka\nbaru randau seduai nya dalam siti genteran.\n2. Kalihka ayat tunsang di baruh ngagai ayat selama.\na. Bejual ba pasar tamu indai enggau menyadi iya.\nb. Besai amat dandang ladang kelapa sawit apai Murugan.\nc. Bekebun sayur enggau ngaga pegung ikan apai Ujai taun tu.\nd. Lunak amat buah temedak ke dijual apai Jerib ba pasar tamu.\ne. Lebuh maya musin bumai betaun kami serumah beduruk gawa.\nf. Landik ngaga asil pengelandik jari ini tuai ke duduk di setak nyin.\ng. Deka nemuai ngagai kebun engkelulut raban Kelab Rampa Menua.\n3. Padahka kebuah kitai patut nyaga pemeresi enggau pengelikun palan bedagang.\nKebuah nyaga pemeresi\nKebuah nyaga pengelikun\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n157\n4. Kedutka teks ba lambar 148.\nEh... endang pama nuan Kumang,\nUkai semina landik ... ,\nTang landik nengkebang,\nEmpenjungau jengang nabau ... ,\nLandik ngaga pua buah ... ,\nEh... amat randa nuan ... ,\nUkai semina deka ... ,\nTang rajin ngereja pengawa bukai,\nBaka bekebun enggau ... .\nTisih\nUNIT 11\nTema 6\n3. Tembuka genteran sanggai di baruh ngena leka jaku ke engkeman.\nbumai, bedaja, bedagang, lenta, gajai, melempai\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p170]\nUNIT 12\nTema 6\nUnit\n12\nE-DAGANF\nE-DAGANG\nNama ti dikumbai e-dagang?\n158\nKATEGORI\nE-DAGANG\nGari Indu\nGari Lelaki\nJam\nKasut Lelaki\nKasut Indu\nPekakas\nDapur\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p171]\nUNIT 12\nTema 6\n159\nNama bansa dagang ke ulih\ndikereja nengah e-dagang?\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p172]\nAzimah deka meli beg ari Malisa ngena chara e-dagang. Peratika randau seduai iya\nnengah aplikasyen media sosial di baruh.\nUNIT 12\nTema 6\nAram Mending enggau Bejaku\nSelamat pagi, Malisa. Aku Azimah. Aku udah ngelawa laman web kedai siber\nnuan lalu bisi tepedaka beg ti narit ati. Baka ni chara aku deka meli beg nya?\n10:30 am\nNuan mega patut nganjung gambar beg ti dikerindu nya awakka aku\nnemu bagi chura sereta bansa beg ti dipilih nuan. Kos nganjung barang\nti dibeli mega udah bisi diayanka dalam laman web.\n10:40 am\nNya mih. Tambah mega chara tu jampat lalu ulih digaga ba sebarang maya. Nuan mega\nulih meda testimonial tauka komen pemeli bukai ti udah meli barang ba kedai siber aku.\nEnti nuan bisi pekara bukai deka ditanya, anang kakang ati betanya ngagai aku ila.\n11.00 am\nManah endar penerang nya, Malisa. Aku deka mayar beg nya\nngena transaksyen online banking.\n10:37 am\nMuntang aku meli barang ari nuan.\n10:50 am\nTerima kasih ke penerang nuan ti chukup silik.\n11:10 am\nSelamat pagi, Azimah. Terima kasih laban udah ngelawa laman web kedai siber\naku nya. Muntang aja, nuan ulih mayar beg nya ngena kad kredit tauka kad\ndebit. Kelimpah ari nya, nuan mega ulih ngaga transaksyen nengah online banking\ntauka cash deposit machine. Aku meri nuan lumur akaun. Udah nya, baru nuan ulih\nngaga transaksyen. Sepengudah nuan mindahka duit ngena chara transaksyen ti\ndipilih nuan, evidens iya patut dianjung ngagai aku nengah media sosial tauka emel.\n10:34 am\n160\nMalisa\nOnline\n160\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p173]\n1. Keluluka randau Azimah enggau Malisa.\n2. Pejuraika batang pekara dalam teks.\n3. Terangka reti rambai jaku di baruh bepelasarka\nteks lalu gaga ayat ari nya.\n4. Tembuka grafik di baruh.\nAktiviti\n161\n161\n161\nUNIT 12\nTema 6\n...\n...\n...\nPengelebih\nbejual beli nengah\ne-dagang\nKitai nyamai\nbulih informasyen\npasal barang\nAktiviti 2, 3, 4\nPBTT\n.\nRambai Jaku\nRambai jaku tau digaga ari\nseleka tauka lebih leka jaku\nti nyadika konstituen dalam\nsesebengkah ayat.\nTibang\nPenemu\n1.3.1\n1.3.2\n1.4.3\n5.2.1\n5.2.2\nReti\nRambai Jaku\nAyat\nngelawa\ntransaksyen\nnarit ati\nmuntang\nkakang ati\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\ntestimonial\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p174]\n162\n5. Tukar ayat aktif di baruh ngagai ayat pasif.\nAyat Aktif\n• Ayat aktif nya ayat ti ngundan jaku pengawa ke lebih ngemeratka subjek\nnyadi ke batang pekara ti diterangka.\n• Chunto: Ajun udah ngaga semua pengawa sekula ti diasuh Pengajar Jimbai.\nAyat Pasif\n• Ayat pasif nya ayat ti ngundan jaku pengawa ke lebih ngemeratka objek.\n• Chunto: Semua pengawa sekula ti diasuh Pengajar Jimbai udah digaga Ajun.\nTibang\nPenemu\nAyat Aktif\nAyat Pasif\nAku udah ngelawa laman\nweb kedai siber nuan.\na\nAzimah ngiga penerang\npasal e-dagang nengah\ninternet.\nc\nUjang mayar barang ti dibeli\niya ari kedai siber ngena\nchara online banking.\nb\nNuan patut milih dulu beg\nti dikerindu ba laman web.\nd\nPemeli ulih nganjung\nevidens transaksyen nengah\nmedia sosial tauka emel.\ne\n...\n...\n...\n...\n...\nUNIT 12\nTema 6\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p175]\n163\n6. Tembuka grafik di baruh.\n1. Tembuka kar rurun di baruh tu pasal rurun pengawa meli barang tauka servis nengah\nonline bepelasarka teks.\nLatih\n1\nPBTT\nLatih\nNgelawa laman\nweb tauka\nkedai siber\n...\n...\n...\n...\nPenyual ngepos\ntauka nganjung\nbarang\nUNIT 12\nTema 6\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p176]\na. Pengeliat enggau ... nya sebagi ari kualiti ti patut dikembuan orang dagang.\nb. Orang dagang diperansang nguna ... dikena ngerembaika pengawa dagang.\nc. E-dagang mayuh pengelebih enti dibandingka enggau ... laban seagi bisi\ninternet, produk agi ulih dijual.\nd. Nembiak sekula mega patut diajar pasal pengelandik dagang awakka ulih\nnerenak ... sida ke pengawa dagang.\ne. Internet nya siti medium bedagang dikena orang ke bejalaika pengawa\ne-dagang nambahka penemu, ... enggau ti bukai.\nf. Program pengawa dagang ba Institusyen Pelajar Tinggi (IPT) patut diatur\ndikena ... nembiak ke benung belajar ba IPT milih bidang tu.\n...\n...\n...\n...\n...\nrisiko e-dagang\n3. Tembuka grafik di baruh.\n2. Tembuka ayat penerang di baruh ngena leka jaku tauka rambai jaku ti disediaka.\n164\nLatih 3\nPBTT\nnarit ati\npengerindu\ndagang selama\nngiga informasyen\npengeransing\nkereban teknologi\nUNIT 12\nTema 6\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p177]\n165\nAram Macha\nE-dagang tauka elektronik dagang iya nya siti chara bedagang ti dipejalaika nengah\nteknologi internet enggau kereban elektronik. E-dagang ngembuan mayuh definisyen\nnyengkaum reti iya ari perspektif komunikesyen, servis enggau promosyen. Ari sukut\nkomunikesyen, e-dagang nya pengawa mindahka penerang pasal produk, servis enggau\nbebayar ngena kereban elektronik. Ari sukut servis, pemeli ulih ngelawa laman web\ne-dagang lalu milih barang ti dikedeka ati. Ari perspektif promosyen, e-dagang siti medium\ndikena ngaga gerah sereta publisiti senentang produk.\nKemaya hari tu, transaksyen e-dagang nya begunaka bank, kad kredit tauka kad\ndebit enggau ti bukai. Lebuh meli barang, bala pemeli dipinta mindahka sepenyampau\nduit nitihka rega barang ti deka dibeli sida. Enti pemeli nya bebayar ngena kad kredit\ntauka kad debit, semina komputer aja ti ulih nerima sereta macha penerang kad nya.\nChara tu likun bendar laban pemeli nya ulih nyeliahka diri ari kena tipu. Chara bukai\niya nya transaksyen bank. Pemeli deka diasuh mindahka bayar tauka duit nya ngagai\npenyual. Resit tauka evidens transaksyen nya deka dianjung ngena emel tauka nengah\nmedia sosial. Sepengudah nya, baru penyual deka neruska pengawa nganjung tauka\nngepos barang ngagai pemeli.\nMayuh pengelebih e-dagang. Keterubah, chara tu tau ngemudahka atur pengawa\nnyual enggau meli. Pia mega, e-dagang tu siti ari chara penyual ulih ngurangka kos\nbedagang. Ambika chunto, modal dikena ngepunka pengawa dagang ulih dikurangka\nlaban enda ibuh besuaka premis. Kos ngaga gerah enggau penerang mega kurang laban\npekara tu ulih diatur nengah media sosial enggau mudah sereta enda ibuh begunaka\nmodal ti mayuh. Nengah media sosial tu mega, penerang pasal siti-siti produk nya ulih\ndigaga ba sebarang maya.\nNangkanka nya, e-dagang mega nyadi medium interaksyen dalam sektor korporat.\nPengerembai e-dagang dalam dunya ekonomi digital udah mantu kompeni nyungkak\ndagang sida. E-dagang nya siti ari chara kitai beranakka puku. Malaysia mega betuah\nlaban ngembuan mayuh rayat ti landik dalam e-dagang.\nPengawa e-dagang mega udah ngerembai. Rayat udah masai dalam pekara\ntu. Pemansang ba bidang teknologi pemadah mega siti pekara ti dikemeratka dalam\ne-dagang ba sesebengkah menua. Semua orang ke bejalaika pengawa dagang patut\nbesedia nerima ubah pemansang ekonomi kemaya hari nengah e-dagang. Nyerumba\npengerembai bidang teknologi pemadah, e-dagang endang meri empas ti besai ngagai\npengawa dagang. Semua orang ti bejalaika pengawa dagang patut bebendar nyungkak\ndagang sida ngena e-dagang. Sida patut nyaing muting geraji, tajam nyemilu tisi awakka\nulih mansang dalam pengawa dagang.\nPengerembai E-dagang\nUNIT 12\nTema 6\nBacha teks tu.\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p178]\n166\n1. Terangka reti rambai jaku di baruh.\n7. Terangka batang pekara dalam teks.\n8. Tembuka grafik di baruh.\n2. Baka ni pengawa e-dagang tu dipejalaika?\n3. Terangka tiga perspektif e-dagang.\n4. Pejuraika chara bebayar dalam e-dagang.\n5. Pejuraika pengelikun bebayar ngena kad kredit enggau kad debit.\n6. Ngena ayat nuan empu terangka reti ayat di baruh bepelasarka teks:\nAktiviti 8\nPBTT\nAktiviti\nRambai Jaku\nReti\ntransaksyen bank\nmodal\nekonomi digital\nmedium interaksyen\n...\n...\n...\n...\n“Sida patut nyaing muting geraji, tajam nyemilu tisi\nawakka ulih mansang dalam pengawa dagang”.\nUNIT 12\nTema 6\nChara nambahka\npenemu rayat\nmenua pesisir\npasal e-dagang\n...\n...\n...\n...\n2.1.1\n2.2.1\n2.2.3\n2.3.2\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p179]\n167\n1. Tembuka grafik di baruh bepelasarka teks.\n2. Giga jaku pengawa tumbuh ti bisi dalam ayat di baruh. Udah nya, kelala bagi ayat pasif\nenggau ayat aktif.\nLatih 3\nPBTT\nLatih\n3. Kedutka teks ba lambar 165.\na. Pengawa nyual enggau meli ulih dipuntangka kitai nengah chara e-dagang.\n( ... )\nb. Penerang pasal siti-siti produk nya mega ulih digaga kitai ba sebarang\nmaya. ( ... )\nc. Rayat menua tu patut ngembuan pengeliat ati deka mujur bejalaika\npengawa dagang. ( ... )\nd. Kitai ulih ngurangka modal dikena ngepunka pengawa dagang laban enda\nibuh besuaka premis. ( ... )\ne. Semua orang ti bejalaika pengawa dagang deka nyungkak asil dagang\nnengah chara e-dagang. ( ... )\nf. Informasyen pasal produk, servis enggau bebayar ulih dipindahka kitai\nngena kereban elektronik. ( ... )\ng. E-dagang ngembuan mayuh definisyen nyengkaum reti iya ari perspektif\nkomunikesyen, servis enggau promosyen. ( ... )\nh. Orang ke bejalaika pengawa dagang di menua tu diperansang perintah\nmenua masuk program dagang betikas entarabansa. ( ... )\nUNIT 12\nTema 6\nPengelebih\ne-dagang\n...\n...\n...\n...\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p180]\nDingaka audio pantun tu.\nAUDIO\n17\nAram Nulis\nPantun E-Dagang\nAih… remba sa remba,\nPenatai kapal besai ari menua tasik gena,\nMuat sarat penuh keresa enggau semua\nbansa barang.\nAih… udu pengaga sereta lantang ati\ntubuh mekang,\nMai kitai bekenangka pengawa bedagang,\nBekenaka kad kredit enggau\nnengah internet,\nBegunaka komputer bedagang\nbebelika barang.\nAih… udu maju mih kitai kemaya hari,\nEnti deka bejual bebeli,\nKitai ulih ngena teknologi,\nNadai nangika diri masau hari,\nTau enda ibuh nurun ke pasar\nbebelika barang.\nAih… diatu kitai patut temegah ati,\nDiau di menua jeman teknologi,\nKitai senang bejual bebeli,\nNengah internet, kad kredit,\nMayuh macham barang ulih dibeli,\nNgena chara e-dagang magang-magang.\nAih… anang mih kitai muai peluang,\nTang patut nguji bejual bebeli,\nSerunyut enggau pemansang teknologi\nkemaya hari,\nKitai mega patut besedia ngubah minda,\nAwakka kitai enda tinggal segang\npemansang dunya,\nKe berubah tiap maya nadai tepagang.\nAih… sama nyungkah mih kitai berubah,\nNunda ruda putar dunya,\nKemaya hari kitai mesti nguji bejual bebeli\nchara siber,\nAwakka kitai ulih bejual,\nAwakka kitai bebeli di serata dunya,\nNgena chara e-dagang.\n(Ditengkebang: Helen Manjan, 2019)\n168\nUNIT 12\nTema 6\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p181]\n169\n1. Sadaka pantun nya ngena intonasyen ti betul.\n2. Padahka tema enggau tuju pantun nya.\n3. Nama pengarap orang ke bepantun nya?\n4. Terangka asai ati orang ke bepantun nya.\n5. Kelala elemen gaya jaku aliterasyen enggau asonansyen ti bisi dalam pantun nya.\n6. Tembuka grafik di baruh.\nAktiviti 5, 6\nPBTT\nAktiviti\nUNIT 12\nTema 6\nAliterasyen\nAsonansyen\nMuat sarat penuh\nsemua bansa barang\nAih… remba seremba\npenatai kapal besai ari\nmenua tasik gena\n...\n...\n...\n...\n3.1.1\n3.1.2\n4.1.1\n4.1.3\n4.2.3\n...\n...\n...\n...\nAjar manah\ndalam pantun\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p182]\n170\n1. Padahka reti rambai jaku di baruh bepelasarka teks.\n2. Terangka reti entelian ti bechelak gadung dalam teks pantun.\n3. Tembuka grafik di baruh bepelasarka teks.\n5. Terangka pengelebih kitai diau ba dunya teknologi tinggi.\n6. Beri inferens senentang chara kitai bejual sereta ngulihka belanja kemaya hari.\n7. Tengkebang siti genteran pantun pasal e-dagang.\nLatih 3, 4, 5, 6, 7\nPBTT\n4. Terangka rampa reti ayat di baruh bepelasarka teks pantun.\n“ke berubah tiap maya nadai tepagang”\nLatih\nUNIT 12\nTema 6\nReti\nRambai Jaku\nsarat\nserunyut\nnyungkah\nputar dunya\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\nTransitif\nNadai\nBepenembu\nBepenembu\nJaku Pengawa\nIntransitif\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p183]\n171\nTembuka grafik di baruh.\nSeridi\nUNIT 12\nTema 6\nb.\n...\nPekara ti patut\ndisediaka lebuh\nnumbuhka\nkedai siber\n...\n...\n...\n...\n...\n...\na.\n...\n...\nPenguntung\nlandik bepantun\n...\n...\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p184]\n1. Tembuka kar gelembung gandin di baruh.\nE-dagang\nDagang\nkonvensional\n...\n...\n...\n...\n...\n...\n...\n...\n...\nTukar ayat pasif di baruh ngagai ayat aktif.\nAyat Aktif\nAyat Pasif\nSurat ti dikirum Farah minggu nyin\nkemari udah dibalas Azimah.\nBubu ti ditan iya kemari diabas\napai Meringai.\nKebuah jelu siga di menua kitai nyau\ndeka punas udah dipansik sida sekelas.\nNembiak seruran diperansang pengajar\nbelajar bebendar awakka mujur\nba peresa.\nSida serumah dilalau pengari ari Opis\nPengerai ngintu pemeresi diri.\nKereban teknologi pemadah enggau\ne-dagang deka dikena rayat menua\nnyual, meli enggau ngelakuka barang.\n...\n...\n...\n...\n...\n...\nPengaya\nTisih\n172\nUNIT 12\nTema 6\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p185]\n2. Kelala ayat aktif enggau ayat pasif ti bechelak biru di baruh.\n3. Tembuka tibak leka main tu ngena leka jaku tauka rambai jaku ti disediaka di baruh.\n4. Tulis karang pasal chara ngemansangka main asal Iban.\n173\nUNIT 12\nTema 6\nTransaksyen e-dagang begunaka bank, kad kredit tauka kad debit enggau ti\nbukai. Lebuh bebelika barang, (a) sepenyampau duit patut dipindahka pemeli\nnitihka rega barang ti deka dibeli sida. Enti pemeli nya bebayar ngena kad\nkredit tauka kad debit, (b) semina komputer aja ulih macha penerang dalam\nkad nya. Chara tu likun bendar laban pemeli nya ulih nyeliahka diri ari kena\ntipu. Kelimpah ari nya, chara bukai dikena mindahka duit ngagai penyual iya\nnya ngena transaksyen bank. (c) Pemeli deka mindahka bayar tauka duit\nnya ngagai penyual. Resit tauka evidens transaksyen nya deka dianjung\nngena emel tauka nengah media sosial. Sepengudah nya, (d) penyual deka\nneruska pengawa nganjung tauka ngepos barang ngagai pemeli.\n...\n...\n...\n...\nNyala Nanga Lingga,\nBulih tanga ikan ... ,\nNgempang Batang Rajang,\nBulih undang ... ,\nMadi ke Engkari,\nBulih padi ... ,\nBedagang ke Senawang,\nBulih benda ... ,\nPegi ke Miri,\nMeli belachan ... ,\nBedaja ke Seria,\nMeli segiau ... ,\nAti gaga utai sereba,\nMata lina ... .\nketuk tunjuk\ntajau puk\nmeli bubuk\njenak tinduk\nseseluk\nterubuk\npuk yuk\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p186]\n174\nNemu reti hub pelajar?\nUnit\n13\nHUB PELAJAR\nBETIKAS\nENTARABANSA\nHUB PELAJAR\nBETIKAS\nENTARABANSA\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p187]\nNemu nuan Malaysia tu palan pelajar\nti dipelandikka nembiak menua luar?\n175\nNemu nuan Malaysia tu palan pelajar\nti dipelandikka nembiak menua luar?\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p188]\n176\n176\nPeratika penerang di baruh tu.\nUNIT 13\nTema 7\nAram Mending enggau Bejaku\nMalaysia nyadi palan tebilang dalam\nbidang pelajar nembiak. Pia mega,\niya nyadi palan pelajar ari menua\nluar belatih. Bepun ari taun 2003,\npenyampau nembiak ari 176 menua\nluar datai belajar ke Malaysia semak\n100,000 iku. Sida ngambi bemacham\nkus pelajar ba Institusyen Pelajar\nTinggi (IPT). Malaysia entara menua\nke nyediaka kos belajar ke murah enti\ndibandingka enggau sekeda menua\nbukai.\nhttps://www.academia.edu. Malaysia\nsebagai hab pendidikan antarabangsa.\nPenerang 1\nBerita Harian: 30 Disember 2014,\nmenua kitai bisi 123,000 iku nembiak\nentarabansa. Sida tu datai ari 163 buah\nmenua ari serata dunya. Mayuh macham\nkus ke bisi ba IPT di menua Malaysia.\nPerintah bisi ngembuan juluk ati deka\nmeda menua tu nyadi hub nembiak\nglobal keenam besai lebuh taun 2020.\nNya kebuah, mayuh atur udah dipejalaika\nperintah dikena napi pekara tu.\nhttps://www.bharian.com.mynode/2603.\nMalaysia jadi hab serantau makin menyerlah.\nPenerang 2\nPenerang 3\nBa Malaysia, belabuh ari 31 Disember\n2016, bisi 132,710 iku nembiak\nentarabansa ke belajar ba IPT di\nMalaysia. Perintah merambu deka\nnerima 250,000 iku nembiak ari luar\ndalam taun 2025. Sida datai ari mayuh\nbengkah menua. Ambika chunto, ari\nmenua China enggau India.\nhttps://www.bharian.com.my./node/\n279519. Misi Malaysia Sebagai Hab\nPendidikan.\nAyat Tunggal\nUtusan Borneo: Januari 2017, Malaysia\nngerikodka 157,000 iku nembiak ari\nmenua bukai belajar di Malaysia. Ba\npengujung bulan Disember, penyampau\nnembiak nambah ngagai 177,000 iku\nnembiak. Menua kitai udah tebilang\nendur belajar. Perintah nyadang deka\nnerima penyampau 200,000 iku nembiak\nari menua luar ba taun 2020.\nUtusan Borneo.com.my/2018/01/13\nMalaysia kian popular sebagai destinasi\npelajar seluruh dunia.\nPenerang 4\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p189]\n177\n177\n177\n1. Sebut juluk ati perintah bepelasarka penerang.\n2. Terangka kebuah nembiak ari menua luar deka datai belajar di menua tu.\n3. Beri inferens senentang nembiak ari menua China enggau India ti belajar ba menua tu.\n4. Tembuka pitak di baruh ngena penerang ba lambar 176.\n5. Tembuka grafik di baruh.\nUNIT 13\nTema 7\nAktiviti\nAyat Tunggal\nAyat tunggal nya ayat\nti semina ngundan siti\nklausa. Klausa nya digaga\nari dua bengkah konstituen\niya nya subjek + predikat.\nTibang\nPenemu\nPekara\nPenerang 1\nPenerang 3\nPenerang 2\nPenerang 4\nIsi pekara\n...\n...\n...\n...\n6. Tembuka pitak di baruh.\nAyat\nNembiak ari menua luar rindu\nbelajar di Malaysia.\nSekeda ari nembiak nya datai\nari menua Timur Tengah.\nBala nembiak nya benung\nbelajar ba laboratori.\nBa Malaysia mayuh ngembuan\ninstitusyen pelajar tinggi.\nMalaysia udah tebilang nyadi\nhub pelajar entarabansa.\nMayuh kus disediaka ba\ninstitusyen pelajar tinggi\nmenua tu.\nNembiak ari menua\nluar\nrindu belajar di Malaysia.\nSubjek\nPredikat\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\nAyat tunggal\nari penerang\nAktiviti 2, 3\nPBTT\n1.3.2\n1.4.1\n1.4.3\n5.2.3\n5.2.4\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p190]\n178\n1. Gaga ayat belalauka pola ayat tunggal di baruh.\n3. Tembuka pitak di baruh.\nLatih\n2. Gaga ayat ari rambai jaku nama di baruh.\nRambai Jaku Nama\nmayuh macham kus\nsida tu\nAsia Tenggara\njuluk ati Malaysia\nnembiak entarabansa\ninstitusyen pelajar tinggi\nAyat\n...\n...\n...\n...\n...\n...\nChunto\nRJN\nRJN\nRJN\na\nRJP\nMenyadi tuai iya\npengelicha ba universiti.\nRJN\nb\nRJA\nRJN\nc\nRJPt\nSubjek\nPredikat\n...\n...\n...\n...\n...\n...\nUNIT 13\nTema 7\nUrat Jaku\najar\nbelajar\nngambi\nbelatih\nnyediaka\nnyadang\ndipejalaika\nnerima\nJaku Pengawa Tumbuh\nAyat\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\nSida benung belajar.\nLatih 1, 2, 3\nPBTT\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p191]\n179\n5. Tembuka grafik di baruh.\n...\n...\n...\n...\n...\nPenguntung\nMalaysia nyadi\nhub pelajar nembiak\nentarabansa\n4. Gaga ayat selama nyadi ayat tunsang ti ngenuluka sebagi ari predikat.\nUNIT 13\nTema 7\nLatih 4, 5\nPBTT\nAyat Tunggal Selama\nBala nembiak nya benung belajar ba librari\nsekula.\nBenung belajar bala nembiak\nnya ba librari sekula.\nMalaysia udah nyadi hub nembiak entarabansa.\nSida iya rindu bendar ningaka leka main dungai.\nAyat Tunggal Tunsang\n...\n...\n...\n...\nBa menua kitai mayuh institusyen pelajar tinggi.\n...\nMayuh infrastruktur udah disediaka ba\ninstitusyen pelajar tinggi.\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p192]\n180\nBacha teks di baruh.\nAram Macha\nMalaysia Nyadi Hub Pelajar Entarabansa\nPengerembai pelajar global nyungkak Malaysia nyadi siti ari hub pelajar dunya. Sistem\npelajar tinggi di Malaysia ngembuan kualiti laban mayuh universiti perintah ulih besemekih\nenggau universiti menua luar. Nitihka pansik Quacquarelli Symonds Best Student Cities\n2017, Kuala Lumpur udah diaku nyadi bandar raya ti manah endur belajar. Berindik ari\nnya, Malaysia udah pegari nama nyadi hub pelajar entarabansa.\nMayuh pekara udah digaga perintah dikena nyapai juluk ati nyadi hub pelajar\nentarabansa. Siti ari pekara ke udah dipejalaika perintah iya nya ngemudahka nembiak\nmenua bukai bulih visa nengah Servis Pelajar Malaysia Global ngambika sida iya\nmudah masuk belajar ba Malaysia. Dalam taun 2017, perintah udah ngelengkaska\ntimpuh bulih visa ari 30 hari ngagai 14 hari ungkup nembiak menua bukai ke deka belajar\nba Malaysia.\nPerintah menua mega udah ngerapatka kaul diplomatik enggau menua luar ngambika\nulih mantu Malaysia nyadi hub pelajar dunya. Program Kerejasama Teknikal Malaysia\nudah diatur perintah dikena ngayanka pengulih Malaysia nyadi hub nembiak dunya.\nPia mega, perintah enggau institusyen pelajar tinggi menua udah nganjung seraban\npengajar ngambi kus ba menua luar dikena nyungkak kualiti pengajar.\nKelimpah ari nya, perintah udah ngeluarka ungkus ke besai dikena nyediaka\ninfrastruktur ba institusyen pelajar tinggi. Rampa fizikal institusyen pelajar tinggi ke\nmanah, beresi sereta kondusif mega narit ati nembiak ari menua luar. Nya alai, enti kitai\nberatika tiap-tiap taun penyampau nembiak ari menua luar semampai nambah. Penyampau\nnembiak ke seruran nambah tu ukai semina ketegal inisiatif ari perintah tang bisi faktor\nbukai ke ngasuh nembiak menua luar tetarit ati belajar ba Malaysia. Sekeda ari nembiak\nmenua luar ke mayuh belajar di Malaysia iya nya nembiak ari menua China, India enggau\nTimur Tengah.\nMalaysia mega siti ari menua ke likun di rantau Asia. Pekara tu ke ngujungka Malaysia\nulih nyadi hub pelajar entarabansa ti tebilang di dunya. Kelimpah ari likun, Malaysia mega\nngembuan infrastruktur ke chukup nyadi hub pelajar global. Nangkanka nya, Malaysia\ndiuan mayuh pupu raban bansa ti ngemeranka mayuh macham budaya. Sekeda ari\nbudaya rayat ba menua tu bisi sama enggau sekeda budaya nembiak ari menua luar ke\ndatai belajar ngagai Malaysia.\nBerindik ari nya, nembiak ari menua India enggau menua China endang rindu agi\nmilih Malaysia nyadi hub pelajar entarabansa. Diatu Malaysia benung bejalaika mayuh\nmacham program dikena narit nembiak menua luar. Nya alai, kitai sama-sama naka ulih\nmantu perintah ngambika juluk ati ti deka meda menua tu nyadi hub pelajar global ke\ntebilang lebuh taun 2020 ulih japai.\n(Dibali ari https://www.academia. edu. Malaysia sebagai Hab Pendidikan Antarabangsa. pptx)\nAyat turu\nUNIT 13\nTema 7\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p193]\n181\n1. Nama reti hub pelajar entarabansa?\n2. Tembuka kar runding di baruh.\n3. Terangka reti lalu gaga ayat ngena leka jaku di baruh.\n4. Kelala jaku penyambung berentayan ari teks lalu gaga ayat.\n5. Sema nuan diberi peluang belajar ngagai menua bukai sanggup tauka enda nuan?\nBeri kebuah.\n6. Padahka tanggung pengawa kitai dikena mantu perintah nyapai juluk ati nyadi hub\npelajar entarabansa.\nAktiviti\nLeka Jaku\nReti\nAyat\npegari\nkondusif\ninisiatif\nbesemekih\ninfrastruktur\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\nJaku Penyambung Berentayan\nNya alai\nNya alai, sama-sama mih kitai nyaga pemeresi\ninstitusyen pelajar tinggi ba menua tu.\nAyat\n...\n...\n...\n...\n...\n...\nPengawa ke diatur perintah dikena nyapai juluk ati nyadi hub pelajar global\n...\n...\n...\n...\n...\n...\nUNIT 13\nTema 7\nAktiviti 3, 4, 5, 6\nPBTT\n2.1.2\n2.2.5\n2.3.1\n2.3.2\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p194]\n182\n2. Serara ayat tunggal dalam ayat turu di baruh.\na. Malaysia ngembuan mayuh institusyen pelajar tinggi ti bekualiti.\nb. Malaysia udah tebilang nyadi hub pelajar tinggi di Asia enggau dunya.\nc. Malaysia diuan mayuh pupu raban bansa taja pia Malaysia tu semampai likun.\nd. Malaysia tu likun nya kebuah mayuh nembiak ari menua luar datai belajar di\nmenua tu.\ne. Pemayuh nembiak ari menua luar majak mayuh lalu dipelabaka deka nambah\nninting taun.\nf. Perintah udah ngeluarka ungkus ti besai enggau nyediaka mayuh infrastruktur ba\ninstitusyen pelajar tinggi.\n3. Giga lima ayat turu ari teks.\n1. Tembuka kar runding di baruh.\nLatih\nAyat Turu\nSistem pelajar tinggi di Malaysia ngembuan kualiti laban mayuh universiti\nperintah ulih besemekih enggau universiti luar.\n...\n...\n...\n...\nUNIT 13\nTema 7\n...\n...\n...\n...\nMalaysia\nMenua ke nyadi hub\npelajar entarabansa\nLatih 1, 2\nPBTT\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p195]\n4. Tembuka grafik di baruh.\n5. Tulis siti sara penemu pasal penguntung Malaysia nyadi hub pelajar entarabansa.\n183\na.\nb.\n...\n...\n...\n...\nChara\nngelakuka\nMalaysia nyadi\nhub pelajar\nentarabansa\nUNIT 13\nTema 7\nLatih 4, 5\nPBTT\nInfrastruktur ti patut\nbisi ba hub pelajar\nentarabansa\nKafeteria\npatut ngembuan\nmayuh macham\npemakai ti\nchukup.\n...\n...\n...\n...\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p196]\nPeransang Anak Besekula\nAUDIO\n18\nAih… eh… naka pengelembau aku tu ngangauka Raja Manggau iya ti bekubau\ntuntun patung,\nAku tu nunggah Raja Manggah iya ti berumah tuntun punggung,\nTak selemai rangkai mih aku tu deka enggai ngerintaika dungai nyerumba lemai\nsabung malam,\nLaban aku tu bangat malu di lempedu kandang dalam,\nMalu ke tali unda ti nyau kua-kua di penaga punggang papan,\nMalu ke tali belati ti udah nyungki dua beteban,\nLaban aku tu alah gulu sida ke indu teleba mangku rambu benang redam,\nLaban alah pandang sida ke bujang duduk nyerigang di punggang padung papan,\nSemadi mih aku tu malu ke sida ke tuai teleba nyalai igi ranyai balang begeman.\nAih... eh… tak enda berasai mulut aku nyebut tangkup dabung geman,\nEnda berasai aku nelah enggau dilah dabung dilancham,\nNunga bala kita ke bebanda duduk beteban,\nMantaika dungai nyerumba lemai lambur malam,\nTak baka ke lebih-lebih mih tudah aku ari tapih sirih ditanam,\nDidinga kita di muka dunya lambung bulan,\nTang aku tu nadai nemu dih tuan gayu ratan,\nKasih dasan jalai dungai,\nSayau-sayau dih tandan buah empelam,\nNama mih mula buah empelam kelia mega manis\ntang diatu nyau bebali masam,\nKati enda bebali masam dasan iya berimbai enggau\npun rembai,\nAu... ga.\nAih… eh… ni kita anak engka, kita ke udah meda\npemerinsa sida mengua karung penyimpan,\nNgemesaika kita andai anak pengkuan,\nBekeranjai sebelah umai nimpai serarai padi rutan,\nTeberingkas tawas nyentukka pansut bulan keleman,\nPeluh antuh basah jempuk tubuh rempan,\nTinggang terutu ujan nelian,\nAsal mih kita anak enda pungkang lapar kebeluran,\nEnti kerepai nadai utai, biar mih begadai bebendai\ntawak selebuan,\nAsal mih kita anak lantang senang di baruh\nkemayang terang bulan,\nUNIT 13\nTema 7\n184\nAram Nulis\nDingaka audio dungai tu.\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p197]\n185\nUNIT 13\nTema 7\nAktiviti\n1. Nama tuju lemambang nya bedungai?\n2. Rintaika nama raja ke bisi disebut dalam leka main nya.\n3. Nama jaku peransang ke dibantai orang ke bedungai nya?\n4. Padahka utai ti dikearapka orang ke bedungai.\n5. Padahka chara apai indai ngemesaika anak sida nitihka leka main nya.\nEnda ngining bepinta nelentangka tapak jari kanan,\nKita ke benung besekula dikearapka sida mengua karung penyimpan,\nDisadang berawang di lempuang tajam di lintan,\nAjar tangkan, jaku pesan sida mengua karung penyimpan jadi ke peduman,\nPandai di chunggai tunjuk kanan,\nBelajar di universiti bulih degree, PhD gaga ati kandang dalam,\nDikelala dipebasa jelai nama tampak rita di dunya baruh bulan.\nAih… eh… nya baru berasai gaga aku di dada,\nBerasai nyamai aku diserayung kerigai rusuk kanan bejaga,\nMeda kita anak udah kereja nyamai bepangkat tinggi begaji besai\nbepangkat tuan,\nTau enggau orang nyait langit ngambi sejarit enggau bukit Gunung Intan,\nTau enggau orang merau nengah pupu alun lelangan,\nNadai agi pemerinsa merekuh tubuh rempan,\nEnda lebu mih tangkai indai diselingkuh tubuh semilan bulan,\nKita anak baka manuk betisik bekebelik tasau Enseriban,\nSigi disadang menang di gelanggang tengan menalan,\nBerani bediri di kuta besi, ngiring ngembing mekat rayat bansa kitai Iban,\nSayau… sayau… mega pedara gurah buah katung,\nDi puchuk kayu nadai ditegu sediu burung tiung,\nLabuh ke tanah nadai dipakai sedurah jani kampung,\nLabuh ke ai nadai dipakai lansi ikan adung,\nLalu katung-katung, ujung labuh ke lubang kebung,\nSaum padung enggau Raja Lelambai,\nAu... ga.\n(Ditengkebang: Charles Gerugu, 2019)\nChara apai indai ngemesaika anak sida nitihka leka main.\n...\n...\n...\n...\n3.1.1\n3.4.1\n4.1.1\n4.1.2\n4.2.3\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p198]\n6. Tembuka grafik di baruh.\nUNIT 13\nTema 7\n186\n7. Terangka reti rambai jaku di baruh.\nRambai Jaku\npadi rutan\nterang bulan\nalun lelangan\ntawak selebuan\nbesabung malam\npunggang papan\ntampak rita\ntuntun patung\nReti\n...\n...\n...\n...\n...\n...\n...\n...\n8. Terangka reti leka jaku di baruh lalu gaga ayat ari nya.\nAjar manah ari\nteks dungai\n...\n...\n...\n...\nLeka Jaku\nReti\nAyat\npungkang\nbekubau\ndiserayung\nmenalan\nserarai\nkemayang\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\nAktiviti 6, 8\nPBTT\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p199]\n187\n1. Tembuka genteran leka main di baruh.\n2. Terangka rampa reti ayat di baruh bepelasarka teks.\n3. Gaga ayat ngena leka jaku homonim di baruh.\n4. Pemandai enggau pemujur anak besekula bepun ari rumah. Beri penemu nuan.\nAih… eh… dia lalu nyampi dih karung Beradi munyi Menani Manang ... ,\nLalu bejaku munyi sebaru nimbau perau indu ... ,\nLalu muchau munyi Melanau mansang ... ,\nLalu nyada iya ngagai Petara ke nempa anak ... ,\nNi kita Petara apai, Petara indai, Petara aki, Petara ini ke udah rimpi ilang ... ,\nDatai mih kita semua kitu minta kita meda nela, nyaga ... ,\nAnak mensia ke di baruh perenama terang ...\nLatih\ne. Kita ke benung besekula dikearapka sida mengua karung penyimpan.\nbulan, Jaban, danjan, mensia, ngemata, berikan, langkan\nb. Disadang berawang di lempuang tajam di lintan.\na. Nadai agi pemerinsa merekuh tubuh rempan.\nd. Enda lebu mih tangkai indai diselingkuh tubuh semilan bulan.\nc. Teberingkas tawas nyentukka pansut bulan keleman.\nUNIT 13\nTema 7\nLatih 2, 3, 4\nPBTT\nLeka Jaku\nkandang\ntangkan\nbulan\njalai\nAyat\n...\n...\n...\n...\n...\n...\nKandang seminggu tu bisi doktor terebai nemuai ngagai kitai kitu.\nKandang chapi apai Darren digaga ari kayu tebelian ngambika tegap.\nHomonim\nHomonim nya leka jaku\nti sebaka sepil sereta\nsebaka sebut tang enda\nsebaka reti.\nTibang\nPenemu\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p200]\n1. Tukar ayat selama di baruh ngagai ayat tunsang.\nAyat Selama\nAyat Tunsang\na. Komputer ba librari nya mayuh amat.\nb. Semua nembiak ba kelas nya bagas\namat belajar.\nc. Ba Kuala Lumpur mayuh institusyen pelajar\ntinggi swasta.\ne. Pengajar nya chukup mentas enggau\nsemua nembiak.\nd. Kafeteria sekula kami bisi nyual mayuh\nbansa pemakai.\n...\n...\n...\n...\n...\nKelala ayat tunggal enggau ayat turu di baruh.\n2. Pejuraika chara perintah Malaysia narit Institusyen Pelajar Tinggi menua luar muka\npampang di menua kitai.\nPengaya\nSeridi\nUNIT 13\nTema 7\n188\nBansa Ayat\na. Lenjau rindu macha bup ensera.\nc. Jok enggau Azimah macha karang.\nd. Runin benung ngaga latih jaku Iban.\n...\n...\n...\n...\n...\n...\n...\nAyat\nb. Karang ke manah nya ditulis Jerib.\nf. Lika nembiak ke pandai laban rajin macha.\ne. Rumah ke besai nya rumah Siew Fong.\ng. Menyadi iya nampung pelajar ngagai universiti.\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p201]\n1. Tembuka genteran dungai di baruh ngena leka jaku ke engkeman.\nChukup hari semilan bulan,\nTeberunsut nuan ari perut luak kamai ... ,\nDia nuan teberuka ari pengema karung ... ,\nDinga dih nyawa nuan ada kela-kela nyabak nyarih ... ,\nGenap sebulan dia nuan dibai indai nuan mandi nurun ke ai ngilah ... ,\nDisungga indai nuan ke ulu tumpur batu galang ... ,\nDisungga indai nuan ke ili tumbang tapang nabanka ... ,\nDibai indai nuan pulai ke rumah panjai ... ,\nLalu digaga iya pedara lima piring ... ,\nDiunsai-unsai iya piring randai baka bungai jelumpang tanam.\n3. Sambung ayat tunggal di baruh awakka nyadi ayat turu ke engkeman.\na. Kerita nya enggi Pengajar Unsie. Kerita nya bechura gadung.\nb. Bala nembiak nya belajar ba makmal. Bala nembiak nya ngaga eksperimen.\nc. Meringai selalu bulih lumur satu dalam peresa. Meringai rajin ngulang pelajar.\nd. Nembiak ari menua luar rindu nampung belajar di Malaysia. Menua Malaysia likun.\ne. Semua nembiak kelas Pom 4 Embuas nginjau bup leka main. Sida macha bup nya.\nf. Pengajar Kumar ngajar mata pelajar Sains. Pengajar Grace ngajar mata pelajar\nMatematik.\ng. Nembiak diperansang ngambi bidang sains. Nembiak diperansang ngambi\nbidang teknologi.\n4. Tulis karang senentang pengelebih enggau pengurang belajar ba menua luar.\n2. Isi endur puang ngena jaku penyambung berentayan ke engkeman.\nBa era globalisasyen tu, nembiak berebut-rebut deka nampung pelajar ngagai tikas\nke pemadu tinggi. ... ngambika juluk ati sida ulih dijapai. ... laban semua pengawa\nkemaya hari tu begunaka penemu enggau pengelandik ke tinggi. ... enti deka nyadi\ndoktor tauka injinir mesti ngembuan pelajar sampai tikas degree tauka PhD ... nembiak\nberebut-rebut belajar ngagai institusyen pelajar tinggi enda ngira di menua diri tauka\nmenua luar. ... enti diperatika mayuh nembiak ari menua luar datai belajar ba menua\nkitai. Tu ngujungka Malaysia nyadi hub pelajar entarabansa.\nlapan, lintan, sesedan, beruran, perugan, kerangan, penyimpan, bejentam\nTisih\nUNIT 13\nTema 7\n189\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p202]\nUNIT 14\nTema 7\nUnit\n14\nMALAYSIA DALAM\nEKONOMI GLOBAL\nMALAYSIA DALAM\nEKONOMI GLOBAL\n190\nNama gerempung ekonomi entarabansa\nti dipasuk Malaysia?\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p203]\nUNIT 14\nTema 7\n191\nNama penguntung Malaysia masuk\ngerempung ekonomi global?\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p204]\n192\n192\nDingaka audio tu.\nMalaysia udah nyadi siti ari menua ti masuk World Trade Organization (WTO) bepun\nari keterubah iya ditumbuhka ba taun 1995. WTO ke nganti The General Agreement on\nTarrifs and Trade (GATT) megai tanggung pengawa ngemansangka gerempung dagang\ndunya. Nengah gerempung tu, barang ti dikeluarka menua ti nyadi kaban WTO dijamin\nsereta disadang ulih nyapai penyampau asil nitihka perambu. WTO udah mayuh mantu\npengawa dagang menua Malaysia.\nDalam WTO, tarif import ke sekeda barang udah ditetapka entara menua. Diatu,\npenyampau tarif dagang baru ti ditetapka mega enda jauh bida ari ke lama. Gerempung\ntu mega udah netapka atur dagang ti patut dititihka semua kaban gerempung. Atur nya\ndigaga awakka siti-siti sistem dagang semampai stabil sereta meruan. Pekara tu ulih\nmentin menua ti nguji deka nikika penyampau tarif sepeneka ati. Iya berengkah dipejalai\nsepengudah 23 menua ti nanggam sempekat GATT.\nMaya krisis ekonomi global dalam urung taun 2008 ngagai 2009, sekeda menua\nmaju numbuhka atur dikena nyaga dagang diri. Sida nyekat tarif barang ti diimport dikena\nngurangka agi defisit dagang sida. Dalam situasyen tu, WTO nan bubu nan ensenga\nnulung menua ti benung napi krisis ekonomi.\nSemua kaban dalam WTO udah nyukung inisiatif baru dikena nyeliahka pangka\nkrisis ekonomi global. Inisiatif nya mutarka penanggul dagang mikro enggau tengan\npemesai. Pekara ti baka tu mih ngangkatka pemaju menua ba tikas entarabansa kelebih\nagi ba pekara e-dagang enggau ekonomi digital. Malaysia enda sanggu bekikis bulu\nbetis, bebuai bulu gundai meri sukung ti tegap ngagai WTO awakka terus mujur ba\npengawa dagang betikas entarabansa.\nWorld Trade Organization\nAUDIO\n19\nAram Mending enggau Bejaku\nUNIT 14\nTema 7\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p205]\n193\n193\n193\n1. Bacha teks ngena intonasyen ti engkeman.\n2. Terangka reti leka jaku tauka rambai jaku di baruh bepelasarka teks.\n3. Terangka reti sempama di baruh bepelasarka teks lalu gaga ayat.\n5. Nama pengelebih sepengudah Malaysia masuk World Trade Organization?\nAktiviti 3, 5\nPBTT\nAktiviti\nUNIT 14\nTema 7\n4. Tembuka kar runding di baruh bepelasarka teks.\nAyat\nReti\nSempama\nnan bubu nan ensenga\nbekikis bulu betis, bebuai bulu gundai\n...\n...\n...\n...\nJaku Penyambung\nJaku penyambung nya\nsebengkah ari jaku tugas\nti dikena nyambung dua\ntauka lebih ayat tunggal\nnyadi siti ayat turu.\nTibang\nPenemu\nstabil\ngerempung\nnyaga\ninisiatif\nsukung\npemaju\nnanggam\nenda sanggu\n...\n...\n...\nJaku\nPenyambung\n1.1.1\n1.2.1\n1.4.1\n4.3.1\n4.3.3\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p206]\n194\n1. Tembuka grafik di baruh.\n2. Tukar ayat selama di baruh ngagai ayat tunsang.\n3. Tembuka grafik di baruh bepelasarka teks.\nLatih 2\nPBTT\nLatih\na. Malaysia udah masuk World Trade Organization ba taun 1995.\nb. Sekeda menua maju numbuhka atur dikena nyaga dagang diri.\nc. Penyampau tarif dagang baru ti udah ditetapka nya enda jauh bida ari ke lama.\nd. Barang ti dikeluarka Malaysia dijamin ulih nyapai penyampau asil nitihka perambu.\ne. World Trade Organization udah netapka atur dagang ti patut dititihka semua\nkaban gerempung.\nf. Inisiatif ti digaga World Trade Organization nya mutarka penanggul dagang mikro\nenggau tengan pemesai.\ng. Atur ti udah digaga World Trade Organization ulih mentin menua ti nguji deka nikika\npenyampau tarif sepeneka ati.\nUNIT 14\nTema 7\nJaku Tiap\nJaku tiap nya jaku ti dikena nesa\npenyampau utai. Dua bengkah\njaku tiap iya nya:\n• jaku tiap nemban\nChunto: satu, dua\n• jaku tiap enda nemban\nChunto: kira-kira, suah\nTibang\nPenemu\nTuju gerempung\nWorld Trade Organization\n...\n...\n...\n...\n...\n...\n...\n...\nJaku Tiap\nsemua\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p207]\n195\n4. Beri sempama ti engkeman ke situasyen di baruh.\n5. Gaga ayat ngena sempama di baruh.\nLatih 4, 5\nPBTT\nAyat\nSempama\nasai ke diambi mimpi\nbaka empeliau bedua iku\nlawa kerubung enda perisi\nbaka ukui ke labuh anak\nremaung di rumah, raung di tanah\n...\n...\n...\n...\n...\nSempama\nSituasyen\nSida Ajun sebuat berumban ngereja pengawa\nlaban deka jampat nembuka iya.\nAtur Penghulu nya semampai enda lurus\nngujungka iya enda tentu dikearapka\nmensia mayuh.\nEnti kitai berumban ngereja pengawa, bedau\ntentu pengawa nya ulih tembu jampat tang\nenti kitai belubah sereta ngereja iya enggau\nmanah, asil iya endang deka meruan.\nJanggi enda berunding dulu lebuh mansutka\njaku. Nya kebuah, bala bakih iya suah pedis\nati.\nSemua pengawa ti dikereja Lukas endang\nenda kala tembu laban iya semina nemu\nbejaku aja tang enda ngereja pengawa nya.\nbaka ke ngerumpang para angus\n...\n...\n...\n...\nUNIT 14\nTema 7\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p208]\n196\nBacha teks di baruh.\nMalaysia External Trade\nDevelopment Corporation\nAram Macha\nPengawa ngelakuka barang kelebih agi\nsenentang pengawa eksport ba Malaysia\nnya endang misyen tetap Malaysia\nExternal Trade Development Corporation\n(MATRADE) ti ngujungka mayuh kompeni di\nMalaysia ngerembaika dagang sida ngagai\ntikas global. Nangkanka nya, MATRADE\nmega udah meri peluang bedagang ngagai\nmayuh kompeni ba Malaysia ti bisi potensial\nnyulut ba tikas entarabansa. Tambah mega,\nMATRADE ukai semina ditumbuh dikena\nngelakuka barang tang mega nyungkak\npenyampau eksport Malaysia ba tikas global.\nUNIT 14\nTema 7\nTanggung pengawa MATRADE iya nya:\n• Mantu, meransang sereta nyungkak\ndagang luar Malaysia.\n• Ngemeratka proses eksport barang.\n• Ngelanggur sereta bejalaika strategi\ndagang eksport Malaysia dikena nambahka\npenyampau eksport barang enggau\nasil produk.\n• Bejalaika pansik ba dagang komersial\nsereta numbuhka database senentang\npenerang ti komprehensif ba asil dagang.\n• Ngaga program latih dikena nambahka\npeneleba sereta penemu senentang dagang\nentarabansa kelebih agi sida ke bejalaika\npengawa eksport ba menua Malaysia tu.\n• Ngarika Malaysia ngagai forum entarabansa\nti bekait enggau semua pengawa dagang.\n• Nyadi ejen sereta meri lalau ngagai\nperintah senentang atur dagang.\nObjektif MATRADE iya nya:\n• Nyulutka profil raban ti bejalaika eksport\nba Malaysia ngagai dagang luar menua.\n• Ngerembaika penerang ti engkeman\nsereta relevan dikena mantu mayuh\nkompeni di Malaysia awakka ulih\nbesemekih dalam dagang entarabansa.\n• Nulung kompeni di Malaysia awakka\ndikelala pengimport ari luar ti benung\nbegigaka pengeluar barang tauka\nproduk Malaysia.\n• Bejalaika aktiviti nyungkak pengawa\neksport barang enggau servis ti\ndikeluarka Malaysia ngagai menua luar.\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p209]\n197\n1. Terangka reti leka jaku di baruh bepelasarka teks.\n2. Tembuka grafik di baruh bepelasarka teks.\n3. Terangka fokus pengawa Malaysia External Trade Development Corporation.\n4. Pejuraika juluk ati Malaysia External Trade Development Corporation.\n5. Pejuraika kebuah Malaysia External Trade Development Corporation bisi ngaga\nprogram latih ngagai pedagang.\n6. Tembuka grafik di baruh.\nAktiviti 3, 4, 5, 6\nPBTT\nAktiviti\nTanggung pengawa\nti patut dipejalaika\nMalaysia External Trade\nDevelopment Corporation\nkelimpah ari ti bisi\ndalam teks\n...\n...\n...\nUNIT 14\nTema 7\nReti\nLeka Jaku\nnyulut\nnyungkak\nngelanggur\npansik\nbesemekih\npengeluar\n...\n...\n...\n...\n...\n...\nPenambah Kepit\nPenambah kepit tu dikena ngepit\nurat jaku ti dikena dalam jaku\npengawa tumbuh.\nChunto:\nbe-...-ka, di-...-ka, nge-...-ka,\ndipe-...-ka, me-...-ka, n-...-ka\nTibang\nPenemu\nJaku pengawa\ntumbuh ti ngundan\npenambah kepit\n...\n...\n...\n...\n...\n2.1.2\n2.2.5\n2.3.1\n2.3.2\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p210]\n198\n1. Tembuka grafik di baruh.\n2. Rintaika jaku penyambung berentayan ti bisi dikena dalam teks.\n3. Gaga ayat ari jaku penyambung berentayan ti bisi dalam latih 2.\n4. Tulis karang senentang tanggung pengawa Malaysia External Trade Development\nCorporation dalam ngemansangka kompeni mit enggau kompeni jelan pemesai.\nLatih 1, 3, 4\nPBTT\nLatih\n...\n...\n...\nEmpas Malaysia External Trade\nDevelopment Corporation ngagai\ndagang menua pesisir\nUNIT 14\nTema 7\nJaku Penyambung Berentayan\nJaku penyambung berentayan\nnya jaku penyambung ti digaga\nari dua leka jaku baka tang\nlalu, taja pan, nambahka nya,\ntaja pia, ukai semina, nya alai\nenggau ti bukai.\nTibang\nPenemu\nJaku\nPenyambung\nBerentayan\n...\n...\n...\nkelebih\nagi\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p211]\n199\nBacha teks di baruh.\nAram Nulis\nASEAN Free Trade Area (AFTA) nya zon dagang enda besekat entara menua\ndalam ASEAN. Sepuluh buah menua ti masuk AFTA iya nya Malaysia, Singapore,\nThailand, Philippines, Indonesia, Vietnam, Laos, Myanmar, Cambodia enggau\nBrunei. Gerempung menua dalam ASEAN tu nyadi siti zon dagang nadai\nbesekat dikena ngemansangka dagang dalam genturung menua ASEAN.\nMayuh peguntung Malaysia masuk AFTA. Penguntung ti nyengala\nbendar iya nya mayuh bansa barang entara menua ti ulih dibeli. Kelimpah\nari nya, Malaysia ulih mai masuk barang import ti murah agi ari menua bukai\nti nyereta AFTA. Berindik ari nya, rega barang di menua tu nurun tang pekara\ntu enda ngenataika penanggul ti besai. Nambahka nya mega, pengawa bejual\nenggau bebelika barang muntang agi dipejalaika dalam zon dagang ti enda\nbesekat. Pekara tu ngenataika penguntung kelebih agi ngagai rayat menua ti mit\ngaji. Nya alai, mensia mayuh ulih mandingka reg barang ti dijual entara menua.\nPemeli ti rasional ulih milih barang ti bekualiti sekalika nya barang ari luar tauka\ndalam menua.\nPengeluar barang mega deka besemekih maya bedagang enggau pengeluar\nbukai dikena sida narit ati penguna. Pekara tu mai empas positif ngagai kualiti\nbarang. Ulah besemekih entara pengeluar barang deka meransang inovasyen\nsereta nyungkak pengawa nengkebang barang baru. Pengeluar patut bagas\nbejalaika pengawa mansik dikena ngasilka barang ti bekualiti sereta unik.\nKelimpah ari nya, menua ASEAN ti bukai enda ulih nyekat tauka ngeletak tarif\nti tinggi ba barang ti dieksport ari Malaysia. Pia mega, penyampau barang ti\ndieksport nya ulih ditambahka nengah kaul dagang entara Malaysia enggau\nmenua luar. Peminta ba siti-siti barang ti dikeluarka menua tu mega deka nambah.\nPekara tu ulih nambahka agi penatai pemisi menua enti dibandingka enggau\nsemina bedagang dalam menua. Nya alai, pengeluar barang menua tu patut\nbesedia napi peminta ti tinggi ari menua luar.\nAFTA udah mayuh mantu menua ASEAN maju dalam pengawa dagang.\nKompeni dalam gerempung nya bulih penguntung ari ke bekerejasama ngeluah\nentara ba pengawa ngeluarka barang. Berindik ari nya, mensia mayuh mega ulih\nbebelika mayuh macham barang ke murah. Taja pan bisi implikasyen ari pekara\ntu, kitai patut meda iya ari sukut positif awakka ulih nyadi maju lalu nyapai\npemujur. Kitai patut sikar sereta landik ngambi peluang nambahka pengulih diri.\nAnang nganti karam baru betimba enggaika kitai jauh tinggal ari orang bukai.\nMalaysia dalam ASEAN Free Trade Area\nUNIT 14\nTema 7\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p212]\n200\n1. Saut tanya di baruh bepelasarka teks.\na. Padahka tuju sereta guna ASEAN Free Trade Area.\nb. Rintaika menua ti udah masuk ASEAN Free Trade Area.\nc. Terangka empas enti sema barang masuk ari luar dijual sepeneka ati dalam menua ti\nmasuk ASEAN Free Trade Area.\nd. Terangka reti sempama “anang nganti karam baru betimba” belalauka teks.\ne. Ngena chara beraban, pejuraika pekara di baruh.\nAktiviti 1 (c, e)\nPBTT\nAktiviti\nUNIT 14\nTema 7\ni.\nPenyampau asil dagang deka betambah\nenti dibandingka enggau bedagang semina\ndalam menua.\nPengeluar patut bagas bejalaika pengawa\nmansik dikena ngasilka barang ti bekualiti\nsereta unik.\n...\n...\nPenerang\nKebuah\nii.\nDalam ASEAN Free Trade Area, peminta ba\nsiti-siti barang ti dikeluarka menua tu mega\ndeka betambah.\nPengawa besemekih dalam gerempung ASEAN\nFree Trade Area meransang inovasyen sereta\nnengkebang barang baru.\n...\n...\nPenerang\nEmpas\n3.1.1\n3.4.1\n3.4.2\n5.2.2\n5.2.3\n5.2.4\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p213]\n201\n3. Beri reti leka jaku di baruh.\nAktiviti 2 (a)\nPBTT\nUNIT 14\nTema 7\nLeka Jaku\nnyengala\nbesekat\nrasional\ninovasyen\nunik\n...\n...\n...\n...\n...\nReti\n2. Tembuka grafik di baruh.\na.\nEmpas barang ti\nenda bekualiti\n...\n...\n...\n...\nb.\nPenguntung penguna ba\nmenua dalam gerempung\nASEAN Free Trade Area\n...\n...\n...\n...\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p214]\n1. Pechahka ayat turu di baruh nyadi ayat tunggal.\nLatih 1\nPBTT\nLatih\nAyat Turu\nAyat turu iya nya ayat ti digaga ari berakitka dua tauka\nlebih ayat tunggal awakka nyadi siti ayat baru ti ngundan\nlebih ari siti klausa.\nTibang\nPenemu\nUNIT 14\nTema 7\n202\nAyat Tunggal\nAyat Turu\nMasuk ASEAN Free Trade Area\nnya siti chara nyeliahka penanggul\nba pengawa dagang ti nyadi ba\nsesebengkah menua ngambika\norang ti bejalaika pengawa dagang\nnya bulih penguntung.\nPerintah menua tu bebendar ngiga\njalai dikena ngangkatka tikas\npendiau enggau pengidup rayat.\nJalin udah nembuka pelajar iya ba\nuniversiti lalu diatu iya udah bekereja\nnyadi injinir ba kompeni ti besai\nsereta tebilang.\nSemua rayat patut bagas ngulihka\npenemu awakka mujur, pegari\nsereta tebilang.\n• Masuk ASEAN Free Trade Area nya\nsiti chara nyeliahka penanggul ba\npengawa dagang.\n• Penanggul nya nyadi ba sesebengkah\nmenua.\n• Orang ti bejalaika pengawa dagang\nnya deka bulih penguntung.\n...\n...\n...\nBala kami sekelas enda nemu\nPengajar Rose datai laban kami\nbenung bejuraika pasal batang\npengawa ke deka digaga maya\nMinggu Jaku Iban.\nEnti kitai semampai positif ba\nsesebengkah pekara, dia kitai deka\nmaju sereta deka bulih pemujur\ndalam pengidup.\n...\n...\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p215]\n2. Tembuka grafik di baruh tu.\n3. Isi endur puang dalam ayat di baruh ngena jaku penyambung ti engkeman.\n4. Kerandau lalu gaga simpul penemu senentang tibak teks ti dichelak kalas ba lambar 199.\n5. Kedutka teks karang ba lambar 199.\nLatih 3, 4, 5\nPBTT\na. Sida sebuat laun datai di rumah ... hari bangat ujan ... jalai lichin.\nb. Dom Jalin ... ini iya enda ulih nurun ke kebun ... hari bangat ujan.\nc. Albert belajar bebendar ... mujur ba pelajar ... ulih nyapai juluk ati iya.\nd. Lika rindu bendar ... ninga program nyadaka leka main ... baru didinga iya ba radio.\ne. Sida Ambi sebuat tetap neruska pejalai ... hari nyau petang ... lengkas datai\nba palan.\nf. Pengajar Grace suah ngelalau nembiak iya bekelimat ngena belanja ... seruran bisi\nduit ke belanja ... enda suntuk dudi hari.\ng. Nembiak kelas Pom 4 Menaul ... deka ngulu program memarin minggu baru mesti\nminta pemendar ari apai indai ... ngisi pom rejista.\nh. Tuai rumah mesan mensia mayuh ... aum Gerempung Komuniti Tapang Berua\nkemari ... sida bela sampal datai maya pengerami besai ila.\nPenguntung Malaysia masuk\nASEAN Free Trade Area\n...\n...\n...\n...\nUNIT 14\nTema 7\n203\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p216]\n204\nSambung ayat tunggal di baruh tu nyadi ayat turu.\na. Semua nembiak bediri maya pengajar datai. Laila aja ke enda bediri.\nb. Albert udah mujur ba peresa pom tiga. Iya nitihka jaku lalau pengajar.\nc. Sungai Rajang panjai amat. Sungai Rajang ngembuan mayuh utai idup.\nd. Murugan ngasuh Jok nyimpan bup cherita ti diinjau iya. Bup cherita nya enda lenyau.\ne. Empawie nitihka aki iya berikan lemai kemari. Adi iya enda nitihka aki iya berikan\nlemai kemari.\nf. Kitai patut besemekih enggau menua bukai. Kitai enda jauh tinggal pemansang ari\nmenua bukai.\ng. Malaysia nya sebuah menua dalam gerempuang Association of South East Asian\nNations (ASEAN). Malaysia udah mujur dalam pengawa dagang ba tikas global.\nBeri reti sempama di baruh.\nPengaya\nSeridi\nReti\nSempama\nOrang di ili munsi tubu, orang di ulu dibalut miang.\nBegau nitihka terantang, berayah nitihka gendang.\nMansai sungai ngena tapa, nebang tapang ngena lungga.\nLarika ribut tetemuka ujan, larika sungkup tetemuka pendam.\nUntung bulih beliung enda ngambuh, betuah bulih peredah enda ningkuh.\nSebaru landik merau diajar ngemudi, Tawang landik bedagang diajar bebeli.\n...\n...\n...\n...\n...\n...\nUNIT 14\nTema 7\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p217]\n205\nTembuka pitak di baruh.\nTisih\nAyat Turu\nRambai Jaku\nBansa Rambai Jaku\n• Rambai jaku nama\n• Rambai jaku adjektif\n• Rambai jaku pengawa\n• Rambai jaku penempat\n• Malaysia\n• udah mujur\n• nyapai pemansang\n• ba bidang ekonomi betikas\nglobal\n• semua kitai\n• patut gawa bebendar\n• ngemansangka menua\n• ngemansangka bansa\n• semua kitai\n• patut gawa bebendar\n• ngemansangka menua\n• ngemansangka bansa\n• nembiak nya\n• nyabak rauh-rauh\n• kaki iya\n• disengat indu utai\n• rayat menua tu\n• idup likun\n• senang lantang\n• bebida bansa\n• bebida pengarap\n• sida sekelas\n• rindu bendar\n• ninga program lumba\nenggau main\n• baru udah ditaburka nengah\nradio\n• sida Jang sebilik\n• deka datai\n• nadai penanggul\nMalaysia udah mujur\nlaban udah nyapai\npemansang kelebih\nagi ba bidang ekonomi\nbetikas global.\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\nUNIT 14\nTema 7\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p218]\nadat\natur ti tebalan tauka teleba udah dikena ba pengidup nitihka kosmologi\nsesebengkah bansa\nangkun\nngintu, nyaga, rindu, sayau, siru\nanalogi\njaku banding tauka sempama ti dikena madahka gaya enggau pendiau\nantah\nleka padi dalam berau tauka beras\nantologi\nraban karang tauka leka main\nautomotif\nbidang ti bekaul enggau kereban pengangkut bemotor\nayas\nutai ti enda tentu terang dipeda, semina ayuk bisi dipeda, apas peda tauka\nmajak rapas dipeda\nbejulur\nnerangka gaya penatai tauka pejalai ke betunda-udi, betangkan-tangkan\nbededat\nendur ke penuh, sekut laban kelalu mayuh orang\nbegili\nnerangka gaya utai tanam ke tumbuh galak\nbelepa\nbisi maya lapang tauka langgang\nbelabaka\nnganggar tauka nyangka\nbesemekih\nmekit orang dalam pengawa\nberayang\nkereban beenteran ti dikambuh ari besi dikena berikan\nberimba\npengawa betebangka kayu dalam kampung jerung endur bumai\nbungkan\nsarang betudung ti digaga ari buluh\nchapan\nperengka dikena nampi\ncherira\nnerangka gaya utai ti manah\ndefisit\nbelanja ti kurang sepengudah pemeli tauka siku-siku penguna ngena duit\nbelanja ngelui ari ke patut\ndegradasyen\npengerusak ke nyadi ngagai rampa menua ti ngujungka pengerugi\ndunju\nlangkau arau\nekologi\nbidang sains ke mansik habitat enggau interaksyen entara utai idup enggau\nrampa menua\n206\nGLOSARI\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p219]\nekonomi digital\nekonomi ti bepelasarka teknologi digital\nelektron\npartikel subatom ke mai chas negatif\nentali\narus ai\nempadi\nsebansa utai tumbuh ke beduri lalu ai buah iya tau dikena nubai\nfertigasyen\nteknik ngirika ai baja ti ngembuan nutrien terus ngagai utai tanam sereta enda\nibuh maja tanah\ngelana bulan\nbulan padam kena ayung bumi\nhidroelektrik\nenergi ti dikeluarka peneras arus ai\nhub\npusat tauka palan alai ngemansangka pengawa\ninferens\nsimpul penemu bepelasarka evidens enggau pekara ke logik\ninovasyen\nchara baru dikena ngasilka produk tauka servis\ninisiatif\ndaya baru dikena ngepunka pengawa\ninstitusyen\npalan tauka organisasyen ti dibuka nitihka tuju ti menuku\ninfrastruktur\nperengka ke diungkupka guna bala mayuh\ninteraksyen\nkaul\nkai\nleka jaku ti selalu dikena dalam leka main ti sama reti enggau leka jaku ke\ntauka ti\nkarnival\npengerami besai\nkandang\ndada\nberadung\nkedai siber\nkedai ti dipejalaika nengah chara online\nkelasau\nsebansa dambar\nkerita hibrid\nkerita ti ngembuan lebih ari siti puncha kuasa dikena bejalai\nketap\nkereban dikena ngetau\nkondusif\ngaya ti manah sereta engkeman\nkulinari\nbidang penemu tauka pengawa pasal pemakai\n207\nGLOSARI\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p220]\nmedium\nchara tauka perengka dikena bekaul enggau orang bukai\ninteraksyen\nmela\nmeri makai tauka nahka pemakai\nmodal\npuku\nmekanikal\nbidang ti bekaul enggau injin sereta mesin\nmeripir\nlimpang\nmidang\nlenyau, lus\nmultimedia\nmayuh macham media\nnektar\nai manis dalam bungai\nngundang\npengawa ngusung tauka ngabas\nnyemetak\nterang, nyengala, nyentuk\npebulang\npengelansik peda mata\nsinja\nmaya lambur nyerumba mata panas padam\ntanah kusi\ntanah ti enda ami\ntarif\nchukai ti diungkupka ngagai barang ti dibai tama ngelui garis entara menua\ntebalan\nsuah, masai, teleba\ntempenga\ngaya pemanah sura nyawa\ntepagang\nteketu, tesekat\ntestimonial\nsadang penemu, pengasai ati tauka komen pemeli senentang kualiti produk\ntauka servis ti udah dibeli tauka dikena\ntibang penemu\ntugung penemu\ntipang\nubat\ntransaksyen\npengawa mindahka duit tauka bebayar dalam pengawa bejual beli\ntransformasyen\nsiti proses berubah\nveterinar\ndisiplin penemu ti mansik pasal pengidup jelu\n208\nGLOSARI\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p221]\nSempama\nabis di ngeli,\nabis di gusi\namu mata\nasai ke diambi mimpi\nasai ke digenggam\nsemengat\nbaka bintang nyau\nmelaling kebung\nbaka dampa\nngumbaka langkau,\nbaka tangga\nngumbaka lalau\nbaka daun gawai\nbaka empeliau\nbedua iku\nbaka idung entara\nmata, baka dilah\nentara nyawa\nbaka ke bejalai, dulu\ndatai di tuchung, dulu\ndatai di rabung\nbaka tekura enggai\nenda tepantup ba\nbandir\nReti\npemakai ti nyamai\namat dipakai\ndeka ngempu semua utai\nenda pechaya ke pekara ti\nnyadi\nrawan, takut\nlunggar umur\npengulih siku-siku ngipakka\nulah diri empu\nmayuh orang\nnelap ati enggau orang,\nkengka utai ti dikemisi nya\ndibagi ngagai orang\npengawa rentang, lurus\ndulu bulih pemujur lalu\ndulu ngasaika penyamai\nenda ngelengkaka pengawa\nngapa sebedau tembu\nChara ngena\nLauk ke dipanduk Mendu endang tak\nabis di ngeli abis di gusi laban diberi\nbiching ti chukup.\nKengka duit ke dibai iya ngalu ke\npasar abis lengis dikena bebelika utai\nlaban iya amu mata.\nJenggi enda pechayaka diri bulih\n9A dalam peresa SPM nyau asai ke\ndiambi mimpi.\nSida iya sama bela asai ke\ndigenggam semengat maya nepan\nbilun laban gaya hari jai.\nMayuh agi orang ke diau di rumah\npanjai nya udah lalu setengan umur\nbaka bintang nyau melaling kebung.\nOrang muji Libu laban pengawa iya\nbaka dampa ngumbaka langkau,\nbaka tangga ngumbaka lalau.\nMensia ti bebelika barang ba pasar\nraya nya baka daun gawai.\nPenelap iya baka empeliau\nbedua iku.\nTuai Rumah Ansie ngatur penyarut\nnya baka idung entara mata, baka\ndilah entara nyawa.\nSida nya enda ulih tunda kitai laban\nsigi baka ke bejalai, dulu datai di\ntuchung, dulu datai di rabung.\nSidi sigi enda ngelengkaka pengawa\nbelatih nyadi soldadu ngapa baka\ntekura enggai enda tepantup ba\nbandir.\n209\nSEMPAMA\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p222]\nSempama\nbaka ke ngerumpang\npara angus\nbaka kepayang\nngadaka dilah\nbaka lang di\npala rimba\nbaka ukui labuh anak\nbegau nitihka\nterantang, berayah\nnitihka gendang\nbeketup sima\nbekikis bulu betis\nbebuai bulu gundai\nbelah rutan\nbesai periuk besai ga\nkerak, besai beliung\nbesai ga abak\nbeseling kain\nbisi niki nibung,\nbisi niki pinang\nReti\nberumban baban tauka\nbeguai-guai\nsemuti mansutka jaku aja tang\nenda ngereja pengawa\ntau dijadika teladan\nkasak-kasak, enda jenuh\npendiau\nngereja pengawa nitihka gaya\norang ti nyadi tuai\nbebendar ngereja pengawa\nbeambis daya enggau reta\ntengkira dikena ngulihka\njuluk ati\nsama-sama enda tealahka\npangan diri dalam pekit\ntauka lumba\nmayuh agi penatai besai\nagi belanja\nsemina nemu mimit aja, nadai\nmayuh penemu\nbechiping\nChara ngena\nMeda jam nyau suntuk sida iya\nberumban-rumban nurun ngagai\npadang bilun baka ke ngerumpang\npara angus.\nKitai anang baka kepayang ngadaka\ndilah lebuh ngereja pengawa.\nIgat ke nampung pelajar ke universiti\nbaka lang di pala rimba nyadika\nteladan ngagai nembiak bukai.\nRabing tak kasak-kasak sereta enda\njenuh pendiau baka ukui labuh anak\nlaban hari udah laun lalu anak iya\nbedau datai ari sekula.\nKitai enda tau enda ngereja pengawa\nnitihka gaya orang ke nyadi tuai\nmunyi sempama begau nitihka\nterantang, berayah nitihka gendang.\nIya nyau beketup sima ngereja pengawa\nti diungkup ngagai iya.\nIya beambis daya enggau reta\ntengkira maya dua iku anak iya\nmasuk universiti baka sempama\nbekikis bulu betis bebuai bulu gundai.\nTeam Kumpang Pali enggau Team\nMunggu Perawan belah rutan maya\npekit bemain bol lemai kemari.\nTaja pan duit iya mayuh, mayuh agi\nmega dibelanja baka besai periuk\nbesai ga kerak, besai beliung besai\nga abak.\nPenemu iya pasal bumai semina\nbeseling kain.\nKitai enda patut bisi niki nibung, bisi\nniki pinang lebuh bebagi reta ke anak.\nSEMPAMA\n210\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p223]\nSempama\nbulan begantung\nsenduk\ndatai dipeda mua,\npulai dipeda belakang\ndinga kukuk manuk\nenti deka alah enda,\nenti enggai bisi tau mih\nnyadi nadai\ngenggam bara api\ndataika nyadi arang\nkembai kerepai\nketup lelabi mati\nkunchit di tisi langit\ndeka ditunu, rusa\ndi kaki tangga enda\ndiemparu\nlaju baka peluru\nlansar tau nyadi lubuk,\nlubuk tau nyadi lansar\nReti\nmaya pungkang pemakai\ndatai manah, lalu pulai pan\nmanah, nadai ngaga laya\napa nama\nenda jauh, semak, dampih\nenti deka ngereja pengawa\nendang sigi ulih tang enti udah\nenggai mayuh macham dalih\nnembuka pengawa taja\npan pedis\nbulih penguntung\nbeamat-amat ngereja pengawa\nngelelak diri ngereja pengawa\nti jauh sereta bedau temu ulih\ntang pengawa ke udah ditemu\nmeri penguntung ba menua diri\nenda dikereja\nnaka pengelaju\norang ti seranta tau nyadi kaya\nlalu orang ke udah kaya tau\nmega nyadi seranta.\nChara ngena\nSida nya begantung senduk\nsekumbang ti nganti padi mansau.\nRindu amat meda penatai sida nya ke\nrumah kitai, datai dipeda mua, pulai\ndipeda belakang.\nUmai sida Mendu semina dinga\nkukuk manuk ari rumah panjai.\nPengawa endang ulih dikereja enti\nkitai mutus ati baka sempama enti\ndeka alah enda, enti enggai bisi tau\nmih nyadi nadai.\nKitai patut ngereja pengawa baka\nngenggam bara api dataika nyadi\narang.\nKembai kerepai iya sehari nya\nsepengudah bejual buah dabai.\nIgat Iman baka ketup lelabi mati\nngujungka iya mujur nembuka pelajar ba\nbidang kulinari.\nTaja pan di menua tu mayuh endur\nbekereja, sida iya gagit deka ngiga\nkereja di menua jauh baka kunchit di tisi\nlangit deka ditunu, rusa di kaki tangga\nenda diemparu.\nLaju amat iya belanda nyau baka\nleka peluru.\nKitai patut bekelimat lebuh bebelanja\ntaja pan beduit laban lansar tau nyadi\nlubuk, lubuk tau nyadi lansar.\nSEMPAMA\n211\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p224]\nSempama\nlarika ribut tetemuka\nujan, larika sungkup\ntetemuka pendam\nlawa kerubung\nenda perisi\nlelabu enda bula ke\npeputan, tukul enda\nbula ke tempan\nlindung batang,\nlindung tuga\nmansai sungai ngena\ntapa, nebang tapang\nngena lungga\nmatahka lengan\nmulut nyebut, patung\nenda nyaut\nnganjung paung\nempa jani\nngarapka kijang\ndalam babas\nnan bubu nan ensenga\nReti\nnya utai di dikeenggai, nya utai\nti datai tauka nyadi\nbalat seregah tang ngembuan\nkurang penemu\nngamatka jaku, enda bula\nngereja pengawa\nmati\ndeka ngereja pengawa ke\nditemu enda ulih ditapi\nmakai\nsemina nyebut tang enda\nngereja\nngaga ulah tauka\npengawa ke ditemu\nngemedis diri\nnganti ngapa pengawa ke\nbedau temu ulih ngenataika\npenguntung\nbeambi ulih maya\nngereja pengawa\nChara ngena\nPenyarut ke dikeenggai, penyarut\nga nyadi, baka larika ribut tetemuka\nujan, larika sungkup tetemuka\npendam.\nWat Jo lawa kerubung enda perisi\nlaban utai ke disebut iya baka\nke amat tang enda logik.\nDom sigi tau nyadi tuai laban iya\nngereja pengawa baka lelabu enda\nbula ke peputan, tukul enda bula ke\ntempan.\nSebedau sida ke tuai lindung batang,\nlindung tuga, kitai patut ngulihka\npenemu ari sida.\nIya semina baka mansai sungai\nngena tapa, nebang tapang ngena\nlungga lebuh ngisi pom masuk\nbelajar ba universiti laban pelajar\niya semina naka pom tiga.\nSida Igat laun matahka lengan lemai\nnya laban ti laun berapi.\nJang ke deka ngaga kebun sawit nya\nsemina mulut nyebut, patung enda\nnyaut laban datai ke sehari tu bedau\nmih dikereja.\nSida iya nganjung paung empa jani\nngelaban team nya main bol laban\nsida enda chukup latih.\nSida semina ngarapka kijang dalam\nbabas laban pengawa ti dikereja sida\nbedau temu ngenataika asil.\nIya nan bubu nan ensenga ngulu kus\nnya ngulihka penemu ngambika bisi\ndikena iya ngemajuka dagang.\nSEMPAMA\n212\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p225]\nSempama\nnganti karam\nbaru betimba\norang di ili munsi tubu,\norang di ulu ti\ndibalut miang\nragak riang, enti\ndipansuh enda bulih\nseputung munti\nremaung di rumah,\nraung di tanah\nSebaru landik merau\ndiajar ngemudi,\nTawang landik\nbedagang diajar bebeli\ntajam untak\ntepakaika buah ilang\nilu, ditelan mati apai,\ndilua mati indai\nuntung bulih beliung\nenda ngambuh,\nbetuah bulih peredah\nenda ningkuh\nReti\nudah tusah baru deka\nngereja pengawa\norang bukai ke ngereja\npenyalah, orang bukai ke\nnapi penusah\nbalat seregah tang penemu\nke dikembuan enda\ntetipakka seregah\nsebedau nurun ngereja\npengawa madahka diri nadai\nutai enda ulih tang lebuh datai\nba situasyen ke bendar enda\ntekerejaka pengawa\norang ke endang udah landik\ntauka udah nemu enda ibuh\ndiajar kitai agi laban iya udah\nnemu agi ari kitai\npandai\npengawa enti dikereja mai\npenusah, enti enda dikereja\npan mai penusah\nbulih utai enggau mudah\nChara ngena\nKitai patut besedia sebedau ngereja\npengawa, anang nganti karam baru\nbetimba.\nPengawa Igat Ruma ti dijil endang\nbaka orang di ili munsi tubu, orang di\nulu ti dibalut miang laban penyalah\nnya ukai digaga iya.\nMasing sigi ragak riang, enti dipansuh\nenda bulih seputung munti laban\nnadai siti pengawa ulih gaga iya.\nLebuh maya baum deka numbuhka\nkedai gerempung, Igat Awan\nmadahka diri nemu semua prosedur\ntang lebuh maya diasuh ngisi pom\nngerejista iya lalu enda nyaut enda\nnyalah baka remaung di rumah,\nraung di tanah.\nOrang mayuh semina beratika Wat\nMaling ngajar Wat Jalie ngena\nkomputer laban pengawa Wat Maling\nnya baka Sebaru landik merau diajar\nngemudi, Tawang landik bedagang\ndiajar bebeli.\nJang siku nembiak ke tajam untak\nmaya besekula.\nIya abis runding mutarka penanggul\ntusah baka tepakaika buah ilang ilu,\nditelan mati apai, dilua mati indai.\nUntung bendar nuan bulih beliung\nenda ngambuh, betuah bulih peredah\nenda ningkuh.\nSEMPAMA\n213\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p226]\nA. Alli Majang, 1967. Padi Ribai: Kuching: Borneo Literature Bureau.\nBenedict Sandin, 1996. Tusun Pendiau: Kuching: Borneo Literature Bureau.\nBidin Anak Sanggu, 1966. Renung Semain: Kuching: Borneo Literature Bureau.\nChemaline Anak Osup, 2011. Litrericha Iban. Bintulu: Pegari Iban Production.\nClement Menyanggai Liaw, 1971. Uging. Kuching: Borneo Literature Bureau.\nLionel Frederick Mawar, 1977. Engkeratong Ayam Raja. Kuching: Borneo Literature Bureau.\nJabatan Pertanian Malaysia, 2017. AgriMaths. Unit Pemodenan Tadbiran dan Perancangan\nPengurusan Malaysia (MAMPU).\nJanang Anak Ensiring, Jantan Umbat, Robert Menua Anak Saleh, 2011. Bup Sereba Reti Jaku\nIban. Kuching: The Tun Jugah Foundations.\nJanang Anak Ensiring, Robert Menua Anak Saleh, 2006. Jaku Dalam. Kuching: Tun Jugah\nFoundations.\nPadang Anak Luna & Chemaline Anak Osup, 2011. Fonologi Jaku Iban. Malin Nembiak enggau\nPengajar. Tanjong Malim Perak: Emeritus Publications.\nPadang Anak Luna & Chemaline Anak Osup, 2011. Morfologi Jaku Iban. Malin Nembiak enggau\nPengajar. Tanjong Malim Perak: Emeritus Publications.\nRintai Minima, 2007. Putrajaya: Kementerian Pelajaran Malaysia.\nSempama, 2007. Putrajaya: Kementerian Pelajaran Malaysia.\nSistem Jaku Iban, 2007. Putrajaya: Kementerian Pelajaran Malaysia.\nPortal formal:\nhttp://www.doa.gov.my\nhttp://www.utusan.com.my\nhttp://pmr.penerangan.gov.my\nKEREBAN SANDING\n214\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p227]\n215\nSkim Pinjaman Buku Teks\nSekolah\nTahun\nTingkatan\nNama Penerima\nTarikh\nTerima\nNombor Perolehan:\nTarikh Penerimaan:\nBUKU INI TIDAK BOLEH DIJUAL\nDengan ini, SAYA BERJANJI akan menjaga buku ini\ndengan baiknya dan bertanggungjawab atas kehilangannya,\nserta mengembalikannya kepada pihak sekolah pada\ntarikh yang ditetapkan.\n\n[Bahasa Iban Tingkatan 4 KSSM.pdf p228]\n216",
+      "char_count": 86668,
+      "pages": [
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 147,
+          "global_page_number": 147,
+          "char_count": 1814,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 148,
+          "global_page_number": 148,
+          "char_count": 828,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 149,
+          "global_page_number": 149,
+          "char_count": 468,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 150,
+          "global_page_number": 150,
+          "char_count": 1306,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 151,
+          "global_page_number": 151,
+          "char_count": 732,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 152,
+          "global_page_number": 152,
+          "char_count": 1041,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 153,
+          "global_page_number": 153,
+          "char_count": 855,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 154,
+          "global_page_number": 154,
+          "char_count": 153,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 155,
+          "global_page_number": 155,
+          "char_count": 96,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 156,
+          "global_page_number": 156,
+          "char_count": 1478,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 157,
+          "global_page_number": 157,
+          "char_count": 1127,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 158,
+          "global_page_number": 158,
+          "char_count": 370,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 159,
+          "global_page_number": 159,
+          "char_count": 514,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 160,
+          "global_page_number": 160,
+          "char_count": 2519,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 161,
+          "global_page_number": 161,
+          "char_count": 666,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 162,
+          "global_page_number": 162,
+          "char_count": 350,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 163,
+          "global_page_number": 163,
+          "char_count": 1188,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 164,
+          "global_page_number": 164,
+          "char_count": 2152,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 165,
+          "global_page_number": 165,
+          "char_count": 591,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 166,
+          "global_page_number": 166,
+          "char_count": 958,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 167,
+          "global_page_number": 167,
+          "char_count": 873,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 168,
+          "global_page_number": 168,
+          "char_count": 1293,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 169,
+          "global_page_number": 169,
+          "char_count": 1188,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 170,
+          "global_page_number": 170,
+          "char_count": 153,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 171,
+          "global_page_number": 171,
+          "char_count": 70,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 172,
+          "global_page_number": 172,
+          "char_count": 1478,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 173,
+          "global_page_number": 173,
+          "char_count": 630,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 174,
+          "global_page_number": 174,
+          "char_count": 789,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 175,
+          "global_page_number": 175,
+          "char_count": 264,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 176,
+          "global_page_number": 176,
+          "char_count": 885,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 177,
+          "global_page_number": 177,
+          "char_count": 2694,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 178,
+          "global_page_number": 178,
+          "char_count": 694,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 179,
+          "global_page_number": 179,
+          "char_count": 1074,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 180,
+          "global_page_number": 180,
+          "char_count": 1211,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 181,
+          "global_page_number": 181,
+          "char_count": 534,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 182,
+          "global_page_number": 182,
+          "char_count": 662,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 183,
+          "global_page_number": 183,
+          "char_count": 180,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 184,
+          "global_page_number": 184,
+          "char_count": 666,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 185,
+          "global_page_number": 185,
+          "char_count": 1303,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 186,
+          "global_page_number": 186,
+          "char_count": 98,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 187,
+          "global_page_number": 187,
+          "char_count": 147,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 188,
+          "global_page_number": 188,
+          "char_count": 1803,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 189,
+          "global_page_number": 189,
+          "char_count": 1109,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 190,
+          "global_page_number": 190,
+          "char_count": 613,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 191,
+          "global_page_number": 191,
+          "char_count": 584,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 192,
+          "global_page_number": 192,
+          "char_count": 2836,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 193,
+          "global_page_number": 193,
+          "char_count": 828,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 194,
+          "global_page_number": 194,
+          "char_count": 872,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 195,
+          "global_page_number": 195,
+          "char_count": 350,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 196,
+          "global_page_number": 196,
+          "char_count": 1751,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 197,
+          "global_page_number": 197,
+          "char_count": 1707,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 198,
+          "global_page_number": 198,
+          "char_count": 486,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 199,
+          "global_page_number": 199,
+          "char_count": 1295,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 200,
+          "global_page_number": 200,
+          "char_count": 868,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 201,
+          "global_page_number": 201,
+          "char_count": 1990,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 202,
+          "global_page_number": 202,
+          "char_count": 142,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 203,
+          "global_page_number": 203,
+          "char_count": 75,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 204,
+          "global_page_number": 204,
+          "char_count": 1724,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 205,
+          "global_page_number": 205,
+          "char_count": 722,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 206,
+          "global_page_number": 206,
+          "char_count": 1046,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 207,
+          "global_page_number": 207,
+          "char_count": 883,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 208,
+          "global_page_number": 208,
+          "char_count": 1759,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 209,
+          "global_page_number": 209,
+          "char_count": 932,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 210,
+          "global_page_number": 210,
+          "char_count": 706,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 211,
+          "global_page_number": 211,
+          "char_count": 2507,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 212,
+          "global_page_number": 212,
+          "char_count": 919,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 213,
+          "global_page_number": 213,
+          "char_count": 310,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 214,
+          "global_page_number": 214,
+          "char_count": 1205,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 215,
+          "global_page_number": 215,
+          "char_count": 1131,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 216,
+          "global_page_number": 216,
+          "char_count": 1160,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 217,
+          "global_page_number": 217,
+          "char_count": 846,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 218,
+          "global_page_number": 218,
+          "char_count": 1276,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 219,
+          "global_page_number": 219,
+          "char_count": 1160,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 220,
+          "global_page_number": 220,
+          "char_count": 952,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 221,
+          "global_page_number": 221,
+          "char_count": 1696,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 222,
+          "global_page_number": 222,
+          "char_count": 1825,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 223,
+          "global_page_number": 223,
+          "char_count": 1745,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 224,
+          "global_page_number": 224,
+          "char_count": 1770,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 225,
+          "global_page_number": 225,
+          "char_count": 1849,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 226,
+          "global_page_number": 226,
+          "char_count": 1378,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 227,
+          "global_page_number": 227,
+          "char_count": 321,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "Bahasa Iban Tingkatan 4 KSSM.pdf",
+          "page_number": 228,
+          "global_page_number": 228,
+          "char_count": 3,
+          "needs_ocr": true,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    }
+  ]
+}

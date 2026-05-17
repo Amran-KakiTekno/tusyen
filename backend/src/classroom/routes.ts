@@ -76,7 +76,10 @@ export async function classroomRoutes(fastify: FastifyInstance) {
         `SELECT c.*, 
                 (SELECT COUNT(*)::int FROM classroom_enrollments WHERE classroom_id = c.id AND is_active = true) as student_count,
                 (SELECT COUNT(*)::int FROM classroom_lessons WHERE classroom_id = c.id) as lesson_count,
-                (SELECT COUNT(*)::int FROM posts WHERE classroom_id = c.id AND is_active = true) as post_count
+                (SELECT COUNT(*)::int FROM posts WHERE classroom_id = c.id AND is_active = true) as post_count,
+                (SELECT AVG(p.completion_percentage) FROM progress p WHERE p.classroom_id = c.id) as average_progress,
+                (SELECT COUNT(*)::int FROM progress p WHERE p.classroom_id = c.id) as progress_count,
+                (${atRiskStudentsSubquery('c.id')}) as at_risk_count
          FROM classrooms c
          WHERE c.teacher_id = $1 AND c.is_active = true
          ORDER BY c.created_at DESC`,
@@ -100,7 +103,7 @@ export async function classroomRoutes(fastify: FastifyInstance) {
     } else if (user.role === 'parent') {
       // Get classrooms of linked students
       result = await db.query(
-        `SELECT DISTINCT c.*, u.full_name as teacher_name, s.full_name as student_name,
+        `SELECT DISTINCT c.*, u.full_name as teacher_name, s.id as student_id, s.full_name as student_name,
                 true as is_enrolled,
                 (SELECT COUNT(*)::int FROM classroom_enrollments WHERE classroom_id = c.id AND is_active = true) as student_count,
                 (SELECT COUNT(*)::int FROM classroom_lessons WHERE classroom_id = c.id) as lesson_count,
@@ -120,7 +123,10 @@ export async function classroomRoutes(fastify: FastifyInstance) {
         `SELECT c.*, u.full_name as teacher_name,
                 (SELECT COUNT(*)::int FROM classroom_enrollments WHERE classroom_id = c.id AND is_active = true) as student_count,
                 (SELECT COUNT(*)::int FROM classroom_lessons WHERE classroom_id = c.id) as lesson_count,
-                (SELECT COUNT(*)::int FROM posts WHERE classroom_id = c.id AND is_active = true) as post_count
+                (SELECT COUNT(*)::int FROM posts WHERE classroom_id = c.id AND is_active = true) as post_count,
+                (SELECT AVG(p.completion_percentage) FROM progress p WHERE p.classroom_id = c.id) as average_progress,
+                (SELECT COUNT(*)::int FROM progress p WHERE p.classroom_id = c.id) as progress_count,
+                (${atRiskStudentsSubquery('c.id')}) as at_risk_count
          FROM classrooms c
          JOIN users u ON u.id = c.teacher_id
          WHERE c.is_active = true
@@ -129,6 +135,69 @@ export async function classroomRoutes(fastify: FastifyInstance) {
     }
 
     return { classrooms: result.rows };
+  });
+
+  // Join classroom by code (Student only)
+  fastify.post('/join-by-code', {
+    onRequest: [(fastify as any).authenticate]
+  }, async (request, reply) => {
+    const user = (request as any).user;
+    const { joinCode } = request.body as any;
+    const normalizedJoinCode = `${joinCode ?? ''}`.trim().toUpperCase();
+
+    if (user.role !== 'student') {
+      return reply.code(403).send({ error: 'Only students can join classrooms' });
+    }
+
+    if (!normalizedJoinCode) {
+      return reply.code(400).send({ error: 'Classroom join code is required' });
+    }
+
+    const classroom = await db.query(
+      `SELECT c.id, c.name, c.subject, c.form_level, c.is_active, u.full_name as teacher_name
+       FROM classrooms c
+       JOIN users u ON u.id = c.teacher_id
+       WHERE UPPER(c.join_code) = $1
+       LIMIT 1`,
+      [normalizedJoinCode]
+    );
+
+    if ((classroom.rowCount ?? 0) === 0) {
+      return reply.code(404).send({ error: 'Invalid classroom join code' });
+    }
+
+    if (!classroom.rows[0].is_active) {
+      return reply.code(403).send({ error: 'Classroom is inactive' });
+    }
+
+    const existing = await db.query(
+      'SELECT id, is_active FROM classroom_enrollments WHERE student_id = $1 AND classroom_id = $2',
+      [user.userId, classroom.rows[0].id]
+    );
+
+    if ((existing.rowCount ?? 0) > 0 && existing.rows[0].is_active) {
+      return reply.code(409).send({ error: 'Already enrolled in this classroom' });
+    }
+
+    if ((existing.rowCount ?? 0) > 0) {
+      await db.query(
+        `UPDATE classroom_enrollments
+         SET is_active = true, last_active_at = NOW()
+         WHERE id = $1`,
+        [existing.rows[0].id]
+      );
+    } else {
+      await db.query(
+        'INSERT INTO classroom_enrollments (id, student_id, classroom_id) VALUES ($1, $2, $3)',
+        [uuidv4(), user.userId, classroom.rows[0].id]
+      );
+    }
+
+    return {
+      success: true,
+      message: 'Successfully joined classroom',
+      classroom: classroom.rows[0],
+    };
   });
 
   // Get classroom details
@@ -142,7 +211,10 @@ export async function classroomRoutes(fastify: FastifyInstance) {
       `SELECT c.*, u.full_name as teacher_name,
               (SELECT COUNT(*)::int FROM classroom_enrollments WHERE classroom_id = c.id AND is_active = true) as student_count,
               (SELECT COUNT(*)::int FROM classroom_lessons WHERE classroom_id = c.id) as lesson_count,
-              (SELECT COUNT(*)::int FROM posts WHERE classroom_id = c.id AND is_active = true) as post_count
+              (SELECT COUNT(*)::int FROM posts WHERE classroom_id = c.id AND is_active = true) as post_count,
+              (SELECT AVG(p.completion_percentage) FROM progress p WHERE p.classroom_id = c.id) as average_progress,
+              (SELECT COUNT(*)::int FROM progress p WHERE p.classroom_id = c.id) as progress_count,
+              (${atRiskStudentsSubquery('c.id')}) as at_risk_count
        FROM classrooms c
        JOIN users u ON u.id = c.teacher_id
        WHERE c.id = $1`,
@@ -171,6 +243,7 @@ export async function classroomRoutes(fastify: FastifyInstance) {
     const user = (request as any).user;
     const { id } = request.params as any;
     const { joinCode } = request.body as any;
+    const normalizedJoinCode = `${joinCode ?? ''}`.trim().toUpperCase();
 
     if (user.role !== 'student') {
       return reply.code(403).send({ error: 'Only students can join classrooms' });
@@ -178,8 +251,8 @@ export async function classroomRoutes(fastify: FastifyInstance) {
 
     // Verify classroom and join code
     const classroom = await db.query(
-      'SELECT id, teacher_id, is_active FROM classrooms WHERE id = $1 AND join_code = $2',
-      [id, joinCode]
+      'SELECT id, teacher_id, is_active FROM classrooms WHERE id = $1 AND UPPER(join_code) = $2',
+      [id, normalizedJoinCode]
     );
 
     if (classroom.rowCount === 0) {
@@ -249,6 +322,38 @@ export async function classroomRoutes(fastify: FastifyInstance) {
     return { students: result.rows };
   });
 
+  // Remove student from classroom roster (Teacher/Admin)
+  fastify.delete('/:id/students/:studentId', {
+    onRequest: [(fastify as any).authenticate]
+  }, async (request, reply) => {
+    const user = (request as any).user;
+    const { id, studentId } = request.params as any;
+
+    if (!(await canManageClassroom(user, id))) {
+      return reply.code(403).send({ error: 'Access denied' });
+    }
+
+    const result = await db.query(
+      `UPDATE classroom_enrollments
+       SET is_active = false, last_active_at = NOW()
+       WHERE classroom_id = $1 AND student_id = $2 AND is_active = true
+       RETURNING id`,
+      [id, studentId]
+    );
+
+    if ((result.rowCount ?? 0) === 0) {
+      return reply.code(404).send({ error: 'Student is not active in this classroom' });
+    }
+
+    await redis.publish(`classroom:${id}`, JSON.stringify({
+      type: 'student_removed',
+      classroomId: id,
+      studentId,
+    }));
+
+    return { success: true };
+  });
+
   // Leave classroom (Student)
   fastify.post('/:id/leave', {
     onRequest: [(fastify as any).authenticate]
@@ -300,23 +405,56 @@ export async function classroomRoutes(fastify: FastifyInstance) {
   }, async (request, reply) => {
     const user = (request as any).user;
     const { id } = request.params as any;
-    const { name, description, subject, formLevel, isPublic } = request.body as any;
+    const body = request.body as any;
+    const { name, description, subject, formLevel, isPublic, isActive } = body;
 
     if (!(await canManageClassroom(user, id))) {
       return reply.code(403).send({ error: 'Access denied' });
     }
 
+    const hasName = Object.prototype.hasOwnProperty.call(body, 'name');
+    const hasDescription = Object.prototype.hasOwnProperty.call(body, 'description');
+    const hasSubject = Object.prototype.hasOwnProperty.call(body, 'subject');
+    const hasFormLevel = Object.prototype.hasOwnProperty.call(body, 'formLevel');
+    const hasIsPublic = typeof isPublic === 'boolean';
+    const hasIsActive = typeof isActive === 'boolean';
+
+    if (hasName && !`${name ?? ''}`.trim()) {
+      return reply.code(400).send({ error: 'name cannot be empty' });
+    }
+    if (hasSubject && !`${subject ?? ''}`.trim()) {
+      return reply.code(400).send({ error: 'subject cannot be empty' });
+    }
+    if (hasFormLevel && ![4, 5].includes(Number(formLevel))) {
+      return reply.code(400).send({ error: 'formLevel must be 4 or 5' });
+    }
+
     const result = await db.query(
       `UPDATE classrooms
-       SET name = COALESCE($1, name),
-           description = COALESCE($2, description),
-           subject = COALESCE($3, subject),
-           form_level = COALESCE($4, form_level),
-           is_public = COALESCE($5, is_public),
+       SET name = CASE WHEN $1 THEN $2 ELSE name END,
+           description = CASE WHEN $3 THEN $4 ELSE description END,
+           subject = CASE WHEN $5 THEN $6 ELSE subject END,
+           form_level = CASE WHEN $7 THEN $8 ELSE form_level END,
+           is_public = CASE WHEN $9 THEN $10 ELSE is_public END,
+           is_active = CASE WHEN $11 THEN $12 ELSE is_active END,
            updated_at = NOW()
-       WHERE id = $6
+       WHERE id = $13
        RETURNING *`,
-      [name || null, description || null, subject || null, formLevel || null, typeof isPublic === 'boolean' ? isPublic : null, id]
+      [
+        hasName,
+        `${name ?? ''}`.trim() || null,
+        hasDescription,
+        description === null ? null : `${description ?? ''}`.trim(),
+        hasSubject,
+        `${subject ?? ''}`.trim() || null,
+        hasFormLevel,
+        Number(formLevel) || null,
+        hasIsPublic,
+        isPublic,
+        hasIsActive,
+        isActive,
+        id,
+      ]
     );
 
     if ((result.rowCount ?? 0) === 0) {
@@ -357,9 +495,15 @@ export async function classroomRoutes(fastify: FastifyInstance) {
     );
 
     const avgProgress = await db.query(
-      `SELECT AVG(completion_percentage) as avg_progress
+      `SELECT AVG(completion_percentage) as avg_progress,
+              COUNT(*)::int as progress_count
        FROM progress
        WHERE classroom_id = $1`,
+      [id]
+    );
+
+    const atRiskStudents = await db.query(
+      `SELECT (${atRiskStudentsSubquery('$1')}) as count`,
       [id]
     );
 
@@ -403,6 +547,8 @@ export async function classroomRoutes(fastify: FastifyInstance) {
       totalStudents: parseInt(totalStudents.rows[0].count),
       activeToday: parseInt(activeToday.rows[0].count),
       averageProgress: Math.round(avgProgress.rows[0].avg_progress || 0),
+      progressCount: Number(avgProgress.rows[0].progress_count) || 0,
+      atRiskCount: Number(atRiskStudents.rows[0]?.count) || 0,
       weeklyActivity: weekdayMap.map(({ dow, day }) => ({
         day,
         count: dowCounts.get(dow) || 0,
@@ -549,4 +695,25 @@ async function checkClassroomAccess(user: any, classroomId: string): Promise<boo
     return (result.rowCount ?? 0) > 0;
   }
   return false;
+}
+
+function atRiskStudentsSubquery(classroomExpression: string): string {
+  return `
+    SELECT COUNT(*)::int
+    FROM (
+      SELECT ce.student_id
+      FROM classroom_enrollments ce
+      LEFT JOIN progress p
+        ON p.student_id = ce.student_id
+       AND p.classroom_id = ce.classroom_id
+      WHERE ce.classroom_id = ${classroomExpression}
+        AND ce.is_active = true
+      GROUP BY ce.student_id
+      HAVING COUNT(p.id) > 0
+         AND (
+           AVG(COALESCE(p.score, 100)) < 60
+           OR AVG(COALESCE(p.completion_percentage, 100)) < 50
+         )
+    ) risk_students
+  `;
 }

@@ -1,6 +1,8 @@
 import { FastifyInstance } from 'fastify';
 import bcrypt from 'bcryptjs';
 import { v4 as uuidv4 } from 'uuid';
+import { config } from '../config';
+import { auditLog } from '../audit';
 import { db, withTransaction } from '../database';
 import { deleteSession, redis } from '../redis';
 import {
@@ -35,29 +37,54 @@ export async function adminRoutes(fastify: FastifyInstance) {
     }
   });
 
+  fastify.addHook('onResponse', async (request, reply) => {
+    auditLog(request, 'admin.request', {
+      method: request.method,
+      path: (request as any).routeOptions?.url || request.url,
+      statusCode: reply.statusCode,
+    });
+  });
+
   // User management
   fastify.get('/users', async (request, reply) => {
-    const { role, isActive, limit = 50, offset = 0 } = request.query as any;
+    const { role, isActive, search, limit = 50, offset = 0 } = request.query as any;
+    const pageLimit = boundedInt(limit, 50, 1, 200);
+    const pageOffset = boundedInt(offset, 0, 0, 100000);
 
-    let query = `SELECT id, email, full_name, role, phone_number, date_of_birth, is_active, created_at, last_login FROM users WHERE 1=1`;
+    let where = 'WHERE 1=1';
     const params: any[] = [];
 
     if (role) {
-      query += ` AND role = $${params.length + 1}`;
+      where += ` AND role = $${params.length + 1}`;
       params.push(role);
     }
 
     if (isActive !== undefined) {
-      query += ` AND is_active = $${params.length + 1}`;
+      where += ` AND is_active = $${params.length + 1}`;
       params.push(isActive === 'true');
     }
 
-    query += ` ORDER BY created_at DESC LIMIT $${params.length + 1} OFFSET $${params.length + 2}`;
-    params.push(limit, offset);
+    if (search) {
+      where += ` AND (full_name ILIKE $${params.length + 1} OR email ILIKE $${params.length + 2})`;
+      params.push(`%${search}%`, `%${search}%`);
+    }
 
-    const result = await db.query(query, params);
+    const count = await db.query(`SELECT COUNT(*)::int as total FROM users ${where}`, params);
+    const result = await db.query(
+      `SELECT id, email, full_name, role, phone_number, date_of_birth, is_active, created_at, last_login
+       FROM users
+       ${where}
+       ORDER BY created_at DESC
+       LIMIT $${params.length + 1} OFFSET $${params.length + 2}`,
+      [...params, pageLimit, pageOffset]
+    );
 
-    return { users: result.rows };
+    return {
+      users: result.rows,
+      total: Number(count.rows[0]?.total || 0),
+      limit: pageLimit,
+      offset: pageOffset,
+    };
   });
 
   fastify.get('/users/:id', async (request, reply) => {
@@ -148,6 +175,29 @@ export async function adminRoutes(fastify: FastifyInstance) {
     );
 
     return { success: true, user: result.rows[0] };
+  });
+
+  fastify.patch('/users/bulk-status', async (request, reply) => {
+    const { userIds, isActive } = request.body as any;
+    const ids = Array.isArray(userIds)
+      ? Array.from(new Set(userIds.map(stringOrNull).filter(Boolean)))
+      : [];
+
+    if (ids.length === 0 || typeof isActive !== 'boolean') {
+      return reply.code(400).send({ error: 'userIds and boolean isActive are required' });
+    }
+
+    const result = await db.query(
+      `UPDATE users
+       SET is_active = $1, updated_at = NOW()
+       WHERE id = ANY($2::uuid[])
+       RETURNING id`,
+      [isActive, ids]
+    );
+
+    await Promise.all(result.rows.map((row) => deleteSession(row.id)));
+
+    return { success: true, updated: result.rowCount ?? 0 };
   });
 
   fastify.patch('/users/:id', async (request, reply) => {
@@ -309,7 +359,7 @@ export async function adminRoutes(fastify: FastifyInstance) {
   });
 
   fastify.get('/classrooms', async (request, reply) => {
-    const { teacherId, subject, formLevel, isActive } = request.query as any;
+    const { teacherId, subject, formLevel, isActive, search } = request.query as any;
     const params: any[] = [];
     let query = `
       SELECT c.*,
@@ -341,6 +391,11 @@ export async function adminRoutes(fastify: FastifyInstance) {
     if (isActive !== undefined) {
       query += ` AND c.is_active = $${params.length + 1}`;
       params.push(isActive === 'true');
+    }
+
+    if (search) {
+      query += ` AND (c.name ILIKE $${params.length + 1} OR c.subject ILIKE $${params.length + 2} OR u.full_name ILIKE $${params.length + 3})`;
+      params.push(`%${search}%`, `%${search}%`, `%${search}%`);
     }
 
     query += ' ORDER BY c.created_at DESC';
@@ -474,6 +529,29 @@ export async function adminRoutes(fastify: FastifyInstance) {
     return { success: true };
   });
 
+  fastify.get('/classrooms/:id/students', async (request, reply) => {
+    const { id } = request.params as any;
+
+    const classroom = await db.query('SELECT id FROM classrooms WHERE id = $1', [id]);
+    if ((classroom.rowCount ?? 0) === 0) {
+      return reply.code(404).send({ error: 'Classroom not found' });
+    }
+
+    const result = await db.query(
+      `SELECT u.id, u.full_name, u.email, ce.joined_at, ce.last_active_at
+       FROM classroom_enrollments ce
+       JOIN users u ON u.id = ce.student_id
+       WHERE ce.classroom_id = $1 AND ce.is_active = true
+       ORDER BY u.full_name ASC, u.email ASC`,
+      [id]
+    );
+
+    return {
+      students: result.rows,
+      total: result.rowCount ?? 0,
+    };
+  });
+
   fastify.delete('/classrooms/:id/students/:studentId', async (request, reply) => {
     const { id, studentId } = request.params as any;
 
@@ -496,19 +574,124 @@ export async function adminRoutes(fastify: FastifyInstance) {
   fastify.get('/stats', async (request, reply) => {
     const stats = await db.query(`
       SELECT 
-        (SELECT COUNT(*) FROM users WHERE role = 'student' AND is_active = true) as total_students,
-        (SELECT COUNT(*) FROM users WHERE role = 'teacher' AND is_active = true) as total_teachers,
-        (SELECT COUNT(*) FROM users WHERE role = 'parent' AND is_active = true) as total_parents,
-        (SELECT COUNT(*) FROM users WHERE is_active = true) as active_users,
-        (SELECT COUNT(*) FROM users WHERE is_active = false) as inactive_users,
-        (SELECT COUNT(*) FROM users) as all_users,
-        (SELECT COUNT(*) FROM classrooms WHERE is_active = true) as active_classrooms,
-        (SELECT COUNT(*) FROM classroom_enrollments WHERE is_active = true) as total_enrollments,
-        (SELECT COUNT(*) FROM lessons WHERE is_active = true) as total_lessons,
-        (SELECT COUNT(*) FROM progress WHERE updated_at > NOW() - INTERVAL '24 hours') as activities_today
+        (SELECT COUNT(*)::int FROM users WHERE role = 'student' AND is_active = true) as total_students,
+        (SELECT COUNT(*)::int FROM users WHERE role = 'teacher' AND is_active = true) as total_teachers,
+        (SELECT COUNT(*)::int FROM users WHERE role = 'parent' AND is_active = true) as total_parents,
+        (SELECT COUNT(*)::int FROM users WHERE is_active = true) as active_users,
+        (SELECT COUNT(*)::int FROM users WHERE is_active = false) as inactive_users,
+        (SELECT COUNT(*)::int FROM users) as all_users,
+        (SELECT COUNT(*)::int FROM classrooms WHERE is_active = true) as active_classrooms,
+        (SELECT COUNT(*)::int FROM classroom_enrollments WHERE is_active = true) as total_enrollments,
+        (SELECT COUNT(*)::int FROM lessons WHERE is_active = true) as total_lessons,
+        (SELECT COUNT(*)::int FROM progress WHERE updated_at > NOW() - INTERVAL '24 hours') as activities_today,
+        (SELECT COUNT(*)::int FROM progress WHERE updated_at <= NOW() - INTERVAL '24 hours' AND updated_at > NOW() - INTERVAL '48 hours') as activities_previous_day,
+        (SELECT COUNT(*)::int FROM users WHERE role = 'student' AND created_at > NOW() - INTERVAL '7 days') as new_students_7d,
+        (SELECT COUNT(*)::int FROM users WHERE role = 'teacher' AND created_at > NOW() - INTERVAL '7 days') as new_teachers_7d,
+        (SELECT COUNT(*)::int FROM users WHERE role = 'parent' AND created_at > NOW() - INTERVAL '7 days') as new_parents_7d
     `);
 
     return { stats: stats.rows[0] };
+  });
+
+  fastify.get('/logs', async (request, reply) => {
+    const { limit = 20, offset = 0 } = request.query as any;
+    const pageLimit = boundedInt(limit, 20, 1, 100);
+    const pageOffset = boundedInt(offset, 0, 0, 100000);
+
+    const result = await db.query(
+      `
+      WITH events AS (
+        SELECT 'info' as type,
+               'Pengguna log masuk: ' || COALESCE(full_name, email) as message,
+               last_login as event_at
+        FROM users
+        WHERE last_login IS NOT NULL
+
+        UNION ALL
+
+        SELECT 'warn' as type,
+               'Akaun dinyahaktif: ' || COALESCE(full_name, email) as message,
+               updated_at as event_at
+        FROM users
+        WHERE is_active = false
+
+        UNION ALL
+
+        SELECT 'success' as type,
+               'Pelajaran diterbitkan: ' || title as message,
+               created_at as event_at
+        FROM lessons
+        WHERE is_active = true
+
+        UNION ALL
+
+        SELECT 'success' as type,
+               'Kemajuan pelajar direkod: ' || COALESCE(u.full_name, u.email, 'Pelajar') as message,
+               p.updated_at as event_at
+        FROM progress p
+        LEFT JOIN users u ON u.id = p.student_id
+
+        UNION ALL
+
+        SELECT 'info' as type,
+               'Kelas aktif: ' || name as message,
+               created_at as event_at
+        FROM classrooms
+        WHERE is_active = true
+      )
+      SELECT type, message, event_at, (COUNT(*) OVER())::int as total
+      FROM events
+      WHERE event_at IS NOT NULL
+      ORDER BY event_at DESC
+      LIMIT $1 OFFSET $2
+      `,
+      [pageLimit, pageOffset]
+    );
+
+    return {
+      logs: result.rows.map(({ total, ...row }) => row),
+      total: Number(result.rows[0]?.total || 0),
+      limit: pageLimit,
+      offset: pageOffset,
+    };
+  });
+
+  fastify.get('/system', async (request, reply) => {
+    const [syncDevices, pendingQueues] = await Promise.all([
+      db.query(
+        `SELECT COUNT(*)::int as total_devices,
+                MAX(last_sync_at) as latest_sync_at
+         FROM device_syncs`
+      ),
+      redis.keys('sync:queue:*'),
+    ]);
+
+    return {
+      config: {
+        nodeEnv: config.NODE_ENV,
+        port: config.PORT,
+        corsAllowedOrigins: config.CORS_ALLOWED_ORIGINS,
+        keycloakRealm: config.KEYCLOAK_REALM,
+        keycloakClientId: config.KEYCLOAK_CLIENT_ID,
+        ntfyEnabled: config.NTFY_ENABLED,
+        publicAppUrl: config.PUBLIC_APP_URL,
+        syncBatchSize: config.SYNC_BATCH_SIZE,
+        maxSyncHistoryDays: config.MAX_SYNC_HISTORY_DAYS,
+        demoAdminLoginEnabled: config.DEMO_ADMIN_LOGIN_ENABLED,
+        publicAdminRegistrationEnabled: config.PUBLIC_ADMIN_REGISTRATION_ENABLED,
+        allowGuestQuizJoin: config.ALLOW_GUEST_QUIZ_JOIN,
+      },
+      sync: {
+        registeredDevices: Number(syncDevices.rows[0]?.total_devices || 0),
+        latestSyncAt: syncDevices.rows[0]?.latest_sync_at || null,
+        pendingQueues: pendingQueues.length,
+      },
+      backup: {
+        driver: 'postgres',
+        mode: 'external',
+        note: 'Use scheduled pg_dump or managed volume snapshots outside the app process.',
+      },
+    };
   });
 
   // Syllabus management (Admin creates global curriculum)
@@ -969,9 +1152,29 @@ export async function adminRoutes(fastify: FastifyInstance) {
 
   // Clear cache
   fastify.post('/cache/clear', async (request, reply) => {
-    await redis.flushall();
-    return { success: true, message: 'Cache cleared' };
+    const deleted = await clearRedisCacheKeys([
+      'stats:student:*',
+      'leaderboard:classroom:*',
+    ]);
+    return { success: true, message: 'Cache cleared', deleted };
   });
+}
+
+async function clearRedisCacheKeys(patterns: string[]) {
+  let deleted = 0;
+
+  for (const pattern of patterns) {
+    let cursor = '0';
+    do {
+      const [nextCursor, keys] = await redis.scan(cursor, 'MATCH', pattern, 'COUNT', 100);
+      cursor = nextCursor;
+      if (keys.length > 0) {
+        deleted += await redis.del(...keys);
+      }
+    } while (cursor !== '0');
+  }
+
+  return deleted;
 }
 
 function stringOrNull(value: unknown) {
@@ -979,8 +1182,20 @@ function stringOrNull(value: unknown) {
   return text.length === 0 ? null : text;
 }
 
+function boundedInt(value: unknown, fallback: number, min: number, max: number) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return fallback;
+  return Math.max(min, Math.min(max, Math.floor(number)));
+}
+
 function errorMessage(error: unknown) {
-  return error instanceof Error ? error.message : 'Request failed';
+  const message = error instanceof Error ? error.message : '';
+  return [
+    'Join code is already in use',
+    'Could not generate a unique join code',
+  ].includes(message)
+    ? message
+    : 'Request failed';
 }
 
 function normalizeLessonContentForAdmin(value: any): Record<string, any> {
@@ -1005,7 +1220,44 @@ function normalizeLessonContentForAdmin(value: any): Record<string, any> {
       });
   }
 
-  return content;
+  return sanitizeLessonContent(content) as Record<string, any>;
+}
+
+function sanitizeLessonContent(value: unknown): unknown {
+  if (typeof value === 'string') {
+    return sanitizeText(value);
+  }
+
+  if (Array.isArray(value)) {
+    return value.map((item) => sanitizeLessonContent(item));
+  }
+
+  if (!value || typeof value !== 'object') {
+    return value;
+  }
+
+  const result: Record<string, unknown> = {};
+  for (const [key, nestedValue] of Object.entries(value as Record<string, unknown>)) {
+    const normalizedKey = key.toLowerCase();
+    if (
+      normalizedKey.startsWith('on') ||
+      ['html', 'innerhtml', 'dangerouslysetinnerhtml', 'script', 'style'].includes(normalizedKey)
+    ) {
+      continue;
+    }
+    result[key] = sanitizeLessonContent(nestedValue);
+  }
+  return result;
+}
+
+function sanitizeText(value: string) {
+  return value
+    .replace(/javascript\s*:/gi, '')
+    .replace(/on[a-z]+\s*=/gi, '')
+    .replace(/<\s*\/?\s*script/gi, '')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .trim();
 }
 
 async function isRole(userId: unknown, role: string) {

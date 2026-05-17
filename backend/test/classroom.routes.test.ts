@@ -43,7 +43,8 @@ describe('classroom analytics', () => {
     mocks.dbQuery
       .mockResolvedValueOnce({ rowCount: 1, rows: [{ count: '28' }] })
       .mockResolvedValueOnce({ rowCount: 1, rows: [{ count: '3' }] })
-      .mockResolvedValueOnce({ rowCount: 1, rows: [{ avg_progress: 72 }] })
+      .mockResolvedValueOnce({ rowCount: 1, rows: [{ avg_progress: 72, progress_count: 9 }] })
+      .mockResolvedValueOnce({ rowCount: 1, rows: [{ count: 2 }] })
       .mockResolvedValueOnce({
         rowCount: 2,
         rows: [
@@ -69,6 +70,8 @@ describe('classroom analytics', () => {
       totalStudents: 28,
       activeToday: 3,
       averageProgress: 72,
+      progressCount: 9,
+      atRiskCount: 2,
       weeklyActivity: [
         { day: 'Isnin', count: 5 },
         { day: 'Selasa', count: 0 },
@@ -78,6 +81,27 @@ describe('classroom analytics', () => {
       ],
       weakTopics: [{ topic: 'Geometri', avgScore: 45 }],
     });
+
+    await app.close();
+  });
+
+  it('lets a teacher remove an active student from their roster', async () => {
+    mocks.dbQuery
+      .mockResolvedValueOnce({ rowCount: 1, rows: [{ id: 'classroom-1' }] })
+      .mockResolvedValueOnce({ rowCount: 1, rows: [{ id: 'enrollment-1' }] });
+
+    const app = buildApp({ userId: 'teacher-1', role: 'teacher' });
+    await app.ready();
+
+    const response = await app.inject({
+      method: 'DELETE',
+      url: '/classroom/classroom-1/students/student-1',
+    });
+
+    expect(response.statusCode).toBe(200);
+    expect(response.json()).toMatchObject({ success: true });
+    expect(String(mocks.dbQuery.mock.calls[1][0])).toContain('UPDATE classroom_enrollments');
+    expect(mocks.dbQuery.mock.calls[1][1]).toEqual(['classroom-1', 'student-1']);
 
     await app.close();
   });

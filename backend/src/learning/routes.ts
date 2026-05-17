@@ -86,13 +86,9 @@ const lessonFields = `
 export async function learningRoutes(fastify: FastifyInstance) {
   fastify.get('/catalog', {
     onRequest: [(fastify as any).authenticate]
-  }, async (request, reply) => {
+  }, async (request, _reply) => {
     const user = (request as any).user as AuthUser;
-    const { subject, formLevel, limit = 100, offset = 0 } = request.query as any;
-
-    if (user.role === 'student' || user.role === 'parent') {
-      return reply.code(403).send({ error: 'Catalog is only available to teachers and admins' });
-    }
+    const { subject, formLevel, difficulty, search, limit = 100, offset = 0 } = request.query as any;
 
     let query = `
       SELECT l.*,
@@ -129,6 +125,31 @@ export async function learningRoutes(fastify: FastifyInstance) {
     if (formLevel) {
       query += ` AND l.form_level = $${params.length + 1}`;
       params.push(Number(formLevel));
+    }
+
+    if (difficulty) {
+      query += ` AND l.difficulty = $${params.length + 1}`;
+      params.push(`${difficulty}`.trim());
+    }
+
+    const cleanSearch = `${search ?? ''}`.trim().toLowerCase();
+    if (cleanSearch) {
+      query += ` AND (
+        LOWER(l.title) LIKE $${params.length + 1}
+        OR LOWER(l.subject) LIKE $${params.length + 1}
+        OR LOWER(COALESCE(l.content->>'summary', '')) LIKE $${params.length + 1}
+        OR EXISTS (
+          SELECT 1
+          FROM lesson_syllabus_links lsl_search
+          JOIN syllabus_items si_search ON si_search.id = lsl_search.syllabus_id
+          WHERE lsl_search.lesson_id = l.id
+            AND (
+              LOWER(si_search.topic) LIKE $${params.length + 1}
+              OR LOWER(COALESCE(si_search.subtopic, '')) LIKE $${params.length + 1}
+            )
+        )
+      )`;
+      params.push(`%${cleanSearch}%`);
     }
 
     query += ` ORDER BY l.created_at DESC LIMIT $${params.length + 1} OFFSET $${params.length + 2}`;
@@ -500,7 +521,13 @@ export async function learningRoutes(fastify: FastifyInstance) {
     );
 
     let progress = null;
-    if (user.role === 'student' && lesson.classroom_id) {
+    if (user.role === 'student') {
+      const progressWhere = lesson.classroom_id
+        ? `student_id = $1 AND lesson_id = $2 AND classroom_id = $3`
+        : `student_id = $1 AND lesson_id = $2 AND classroom_id IS NULL`;
+      const progressParams = lesson.classroom_id
+        ? [user.userId, id, lesson.classroom_id]
+        : [user.userId, id];
       const result = await db.query(
         `SELECT score,
                 completion_percentage,
@@ -511,8 +538,8 @@ export async function learningRoutes(fastify: FastifyInstance) {
                 content_review_seconds,
                 updated_at
          FROM progress
-         WHERE student_id = $1 AND lesson_id = $2 AND classroom_id = $3`,
-        [user.userId, id, lesson.classroom_id]
+         WHERE ${progressWhere}`,
+        progressParams
       );
       progress = result.rows[0] || null;
     }
@@ -543,8 +570,8 @@ export async function learningRoutes(fastify: FastifyInstance) {
     }
 
     const lesson = await getAccessibleLesson(user, id, classroomId);
-    if (!lesson || !lesson.classroom_id) {
-      return reply.code(404).send({ error: 'Lesson not found or not assigned to your classroom' });
+    if (!lesson) {
+      return reply.code(404).send({ error: 'Lesson not found or not accessible' });
     }
 
     const lessonBlocks = getLessonContentBlocks(lesson.content);
@@ -553,11 +580,17 @@ export async function learningRoutes(fastify: FastifyInstance) {
     let previouslyReviewedContent = false;
 
     if (reviewRequired) {
+      const progressWhere = lesson.classroom_id
+        ? `student_id = $1 AND lesson_id = $2 AND classroom_id = $3`
+        : `student_id = $1 AND lesson_id = $2 AND classroom_id IS NULL`;
+      const progressParams = lesson.classroom_id
+        ? [user.userId, id, lesson.classroom_id]
+        : [user.userId, id];
       const existingProgress = await db.query(
         `SELECT content_reviewed_at, content_block_count
          FROM progress
-         WHERE student_id = $1 AND lesson_id = $2 AND classroom_id = $3`,
-        [user.userId, id, lesson.classroom_id]
+         WHERE ${progressWhere}`,
+        progressParams
       );
       const previous = existingProgress.rows[0];
       previouslyReviewedContent = Boolean(previous?.content_reviewed_at) &&
@@ -633,51 +666,99 @@ export async function learningRoutes(fastify: FastifyInstance) {
       ? Math.max(lessonBlocks.length, Math.round(Number(contentBlockCount || 0)))
       : 0;
 
-    const saved = await db.query(
-      `INSERT INTO progress (
-         id,
-         student_id,
-         lesson_id,
-         classroom_id,
-         score,
-         time_spent_seconds,
-         completion_percentage,
-         answers,
-         attempts,
-         is_completed,
-         content_reviewed_at,
-         content_block_count,
-         content_review_seconds
-       )
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, 1, $9, $10, $11, $12)
-       ON CONFLICT (student_id, lesson_id, classroom_id)
-       DO UPDATE SET
-         score = EXCLUDED.score,
-         time_spent_seconds = EXCLUDED.time_spent_seconds,
-         completion_percentage = EXCLUDED.completion_percentage,
-         answers = EXCLUDED.answers,
-         attempts = progress.attempts + 1,
-         is_completed = EXCLUDED.is_completed,
-         content_reviewed_at = COALESCE(EXCLUDED.content_reviewed_at, progress.content_reviewed_at),
-         content_block_count = EXCLUDED.content_block_count,
-         content_review_seconds = GREATEST(progress.content_review_seconds, EXCLUDED.content_review_seconds),
-         updated_at = NOW()
-       RETURNING *`,
-      [
-        uuidv4(),
-        user.userId,
-        id,
-        lesson.classroom_id,
-        score,
-        Number(timeSpentSeconds || 0),
-        completionPercentage,
-        JSON.stringify(detailedAnswers),
-        isCompleted,
-        reviewedAt,
-        reviewedBlockCount,
-        reviewSeconds,
-      ]
-    );
+    let saved: { rows: any[] };
+    if (lesson.classroom_id) {
+      saved = await db.query(
+        `INSERT INTO progress (
+           id,
+           student_id,
+           lesson_id,
+           classroom_id,
+           score,
+           time_spent_seconds,
+           completion_percentage,
+           answers,
+           attempts,
+           is_completed,
+           content_reviewed_at,
+           content_block_count,
+           content_review_seconds
+         )
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, 1, $9, $10, $11, $12)
+         ON CONFLICT (student_id, lesson_id, classroom_id)
+         DO UPDATE SET
+           score = EXCLUDED.score,
+           time_spent_seconds = EXCLUDED.time_spent_seconds,
+           completion_percentage = EXCLUDED.completion_percentage,
+           answers = EXCLUDED.answers,
+           attempts = progress.attempts + 1,
+           is_completed = EXCLUDED.is_completed,
+           content_reviewed_at = COALESCE(EXCLUDED.content_reviewed_at, progress.content_reviewed_at),
+           content_block_count = EXCLUDED.content_block_count,
+           content_review_seconds = GREATEST(progress.content_review_seconds, EXCLUDED.content_review_seconds),
+           updated_at = NOW()
+         RETURNING *`,
+        [
+          uuidv4(),
+          user.userId,
+          id,
+          lesson.classroom_id,
+          score,
+          Number(timeSpentSeconds || 0),
+          completionPercentage,
+          JSON.stringify(detailedAnswers),
+          isCompleted,
+          reviewedAt,
+          reviewedBlockCount,
+          reviewSeconds,
+        ]
+      );
+    } else {
+      saved = await db.query(
+        `INSERT INTO progress (
+           id,
+           student_id,
+           lesson_id,
+           classroom_id,
+           score,
+           time_spent_seconds,
+           completion_percentage,
+           answers,
+           attempts,
+           is_completed,
+           content_reviewed_at,
+           content_block_count,
+           content_review_seconds
+         )
+         VALUES ($1, $2, $3, NULL, $4, $5, $6, $7, 1, $8, $9, $10, $11)
+         ON CONFLICT (student_id, lesson_id) WHERE classroom_id IS NULL
+         DO UPDATE SET
+           score = EXCLUDED.score,
+           time_spent_seconds = EXCLUDED.time_spent_seconds,
+           completion_percentage = EXCLUDED.completion_percentage,
+           answers = EXCLUDED.answers,
+           attempts = progress.attempts + 1,
+           is_completed = EXCLUDED.is_completed,
+           content_reviewed_at = COALESCE(EXCLUDED.content_reviewed_at, progress.content_reviewed_at),
+           content_block_count = EXCLUDED.content_block_count,
+           content_review_seconds = GREATEST(progress.content_review_seconds, EXCLUDED.content_review_seconds),
+           updated_at = NOW()
+         RETURNING *`,
+        [
+          uuidv4(),
+          user.userId,
+          id,
+          score,
+          Number(timeSpentSeconds || 0),
+          completionPercentage,
+          JSON.stringify(detailedAnswers),
+          isCompleted,
+          reviewedAt,
+          reviewedBlockCount,
+          reviewSeconds,
+        ]
+      );
+    }
 
     await db.query(
       `INSERT INTO student_streaks (id, student_id, activity_date, streak_count)
@@ -707,24 +788,70 @@ async function getAccessibleLesson(user: AuthUser, lessonId: string, classroomId
   const params: any[] = [user.userId, lessonId];
 
   if (user.role === 'student') {
-    let query = `
-      SELECT DISTINCT ${lessonFields},
-             COALESCE(p.completion_percentage, 0) as completion_percentage,
-             COALESCE(p.score, 0) as score,
-             COALESCE(p.is_completed, false) as is_completed
-      FROM classroom_enrollments ce
-      JOIN classrooms c ON c.id = ce.classroom_id AND c.is_active = true
-      JOIN classroom_lessons cl ON cl.classroom_id = c.id
-      JOIN lessons l ON l.id = cl.lesson_id AND l.is_active = true
-      LEFT JOIN progress p ON p.lesson_id = l.id AND p.student_id = $1 AND p.classroom_id = c.id
-      WHERE ce.student_id = $1 AND ce.is_active = true AND l.id = $2
-    `;
     if (classroomId) {
-      query += ` AND c.id = $3`;
-      params.push(classroomId);
+      const classroomResult = await db.query(
+        `SELECT DISTINCT ${lessonFields},
+               COALESCE(p.completion_percentage, 0) as completion_percentage,
+               COALESCE(p.score, 0) as score,
+               COALESCE(p.is_completed, false) as is_completed
+        FROM classroom_enrollments ce
+        JOIN classrooms c ON c.id = ce.classroom_id AND c.is_active = true
+        JOIN classroom_lessons cl ON cl.classroom_id = c.id
+        JOIN lessons l ON l.id = cl.lesson_id AND l.is_active = true
+        LEFT JOIN progress p ON p.lesson_id = l.id AND p.student_id = $1 AND p.classroom_id = c.id
+        WHERE ce.student_id = $1 AND ce.is_active = true AND l.id = $2 AND c.id = $3
+        ORDER BY cl.due_date DESC NULLS LAST, l.created_at DESC LIMIT 1`,
+        [...params, classroomId]
+      );
+      if (classroomResult.rows[0]) {
+        return classroomResult.rows[0];
+      }
     }
-    query += ` ORDER BY cl.due_date DESC NULLS LAST, l.created_at DESC LIMIT 1`;
-    const result = await db.query(query, params);
+
+    const result = await db.query(
+      `SELECT
+         l.id,
+         l.title,
+         l.subject,
+         l.form_level,
+         l.difficulty,
+         l.estimated_minutes,
+         l.content,
+         l.created_at,
+         NULL::uuid as classroom_id,
+         NULL::text as classroom_name,
+         NULL::timestamptz as due_date,
+         false as is_required,
+         (
+           SELECT si.topic
+           FROM lesson_syllabus_links lsl
+           JOIN syllabus_items si ON si.id = lsl.syllabus_id
+           WHERE lsl.lesson_id = l.id
+           ORDER BY si.order_index
+           LIMIT 1
+         ) as topic,
+         (
+           SELECT si.subtopic
+           FROM lesson_syllabus_links lsl
+           JOIN syllabus_items si ON si.id = lsl.syllabus_id
+           WHERE lsl.lesson_id = l.id
+           ORDER BY si.order_index
+           LIMIT 1
+         ) as subtopic,
+         (
+           SELECT COUNT(*)::int FROM quiz_questions qq
+           WHERE qq.lesson_id = l.id AND qq.is_active = true
+         ) as question_count,
+         jsonb_array_length(COALESCE(l.content->'blocks', '[]'::jsonb)) as content_block_count,
+         COALESCE(p.completion_percentage, 0) as completion_percentage,
+         COALESCE(p.score, 0) as score,
+         COALESCE(p.is_completed, false) as is_completed
+      FROM lessons l
+      LEFT JOIN progress p ON p.lesson_id = l.id AND p.student_id = $1 AND p.classroom_id IS NULL
+      WHERE l.is_active = true AND l.id = $2
+      ORDER BY l.created_at DESC LIMIT 1`,
+      params
+    );
     return result.rows[0] || null;
   }
 
@@ -872,7 +999,7 @@ function normalizeContent(value: any, fallback: any = {}): Record<string, any> {
       .map((block: any) => normalizeContentBlock(block));
   }
 
-  return content;
+  return sanitizeLessonContent(content) as Record<string, any>;
 }
 
 function getLessonContentBlocks(content: any): any[] {
@@ -897,6 +1024,43 @@ function normalizeContentBlock(block: Record<string, any>) {
   }
 
   return normalized;
+}
+
+function sanitizeLessonContent(value: unknown): unknown {
+  if (typeof value === 'string') {
+    return sanitizeText(value);
+  }
+
+  if (Array.isArray(value)) {
+    return value.map((item) => sanitizeLessonContent(item));
+  }
+
+  if (!value || typeof value !== 'object') {
+    return value;
+  }
+
+  const result: Record<string, unknown> = {};
+  for (const [key, nestedValue] of Object.entries(value as Record<string, unknown>)) {
+    const normalizedKey = key.toLowerCase();
+    if (
+      normalizedKey.startsWith('on') ||
+      ['html', 'innerhtml', 'dangerouslysetinnerhtml', 'script', 'style'].includes(normalizedKey)
+    ) {
+      continue;
+    }
+    result[key] = sanitizeLessonContent(nestedValue);
+  }
+  return result;
+}
+
+function sanitizeText(value: string) {
+  return value
+    .replace(/javascript\s*:/gi, '')
+    .replace(/on[a-z]+\s*=/gi, '')
+    .replace(/<\s*\/?\s*script/gi, '')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .trim();
 }
 
 function parseJsonObject(value: string): Record<string, any> | null {

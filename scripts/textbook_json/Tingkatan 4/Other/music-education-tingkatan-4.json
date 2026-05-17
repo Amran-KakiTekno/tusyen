@@ -1,0 +1,720 @@
+{
+  "source_key": "form-4-other-music-education-pendidikan-muzik-tingkatan-4-ms",
+  "title": "Pendidikan Muzik Tingkatan 4",
+  "subject": "Music Education",
+  "form_level": 4,
+  "stream": "Other",
+  "language": "ms",
+  "metadata": {},
+  "page_count": 79,
+  "extracted_page_count": 77,
+  "needs_ocr_page_count": 2,
+  "extraction_status": "complete",
+  "lesson_count": 5,
+  "lessons": [
+    {
+      "lesson_key": "1-1-bernyanyi-secara-ensembel-001",
+      "topic_code": "1.1",
+      "topic": "Bab 1",
+      "subtopic": "1.1 Bernyanyi Secara Ensembel",
+      "title": "1.1 Bernyanyi Secara Ensembel",
+      "lesson_type": "subtopic",
+      "order_index": 1,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p6]\nUnit 1\nGENERASIKU\nLima prinsip Rukun Negara telah diisytiharkan pada 31 Ogos 1970\nsebagai pegangan dan taat setia rakyat Malaysia kepada negara.\nBacaan ikrar pada sambutan Hari Kemerdekaan\ndi Dataran Merdeka, Kuala Lumpur.\nPada akhir pembelajaran ini, murid boleh:\n1.1 Bernyanyi Secara Ensembel\n1.1.1 Bernyanyi lagu dua lapisan suara dengan:\n(i) pic yang betul\n2.1\nBermain Alat Muzik Secara Ensembel\n2.1.1 Memainkan alat muzik berdasarkan skor dengan:\n(i) pic yang betul (ii) ton yang sesuai\n(iii) irama yang betul (iv) tempo yang betul\n2.1.3\nMemainkan alat muzik secara ensembel\ndengan mengaplikasikan dinamik yang sesuai\nberdasarkan skor.\n3.1 Asas Notasi Muzik\n3.1.1\nMembaca dan menulis not serta tanda rehat:\n(i) krocet bertitik (ii) kuaver\n(iii) minim bertitik (iv) semikuaver\n(v) kuaver bertitik\n4.1 Pengkaryaan Muzik\n4.1.1 Mencipta melodi mudah dalam nada\nmajor menggunakan:\n(i) meter\n(ii) not semibrif, minim, minim bertitik, krocet\nbertitik, krocet, kuaver bertitik dan semikuaver\nserta tanda rehat\n5.1\nPenghayatan Pelbagai Genre Muzik\n5.1.1 Menganalisis dan memberi pendapat tentang muzik\nAsia Tenggara yang didengar atau ditonton meliputi\naspek asas berikut:\n(i) genre muzik (ii) latar belakang muzik\n(iii) alat muzik (iv) fungsi muzik\n(v) bentuk muzik (vi) cara persembahan\n5.1.2 1 Membentangkan dapatan analisis muzik\nAsia Tenggara\n3\n2",
+      "char_count": 1397,
+      "pages": [
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 6,
+          "global_page_number": 6,
+          "char_count": 1347,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "2-1-bernyanyi-lagu-dua-lapisan-suara-dengan-002",
+      "topic_code": "2.1",
+      "topic": "Bab 2",
+      "subtopic": "2.1 Bernyanyi lagu dua lapisan suara dengan",
+      "title": "2.1 Bernyanyi lagu dua lapisan suara dengan",
+      "lesson_type": "subtopic",
+      "order_index": 2,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p6]\nUnit 1\nGENERASIKU\nLima prinsip Rukun Negara telah diisytiharkan pada 31 Ogos 1970\nsebagai pegangan dan taat setia rakyat Malaysia kepada negara.\nBacaan ikrar pada sambutan Hari Kemerdekaan\ndi Dataran Merdeka, Kuala Lumpur.\nPada akhir pembelajaran ini, murid boleh:\n1.1 Bernyanyi Secara Ensembel\n1.1.1 Bernyanyi lagu dua lapisan suara dengan:\n(i) pic yang betul\n2.1\nBermain Alat Muzik Secara Ensembel\n2.1.1 Memainkan alat muzik berdasarkan skor dengan:\n(i) pic yang betul (ii) ton yang sesuai\n(iii) irama yang betul (iv) tempo yang betul\n2.1.3\nMemainkan alat muzik secara ensembel\ndengan mengaplikasikan dinamik yang sesuai\nberdasarkan skor.\n3.1 Asas Notasi Muzik\n3.1.1\nMembaca dan menulis not serta tanda rehat:\n(i) krocet bertitik (ii) kuaver\n(iii) minim bertitik (iv) semikuaver\n(v) kuaver bertitik\n4.1 Pengkaryaan Muzik\n4.1.1 Mencipta melodi mudah dalam nada\nmajor menggunakan:\n(i) meter\n(ii) not semibrif, minim, minim bertitik, krocet\nbertitik, krocet, kuaver bertitik dan semikuaver\nserta tanda rehat\n5.1\nPenghayatan Pelbagai Genre Muzik\n5.1.1 Menganalisis dan memberi pendapat tentang muzik\nAsia Tenggara yang didengar atau ditonton meliputi\naspek asas berikut:\n(i) genre muzik (ii) latar belakang muzik\n(iii) alat muzik (iv) fungsi muzik\n(v) bentuk muzik (vi) cara persembahan\n5.1.2 1 Membentangkan dapatan analisis muzik\nAsia Tenggara\n3\n2",
+      "char_count": 1397,
+      "pages": [
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 6,
+          "global_page_number": 6,
+          "char_count": 1347,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "3-1-asas-notasi-muzik-003",
+      "topic_code": "3.1",
+      "topic": "Bab 3",
+      "subtopic": "3.1 Asas Notasi Muzik",
+      "title": "3.1 Asas Notasi Muzik",
+      "lesson_type": "subtopic",
+      "order_index": 3,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p6]\nUnit 1\nGENERASIKU\nLima prinsip Rukun Negara telah diisytiharkan pada 31 Ogos 1970\nsebagai pegangan dan taat setia rakyat Malaysia kepada negara.\nBacaan ikrar pada sambutan Hari Kemerdekaan\ndi Dataran Merdeka, Kuala Lumpur.\nPada akhir pembelajaran ini, murid boleh:\n1.1 Bernyanyi Secara Ensembel\n1.1.1 Bernyanyi lagu dua lapisan suara dengan:\n(i) pic yang betul\n2.1\nBermain Alat Muzik Secara Ensembel\n2.1.1 Memainkan alat muzik berdasarkan skor dengan:\n(i) pic yang betul (ii) ton yang sesuai\n(iii) irama yang betul (iv) tempo yang betul\n2.1.3\nMemainkan alat muzik secara ensembel\ndengan mengaplikasikan dinamik yang sesuai\nberdasarkan skor.\n3.1 Asas Notasi Muzik\n3.1.1\nMembaca dan menulis not serta tanda rehat:\n(i) krocet bertitik (ii) kuaver\n(iii) minim bertitik (iv) semikuaver\n(v) kuaver bertitik\n4.1 Pengkaryaan Muzik\n4.1.1 Mencipta melodi mudah dalam nada\nmajor menggunakan:\n(i) meter\n(ii) not semibrif, minim, minim bertitik, krocet\nbertitik, krocet, kuaver bertitik dan semikuaver\nserta tanda rehat\n5.1\nPenghayatan Pelbagai Genre Muzik\n5.1.1 Menganalisis dan memberi pendapat tentang muzik\nAsia Tenggara yang didengar atau ditonton meliputi\naspek asas berikut:\n(i) genre muzik (ii) latar belakang muzik\n(iii) alat muzik (iv) fungsi muzik\n(v) bentuk muzik (vi) cara persembahan\n5.1.2 1 Membentangkan dapatan analisis muzik\nAsia Tenggara\n3\n2",
+      "char_count": 1397,
+      "pages": [
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 6,
+          "global_page_number": 6,
+          "char_count": 1347,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "4-1-pengkaryaan-muzik-004",
+      "topic_code": "4.1",
+      "topic": "Bab 4",
+      "subtopic": "4.1 Pengkaryaan Muzik",
+      "title": "4.1 Pengkaryaan Muzik",
+      "lesson_type": "subtopic",
+      "order_index": 4,
+      "page_count": 1,
+      "extraction_status": "complete",
+      "estimated_minutes": 10,
+      "text_content": "[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p6]\nUnit 1\nGENERASIKU\nLima prinsip Rukun Negara telah diisytiharkan pada 31 Ogos 1970\nsebagai pegangan dan taat setia rakyat Malaysia kepada negara.\nBacaan ikrar pada sambutan Hari Kemerdekaan\ndi Dataran Merdeka, Kuala Lumpur.\nPada akhir pembelajaran ini, murid boleh:\n1.1 Bernyanyi Secara Ensembel\n1.1.1 Bernyanyi lagu dua lapisan suara dengan:\n(i) pic yang betul\n2.1\nBermain Alat Muzik Secara Ensembel\n2.1.1 Memainkan alat muzik berdasarkan skor dengan:\n(i) pic yang betul (ii) ton yang sesuai\n(iii) irama yang betul (iv) tempo yang betul\n2.1.3\nMemainkan alat muzik secara ensembel\ndengan mengaplikasikan dinamik yang sesuai\nberdasarkan skor.\n3.1 Asas Notasi Muzik\n3.1.1\nMembaca dan menulis not serta tanda rehat:\n(i) krocet bertitik (ii) kuaver\n(iii) minim bertitik (iv) semikuaver\n(v) kuaver bertitik\n4.1 Pengkaryaan Muzik\n4.1.1 Mencipta melodi mudah dalam nada\nmajor menggunakan:\n(i) meter\n(ii) not semibrif, minim, minim bertitik, krocet\nbertitik, krocet, kuaver bertitik dan semikuaver\nserta tanda rehat\n5.1\nPenghayatan Pelbagai Genre Muzik\n5.1.1 Menganalisis dan memberi pendapat tentang muzik\nAsia Tenggara yang didengar atau ditonton meliputi\naspek asas berikut:\n(i) genre muzik (ii) latar belakang muzik\n(iii) alat muzik (iv) fungsi muzik\n(v) bentuk muzik (vi) cara persembahan\n5.1.2 1 Membentangkan dapatan analisis muzik\nAsia Tenggara\n3\n2",
+      "char_count": 1397,
+      "pages": [
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 6,
+          "global_page_number": 6,
+          "char_count": 1347,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        }
+      ]
+    },
+    {
+      "lesson_key": "5-1-penghayatan-pelbagai-genre-muzik-005",
+      "topic_code": "5.1",
+      "topic": "Bab 5",
+      "subtopic": "5.1 Penghayatan Pelbagai Genre Muzik",
+      "title": "5.1 Penghayatan Pelbagai Genre Muzik",
+      "lesson_type": "subtopic",
+      "order_index": 5,
+      "page_count": 74,
+      "extraction_status": "complete",
+      "estimated_minutes": 90,
+      "text_content": "[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p6]\nUnit 1\nGENERASIKU\nLima prinsip Rukun Negara telah diisytiharkan pada 31 Ogos 1970\nsebagai pegangan dan taat setia rakyat Malaysia kepada negara.\nBacaan ikrar pada sambutan Hari Kemerdekaan\ndi Dataran Merdeka, Kuala Lumpur.\nPada akhir pembelajaran ini, murid boleh:\n1.1 Bernyanyi Secara Ensembel\n1.1.1 Bernyanyi lagu dua lapisan suara dengan:\n(i) pic yang betul\n2.1\nBermain Alat Muzik Secara Ensembel\n2.1.1 Memainkan alat muzik berdasarkan skor dengan:\n(i) pic yang betul (ii) ton yang sesuai\n(iii) irama yang betul (iv) tempo yang betul\n2.1.3\nMemainkan alat muzik secara ensembel\ndengan mengaplikasikan dinamik yang sesuai\nberdasarkan skor.\n3.1 Asas Notasi Muzik\n3.1.1\nMembaca dan menulis not serta tanda rehat:\n(i) krocet bertitik (ii) kuaver\n(iii) minim bertitik (iv) semikuaver\n(v) kuaver bertitik\n4.1 Pengkaryaan Muzik\n4.1.1 Mencipta melodi mudah dalam nada\nmajor menggunakan:\n(i) meter\n(ii) not semibrif, minim, minim bertitik, krocet\nbertitik, krocet, kuaver bertitik dan semikuaver\nserta tanda rehat\n5.1\nPenghayatan Pelbagai Genre Muzik\n5.1.1 Menganalisis dan memberi pendapat tentang muzik\nAsia Tenggara yang didengar atau ditonton meliputi\naspek asas berikut:\n(i) genre muzik (ii) latar belakang muzik\n(iii) alat muzik (iv) fungsi muzik\n(v) bentuk muzik (vi) cara persembahan\n5.1.2 1 Membentangkan dapatan analisis muzik\nAsia Tenggara\n3\n2\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p7]\nEnsembel nyanyian boleh dinyanyikan secara:\n(a) Unison\n(b) Harmoni (c) Dua lapisan suara\n(d) Tiga lapisan suara (e) Empat lapisan suara\nI N F O\nEnsembel nyanyian terdiri daripada sekumpulan penyanyi\nyang menyanyikan lagu secara unison atau harmoni.\nEnsembel nyanyian ini boleh diiringi oleh muzik atau tanpa\niringan muzik jenis acapella. Ensembel nyanyian secara\nharmoni dinyanyikan secara dua, tiga atau empat lapisan suara.\nJenis-jenis suara yang terdapat dalam ensembel\nnyanyian ialah:\nENSEMBEL NYANYIAN\nEnsembel Nyanyian\n60\nSoprano (S) : Suara tinggi perempuan.\na\nAlto (A)\n: Suara rendah perempuan.\nb\nTenor (T) : Suara tinggi lelaki.\nc\nBes (B) : Suara rendah lelaki.\nd\nSoprano\ndan Alto\n(SA)\nSoprano\ndan\nSoprano\n(SS)\nBerikut ialah contoh nyanyian\ndua lapisan suara.\nTenor dan\nBes (TB)\nhttps://www.\nyoutube.com/\nwatch?v=t-\nHRKPuc_mQ\nLatihan Nyanyian 1\nLatihan Nyanyian 2\nKumpulan A\nKumpulan B\nla\nla\nla\nla la la la la\nla\nla la la la la la la la la la la la la la la la la la\nla la la la la la la la la la la la la la la\nMari nyanyikan bersama-sama.\n1\nla la la la la la la la la la la la la la la la la la\n2\nla la\nla la la la la la la la la la la la la\n3\n4\nDengarkan audio frasa melodi dan ajuk semula dengan menggunakan pic yang betul.\nKumpulan A dan kumpulan B mengajuk frasa melodi mengikut corak irama masing-masing.\nKemudian pada akhir latihan, ajuk frasa melodi tersebut secara serentak.\nLatihan Nyanyian\nLatihan Nyanyian Secara Serentak\nKumpulan A\nKumpulan B\nBESARKAN\n5\n4\n1\nUNIT\n• Durasi pembelajaran selama 60 minit.\n• Bimbing murid bernyanyi lagu Kamilah Generasi secara dua lapisan suara.\n• Bimbing murid bernyanyi lagu Kamilah Generasi baris demi baris.\n• Layari laman sesawang untuk menonton video ensembel nyanyian. (Dicapai pada 10 Jun 2019)\n1.1.1 (i)\n• Guru boleh mempelbagaikan suku kata, sebutan atau tempo pada latihan nyanyian.\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p8]\nMARI BERNYANYI\nNyanyikan suara 1 Lagu Kamilah Generasi diikuti dengan suara 2. Setelah mahir, bentukkan\ndua kumpulan, iaitu kumpulan suara 1 dan kumpulan suara 2. Nyanyikan lagu secara dua\nlapisan suara dengan pic yang betul.\nKAMILAH GENERASI\nCiptaan: Rosman Adam\nq= 70\n7\nSuara 2\n8\nMinus One\n6\nSuara 1\n5\nSuara 1 dan Suara 2\n7\n6\n1\nUNIT\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p9]\n3\n2\nPERMAINAN GITAR SECARA ENSEMBEL\nPermainan gitar secara ensembel atau berkumpulan\nmemerlukan kerjasama dan kesefahaman antara pemuzik.\nAspek yang perlu diberikan perhatian ialah disiplin,\nkeseimbangan bunyi, penguasaan kemahiran muzik dan\nteknik bermain gitar yang betul.\nDisiplin\nPastikan latihan mencukupi, mematuhi jadual latihan\ndan pemuzik memahami bahagian masing-masing.\nPenguasaan Kemahiran\nPenguasaan kemahiran muzik menjadikan seorang\npemuzik dapat memainkan karya dengan baik\ndan sempurna.\nTeknik\nPastikan teknik ialah betul dan sesuai dengan karya\nyang dimainkan agar dapat menghasilkan ton yang\nsesuai dan berkualiti.\n1\n4\nKeseimbangan Bunyi\nKeseimbangan bunyi penting agar warna\nton setiap alat muzik jelas didengari kerana\nkelantangan bunyi setiap alat muzik tidak\nsama dan perlu dilaraskan agar seimbang serta\njelas didengari.\nEnsembel Muzik\n120\nhttp://arasmega.\ncom/qr-link/\npersembahan-\nensembel-gitar/\nPENGGUNAAN TAB GITAR\nTAB gitar ialah salah satu cara penulisan muzik untuk\nbermain gitar.\nTAB gitar mempunyai enam garisan melintang yang\nmewakili enam tali gitar. Garisan paling atas mewakili\ntali gitar nombor 1 dan garisan paling bawah mewakili\ntali gitar nombor 6.\nPada permulaan garis terdapat tulisan TAB yang\nditebalkan, iaitu untuk membezakan garisan TAB dengan\nbaluk biasa.\nNombor pada garisan menunjukkan nombor fret\nyang perlu dimainkan manakala garis bernombor\nmewakili tali gitar. Sebagai contoh, nombor 2 pada\ngarisan paling atas menunjukkan tali nombor 1 pada fret\nkedua atau not FB.\nTAB atau tablature bermaksud\njaluran. Berbeza dengan notasi\nbiasa yang menggunakan baluk,\nTAB memfokuskan penjarian alat\nmuzik berbanding pic muzikal\ndikhususkan untuk alat muzik\nbertali yang mempunyai fret\nseperti gitar, vihuela dan lute.\nTAB diperkenalkan semasa\nzaman Renaissance dan Baroque,\nmalah masih digunakan sehingga\nke hari ini untuk menotasikan\npelbagai bentuk muzik.\nI N F O\nRajah 1.1 Cara bacaan skor tab gitar.\nNotasi lidi\nuntuk menunjukkan\ncorak irama.\nTali gitar\nnombor 1.\nKedudukan tali dan\nnombor fret atau\npenjarian.\nTali gitar\nnombor 6.\nTulisan TAB\nyang ditebalkan\npada permulaan\ngaris bar.\nMerujuk\nkepada open string,\niaitu tali tidak\nditekan pada fret.\nGitar\nGitar\n9\n8\n1\nUNIT\n8\n• Durasi pembelajaran selama 120 minit.\n• Bimbing murid bermain gitar dengan teknik yang betul.\n• Bimbing murid membaca not pada skor tab gitar dan ton yang sesuai.\n• Layari laman sesawang untuk menonton video ensembel gitar. (Dicapai pada 10 Jun 2019)\n2.1.1\n(i) (ii)\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p10]\nLatihan TAB Gitar\nAnalisis kedudukan penjarian, kedudukan tali dan nombor fret, kemudian lakukan latihan\nberikut sehingga mahir.\nLatihan TAB Gitar 1\n9\nLatihan TAB Gitar 2\n10\nLatihan TAB Gitar 3\nC\nC\nC\nG7\n11\nLatihan Ensembel Gitar\nBerdasarkan skor gitar duet di bawah, mainkan melodi lagu Seloka Anak Muda dengan\niringan strumming.\n12\nCiptaan: M.Syaraff\nq= 118\nSELOKA ANAK MUDA\nC\nCm\nG\nC\nG\nAm7\np\np\nf\nf\nG\nLatihan Ensembel Gitar 1\n11\n10\n1\nUNIT\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p11]\nC\nAm7\nG7\nC\nG7\nC\nC\n60\nApresiasi Muzik\nLatar Belakang Muzik\nAngklung ialah sejenis alat muzik tradisional Indonesia\nyang berkembang dalam masyarakat Sunda, Jawa Barat.\nAlat muzik ini diperbuat daripada buluh berbentuk\ntabung, pic berganda dan dibunyikan dengan cara\nmenggoncangkannya. Jenis buluh yang digunakan ialah\nbuluh hitam (awi wulung) atau buluh ater (awi temen) yang\nmana apabila kering akan berwarna kuning keputihan.\nMengikut\nsejarah,\nangklung\nberasal\ndaripada\nmasyarakat Sunda Asli Baduy, iaitu pada ketika itu mereka\nmenjadikan angklung sebagai alat ritual dalam mengawal\npenanaman padi dan dimainkan untuk menjemput Dewi\nSri (Dewi Pertanian, Dewi Padi dan Dewi Sawah) turun ke\nbumi memberikan kesuburan pada tanaman padi.\nJenis dan Bahagian Angklung\nAngklung mempunyai beberapa bahagian, iaitu:\na. Tabung suara angklung terdiri daripada dua atau empat tabung dengan mempunyai\nsaiz dan pic yang berbeza. Ianya dipasang longgar pada bahagian tabung dasar.\nSetiap tabung angklung mempunyai satu oktaf bunyi yang berbeza. Oleh kerana\nsetiap angklung menghasilkan pic yang berbeza, maka sekumpulan pemain angklung\ndiperlukan bagi menghasilkan lagu yang lengkap.\nb. Ancak ialah bahagian rangka angklung yang terdiri daripada jejer (rangka angklung),\ntabung dasar dan palang gantung.\nAngklung melodi.\nAngklung kord atau iringan.\nJejer (rangka)\nPalang gantung\nTabung besar\nTabung kecil\nTabung dasar\nTabung suara\nAngklung telah menerima\npengiktirafan sebagai Karya\nAgung Warisan Budaya\nLisan dan Nonbendawi\nManusia daripada UNESCO\nsejak November 2010.\nTahukah Anda\nANGKLUNG\nhttp://arasmega.\ncom/qr-link/\npersembahan-\nangklung/\n13\n12\n1\nUNIT\n• Durasi pembelajaran selama 60 minit.\n• Layari laman sesawang untuk menonton video angklung. (Dicapai pada 17 Jun 2019)\n5.1.1\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p12]\nCara Memegang Angklung\nKetepatan dan keselesaan memegang angklung\ndapat menghasilkan bunyi yang terbaik seperti\ndikehendaki. Pada asasnya, angklung dipegang\ndengan genggaman dari atas tangan kiri di\ntengah-tengah\nsimpul\npertemuan\ndua\ntiang\ndi\nbahagian\natas.\nManakala\nbeberapa\njari\ndi tangan kanan memegang pangkal tiang\nkerangka\nsebelah\ntabung\nbesar\nuntuk\nmenggoncang anglung.\nc. Angklung dimainkan secara solo\nPengembangan model tiga tabung berbeza dua tabung\nPaDaeng yang digantung pada stand. Bagi menghasilkan\nsebuah ensembel muzik permainan angklung secara solo,\nmaka bergabung dalam kumpulan yang disebut “arumba”\n(alunan rumpun buluh).\nRagam Angklung\nhttp://arasmega.\ncom/qr-link/ragam-\nangklung-melodi/\nhttp://arasmega.\ncom/qr-link/ragam-\nangklung-dimainkan-\nsecara-solo/\na. Angklung melodi\nMempunyai julat pic yang amat luas, iaitu tiga oktaf\nsetengah merangkumi register suara rendah, tengah\ndan tinggi. Angklungnya berjumlah 31 buah.\nb. Angklung iringan\nAngklung iringan berfungsi mengiringi nyanyian,\nangklung melodi atau alat muzik lain yang\nmemainkan melodi. Angklung ini mempunyai\nkord major dan kord minor.\nhttp://arasmega.\ncom/qr-link/\nragam-angklung-\niringan/\nFungsi dan Cara Persembahan Angklung\nTonton satu persembahan angklung dari Indonesia, kemudian lakukan\nanalisis. Berikan pendapat anda tentang genre muzik, alat muzik,\nbentuk muzik dan cara persembahan angklung. Tuliskan jawapan\nanda dalam buku latihan muzik.\nTandakan tahap penguasaan anda.\nMahir\nHampir mahir\nSederhana mahir\na. Teknik getar\nTeknik asas dan utama dalam permainan angklung, iaitu\nangklung digoncang keseluruhan tabung suara\nke kiri dan ke kanan dengan laju sehingga menghasilkan\nsuara yang mengalun dan tidak putus-putus.\nc. Teknik centok\nTeknik membunyikan angklung secara pendek dan\nputus-putus dengan cara menepuk bahagian bawah\ntepi tabung dasar dengan bahagian hujung jari.\nb. Teknik tengkep\nTeknik yang sama dengan teknik getar tetapi hanya\nmembunyikan angklung pada tabung tertentu sahaja.\nTabung yang tidak perlu diperdamkan bunyinya dengan\nmenahan menggunakan mana-mana jari yang berdekatan.\nTeknik ini dapat menghasilkan bunyi yang lembut.\nKini, angklung telah banyak diperdengarkan sebagai\nhiburan dalam sebuah persembahan sama ada secara\ninstrumental, mengiringi tarian atau nyanyian.\nOleh kerana angklung hanya mempunyai satu pic,\nmaka alat muzik ini perlu dimainkan dalam bentuk\nensembel. Bagi melengkapkan kekayaan irama dan\nmelodinya, angklung juga sering digandingkan\ndengan alat muzik moden lain seperti dalam sebuah\npertunjukan konsert.\nTeknik Memainkan Angklung\nhttp://arasmega.\ncom/qr-link/teknik-\ngetar-angklung-2/\nhttp://arasmega.\ncom/qr-link/\nteknik-tengkep-\nangklung-3/\nhttp://arasmega.\ncom/qr-link/teknik-\ncentik-angklung-2/\n15\n14\n1\nUNIT\n• Layari laman sesawang untuk menonton video ragam angklung dan teknik\nmemainkan angklung. (Dicapai pada 17 Jun 2019)\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p13]\nJenis not\nMinim bertitik\nKrocet bertitik\nKuaver bertitik\nSimbol not\nNilai not\nTanda rehat\nNot dan Tanda Rehat Kuaver dan Semikuaver\nNot dan Tanda Rehat Not Bertitik\nNot ialah simbol bagi panjang atau pendek sesuatu bunyi yang digunakan dalam sesuatu\nirama manakala tanda rehat ialah simbol bagi panjang atau pendek nilai senyap. Simbol\nnot dan tanda rehat berbeza mengikut nilai bunyi dan nilai senyap yang digunakan\ndalam sesuatu irama.\nNilai titik ialah separuh dari nilai not atau tanda rehat asal. Jadual di bawah menerangkan\nnilai not dan tanda rehat not bertitik.\nNOT DAN TANDA REHAT\nBerikut ialah jadual yang menerangkan not kuaver\ndan semikuaver.\n2 + 1\n1 + ½\n½ + ¼\nJenis not\nKuaver\nSemikuaver\nSimbol not\nNilai not\nTanda rehat\nÈ\n½\n¼\ns\nd\nq\nh +\nÈ\nq\nj\n+\ns\nÈ\ni\n+\n60\nNotasi Muzik\nI N F O\nSimbol not\nTanda\nrehat\nNilai not\nSemibrif\nMinim\nJenis not\nKrocet\nLatihan Mendengar dan Menepuk Corak Irama\nDengar dengan teliti kemudian tepuk corak irama tersebut.\nLatihan Mendengar dan Menepuk Corak Irama 1\nLatihan Mendengar dan Menepuk Corak Irama 2\nLatihan Mendengar dan Menepuk Corak Irama 5\nLatihan Mendengar dan Menepuk Corak Irama 4\nLatihan Mendengar dan Menepuk Corak Irama 3\n13\n14\n15\n16\n17\n17\n16\n1\nUNIT\n• Durasi pembelajaran selama 60 minit.\n• Latihan menepuk irama boleh dilakukan secara kaedah undur (retrograde) dengan iringan\npelbagai rentak dalam tempo berbeza yang dilakukan secara individu atau berkumpulan.\n3.1.1\n• Latihan menepuk corak irama boleh dipelbagaikan kepada latihan nyanyian.\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p14]\n1. Tuliskan persamaan nilai not-not berikut:\nw =\nw =\nd =\nh\nq\nq\nLATIHAN\n2. Berdasarkan meter yang diberikan, lengkapkan corak irama dengan\nmeletakkan titik pada not yang betul.\nContoh:\nContoh:\n2\na\na\nc\ne\ng\nb\nd\nf\nh\nb\nc\nd =\nh =\nh =\ne\nh\ne\nd\ne\nf\nj =\nj =\nq =\ne\ns\nw\ng\nh\ni\ni =\ne =\ns\ns\ns\nj\nk\nl\nMenganalisis\nMenganalisis\nq =\na\nb\nc\nd\n3. Isikan tanda rehat yang sesuai pada tempat yang bertanda *.\n4. Berdasarkan keratan lagu di bawah, jawab soalan-soalan berikut.\n(a) Isikan tanda rehat pada ruang yang bertanda X.\n(b) Notasikan not G pada garisan dengan nilai yang betul pada tempat bertanda *.\n(c) i. Namakan jenis not yang digunakan pada keratan lagu di atas dari susunan\nnilai not terbesar ke nilai not terkecil.\nii. Nyatakan nilai setiap not tersebut.\nNama not\nNilai not\n19\n18\n1\nUNIT\n• Murid dikehendaki membuat setiap latihan di dalam buku latihan.\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p15]\nImprovisasi\nPergerakan kord\nImitasi\nCorak irama\nKaedah Mencipta Melodi\n60\nPenghasilan Muzik\nMelodi ialah gabungan susunan pic dengan corak irama yang membentuk satu frasa\natau bentuk bunyi. Penghasilan melodi bergantung kepada idea dan kreativiti pencipta\natau komposer itu sendiri.\nSelain irama dan pic, pergerakan kord dan penggunaan simbol\nserta terminologi muzik yang sesuai juga penting dalam\npenghasilan melodi yang baik.\nPenghasilan melodi yang kreatif boleh dicipta dengan\nmenggunakan kaedah yang berikut.\nPERKARA ASAS DALAM PENCIPTAAN MELODI\nElemen Utama dalam Pembentukan Melodi\nPenghasilan Melodi Berdasarkan Corak Irama\nContoh penghasilan melodi\nmenggunakan corak irama\nasal sama ada secara ulangan,\nkontra, imitasi, improvisasi\natau variasi.\nMelodi\nIrama\n+\nPic\nKaedah ini sering digunakan oleh komposer untuk mengekalkan, mengulang atau\nmenukar corak irama kepada bentuk yang lain mengikut kreativiti komposer itu sendiri.\nContoh melodi yang telah diubah suai berdasarkan corak irama di atas.\nPermulaan Melodi\ndan Akhiran Melodi\nPermulaan melodi tidak\nsemestinya bermula\ndengan not tonik tetapi\nakhiran melodi biasanya\nberakhir dengan not tonik.\nTIP\n=\nLATIHAN\nContoh set kad corak irama.\nLangkah 1\nMurid di dalam kelas dibahagikan kepada beberapa kumpulan kecil. Setiap kumpulan\ndiberikan set kad kumpulan not bagi meter $.\nLangkah 2\nTeroka semua kumpulan not yang diberi untuk dijadikan corak irama sepanjang 4 bar.\nLangkah 3\nTepuk corak irama yang dihasilkan.\nLangkah 4\nTeroka semua pic untuk diletakkan pada corak irama yang dihasilkan.\nLangkah 5\nNotasikan melodi pada corak irama yang dihasilkan.\nBeethoven menulis\nsebahagian besar\nmuziknya yang hebat\nsemasa beliau mempunyai\nmasalah pendengaran.\nTahukah Anda\nContoh penghasilan corak irama dengan pic.\n1. Cipta melodi dalam meter $ mengikut arahan yang diberi.\nLangkah 6\nPersembahkan ciptaan melodi di hadapan kelas dengan\nmenggunakan alat muzik pilihan.\nLangkah 7\nBincang\ndan\nbentangkan\nhasil\nrumusan\ntentang\nelemen muzik yang terdapat pada hasil ciptaan\nmelodi kumpulan lain.\n21\n20\n1\nUNIT\n• Durasi pembelajaran selama 60 minit.\n• Murid dikehendaki membuat setiap latihan di dalam buku latihan.\n4.1.1\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p16]\na F Major\nb G Major\nc Bb Major\nd D Major\n2. Berdasarkan corak irama di bawah, hasilkan melodi dalam nada yang dikehendaki.\nContoh corak irama.\nContoh penghasilan melodi berdasarkan corak irama.\nPENILAIAN\n1. Apakah yang dimaksudkan dengan ensembel nyanyian?\n2. Nyatakan kepentingan etika persembahan dalam ensembel nyanyian.\n3. Kenal pasti jenis lagu yang sesuai dinyanyikan untuk ensembel nyanyian.\n4. Pada pendapat anda, mengapakah terdapat empat suara dalam ensembel nyanyian?\n5. Hasilkan improvisasi untuk strumming pattern bagi mengiringi lagu Mentari secara\nberkumpulan. Buat latihan yang mencukupi dan persembahkan secara ensembel.\nMenganalisis dan Menilai\nCiptaan: M.Syaraff\nq= 90\nMENTARI\nEnsembel Nyanyian\nEnsembel Muzik\nD\nEm\np\nf\nA\nD\nA\nBm7\nA\n23\n22\n1\nUNIT\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p17]\n6. Berdasarkan keratan melodi di bawah, namakan nilai not yang digunakan kemudian\ntuliskan simbol tanda rehat.\nNotasi Muzik\nBil\nNilai not\nSimbol tanda rehat\na.\nb.\nc.\nd.\ne.\nf.\nD\nA\nBm7\nD\nA\nD\nD\nD\nTandakan tahap penguasaan anda berdasarkan meter pencapaian.\nMenguasai lagu nyanyian dua lapisan suara dengan pic yang betul.\nMemainkan alat muzik berdasarkan skor dengan pic yang betul,\nton yang sesuai, irama yang betul dan tempo yang betul.\nMenganalisis dan memberi pendapat tentang muzik Asia\nTenggara yang didengar atau ditonton meliputi aspek genre muzik,\nlatar belakang muzik, alat muzik, fungsi muzik, bentuk muzik dan\ncara persembahan.\nMembaca dan menulis not serta tanda rehat bagi krocet bertitik,\nkuaver, minim bertitik, semikuaver dan kuaver bertitik.\nMencipta melodi mudah dalam nada major menggunakan meter\n# dan $ berdasarkan not semibrif, minim, minim bertitik, krocet\nbertitik, krocet, kuaver bertitik dan semikuaver serta tanda rehat.\n7. (a) Dengar atau tonton melalui Internet tentang ensembel muzik lain yang terkenal\ndi Indonesia selain angklung.\n(b) Berikan pendapat anda tentang aspek genre muzik, latar belakang, alat muzik,\nfungsi muzik, bentuk muzik dan cara persembahan ensembel pilihan anda.\n(c) Bentangkan hasil kajian pada rakan-rakan.\n8. Berdasarkan rajah di atas,\n(a) Bentukkan satu kumpulan kecil 4 – 5 orang.\n(b) Susun semula corak irama sebanyak 8 bar dalam meter $.\n(c) Gunakan sebutan (contoh ka, ke, ki, ko, ku dan lain-lain). Tepuk dan nyanyikan\nmengikut corak irama yang dicipta.\n(d) Persembahkan hasil ciptaan kepada rakan-rakan.\nMengaplikasi\nApresiasi Muzik\nPenghasilan Muzik\n25\n24\n1\nUNIT\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p18]\nUnit 2\nMALAYSIA\nKEBANGGAANKU\nPada akhir pembelajaran ini, murid boleh:\n1.1 Bernyanyi Secara Ensembel\n1.1.1 Bernyanyi lagu dua lapisan suara dengan:\n(i) pic yang betul\n(ii) dinamik yang betul\n2.1\nBermain Alat Muzik Secara Ensembel\n2.1.1 Memainkan alat muzik berdasarkan skor dengan:\n(i) pic yang betul\n(ii) ton yang sesuai\n(iii) irama yang betul\n(iv) tempo yang betul\n3.1 Asas Notasi Muzik\n3.1.2\nMemahami, menulis dan menerangkan\nmaksud meter:\n(i)  (ii) \n(iii) \n4.1 Pengkaryaan Muzik\n4.1.1 Mencipta melodi mudah dalam nada\nmajor menggunakan:\n(i) meter\n(ii) not semibrif, minim, minim bertitik,\nkrocet bertitik, krocet, kuaver bertitik\ndan semikuaver serta tanda rehat.\nAngkatan Tentera Malaysia (ATM) yang melindungi\nkedaulatan dan integriti negara terdiri daripada Tentera\nDarat Malaysia (TDM), Tentera Laut Diraja Malaysia (TLDM)\ndan Tentera Udara Diraja Malaysia (TUDM).\nPerbarisan pada Hari Kebangsaan ke-61 bertemakan\n\"Sayangi Malaysiaku\" disambut di Dataran Putrajaya, Precint 3.\n27\n26\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p19]\n29\n28\nSederhana lembut\nBeransur lembut\nforte\npiano\nKuat\nLembut\nmezzo forte\nmezzo piano\nSederhana kuat\ncrescendo\ndecrescendo atau\ndiminuendo\nBeransur kuat\nEnsembel Nyanyian\n60\n18\n19\nLatihan Nyanyian\nLatihan Nyanyian 3: Suara 1\nLatihan Nyanyian 4: Suara 2\n= 130\n= 130\nD\nD\nD\nD\nD\nD\nG\nG\nG\nG\nD\nD\nG\nG\nA7\nA7\nA7\nA7\nA7\nA7\np\np\np\np\np\np\np\np\nf\nf\nf\nf\nBERNYANYI DENGAN DINAMIK YANG BETUL\nDinamik ialah kuat atau lembut sesuatu bunyi dihasilkan.\nDinamik juga mampu mempengaruhi perasaan pendengar\nuntuk menghayati sesuatu karya muzik kerana dinamik\nmemberikan kesan ekspresi. Contohnya karya muzik\ndaripada Beethoven menggunakan dinamik sangat jelas\nperbezaan dinamiknya.\nBerikut ialah beberapa simbol dan istilah berkaitan\ndinamik yang biasa digunakan dalam nyanyian.\nKenal pasti simbol dinamik dalam skor dan nyanyikan mengikut dinamik yang betul.\nDinamik ditandakan dengan simbol-simbol tertentu dalam skor di bawah baluk bagi\nmenunjukkan perubahan dinamik. Penyanyi perlu mengenal pasti simbol dinamik dalam\nlagu supaya nyanyian lebih ekspresif.\nSelain daripada dinamik yang dinyatakan, terdapat beberapa lagi\njenis dinamik yang lain. Antaranya ialah sforzando (sfz). Lakukan\ncarian dalam Internet berkenaan dengan dinamik tersebut.\nMakna\nTandakan tahap penguasaan anda.\nMahir\nHampir mahir\nSederhana mahir\nIstilah/Terminologi\nSimbol\nhttp://arasmega.\ncom/qr-link/\nbeethovens-5th-\nsymphony/\n2\nUNIT\n• Durasi pembelajaran selama 60 minit.\n• Bimbing murid untuk bernyanyi lagu Sumpah Perajurit dengan dinamik yang betul.\n• Layari laman sesawang untuk menonton video Beethoven's 5th Symphony\n(Dicapai pada 14 Julai 2019)\n1.1.1\n• Lakukan latihan nyanyian terlebih dahulu sebelum menyanyikan lagu Sumpah Perajurit.\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p20]\n31\n30\nMARI BERNYANYI\nNyanyikan lagu Sumpah Perajurit suara 1 diikuti dengan suara 2. Setelah mahir kedua-dua\nsuara, bentukkan dua kumpulan, iaitu kumpulan suara 1 dan kumpulan suara 2. Nyanyikan\nlagu secara dua lapisan suara dengan mengaplikasikan dinamik yang betul.\nq= 100\nCiptaan: Rosman Adam\nSUMPAH PERAJURIT\n20\n21\n22\n23\nSuara 1 dan\nSuara 2\nSuara 1\nSuara 2\nMinus One\n2\nUNIT\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p21]\n33\n32\nEnsembel Muzik\n60\nNumerasi\nroman\nKord\nI\nV\niii\nFBm\nvii°\nCBdim\nii\nEm\nvi\nBm\nG\nA\nD\nIV\nD\n3\n1\n2\n0\nG\n2\n3\n1\nA\n2\n3\n1\nKord yang diwarnakan ialah kord primer bagi nada D Major.\n1\n3\n3\n1\n1\n2\n0\nPenjarian kord primer dalam nada D Major.\nKenali Kord Primer dalam Nada D Major\nMainkan kord primer yang terdapat dalam nada D Major yang terdiri daripada\nkord D Major, kord G Major, dan kord A Major.\nRajah 2.1 Carta kord dalam nada D Major.\nPenjarian Gitar Skel D Major\nMengaplikasi\nMainkan skel D Major dengan penjarian yang betul.\n0 1 3 0 1 3 1 2 1 3 1 0 3 1 0\nNombor tali\nNombor jari\nTandakan tahap penguasaan anda.\nMahir\nHampir mahir\nSederhana mahir\n1\n2\n3\n3\n1\n0\n1\n0\n2\nUNIT\n• Durasi pembelajaran selama 120 minit.\n• Bimbing murid mengenal pasti ton yang sesuai.\n• Bimbing murid bermain gitar dengan pic, irama dan tempo yang betul.\n2.1.1\n(i)(ii)(iii)(iv)\n2.1.2\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p22]\n35\n34\nD\nD\nG\nD\nD\nG\nG\nG\nA\nA\nA\nD\nGitar 1\nGitar 1\nLatihan Strumming\nMainkan latihan strumming di bawah.\nMainkan gitar berdasarkan skor melodi di bawah. Setelah mahir setiap bahagian, mainkan\nsecara ensembel dengan menggabungkan melodi dan strumming.\n27\nLatihan Ensembel Gitar\nLatihan Ensembel Gitar 2\nD\nD\nA\nG\nD\nA\nG\nD\nLatihan Strumming 1\n24\nLatihan Strumming 2\n25\nLatihan Strumming 3\n26\nD\nD\nG\nG\nA\nA\nD\nD\n2\nUNIT\n• Pelbagaikan tempo latihan gitar mengikut penguasaan murid.\n• Latihan dilakukan dengan iringan keyboard.\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p23]\n37\n36\nMainkan lagu Ucapku Syukur secara ensembel berdasarkan skor dengan:\n(a) Pic yang betul.\n(b) Ton yang sesuai.\n(c) Irama yang betul.\n(d) Tempo yang betul.\n60\n60\nNotasi Muzik\nUCAPKU SYUKUR\nD\nD\nG\nA\nD\nD\nG\nA\nG\nG\nA\nD\nMETER\nMasa bagi muzik dikawal\noleh meter. Meter ditulis\nselepas simbol klef pada\nawal lagu seperti contoh\ndi sebelah.\nMeter ditulis seperti berikut:\nRajah di bawah menerangkan maksud meter #,) dan P.\nbermaksud terdapat tiga detik kuaver dalam satu bar.\nbermaksud\nterdapat tiga detik krocet dalam satu bar.\nbermaksud terdapat enam detik kuaver dalam satu bar.\n• Durasi pembelajaran selama 60 minit.\n3.1.2\nBar\nBar\nGaris bar\nGaris\nberkembar\nKlef\nMeter\nBar\nq q q h q d\nLatihan Ensembel Gitar 3\nNombor di atas\nmenunjukkan bilangan\ndetik dalam satu bar.\nNombor di bawah\nmenentukan jenis notnya.\n28\nI N F O\nBagi merasai sesuatu\ndetik, detik pertama\npada sesebuah lagu\nakan dibunyikan dengan\nlebih kuat.\n29\n30\n31\nq= 100\nCiptaan: M.Syaraff\n2\nUNIT\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p24]\n39\n38\na\nc\nb\nd\ne\nf\na\nc\ne\ng\ni\nb\nd\nf\nh\nj\n1. Isikan ruang kosong dengan jawapan yang betul.\n2. Tuliskan meter yang sesuai bagi setiap keratan melodi di bawah.\nBil.\nSimbol meter\nCorak irama\nMaksud meter\na.\n  \nb.\nc.\nTiga detik kuaver setiap bar.\nd.\n™ ™\ne.\n24\n44\n3. Isikan tanda rehat yang sesuai pada tempat bertanda *.\n4. Isikan garis bar pada setiap corak irama di bawah.\nLATIHAN\n• Murid dikehendaki membuat setiap latihan di dalam buku latihan.\n2\nUNIT\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p25]\n41\n40\na\nd\nb\ne\nc\nf\nf\ng\na\nb\nc\nd\ne\nLATIHAN\n2. Tuliskan semula corak irama di bawah dengan pengumpulan not yang betul.\nPengumpulan Not dan Tanda Rehat Meter\nPengumpulan not dan tanda rehat bertujuan untuk\nmemudahkan pembacaan skor muzik. Pada pelajaran yang\nlalu, murid telah pun mempelajari pengumpulan not dan\ntanda rehat dalam meter # dan ). Berikut ialah contoh\npengumpulan not dan tanda rehat dalam meter P:\nDikumpulkan dalam dua\ndetik krocet bertitik bagi\nsetiap bar.\nSetiap detik\ndapat dibahagikan\nkepada dua bahagian\nyang sama nilai.\nRajah 2.2 Contoh pengumpulan not yang betul.\n1. Tuliskan semula corak irama di bawah mengikut pengumpulan not yang betul.\nPengumpulan not yang salah\nPengumpulan not yang betul\nhttp://arasmega.\ncom/qr-link/lagu-\nwarisan-2/\n• Layari laman sesawang untuk menonton video lagu Warisan. (Dicapai pada 10 Jun 2019)\n• Murid dikehendaki membuat setiap latihan di dalam buku latihan.\nMenganalisis\n2\nUNIT\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p26]\n43\n42\n1. Jawab soalan berdasarkan skor lagu di bawah.\n(a) Apakah yang perlu dilakukan oleh penyanyi apabila melihat simbol\ndan\ndalam skor nyanyian?\n(b) Bincangkan impak penggunaan dinamik terhadap persembahan nyanyian.\n(c) Nyanyikan lagu Perajurit Negara dengan dinamik yang betul secara\nberkumpulan. Lakukan penilaian dan beri komen mengenai nyanyian tersebut.\nCiptaan: M.Syaraff\nq= 130\nPerajurit negara\n60\nPenghasilan Muzik\n1. Anda dibekalkan dengan kad yang mempunyai corak irama #. Pilih empat corak\nirama dan gabungkan pada papan putih. Setiap kumpulan akan memainkan corak\nirama masing-masing.\n(a) Kumpulan 1 dan kumpulan 2 akan memilih corak irama berdasarkan\nmeter #.\n(b) Aturkan pilihan corak irama pada papan putih berserta garis bar\ndan garis penamat.\n(c) Ciptakan melodi 16 bar dengan menggunakan:\n(i) Meter #.\n(ii) Nilai not semibrif, minim bertitik, krocet bertitik, krocet, krocet\nbertitik, semikuaver dan tanda rehat.\n(iii) Masukkan garis bar dan garis penamat.\n(iv) Masukkan sekurang-kurangnya dua tanda dinamik yang sesuai.\n(v) Persembahkan hasil karya muzik ciptaan anda secara kreatif.\n2. Mainkan melodi yang anda cipta dalam kumpulan, kemudian ciptakan melodi\nmenggunakan meter yang berbeza.\nContoh set kad corak irama.\nD\nG\nG\nD\np\np\np\nf\nf\np\nD\nA7\nA7\nD\nG\nA7\nK\ne\nm\na\nh\ni\nr\na\nn\nAbad\n21\nKe\nPENILAIAN\nMenilai\nEnsembel Nyanyian\nPenciptaan Melodi dalam Meter #\n2\nUNIT\n• Durasi pembelajaran selama 60 minit.\n4.1.1\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p27]\n45\n44\nTandakan tahap penguasaan anda berdasarkan meter pencapaian.\nMenguasai lagu nyanyian dua lapisan suara dengan dinamik\nyang betul.\nMemainkan alat muzik berdasarkan skor dengan pic yang betul,\nton yang sesuai, irama yang betul dan tempo yang betul.\nMemahami, menulis dan menerangkan maksud meter #, ) dan P.\nMencipta melodi mudah dalam nada major menggunakan meter\n#, $ berdasarkan not semibrif, minim, minim bertitik, krocet bertitik,\nkrocet, kuaver bertitik dan semikuaver serta tanda rehat.\na D Major\nb F Major\nMengaplikasi\n2. Tandakan penjarian gitar skel D Major pada carta di bawah.\n4. Jawab soalan berikut berdasarkan keratan melodi yang diberikan.\n5. Berdasarkan corak irama di bawah, ciptakan melodi 8 bar mengikut nada yang diberikan.\n(a) Isikan meter berdasarkan corak irama pada bar 1.\n(b) Isikan garis bar pada keratan melodi di atas.\n(c) Isikan tanda rehat di tempat bertanda *.\n3. Tulis dan mainkan penjarian gitar skel D Major.\nMengaplikasi\nNotasi Muzik\nEnsembel Muzik\nPenghasilan Muzik\n2\nUNIT\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p28]\nTerdapat tujuh buah benua di dunia yang terdiri daripada\nBenua Asia, Benua Afrika, Benua Amerika Utara, Benua Amerika\nSelatan, Benua Antartika, Benua Australia, dan Benua Eropah.\nLayari Internet untuk mengetahui kedudukan benua di dunia.\nUnit 3\nEKSPLORASI\nDUNIA\nPada akhir pembelajaran ini, murid boleh:\n1.1 Bernyanyi Secara Ensembel\n1.1.2\nBernyanyi dengan teknik yang betul:\n(i) pernafasan\n2.1\nBermain Alat Muzik Secara Ensembel\n2.1.1 Memainkan alat muzik berdasarkan skor dengan:\n(i) pic yang betul (ii) ton yang sesuai\n(iii) irama yang betul (iv) tempo yang betul\n3.1 Asas Notasi Muzik\n3.1.3\nMemahami, menulis dan menerangkan maksud\nterminologi dan simbol muzik:\n(i) tanda kromat\n(ii) akhiran 1,2\n(iii) tanda ulangan\n(iv) tanda penamat\n(v) tie\n(vi) slur\n(vii) Crescendo\n(viii) Decrescendo\n(ix) Lento\n(x) Da Capo (D.C)\n(xi) Dal Segno (D.S)\n(xii) Segno\n(xiii) Coda\n(xiv) Fermata\n4.1 Pengkaryaan Muzik\n4.1.1 Mencipta melodi mudah dalam nada\nmajor menggunakan:\n(i) meter\n(ii) not semibrif, minim, minim bertitik, krocet\nbertitik, krocet, kuaver bertitik dan semikuaver\nserta tanda rehat.\n4.1.2\nMempersembahkan hasil ciptaan\n5.1\nPenghayatan Pelbagai Genre Muzik\n5.1.1 Menganalisis dan memberi pendapat tentang\nmuzik Asia Tenggara yang didengar atau\nditonton meliputi aspek asas berikut:\n(i) genre muzik (ii) latar belakang muzik\n(iii) alat muzik (iv) fungsi muzik\n(v) bentuk muzik (vi) cara persembahan\n5.1.2\nMembentangkan dapatan analisis muzik\nAsia Tenggara\n47\n46\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p29]\nEnsembel Nyanyian\n60\nLatihan Nyanyian\nLatihan Nyanyian 5\nLatihan Nyanyian 7\nLatihan Nyanyian 6\nLatihan Nyanyian 8\n32\n34\n33\n35\noo\nee\noo uu oo ah\nla\nle\nli le lo la\nma\nme\nmi me mo ma\nba\nbe bi be bo ba\nDengarkan audio frasa melodi dan ajuk semula dengan menggunakan pic yang betul.\n49\n48\n3\nUNIT\nBERNYANYI DENGAN TEKNIK PERNAFASAN YANG BETUL\nTeknik pernafasan amat penting dalam nyanyian. Salah satu teknik pernafasan yang\nperlu dikuasai ialah teknik attack dan release. Teknik attack ialah cara untuk memulakan\nnyanyian sesuatu not melibatkan ketepatan pic serta sebutan vokal dan konsonan lirik\nlagu. Teknik release pula ialah cara mengakhirkan sesuatu not dalam nyanyian.\nBagi mendapatkan teknik nyanyian yang baik, kita perlulah bernafas dengan kaedah\nyang betul, iaitu menggunakan otot diafragma dan otot abdomen.\nKenal pasti pic yang akan dinyanyikan dan hasilkan frasa melodi agar nyanyian lebih\nrelaks dan not yang dinyanyikan jelas dan betul.\n• Durasi pembelajaran selama 60 minit.\n• Bimbing murid untuk bernyanyi dengan teknik yang betul.\n• Bimbing murid bernyanyi lagu baris demi baris.\n• Pelbagaikan sebutan latihan nyanyian untuk membantu murid\nmenguasai teknik pernafasan yang baik.\n1.1.1\n1.1.2\nBagi teknik release pula,\npastikan kiraan nilai not\ntepat sebelum nyanyian not\npada akhir frasa. Sebutan\nvokal dan konsonan juga\nmestilah betul dan jelas\nbagi mendapatkan nyanyian\nyang baik.\nI N F O\nPenyanyi perlu mengetahui\npernafasan mereka kerana\nianya akan memberi kesan\nkepada nada dan kualiti\nsuara, kemampuan untuk\nmencapai julat pic yang\ndiperlukan dan kemahiran\nmengawal not untuk\ntempoh masa yang lama.\nDengarkan lagu pilihan anda, kemudian beri pendapat tentang teknik\npernafasan yang digunakan oleh penyanyi dalam lagu tersebut.\nTandakan tahap penguasaan anda.\nMahir\nHampir mahir\nSederhana mahir\nGunakan teknik pernafasan yang betul dengan mengamalkan\nsenaman mudah seperti berikut:\n(i) Baring dan letakkan sebuah buku besar di bahagian tengah\nabdomen anda.\n(ii) Tarik nafas dan jika dilakukan dengan betul, anda dapat\nmelihat buku tersebut naik.\n(iii) Tahan nafas selama tiga saat sebelum dilepaskan.\n(iv) Hembus nafas perlahan-lahan dan perhatikan buku turun\nmengikut abdomen anda.\nTIP\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p30]\nMARI BERNYANYI\nNyanyikan suara 1 lagu Satelit Inspirasi, kemudian diikuti dengan suara 2. Setelah mahir\nkedua-dua suara, nyanyikan secara ensembel dengan mengaplikasikan teknik pernafasan\nyang betul.\nCiptaan: Rosman Adam\nq= 90\nSATELIT INSPIRASI\n51\n50\n3\nUNIT\n38\nSuara 2\n39\nMinus One\n37\nSuara 1\n36\nSuara 1 dan Suara 2\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p31]\nEnsembel Muzik\n60\nMainkan kord primer yang terdapat dalam nada BbMajor yang terdiri daripada\nkord BbMajor, kord EbMajor, dan kord F Major.\nNumerasi\nroman\nKord\nI\nV\niii\nvii°\nii\nvi\nIV\nKord yang diwarnakan ialah kord primer bagi nada BbMajor.\nBb\nEb\nF\n3\n2\n4\n1\n3\n1\n2\n3\n4\n2\n1\nAdim\nCm\nDm\nGm\nF\nBb\nEb\nPenjarian Gitar Skel BbMajor\nMainkan skel BbMajor dengan penjarian yang betul.\nNombor tali\nNombor jari\nTandakan tahap penguasaan anda.\nMahir\nHampir mahir\nSederhana mahir\n2\n3\n3\n3\n1\n0\n1\n0\n1\n3\n2\n3\n3\n0\n0\n1\n1 3 0 1 3 0 2 3 2 0 3 1 0 3 1\nPenjarian kord primer dalam nada BbMajor.\n1\n1\nMengaplikasi\n53\n52\n3\nUNIT\nKenali Kord Primer dalam Nada BbMajor\nRajah 3.1 Carta kord primer dalam nada BbMajor.\n• Durasi pembelajaran selama 120 minit.\n• Bimbing murid bermain gitar dengan pic yang betul.\n• Bimbing murid mengenal pasti ton yang sesuai.\n• Bimbing murid bermain gitar dengan irama dan tempo yang betul.\n2.1.1\n(i)(ii)(iii)(iv)\n2.1.2\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p32]\nBb\nBb\nBb\nBb\nBb\nBb\nCiptaan: M.Syaraff\nq= 100\n55\n54\n3\nUNIT\nLatihan Strumming\nMainkan latihan gitar di bawah.\n60\nLatihan Strumming 4\n40\nLatihan Strumming 5\n41\nLatihan Strumming 6\n42\nMainkan lagu Bangkitlah secara ensembel berdasarkan skor dengan:\n(a) Pic yang betul.\n(b) Ton yang sesuai.\n(c) Irama yang betul.\n(d) Tempo yang betul.\nMainkan gitar berdasarkan skor melodi di bawah.\nGitar 1\nGitar 1\nBb\nBb\nF\nEb\nBb\nBb\nF\nEb\n• Pelbagaikan tempo latihan mengikut penguasaan murid.\n• Latihan dimainkan dengan iringan keyboard.\nLatihan Ensembel Gitar 4\nLatihan Ensembel Gitar 5\nLatihan Ensembel Gitar\nBANGKITLAH\n43\n44\nF\nF\nGitar 1\nGitar 1\nBb\nF\nBb\nBb\nBb\nBb\nEb\nEb\nBb\nBb\nF\nF\nBb\nF\nEb\nEb\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p33]\nLatar Belakang Muzik\nEnsembel pi phat ialah ensembel muzik klasikal\nThailand yang terdiri daripada alat perkusi dan alat\ntiup kayu (woodwind).\nTerdiri daripada enam alat muzik, iaitu pi nai\n(serunai), taphon (gendang), ching (simbal), khong\nwong yai (gong), glong thad (gendang) dan ranat\nek (zilofon) yang mana dimainkan secara duduk.\nEnsembel ini dipersembahkan semasa upacara\nkeagamaan, mengiringi teater tradisional Thai,\ntarian klasikal (lakhon) dan wayang kulit.\nTaphon\nTaphon ialah sejenis gendang tradisional Thailand yang berbentuk\ntong (barrel) dan mempunyai dua permukaan muka.\nAlat muzik ini dimainkan dengan cara memukul permukaan\nmuka taphon dengan tangan ataupun jari.\nKlong that\nSejenis alat muzik gendang tradisional Thailand yang juga\ndikenali sebagai klong chatri atau klong tuk.\nAlat muzik ini dimainkan dengan menggunakan dua\nbatang pemukul.\nKhong wong lek\nKhong wong lek ialah alat muzik perkusi idiofon. Terdiri\ndaripada 16 gong kecil yang diikat dengan tali di atas\nrotan berbentuk bulatan.\nAlat muzik ini menggunakan talaan yang sama dengan talaan barat (western tuning).\nSetiap gong disalut dengan lilin lebah di bawahnya bagi membezakan setiap pic.\nPemain akan duduk di dalam dengan memainkannya menggunakan pemukul.\nRanat ialah alat muzik perkusi idiofon yang terdiri daripada\n12 bilah kayu. Kayu tersebut diregangkan di atas tali dan\ndipasang tergantung di atas kayu yang berbentuk sampan.\nAlat muzik ini mempunyai tujuh pic dan boleh\ndimainkan sepanjang tiga oktaf dengan menggunakan dua\npemukul. Ketiga-tiga ranat menggunakan jenis pemukul\nyang berbeza.\nKhong mon\nKhong mon ialah alat muzik gong yang disusun dalam separa bulatan\ndan dimainkan oleh kaum Mon di Barat Thailand.\nUkiran hiasan separuh manusia dan separuh burung menghiasi\nbingkai alat muzik, iaitu simbolik kepada muzik bagi bangsawan.\nJenis Alat Muzik\nAspirasi Muzik\n60\nENSEMBEL PI PHAT\nRanat thum\nRanat ek\nRanat thum lek\nPi nai\nAlat muzik tiupan yang menyerupai serunai.\nKhlui\nAlat muzik tiupan yang menyerupai seruling\ndan diperbuat daripada buluh.\nEnsembel pi phat dipersembahkan\ndalam upacara diraja dan festival\nrakyat seperti konsert muzik atau\nmengiringi persembahan Khon\n(Drama tari bertopeng), Yai (Wayang\nkulit), Lakhon (Drama tari), Hun\nKrabok (Teater patung buluh) dan\nLi-Ke (Drama tarian rakyat).\nEnsembel pi phat juga dimainkan\ndalam upacara pengebumian.\nRanat\nAlat muzik idiofon\nAlat muzik membranofon\nAlat muzik erofon\nPemukul keras (hard mallet) digunakan untuk\nmemainkan muzik yang laju dan mendapatkan bunyi yang\nkuat manakala pemukul lembut (soft mallet) digunakan\nuntuk mendapatkan ton lembut dan bunyi yang perlahan.\nI N F O\nChing dikategorikan\nsebagai idiofon dan\ndisambung menggunakan\ntali. Ching akan dilagakan\nbagi mengeluarkan bunyi.\nI N F O\n57\n56\n3\nUNIT\nhttp://arasmega.\ncom/qr-link/\nensembel-pi-\nphat-3/\n• Durasi pembelajaran selama 60 minit.\n• Layari laman sesawang untuk menonton video ensembel pi phat.\n(Dicapai pada 10 Jun 2019)\n5.1.1\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p34]\nPi phat Khryang Ha\nPi phat khryang ha ialah ensembel yang mengiringi khone (tarian bertopeng), lakorn dan nang\nyai ketika zaman pemerintahan Kerajaan Ayuthaya. Ensembel ini terdiri daripada:\n(a) 1 ranat ek,\n(b) 1 khong wong yai, (c) 1 taphon,\n(d) Sepasang klong that,\n(e) 1 pi nai,\n(f) 1 ching.\nPi phat Khryang Khu\nEnsembel pi phat khryang khu diubahsuai daripada pi phat kruang ha dan telah digunakan\ndalam muzik Thailand sejak pemerintahan Raja Chakri III. Ensembel ini terdiri daripada:\n(a) 1 ranat ek,\n(b) 1 ranat thum,\n(c) 1 khong wong lek,\n(d) 1 khong wong yai,\n(e) 1 pi nog,\n(f) 1 taphon.\nPi phat Khryang Yai\nEnsembel pi phat khryang yai ialah ensembel pi phat yang terbesar. Mula diperkenalkan ketika\nera Raja Chahri I. Ensembel ini terdiri daripada:\n(a) 1 ranat ek,\n(b) 1 ranat ek lek, (c) 1 ranat thum, (d) 1 ranat thum lek,\n(e) 1 khong wong lek, ( f ) 1 khong wong yai, (g) 1 pi nong, (h) 1 taphon,\n(i) Sepasang klong that, ( j) 1 pi nai dan lain-lain.\nPi phat Duek Dam Ban\nEnsembel pi phat duek dam ban diperkenalkan oleh Putera Naris pada tahun 1898. Ensembel\nini terdiri daripada:\n(a) 1 ranat ek, (b) 1 ranat thum, (c) 1 ranat thum lek, (d) 1 khong wong yai,\n(e) 1 saw-u, ( f ) 1 khlui-u,\n(g) 1 khlui phiang aw.\nPi phat Nang Hong\nEnsembel pi phat nang hong dimainkan ketika majlis pengebumian. Namanya diambil sempena\nnama tajuk lagu utama, iaitu “Tab Ruang Nang Hong”. Ensembel ini ialah gabungan ensembel\npi phat dan gendang Melayu yang terdiri daripada:\n(a) 1 ranat ek, (b) 1 ranat thum, (c) 1 khong wong yai, (d) 1 khong wong lek,\n(e) 1 pi java, ( f ) Sepasang gendang Melayu.\nPi phat Mon\nMula dimainkan ketika pemerintahan Raja Chakri Rama IV. Ensembel ini hampir sama dengan\nensembel pi phat lain kecuali alat muzik khong mon yang ditambah ke dalamnya. Dimainkan\noleh etnik Mon dan dipersembahkan dalam majlis kebudayaan dan pengebumian.\nTerdapat enam jenis ensembel pi phat, iaitu:\n60\nNotasi Muzik\nBahagian Alat Muzik\n59\n58\n3\nUNIT\nTempo, dinamik dan tanda isyarat dalam skor muzik membantu pemuzik dan konduktor\nmemainkan lagu dengan ekspresi yang dikehendaki oleh komposer atau penggubah lagu.\nTERMINOLOGI MUZIK\n• Durasi pembelajaran selama 60 minit.\n3.1.3\nSimbol\nIstilah/\nTerminologi\nMaksud\nTempo\nSimbol\nDinamik\nLento\nLento\nCrescendo\nSemakin kuat atau\nberansur kuat.\nSemakin lembut atau\nberansur lembut.\nPic pada not\nditurunkan semiton.\nPic pada not\ndinaikkan semiton.\nKembali ke not asal.\nDimainkan sehingga tanda akhiran\n1, kemudian ulang semula di\ntempat bertanda permulaan\nulangan dan terus bermain\nsehingga ke akhiran 2 tanpa\nmemainkan semula akhiran 1.\nDecrescendo\nFlet\nb\nB\n½\nNatural\nSyap\nAkhiran 1, 2\nSangat lambat.\n1.\n2.\nritenuto\nrit.\nBeransur lambat.\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p35]\nSimbol\nIstilah/\nTerminologi\nMaksud\nSimbol\nTanda ulangan\nUlangan\nTanda penamat\nTamatnya sesebuah lagu.\nTie\nDa Capo (D.C)\nSlur\nDal Segno (D.S)\nSegno\nFermata\nCoda\nGarisan melengkung yang\nmenyambungkan dua not yang sama\npic untuk memanjangkan bunyi.\nUlang dari mula.\nGarisan melengkung yang\nmenyambungkan dua not berbeza\npic yang dimainkan secara\nbersambung atau tanpa putus.\nUlang dari tanda .\nTanda .\nBerhenti seketika.\nBahagian tambahan dalam sesuatu\nlagu atau penutup lagu atau biasanya\nberbeza dari struktur asas lagu.\nD.S\nD.C\nBahagikan kepada beberapa kumpulan kecil. Setiap kumpulan diberi masa\ntertentu untuk berlatih memainkan corak irama yang diberi guru mengikut\nnilai not dan dinamik yang betul. Latihan ini boleh dilakukan sama ada secara\nmenepuk, pergerakan badan atau menggunakan mana-mana alat perkusi\npilihan yang sesuai.\nTandakan tahap penguasaan anda.\nMahir\nHampir mahir\nSederhana mahir\nLATIHAN\n61\n60\n3\nUNIT\n1. Namakan terminologi muzik yang terdapat pada setiap keratan melodi berikut.\n(a)\n(b)\n2. Berdasarkan melodi di bawah, terangkan secara ringkas cara melodi dimainkan pada\nbar berikut.\n3. Namakan dan nyatakan fungsi simbol berikut:\nBil.\nSimbol\nNama\nFungsi\na.\nb.\nc.\nd.\ne.\n(a) Bar 1 hingga 4.\n(b) Bar 5 dan 6.\n(c) Bar 9 dan 10.\np\nmf\nff\nrit.\ncresc.\np\nmf\nLento\nAndante\n• Durasi pembelajaran selama 60 minit.\n• Murid dikehendaki membuat setiap latihan di dalam buku latihan.\n4.1.1\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p36]\n60\nPenghasilan Muzik\nOLAHAN IDEA DALAM KOMPOSISI\n63\n62\n3\nUNIT\nIdea dan kreativiti diperlukan dalam menghasilkan melodi yang baik. Kaedah mencipta\nmelodi berdasarkan melodi yang sedia ada dapat membantu komposer menghasilkan\nsebuah karya yang lebih tersusun.\nApabila guru menepuk sesuatu corak irama, maka murid akan menepuk semula corak\nirama yang dilakukan oleh guru. Contoh imitasi ke atas corak irama sahaja tetapi dengan\nnot dan jeda yang berbeza.\nPenghasilan Melodi Berdasarkan Imitasi\nImitasi ialah satu gaya peniruan yang mana komposer mengambil beberapa bahagian\ndalam sesebuah melodi yang sedia ada. Bahagian yang diambil ialah pergerakan corak\nirama dan pic.\nContoh penghasilan corak irama.\na Bb Major\nb D Major\n1. Berdasarkan kefahaman anda, jelaskan tentang teknik attack dan release dalam\nnyanyian secara ringkas.\n2. Apakah kesan jika anda tidak menguasai teknik ini dan tidak mengaplikasikannya\ndalam nyanyian?\n3. Tandakan penjarian skel gitar BbMajor pada carta di bawah.\nPENILAIAN\n4. Tulis dan mainkan penjarian gitar skel BbMajor.\nCorak irama dan\nmelodi asal.\nCorak irama yang diajuk\ndengan melodi baru.\nMenilai dan Mengaplikasi\nMengaplikasi\nEnsembel Nyanyian\nEnsembel Muzik\nBerdasarkan keratan melodi di bawah, cipta melodi baru dengan mengambil dua\nbahagian atau dua bar atau pada keratan melodi dalam nada Major:\n• Durasi pembelajaran selama 60 minit.\n• Murid dikehendaki membuat setiap latihan di dalam buku latihan.\n4.1.1\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p37]\n5. Berdasarkan lagu Seri Mersing, jawab soalan-soalan berikut:\n(a) Kenal pasti simbol dan maksud tempo yang terdapat pada lagu di atas.\nSERI MERSING\nBar\nSimbol\nMaksud\nTempo\nPermulaan lagu\nBar 20\nSimbol dan arahan persembahan\nBar 1\nBar 5\nBar 9\nBar 17\nBar 18\nBar 19\nGubahan: M.Syaraff\nLento\n6. Ciptakan sebuah melodi 8 bar berdasarkan motif yang diberi dengan menggunakan\nelemen-elemen berikut:\nMengaplikasi\nPenghasilan Muzik\n65\n64\n3\nUNIT\n7. Bentuk kumpulan dan cari bahan-bahan mengenai ensembel pi phat berkaitan\nperkara-perkara di bawah. Bentangkan hasil dapatan dalam bentuk persembahan\nmultimedia seperti Power Point.\n(a) Pengenalan ensembel pi phat.\n(b) Gambar setiap alat muzik yang digunakan dalam ensembel pi phat.\n(c) Gambar atau video persembahan ensembel pi phat.\nTandakan tahap penguasaan anda berdasarkan meter pencapaian.\nBernyanyi dengan teknik pernafasan yeng betul.\nMemainkan alat muzik berdasarkan skor dengan pic yang betul,\nton yang sesuai, irama yang betul dan tempo yang betul.\nMenganalisis dan memberi pendapat tentang muzik Asia\nTenggara yang didengar atau ditonton meliputi aspek genre muzik,\nlatar belakang muzik, alat muzik, fungsi muzik, bentuk muzik dan\ncara persembahan.\nMemahami, menulis dan menerangkan maksud terminologi dan\nsimbol muzik bagi tanda kromat, akhiran 1, 2, tanda ulangan,\ntanda penamat, tie, slur, Crescendo, Decrescendo, Lento,\nDa Capo (D.C), Dal Segno (D.S), Segno, Coda dan Fermata.\nMencipta melodi mudah dalam nada major menggunakan meter\n# dan $ berdasarkan not semibrif, minim, minim bertitik, krocet\nbertitik, krocet, kuaver bertitik dan semikuaver serta tanda rehat.\ndan mempersembahkan hasil ciptaan.\nK\ne\nm\na\nh\ni\nr\na\nn\nAbad\n21\nKe\n(a) Nada major.\n(b) Meter $.\n(c) Menggunakan jenis not d, q, e, s dan tanda rehat krocet.\n(d) Menggunakan kaedah imitasi dan simbol dinamik yang telah dipelajari.\n(e) Tepuk corak irama yang dihasilkan atau mainkan dengan alat muzik pilihan.\nNotasi Muzik\nApresiasi Muzik\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p38]\nUnit 4\nMelakar\nkejayaan\nPada akhir pembelajaran ini, murid boleh:\n1.1 Bernyanyi Secara Ensembel\n1.1.2 Bernyanyi dengan teknik yang betul:\n(ii) artikulasi\n2.1\nBermain Alat Muzik Secara Ensembel\n2.1.1 Memainkan alat muzik berdasarkan skor dengan:\n(i) pic yang betul\n(ii) ton yang sesuai\n(iii) irama yang betul\n(iv) tempo yang betul\n3.1 Asas Notasi Muzik\n3.1.4\nMembaca dan menulis not dalam klef bes\nsehingga 2 garisan leger.\n4.1 Pengkaryaan Muzik\n4.1.1 Mencipta melodi mudah dalam nada major\nmenggunakan:\n(i) meter\n(ii) not semibrif, minim, minim bertitik,\nkrocet bertitik, krocet, kuaver bertitik\ndan semikuaver serta tanda rehat.\nPasukan gimnastik artistik wanita negara memenangi pingat emas\ndalam acara berpasukan di Sukan SEA Kuala Lumpur 2017.\n67\n66\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p39]\n69\n68\nI N F O\nPenulisan staccato\ndalam notasi ditulis\ndi atas atau di bawah\nnot menggunakan\nsimbol “•”.\nEnsembel Nyanyian\n60\nLatihan Teknik Staccato dan Legato\nPerhatikan skor di bawah, kenal pasti simbol staccato dan nyanyikan frasa melodi\nberikut dengan teknik yang betul.\ntud tud tud tud tud tud tud tud tud tud tud tud tud\nhah hah heh heh hih hih hoh hoh huh\nta ta ta ta ta ta tud tud tud tud tud\n\nAndante\n46\nLatihan Nyanyian 10\nModerato\n47\nLatihan Nyanyian 11\nAllegro\nLatihan Nyanyian 12\n48\nTandakan tahap penguasaan anda.\nMahir\nHampir mahir\nSederhana mahir\nAnalisis skor di bawah, dengarkan perbezaan pada bahagian bertanda\nstaccato. Guru membuat tunjuk cara teknik staccato yang betul dan\nmembimbing murid untuk mendapatkan teknik yang betul.\nTHE FROGS\n45\nAntara teknik artikulasi yang ada dalam nyanyian ialah teknik staccato. Cara menyanyikan\nstaccato adalah dengan memendekkan nilai not separuh daripada nilai asal not tersebut.\nTeknik ini biasanya diaplikasikan dalam lagu-lagu yang rancak.\nAnda akan merasakan pergerakan otot-otot di bahagian abdomen semasa\nmengaplikasikan teknik staccato dalam nyanyian. Kawalan pernafasan dapat membantu\nnyanyian secara staccato dengan baik.\nBERNYANYI DENGAN ARTIKULASI YANG BETUL\n4\nUNIT\n• Durasi pembelajaran selama 60 minit.\n• Bimbing murid bernyanyi lagu Masa dengan teknik artikulasi yang betul.\n• Bimbing murid bernyanyi lagu Masa baris demi baris.\n1.1.1\n1.1.2\n• Bimbing murid membuat latihan pernafasan sebelum menyanyi.\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p40]\n71\n70\nMARI BERNYANYI\nNyanyikan suara 1 lagu Masa diikuti dengan suara 2. Setelah mahir kedua-dua suara,\nnyanyikan secara ensembel dengan menggunakan teknik artikulasi.\n51\nSuara 2\n52\nMinus One\n50\nSuara 1\n49\nSuara 1 dan Suara 2\nMASA\nq= 73\nCiptaan: Rosman Adam\n4\nUNIT\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p41]\n73\n72\nEnsembel Muzik\n60\nNumerasi\nroman\nKord\ni\nV\nIII\nvii°\nAB°dim\nii°\nCBdim\nD\nVI\nG\nEm\nFB\nBm\niv\nRajah 4.1 Carta kord dalam nada B minor.\nKord yang diwarnakan ialah kord primer bagi nada B minor.\nMainkan kord primer dalam nada B minor yang terdiri daripada kord B minor, kord\nE minor dan kord FB Major.\nKenali Kord Primer dalam Nada B Minor\nBm\nEm\nFB\n3\n4\n2\n1\n1\n2\n3\n2\n1\n1\nPenjarian Gitar Skel B Minor Harmonik\nMengaplikasi\nMainkan skel B minor harmonik dengan penjarian yang betul.\nNombor tali\nNombor jari\nTandakan tahap penguasaan anda.\nMahir\nHampir mahir\nSederhana mahir\n2\n3\n3\n3\n1\n0\n1\n0\n1\n2\n3\n3\n0\n0\n1\n1 3 0 1 3 0 2 3 2 0 3 1 0 3 1\n5 4 3 4 5\nPenjarian kord primer dalam nada B minor.\n1\n4\n3\n4\nUNIT\n• Durasi pembelajaran selama 120 minit.\n• Bimbing murid mengenal pasti ton yang sesuai.\n• Bimbing murid bermain gitar dengan pic, irama dan tempo yang betul.\n2.1.1\n(i)(ii)(iii)(iv)\n2.1.2\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p42]\n75\n74\n53\n54\nLatihan Gitar Bes 1\nLatihan Gitar Bes 2\n55\nGitar 1\nGitar 1\nGitar 1\nGitar 1\nGitar 1\nGitar 1\nGitar 2\nGitar 2\nBm\nEm\nBm\nFB\nBm\nBm\nFB\nBm\nLatihan Gitar Bes\nBerdasarkan skor berikut, mainkan bahagian bes dengan\nmengaplikasikan teknik alternate picking bagi not tonik\ndan dominan dalam kord-kord berikut.\nBm\nBm\nBm\nBm\nBm\nBm\nEm\nBm\nBm\nBm\nEm\nEm\nFB\nFB\nFB\nFB\nPERMAINAN GITAR BES\nPermainan gitar bes boleh dijadikan sebagai iringan\nmelodi selain daripada teknik strumming. Teknik asas\ndalam permainan bes ialah bermain secara alternate\npicking, iaitu menggunakan jari telunjuk dan jari tengah\nsecara berselang-seli.\n• Pelbagaikan tempo latihan mengikut penguasaan murid.\n• Latihan dimainkan dengan iringan keyboard.\nq= 110\nCiptaan: M.Syaraff\nLatihan Ensembel Gitar 6\nMainkan lagu Terbang Tinggi secara ensembel dengan mengaplikasikan\nteknik-teknik bermain gitar yang telah dipelajari.\nTERBANG TINGGI\nI N F O\nTerdapat beberapa\ncara memainkan bes,\niaitu not tonik dan median\n(1-3) atau not tonik dan\ndominan (1-5) yang dimainkan\ndalam setiap kord iringan.\n4\nUNIT\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p43]\n77\n76\nNotasi Muzik\n60\nE\na\nC\nd\nD\ng\nG\nb\nD\ne\nD\nh\nE\nc\nA\nf\nC\ni\nKlef bes\njuga dikenali\nsebagai klef F.\nBerikut ialah not dalam klef bes sehingga 2 garisan leger.\nKLEF BES\nC D E F G A B C D E F G A B C D E\nTengah\n1. Tulis not dalam klef bes sehingga 2 garisan leger.\n2. Notasikan semula not pada klef trebel ke klef bes dengan mengekalkan pic asal.\n• Durasi pembelajaran selama 60 minit.\n• Murid dikehendaki membuat setiap latihan di dalam buku latihan.\nSemibrif C pada\ngaris leger\na\nKrocet F\npada garisan\nKuaver bertitik A\npada ruang\nKuaver bertitik A\npada ruang\nMinim C pada\ngaris leger\nMinim bertitik E\npada garis leger\nNot kuaver B\npada garisan\nKrocet bertitik\nC tengah\nSemikuaver G\npada garisan\n3. Lukiskan klef berdasarkan nama not yang diberikan.\n4. Notasikan setiap not berikut pada baluk.\nLATIHAN\nI N F O\nKlef bes selalunya\ndigunakan pada:\nVokal:\nSuara bes.\nAlat muzik orkestra:\nDouble bass, basoon,\ntrombon, timpani.\na\nc\nb\nd\nb\nc\nd\ng\ne\nh\nf\ni\n4\nUNIT\n3.1.4\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p44]\n79\n78\nPenghasilan Muzik\n60\nLATIHAN\nPenciptaan melodi boleh dilakukan dengan berpandukan pergerakan kord. Anda haruslah\nmempunyai pengetahuan tentang binaan asas triad.\nPENCIPTAAN MELODI BERASASKAN PERGERAKAN KORD\nPengenalan Chord Spelling\nChord spelling ialah menamakan setiap not yang terdapat\ndalam binaan sesuatu kord.\nPenciptaan Melodi Dalam Nada Major\nPergerakan Kord I, Kord IV dan Kord V dibina dari not\npertama, keempat dan kelima dalam sesuatu skel.\nBinaan Melodi Berasaskan Chord Tones\nSetiap bar mengandungi not yang terdapat dalam kord tersebut. Contohnya melodi\nyang terdapat pada bar pertama ialah G, B, D, dan B, iaitu not-not yang terdapat dalam\nkord G.\nChord tones ialah not-not yang terdapat dalam sesuatu kord. Contoh\nkord primer dalam nada G Major.\nContoh melodi yang dihasilkan dari chord tones.\nBerdasarkan pergerakan kord di bawah, hasilkan melodi berdasarkan penghasilan melodi\nmelalui chord tones.\na Nada C Major\nb Nada G Major\nc Nada F Major\nd Nada D Major\nG\nG\nC\nC\nD\nD\nG\nG\nI N F O\nChord spelling dalam\nnada BbMajor\nKord\nNot\nI\nBb, D, F\nIV\nEb, G, Bb\nV\nF, A, C\nKord\nKord dalam huruf roman\nNot\nG Major\nI\nG, B, D\nC Major\nIV\nC, E, G\nD Major\nV\nD, F#, A\nBb\n4\nUNIT\n• Durasi pembelajaran selama 60 minit.\n• Murid dikehendaki membuat setiap latihan di dalam buku latihan.\n4.1.1, 4.1.2\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p45]\n81\n80\nPENILAIAN\n1. Jelaskan teknik staccato secara ringkas dalam bentuk peta i-Think.\n2. Persembahkan lagu Masa secara ensembel dengan mengaplikasikan\nteknik artikulasi yang betul.\nMencipta\nMencipta\n5. Berdasarkan skor di bawah, persembahkan lagu Terbang Tinggi\nsecara ensembel. Ciptakan iringan strumming untuk mengiringi\nlagu tersebut.\n6. Namakan setiap pic yang bertanda *.\nEnsembel Nyanyian\nEnsembel Muzik\nGitar 1\nGitar 1\nGitar 2\nGitar 2\nTERBANG tinggi\nCiptaan : M.Syaraff\nq= 110\nFB\nBm\nBm\nBm\n3. Tandakan penjarian gitar skel B minor harmonik pada carta di bawah.\n4. Tulis dan mainkan penjarian gitar skel B minor harmonik.\na\nb\nNotasi Muzik\nBm\nBm\nEm\nFB\n4\nUNIT\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p46]\n83\n82\nTandakan tahap penguasaan anda berdasarkan meter pencapaian.\nMenguasai lagu nyanyian dengan teknik artikulasi yang betul.\nMemainkan alat muzik berdasarkan skor dengan pic yang betul,\nton yang sesuai, irama yang betul dan tempo yang betul.\nMembaca dan menulis not dalam klef bes sehingga 2 garisan leger.\nMencipta melodi mudah dalam nada Major menggunakan meter\n#,$ berdasarkan not semibrif, minim, minim bertitik, krocet\nbertitik, krocet, kuaver bertitik dan semikuaver serta tanda rehat\ndan mempersembahkan hasil ciptaan.\nNot A\npada garisan (krocet)\nNot D\npada garisan\n(krocet bertitik)\nNot B\npada ruang (kuaver)\nNot E\npada garis leger\n(minim bertitik)\nNot C\npada ruang (semikuaver)\nNot G\npada garisan\n(semibrif bertitik)\n7. Notasikan setiap not pada baluk yang disediakan.\nMengaplikasi\nC\nE\nG\n8. Berdasarkan kord yang diberi:\n(a) Senaraikan not-not yang terdapat di dalam kord di bawah.\n(b) Notasikan kord pada baluk yang disediakan.\nKord\nChord spelling\nNotasikan kord\nC Major\nContoh:\nG Major\nF Major\nD Major\nBb Major\n9. Ciptakan melodi 16 bar dengan menggunakan elemen berikut:\n(a) Not minim, krocet bertitik, kuaver dan tanda rehat krocet.\n(b) Kaedah pengulangan dan imitasi.\n(c) Tanda dinamik.\n(d) Mainkan corak irama yang dicipta dengan menggunakan alat muzik pilihan.\na\nd\nb\ne\nc\nf\nD\nD\nD\nD\nFB\nFB\nA\nD\nD\nD\nG\nG\nA\nA\nD\nD\nPenghasilan Muzik\n4\nUNIT\nC\nE\nG\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p47]\nUnit 5\nTeknologi\nmenyatupadukan\nPada akhir pembelajaran ini, murid boleh:\n1.1 Bernyanyi Secara Ensembel\n1.1.1\nBernyanyi lagu dua lapisan suara dengan:\n(iii) tempo yang betul.\n2.1\nBermain Alat Muzik Secara Ensembel\n2.1.2\nMemainkan alat muzik secara ensembel dengan\nteknik yang betul.\n3.1 Asas Notasi Muzik\n3.1.5\nMenulis dan menganalisis skel dalam klef trebel\nsecara menaik dan menurun dalam:\n(i) D Major (1 oktaf).\n(ii) Bb Major (1 oktaf).\n(iii) B minor harmonik (1 oktaf).\n(iv) G minor harmonik (1 oktaf).\n(v) C pentatonik (1 oktaf).\n4.1 Pengkaryaan Muzik\n4.1.1 Mencipta melodi mudah dalam nada major\nmenggunakan:\n(i) meter\n(ii) not semibrif, minim, minim bertitik,\nkrocet bertitik, krocet, kuaver bertitik\ndan semikuaver serta tanda rehat.\n4.1.2\nMempersembahkan hasil ciptaan.\nTeknologi 5G akan mula dilancarkan di Malaysia\npada tahun 2021 sekali gus menjadikan negara\nini antara negara pertama di Asia dan dunia\nmelaksanakan 5G.\n85\n84\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p48]\n60\nEnsembel Nyanyian\n60\nLatihan Nyanyian 13\nLatihan Nyanyian 14\nLatihan Nyanyian 15\n56\n57\n58\nla la la la la la la la la la la la la la la\nha ha ha ha he he ha ha he he he ha he\nha ha ha ha ha he he ha he he ha he\nBERNYANYI DENGAN TEMPO YANG BETUL\nCara\nbernyanyi\ndengan\ntempo yang\nbetul\nDengar muzik, kenal pasti dan rasai detik lagu\ndengan cara menepuk detik atau memetik jari\nmengikut kiraan.\nLatihan yang kerap dengan muzik iringan dapat\nmembantu anda menguasai tempo yang betul ketika\nbernyanyi. Contohnya penggunaan rentak daripada\nkeyboard atau alat muzik lain.\nPenggunaan metronome sangat membantu dalam\nmeningkatkan penguasaan tempo ketika bernyanyi.\n1\n2\n3\nLatihan Nyanyian\nLatihan Nyanyian 16\n59\nha ha ha ha ha he he ha he he ha he\nha ha ha ha he he ha ha he he he ha he\nNyanyikan melodi berikut sambil menepuk detik pertama dan ketiga berdasarkan tempo\nyang didengar pada audio.\nBb\nBb\nF\nEb\nDalam pembelajaran lepas, anda telah pun mengetahui tentang tempo dan nama-nama\ntempo mengikut kelajuannya dalam beats per minute (bpm).\nIrama yang betul, nilai not yang mencukupi dan detik yang stabil dipengaruhi\noleh tempo yang betul. Nyanyian yang baik dipengaruhi oleh pic, irama dan tempo\nyang betul. Oleh sebab itu, amat penting untuk anda menguasai tempo yang terutamanya\nldalam ensembel nyanyian.\n87\n86\n5\nUNIT\n• Durasi pembelajaran selama 60 minit.\n• Bimbing murid bernyanyi lagu Informasi di Hujung Jari dengan tempo yang betul.\n• Bimbing murid bernyanyi lagu Informasi di Hujung Jari baris demi baris.\n• Murid bernyanyi sambil menepuk detik pada lagu dalam tempo yang berbeza.\n1.1.1\n(iii)\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p49]\nMARI BERNYANYI\nNyanyikan suara 1 lagu Informasi di Hujung Jari diikuti dengan suara 2. Setelah mahir\nkedua-dua suara, nyanyikan secara ensembel dengan menggunakan tempo yang betul.\nINFORMASI DI HUJUNG JARI\nq= 120\nCiptaan: Rosman Adam\nSuara 1 dan Suara 2\nSuara 1\nSuara 2\nMinus One\n60\n61\n62\n63\n89\n88\n5\nUNIT\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p50]\nNumerasi\nroman\nKord\ni\nV\nIII\nvii°\nFBdim\nii°\nAdim\nBb\nVI\nEb\nCm\nD\nGm\niv\nRajah 5.1 Carta kord dalam nada G minor.\nKord yang diwarnakan ialah kord primer bagi nada G minor.\nPenjarian kord primer dalam nada G minor.\n91\n90\n5\nUNIT\nEnsembel Muzik\n60\n• Durasi pembelajaran selama 120 minit.\n• Bimbing murid mengenal pasti ton yang sesuai.\n• Bimbing murid bermain gitar dengan irama, pic dan tempo yang betul.\n2.1.1\n(i)(ii)(iii)(iv)\n2.1.2\nMainkan kord primer dalam nada G minor yang terdiri daripada kord G minor,\nkord C minor dan kord D Major.\nKenali Kord Primer dalam Nada G Minor\nGm\nCm\nD\n3\n1\n2\n3\n2\n4\n1\n1\n1\n1\n3\n4\nMengaplikasi\nMainkan skel G minor harmonik dengan penjarian yang betul.\nNombor tali\nNombor jari\nTandakan tahap penguasaan anda.\nMahir\nHampir mahir\nSederhana mahir\n1 0 1 3 0 1 3 0 3 1 0 3 1 0 1\nPenjarian Gitar Skel G Minor Harmonik\n2\n3\n1\n1\n0\n1\n0\n0\n1\n1\n3\n0\n0\n0\n3\n1\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p51]\nLatihan Ensembel Gitar\nMainkan lagu Klik Informasi secara solo dengan tempo yang betul.\nLatihan Ensembel Gitar 7\nLatihan Ensembel Gitar 8\nMainkan lagu Klik Informasi secara esembel dengan tempo yang betul.\n93\n92\n5\nUNIT\n64\nq= 110\nCiptaan: M.Syaraff\nKlIK INFORMASI\n65\nGitar 1\nGitar 1\nGitar 2\nGitar 1\nGitar 2\nGitar 1\nq= 110\nCiptaan: M.Syaraff\nKlik informasi\nGm\nGm\nD\nD\nCm\nCm\nCm\nGm\nD\nD\nGm\nGm\nGm\nGm\nGm\nCm\nCm\nGm\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p52]\nFB\nD\nE\nG\nA\nB\nD\nCB\nSkel D Major dengan Tanda Nada\nSkel BbMajor dengan Tanda Nada\nSkel BbMajor Tanpa Tanda Nada\nSkel D Major Tanpa Tanda Nada\nMenaik\nMenaik\nMenaik\nMenaik\nMenurun\nMenurun\nMenurun\nMenurun\nBb\nA\nG\nF\nD\nC\nEb\nBb\n95\n94\n5\nUNIT\nSkel ialah susunan lapan not yang dimainkan secara berturutan dalam satu tanda nada\nmengikut langkah tertentu sama ada secara menaik, menurun atau menaik dan menurun.\nSkel boleh ditulis dengan tanda nada atau tanpa tanda nada.\nDalam skel major, jarak not ketiga dan not keempat serta jarak not ketujuh dan not kelapan\nialah semiton.\nSKEL MAJOR DAN SKEL MINOR\n60\nNotasi Muzik\n• Bimbing murid menulis dan menganalisis skel dalam klef trebel secara\nmenaik dan menurun.\n• Murid dikehendaki membuat setiap latihan di dalam buku latihan.\n3.1.5, 3.1.6\nCm\nCm\nCm\nGm\nD\nD\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p53]\nLATIHAN\nSkel B Minor Harmonik dengan Tanda Nada\nSkel B Minor Harmonik Tanpa Tanda Nada\nMenaik\nMenaik\nMenurun\nMenurun\nSkel G Minor Harmonik dengan Tanda Nada\nSkel G Minor Harmonik Tanpa Tanda Nada\nMenaik\nMenaik\nMenurun\nMenurun\nSkel pentatonik terdiri daripada lima not, iaitu 1, 2, 3, 5 dan 6. Not yang keempat dan ketujuh\ntidak dimainkan dalam pentatonik.\nMenaik\nMenurun\nDalam skel minor harmonik, jarak not kedua dan ketiga, jarak not kelima dan keenam\nserta jarak not ketujuh dan kelapan ialah semiton.\nCB\nFB\nAB\nB\nG\nE\nD\nB\nBb\nEb\nFB\nG\nD\nC\nG\nA\nSkel G Minor Harmonik\nSkel B Minor Harmonik\nC\nSkel C Pentatonik\nD\nE\nG\nA\nC\n(a) Skel D Major menaik\n(c) Skel D Major menurun\n(b) Skel Bb Major menaik\n(d) Skel Bb Major menurun\n97\n96\n5\nUNIT\n1. Nyanyikan setiap skel Major dan skel minor berikut secara humming atau sebutan \"la\".\n2. Nyanyikan skel berikut.\n(a) Skel B minor harmonik menaik\n(b) B minor harmonik menurun\n(c) G minor harmonik menaik\n(d) G minor harmonik menurun\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p54]\nLATIHAN\nc\nd\nb\na\nF Major\nD minor\nBb Major\nG minor\nD Major\nB minor\nC Major\nA minor\nSkel Major\nTanda nada\nSkel minor\nG Major\nE minor\nG\nG\nG\nG\nG\nB\nB\nb\nbb\nB\nMelodi Asal\n99\n98\n5\nUNIT\n3. Suaikan skel Major dan minor berdasarkan tanda nada yang diberi.\n4. Namakan skel berdasarkan penjarian keyboard di bawah.\n60\nPenghasilan Muzik\nVariasi melodi dengan mengubah beberapa nilai not asal pada nilai not baru tanpa\nmengubah melodi asal.\nPenggunaan not bukan chord tones adalah untuk membentuk aliran melodi\nyang lebih menarik.\nAKTIVITI PENCIPTAAN VARIASI MELODI BERASASKAN PERGERAKAN KORD\nVariasi 1\nVariasi 2\n1. Ciptakan melodi 8 bar berdasarkan pergerakan kord yang diberi dengan\nmenggunakan elemen berikut:\n(a) Meter $.\n(b) Menggunakan nilai not d, q, e, s dan tanda rehat.\n(c) Memasukkan simbol dinamik yang sesuai.\nContoh melodi yang dihasilkan daripada chord tones, iaitu setiap bar mengandungi not\nyang terdapat dalam kord tersebut.\nPermulaan melodi\ntidak semestinya\nbermula dengan\nnot tonik.\nTIP\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p55]\nTandakan tahap penguasaan anda berdasarkan meter pencapaian.\nMenguasai lagu nyanyian dua lapisan suara dengan tempo yang betul.\nMemainkan alat muzik secara ensembel dengan teknik yang betul.\nMenulis dan menganalisis skel dalam klef trebel secara menaik\ndan menurun dalam D major (1 oktaf), Bb major (1 oktaf), B minor\nharmonik (1 oktaf), G minor harmonik (1 oktaf), C pentatonik (1 oktaf)\nserta mengenal pasti dan membezakan skel major dan minor.\nMencipta melodi mudah dalam nada major menggunakan meter\n#, $ berdasarkan not semibrif, minim, minim bertitik, krocet\nbertitik, krocet, kuaver bertitik dan semikuaver serta tanda rehat\ndan mempersembahkan hasil ciptaan.\nq= 120\nCiptaan: Rosman Adam\nEnsembel Nyanyian\nEnsembel Muzik\n101\n100\n5\nUNIT\n1. Pada pendapat anda, apakah akibat jika bernyanyi tanpa mengikut tempo?\n2. Nyanyikan lagu pilihan anda dengan menggunakan tempo yang betul.\n3. Berdasarkan lagu Informasi di Hujung Jari, cipta iringan strumming dan persembahkan\nlagu tersebut secara ensembel.\nInformasi di Hujung Jari\n• Rujuk muka surat 88-89 untuk melihat skor penuh.\n6. Ciptaan melodi 8 bar berdasarkan pergerakan kord dengan menggunakan\nelemen-elemen seperti di bawah:\n(a) Nada Bb Major.\n(b) Meter # atau $.\n(c) Menggunakan jenis not, tanda rehat, tanda isyarat dan terminologi\nyang pernah dipelajari.\n(d) Memasukkan simbol dan terminologi muzik yang sesuai.\n7. Analisa dan ulaskan hasil ciptaan kepada rakan secara bergilir-gilir.\n4. Jawab soalan berikut berpandukan rajah keyboard di bawah.\n(a) Namakan skel dalam rajah di atas.\n(b) Notasikan skel di atas ke dalam baluk tanpa tanda nada.\n5. Notasikan skel berikut menggunakan corak irama di bawah.\n(a) Skel D Major menaik dengan tanda nada.\n(b) Skel G minor harmonik menurun dengan tanda nada.\nPENILAIAN\nMenganalisis\nMencipta\nNotasi Muzik\nPenghasilan Muzik\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p56]\nUnit 6\ndimensi BUDAYA\nPada akhir pembelajaran ini, murid boleh:\n1.1 Bernyanyi Secara Ensembel\n1.1.4\nMengamalkan etika persembahan dan nilai murni\ndalam persembahan ensembel nyanyian:\n(i) sebelum, semasa dan selepas latihan.\n(ii) sebelum, semasa dan selepas persembahan.\n2.1\nBermain Alat Muzik Secara Ensembel\n2.1.3\nMemainkan alat muzik secara ensembel\ndengan mengaplikasikan dinamik yang sesuai\nberdasarkan skor.\n3.1 Asas Notasi Muzik\n3.1.7\nMenulis kord primer dalam klef trebel pada\nkedudukan perdu bagi nada:\n(i) D Major\n(ii) BbMajor\n(iii) B minor\n(iv) G minor\n4.1 Pengkaryaan Muzik\n4.1.1 Mencipta melodi mudah dalam nada Major\nmenggunakan:\n(i) meter\n(ii) not semibrif, minim, minim bertitik,\nkrocet bertitik, krocet, kuaver bertitik dan\nsemikuaver serta tanda rehat.\n4.1.2\nMempersembahkan hasil ciptaan.\n4.1.3\nMengamalkan nilai murni dalam penghasilan karya.\n5.1 Penghayatan Muzik daripada\nPelbagai Genre\n5.1.1\nMenganalisis dan memberi pendapat tentang\nmuzik Asia Tenggara yang didengar atau\nditonton meliputi aspek asas berikut:\n(i) genre muzik.\n(ii) latar belakang muzik.\n(iii) alat muzik.\n(iv) fungsi muzik.\n(v) bentuk muzik.\n(vi) cara persembahan.\n\"Budaya itu jati diri kita, tanpa budaya\nlenyaplah keagungan bangsa.\"\n(Syaraff Alwi, 2019)\n102\n103\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p57]\nEtika Latihan\nEtika Persembahan\nSebelum latihan\nSebelum persembahan\nSemasa latihan\nSemasa persembahan\nSelepas latihan\nSelepas persembahan\n60\nEnsembel Nyanyian\n60\n• Bersedia awal sebelum\nlatihan bermula.\n• Bawa skor nyanyian.\n• Buat latihan untuk\nmemahirkan nyanyian\nmasing-masing.\n• Buat latih tubi pada\nbahagian yang lemah.\n• Lakukan pemanasan suara\ndan latihan vokal.\n• Pastikan latihan\nmencukupi.\n• Jaga suara dengan minum\nair yang mencukupi.\n• Buat penyesuaian pentas\ndan keseimbangan suara\nberdasarkan akustik\ntempat persembahan.\n• Ambil maklum segala\nperkara semasa latihan.\n• Ucap terima kasih kepada\nketua selepas diberi\ntaklimat ringkas.\n• Pastikan semua suis\nditutup dan kemas\nbilik latihan sebelum\nmeninggalkan bilik latihan.\n• Ucapkan terima kasih\nsebagai penghargaan\nkepada ketua dan ahli\npersembahan.\n• Simpan kelengkapan\npersembahan dengan\nbaik seperti kostum\ndan props di tempat\nasalnya.\n• Patuh arahan konduktor\natau ketua.\n• Baiki kelemahan\nyang ditegur.\n• Buat catatan bagi\nperkara-perkara yang\ndimaklumkan contohnya\ndinamik pada skor.\n• Berbaris di tempat yang\ndisediakan.\n• Sentiasa fokus dan\nbersedia.\n• Tidak menunjukkan\nsebarang reaksi atau raut\nwajah negatif sekiranya\nberlaku kesilapan.\n• Bergerak keluar pentas\ndalam keadaan tertib.\nLayari Internet untuk mencari maklumat\nteknik asas konduktor dalam koir.\nhttps://www.\nyoutube.com/\nwatch?v=96U3BXjmZfc\nETIKA PERSEMBAHAN DAN NILAI MURNI DALAM PERSEMBAHAN NYANYIAN\nMengamalkan etika persembahan yang baik dapat membentuk disiplin dan menghasilkan\nsebuah persembahan yang berkualiti. Etika persembahan nyanyian dapat dibahagikan\nseperti berikut:\n(a) Sebelum, semasa dan selepas latihan.\n(b) Sebelum, semasa dan selepas persembahan.\nKonduktor atau pemimpin memainkan peranan penting\ndalam nyanyian secara ensembel. Selain memimpin\nkumpulan nyanyian, konduktor menzahirkan manifestasi\nsesuatu ciptaan karya kepada persembahan nyanyian,\nsebagaimana yang diaspirasikan oleh pencipta atau\npenggubah karya tersebut.\nKonduktor\nakan\nmemastikan\nahli\nkumpulannya\nmematuhi disiplin dan etika, bernyanyi dengan pic yang\ntepat, mengikut teknik dan tempo yang betul, ekspresi\nserta aspek-aspek lain dalam nyanyian secara ensembel.\nKonduktor juga perlu mahir dalam gerak isyarat semasa\nmemimpin. Antaranya ialah:\nPeranan Konduktor dalam Ensembel Nyanyian\nEkspresi atau\ndinamik dalam\nnyanyian.\nBahagian\nyang sukar dalam\nkarya seperti pic\ntinggi atau corak\nirama yang\nkompleks.\nIsyarat mula\natau cue untuk\nmemulakan nyanyian\natau sesuatu frasa\nmelodi.\nIsyarat tamat\natau cutoffs untuk\nmenamatkan\nfrasa melodi atau\nnyanyian.\nI N F O\nAntara pertandingan koir\nperingkat dunia:\n• Golden Voices of Montserrat\n• Concorso Corale\nInternazionale\n• Budapest International\nChoral Festival\n• Harrogate International\nYouth Festival\n• Cork International\nChoral Festival\n• Venezia in Musica Festival\n• Mayo International\nChoral Festival\n105\n104\nUNIT\n6\n• Durasi pembelajaran selama 60 minit.\n• Bimbing murid bernyanyi dengan mengamalkan etika persembahan yang betul.\n• Menerapkan nilai murni dalam persembahan ensembel nyanyian.\n1.1.4\n• Layari laman sesawang yang diberi untuk menonton video Koir Kebangsaan Malaysia.\n(Dicapai pada 10 Jun 2019)\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p58]\nMARI BERNYANYI\nNyanyikan suara 1 lagu Inang Sumazau diikuti dengan suara 2. Setelah mahir kedua-dua\nsuara, nyanyikan secara ensembel dengan menggunakan teknik-teknik nyanyian yang\ntelah dipelajari.\nINANG SUMAZAU\nq= 100\nCiptaan: Rosman Adam\n66\n67\n68\n69\nSuara 1 dan Suara 2\nSuara 1\nSuara 2\nMinus One\n107\n106\nUNIT\n6\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p59]\n60\nEnsembel Muzik\nTEKNIK BERMAIN GITAR\nHammer\nTerdapat dua jenis teknik hammer, iaitu hammer on dan pull off.\na. Hammer on ialah teknik yang menggunakan dua jari dalam satu petikan dengan\njari diketuk ke atas untuk menghasilkan slur.\nb. Pull off ialah teknik memetik jari ke bawah dalam satu petikan untuk bermain\ndengan artikulasi.\nSlide\nTeknik ini menggunakan kaedah meluncurkan atau menggeserkan jari pada tali\ndi papan fret untuk memainkan not yang lebih tinggi dan meluncur kembali kepada\npic normal.\nBunyi yang dihasilkan hampir sama dengan teknik hammer tetapi slide dengan\nmeluncurkan jari pada not yang lebih tinggi.\nMainkan melodi lagu di bawah dengan mengaplikasikan teknik hammer.\nhttp://arasmega.com/\nqr-link/teknik-hammer/\nhttp://arasmega.com/\nqr-link/teknik-slide/\nI N F O\nBending ialah salah satu teknik bermain\ngitar. Teknik ini dimainkan dengan cara\nmenukar not tanpa perlu menggerakkan\njari ke fret yang lain.\nTandakan tahap penguasaan anda.\nMahir\nHampir mahir\nSederhana mahir\nGitar 1\nGitar 1\np\np\nf\nf\nq= 100\n109\n108\nUNIT\n6\n• Durasi pembelajaran selama 120 minit.\n• Bimbing murid bermain gitar dengan teknik yang betul.\n• Bimbing murid memahirkan kord yang dipelajari.\n2.1.1 (i)(ii)(iii)(iv)\n2.1.2\n• Guru menunjuk teknik hammer yang betul kepada murid.\n• Bimbing murid untuk memahirkan teknik tersebut untuk mengiringi lagu.\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p60]\nBerdasarkan skor berikut, mainkan bahagian bes dengan mengaplikasikan teknik-teknik\nyang telah dipelajari.\nLatihan Gitar\nLatihan Gitar Bes 3\n70\nBahagikan kepada tiga kumpulan untuk memainkan gitar mengiringi lagu Bersatu Kita\nagar permainan ensembel gitar menghasilkan keseimbangan bunyi yang baik.\nLatihan Ensembel Gitar\nLatihan Ensembel Gitar 9\n71\nBERSATU KITA\nq= 100\nCiptaan: M. Syaraff\nq= 110\nGitar 1\nGitar 1\nBes\nGitar 1\nGitar 1\nBes\nGitar 2\nD\nBm7\nA\nD\nD\nD\nA\nBm7\nA\nA\nD\nEm\nA\nD\nD\nD\nD\nEm\nEm\nBm7\nBm7\nA\nA\nA\nA\nA\nA\nD\n111\n110\nUNIT\n6\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p61]\n60\nApresiasi Muzik\nhttp://arasmega.com/\nqr-link/ensembel-\nkulintang/\nENSEMBEL\nKULINTANG\nLatar Belakang Muzik\nKulintang\nialah\nsejenis\nalat\nmuzik tradisional Filipina yang\ndipopularkan\noleh\nmasyarakat\nMaguindanao dan Mindanao.\nAlat Muzik\nKulintang terdiri daripada lapan gong kecil yang disusun melintang mengikut pic.\nPic rendah akan berada di sebelah kiri dan pic tinggi di sebelah kanan. Gong-gong ini\ndiikat secara selari merentangi sebuah bingkai kayu atau rotan yang dikenali sebagai\n“antangan” bagi masyarakat Maguindanao dan “langkonga” bagi masyarakat Mindanao.\nSetiap satu gong kecil mempunyai namanya tersendiri. Ensembel kulintang\nMindanao dimulai dengan gong yang mempunyai pic rendah, iaitu Kundongan,\nMamals, Mananggisa, Sagorongan, Lomalis, Romapunut, Romingkar,\ndan Anonan untuk gong yang mempunyai pic paling tinggi.\nEnsembel kulintang Maguindanao mempunyai gong kecil berpic\nrendah yang dinamakan pangandungan dan gong mempunyai\npic tinggi yang dinamakan panentekan.\nKayu pemukul kulintang\nyang lembut dikenali\nsebagai basal.\nAlat muzik ini terdiri daripada gong-gong kecil yang\ndiletakkan secara mendatar dan diiringi oleh gong-gong\nbesar yang tergantung dan sebuah gendang.\nKulintang\ntelah\ndimainkan\nselama\nberabad-abad\nlamanya di Kepulauan Filipina, Indonesia Timur (Kolintang),\nMalaysia Timur (Kulintangan) dan Maluku (Totobuang).\nKesemua ini mempunyai persamaan dari segi bentuk\ndan cara dipersembahkan.\nD\nD\nD\nD\nD\nD\nD\nD\nA\nA\nBm7\nBm7\nA\nA\nI N F O\n113\n112\nUNIT\n6\n• Durasi pembelajaran selama 60 minit.\n• Layari laman sesawang yang diberi untuk menonton video persembahan\nensembel Kulintang. (Dicapai pada 10 Jun 2019)\n5.1.1\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p62]\nBabandil\nCara Persembahan\nSecara tradisionalnya ensembel kulintang Maguindanao akan diiringi oleh agung\n(dua gong besar), gandingan (empat gong besar), dabakan (gendang) dan babandil\n(satu gong). Alat muzik ensembel kulintang Mindanao sama dengan ensembel kulintang\nMaguindanao kecuali alat muzik gandingan.\nAgung\nGandingan\nDabakan\nNotasi Muzik\nFungsi Muzik\nMuzik kulintang berfungsi sebagai alat penyatuan sesebuah masyarakat. Kulintang\nselalunya dipersembahkan ketika majlis-majlis rasmi, mengiringi tarian, sambutan hari\nlahir, majlis perkahwinan dan menyambut jemaah haji. Kulintang juga turut dimainkan\nsebagai hiburan keluarga dan hiburan santai selepas makan malam. Selain hiburan,\nkulintang dimainkan untuk mengiringi upacara penyembuhan penyakit.\nBentuk Muzik\nTontoni persembahan lagu Sinulog a Kamamatuan\nVer. 2 pada QR code di sebelah. Tiada bentuk yang\ntetap untuk lagu kulintang bergantung kepada\nkreativiti pemain.\nFB\nD\nA\nG\nB\nD\nA\nE\nKORD PRIMER\nhttp://arasmega.com/\nqr-link/sinulog-a-\nkamamatuan/\n60\nCB\nB\nD\nF\nKord I (Bb Major)\nPergerakan kord berlaku apabila satu kord bergerak ke kord yang lain. Pergerakan kord\nyang lazim digunakan ialah pergerakan kord primer. Kord primer ialah kord yang dibina\ndari not pertama, keempat dan kelima dari sesuatu skel.\nKord primer ialah kord yang dibina atas not 1, 4 dan 5 dalam sesuatu skel.\nKord I (D Major)\nKord IV (G Major)\nF\nA\nC\nKord V (F Major)\nKord V (A Major)\nG\nE\nE\nKord IV (Eb Major)\nKord Primer dalam Skel D Major\nKord Primer dalam Skel BbMajor\nKord primer ialah kord yang dibina atas not 1, 4 dan 5 dalam sesuatu skel.\n115\n114\nUNIT\n6\n• Durasi pembelajaran selama 60 minit.\n• Murid dikehendaki membuat setiap latihan di dalam buku latihan.\n3.1.7\n• Layari laman sesawang yang diberi untuk menonton video bentuk muzik ensembel\nKulintang. (Dicapai pada 10 Jun 2019)\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p63]\n1. Kenal pasti setiap kord primer berikut dan namakan dengan huruf roman.\n2. Berdasarkan tanda nada yang diberi, notasikan kord primer di dalam kedudukan\nperdu menggunakan not semibrif.\na\nc\nb\nd\nTanda nada\nNada\nKord primer\n(a) _______ Major\n(b) _______ minor\n(c) _______ Major\n(d) _______ minor\nLATIHAN\nKord primer ialah kord yang dibina atas not 1, 4 dan 5 dalam sesuatu skel.\nKord primer ialah kord yang dibina atas not 1, 4 dan 5 dalam sesuatu skel.\nKord Primer dalam Skel B Minor\nKord Primer dalam Skel G Minor\nGbb\nGBB\nG\nG\nG\nG\nB\nD\nKord i (B minor)\nF\nG\nD\nKord i (G minor)\nG\nKord iv (E minor)\nE\nB\nBb\nG\nKord iv (C minor)\nC\nEb\nKord V (FB Major)\nF\nA\nC\nKord V (D Major)\nF\nD\nA\n117\n116\nUNIT\n6\n• Bimbing murid menulis dan menganalisis skel dalam klef trebel secara\nmenaik dan menurun.\n• Murid dikehendaki membuat setiap latihan di dalam buku latihan.\n3.1.5, 3.1.6\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p64]\nImprovisasi ialah satu cara atau kaedah mengubah, menukar dan melakukan variasi melodi\nasal tanpa mengubah motif dalam frasa melodi tersebut. Improvisasi berlaku dalam\npelbagai bentuk terutamanya pada perubahan corak irama dan pic. Komposer haruslah\nberwaspada ketika melakukan improvisasi tanpa menghilangkan idea melodi asal.\nNilai not krocet pada detik kedua dan keempat pada bar 1 telah ditukar kepada nilai not\nkuaver pada corak irama yang baru. Nilai not minim pada detik pertama dan kedua bar\ndua juga telah ditukar pada nilai not krocet dan kuaver.\nCorak irama asal dikekalkan tetapi semua pic ditukar ke pic yang baru.\nNilai not dan pic berubah mengikut kesesuaian dan kehendak komposer untuk\nmenghasilkan melodi yang lebih menarik.\nImprovisasi dengan Melakukan Variasi pada Melodi Asal\nImprovisasi Penyusunan Semula Pic\nBerdasarkan keratan melodi di bawah, lakukan improvisasi dalam nada major seperti\ndi bawah.\na Nada C Major\nMelodi asal\nImprovisasi dengan menukar corak irama\nb Nada G Major\nMelodi asal\nImprovisasi penyusunan semula pic\nMelodi asal\nMelodi asal\nMelodi asal\nHasil improvisasi\nHasil improvisasi\nHasil improvisasi\nImprovisasi dengan Menukar Corak Irama\nLATIHAN\nPENGHASILAN MELODI BERDASARKAN IMPROVISASI\nPenghasilan Muzik\nc Nada F Major\nMelodi asal\nImprovisasi dengan melakukan variasi pada melodi asal\n119\n118\nUNIT\n6\n• Durasi pembelajaran selama 60 minit.\n4.1.1, 4.1.2\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p65]\nPENILAIAN\n1. Bincangkan kesan sekiranya ahli kumpulan tidak mengamalkan etika persembahan\ndan nilai murni dalam persembahan nyanyian. Persembahkan jawapan anda dalam\nbentuk peta i-Think.\nBERSATU KITA\nq= 110\nCiptaan: M.Syaraff\n3. Notasikan kord berikut berdasarkan tanda nada yang diberi.\nB\nKord I\nKord V\nKord IV\nKord i\nMengaplikasi\nMencipta\nMenganalisis dan Mencipta\n4. Bentukkan kumpulan seramai tiga hingga empat orang. Sediakan sebuah folio\nberkaitan dengan ensembel kulintang. Dapatkan maklumat melalui media massa dan\nmedia cetak, kemudian bentangkan di hadapan rakan-rakan anda.\n5. Berdasarkan melodi di bawah, ciptakan melodi baru dengan mengekalkan corak\nirama asal.\nTandakan tahap penguasaan anda berdasarkan meter pencapaian.\nMengamalkan\netika\npersembahan\ndan\nnilai\nmurni\ndalam\npersembahan ensembel nyanyian sebelum, semasa dan selepas\nlatihan persembahan.\nMemainkan alat muzik secara ensembel dengan mengaplikasikan\ndinamik yang sesuai berdasarkan skor.\nMenulis kord primer dalam klef trebel pada kedudukan perdu bagi\nnada D Major, BbMajor, B minor dan G minor.\nMenganalisis dan memberi pendapat tentang muzik Asia Tenggara\nyang didengar atau ditonton meliputi aspek genre muzik, latar\nbelakang muzik, alat muzik, fungsi muzik, bentuk muzik dan cara\npersembahan.\nMencipta melodi mudah dalam nada Major menggunakan meter\n# dan $ berdasarkan not semibrif, minim, minim bertitik, krocet\nbertitik, krocet, kuaver bertitik dan semikuaver serta tanda rehat dan\nmempersembahkan hasil ciptaan serta mengamalkan nilai murni\ndalam penghasilan karya.\n2. Berdasarkan keratan lagu berikut, ciptakan strumming dan persembahkan lagu\nBersatu Kita secara ensembel.\na.\nc.\nb.\nd.\nEnsembel Nyanyian\nEnsembel Muzik\nNotasi Muzik\nPenghasilan Muzik\nApresiasi Muzik\nGitar 1\nBes\nGitar 1\nGitar 2\nD\nD\nEm\nEm\nA\nA\n121\n120\nUNIT\n6\n• Rujuk muka surat 111-112 untuk membuat latihan ensembel muzik.\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p66]\nUnit 7\nGAPAI IMPIANMU\nPada akhir pembelajaran ini, murid boleh:\n1.1 Bernyanyi Secara Ensembel\n1.1.3\nMembuat persembahan ensembel nyanyian\ndengan mengaplikasikan pengetahuan dan\nkemahiran muzik.\n2.1\nBermain Alat Muzik Secara Ensembel\n2.1.3\nMemainkan alat muzik secara ensembel\ndengan mengaplikasikan dinamik yang sesuai\nberdasarkan skor.\n3.1 Asas Notasi Muzik\n3.1.8\nMengenal pasti dan membezakan kord Major\ndan kord minor.\n4.1 Pengkaryaan Muzik\n4.1.1 Mencipta melodi mudah dalam nada Major\nmenggunakan:\n(i) meter\n(ii) not semibrif, minim, minim bertitik,\nkrocet bertitik, krocet, kuaver bertitik\ndan semikuaver serta tanda rehat.\n4.1.2\nMempersembahkan hasil ciptaan.\n4.1.3\nMengamalkan nilai murni dalam\npenghasilan karya.\n122\n123\n\"Setiap sesuatu yang sukar, pasti manisnya menanti.\nCapai impianmu walau sukar sekalipun.\"\n(Wan Mazni, 2019)\nPendaki berada di puncak gunung.\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p67]\n125\n124\nBernyanyi dengan pic yang betul\nberdasarkan not-not dalam melodi\nlagu agar nyanyian tidak sumbang.\nBernyanyi dengan tempo yang betul\npenting agar nilai not yang dinyanyikan\nmencukupi, menepati corak irama, serta\nbernyanyi dengan detik yang stabil.\nEkspresi dalam nyanyian dapat\ndihasilkan menerusi pengaplikasian\ndinamik yang sesuai.\nPic\nDinamik\nTempo\nUNIT\n7\nPENGETAHUAN DAN KEMAHIRAN DALAM NYANYIAN\n• Durasi pembelajaran selama 60 minit.\n• Bimbing murid bernyanyi lagu Terbanglah dengan teknik yang betul.\n• Bimbing murid mengaplikasikan kemahiran dan teknik nyanyian yang telah dipelajari.\n1.1.3\nDalam pembelajaran yang lepas, anda telah memperoleh pelbagai pengetahuan dan\nkemahiran dalam nyanyian. Penguasaan kemahiran dan teknik nyanyian yang betul\ndapat membantu anda untuk menghasilkan sesuatu persembahan nyanyian yang baik\ndan berkualiti. Tiga komponen yang diberikan fokus pada kali ini ialah pic, dinamik, dan\ntempo yang betul.\nSelain itu, penyanyi juga digalakkan untuk menguasai\njulat suara, iaitu antara not paling rendah dan not paling\ntinggi yang dinyanyikan. Kenal pasti julat suara selesa\n(tessitura) melalui latihan vokal berkala dengan bimbingan\nyang betul.\nEnsembel Nyanyian\n60\nPernafasan, artikulasi dan frasa juga penting dalam\nkemahiran nyanyian. Secara berpasangan, cari maklumat\nberkaitan dengan perkara tersebut dan nyatakan\nkepentingannya dalam kemahiran nyanyian.\nLatihan Nyanyian\nLatihan Nyanyian 17 : Pemanasan suara 1\nNyanyikan skel berikut.\n72\nla la la\nla la la la la la la la la la la la\nLatihan Nyanyian 19 : Pemanasan suara 3\nTepuk corak irama berikut, kemudian dengar audio dan ajuk frasa melodi.\n74\nI- ni bu-kan-lah se-la - ma - nya E-sok a - da si - nar ca - ha - ya\nLakukan latihan pemanasan suara.\nNyanyikan arpeggio berikut.\nha ha hi hi ho ho hu\nLatihan Nyanyian 18 : Pemanasan suara 2\n73\nI N F O\nTessitura berasal daripada\nbahasa Itali yang bermaksud\njulat suara paling selesa.\nSelain itu, tessitura juga\nmerujuk kepada julat bunyi\nsesuatu instrumen muzik\nyang menghasilkan warna ton\nterbaik bagi pic paling rendah\natau pic paling tinggi.\nTandakan tahap penguasaan anda.\nMahir\nHampir mahir\nSederhana mahir\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p68]\n127\n126\nMARI BERNYANYI\n77\nSuara 2\n78\nMinus One\n76\nSuara 1\n75\nSuara 1 dan Suara 2\nUNIT\n7\nSetelah melakukan pemanasan suara, nyanyikan pula lagu Terbanglah dengan\nmenggunakan pic, dinamik dan tempo yang betul mengikut skor yang diberikan.\nTERBANGLAH\nq= 130\nLagu dan lirik:\nRosman Adam & M. Syaraff\nSuara 1\nSuara 2\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p69]\n129\n128\nEnsembel Alat Muzik\n60\nPERMAINAN ENSEMBEL GITAR\nBerdasarkan lagu di bawah, aplikasikan pengetahuan dan kemahiran muzik yang telah\nanda pelajari. Persembahkan lagu ini dengan mengamalkan etika persembahan dan nilai\nmurni sebagai seorang ahli dalam ensembel.\nUNIT\n7\nFLY ME TO THE MOON\nq= 130\nGubahan: M. Syaraff\n• Durasi pembelajaran selama 120 minit.\n• Bimbing murid bermain gitar dengan teknik yang betul.\n• Bimbing murid memahirkan kord yang dipelajari.\n2.1.1 (i)(ii)(iii)(iv)\n2.1.2\nAm\nF\nBm7\nE7\nA7\nAm\nDm\nCm\nG7\nC7\nG7\nDm\nDm\nC\nBm7\nE7\nG7\nC\nEm\nA7\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p70]\n131\n130\n79\nUNIT\n7\nAm\nBm7\nE7\nA7\nDm\nG7\nEm\nEm\nDm\nDm\nC\nC\nG7\nG7\nA7\nA7\nDm\nG7\nC\nF\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p71]\n133\n132\nKord Major\nKord G Major\nJeda atau jarak antara dua not dalam kord.\nJarak antara not G ke not B = 4 semiton\nJarak antara not B ke not D = 3 semiton\ndengan tanda nada\natau\ntanpa tanda nada\nKord minor\nKord G minor\nJeda atau jarak antara dua not dalam kord.\nJarak antara not G ke not Bb = 3 semiton\nJarak antara not Bbke not D = 4 semiton\ndengan tanda nada\natau\ntanpa tanda nada\nLATIHAN\nNotasi Muzik\n60\nKENAL PASTI KORD MAJOR DAN KORD MINOR\nRajah di bawah menerangkan perbezaan antara kord Major dan kord minor.\nD\nG\n1\n2 3\n1\n2\n3 4\nJarak not 1 ke not 3 =\n4 semiton\nJarak not 3 ke not 5 =\n3 semiton\n1\n3\n5\n7\n2\n4\n6\n8\nBb\n80\n1. Dengar dan namakan bunyi kord Major dan kord minor di bawah.\n2. Namakan setiap kord yang dimainkan berikut.\nContoh:\n3. Notasikan kord-kord di bawah menggunakan not semibrif dengan tanda nada.\n4. Notasikan kord-kord di bawah menggunakan not semibrif tanpa tanda nada.\nD\nG\n1\n2\n4\n3\n3\n1 2\nJarak not 1 ke not 3 =\n4 semiton\nJarak not 3 ke not 5 =\n3 semiton\nB\n1\n3\n5\n7\n2\n4\n6\n8\nUNIT\n7\nb\nc\nd\na\nC Major\nA minor\nE minor\nBb Major\nF Major\nD Major\nB minor\nD minor\nG\nG\nG\nG\nG\nG\nG\nG\na\na\nb\nb\nc\nc\nd\nd\nE minor\ne\nf\ng\nh\ni\nj\nk\nl\na\nb\nc\nd\ne\nf\n• Murid dikehendaki membuat setiap latihan di dalam buku latihan.\n3.1.8\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p72]\n135\n134\nLATIHAN\nAliran melodi menaik dan menurun\na\nb\nc\nd\ne\ng\nf\nCorak irama\nFrasa\nNada dan meter lagu\nPergerakan kord\nMotif\nLirik\nPenghasilan Muzik\n60\nBERKARYA SECARA KREATIF\nAsas penerokaan bunyi dikaitkan dengan kreativiti meneroka permainan alat muzik\nmahupun nyanyian. Kaedah penciptaan melodi haruslah dikuasai agar dapat mencipta\nkarya muzik yang baru dan berkualiti. Penghasilan karya yang kreatif memerlukan idea,\neksplorasi, imaginasi dan kreativiti.\na. Anda diberikan tugasan untuk mengkaji melodi lagu rakyat. Sediakan satu skor lagu\nrakyat yang mempunyai melodi dan lirik. Analisis semula pergerakan melodi dan\ncorak irama pada lagu tersebut berdasarkan aspek-aspek di atas.\nb. Berdasarkan aspek penciptaan melodi di atas, cipta sebuah lagu baharu sekurang-\nkurangnya 16 bar dengan memilih empat aspek yang terdapat pada skor lagu yang\ndikaji. Bentangkan hasil kerja anda.\nTandakan tahap penguasaan anda.\nMahir\nHampir mahir\nSederhana mahir\nMengenal Pasti Frasa Melodi\n1. Berdasarkan keratan puisi di bawah,\n(a) Bina corak irama dengan meletakkan nilai not pada setiap suku kata perkataan.\n(b) Kemudian, masukkan pic mengikut skel dalam nada Major.\n(c) Hasilkan melodi dengan frasa yang betul mengikut suku kata perkataan pada\npuisi yang disediakan.\n(d) Tuliskan tanda frasa pada melodi ciptaan tersebut pada skor dalam nada G Major\ndan meter $. Tambahkan bar sekiranya tidak mencukupi.\nPembentukan corak irama\nPembentukan melodi\nPuisi:\nSaat kita mula berbicara\nSyahdu memecah sukma irama\nNadi yang berdenyut bagaikan tiada suara\nDan tidak mampu untuk mengubah segalanya\nUNIT\n7\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p73]\n137\n136\nUNIT\n7\nPENILAIAN\n1. Huraikan komponen utama yang perlu dikuasai untuk menghasilkan nyanyian\nyang baik.\n2. Persembahkan lagu Fly Me to the Moon secara ensembel dengan membuat\nimprovisasi pada strumming pattern. Anda juga boleh memilih lagu lain untuk latihan\npenilaian ini.\nFLY me TO THE MOON\n3. (a) Namakan kord X dan kord Y di bawah.\n(b) Nyatakan perbezaan kord X dan kord Y.\nKord X\nKord Y\n4. Skor lagu di bawah mempunyai pelbagai elemen dalam penghasilan melodi.\nKenal pasti dan tandakan pergerakan melodi seperti menaik, menurun pada skor.\nBentangkan hasil dapatan anda.\nTandakan tahap penguasaan anda berdasarkan meter pencapaian.\nMembuat persembahan ensembel nyanyian dengan mengaplikasikan\npengetahuan dan kemahiran muzik.\nMemainkan alat muzik secara ensembel dengan mengaplikasikan\ndinamik yang sesuai berdasarkan skor.\nMengenal pasti dan membezakan kord Major dan kord minor.\nMencipta melodi mudah dalam nada major menggunakan meter\n# dan $ berdasarkan not semibrif, minim, minim bertitik, krocet\nbertitik, krocet, kuaver bertitik dan semi kuaver serta tanda rehat\ndan mempersembahkan hasil ciptaan serta mengamalkan nilai murni\ndalam penghasilan karya.\nMencipta\n• Rujuk muka surat 128-131 untuk melihat skor penuh.\nEnsembel Nyanyian\nEnsembel Muzik\nNotasi Muzik\nPenghasilan Muzik\nAm\nDm\nCm\nG7\nC7\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p74]\n1. Berdasarkan lagu-lagu yang telah dipelajari dalam ensembel nyanyian, rancangkan\nsatu persembahan berdurasi 4 – 5 minit untuk dipersembahkan di khalayak ramai.\nPersembahan anda mestilah bersesuaian dengan tema-tema berikut:\n(a) Kemerdekaan\n(b) Generasi Pewaris Negara\n(c) Perpaduan\n(d) Warna-warni Malaysia\n2. Dokumentasikan proses kerja kumpulan anda bermula dari sebelum, semasa dan\nselepas persembahan. Penilaian semasa persembahan dibuat berdasarkan format\nborang di bawah.\nBorang Pemarkahan\nNama Kumpulan : ___________________________________________________________________\nAhli Kumpulan\nPic\n(15%)\nPenghasilan\nton (10%)\nTeknik yang\nbetul (10%)\nEkspresi\n(10%)\nEtika Persembahan\n(5%)\nJumlah\nMarkah\nMARI BERNYANYI\nNyanyikan suara 1 Lagu Kamilah Generasi diikuti dengan suara 2. Setelah mahir, bentukkan\ndua kumpulan, iaitu kumpulan suara 1 dan kumpulan suara 2. Nyanyikan lagu secara dua\nlapisan suara dengan pic yang betul.\nKAMILAH GENERASI\nCiptaan: Rosman Adam\nq= 70\n6\n70\nMARI BERNYANYI\nNyanyikan suara 1 lagu Masa diikuti dengan suara 2. Setelah mahir kedua-dua suara,\nnyanyikan secara ensembel dengan menggunakan teknik artikulasi.\nMASA\nq= 73\nCiptaan: Rosman Adam\n30\nMARI BERNYANYI\nNyanyikan lagu Sumpah Perajurit suara 1 diikuti dengan suara 2. Setelah mahir kedua-dua\nsuara, bentukkan dua kumpulan, iaitu kumpulan suara 1 dan kumpulan suara 2. Nyanyikan\nlagu secara dua lapisan suara dengan mengaplikasikan dinamik yang betul.\nq= 100\nCiptaan: Rosman Adam\nSUMPAH PERAJURIT\nMARI BERNYANYI\nNyanyikan suara 1 lagu Informasi di Hujung Jari diikuti dengan suara 2. Setelah mahir\nkedua-dua suara, nyanyikan secara ensembel dengan menggunakan tempo yang betul.\nq= 120\nCiptaan: Rosman Adam\nINFORMASI DI HUJUNG JARI\n88\n• Dengarkan keseluruhan lagu Informasi di Hujung Jari.\n• Nyanyikan lagu mengikut kumpulan suara. Guru membetulkan kesalahan nyanyian murid.\n• Nyanyikan lagu secara ensembel.\n• Murid bernyanyi sambil menepuk detik pada lagu dalam tempo yang berbeza.\nNota Guru\nMARI BERNYANYI\nNyanyikan suara 1 lagu Satelit Inspirasi, kemudian diikuti dengan suara 2. Setelah mahir\nkedua-dua suara, nyanyikan secara ensembel dengan mengaplikasikan teknik pernafasan\nyang betul.\nCiptaan: Rosman Adam\nq= 90\nSATELIT INSPIRASI\n50\nMARI BERNYANYI\nNyanyikan suara 1 lagu Inang Sumazau diikuti dengan suara 2. Setelah mahir kedua-dua\nsuara, nyanyikan secara ensembel dengan menggunakan teknik-teknik nyanyian yang\ntelah dipelajari.\nINANG SUMAZAU\nq= 100\nCiptaan: Rosman Adam\n106\n126\nMARI BERNYANYI\nSetelah melakukan pemanasan suara, nyanyikan pula lagu Terbanglah dengan\nmenggunakan pic, dinamik dan tempo yang betul mengikut skor yang diberikan.\nTERBANGLAH\nq= 130\nLagu dan lirik:\nRosman Adam & M. Syaraff\nSuara 1\nSuara 2\nENSEMBEL NYANYIAN\nENSEMBEL NYANYIAN\n139\n138\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p75]\nSkel\n(20%)\nBermain mengikut\nskor (40%)\nTeknik\n(20%)\nKeseimbangan\nton (10%)\nEtika Persembahan\n(10%)\nJumlah\nMarkah\n(100%)\nGitar 1\nGitar 2\nGitar 1 Gitar 2 Gitar 1\nGitar 2\nGitar 1\nGitar 2\nBorang Pemarkahan\nJawab semua soalan.\n1. (a) Isikan meter bagi corak irama berikut.\ni\nii\n(b) Isikan garis bar pada keratan melodi di bawah.\n(c) Isikan tanda rehat yang sesuai pada tempat yang bertanda *.\n(d) Notasikan semula not di bawah mengikut pengumpulan not yang betul.\n2. (a) Namakan setiap not bertanda *.\n1. Mainkan skel berikut dengan alat muzik pilihan secara individu.\n2. Berdasarkan lagu yang telah dipelajari, persembahkan lagu instrumental secara\nensembel di hadapan kelas berdasarkan lagu yang telah dipelajari. Improvisasikan\nbahagian strumming dan bes. Penilaian diberi berdasarkan format borang di bawah.\nENSEMBEL MUZIK\nENSEMBEL MUZIK\na D Major\n5 markah\nb Bb Major\n5 markah\nc B minor harmonik\n5 markah\nd G minor harmonik\n5 markah\nNOTASI MUZIK\nNOTASI MUZIK\n141\n140\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p76]\n(e) Notasikan skel C pentatonik menaik dan menurun.\n3. Not-not berikut ialah sebahagian daripada kord primer D Major. Lengkapkan\nkord-kord primer berikut.\nI\nIV\nV\n4. Berdasarkan Lagu Seri Bentan jawab soalan berikut:\n(a) Isikan perkara berikut pada skor lagu di atas\ni. Meter $.\nii. Dinamik sederhana kuat pada bar 1.\niii. Tanda ulangan di bar 4.\niv. Simbol bahagian tambahan pada permulaan bar 11.\n(b) Berikan maksud tempo dan simbol berikut:\ni. Lento - _____________________________________________________\nii. rit.\n- _____________________________________________________\niii. D.S.\n- _____________________________________________________\n(c) Ciptakan melodi 8 bar berdasarkan perkara berikut:\ni. Nada major berdasarkan tanda nada yang diberi.\nii. Meter #.\niii. Menggunakan not d, q, e, s dan tanda rehat krocet.\niv. Tanda dinamik yang sesuai.\nSERI BENTAN\n(d) Notasikan skel B minor harmonik menurun tanpa tanda nada menggunakan\ncorak irama di bawah.\n(b) Namakan skel dalam rajah di atas.\n(c) Notasikan skel di atas tanpa tanda nada.\n143\n142\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p77]\nNot-not dalam sesuatu kord dimainkan satu demi satu secara menaik atau menurun.\nRuang yang membahagikan nilai jumlah not mengikut detik berdasarkan meter.\nTahap kekuatan dan kelembutan sesuatu bunyi.\nBilah penentu ruang nada pada alat muzik bertali seperti gitar dan mandolin untuk\nmengawal nada bunyi yang dihasilkan.\nGaris yang memisahkan antara satu bar dengan bar yang lain.\nGaris tambahan yang terletak di atas atau di bawah baluk muzik.\nKategori atau jenis karya sastera atau seni yang dicirikan dengan sesuatu gaya,\nbentuk atau kandungan tertentu.\nJarak antara dua not.\nKord-kord asas (I, IV, V) yang digunakan untuk mengiringi lagu.\nTanda kunci pada notasi baluk.\nDimainkan secara bersambung dan tidak terputus-putus.\nNilai detik dalam setiap bar.\nSistem notasi atau ton yang dinamakan berdasarkan tanda nada.\nNada bunyi tinggi, rendah dan sederhana.\nSeparuh atau setengah ton.\nSusunan not menaik atau menurun secara bertangga dalam satu nada.\nDimainkan atau dinyanyikan secara legato atau tanpa putus-putus.\nDimainkan secara pendek-pendek atau putus-putus.\nSekumpulan lima garisan untuk menulis not muzik\nTanda syap, flet dan natural yang tidak terdapat dalam tanda nada sesuatu skel.\nTanda kromat yang ditulis pda awal baluk bagi menunjukkan pic tonik atau nada\nkeseluruhan not dalam lagu.\nSimbol atau tanda tertentu menunjukkan kesenyapan.\nNot yang bertanda bunyi yang lebih kuat daripada not lain.\nKelajuan persembahan dalam sesuatu karya yang disertai tempo seperti allegro,\npresto, moderato dan lain-lain.\nGarisan melengkung yang menyambungkan kepala dua not yang sama pic dan\nnama. Gabungan ini dimainkan sebagai satu not.\nArpeggio\nBar\nDinamik\nFret\nGaris bar\nGaris leger\nGenre\nJeda\nKord primer\nKlef\nLegato\nMeter\nNada\nPic\nSemiton\nSkel\nSlur\nStaccato\nStaf\nTanda kromat\nTanda nada\nTanda rehat\nTekanan\nTempo\nTie\nGLOSARI\nGLOSARI\nBERSUSAH DAHULU BERSENANG KEMUDIAN\nLagu dan Lirik: Yusri Hj. Hussain\nBe - ra - kit- ra - kit ke hu - lu be - re- nang- re - nang ke te - pian\nBe - ra - kit- ra - kit ke hu - lu be - re- nang- re - nang___________\nAdagio\nPENGHASILAN MUZIK\nPENGHASILAN MUZIK\n5. Jawab soalan di bawah.\n(a) Berdasarkan lagu Bersusah Dahulu Bersenang Kemudian di bawah, berikan\npendapat anda tentang aspek nilai not, meter, pic, skel, pergerakan kord dan\nsimbol serta terminologi muzik yang digunakan.\n(b) Berikan dua nilai murni yang terdapat pada lirik lagu Bersusah Dahulu\nBersenang Kemudian.\n1. Ciptakan melodi 8 bar dalam nada Major berdasarkan perkara berikut:\n(a) Meter $.\n(b) Nilai not d, q, e, s dan satu tanda rehat yang telah dipelajari.\n(c) Memasukkan dua simbol dan terminologi muzik yang sesuai.\n(d) Menggunakan kaedah imitasi atau variasi di dalam penciptaan.\n2. Berikan etika yang perlu diamalkan semasa penghasilan ciptaan muzik.\nke - mu - dian\nBer - su - sah\nda_ hu_ lu\nber - se - nang ke_ mu - di - an\n145\n144\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p78]\nBenitez, Kristina. 2005. The Maguindanaon Kulintang: Musical Innovation, Transformation and the Concept\nof Binalig. Ann Harbor, MI: University of Michigan.\nDavid, J. & La Tour, S. 2013. Vocal Technique: A Guide For Conductors, Teachers, and Singers. Illinois:\nWaveland Press Inc.\nDavid, M. 2013. The New Voice Pedagogy. Illinois: Waveland Press Inc.\nGaerlan, Barbara. 1991. Philippine Muslim Kulintang: Music of Modernization.\nLeisner, D. 2018. Playing with Ease: A Healthy Approach to Guitar Technique. United Kingdom: Oxford\nUniversity Press.\nLove, R. 1999. Set Your Voice Free. United Sates of America: Little, Brown and Company.\nMiller, R. 1996. The Structure of Singing: System and Art in Vocal Technique. New York: Schirmer Book\nPublishing.\nPhilip Dominquez Mercurio. 2005. Traditional Music of The Southern Philipines.\nVernnard, W. 1968. Singing: The Mechanism and the Technic, (5th Ed.). New York: Carl Fischer, Inc.\nhttp://www.newworldencyclopedia.org/entry/Kulintang\nhttp://jihanfadhila.blogspot.com/2014/02/sejarah-angklung-bagian-angklung-fungsi.html\nhttp://annienugraha.com/angklung-dan-saung-angklung-udjo-kekayaan-seni-musik-di-jawa-barat/\nhttps://www.slideshare.net/viadeviananurmansah5/seni-musik-jawa-barat-angklung\nRUJUKAN\nDengan ini SAYA BERJANJI akan menjaga buku ini\ndengan baiknya dan bertanggungjawab atas kehilangannya,\nserta mengembalikannya kepada pihak sekolah pada\ntarikh yang ditetapkan.\nTahun\nTingkatan\nTarikh\nTerima\nNama Penerima\nSkim Pinjaman Buku Teks\nSekolah ______________________________\nNombor Perolehan: _____________________________\nTarikh Penerimaan : _____________________________\nBUKU INI TIDAK BOLEH DIJUAL\n146\n\n[KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf p79]",
+      "char_count": 96023,
+      "pages": [
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 6,
+          "global_page_number": 6,
+          "char_count": 1347,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 7,
+          "global_page_number": 7,
+          "char_count": 1846,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 8,
+          "global_page_number": 8,
+          "char_count": 334,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 9,
+          "global_page_number": 9,
+          "char_count": 2489,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 10,
+          "global_page_number": 10,
+          "char_count": 438,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 11,
+          "global_page_number": 11,
+          "char_count": 1769,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 12,
+          "global_page_number": 12,
+          "char_count": 2876,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 13,
+          "global_page_number": 13,
+          "char_count": 1495,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 14,
+          "global_page_number": 14,
+          "char_count": 842,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 15,
+          "global_page_number": 15,
+          "char_count": 2169,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 16,
+          "global_page_number": 16,
+          "char_count": 762,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 17,
+          "global_page_number": 17,
+          "char_count": 1623,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 18,
+          "global_page_number": 18,
+          "char_count": 996,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 19,
+          "global_page_number": 19,
+          "char_count": 1693,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 20,
+          "global_page_number": 20,
+          "char_count": 377,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 21,
+          "global_page_number": 21,
+          "char_count": 850,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 22,
+          "global_page_number": 22,
+          "char_count": 510,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 23,
+          "global_page_number": 23,
+          "char_count": 953,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 24,
+          "global_page_number": 24,
+          "char_count": 451,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 25,
+          "global_page_number": 25,
+          "char_count": 931,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 26,
+          "global_page_number": 26,
+          "char_count": 1424,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 27,
+          "global_page_number": 27,
+          "char_count": 1013,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 28,
+          "global_page_number": 28,
+          "char_count": 1463,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 29,
+          "global_page_number": 29,
+          "char_count": 2203,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 30,
+          "global_page_number": 30,
+          "char_count": 315,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 31,
+          "global_page_number": 31,
+          "char_count": 915,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 32,
+          "global_page_number": 32,
+          "char_count": 668,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 33,
+          "global_page_number": 33,
+          "char_count": 2963,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 34,
+          "global_page_number": 34,
+          "char_count": 2682,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 35,
+          "global_page_number": 35,
+          "char_count": 1397,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 36,
+          "global_page_number": 36,
+          "char_count": 1443,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 37,
+          "global_page_number": 37,
+          "char_count": 1954,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 38,
+          "global_page_number": 38,
+          "char_count": 753,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 39,
+          "global_page_number": 39,
+          "char_count": 1475,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 40,
+          "global_page_number": 40,
+          "char_count": 264,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 41,
+          "global_page_number": 41,
+          "char_count": 878,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 42,
+          "global_page_number": 42,
+          "char_count": 1056,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 43,
+          "global_page_number": 43,
+          "char_count": 956,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 44,
+          "global_page_number": 44,
+          "char_count": 1299,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 45,
+          "global_page_number": 45,
+          "char_count": 662,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 46,
+          "global_page_number": 46,
+          "char_count": 1356,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 47,
+          "global_page_number": 47,
+          "char_count": 937,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 48,
+          "global_page_number": 48,
+          "char_count": 1597,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 49,
+          "global_page_number": 49,
+          "char_count": 304,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 50,
+          "global_page_number": 50,
+          "char_count": 865,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 51,
+          "global_page_number": 51,
+          "char_count": 404,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 52,
+          "global_page_number": 52,
+          "char_count": 792,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 53,
+          "global_page_number": 53,
+          "char_count": 963,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 54,
+          "global_page_number": 54,
+          "char_count": 990,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 55,
+          "global_page_number": 55,
+          "char_count": 1822,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 56,
+          "global_page_number": 56,
+          "char_count": 1253,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 57,
+          "global_page_number": 57,
+          "char_count": 3185,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 58,
+          "global_page_number": 58,
+          "char_count": 312,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 59,
+          "global_page_number": 59,
+          "char_count": 1342,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 60,
+          "global_page_number": 60,
+          "char_count": 526,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 61,
+          "global_page_number": 61,
+          "char_count": 1641,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 62,
+          "global_page_number": 62,
+          "char_count": 1825,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 63,
+          "global_page_number": 63,
+          "char_count": 862,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 64,
+          "global_page_number": 64,
+          "char_count": 1394,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 65,
+          "global_page_number": 65,
+          "char_count": 1872,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 66,
+          "global_page_number": 66,
+          "char_count": 870,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 67,
+          "global_page_number": 67,
+          "char_count": 2156,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 68,
+          "global_page_number": 68,
+          "char_count": 311,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 69,
+          "global_page_number": 69,
+          "char_count": 550,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 70,
+          "global_page_number": 70,
+          "char_count": 74,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 71,
+          "global_page_number": 71,
+          "char_count": 1213,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 72,
+          "global_page_number": 72,
+          "char_count": 1587,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 73,
+          "global_page_number": 73,
+          "char_count": 1310,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 74,
+          "global_page_number": 74,
+          "char_count": 2757,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 75,
+          "global_page_number": 75,
+          "char_count": 965,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 76,
+          "global_page_number": 76,
+          "char_count": 1041,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 77,
+          "global_page_number": 77,
+          "char_count": 2844,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 78,
+          "global_page_number": 78,
+          "char_count": 1654,
+          "needs_ocr": false,
+          "extraction_method": "pymupdf_text"
+        },
+        {
+          "file_name": "KSSM_2019_DP_PendidikanMuzik_Tingkatan_4.pdf",
+          "page_number": 79,
+          "global_page_number": 79,
+          "char_count": 0,
+          "needs_ocr": true,
+          "extraction_method": "none"
+        }
+      ]
+    }
+  ]
+}

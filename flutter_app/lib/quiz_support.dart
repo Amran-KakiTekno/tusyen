@@ -96,16 +96,18 @@ class QuizQuestionDraft {
   int timeLimitSeconds;
 
   factory QuizQuestionDraft.fromDeck(Map<String, dynamic> question) {
-    final options = _stringList(question['options']).join(', ');
-    final correct = _asMap(question['correct_answer']);
+    final type = _safeString(
+        question['question_type'] ?? question['questionType'],
+        fallback: 'multiple_choice');
+    final rawOptions = question['options'];
+    final correct = question['correct_answer'] ?? question['correctAnswer'];
     return QuizQuestionDraft(
       questionText:
           _safeString(question['question_text'] ?? question['questionText']),
-      questionType: _safeString(
-          question['question_type'] ?? question['questionType'],
-          fallback: 'multiple_choice'),
-      optionsText: options.isEmpty ? 'Option 1, Option 2' : options,
-      correctAnswer: '${correct['optionIndex'] ?? 0}',
+      questionType: type,
+      optionsText:
+          AppLessonQuestionDraft._optionsTextForQuestionType(type, rawOptions),
+      correctAnswer: _answerText(correct),
       explanation: _safeString(question['explanation']),
       points:
           _asInt(question['points']) == 0 ? 1000 : _asInt(question['points']),
@@ -116,19 +118,18 @@ class QuizQuestionDraft {
   }
 
   Map<String, dynamic> toPayload() {
-    final options = optionsText
-        .split(',')
-        .map((option) => option.trim())
-        .where((option) => option.isNotEmpty)
-        .toList();
+    final options = AppLessonQuestionDraft._optionList(
+      questionType,
+      optionsText,
+    );
 
     return {
       'questionText': questionText,
       'questionType': questionType,
-      'options': questionType == 'true_false' ? ['True', 'False'] : options,
+      'options': options,
       'correctAnswer': questionType == 'true_false'
           ? _normalizeBooleanAnswer(correctAnswer)
-          : (int.tryParse(correctAnswer.trim()) ?? correctAnswer.trim()),
+          : _correctAnswerPayload(questionType, correctAnswer, options),
       'explanation': explanation,
       'points': points,
       'timeLimitSeconds': timeLimitSeconds,
@@ -138,10 +139,12 @@ class QuizQuestionDraft {
 
 dynamic _normalizeBooleanAnswer(String value) {
   final normalized = value.trim().toLowerCase();
-  if (normalized == 'true' || normalized == '1' || normalized == 'yes')
+  if (normalized == 'true' || normalized == '1' || normalized == 'yes') {
     return true;
-  if (normalized == 'false' || normalized == '0' || normalized == 'no')
+  }
+  if (normalized == 'false' || normalized == '0' || normalized == 'no') {
     return false;
+  }
   return normalized == 'true';
 }
 
@@ -822,34 +825,55 @@ class _QuizPageState extends State<QuizPage> {
                             ),
                             const SizedBox(height: 10),
                             DropdownButtonFormField<String>(
+                              isExpanded: true,
                               value: questions[index].questionType,
-                              items: const [
-                                DropdownMenuItem(
-                                    value: 'multiple_choice',
-                                    child: Text('Multiple choice')),
-                                DropdownMenuItem(
-                                    value: 'true_false',
-                                    child: Text('True / False')),
+                              items: [
+                                for (final type in lessonExerciseTypeOptions)
+                                  DropdownMenuItem(
+                                    value: type,
+                                    child: Text(_questionTypeLabel(type)),
+                                  ),
                               ],
                               onChanged: (value) => setDialogState(() =>
                                   questions[index].questionType =
                                       value ?? questions[index].questionType),
                             ),
                             const SizedBox(height: 10),
-                            TextField(
-                              controller: TextEditingController(
-                                  text: questions[index].optionsText),
-                              decoration: const InputDecoration(
-                                  labelText: 'Options, comma separated'),
-                              onChanged: (value) =>
-                                  questions[index].optionsText = value,
-                            ),
-                            const SizedBox(height: 10),
+                            if (_questionTypeUsesOptions(
+                                questions[index].questionType)) ...[
+                              TextField(
+                                controller: TextEditingController(
+                                    text: questions[index].optionsText),
+                                minLines: _questionTypeUsesLines(
+                                        questions[index].questionType)
+                                    ? 3
+                                    : 1,
+                                maxLines: _questionTypeUsesLines(
+                                        questions[index].questionType)
+                                    ? 5
+                                    : 1,
+                                decoration: InputDecoration(
+                                    labelText: _questionOptionsLabel(
+                                        questions[index].questionType)),
+                                onChanged: (value) =>
+                                    questions[index].optionsText = value,
+                              ),
+                              const SizedBox(height: 10),
+                            ],
                             TextField(
                               controller: TextEditingController(
                                   text: questions[index].correctAnswer),
-                              decoration: const InputDecoration(
-                                  labelText: 'Correct answer or option index'),
+                              minLines: _questionTypeUsesLines(
+                                      questions[index].questionType)
+                                  ? 2
+                                  : 1,
+                              maxLines: _questionTypeUsesLines(
+                                      questions[index].questionType)
+                                  ? 5
+                                  : 1,
+                              decoration: InputDecoration(
+                                  labelText: _questionAnswerLabel(
+                                      questions[index].questionType)),
                               onChanged: (value) =>
                                   questions[index].correctAnswer = value,
                             ),
@@ -1108,6 +1132,64 @@ class QuizSummaryCard extends StatelessWidget {
   }
 }
 
+class _QuizAnswerControl extends StatelessWidget {
+  const _QuizAnswerControl({
+    required this.question,
+    required this.type,
+    required this.currentAnswer,
+    required this.readOnly,
+    required this.onChanged,
+  });
+
+  final Map<String, dynamic> question;
+  final String type;
+  final dynamic currentAnswer;
+  final bool readOnly;
+  final ValueChanged<dynamic> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    if (_pairExerciseTypes.contains(type)) {
+      return _PairMatchExercise(
+        pairs: _questionPairs(question),
+        readOnly: readOnly,
+        currentAnswer: _asStringMap(currentAnswer),
+        onChanged: onChanged,
+      );
+    }
+
+    if (type == 'step_order') {
+      return _StepOrderExercise(
+        steps: _stepOptions(question),
+        readOnly: readOnly,
+        currentAnswer: _asStringList(currentAnswer),
+        onChanged: onChanged,
+      );
+    }
+
+    return TextFormField(
+      key: ValueKey<String>('quiz-answer-${_safeString(question['id'])}-$type'),
+      initialValue: _safeString(currentAnswer),
+      readOnly: readOnly,
+      keyboardType: type == 'numeric'
+          ? const TextInputType.numberWithOptions(decimal: true)
+          : TextInputType.text,
+      minLines: type == 'numeric' || type == 'fill_blank' ? 1 : 3,
+      maxLines: type == 'numeric' || type == 'fill_blank' ? 1 : 5,
+      onChanged: onChanged,
+      decoration: const InputDecoration(labelText: 'Your answer'),
+    );
+  }
+}
+
+bool _quizAnswerIsBlank(dynamic value) {
+  if (value == null) return true;
+  if (value is String) return value.trim().isEmpty;
+  if (value is Iterable) return value.isEmpty;
+  if (value is Map) return value.isEmpty;
+  return false;
+}
+
 class QuizLiveSessionView extends StatefulWidget {
   const QuizLiveSessionView({
     required this.api,
@@ -1137,7 +1219,8 @@ class _QuizLiveSessionViewState extends State<QuizLiveSessionView> {
   StreamSubscription? subscription;
   Timer? ticker;
   DateTime now = DateTime.now();
-  int? selectedOption;
+  dynamic answerDraft;
+  bool answerSubmitted = false;
   bool submitting = false;
   String? feedback;
 
@@ -1168,13 +1251,22 @@ class _QuizLiveSessionViewState extends State<QuizLiveSessionView> {
         try {
           final message = event is String
               ? jsonDecode(event) as Map<String, dynamic>
-              : _asMap(jsonDecode('${event}'));
+              : _asMap(jsonDecode('$event'));
           final nextSnapshot = message['snapshot'];
           if (nextSnapshot != null && mounted) {
+            final currentSession = _asMap(snapshot['session']);
+            final incomingSnapshot = _asMap(nextSnapshot);
+            final incomingSession = _asMap(incomingSnapshot['session']);
+            final questionChanged =
+                _safeString(currentSession['currentQuestionId']) !=
+                    _safeString(incomingSession['currentQuestionId']);
             setState(() {
-              snapshot = _asMap(nextSnapshot);
-              selectedOption = null;
-              feedback = null;
+              snapshot = incomingSnapshot;
+              if (questionChanged) {
+                answerDraft = null;
+                answerSubmitted = false;
+                feedback = null;
+              }
             });
           }
         } catch (_) {}
@@ -1206,7 +1298,18 @@ class _QuizLiveSessionViewState extends State<QuizLiveSessionView> {
     final remaining = questionEndsAt == null
         ? 0
         : math.max(0, questionEndsAt.difference(now).inSeconds);
-    final options = _stringList(currentQuestion['options']);
+    final questionType = _safeString(
+        currentQuestion['questionType'] ?? currentQuestion['question_type'],
+        fallback: 'multiple_choice');
+    final isChoiceQuestion =
+        questionType == 'multiple_choice' || questionType == 'true_false';
+    final choiceQuestion = {
+      ...currentQuestion,
+      'question_type': questionType,
+    };
+    final options = isChoiceQuestion
+        ? _LessonQuestionCard._choiceOptions(choiceQuestion)
+        : const <String>[];
     final currentQuestionNumber = _asInt(session['currentQuestionIndex']) + 1;
     final questionCount = _asInt(deck['questionCount']);
     final inQuestion = status == 'active' && currentQuestion.isNotEmpty;
@@ -1334,44 +1437,80 @@ class _QuizLiveSessionViewState extends State<QuizLiveSessionView> {
                     ),
                     StatusPill(
                         label: '${remaining}s left', color: AppTheme.red),
+                    StatusPill(
+                        label: _questionTypeLabel(questionType),
+                        color: AppTheme.blue),
                   ],
                 ),
                 const SizedBox(height: 14),
-                for (int index = 0; index < options.length; index++)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: FilledButton(
-                      onPressed: widget.participantToken == null ||
-                              submitting ||
-                              selectedOption != null
-                          ? null
-                          : () => _submitAnswer(index),
-                      style: FilledButton.styleFrom(
-                        minimumSize: const Size.fromHeight(56),
-                        backgroundColor: _optionColor(index),
-                      ),
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            radius: 14,
-                            backgroundColor:
-                                Colors.white.withValues(alpha: 0.18),
-                            child: Text('${index + 1}',
-                                style: const TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.w900)),
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Text(
-                              options[index],
-                              style: const TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.w900),
+                if (isChoiceQuestion)
+                  for (int index = 0; index < options.length; index++)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: FilledButton(
+                        onPressed: widget.participantToken == null ||
+                                submitting ||
+                                answerSubmitted
+                            ? null
+                            : () => _submitAnswer(
+                                  {'optionIndex': index},
+                                  selectedIndex: index,
+                                ),
+                        style: FilledButton.styleFrom(
+                          minimumSize: const Size.fromHeight(56),
+                          backgroundColor: _optionColor(index),
+                        ),
+                        child: Row(
+                          children: [
+                            CircleAvatar(
+                              radius: 14,
+                              backgroundColor:
+                                  Colors.white.withValues(alpha: 0.18),
+                              child: Text('${index + 1}',
+                                  style: const TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w900)),
                             ),
-                          ),
-                        ],
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Text(
+                                options[index],
+                                style: const TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w900),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
+                if (!isChoiceQuestion) ...[
+                  _QuizAnswerControl(
+                    question: choiceQuestion,
+                    type: questionType,
+                    currentAnswer: answerDraft,
+                    readOnly: widget.participantToken == null ||
+                        submitting ||
+                        answerSubmitted,
+                    onChanged: (value) => setState(() => answerDraft = value),
                   ),
+                  const SizedBox(height: 12),
+                  FilledButton.icon(
+                    onPressed: widget.participantToken == null ||
+                            submitting ||
+                            answerSubmitted ||
+                            _quizAnswerIsBlank(answerDraft)
+                        ? null
+                        : () => _submitAnswer(answerDraft),
+                    icon: submitting
+                        ? const SizedBox(
+                            width: 18,
+                            height: 18,
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          )
+                        : const Icon(Icons.check_circle_rounded),
+                    label: Text(submitting ? 'Submitting...' : 'Submit answer'),
+                  ),
+                ],
                 if (feedback != null) ...[
                   const SizedBox(height: 10),
                   Text(feedback!,
@@ -1446,19 +1585,23 @@ class _QuizLiveSessionViewState extends State<QuizLiveSessionView> {
     return colors[index % colors.length];
   }
 
-  Future<void> _submitAnswer(int index) async {
+  Future<void> _submitAnswer(dynamic answer, {int? selectedIndex}) async {
     setState(() {
       submitting = true;
-      selectedOption = index;
+      answerSubmitted = true;
       feedback = null;
     });
 
     try {
-      final result =
-          await widget.api.post('/quiz/sessions/$sessionId/answers', {
+      final payload = {
         'participantToken': widget.participantToken,
-        'selectedOptionIndex': index,
-      });
+        if (selectedIndex == null)
+          'selectedAnswer': answer
+        else
+          'selectedOptionIndex': selectedIndex,
+      };
+      final result =
+          await widget.api.post('/quiz/sessions/$sessionId/answers', payload);
 
       if (!mounted) return;
       setState(() {
@@ -1469,7 +1612,7 @@ class _QuizLiveSessionViewState extends State<QuizLiveSessionView> {
       });
     } on DioException catch (e) {
       setState(() {
-        selectedOption = null;
+        answerSubmitted = false;
         feedback = _errorMessage(e);
       });
     } finally {
@@ -1486,7 +1629,8 @@ class _QuizLiveSessionViewState extends State<QuizLiveSessionView> {
       if (!mounted) return;
       setState(() {
         snapshot = _asMap(result['snapshot']);
-        selectedOption = null;
+        answerDraft = null;
+        answerSubmitted = false;
         feedback = null;
       });
     } catch (error) {
@@ -1503,7 +1647,8 @@ class _QuizLiveSessionViewState extends State<QuizLiveSessionView> {
       if (!mounted) return;
       setState(() {
         snapshot = _asMap(result['snapshot']);
-        selectedOption = null;
+        answerDraft = null;
+        answerSubmitted = false;
         feedback = null;
       });
     } catch (error) {
