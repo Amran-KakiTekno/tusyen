@@ -8,7 +8,7 @@
   --border-b:  #5A1E8A;
   --text:      #F0ECFF;
   --text2:     #9B7BBE;
-  --text3:     #5A3A7A;
+  --text3:     #8d6fb8;
   --acc:       #8B5CF6;
   --acc-hi:    #A78BFA;
   --acc-lo:    #7C3AED;
@@ -346,7 +346,7 @@ input:focus, textarea:focus { border-color: var(--border-b); }
 }
 .bottom-nav-wrap.is-compact .bottom-nav-label {
   max-width: 48px;
-  font-size: 9px !important;
+  font-size: 11px !important;
 }
 
 /* ── Sidebar always visible, narrows on small screens ── */

@@ -434,7 +434,7 @@ const StudentAttachmentPreview = ({ attachments=[], compact=false }) => {
               <span className="student-clamp-2" style={{ display:'block', fontSize:12, fontWeight:900, color:C.text, lineHeight:1.25 }}>
                 {label}
               </span>
-              <span style={{ display:'block', fontSize:10, fontWeight:800, color:C.textFaint, marginTop:2 }}>
+              <span style={{ display:'block', fontSize: 11, fontWeight:800, color:C.textFaint, marginTop:2 }}>
                 {typeLabel}
               </span>
             </span>
@@ -2059,7 +2059,7 @@ const SLessonResult = ({ correct, total, hearts, go, result, lesson, questions=[
             <div style={{ fontSize:18, marginBottom:4 }}>{st.icon}</div>
             <div style={{ fontWeight:800, fontSize:18, color:st.color, lineHeight:1 }}>{st.value}</div>
             <div style={{
-              fontSize:10, color:C.textMuted, fontWeight:600,
+              fontSize: 11, color:C.textMuted, fontWeight:600,
               textTransform:'uppercase', letterSpacing:0.5, marginTop:3,
             }}>{st.label}</div>
           </Card>
@@ -2071,7 +2071,7 @@ const SLessonResult = ({ correct, total, hearts, go, result, lesson, questions=[
         {[...Array(5)].map((_,i) => (
           <span key={i} style={{ fontSize:14, opacity: i < hearts ? 1 : 0.15 }}>❤️</span>
         ))}
-        <span style={{ flexBasis:'100%', textAlign:'center', fontSize:10, color:C.textFaint, fontWeight:700 }}>
+        <span style={{ flexBasis:'100%', textAlign:'center', fontSize: 11, color:C.textFaint, fontWeight:700 }}>
           Nyawa membantu fokus semasa latihan, bukan markah akademik.
         </span>
       </div>
@@ -2885,7 +2885,7 @@ const SHome = ({ goLearn, openLesson, goClassrooms, displayName, avatarUrl, clas
                 }}>{s.icon}</div>
                 <div style={{ minWidth:0 }}>
                   <div className="student-clamp-2" style={{ fontWeight:800, fontSize:13, color:C.text, lineHeight:1.2 }}>{s.name}</div>
-                  <div className="student-clamp-2" style={{ fontSize:10, color:C.textFaint, fontWeight:600, lineHeight:1.2 }}>{s.query}</div>
+                  <div className="student-clamp-2" style={{ fontSize: 11, color:C.textFaint, fontWeight:600, lineHeight:1.2 }}>{s.query}</div>
                 </div>
               </div>
               <ProgressBar value={s.progress} color={hasProgress ? s.color : C.textFaint} height={5} />
@@ -3350,7 +3350,7 @@ const SLearn = ({ activeSubject='math', setActiveSubject, openLesson, classInfo,
                       {dueLabel || lesson.topic || tStudent('Tugasan guru', 'Teacher assignment')}
                     </div>
                     <ProgressBar value={lesson.progress} height={6} />
-                    <div style={{ fontSize:10, color:C.textFaint, fontWeight:800, marginTop:5 }}>
+                    <div style={{ fontSize: 11, color:C.textFaint, fontWeight:800, marginTop:5 }}>
                       {tStudent(`${lesson.progress}% siap`, `${lesson.progress}% complete`)}
                     </div>
                   </Card>
@@ -3842,7 +3842,7 @@ const SClassrooms = ({ classInfo, onClassJoined, onViewPosts }) => {
             {/* Latest posts */}
             {posts.length > 0 && (
               <div style={{ borderTop: `1px solid ${C.border}`, paddingTop: 8 }}>
-                <div style={{ fontSize: 10, color: C.textFaint, fontWeight: 800, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, color: C.textFaint, fontWeight: 800, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 6 }}>
                   Pos Terkini
                 </div>
                 {posts.map(post => (
@@ -3867,7 +3867,7 @@ const SClassrooms = ({ classInfo, onClassJoined, onViewPosts }) => {
                         display:'flex', alignItems:'center', justifyContent:'space-between',
                         gap:8, marginTop:6, flexWrap:'wrap', minWidth:0,
                       }}>
-                        <span style={{ fontSize: 10, color: C.textFaint, fontWeight: 700 }}>
+                        <span style={{ fontSize: 11, color: C.textFaint, fontWeight: 700 }}>
                           {timeAgo(post.created_at)}
                         </span>
                         <button
@@ -4189,7 +4189,7 @@ const SFeed = ({ classInfo, initialClassId = null }) => {
               <span style={{
                 display: 'inline-flex', alignItems: 'center', gap: 3,
                 background: typeInfo.bg, color: typeInfo.color,
-                borderRadius: 20, padding: '2px 8px', fontSize: 10, fontWeight: 800,
+                borderRadius: 20, padding: '2px 8px', fontSize: 11, fontWeight: 800,
               }}>{typeInfo.icon} {typeInfo.label}</span>
               {post.is_pinned && <span style={{ fontSize: 12 }}>📌</span>}
               <span className="student-wrap-text" style={{
@@ -4216,7 +4216,7 @@ const SFeed = ({ classInfo, initialClassId = null }) => {
             <StudentAttachmentPreview attachments={attachments} compact />
 
             {/* Timestamp */}
-            <div style={{ fontSize: 10, color: C.textFaint, fontWeight: 600, marginBottom: 10 }}>
+            <div style={{ fontSize: 11, color: C.textFaint, fontWeight: 600, marginBottom: 10 }}>
               {timeAgo(post.created_at)}
             </div>
 
@@ -4541,7 +4541,7 @@ const SProfile = ({ displayName, avatarUrl, classInfo, onProfileSave, onClassJoi
             <div style={{ fontSize:24, marginBottom:4 }}>{b.icon}</div>
             <div style={{ fontWeight:800, fontSize:12, color:C.text, lineHeight:1.2 }}>{badgeName}</div>
             <div title={badgeDesc} style={{
-              fontSize:10, color:C.textMuted, fontWeight:600, lineHeight:1.3, marginTop:2,
+              fontSize: 11, color:C.textMuted, fontWeight:600, lineHeight:1.3, marginTop:2,
               whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis',
             }}>{badgeDesc}</div>
           </Card>
@@ -4742,7 +4742,7 @@ const SProgress = () => {
             <div style={{ fontSize:28, marginBottom:6 }}>{cell.icon}</div>
             <div style={{ fontSize:20, fontWeight:900, color:C.accPale, lineHeight:1 }}>{cell.value}</div>
             <div style={{
-              fontSize:10, color:C.textMuted, fontWeight:700,
+              fontSize: 11, color:C.textMuted, fontWeight:700,
               textTransform:'uppercase', letterSpacing:.5, marginTop:5,
             }}>{cell.label}</div>
           </Card>
@@ -4769,7 +4769,7 @@ const SProgress = () => {
               <div className="student-wrap-text" style={{ color:band.color, fontSize:12, fontWeight:900, lineHeight:1.2 }}>
                 {band.label}
               </div>
-              <div style={{ color:C.textFaint, fontSize:10, fontWeight:800, marginTop:2 }}>
+              <div style={{ color:C.textFaint, fontSize: 11, fontWeight:800, marginTop:2 }}>
                 {band.min}-{band.max}%
               </div>
               <div className="student-wrap-text" style={{ color:C.textMuted, fontSize:11, fontWeight:700, lineHeight:1.35, marginTop:5 }}>
@@ -4806,14 +4806,14 @@ const SProgress = () => {
                   borderRadius:999, padding:'2px 9px',
                 }}>{band.label}</span>
                 <span style={{
-                  fontSize:10, fontWeight:700, color:C.textFaint,
+                  fontSize: 11, fontWeight:700, color:C.textFaint,
                   background:C.surface, border:`1px solid ${C.border}`,
                   borderRadius:999, padding:'2px 8px',
                 }}>{row.lessons_count ?? 0} pelajaran</span>
               </div>
             </div>
             <ProgressBar value={comp} height={6} />
-            <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, marginTop:4 }}>
+            <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, marginTop:4 }}>
               Penguasaan {comp}% · Purata skor {avg}%
             </div>
             <div className="student-wrap-text" style={{ fontSize:11, color:C.textMuted, fontWeight:700, marginTop:5, lineHeight:1.35 }}>
@@ -4863,14 +4863,14 @@ const SProgress = () => {
                   }}>{score}%</span>
                 )}
                 <span style={{
-                  fontSize:10, fontWeight:800,
+                  fontSize: 11, fontWeight:800,
                   color: isDone ? C.green : C.gold,
                   background: isDone ? 'rgba(34,197,94,.10)' : 'rgba(245,158,11,.10)',
                   border:`1px solid ${isDone ? 'rgba(34,197,94,.28)' : 'rgba(245,158,11,.28)'}`,
                   borderRadius:999, padding:'2px 8px',
                 }}>{isDone ? 'Selesai' : 'Dalam Proses'}</span>
                 {row.updated_at && (
-                  <span style={{ fontSize:9, color:C.textFaint, fontWeight:600 }}>{timeAgo(row.updated_at)}</span>
+                  <span style={{ fontSize: 11, color:C.textFaint, fontWeight:600 }}>{timeAgo(row.updated_at)}</span>
                 )}
               </div>
             </div>
@@ -4975,7 +4975,7 @@ const TeacherProfileModal = ({ teacherId, onClose }) => {
                 }}>
                   <div style={{ fontWeight:900, fontSize:18, color:C.accPale, lineHeight:1 }}>{s.v}</div>
                   <div style={{
-                    fontSize:10, color:C.textMuted, fontWeight:700,
+                    fontSize: 11, color:C.textMuted, fontWeight:700,
                     marginTop:4, textTransform:'uppercase', letterSpacing:.4,
                   }}>{s.l}</div>
                 </div>
@@ -5018,6 +5018,137 @@ const TeacherProfileModal = ({ teacherId, onClose }) => {
 };
 
 window.TeacherProfileModal = TeacherProfileModal;
+
+const StudentMoreSheet = ({ items, active, onSelect, onClose }) => {
+  const panelRef = React.useRef(null);
+  const closeBtnRef = React.useRef(null);
+  const restoreFocusRef = React.useRef(null);
+  const { language, t } = useLanguage();
+
+  React.useEffect(() => {
+    const activeEl = document.activeElement;
+    restoreFocusRef.current = activeEl && activeEl !== document.body ? activeEl : null;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const timer = window.setTimeout(() => {
+      closeBtnRef.current?.focus?.({ preventScroll: true });
+    }, 0);
+
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.clearTimeout(timer);
+      const target = restoreFocusRef.current;
+      restoreFocusRef.current = null;
+      if (target && document.contains(target)) {
+        target.focus?.({ preventScroll: true });
+      }
+    };
+  }, []);
+
+  React.useEffect(() => {
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        onClose?.();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = panelRef.current?.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusable?.length) {
+        event.preventDefault();
+        return;
+      }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [onClose]);
+
+  return (
+    <div onClick={onClose} style={{
+      position:'fixed', inset:0, zIndex:450,
+      background:'rgba(2,6,23,.55)', display:'flex', alignItems:'flex-end',
+    }}>
+      <div
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={t('Menu navigasi lain', 'More navigation')}
+        className="tv2-sheetup"
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          width:'100%', maxHeight:'60%',
+          background:C.bg, display:'flex', flexDirection:'column', overflow:'hidden',
+          borderRadius:'22px 22px 0 0', border:`1px solid ${C.border}`,
+          boxShadow:'0 -18px 44px rgba(0,0,0,.28)', paddingBottom:24,
+        }}
+      >
+        <div style={{
+          width:42, height:4, borderRadius:999, background:C.borderB,
+          margin:'10px auto 0', flexShrink:0,
+        }} />
+        <div style={{
+          display:'flex', alignItems:'center', justifyContent:'space-between',
+          padding:'12px 18px 14px', borderBottom:`1px solid ${C.border}`,
+          background:C.surface, flexShrink:0,
+        }}>
+          <h2 style={{ fontWeight:700, fontSize:16, color:C.text, margin:0 }}>
+            {t('Navigasi Tambahan', 'More Options')}
+          </h2>
+          <button
+            ref={closeBtnRef}
+            onClick={onClose}
+            aria-label={t('Tutup', 'Close')}
+            style={{
+              background:C.accDim, border:`1px solid ${C.border}`, borderRadius:8,
+              padding:'5px 14px', color:C.textMuted, cursor:'pointer',
+              fontSize:12, fontWeight:700, fontFamily:'Nunito',
+            }}
+          >
+            {t('Tutup', 'Close')}
+          </button>
+        </div>
+        <div style={{
+          display:'grid', gridTemplateColumns:'1fr 1fr', gap:10, padding:'16px',
+        }}>
+          {items.map(item => {
+            const on = active === item.id;
+            const labelText = languageText(item.label, item.en, language);
+            return (
+              <button
+                key={item.id}
+                onClick={() => { onSelect(item.id); onClose(); }}
+                style={{
+                  display:'flex', alignItems:'center', gap:10,
+                  padding:'14px 16px', borderRadius:14,
+                  background: on ? C.accDim : C.card,
+                  border:`1px solid ${on ? C.borderB : C.border}`,
+                  color: on ? C.accHi : C.text,
+                  cursor:'pointer', fontFamily:'Nunito', fontSize:13, fontWeight:700,
+                  textAlign:'left',
+                }}
+              >
+                <span style={{ fontSize:22 }}>{item.icon}</span>
+                <span>{labelText}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const StudentApp = ({ sidebarExtraTop, sidebarExtraBottom }) => {
   const [screen, setScreen] = (window.useHashNavigation || useHashNavigation)('student', 'home', [
@@ -5144,8 +5275,31 @@ const StudentApp = ({ sidebarExtraTop, sidebarExtraBottom }) => {
     whiteboard:'Whiteboard',
     profile:'Profile',
   };
+  const [showMoreSheet, setShowMoreSheet] = React.useState(false);
+  const moreNavItems = [
+    { id:'posts',      icon:'📢', label:'Pos',         en:'Posts'      },
+    { id:'quiz',       icon:'🎮', label:'Kuiz',        en:'Quiz'       },
+    { id:'whiteboard', icon:'🖌️', label:'Papan Putih', en:'Whiteboard' },
+    { id:'profile',    icon:'👤', label:'Profil',      en:'Profile'    },
+  ];
+  const isMoreActive = moreNavItems.some(item => item.id === screen);
+
   const localizedNav = nav.map(item => ({ ...item, en: navEnglish[item.id] || item.en }));
-  const mobileNav = localizedNav.filter(item => item.id !== 'lesson' && item.id !== 'profile');
+  const mobileNav = [
+    localizedNav.find(item => item.id === 'home'),
+    localizedNav.find(item => item.id === 'learn'),
+    localizedNav.find(item => item.id === 'classrooms'),
+    localizedNav.find(item => item.id === 'progress'),
+    { id:'more', icon:'⋯', label:'Lagi', en:'More' },
+  ].filter(Boolean);
+
+  const handleMobileNav = (id) => {
+    if (id === 'more') {
+      setShowMoreSheet(true);
+      return;
+    }
+    selectNav(id);
+  };
 
   const activeSubjectName = SUBJECTS.find(s => s.id === activeSubject)?.name || 'Belajar';
   const screenMeta = {
@@ -5223,11 +5377,19 @@ const StudentApp = ({ sidebarExtraTop, sidebarExtraBottom }) => {
         </div>
 
         {/* Mobile bottom nav */}
-        <BottomNavMobile items={mobileNav} active={screen} onNav={selectNav} />
+        <BottomNavMobile items={mobileNav} active={isMoreActive ? 'more' : screen} onNav={handleMobileNav} />
       </main>
 
       {showNotif && (
         <NotifPanel notifs={notifications} onClose={closeNotifications} />
+      )}
+      {showMoreSheet && (
+        <StudentMoreSheet
+          items={moreNavItems}
+          active={screen}
+          onSelect={selectNav}
+          onClose={() => setShowMoreSheet(false)}
+        />
       )}
       <StudentConfirmModal
         open={Boolean(pendingNav)}

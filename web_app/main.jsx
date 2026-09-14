@@ -290,6 +290,39 @@ const LoginScreen = ({ onSignedIn, apiStatus, onShowGuide, guideUrl }) => {
     }
   };
 
+  const handleSso = async () => {
+    setBusy(true); setError('');
+    try {
+      if (window.tusyenApi?.startKeycloakLogin) {
+        await window.tusyenApi.startKeycloakLogin();
+      } else {
+        const data = await window.tusyenApi.request?.('/auth/keycloak/login-url', {
+          method: 'POST',
+          body: JSON.stringify({ redirectUri: `${window.location.origin}/keycloak-callback` }),
+        });
+        if (data?.url) window.location.href = data.url;
+      }
+    } catch (err) {
+      if (err?.code === 'API_OFFLINE' || err?.message === 'API_OFFLINE') {
+        const demoUser = {
+          id: 'demo-sso',
+          fullName: 'Pengguna SSO Demo',
+          email: 'student@tusyen.test',
+          role: 'student',
+          isOfflineDemo: true,
+        };
+        const demoData = { token: 'offline-demo-token', user: demoUser };
+        localStorage.setItem('tusyen_user', JSON.stringify(demoUser));
+        window.tusyenUser = demoUser;
+        onSignedIn(demoData);
+        return;
+      }
+      setError(err?.message || t('Log masuk SSO gagal.', 'SSO sign-in failed.'));
+    } finally {
+      setBusy(false);
+    }
+  };
+
   return (
     <main id="main-content" className="login-shell" tabIndex="-1" aria-labelledby="login-title">
       <div className="login-card">
@@ -349,6 +382,34 @@ const LoginScreen = ({ onSignedIn, apiStatus, onShowGuide, guideUrl }) => {
           >
             {busy ? 'Sila tunggu…' : (mode === 'login' ? 'Log Masuk' : 'Cipta Akaun')}
           </button>
+          {mode === 'login' && (
+            <button
+              className="login-sso-btn"
+              type="button"
+              onClick={handleSso}
+              disabled={busy}
+              aria-label={t('Log Masuk SSO', 'SSO Sign In')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 8,
+                width: '100%',
+                padding: '11px 16px',
+                borderRadius: 14,
+                border: '1.5px solid var(--c-bdr, #3C0F62)',
+                background: 'var(--c-card, #1B0030)',
+                color: 'var(--c-text, #F0ECFF)',
+                fontFamily: 'Nunito',
+                fontSize: 13,
+                fontWeight: 800,
+                cursor: 'pointer',
+                marginTop: 10,
+              }}
+            >
+              <span role="img" aria-hidden="true">🔐</span> {t('Log Masuk SSO', 'SSO Sign In')}
+            </button>
+          )}
         </form>
 
         <div className="login-demo">
@@ -375,7 +436,7 @@ const LoginScreen = ({ onSignedIn, apiStatus, onShowGuide, guideUrl }) => {
 // Role switcher rendered inside the sidebar (as extraTop)
 const RoleSwitcher = ({ role, setRole, isDemo, userRole }) => (
   <div className="role-switcher" role="group" aria-label="Penukar peranan demo" style={{ paddingBottom:10, borderBottom:'1px solid var(--c-bdr)' }}>
-    <div style={{ fontSize:9, fontWeight:700, color:'var(--c-text3)', textTransform:'uppercase', letterSpacing:.8, width:'100%', marginBottom:4 }}>Peranan</div>
+    <div style={{ fontSize:11, fontWeight:700, color:'var(--c-text3)', textTransform:'uppercase', letterSpacing:.8, width:'100%', marginBottom:4 }}>Peranan</div>
     {ROLES.filter(r => SHOW_ADMIN_DEMO || r.id !== 'admin' || userRole === 'admin').map(r => {
       const allowed = (isDemo && (SHOW_ADMIN_DEMO || r.id !== 'admin')) || r.id === userRole;
       return (
