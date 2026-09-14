@@ -3,6 +3,9 @@ const CACHE = 'tusyen-v2';
 const PRECACHE = [
   '/dist/app.bundle.js',
   '/styles.css',
+  '/vendor/nunito.css',
+  '/vendor/react.production.min.js',
+  '/vendor/react-dom.production.min.js',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
   '/manifest.json',
