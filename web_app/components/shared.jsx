@@ -1943,6 +1943,64 @@ const BottomNavMobile = ({ items, active, onNav, className = '', label = 'Naviga
   );
 };
 
+const parseHashNav = () => {
+  const hash = (typeof window !== 'undefined' ? window.location.hash || '' : '').replace(/^#\/?/, '');
+  if (!hash) return null;
+  const parts = hash.split('/').filter(Boolean);
+  if (!parts.length) return null;
+  return {
+    role: parts[0]?.toLowerCase() || '',
+    screen: parts[1]?.toLowerCase() || '',
+  };
+};
+
+const getInitialHashScreen = (role, defaultScreen = 'home', aliases = {}) => {
+  const parsed = parseHashNav();
+  if (!parsed || parsed.role !== role) return defaultScreen;
+  const rawScreen = parsed.screen || defaultScreen;
+  return aliases[rawScreen] || rawScreen;
+};
+
+const updateHashRoute = (role, screen, alias = null) => {
+  if (typeof window === 'undefined') return;
+  const targetScreen = alias || screen;
+  const newHash = targetScreen ? `#/${role}/${targetScreen}` : `#/${role}`;
+  if (window.location.hash !== newHash) {
+    window.history.replaceState(window.history.state, '', newHash);
+  }
+};
+
+const useHashNavigation = (role, defaultScreen = 'home', validScreens = [], options = {}) => {
+  const aliases = options.aliases || {};
+  const reverseAliases = options.reverseAliases || {};
+  const [screen, setScreen] = React.useState(() => {
+    const fromHash = getInitialHashScreen(role, defaultScreen, aliases);
+    return validScreens.length ? (validScreens.includes(fromHash) ? fromHash : defaultScreen) : fromHash;
+  });
+
+  React.useEffect(() => {
+    const hashScreen = reverseAliases[screen] || screen;
+    updateHashRoute(role, hashScreen);
+  }, [screen, role]);
+
+  React.useEffect(() => {
+    const onHashChange = () => {
+      const parsed = parseHashNav();
+      if (parsed && parsed.role === role) {
+        const rawScreen = parsed.screen || defaultScreen;
+        const nextScreen = aliases[rawScreen] || rawScreen;
+        if (!validScreens.length || validScreens.includes(nextScreen)) {
+          setScreen(nextScreen);
+        }
+      }
+    };
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, [role, defaultScreen]);
+
+  return [screen, setScreen];
+};
+
 Object.assign(window, {
   C, UI_TEXT, makeBilingualLabel, languageText,
   TopBar, BottomNav, StatPill, ProgressBar,
@@ -1954,4 +2012,5 @@ Object.assign(window, {
   useLanguage, useNarrow, useScreenFocus, AppSidebar, TopBarMobile, BottomNavMobile,
   NavIcon, VideoEmbed, isVideoEmbedUrl,
   cleanUiText, cleanUiName, cleanUiTitle,
+  parseHashNav, getInitialHashScreen, updateHashRoute, useHashNavigation,
 });

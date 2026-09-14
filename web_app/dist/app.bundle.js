@@ -3466,6 +3466,57 @@ const BottomNavMobile = ({
     }, visibleLabel));
   })));
 };
+const parseHashNav = () => {
+  const hash = (typeof window !== 'undefined' ? window.location.hash || '' : '').replace(/^#\/?/, '');
+  if (!hash) return null;
+  const parts = hash.split('/').filter(Boolean);
+  if (!parts.length) return null;
+  return {
+    role: parts[0]?.toLowerCase() || '',
+    screen: parts[1]?.toLowerCase() || ''
+  };
+};
+const getInitialHashScreen = (role, defaultScreen = 'home', aliases = {}) => {
+  const parsed = parseHashNav();
+  if (!parsed || parsed.role !== role) return defaultScreen;
+  const rawScreen = parsed.screen || defaultScreen;
+  return aliases[rawScreen] || rawScreen;
+};
+const updateHashRoute = (role, screen, alias = null) => {
+  if (typeof window === 'undefined') return;
+  const targetScreen = alias || screen;
+  const newHash = targetScreen ? `#/${role}/${targetScreen}` : `#/${role}`;
+  if (window.location.hash !== newHash) {
+    window.history.replaceState(window.history.state, '', newHash);
+  }
+};
+const useHashNavigation = (role, defaultScreen = 'home', validScreens = [], options = {}) => {
+  const aliases = options.aliases || {};
+  const reverseAliases = options.reverseAliases || {};
+  const [screen, setScreen] = React.useState(() => {
+    const fromHash = getInitialHashScreen(role, defaultScreen, aliases);
+    return validScreens.length ? validScreens.includes(fromHash) ? fromHash : defaultScreen : fromHash;
+  });
+  React.useEffect(() => {
+    const hashScreen = reverseAliases[screen] || screen;
+    updateHashRoute(role, hashScreen);
+  }, [screen, role]);
+  React.useEffect(() => {
+    const onHashChange = () => {
+      const parsed = parseHashNav();
+      if (parsed && parsed.role === role) {
+        const rawScreen = parsed.screen || defaultScreen;
+        const nextScreen = aliases[rawScreen] || rawScreen;
+        if (!validScreens.length || validScreens.includes(nextScreen)) {
+          setScreen(nextScreen);
+        }
+      }
+    };
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, [role, defaultScreen]);
+  return [screen, setScreen];
+};
 Object.assign(window, {
   C,
   UI_TEXT,
@@ -3508,7 +3559,11 @@ Object.assign(window, {
   isVideoEmbedUrl,
   cleanUiText,
   cleanUiName,
-  cleanUiTitle
+  cleanUiTitle,
+  parseHashNav,
+  getInitialHashScreen,
+  updateHashRoute,
+  useHashNavigation
 });
 }());
 // END components/shared.jsx
@@ -13946,13 +14001,11 @@ const TeacherProfileModal = ({
   }, p.credentials)))));
 };
 window.TeacherProfileModal = TeacherProfileModal;
-
-// ─── StudentApp ───────────────────────────────────────────────────────────────
 const StudentApp = ({
   sidebarExtraTop,
   sidebarExtraBottom
 }) => {
-  const [screen, setScreen] = React.useState('home');
+  const [screen, setScreen] = (window.useHashNavigation || useHashNavigation)('student', 'home', ['home', 'learn', 'classrooms', 'posts', 'progress', 'lesson', 'quiz', 'whiteboard', 'profile']);
   const [showNotif, setShowNotif] = React.useState(false);
   const [selectedLesson, setSelectedLesson] = React.useState(null);
   const [activeSubject, setActiveSubject] = React.useState('math');
@@ -22144,7 +22197,14 @@ const TeacherApp = ({
   const {
     t
   } = useLanguage();
-  const [screen, setScreen] = React.useState('home');
+  const [screen, setScreen] = (window.useHashNavigation || useHashNavigation)('teacher', 'home', ['home', 'class', 'posts', 'lessons', 'quiz', 'whiteboard', 'profile'], {
+    aliases: {
+      classes: 'home'
+    },
+    reverseAliases: {
+      home: 'classes'
+    }
+  });
   const [cls, setCls] = React.useState(null);
   const [classView, setClassView] = React.useState({
     tab: 'students',
@@ -28439,7 +28499,7 @@ const ParentSidebarSummary = ({
 const ParentApp = ({
   sidebarExtraTop
 } = {}) => {
-  const [screen, setScreen] = React.useState('home');
+  const [screen, setScreen] = (window.useHashNavigation || useHashNavigation)('parent', 'home', ['home', 'children', 'progress', 'posts', 'alerts', 'settings']);
   const childState = useParentChildren();
   const childOptions = childState.data?.children || [];
   const [selectedId, setSelectedId] = React.useState(() => localStorage.getItem('tusyen_parent_selected_child') || '');
@@ -35059,7 +35119,7 @@ const AdminSidebar = ({
 const AdminApp = ({
   sidebarExtraTop
 } = {}) => {
-  const [screen, setScreen] = React.useState('home');
+  const [screen, setScreen] = (window.useHashNavigation || useHashNavigation)('admin', 'home', ['home', 'users', 'links', 'classrooms', 'content', 'settings']);
   const nav = [{
     id: 'home',
     icon: '📊',
@@ -35183,11 +35243,20 @@ const ROLES = [{
 const LOCAL_QA_HOST = ['localhost', '127.0.0.1'].includes(window.location.hostname);
 const SHOW_ADMIN_DEMO = LOCAL_QA_HOST && new URLSearchParams(window.location.search).get('demoAdmin') === '1';
 const GUIDE_QUERY_KEY = 'guide';
-const isGuideRoute = () => new URLSearchParams(window.location.search).get(GUIDE_QUERY_KEY) === '1';
+const isGuideRoute = () => {
+  if (new URLSearchParams(window.location.search).get(GUIDE_QUERY_KEY) === '1') return true;
+  const hash = (window.location.hash || '').toLowerCase();
+  return hash === '#/guide' || hash === '#guide';
+};
 const guideHref = showGuide => {
   const url = new URL(window.location.href);
-  if (showGuide) url.searchParams.set(GUIDE_QUERY_KEY, '1');else url.searchParams.delete(GUIDE_QUERY_KEY);
-  url.hash = '';
+  if (showGuide) {
+    url.searchParams.set(GUIDE_QUERY_KEY, '1');
+    url.hash = '/guide';
+  } else {
+    url.searchParams.delete(GUIDE_QUERY_KEY);
+    if (url.hash === '#/guide' || url.hash === '#guide') url.hash = '';
+  }
   return url.toString();
 };
 const setGuideRoute = showGuide => {
@@ -35561,7 +35630,14 @@ const App = () => {
     checked: false,
     text: 'Memeriksa API…'
   });
-  const [role, setRole] = React.useState('student');
+  const [role, setRole] = React.useState(() => {
+    const parsed = window.parseHashNav ? window.parseHashNav() : null;
+    if (parsed?.role && ['student', 'teacher', 'parent', 'admin'].includes(parsed.role)) {
+      return parsed.role;
+    }
+    const session = window.tusyenApi?.restoreSession?.();
+    return session?.user?.role || 'student';
+  });
   const [showGuide, setShowGuide] = React.useState(isGuideRoute);
   const openGuide = React.useCallback(event => {
     event?.preventDefault?.();
@@ -35578,6 +35654,9 @@ const App = () => {
     window.tusyenUser = null;
     setAuth(null);
     setRole('student');
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
   }, []);
   React.useEffect(() => {
     window.tusyenApi.health().then(h => setApiStatus({
@@ -35594,9 +35673,19 @@ const App = () => {
     if (auth?.user?.role) setRole(auth.user.role);
   }, [auth]);
   React.useEffect(() => {
-    const syncPublicRoute = () => setShowGuide(isGuideRoute());
-    window.addEventListener('popstate', syncPublicRoute);
-    return () => window.removeEventListener('popstate', syncPublicRoute);
+    const syncRoute = () => {
+      setShowGuide(isGuideRoute());
+      const parsed = window.parseHashNav ? window.parseHashNav() : null;
+      if (parsed?.role && ['student', 'teacher', 'parent', 'admin'].includes(parsed.role)) {
+        setRole(parsed.role);
+      }
+    };
+    window.addEventListener('popstate', syncRoute);
+    window.addEventListener('hashchange', syncRoute);
+    return () => {
+      window.removeEventListener('popstate', syncRoute);
+      window.removeEventListener('hashchange', syncRoute);
+    };
   }, []);
   React.useEffect(() => {
     window.tusyenUser = auth?.user || null;

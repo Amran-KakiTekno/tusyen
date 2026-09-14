@@ -3730,7 +3730,9 @@ const ParentSidebarSummary = ({ child, childCount, loading, error, onOpenChildre
 };
 
 const ParentApp = ({ sidebarExtraTop } = {}) => {
-  const [screen, setScreen] = React.useState('home');
+  const [screen, setScreen] = (window.useHashNavigation || useHashNavigation)('parent', 'home', [
+    'home', 'children', 'progress', 'posts', 'alerts', 'settings'
+  ]);
   const childState = useParentChildren();
   const childOptions = childState.data?.children || [];
   const [selectedId, setSelectedId] = React.useState(() => localStorage.getItem('tusyen_parent_selected_child') || '');

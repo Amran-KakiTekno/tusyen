@@ -4072,7 +4072,9 @@ const AdminSidebar = ({ navItems, active, onNav, user, onSignOut, extraTop }) =>
 };
 
 const AdminApp = ({ sidebarExtraTop } = {}) => {
-  const [screen, setScreen] = React.useState('home');
+  const [screen, setScreen] = (window.useHashNavigation || useHashNavigation)('admin', 'home', [
+    'home', 'users', 'links', 'classrooms', 'content', 'settings'
+  ]);
   const nav = [
     { id:'home',       icon:'📊', label:t("Papan Pemuka", "Dashboard"), en:'Dashboard'    },
     { id:'users',      icon:'👥', label:t("Pengguna", "User"),     en:'Users'        },

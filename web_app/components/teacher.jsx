@@ -4706,7 +4706,12 @@ const TeacherSidebarStats = ({ classes = [] }) => {
 
 const TeacherApp = ({ sidebarExtraTop } = {}) => {
   const { t } = useLanguage();
-  const [screen, setScreen] = React.useState('home');
+  const [screen, setScreen] = (window.useHashNavigation || useHashNavigation)('teacher', 'home', [
+    'home', 'class', 'posts', 'lessons', 'quiz', 'whiteboard', 'profile'
+  ], {
+    aliases: { classes: 'home' },
+    reverseAliases: { home: 'classes' },
+  });
   const [cls, setCls] = React.useState(null);
   const [classView, setClassView] = React.useState({ tab:'students', filter:'all' });
   const [homeNotice, setHomeNotice] = React.useState('');

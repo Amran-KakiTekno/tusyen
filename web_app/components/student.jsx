@@ -5019,9 +5019,10 @@ const TeacherProfileModal = ({ teacherId, onClose }) => {
 
 window.TeacherProfileModal = TeacherProfileModal;
 
-// ─── StudentApp ───────────────────────────────────────────────────────────────
 const StudentApp = ({ sidebarExtraTop, sidebarExtraBottom }) => {
-  const [screen,    setScreen]    = React.useState('home');
+  const [screen, setScreen] = (window.useHashNavigation || useHashNavigation)('student', 'home', [
+    'home', 'learn', 'classrooms', 'posts', 'progress', 'lesson', 'quiz', 'whiteboard', 'profile'
+  ]);
   const [showNotif, setShowNotif] = React.useState(false);
   const [selectedLesson, setSelectedLesson] = React.useState(null);
   const [activeSubject, setActiveSubject] = React.useState('math');
