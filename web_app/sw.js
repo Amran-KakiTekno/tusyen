@@ -1,21 +1,17 @@
 // Tusyen service worker - network-first so safety/UI updates do not stay stale.
 const CACHE = 'tusyen-v2';
-const STATIC = [
-  '/index.html',
+const PRECACHE = [
+  '/dist/app.bundle.js',
   '/styles.css',
-  '/app.js',
-  '/components/shared.jsx',
-  '/components/quiz.jsx',
-  '/components/student.jsx',
-  '/components/teacher.jsx',
-  '/components/parent.jsx',
-  '/components/admin.jsx',
+  '/icons/icon-192.png',
+  '/icons/icon-512.png',
   '/manifest.json',
+  '/',
 ];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(
-    caches.open(CACHE).then((c) => c.addAll(STATIC)).then(() => self.skipWaiting())
+    caches.open(CACHE).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting())
   );
 });
 
@@ -41,7 +37,7 @@ self.addEventListener('fetch', (e) => {
       return res;
     }).catch(() => {
       if (e.request.mode === 'navigate' || url.pathname === '/') {
-        return caches.match('/index.html');
+        return caches.match('/').then((matched) => matched || caches.match('/index.html'));
       }
       return caches.match(e.request);
     })
