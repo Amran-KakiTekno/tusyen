@@ -553,7 +553,7 @@ const ChildSwitcher = ({ childOptions, selectedId, onSelect }) => {
     <div style={{ marginBottom:14 }}>
       <div style={{ display:'flex', justifyContent:'space-between', gap:10, alignItems:'center', marginBottom:7 }}>
         <div style={{ fontSize:11, color:C.textMuted, fontWeight:900, textTransform:'uppercase', letterSpacing:0.6 }}>{t('Pilih anak', 'Select child')}</div>
-        <div style={{ fontSize:10, color:C.textFaint, fontWeight:700 }}>Geser untuk tukar anak</div>
+        <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700 }}>Geser untuk tukar anak</div>
       </div>
       <div style={{ display:'flex', gap:8, overflowX:'auto', paddingBottom:3, maxWidth:'100%' }}>
         {childOptions.map(child => {
@@ -629,7 +629,7 @@ const TimelineList = ({ loading, items, emptyText, style }) => (
         <span style={{ fontSize:17, flexShrink:0, marginTop:1 }}>{a.icon}</span>
         <div style={{ flex:1 }}>
           <div style={{ fontWeight:600, fontSize:12, color:C.text, lineHeight:1.4 }}>{a.label}</div>
-          <div style={{ fontSize:10, color:C.textFaint, marginTop:2 }}>
+          <div style={{ fontSize: 11, color:C.textFaint, marginTop:2 }}>
             {[a.time, a.meta].filter(Boolean).join(' • ')}
           </div>
         </div>
@@ -901,7 +901,7 @@ const GuidedAddChildModal = ({ open, busy, status, onSubmit, onClose }) => {
             fontSize:13,
           }}
         />
-        <div id={identifierHintId} style={{ marginTop:6, fontSize:10, color:C.textFaint, fontWeight:700, lineHeight:1.4 }}>
+        <div id={identifierHintId} style={{ marginTop:6, fontSize: 11, color:C.textFaint, fontWeight:700, lineHeight:1.4 }}>
           Masukkan ID daripada profil anak atau e-mel akaun pelajar. Kod kelas guru tidak boleh digunakan.
         </div>
         {errors.identifier && (
@@ -983,7 +983,7 @@ const parentChipStyle = (tone = 'neutral') => {
     border:`1px solid ${palette.border}`,
     borderRadius:999, padding:'2px 8px',
     color:palette.color, background:palette.bg,
-    fontSize:10, fontWeight:900,
+    fontSize: 11, fontWeight:900,
   };
 };
 
@@ -1378,7 +1378,7 @@ const ParentHome = ({ displayName, childState, child, childOptions, selectedId, 
               borderTop:index ? `1px solid ${C.border}` : 'none',
               minWidth:0,
             }}>
-              <div style={{ fontSize:10, color:C.textFaint, fontWeight:900, textTransform:'uppercase', lineHeight:1.35 }}>
+              <div style={{ fontSize: 11, color:C.textFaint, fontWeight:900, textTransform:'uppercase', lineHeight:1.35 }}>
                 {item.label}
               </div>
               <div style={{ fontSize:12, color:item.color, fontWeight:760, lineHeight:1.45, minWidth:0, overflowWrap:'anywhere' }}>
@@ -1454,8 +1454,8 @@ const ParentHome = ({ displayName, childState, child, childOptions, selectedId, 
           >
           <div style={{ textAlign:'center', minWidth:0 }}>
             <div style={{ fontWeight:800, fontSize:16, color:C.accPale }}>{s.v}</div>
-            <div style={{ fontSize:10, color:C.textMuted, fontWeight:600 }}>{s.l}</div>
-            {s.sub && <div style={{ fontSize:9, color:C.textFaint, fontWeight:600, marginTop:1 }}>{s.sub}</div>}
+            <div style={{ fontSize: 11, color:C.textMuted, fontWeight:600 }}>{s.l}</div>
+            {s.sub && <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600, marginTop:1 }}>{s.sub}</div>}
           </div>
           </button>
         ))}
@@ -1516,12 +1516,12 @@ const ParentHome = ({ displayName, childState, child, childOptions, selectedId, 
                 <div style={{ display:'flex', gap:7, alignItems:'center', flexWrap:'wrap', marginBottom:5 }}>
                   <span style={{ fontSize:17 }}>{alert.icon}</span>
                   <span style={parentChipStyle(tone)}>{alertSeverityLabel(alert.severity)}</span>
-                  {read && <span style={{ fontSize:10, color:C.textMuted, fontWeight:900 }}>Dibaca</span>}
-                  {followed && <span style={{ fontSize:10, color:C.textMuted, fontWeight:900 }}>Tindak lanjut</span>}
+                  {read && <span style={{ fontSize: 11, color:C.textMuted, fontWeight:900 }}>Dibaca</span>}
+                  {followed && <span style={{ fontSize: 11, color:C.textMuted, fontWeight:900 }}>Tindak lanjut</span>}
                 </div>
                 <div style={{ fontWeight:900, fontSize:14, color:C.text, lineHeight:1.35 }}>{parentTitle(alert.title, 'Makluman')}</div>
               </div>
-                <span style={{ fontSize:10, color:C.textFaint, fontWeight:700, flexShrink:0 }}>{alert.time}</span>
+                <span style={{ fontSize: 11, color:C.textFaint, fontWeight:700, flexShrink:0 }}>{alert.time}</span>
               </div>
               <div style={{ fontSize:12, color:C.text, fontWeight:650, lineHeight:1.5, marginBottom:8 }}>{parentBodyText(alert.desc, '', 180)}</div>
               <div style={{ fontSize:11, color:C.textMuted, fontWeight:700, lineHeight:1.45, marginBottom:4 }}>
@@ -1677,7 +1677,7 @@ const ParentProgress = ({ childState, child, childOptions, selectedId, onSelectC
             <span style={{ fontSize:26 }}>{s.i}</span>
             <div>
               <div style={{ fontWeight:800, fontSize:18, color:s.c, lineHeight:1 }}>{s.v}</div>
-              <div style={{ fontSize:10, color:C.textMuted, fontWeight:600, textTransform:'uppercase' }}>{s.l}</div>
+              <div style={{ fontSize: 11, color:C.textMuted, fontWeight:600, textTransform:'uppercase' }}>{s.l}</div>
             </div>
           </Card>
         ))}
@@ -1735,7 +1735,7 @@ const ParentProgress = ({ childState, child, childOptions, selectedId, onSelectC
                     position:'absolute',
                     right:0,
                     top:-8,
-                    fontSize:9,
+                    fontSize: 11,
                     fontWeight:900,
                     color:threshold.color,
                     background:C.card,
@@ -1762,10 +1762,10 @@ const ParentProgress = ({ childState, child, childOptions, selectedId, onSelectC
                       transition:'height .5s ease',
                     }} />
                     </div>
-                    <div style={{ minHeight:14, fontSize:10, color:score !== null ? C.text : C.textFaint, fontWeight:900 }}>
+                    <div style={{ minHeight:14, fontSize: 11, color:score !== null ? C.text : C.textFaint, fontWeight:900 }}>
                       {score !== null ? `${score}%` : '-'}
                     </div>
-                    <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, lineHeight:1.1, textAlign:'center' }}>{history.labels[i]}</div>
+                    <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, lineHeight:1.1, textAlign:'center' }}>{history.labels[i]}</div>
                   </div>
                 );
               })}
@@ -1919,7 +1919,7 @@ const ParentAlerts = ({ childState, child, childOptions, selectedId, onSelectChi
       </div>
     )}
 
-    <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, lineHeight:1.4, marginBottom:10 }}>
+    <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, lineHeight:1.4, marginBottom:10 }}>
       Status dibaca, tindak lanjut, dan sembunyikan amaran disimpan pada peranti ini sahaja.
     </div>
 
@@ -1974,7 +1974,7 @@ const ParentAlerts = ({ childState, child, childOptions, selectedId, onSelectChi
               <span style={{ fontSize:18 }}>{alert.icon}</span>
               <div style={{ fontWeight:800, fontSize:14, color:palette.title }}>{parentTitle(alert.title, 'Makluman')}</div>
             </div>
-            <div style={{ fontSize:10, color:C.textFaint, fontWeight:600, flexShrink:0, marginLeft:8 }}>{alert.time}</div>
+            <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600, flexShrink:0, marginLeft:8 }}>{alert.time}</div>
           </div>
           <div style={{ fontSize:12, color:C.text, fontWeight:600, lineHeight:1.5, paddingLeft:26 }}>{parentBodyText(alert.desc, '', 180)}</div>
           <div style={{ paddingLeft:26, marginTop:10, display:'flex', gap:8, flexWrap:'wrap' }}>
@@ -2216,7 +2216,7 @@ const ParentAlertsV2 = ({ childState, child, childOptions, selectedId, onSelectC
         </div>
       )}
 
-      <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, lineHeight:1.4, marginBottom:10 }}>
+      <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, lineHeight:1.4, marginBottom:10 }}>
         Status dibaca, tindak lanjut, dan sembunyikan amaran disegerakkan dengan akaun ibu bapa apabila pelayan tersedia.
       </div>
 
@@ -2282,7 +2282,7 @@ const ParentAlertsV2 = ({ childState, child, childOptions, selectedId, onSelectC
                 </div>
                 <div style={{ fontWeight:900, fontSize:14, color:palette.title, lineHeight:1.35 }}>{parentTitle(alert.title, 'Makluman')}</div>
               </div>
-              <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, flexShrink:0 }}>{alert.time}</div>
+              <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, flexShrink:0 }}>{alert.time}</div>
             </div>
             <div style={{ fontSize:12, color:C.text, fontWeight:720, lineHeight:1.45, marginBottom:6, minWidth:0, overflowWrap:'anywhere' }}>
               {summary}
@@ -2321,7 +2321,7 @@ const ParentAlertsV2 = ({ childState, child, childOptions, selectedId, onSelectC
                 <div style={{ fontSize:11, color:C.textMuted, fontWeight:700, lineHeight:1.45, marginBottom:8 }}>
                   <strong>Tindakan dicadang:</strong> {alertRecommendedAction(alert)}
                 </div>
-                <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, lineHeight:1.4 }}>
+                <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, lineHeight:1.4 }}>
                   {alertFollowUpExplanation(alert)}
                 </div>
               </div>
@@ -2457,7 +2457,7 @@ const PasswordField = ({ id, label, value, onChange, placeholder, visible, onTog
         }}>{visible ? 'Sembunyi' : 'Tunjuk'}</button>
       </div>
       {helper && (
-        <div id={helperId} style={{ marginTop:5, fontSize:10, color:C.textFaint, fontWeight:700, lineHeight:1.35 }}>
+        <div id={helperId} style={{ marginTop:5, fontSize: 11, color:C.textFaint, fontWeight:700, lineHeight:1.35 }}>
           {helper}
         </div>
       )}
@@ -2496,8 +2496,8 @@ const PasswordStrengthMeter = ({ value }) => {
         ))}
       </div>
       <div style={{ display:'flex', justifyContent:'space-between', gap:8 }}>
-        <span style={{ fontSize:10, color:strength.color, fontWeight:900 }}>{strength.label}</span>
-        <span style={{ fontSize:10, color:C.textFaint, fontWeight:700, textAlign:'right' }}>{strength.hint}</span>
+        <span style={{ fontSize: 11, color:strength.color, fontWeight:900 }}>{strength.label}</span>
+        <span style={{ fontSize: 11, color:C.textFaint, fontWeight:700, textAlign:'right' }}>{strength.hint}</span>
       </div>
     </div>
   );
@@ -2657,7 +2657,7 @@ const ParentSettings = ({ childState, childOptions, selectedId, onSelectChild })
               );
             })}
           </div>
-          <div style={{ marginTop:7, fontSize:10, lineHeight:1.4, color:C.textFaint, fontWeight:700 }}>
+          <div style={{ marginTop:7, fontSize: 11, lineHeight:1.4, color:C.textFaint, fontWeight:700 }}>
             Pilihan ini mengawal ringkasan dalam aplikasi. Penghantaran luar aplikasi masih bergantung pada saluran notifikasi sekolah.
           </div>
         </div>
@@ -2681,7 +2681,7 @@ const ParentSettings = ({ childState, childOptions, selectedId, onSelectChild })
             <Avatar name={child.name} size={34} />
             <div style={{ flex:1, minWidth:0 }}>
               <div style={{ fontWeight:800, fontSize:13, color:C.text, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{child.name}</div>
-              <div style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>Tingkatan {child.form} • {child.cls}</div>
+              <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600 }}>Tingkatan {child.form} • {child.cls}</div>
             </div>
             <button onClick={() => onSelectChild(child.id)} style={{
               background:selectedId === child.id ? C.accDim : 'transparent',
@@ -2994,7 +2994,7 @@ const ParentSettingsV2 = ({ childState, childOptions, selectedId, onSelectChild 
                 );
               })}
             </div>
-            <div style={{ marginTop:8, fontSize:10, lineHeight:1.4, color:C.textFaint, fontWeight:700 }}>
+            <div style={{ marginTop:8, fontSize: 11, lineHeight:1.4, color:C.textFaint, fontWeight:700 }}>
               Pilihan ini mengawal ringkasan dalam aplikasi. Penghantaran luar aplikasi masih bergantung pada saluran notifikasi sekolah.
             </div>
           </div>
@@ -3037,7 +3037,7 @@ const ParentSettingsV2 = ({ childState, childOptions, selectedId, onSelectChild 
               <Avatar name={child.name} size={34} />
               <div style={{ flex:'1 1 150px', minWidth:0 }}>
                 <div style={{ fontWeight:800, fontSize:13, color:C.text, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{child.name}</div>
-                <div style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>{t('Tingkatan', 'Form')} {child.form} - {child.cls}</div>
+                <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600 }}>{t('Tingkatan', 'Form')} {child.form} - {child.cls}</div>
               </div>
               <button onClick={() => { onSelectChild(child.id); markSaved('children'); }} style={{ minHeight:44, background:selectedId === child.id ? C.accDim : 'transparent', border:`1px solid ${selectedId === child.id ? C.borderB : C.border}`, borderRadius:10, padding:'9px 11px', color:selectedId === child.id ? C.accPale : C.textMuted, fontFamily:'Nunito', fontWeight:900, fontSize:11, cursor:'pointer' }}>{selectedId === child.id ? t('Dipilih', 'Selected') : t('Pilih', 'Select')}</button>
               <button onClick={() => setUnlinkTarget(child)} disabled={busy} style={{ minHeight:44, background:'transparent', border:`1px solid rgba(239,68,68,.35)`, borderRadius:10, padding:'9px 11px', color:C.red, fontFamily:'Nunito', fontWeight:850, fontSize:11, cursor:busy ? 'not-allowed' : 'pointer', opacity:busy ? 0.55 : 1 }}>Buang Pautan</button>
@@ -3077,7 +3077,7 @@ const ParentSettingsV2 = ({ childState, childOptions, selectedId, onSelectChild 
                   textAlign:'left',
                 }}>
                   <span style={{ display:'block' }}>{option.label}</span>
-                  <span style={{ display:'block', marginTop:3, color:C.textFaint, fontWeight:700, fontSize:10, lineHeight:1.3 }}>{option.hint}</span>
+                  <span style={{ display:'block', marginTop:3, color:C.textFaint, fontWeight:700, fontSize: 11, lineHeight:1.3 }}>{option.hint}</span>
                 </button>
               );
             })}
@@ -3375,14 +3375,14 @@ const ParentPostsPage = ({ childState, child, childOptions, selectedId, onSelect
             {/* Header row */}
             <div style={{ display:'flex', alignItems:'center', gap:6, marginBottom:6 }}>
               <span style={{
-                fontSize:10, fontWeight:800, color:meta.color(),
+                fontSize: 11, fontWeight:800, color:meta.color(),
                 background:`color-mix(in srgb,${meta.color()} 14%,transparent)`,
                 borderRadius:20, padding:'2px 8px',
               }}>{meta.icon} {meta.label}</span>
               <span style={parentChipStyle(mode.tone)}>{mode.label}</span>
               {post.is_pinned && <span style={{ fontSize:11 }}>📌</span>}
               <span style={{ flex:1 }} />
-              <span style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>{window.timeAgo(post.created_at)}</span>
+              <span style={{ fontSize: 11, color:C.textFaint, fontWeight:600 }}>{window.timeAgo(post.created_at)}</span>
             </div>
 
             {/* Classroom & teacher meta */}
@@ -3409,7 +3409,7 @@ const ParentPostsPage = ({ childState, child, childOptions, selectedId, onSelect
             {videoEmbedUrl && window.VideoEmbed && (
               <window.VideoEmbed url={videoEmbedUrl} title={postTitle || 'Video pos'} style={{ marginBottom:8 }} />
             )}
-            <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, lineHeight:1.4, marginBottom:8 }}>
+            <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, lineHeight:1.4, marginBottom:8 }}>
               {mode.hint}
             </div>
 
@@ -3474,7 +3474,7 @@ const ParentPostsPage = ({ childState, child, childOptions, selectedId, onSelect
                     <div style={{ flex:1, minWidth:0 }}>
                       <div style={{ display:'flex', alignItems:'center', gap:6 }}>
                         <span style={{ fontWeight:700, fontSize:12, color:C.text }}>{parentName(comment.author_name, t('Pengguna', 'User'))}</span>
-                        <span style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>{window.timeAgo(comment.created_at)}</span>
+                        <span style={{ fontSize: 11, color:C.textFaint, fontWeight:600 }}>{window.timeAgo(comment.created_at)}</span>
                       </div>
                       <div style={{ fontSize:12, color:C.text, lineHeight:1.4, marginTop:2 }}>{parentBodyText(comment.content, '', 180)}</div>
                     </div>
@@ -3697,7 +3697,7 @@ const ParentSidebarSummary = ({ child, childCount, loading, error, onOpenChildre
       : t('Pautkan anak untuk mula memantau.', 'Link a child to start monitoring.');
   return (
     <div className="parent-sidebar-summary" style={{ padding:'12px 14px 14px', borderBottom:`1px solid ${C.border}` }}>
-      <div style={{ fontSize:10, color:C.textFaint, fontWeight:900, textTransform:'uppercase', letterSpacing:0.5, marginBottom:4 }}>
+      <div style={{ fontSize: 11, color:C.textFaint, fontWeight:900, textTransform:'uppercase', letterSpacing:0.5, marginBottom:4 }}>
         Ringkasan ibu bapa
       </div>
       <div style={{ fontSize:12, color:error ? C.orange : C.textMuted, fontWeight:800, lineHeight:1.35, marginBottom:9 }}>
@@ -3730,7 +3730,9 @@ const ParentSidebarSummary = ({ child, childCount, loading, error, onOpenChildre
 };
 
 const ParentApp = ({ sidebarExtraTop } = {}) => {
-  const [screen, setScreen] = React.useState('home');
+  const [screen, setScreen] = (window.useHashNavigation || useHashNavigation)('parent', 'home', [
+    'home', 'children', 'progress', 'posts', 'alerts', 'settings'
+  ]);
   const childState = useParentChildren();
   const childOptions = childState.data?.children || [];
   const [selectedId, setSelectedId] = React.useState(() => localStorage.getItem('tusyen_parent_selected_child') || '');

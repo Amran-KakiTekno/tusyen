@@ -501,12 +501,12 @@ const PostCard = ({ post, currentUserId, onDelete, onPin, onReact, onComment }) 
       <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:8, marginBottom:6 }}>
         <div style={{ flex:1, minWidth:0 }}>
           <div style={{ display:'flex', alignItems:'center', gap:6, flexWrap:'wrap' }}>
-            {pinned && <span style={{ fontSize:10, color:C.gold, fontWeight:900, background:'rgba(245,166,35,.15)', border:'1px solid rgba(245,166,35,.35)', borderRadius:999, padding:'2px 7px' }}>Disemat</span>}
+            {pinned && <span style={{ fontSize: 11, color:C.gold, fontWeight:900, background:'rgba(245,166,35,.15)', border:'1px solid rgba(245,166,35,.35)', borderRadius:999, padding:'2px 7px' }}>Disemat</span>}
             <span style={{
-              fontSize:10, color:meta.color, fontWeight:900, background:meta.bg,
+              fontSize: 11, color:meta.color, fontWeight:900, background:meta.bg,
               border:`1px solid ${meta.border}`, borderRadius:999, padding:'2px 8px',
             }}>{meta.icon} {meta.label}</span>
-            <span style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>{window.timeAgo(post.created_at)}</span>
+            <span style={{ fontSize: 11, color:C.textFaint, fontWeight:600 }}>{window.timeAgo(post.created_at)}</span>
           </div>
           {postTitle && <div style={{ fontWeight:800, fontSize:14, color:C.text, marginTop:2 }}>{postTitle}</div>}
         </div>
@@ -644,11 +644,11 @@ const PostComposerModal = ({ classroomId, onClose, onPosted }) => {
               border:`1.5px solid ${type === option.value ? C.borderB : C.border}`,
               borderRadius:10, padding:'8px 7px', minHeight:58, cursor:'pointer',
               color:type === option.value ? C.accPale : C.textMuted,
-              fontFamily:'Nunito', fontWeight:800, fontSize:10,
+              fontFamily:'Nunito', fontWeight:800, fontSize: 11,
               display:'grid', gap:2, alignContent:'center', textAlign:'left',
             }}>
               <span style={{ fontSize:11, color:type === option.value ? C.accPale : C.text, fontWeight:900 }}>{option.label}</span>
-              <span style={{ fontSize:9, color:C.textFaint, fontWeight:700, lineHeight:1.2 }}>{option.hint}</span>
+              <span style={{ fontSize: 11, color:C.textFaint, fontWeight:700, lineHeight:1.2 }}>{option.hint}</span>
             </button>
           ))}
         </div>
@@ -860,7 +860,7 @@ const TeacherPostsScreen = ({ classrooms }) => {
 const TeacherField = ({ label, children, style, required = false, hint = '', error = '' }) => (
   <label style={{
     display:'grid', gap:4,
-    fontSize:10, color:C.textMuted, fontWeight:600,
+    fontSize: 11, color:C.textMuted, fontWeight:600,
     textTransform:'uppercase', letterSpacing:.5,
     ...style,
   }}>
@@ -886,7 +886,7 @@ const TeacherBadge = ({ children, tone = 'neutral', style }) => {
       display:'inline-flex', alignItems:'center',
       background:palette.bg, border:`1px solid ${palette.border}`,
       color:palette.color, borderRadius:999, padding:'2px 7px',
-      fontSize:10, fontWeight:900, whiteSpace:'nowrap',
+      fontSize: 11, fontWeight:900, whiteSpace:'nowrap',
       ...style,
     }}>{children}</span>
   );
@@ -903,7 +903,7 @@ const TeacherSmallButton = ({ children, onClick, disabled, danger, success, styl
       borderRadius:9, padding:'6px 9px',
       minHeight:44,
       color: danger ? C.red : success ? C.green : C.accPale,
-      fontFamily:'Nunito', fontWeight:900, fontSize:10,
+      fontFamily:'Nunito', fontWeight:900, fontSize: 11,
       cursor: disabled ? 'not-allowed' : 'pointer',
       opacity: disabled ? .55 : 1, whiteSpace:'nowrap',
       ...style,
@@ -1300,14 +1300,14 @@ const TeacherChecklistPanel = ({ title, items = [], style }) => {
               background:item.done ? 'rgba(34,197,94,.14)' : item.required === false ? C.surface : 'rgba(245,166,35,.16)',
               color:item.done ? C.green : item.required === false ? C.textMuted : C.gold,
               border:`1px solid ${item.done ? 'rgba(34,197,94,.32)' : item.required === false ? C.border : 'rgba(245,166,35,.32)'}`,
-              fontSize:10, fontWeight:900,
+              fontSize: 11, fontWeight:900,
             }}>{item.done ? 'OK' : item.required === false ? '-' : '!'}</span>
             <div style={{ minWidth:0 }}>
               <div style={{ fontSize:11, color:item.done ? C.text : C.textMuted, fontWeight:900, lineHeight:1.35 }}>
                 {item.label}
               </div>
               {item.detail && (
-                <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, lineHeight:1.35 }}>
+                <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, lineHeight:1.35 }}>
                   {item.detail}
                 </div>
               )}
@@ -1807,7 +1807,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
                   border:`1.5px solid ${difficulty === value ? C.borderB : C.border}`,
                   borderRadius:20, padding:'4px 12px', minHeight:44,
                   color:difficulty === value ? C.accPale : C.textMuted,
-                  fontFamily:'Nunito', fontWeight:900, fontSize:10,
+                  fontFamily:'Nunito', fontWeight:900, fontSize: 11,
                   cursor:'pointer', whiteSpace:'nowrap',
                 }}>{label}</button>
               ))}
@@ -1834,7 +1834,7 @@ const TeacherLessonsScreen = ({ classrooms }) => {
               <div key={group.key} style={{ marginBottom:14 }}>
                 <div style={{ display:'flex', justifyContent:'space-between', alignItems:'baseline', gap:8, margin:'4px 0 8px' }}>
                   <div style={{ fontWeight:900, fontSize:12, color:C.text, textTransform:'uppercase' }}>{group.title}</div>
-                  <div style={{ fontSize:10, color:C.textMuted, fontWeight:800 }}>{group.lessons.length}{t('pelajaran', 'lessons')}</div>
+                  <div style={{ fontSize: 11, color:C.textMuted, fontWeight:800 }}>{group.lessons.length}{t('pelajaran', 'lessons')}</div>
                 </div>
                 <div style={{ fontSize:11, color:C.textFaint, fontWeight:700, lineHeight:1.35, marginBottom:8 }}>{group.hint}</div>
                 {group.lessons.map(lesson => {
@@ -1852,24 +1852,24 @@ const TeacherLessonsScreen = ({ classrooms }) => {
                               overflow:'hidden', overflowWrap:'anywhere',
                             }}
                           >{displayTitle}</div>
-                          <div style={{ fontSize:10, color:C.textFaint, fontWeight:600, marginTop:2 }}>
+                          <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600, marginTop:2 }}>
                             {teacherText(lesson.subject, t('Subjek', 'Subject'), 34)} - T{lesson.form_level || '-'}
                             {lesson.topic ? ` · ${compactLessonTitle(lesson.topic)}` : ''}
                           </div>
                           <div style={{ display:'flex', gap:6, marginTop:6, flexWrap:'wrap' }}>
                             <span style={{
-                              fontSize:10, fontWeight:900,
+                              fontSize: 11, fontWeight:900,
                               color:LESSON_DIFF_COLOR[lesson.difficulty] || C.textMuted,
                               background:`color-mix(in srgb,${LESSON_DIFF_COLOR[lesson.difficulty] || C.acc} 12%,transparent)`,
                               border:`1px solid color-mix(in srgb,${LESSON_DIFF_COLOR[lesson.difficulty] || C.acc} 30%,transparent)`,
                               borderRadius:20, padding:'2px 8px',
                             }}>{LESSON_DIFF_LABEL[lesson.difficulty] || lesson.difficulty}</span>
                             {lesson.question_count > 0 && (
-                              <span style={{ fontSize:10, fontWeight:600, color:C.textMuted }}>
+                              <span style={{ fontSize: 11, fontWeight:600, color:C.textMuted }}>
                                 {lesson.question_count}{t('soalan', 'questions')}</span>
                             )}
                             {lesson.estimated_minutes && (
-                              <span style={{ fontSize:10, fontWeight:600, color:C.textMuted }}>
+                              <span style={{ fontSize: 11, fontWeight:600, color:C.textMuted }}>
                                 {lesson.estimated_minutes} min
                               </span>
                             )}
@@ -2747,7 +2747,7 @@ const WhiteboardCanvas = ({ sessionId, classroomId, onClose }) => {
           fontSize:12, color:C.textMuted, fontFamily:'Nunito', fontWeight:900,
         }}>Kembali</button>
         <div style={{ fontWeight:800, fontSize:14, color:C.text, flex:1 }}>{t('Papan Putih', 'Whiteboard')}</div>
-        <div style={{ fontSize:10, color:connected ? C.green : C.red, fontWeight:800 }}>
+        <div style={{ fontSize: 11, color:connected ? C.green : C.red, fontWeight:800 }}>
           {connected ? '● Bersambung' : '● Terputus'}
         </div>
       </div>
@@ -2985,9 +2985,9 @@ const TeacherWhiteboardScreen = ({ classrooms }) => {
               <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', gap:10 }}>
                 <div style={{ minWidth:0 }}>
                   <div style={{ fontWeight:800, fontSize:13, color:C.text, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{teacherTitle(s.title, t('Sesi Papan Putih', 'Whiteboard Session'))}</div>
-                  <div style={{ fontSize:10, color:C.textFaint, fontWeight:600, marginTop:2 }}>
+                  <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600, marginTop:2 }}>
                     {formatDateShort(s.started_at)} - {s.ended_at ? `Tamat ${window.timeAgo(s.ended_at)}` : t('Sedang berjalan', 'Running')} - {whiteboardParticipantCount(s)}{t('peserta', 'participants')}</div>
-                  <div style={{ fontSize:10, color:C.textMuted, fontWeight:800, marginTop:3 }}>{whiteboardRecordingLabel(s)}</div>
+                  <div style={{ fontSize: 11, color:C.textMuted, fontWeight:800, marginTop:3 }}>{whiteboardRecordingLabel(s)}</div>
                 </div>
                 {whiteboardSessionId(s) && (
                   <button onClick={() => setReplaySession(s)} style={{
@@ -3007,7 +3007,7 @@ const TeacherWhiteboardScreen = ({ classrooms }) => {
                 }}>Ringkasan</button>
               </div>
               {!whiteboardHasEventReplay(s) && (
-                <div style={{ fontSize:10, color:C.textMuted, fontWeight:700, lineHeight:1.35, marginTop:7 }}>
+                <div style={{ fontSize: 11, color:C.textMuted, fontWeight:700, lineHeight:1.35, marginTop:7 }}>
                   {whiteboardRecordingGuidance(s)}
                 </div>
               )}
@@ -3439,7 +3439,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
             borderRadius:12, padding:'5px 7px',
           }}>
             <div style={{ minWidth:0 }}>
-              <div style={{ fontSize:9, color:C.textMuted, fontWeight:900, textTransform:'uppercase' }}>{t('Kod Kelas', 'Class Code')}</div>
+              <div style={{ fontSize: 11, color:C.textMuted, fontWeight:900, textTransform:'uppercase' }}>{t('Kod Kelas', 'Class Code')}</div>
               <div style={{ fontSize:13, color:cls.color, fontWeight:900, letterSpacing:0 }}>{cls.code}</div>
             </div>
             <TeacherSmallButton onClick={copyClassCode}>{t('Salin', 'Copy')}</TeacherSmallButton>
@@ -3461,7 +3461,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
           <button key={t} role="tab" aria-selected={tab === t} onClick={() => setTab(t)} style={{
             flex:1, padding:'10px 0', minHeight:44, border:'none', cursor:'pointer',
             background:'none', fontFamily:'Nunito,sans-serif', minWidth:60,
-            fontWeight:800, fontSize:10, textTransform:'uppercase', letterSpacing:0.3,
+            fontWeight:800, fontSize: 11, textTransform:'uppercase', letterSpacing:0.3,
             color: tab === t ? C.accHi : C.textFaint,
             borderBottom: tab === t ? '2px solid var(--c-acc)' : '2px solid transparent',
             transition:'all .2s', whiteSpace:'nowrap',
@@ -3484,7 +3484,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                   border:`1.5px solid ${studentFilter === value ? C.borderB : C.border}`,
                   borderRadius:20, padding:'5px 12px', minHeight:44,
                   color:studentFilter === value ? C.accPale : C.textMuted,
-                  fontFamily:'Nunito', fontWeight:900, fontSize:10,
+                  fontFamily:'Nunito', fontWeight:900, fontSize: 11,
                   cursor:'pointer',
                 }}>{label}</button>
               ))}
@@ -3598,7 +3598,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                     ].map((item, i) => (
                       <div key={i} style={{ background:C.surface, border:`1px solid ${C.border}`, borderRadius:8, padding:8, textAlign:'center' }}>
                         <div style={{ color:C.text, fontWeight:900, fontSize:14 }}>{item.v}</div>
-                        <div style={{ color:C.textMuted, fontWeight:600, fontSize:9, textTransform:'uppercase' }}>{item.l}</div>
+                        <div style={{ color:C.textMuted, fontWeight:600, fontSize: 11, textTransform:'uppercase' }}>{item.l}</div>
                       </div>
                     ))}
                   </div>
@@ -3614,7 +3614,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                         <div style={{ fontSize:12, color:C.text, fontWeight:800, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>
                           {compactLessonTitle(p.lesson_title || p.title || '', t('Pelajaran', 'Lessons'))}
                         </div>
-                        <div style={{ fontSize:10, color:C.textMuted, fontWeight:600 }}>{p.topic || p.subject || 'Topik'}</div>
+                        <div style={{ fontSize: 11, color:C.textMuted, fontWeight:600 }}>{p.topic || p.subject || 'Topik'}</div>
                       </div>
                       <div style={{ fontSize:12, color:C.accPale, fontWeight:900, flexShrink:0 }}>{Math.round(Number(p.score) || 0)}%</div>
                     </div>
@@ -3632,7 +3632,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
           <div>
             <div style={{ display:'flex', justifyContent:'space-between', alignItems:'baseline', gap:10, marginBottom:12 }}>
               <div style={{ fontWeight:800, fontSize:14, color:C.text }}>Prestasi Mingguan</div>
-              <div style={{ fontSize:10, color:C.textMuted, fontWeight:600 }}>{currentSchoolWeekLabel()}</div>
+              <div style={{ fontSize: 11, color:C.textMuted, fontWeight:600 }}>{currentSchoolWeekLabel()}</div>
             </div>
             <Card style={{ marginBottom:12, padding:10, background:C.surface }}>
               <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', gap:8, marginBottom:6 }}>
@@ -3712,7 +3712,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                   <button onClick={() => { startTopicAssignment(t); }} style={{
                     background:'rgba(239,68,68,.10)', border:'1px solid rgba(239,68,68,.25)',
                     borderRadius:9, padding:'6px 8px', minHeight:44, color:C.red,
-                    fontFamily:'Nunito', fontWeight:900, fontSize:10, cursor:'pointer', flexShrink:0,
+                    fontFamily:'Nunito', fontWeight:900, fontSize: 11, cursor:'pointer', flexShrink:0,
                   }}>Tugaskan pemulihan</button>
                 </div>
               </Card>
@@ -3738,7 +3738,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
               <Card style={{ marginBottom:10 }}>
                 <div style={{ fontWeight:800, fontSize:13, color:C.accPale, marginBottom:8 }}>{composer.label}</div>
                 {composer.postType === 'assignment' && (
-                  <label style={{ display:'block', fontSize:10, color:C.textFaint, fontWeight:600, textTransform:'uppercase', marginBottom:8 }}>{t('Tarikh Hantar', 'Due Date')}<input
+                  <label style={{ display:'block', fontSize: 11, color:C.textFaint, fontWeight:600, textTransform:'uppercase', marginBottom:8 }}>{t('Tarikh Hantar', 'Due Date')}<input
                       type="date"
                       value={dueDate}
                       onChange={e => setDueDate(e.target.value)}
@@ -3792,7 +3792,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                 {!item.enabled && (
                   <div style={{
                     border:`1px solid ${C.border}`, borderRadius:8, padding:'2px 7px',
-                    fontSize:10, color:C.textFaint, fontWeight:600,
+                    fontSize: 11, color:C.textFaint, fontWeight:600,
                   }}>Segera</div>
                 )}
               </Card>
@@ -3816,7 +3816,7 @@ const TeacherClass = ({ cls, initialTab = 'students', initialFilter = 'all', onB
                 <Card style={{ marginBottom:8, padding:10 }}>
                   <div style={{ display:'flex', justifyContent:'space-between', gap:8, marginBottom:4 }}>
                     <div style={{ fontSize:12, color:C.accPale, fontWeight:900 }}>{teacherTitle(post.title, post.post_type === 'assignment' ? t('Tugasan', 'Assignment') : t('Pengumuman', 'Announcement'))}</div>
-                    <div style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>{window.timeAgo(post.created_at)}</div>
+                    <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600 }}>{window.timeAgo(post.created_at)}</div>
                   </div>
                   <div style={{ fontSize:12, color:C.text, fontWeight:700, whiteSpace:'pre-line', lineHeight:1.35 }}>{teacherBodyText(post.content, '', 180)}</div>
                 </Card>
@@ -3989,7 +3989,7 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
         <Card key={i} warn={s.danger} onClick={s.onClick} style={{ textAlign:'center', padding:12 }}>
           <div style={{ fontSize:20 }}>{s.i}</div>
           <div style={{ fontWeight:800, fontSize:18, color:s.danger ? C.red : s.muted ? C.textMuted : C.text }}>{s.v}</div>
-          <div style={{ fontSize:10, color:C.textMuted, fontWeight:600, textTransform:'uppercase' }}>{s.l}</div>
+          <div style={{ fontSize: 11, color:C.textMuted, fontWeight:600, textTransform:'uppercase' }}>{s.l}</div>
         </Card>
       ))}
     </div>
@@ -4115,7 +4115,7 @@ const TeacherHome = ({ go, setCls, openClass, displayName, notice }) => {
           borderRadius:10, padding:'7px 8px', marginBottom:9,
         }}>
           <div style={{ minWidth:0 }}>
-            <div style={{ fontSize:9, color:C.textMuted, fontWeight:900, textTransform:'uppercase' }}>{t('Kod Kelas', 'Class Code')}</div>
+            <div style={{ fontSize: 11, color:C.textMuted, fontWeight:900, textTransform:'uppercase' }}>{t('Kod Kelas', 'Class Code')}</div>
             <div style={{ fontSize:13, fontWeight:900, color:cls.color, letterSpacing:0 }}>{cls.code}</div>
           </div>
           <TeacherSmallButton onClick={(event) => copyClassCodeFromCard(cls, event)}>{t('Salin', 'Copy')}</TeacherSmallButton>
@@ -4309,7 +4309,7 @@ const TeacherProfile = ({ displayName }) => {
           <Card key={i} style={{ textAlign:'center', padding:12 }}>
             <div style={{ fontSize:20 }}>{s.i}</div>
             <div style={{ fontWeight:800, fontSize:17, color:C.text }}>{s.v}</div>
-            <div style={{ fontSize:9, color:C.textMuted, fontWeight:600, textTransform:'uppercase' }}>{s.l}</div>
+            <div style={{ fontSize: 11, color:C.textMuted, fontWeight:600, textTransform:'uppercase' }}>{s.l}</div>
           </Card>
         ))}
       </div>
@@ -4342,7 +4342,7 @@ const TeacherProfile = ({ displayName }) => {
           ))}
         </div>
         <div style={{ background:C.surface, border:`1px solid ${C.border}`, borderRadius:12, padding:12 }}>
-          <div style={{ fontSize:10, color:C.textFaint, fontWeight:900, textTransform:'uppercase', marginBottom:4 }}>{previewText.title}</div>
+          <div style={{ fontSize: 11, color:C.textFaint, fontWeight:900, textTransform:'uppercase', marginBottom:4 }}>{previewText.title}</div>
           <div style={{ fontWeight:900, fontSize:14, color:C.text }}>{teacherHonorificName(fullName, displayName)}</div>
           <div style={{ fontSize:12, color:C.accPale, fontWeight:800, margin:'2px 0 7px' }}>{previewText.meta}</div>
           <div style={{ fontSize:12, color:C.textMuted, fontWeight:700, lineHeight:1.45 }}>{previewText.body}</div>
@@ -4355,7 +4355,7 @@ const TeacherProfile = ({ displayName }) => {
           <input value={profileForm.headline} onChange={e => setProfileForm({ ...profileForm, headline:e.target.value })} placeholder={t('Tajuk profil', 'Profile title')} style={{ ...inputStyle, marginBottom:8 }} />
           <textarea value={profileForm.bio} onChange={e => setProfileForm({ ...profileForm, bio:e.target.value })} placeholder={t('Tentang Cikgu: gaya mengajar, fokus subjek, dan sokongan untuk pelajar', 'About the teacher: teaching style, subject focus, and student support')} style={{ ...inputStyle, minHeight:80, resize:'vertical', marginBottom:8 }} />
           <input value={profileForm.specialties} onChange={e => setProfileForm({ ...profileForm, specialties:e.target.value })} placeholder={t('Kepakaran', 'Specialties')} style={{ ...inputStyle, marginBottom:4 }} />
-          <div style={{ fontSize:10, color:C.textMuted, fontWeight:600, lineHeight:1.35, marginBottom:8 }}>{t('Pisahkan setiap kepakaran dengan koma, contoh: Matematik, Fizik.', 'Separate each specialty with commas, e.g. Mathematics, Physics.')}</div>
+          <div style={{ fontSize: 11, color:C.textMuted, fontWeight:600, lineHeight:1.35, marginBottom:8 }}>{t('Pisahkan setiap kepakaran dengan koma, contoh: Matematik, Fizik.', 'Separate each specialty with commas, e.g. Mathematics, Physics.')}</div>
           <input value={profileForm.credentials} onChange={e => setProfileForm({ ...profileForm, credentials:e.target.value })} placeholder={t('Kelayakan, sijil, pengalaman peperiksaan, atau pencapaian mengajar', 'Credentials, certificates, exam experience, or teaching achievements')} style={{ ...inputStyle, marginBottom:8 }} />
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8 }}>
             <input type="number" min="0" value={profileForm.yearsExperience} onChange={e => setProfileForm({ ...profileForm, yearsExperience:e.target.value })} placeholder={t('Tahun pengalaman', 'Years of experience')} style={inputStyle} />
@@ -4392,7 +4392,7 @@ const TeacherProfile = ({ displayName }) => {
           <div key={i} style={{ display:'flex', alignItems:'center', gap:10, padding:'9px 0', borderBottom: i < arr.length - 1 ? `1px solid ${C.border}` : 'none' }}>
             <span style={{ fontSize:18, width:24, textAlign:'center' }}>{r.icon}</span>
             <div style={{ flex:1 }}>
-              <div style={{ fontSize:10, color:C.textFaint, fontWeight:600, textTransform:'uppercase', letterSpacing:0.4 }}>{r.label}</div>
+              <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600, textTransform:'uppercase', letterSpacing:0.4 }}>{r.label}</div>
               <div style={{ fontSize:13, color:C.text, fontWeight:700 }}>{r.value}</div>
             </div>
           </div>
@@ -4408,7 +4408,7 @@ const TeacherProfile = ({ displayName }) => {
             <div style={{ width:8, height:8, borderRadius:'50%', flexShrink:0, background:s.color, boxShadow:`0 0 6px ${s.color}` }} />
             <div style={{ flex:1 }}>
               <div style={{ fontSize:13, fontWeight:800, color:C.text }}>{s.name}</div>
-              <div style={{ fontSize:10, color:C.textMuted, fontWeight:600 }}>{s.subj} • {s.students} pelajar • Kod {s.code}</div>
+              <div style={{ fontSize: 11, color:C.textMuted, fontWeight:600 }}>{s.subj} • {s.students} pelajar • Kod {s.code}</div>
             </div>
           </div>
         )) : (
@@ -4639,11 +4639,11 @@ const TeacherQuizScreen = ({ classrooms }) => {
       <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8, marginBottom:14 }}>
         <Card style={{ padding:12, textAlign:'center' }}>
           <div style={{ fontWeight:900, fontSize:22, color:C.accPale }}>{decks.length}</div>
-          <div style={{ fontSize:10, color:C.textMuted, fontWeight:700, textTransform:'uppercase' }}>{t('Dek Kuiz', 'Quiz Decks')}</div>
+          <div style={{ fontSize: 11, color:C.textMuted, fontWeight:700, textTransform:'uppercase' }}>{t('Dek Kuiz', 'Quiz Decks')}</div>
         </Card>
         <Card style={{ padding:12, textAlign:'center' }}>
           <div style={{ fontWeight:900, fontSize:22, color:C.accPale }}>{totalQuestions}</div>
-          <div style={{ fontSize:10, color:C.textMuted, fontWeight:700, textTransform:'uppercase' }}>{t('Jumlah Soalan', 'Total Questions')}</div>
+          <div style={{ fontSize: 11, color:C.textMuted, fontWeight:700, textTransform:'uppercase' }}>{t('Jumlah Soalan', 'Total Questions')}</div>
         </Card>
       </div>
 
@@ -4695,7 +4695,7 @@ const TeacherSidebarStats = ({ classes = [] }) => {
           textAlign:'center',
         }}>
           <div style={{ fontWeight:900, fontSize:17, color:C.accPale, lineHeight:1 }}>{item.value}</div>
-          <div style={{ fontSize:9, color:C.textFaint, fontWeight:700, textTransform:'uppercase', letterSpacing:.5, marginTop:3 }}>
+          <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, textTransform:'uppercase', letterSpacing:.5, marginTop:3 }}>
             {item.label}
           </div>
         </div>
@@ -4706,7 +4706,12 @@ const TeacherSidebarStats = ({ classes = [] }) => {
 
 const TeacherApp = ({ sidebarExtraTop } = {}) => {
   const { t } = useLanguage();
-  const [screen, setScreen] = React.useState('home');
+  const [screen, setScreen] = (window.useHashNavigation || useHashNavigation)('teacher', 'home', [
+    'home', 'class', 'posts', 'lessons', 'quiz', 'whiteboard', 'profile'
+  ], {
+    aliases: { classes: 'home' },
+    reverseAliases: { home: 'classes' },
+  });
   const [cls, setCls] = React.useState(null);
   const [classView, setClassView] = React.useState({ tab:'students', filter:'all' });
   const [homeNotice, setHomeNotice] = React.useState('');

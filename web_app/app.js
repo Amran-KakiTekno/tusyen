@@ -19,13 +19,37 @@ async function request(path, options = {}, retryOnUnauthorized = true) {
   if (options.body !== undefined && !headers['Content-Type'] && !headers['content-type']) {
     headers['Content-Type'] = 'application/json';
   }
-  const response = await fetch(`${API_BASE}${path}`, {
-    ...options,
-    credentials: 'include',
-    headers,
-  });
-  const text = await response.text();
-  const data = text ? JSON.parse(text) : {};
+  let response;
+  try {
+    response = await fetch(`${API_BASE}${path}`, {
+      ...options,
+      credentials: 'include',
+      headers,
+    });
+  } catch (_fetchErr) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
+
+  const contentType = response.headers?.get?.('content-type') || '';
+  if (!contentType.includes('application/json')) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
+
+  let text = '';
+  let data = {};
+  try {
+    text = await response.text();
+    data = text ? JSON.parse(text) : {};
+  } catch (_jsonErr) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
+
   if (response.status === 401 && retryOnUnauthorized) {
     try {
       await refreshAccessToken();
@@ -50,14 +74,38 @@ async function refreshAccessToken() {
 }
 
 async function _doRefreshAccessToken() {
-  const response = await fetch(`${API_BASE}/auth/refresh`, {
-    method: 'POST',
-    credentials: 'include',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ refreshToken: localStorage.getItem(REFRESH_KEY) || undefined }),
-  });
-  const text = await response.text();
-  const data = text ? JSON.parse(text) : {};
+  let response;
+  try {
+    response = await fetch(`${API_BASE}/auth/refresh`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ refreshToken: localStorage.getItem(REFRESH_KEY) || undefined }),
+    });
+  } catch (_fetchErr) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
+
+  const contentType = response.headers?.get?.('content-type') || '';
+  if (!contentType.includes('application/json')) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
+
+  let text = '';
+  let data = {};
+  try {
+    text = await response.text();
+    data = text ? JSON.parse(text) : {};
+  } catch (_jsonErr) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
+
   if (!response.ok) {
     clearStoredSession();
     throw new Error(data.error || 'Session expired');
@@ -170,15 +218,15 @@ function escapeHtml(value) {
 function renderKeycloakCallbackStatus(message, tone = 'info') {
   const root = document.getElementById('root');
   if (!root) return;
-  const color = tone === 'error' ? '#EF4444' : '#7C3AED';
+  const color = tone === 'error' ? 'var(--red, #EF4444)' : 'var(--acc, #7C3AED)';
   const homePath = escapeHtml(appBasePathFromScript());
   root.innerHTML = `
-    <main style="min-height:100vh;display:grid;place-items:center;background:#0f172a;color:#f8fafc;font-family:Nunito,Arial,sans-serif;padding:24px;">
-      <section role="${tone === 'error' ? 'alert' : 'status'}" style="width:min(420px,100%);border:1px solid rgba(255,255,255,.14);border-radius:24px;background:rgba(15,23,42,.88);padding:28px;box-shadow:0 24px 80px rgba(0,0,0,.28);">
-        <div style="width:48px;height:48px;border-radius:16px;background:${color};display:grid;place-items:center;font-weight:900;margin-bottom:16px;">T</div>
+    <main style="min-height:100vh;display:grid;place-items:center;background:var(--c-bg, #08000F);color:var(--c-text, #F0ECFF);font-family:Nunito,Arial,sans-serif;padding:24px;">
+      <section role="${tone === 'error' ? 'alert' : 'status'}" style="width:min(420px,100%);border:1px solid var(--c-bdr, rgba(255,255,255,.14));border-radius:24px;background:var(--c-card, rgba(15,23,42,.88));padding:28px;box-shadow:0 24px 80px rgba(0,0,0,.28);">
+        <div style="width:48px;height:48px;border-radius:16px;background:${color};color:#fff;display:grid;place-items:center;font-weight:900;margin-bottom:16px;">T</div>
         <h1 style="font-size:22px;line-height:1.2;margin:0 0 8px;">Keycloak sign-in</h1>
-        <p style="font-size:14px;line-height:1.55;margin:0;color:#cbd5e1;">${escapeHtml(message)}</p>
-        ${tone === 'error' ? `<a href="${homePath}" style="display:inline-flex;margin-top:18px;color:#fff;font-weight:800;">Back to Tusyen</a>` : ''}
+        <p style="font-size:14px;line-height:1.55;margin:0;color:var(--c-text2, #9B7BBE);">${escapeHtml(message)}</p>
+        ${tone === 'error' ? `<a href="${homePath}" style="display:inline-flex;margin-top:18px;color:var(--c-acc-hi, #A78BFA);font-weight:800;">Back to Tusyen</a>` : ''}
       </section>
     </main>
   `;
@@ -753,6 +801,16 @@ const tusyenApi = {
       body: JSON.stringify({ refreshToken: localStorage.getItem(REFRESH_KEY) || undefined }),
     }).catch(() => undefined);
     clearStoredSession();
+  },
+  async startKeycloakLogin(redirectUri = `${window.location.origin}${KEYCLOAK_CALLBACK_PATH}`) {
+    const data = await request('/auth/keycloak/login-url', {
+      method: 'POST',
+      body: JSON.stringify({ redirectUri }),
+    });
+    if (data?.url) {
+      window.location.href = data.url;
+    }
+    return data;
   },
   restoreSession() {
     const userStr = localStorage.getItem(USER_KEY);

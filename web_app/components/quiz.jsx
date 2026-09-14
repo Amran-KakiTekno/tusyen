@@ -1024,7 +1024,7 @@ function ResultsScreen({ live, isTeacher, participantToken, onEnd }) {
         ].map((item) => (
           <Card key={item.label} style={{ textAlign:'center', padding:12 }}>
             <div style={{ fontSize:22, fontWeight:900, color:'var(--c-accent)' }}>{item.value}</div>
-            <div style={{ fontSize:10, fontWeight:900, color:'var(--c-text3)', textTransform:'uppercase' }}>{item.label}</div>
+            <div style={{ fontSize:11, fontWeight:900, color:'var(--c-text3)', textTransform:'uppercase' }}>{item.label}</div>
           </Card>
         ))}
       </div>

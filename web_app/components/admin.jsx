@@ -318,7 +318,7 @@ const Field = ({ label, children, style }) => (
   <label style={{
     display:'grid',
     gap:4,
-    fontSize:10,
+    fontSize: 11,
     color:C.textMuted,
     fontWeight:900,
     textTransform:'uppercase',
@@ -346,7 +346,7 @@ const Badge = ({ children, tone = 'neutral', style, title, ariaLabel }) => {
       color:colors.color,
       borderRadius:999,
       padding:'2px 7px',
-      fontSize:10,
+      fontSize: 11,
       fontWeight:900,
       whiteSpace:'nowrap',
       ...style,
@@ -373,7 +373,7 @@ const SmallButton = ({ children, onClick, disabled, danger, success, style, titl
       color: danger ? C.red : success ? C.green : C.accPale,
       fontFamily:'Nunito',
       fontWeight:900,
-      fontSize:10,
+      fontSize: 11,
       cursor: disabled ? 'not-allowed' : 'pointer',
       opacity: disabled ? .55 : 1,
       whiteSpace:'nowrap',
@@ -707,7 +707,7 @@ const AdminActionMenu = ({ label = 'Tindakan', ariaLabel, items = [], align = 'r
                 }}
               >
                 <span>{item.label}</span>
-                {item.description && <span style={{ color:C.textFaint, fontWeight:700, fontSize:9, lineHeight:1.25 }}>{item.description}</span>}
+                {item.description && <span style={{ color:C.textFaint, fontWeight:700, fontSize: 11, lineHeight:1.25 }}>{item.description}</span>}
               </button>
             );
           })}
@@ -774,7 +774,7 @@ const AdminCombobox = ({
         }}>
           <div style={{ minWidth:0 }}>
             <div style={{ fontSize:11, color:C.text, fontWeight:900, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{selected.label}</div>
-            {selected.description && <div style={{ fontSize:9, color:C.textFaint, fontWeight:700, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{selected.description}</div>}
+            {selected.description && <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{selected.description}</div>}
           </div>
           <button
             type="button"
@@ -834,7 +834,7 @@ const AdminCombobox = ({
               }}
             >
               <div style={{ fontSize:11, fontWeight:900, lineHeight:1.25, overflowWrap:'anywhere' }}>{option.label}</div>
-              {option.description && <div style={{ fontSize:9, color:C.textFaint, fontWeight:700, marginTop:1, overflowWrap:'anywhere' }}>{option.description}</div>}
+              {option.description && <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, marginTop:1, overflowWrap:'anywhere' }}>{option.description}</div>}
             </button>
           ))}
         </div>
@@ -874,7 +874,7 @@ const HealthStatusCard = ({ metric }) => {
       <div style={{ display:'flex', justifyContent:'space-between', gap:8, alignItems:'flex-start', marginBottom:8 }}>
         <div style={{ minWidth:0 }}>
           <div style={{ fontSize:12, color:C.text, fontWeight:900, lineHeight:1.25 }}>{metric.label}</div>
-          <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, marginTop:2 }}>{metric.detail || 'Status perkhidmatan.'}</div>
+          <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, marginTop:2 }}>{metric.detail || 'Status perkhidmatan.'}</div>
         </div>
         <span style={{
           width:10,
@@ -889,7 +889,7 @@ const HealthStatusCard = ({ metric }) => {
       <Badge tone={tone === 'bad' ? 'bad' : tone === 'good' ? 'good' : tone === 'warn' ? 'warn' : 'neutral'}>
         {serviceHintLabel(metric.hint)}
       </Badge>
-      <div style={{ fontSize:9, color:C.textFaint, fontWeight:700, marginTop:8, lineHeight:1.3 }}>
+      <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, marginTop:8, lineHeight:1.3 }}>
         {metric.threshold || 'Ambang tidak disediakan oleh API.'}
       </div>
     </Card>
@@ -914,7 +914,7 @@ const TrendPill = ({ value, label }) => {
   const number = optionalNumber(value);
   if (number === null) {
     return (
-      <div style={{ fontSize:10, color:C.textFaint, fontWeight:600, marginTop:8 }}>
+      <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600, marginTop:8 }}>
         Trend belum tersedia
       </div>
     );
@@ -950,7 +950,7 @@ const HealthMetricRow = ({ metric, showBar = true }) => {
               display:'inline-flex',
               alignItems:'center',
               justifyContent:'center',
-              fontSize:10,
+              fontSize: 11,
               fontWeight:900,
             }}
           >?</span>
@@ -960,7 +960,7 @@ const HealthMetricRow = ({ metric, showBar = true }) => {
         </Badge>
       </div>
       {metric.detail && (
-        <div style={{ fontSize:10, color:C.textFaint, fontWeight:600, marginBottom:6, lineHeight:1.3 }}>
+        <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600, marginBottom:6, lineHeight:1.3 }}>
           {metric.detail}
         </div>
       )}
@@ -1214,7 +1214,7 @@ const AdminDash = ({ go }) => {
         <div style={{ minWidth:0 }}>
           <div style={{ fontSize:13, color:C.textMuted, fontWeight:600 }}>{t("Panel Admin", "Admin Panel")}</div>
           <div style={{ fontSize:21, fontWeight:900, color:C.text, lineHeight:1.15 }}>Tusyen Online</div>
-          <div style={{ fontSize:10, color:C.textFaint, fontWeight:600, marginTop:2 }}>
+          <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600, marginTop:2 }}>
             {lastRefresh ? `Kemas kini terakhir: ${formatDateTime(lastRefresh.toISOString())}` : 'Auto-refresh setiap 30s'}
           </div>
         </div>
@@ -1322,7 +1322,7 @@ const AdminDash = ({ go }) => {
               </div>
             ) : groupedLogs.map(group => (
               <div key={group.type} style={{ marginBottom:8 }}>
-                <div style={{ fontSize:10, color:logColor(group.type), fontWeight:900, textTransform:'uppercase', letterSpacing:.5, margin:'7px 0 2px' }}>
+                <div style={{ fontSize: 11, color:logColor(group.type), fontWeight:900, textTransform:'uppercase', letterSpacing:.5, margin:'7px 0 2px' }}>
                   {logTypeLabel[group.type] || group.type}
                 </div>
                 {group.logs.map((log, i) => (
@@ -1336,18 +1336,18 @@ const AdminDash = ({ go }) => {
                       background:`color-mix(in srgb, ${logColor(log.type)} 16%, transparent)`,
                       color:logColor(log.type), border:`1px solid color-mix(in srgb, ${logColor(log.type)} 35%, transparent)`,
                       display:'flex', alignItems:'center', justifyContent:'center',
-                      fontSize:9, fontWeight:900,
+                      fontSize: 11, fontWeight:900,
                     }}>{logIcon(log.type)}</span>
                     <div style={{ flex:1, minWidth:0 }}>
                       <div title={log.msg} style={{ fontSize:12, color:C.text, fontWeight:700, lineHeight:1.35, overflowWrap:'anywhere' }}>{log.msg}</div>
-                      <div style={{ fontSize:10, color:C.textFaint, marginTop:1 }}>{log.time}</div>
+                      <div style={{ fontSize: 11, color:C.textFaint, marginTop:1 }}>{log.time}</div>
                     </div>
                   </div>
                 ))}
               </div>
             ))}
             <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', gap:8, paddingTop:10, flexWrap:'wrap' }}>
-              <div style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>
+              <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600 }}>
                 Memaparkan {fmt(filteredLogs.length)} daripada {fmt(logTotal)} log
               </div>
               {hasMoreLogs && (
@@ -1383,7 +1383,7 @@ const AdminDash = ({ go }) => {
               <Badge tone={a.tone}>{a.badge}</Badge>
             </div>
             <div style={{ fontSize:12, fontWeight:900, color:C.text, lineHeight:1.2 }}>{a.label}</div>
-            {a.note && <div style={{ fontSize:10, color:C.textFaint, fontWeight:600, marginTop:4, lineHeight:1.25 }}>{a.note}</div>}
+            {a.note && <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600, marginTop:4, lineHeight:1.25 }}>{a.note}</div>}
           </Card>
         ))}
       </div>
@@ -1406,7 +1406,7 @@ const AdminDash = ({ go }) => {
 const FormFieldError = ({ id, children }) => {
   if (!children) return null;
   return (
-    <div id={id} role="alert" style={{ fontSize:10, color:C.red, fontWeight:800, lineHeight:1.35 }}>
+    <div id={id} role="alert" style={{ fontSize: 11, color:C.red, fontWeight:800, lineHeight:1.35 }}>
       {children}
     </div>
   );
@@ -1490,7 +1490,7 @@ const UserForm = ({ mode, value, onChange, onSave, onCancel, saving, errors = {}
             aria-describedby={errors.password ? 'admin-user-password-error admin-user-password-help' : 'admin-user-password-help'}
             style={inputBase}
           />
-          <div id="admin-user-password-help" style={{ fontSize:10, color:C.textFaint, fontWeight:700, lineHeight:1.35 }}>
+          <div id="admin-user-password-help" style={{ fontSize: 11, color:C.textFaint, fontWeight:700, lineHeight:1.35 }}>
             {passwordHelp}
           </div>
           <FormFieldError id="admin-user-password-error">{errors.password}</FormFieldError>
@@ -1987,7 +1987,7 @@ const AdminUsers = () => {
           <div style={{ display:'flex', alignItems:'center', gap:6, flexWrap:'wrap', justifyContent:narrow ? 'flex-start' : 'flex-end' }}>
             <SmallButton disabled={page <= 0 || loading} onClick={() => setPage(0)} ariaLabel="Halaman pengguna pertama">«</SmallButton>
             <SmallButton disabled={page <= 0 || loading} onClick={() => setPage(p => Math.max(0, p - 1))} ariaLabel="Halaman pengguna sebelumnya">Sebelum</SmallButton>
-            <span style={{ fontSize:10, color:C.textMuted, fontWeight:900 }}>{page + 1}/{totalPages}</span>
+            <span style={{ fontSize: 11, color:C.textMuted, fontWeight:900 }}>{page + 1}/{totalPages}</span>
             <SmallButton disabled={page + 1 >= totalPages || loading} onClick={() => setPage(p => p + 1)} ariaLabel="Halaman pengguna seterusnya">Seterus</SmallButton>
             <SmallButton disabled={page + 1 >= totalPages || loading} onClick={() => setPage(totalPages - 1)} ariaLabel="Halaman pengguna terakhir">»</SmallButton>
           </div>
@@ -1998,7 +1998,7 @@ const AdminUsers = () => {
             <div style={{ display:'flex', alignItems:'center', gap:8, flexWrap:'wrap' }}>
               <div style={{ flex:'1 1 160px', fontSize:11, color:C.text, fontWeight:900 }}>
                 {selected.size} dipilih pada halaman ini
-                <div style={{ fontSize:9, color:C.textFaint, fontWeight:700, marginTop:1 }}>Tindakan pukal perlu disahkan dahulu.</div>
+                <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, marginTop:1 }}>Tindakan pukal perlu disahkan dahulu.</div>
               </div>
               <SmallButton disabled={saving} onClick={() => setSelected(new Set())}>Kosongkan</SmallButton>
               <SmallButton success disabled={saving} onClick={() => requestBulkStatus(true)}>{t("Aktifkan", "Activate")}</SmallButton>
@@ -2074,7 +2074,7 @@ const AdminUsers = () => {
                 aria-label="Pilih semua pengguna pada halaman ini"
                 style={{ accentColor:C.acc, width:44, height:44, margin:0, flexShrink:0 }}
               />
-              <div style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>
+              <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600 }}>
                 Pilih semua halaman ini
               </div>
             </div>
@@ -2087,7 +2087,7 @@ const AdminUsers = () => {
                 padding:'8px 0',
                 borderBottom:`1px solid ${C.border}`,
                 color:C.textFaint,
-                fontSize:10,
+                fontSize: 11,
                 fontWeight:900,
                 textTransform:'uppercase',
                 letterSpacing:.5,
@@ -2136,7 +2136,7 @@ const AdminUsers = () => {
                   <div style={{ flex:1, minWidth:0 }}>
                     <div title={u.name} style={{ fontWeight:800, fontSize:12, color:C.text, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{u.name}</div>
                     <div title={u.displayEmail || t("Tiada e-mel", "No email")} style={{
-                      fontSize:10,
+                      fontSize: 11,
                       color:C.textFaint,
                       fontWeight:600,
                       marginTop:1,
@@ -2156,7 +2156,7 @@ const AdminUsers = () => {
                           background:rs.bg, border:`1px solid ${rs.border}`,
                           borderRadius:999,
                           padding:'2px 7px',
-                          fontSize:10,
+                          fontSize: 11,
                           fontWeight:900,
                           color:rs.text,
                         }}>{u.role}</span>
@@ -2167,11 +2167,11 @@ const AdminUsers = () => {
                   {!narrow && <div style={{
                     background:rs.bg, border:`1px solid ${rs.border}`,
                     borderRadius:8, padding:'3px 7px', flexShrink:0,
-                    fontSize:10, fontWeight:900, color:rs.text,
+                    fontSize: 11, fontWeight:900, color:rs.text,
                   }}>{u.role}</div>}
 
                   {!narrow && <Badge tone={u.active ? 'good' : 'warn'}>{statusText(u.active)}</Badge>}
-                  {!narrow && <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{u.last}</div>}
+                  {!narrow && <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{u.last}</div>}
                   <AdminActionMenu
                     label={t("Aksi", "Actions")}
                     ariaLabel={`Tindakan untuk ${u.name}`}
@@ -2192,7 +2192,7 @@ const AdminUsers = () => {
             })}
           </>
         )}
-        <div style={{ padding:'12px 0 4px', fontSize:10, color:C.textFaint, fontWeight:600, lineHeight:1.5 }}>
+        <div style={{ padding:'12px 0 4px', fontSize: 11, color:C.textFaint, fontWeight:600, lineHeight:1.5 }}>
           Akaun tidak boleh dipadam secara kekal — gunakan Nyahaktif untuk menyekat akses tanpa kehilangan rekod pelajar.
         </div>
       </div>
@@ -2659,7 +2659,7 @@ const AdminContent = () => {
                 </Field>
                 <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', gap:8 }}>
                   <ContentStatusBadge status="draft" />
-                  <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, textAlign:'right' }}>Draf - semak pratonton - diterbitkan.</div>
+                  <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, textAlign:'right' }}>Draf - semak pratonton - diterbitkan.</div>
                 </div>
                 <GlowButton disabled={busy === 'syllabus'} style={{ padding:'10px 12px', fontSize:13 }}>
                   {busy === 'syllabus' ? 'Menerbitkan...' : 'Semak & Terbitkan Silibus'}
@@ -2682,7 +2682,7 @@ const AdminContent = () => {
                 <div style={{ display:'flex', justifyContent:'space-between', gap:8, alignItems:'flex-start' }}>
                   <div style={{ flex:1, minWidth:0 }}>
                     <div title={cleanContentTitle(item.topic, 'Topik tanpa tajuk')} style={{ fontSize:13, color:C.text, fontWeight:900, lineHeight:1.25, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{cleanContentTitle(item.topic, 'Topik tanpa tajuk')}</div>
-                    <div style={{ fontSize:10, color:C.textFaint, fontWeight:600, marginTop:2, overflowWrap:'anywhere' }}>
+                    <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600, marginTop:2, overflowWrap:'anywhere' }}>
                       {cleanSubjectLabel(item.subject)} - Tingkatan {item.form_level || '-'}{item.subtopic ? ` - ${cleanDisplayText(item.subtopic, 42, '')}` : ''}
                     </div>
                     {contentSummary(item.content) && (
@@ -2792,7 +2792,7 @@ const AdminContent = () => {
                   </Field>
                   {quizDraft.type === 'multiple_choice' ? (
                     <fieldset style={{ border:'none', padding:0, margin:0, display:'grid', gap:6 }}>
-                      <legend style={{ fontSize:10, color:C.textMuted, fontWeight:900, textTransform:'uppercase', letterSpacing:.5, padding:0, marginBottom:2 }}>
+                      <legend style={{ fontSize: 11, color:C.textMuted, fontWeight:900, textTransform:'uppercase', letterSpacing:.5, padding:0, marginBottom:2 }}>
                         Jawapan betul
                       </legend>
                       {quizDraft.options.map((option, index) => (
@@ -2839,7 +2839,7 @@ const AdminContent = () => {
                 </div>
                 <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', gap:8 }}>
                   <ContentStatusBadge status="draft" />
-                  <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, textAlign:'right' }}>Pratonton semakan menunjukkan tajuk, status, dan jumlah soalan.</div>
+                  <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, textAlign:'right' }}>Pratonton semakan menunjukkan tajuk, status, dan jumlah soalan.</div>
                 </div>
                 <GlowButton onClick={requestPublishLesson} disabled={busy === 'lesson'} style={{ padding:'10px 12px', fontSize:13 }}>
                   {busy === 'lesson' ? 'Menerbitkan...' : 'Semak & Terbitkan Pelajaran'}
@@ -2862,7 +2862,7 @@ const AdminContent = () => {
                 <div style={{ display:'flex', justifyContent:'space-between', gap:8, alignItems:'flex-start' }}>
                   <div style={{ flex:1, minWidth:0 }}>
                     <div title={cleanContentTitle(lesson.title, 'Pelajaran tanpa tajuk')} style={{ fontSize:13, color:C.text, fontWeight:900, lineHeight:1.25, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{cleanContentTitle(lesson.title, 'Pelajaran tanpa tajuk')}</div>
-                    <div style={{ fontSize:10, color:C.textFaint, fontWeight:600, marginTop:2, overflowWrap:'anywhere' }}>
+                    <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600, marginTop:2, overflowWrap:'anywhere' }}>
                       {cleanSubjectLabel(lesson.subject)} - T{lesson.form_level || '-'} - {cleanDisplayText(lesson.difficulty, 18, t("Tahap", "Level"))}
                     </div>
                     <div style={{ display:'flex', gap:6, marginTop:6, flexWrap:'wrap' }}>
@@ -3036,7 +3036,7 @@ const AdminSystem = () => {
         <div>
           <div style={{ fontSize:13, color:C.textMuted, fontWeight:600 }}>{t("Sistem", "System")}</div>
           <div style={{ fontSize:20, color:C.text, fontWeight:900 }}>Operasi Platform</div>
-          <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, marginTop:2 }}>
+          <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, marginTop:2 }}>
             {lastRefresh ? `Kemas kini terakhir: ${formatDateTime(lastRefresh.toISOString())}` : 'Belum dikemas kini'}
           </div>
         </div>
@@ -3085,7 +3085,7 @@ const AdminSystem = () => {
           <>
             {!showConfig && (
               <div style={{
-                fontSize:10,
+                fontSize: 11,
                 color:C.textFaint,
                 fontWeight:800,
                 lineHeight:1.35,
@@ -3122,14 +3122,14 @@ const AdminSystem = () => {
         <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8 }}>
           <div>
             <div style={{ fontSize:22, color:C.blue, fontWeight:900 }}>{fmt(sync.registeredDevices || 0)}</div>
-            <div style={{ fontSize:10, color:C.textMuted, fontWeight:600 }}>Peranti berdaftar</div>
+            <div style={{ fontSize: 11, color:C.textMuted, fontWeight:600 }}>Peranti berdaftar</div>
           </div>
           <div>
             <div style={{ fontSize:22, color:C.gold, fontWeight:900 }}>{fmt(sync.pendingQueues || 0)}</div>
-            <div style={{ fontSize:10, color:C.textMuted, fontWeight:600 }}>Giliran tertunggak</div>
+            <div style={{ fontSize: 11, color:C.textMuted, fontWeight:600 }}>Giliran tertunggak</div>
           </div>
         </div>
-        <div style={{ fontSize:10, color:C.textFaint, fontWeight:600, marginTop:8 }}>
+        <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600, marginTop:8 }}>
           Sync terakhir: {sync.latestSyncAt ? window.timeAgo(sync.latestSyncAt) : 'Belum ada data'}
         </div>
       </Card>
@@ -3140,7 +3140,7 @@ const AdminSystem = () => {
           <div style={{ display:'flex', justifyContent:'space-between', gap:10, alignItems:'center' }}>
             <div>
               <div style={{ fontSize:12, color:C.text, fontWeight:900 }}>Cache Redis</div>
-              <div style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>Kosongkan cache laporan dan leaderboard.</div>
+              <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600 }}>Kosongkan cache laporan dan leaderboard.</div>
             </div>
             <SmallButton danger disabled={busy === 'cache'} onClick={clearCache}>
               {busy === 'cache' ? 'Proses' : 'Bersih'}
@@ -3149,7 +3149,7 @@ const AdminSystem = () => {
           <div style={{ display:'flex', justifyContent:'space-between', gap:10, alignItems:'center' }}>
             <div>
               <div style={{ fontSize:12, color:C.text, fontWeight:900 }}>{t("Notifikasi", "Notifications")}</div>
-              <div style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>Hantar ujian notifikasi ke ntfy.</div>
+              <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600 }}>Hantar ujian notifikasi ke ntfy.</div>
             </div>
             <SmallButton success disabled={busy === 'notification'} onClick={testNotification}>
               {busy === 'notification' ? 'Proses' : 'Uji'}
@@ -3163,13 +3163,13 @@ const AdminSystem = () => {
         <div style={{ display:'flex', justifyContent:'space-between', gap:10, alignItems:'center' }}>
           <div style={{ flex:1 }}>
             <div style={{ fontSize:12, color:C.text, fontWeight:900 }}>Postgres backup</div>
-            <div style={{ fontSize:10, color:C.textFaint, fontWeight:600, lineHeight:1.35 }}>
+            <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600, lineHeight:1.35 }}>
               {backup.note || 'Sandaran dijalankan di luar proses aplikasi.'}
             </div>
           </div>
           <div style={{ display:'grid', justifyItems:'end', gap:5 }}>
             <Badge tone="warn">{backup.mode || 'external'}</Badge>
-            <div style={{ fontSize:9, color:C.textFaint, fontWeight:600, textAlign:'right', lineHeight:1.25 }}>
+            <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600, textAlign:'right', lineHeight:1.25 }}>
               Jalankan pg_dump atau snapshot volume di server.
             </div>
           </div>
@@ -3263,7 +3263,7 @@ const SearchableUserSelect = ({ role, value, onChange, selectedLabel, placeholde
           <option key={option.id} value={option.id}>{option.name}{option.displayEmail ? ` - ${option.displayEmail}` : ''}</option>
         ))}
       </select>
-      <div style={{ fontSize:10, color:C.textFaint, fontWeight:800, lineHeight:1.3 }}>
+      <div style={{ fontSize: 11, color:C.textFaint, fontWeight:800, lineHeight:1.3 }}>
         {usersState.loading ? 'Mencari...' : `${fmt(options.length)} hasil teratas. Taip nama atau e-mel untuk menapis.`}
       </div>
     </div>
@@ -3579,7 +3579,7 @@ const AdminClassroomsPage = () => {
                     <Badge tone="neutral">{cleanSubjectLabel(cls.subject)}</Badge>
                     <Badge tone="neutral">T{cls.form_level || '-'}</Badge>
                   </div>
-                  <div title={teacherLabel} style={{ fontSize:10, color:C.textFaint, fontWeight:700, marginTop:5, overflowWrap:'anywhere' }}>
+                  <div title={teacherLabel} style={{ fontSize: 11, color:C.textFaint, fontWeight:700, marginTop:5, overflowWrap:'anywhere' }}>
                     {cleanSubjectLabel(cls.subject)} - T{cls.form_level || '-'}
                     {teacherLabel ? ` - ${teacherLabel}` : ''}
                   </div>
@@ -3600,7 +3600,7 @@ const AdminClassroomsPage = () => {
                   }}
                 >
                   <div style={{ fontSize:18, fontWeight:900, lineHeight:1 }}>{fmt(cls.student_count ?? 0)}</div>
-                  <div style={{ fontSize:9, fontWeight:900, textTransform:'uppercase', lineHeight:1.1 }}>{t("Pelajar", "Student")}</div>
+                  <div style={{ fontSize: 11, fontWeight:900, textTransform:'uppercase', lineHeight:1.1 }}>{t("Pelajar", "Student")}</div>
                 </button>
                 <div style={{ display:'flex', gap:5, flexShrink:0, alignItems:'flex-start', flexWrap:'wrap', justifyContent:'flex-end' }}>
                   <Badge tone={cls.is_active !== false ? 'good' : 'warn'}>{cls.is_active !== false ? t("Aktif", "Active") : t("Tidak aktif", "Inactive")}</Badge>
@@ -3650,7 +3650,7 @@ const AdminClassroomsPage = () => {
                       <Avatar name={cleanUserName(s)} size={26} />
                       <div style={{ flex:1, minWidth:0 }}>
                         <div style={{ fontSize:12, fontWeight:800, color:C.text, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{cleanUserName(s)}</div>
-                        <div title={cleanEmailDisplay(s.email, 42, '', 'student')} style={{ fontSize:10, color:C.textFaint, fontWeight:600, overflowWrap:'anywhere' }}>{cleanEmailDisplay(s.email, 42, '', 'student')}</div>
+                        <div title={cleanEmailDisplay(s.email, 42, '', 'student')} style={{ fontSize: 11, color:C.textFaint, fontWeight:600, overflowWrap:'anywhere' }}>{cleanEmailDisplay(s.email, 42, '', 'student')}</div>
                       </div>
                       <AdminActionMenu
                         label={t("Aksi", "Actions")}
@@ -3851,7 +3851,7 @@ const AdminParentLinksSection = () => {
             <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:8, marginBottom:7, flexWrap:'wrap' }}>
               <div style={{ minWidth:0 }}>
                 <div style={{ fontSize:13, color:C.text, fontWeight:900, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>{family.parentName}</div>
-                <div title={family.parentEmail || t("Tiada e-mel ibu bapa", "No parent email")} style={{ fontSize:10, color:C.textFaint, fontWeight:700, overflowWrap:'anywhere' }}>{family.parentEmail || t("Tiada e-mel ibu bapa", "No parent email")}</div>
+                <div title={family.parentEmail || t("Tiada e-mel ibu bapa", "No parent email")} style={{ fontSize: 11, color:C.textFaint, fontWeight:700, overflowWrap:'anywhere' }}>{family.parentEmail || t("Tiada e-mel ibu bapa", "No parent email")}</div>
               </div>
               <div style={{ display:'flex', gap:5, flexWrap:'wrap', justifyContent:'flex-end' }}>
                 <Badge tone="good">{t("Dipautkan", "Linked")}</Badge>
@@ -3877,7 +3877,7 @@ const AdminParentLinksSection = () => {
                     <div style={{ fontSize:12, fontWeight:900, color:C.text, whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis' }}>
                       {cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', t("Pelajar", "Student"))}
                     </div>
-                    <div title={cleanEmailDisplay(link.student_email || link.studentEmail, 42, t("Tiada e-mel pelajar", "No student email"), 'student')} style={{ fontSize:10, color:C.textFaint, fontWeight:700, overflowWrap:'anywhere' }}>
+                    <div title={cleanEmailDisplay(link.student_email || link.studentEmail, 42, t("Tiada e-mel pelajar", "No student email"), 'student')} style={{ fontSize: 11, color:C.textFaint, fontWeight:700, overflowWrap:'anywhere' }}>
                       {cleanEmailDisplay(link.student_email || link.studentEmail, 42, t("Tiada e-mel pelajar", "No student email"), 'student')}
                     </div>
                     <div style={{ display:'flex', gap:5, flexWrap:'wrap', marginTop:5 }}>
@@ -3919,7 +3919,7 @@ const AdminParentLinksSection = () => {
               <div style={{ fontSize:12, fontWeight:800, color:C.text }}>
                 {cleanPersonName(link.parent_name || link.parentName, link.parent_email || link.parentEmail, 'parent', t("Ibu Bapa", "Parent"))} -> {cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', t("Pelajar", "Student"))}
               </div>
-              <div style={{ fontSize:10, color:C.textFaint, fontWeight:600 }}>
+              <div style={{ fontSize: 11, color:C.textFaint, fontWeight:600 }}>
                 {cleanEmailDisplay(link.parent_email || link.parentEmail, 42, '', 'parent')} - {cleanEmailDisplay(link.student_email || link.studentEmail, 42, '', 'student')}
               </div>
             </div>
@@ -4033,7 +4033,7 @@ const AdminSidebar = ({ navItems, active, onNav, user, onSignOut, extraTop }) =>
               <NavIcon item={item} />
               <div className="sidebar-label" style={{ flex:1 }}>
                 <div lang={language} style={{ lineHeight:1.2, color:on ? C.accHi : C.text }}>{visibleLabel}</div>
-                {item.en && language === 'ms' && <div lang="en" style={{ fontSize:10, fontWeight:600, color:on ? C.accPale : C.textFaint, lineHeight:1 }}>{item.en}</div>}
+                {item.en && language === 'ms' && <div lang="en" style={{ fontSize: 11, fontWeight:600, color:on ? C.accPale : C.textFaint, lineHeight:1 }}>{item.en}</div>}
               </div>
               {on && <div aria-hidden="true" style={{ width:7, height:7, borderRadius:'50%', background:C.acc, boxShadow:`0 0 8px ${C.accGlow}`, flexShrink:0 }} />}
             </button>
@@ -4044,7 +4044,7 @@ const AdminSidebar = ({ navItems, active, onNav, user, onSignOut, extraTop }) =>
       <div className="sidebar-bottom" style={{ padding:'14px 14px 18px', borderTop:`1px solid ${C.border}`, flexShrink:0 }}>
         <div className="sidebar-label" style={{ display:'grid', gap:6, marginBottom:10 }}>
           <Badge tone="neutral" style={{ justifyContent:'center' }}>{t("Operasi", "Operations")}</Badge>
-          <div style={{ fontSize:10, color:C.textFaint, fontWeight:700, lineHeight:1.35, textAlign:'center' }}>
+          <div style={{ fontSize: 11, color:C.textFaint, fontWeight:700, lineHeight:1.35, textAlign:'center' }}>
             {t("Urus pengguna, kelas, kandungan, dan sistem.", "Manage users, classes, content, and the system.")}
           </div>
         </div>
@@ -4072,7 +4072,9 @@ const AdminSidebar = ({ navItems, active, onNav, user, onSignOut, extraTop }) =>
 };
 
 const AdminApp = ({ sidebarExtraTop } = {}) => {
-  const [screen, setScreen] = React.useState('home');
+  const [screen, setScreen] = (window.useHashNavigation || useHashNavigation)('admin', 'home', [
+    'home', 'users', 'links', 'classrooms', 'content', 'settings'
+  ]);
   const nav = [
     { id:'home',       icon:'📊', label:t("Papan Pemuka", "Dashboard"), en:'Dashboard'    },
     { id:'users',      icon:'👥', label:t("Pengguna", "User"),     en:'Users'        },

@@ -26,13 +26,34 @@ async function request(path, options = {}, retryOnUnauthorized = true) {
   if (options.body !== undefined && !headers['Content-Type'] && !headers['content-type']) {
     headers['Content-Type'] = 'application/json';
   }
-  const response = await fetch(`${API_BASE}${path}`, {
-    ...options,
-    credentials: 'include',
-    headers
-  });
-  const text = await response.text();
-  const data = text ? JSON.parse(text) : {};
+  let response;
+  try {
+    response = await fetch(`${API_BASE}${path}`, {
+      ...options,
+      credentials: 'include',
+      headers
+    });
+  } catch (_fetchErr) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
+  const contentType = response.headers?.get?.('content-type') || '';
+  if (!contentType.includes('application/json')) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
+  let text = '';
+  let data = {};
+  try {
+    text = await response.text();
+    data = text ? JSON.parse(text) : {};
+  } catch (_jsonErr) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
   if (response.status === 401 && retryOnUnauthorized) {
     try {
       await refreshAccessToken();
@@ -55,18 +76,39 @@ async function refreshAccessToken() {
   return _refreshPromise;
 }
 async function _doRefreshAccessToken() {
-  const response = await fetch(`${API_BASE}/auth/refresh`, {
-    method: 'POST',
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      refreshToken: localStorage.getItem(REFRESH_KEY) || undefined
-    })
-  });
-  const text = await response.text();
-  const data = text ? JSON.parse(text) : {};
+  let response;
+  try {
+    response = await fetch(`${API_BASE}/auth/refresh`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        refreshToken: localStorage.getItem(REFRESH_KEY) || undefined
+      })
+    });
+  } catch (_fetchErr) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
+  const contentType = response.headers?.get?.('content-type') || '';
+  if (!contentType.includes('application/json')) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
+  let text = '';
+  let data = {};
+  try {
+    text = await response.text();
+    data = text ? JSON.parse(text) : {};
+  } catch (_jsonErr) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
   if (!response.ok) {
     clearStoredSession();
     throw new Error(data.error || 'Session expired');
@@ -164,15 +206,15 @@ function escapeHtml(value) {
 function renderKeycloakCallbackStatus(message, tone = 'info') {
   const root = document.getElementById('root');
   if (!root) return;
-  const color = tone === 'error' ? '#EF4444' : '#7C3AED';
+  const color = tone === 'error' ? 'var(--red, #EF4444)' : 'var(--acc, #7C3AED)';
   const homePath = escapeHtml(appBasePathFromScript());
   root.innerHTML = `
-    <main style="min-height:100vh;display:grid;place-items:center;background:#0f172a;color:#f8fafc;font-family:Nunito,Arial,sans-serif;padding:24px;">
-      <section role="${tone === 'error' ? 'alert' : 'status'}" style="width:min(420px,100%);border:1px solid rgba(255,255,255,.14);border-radius:24px;background:rgba(15,23,42,.88);padding:28px;box-shadow:0 24px 80px rgba(0,0,0,.28);">
-        <div style="width:48px;height:48px;border-radius:16px;background:${color};display:grid;place-items:center;font-weight:900;margin-bottom:16px;">T</div>
+    <main style="min-height:100vh;display:grid;place-items:center;background:var(--c-bg, #08000F);color:var(--c-text, #F0ECFF);font-family:Nunito,Arial,sans-serif;padding:24px;">
+      <section role="${tone === 'error' ? 'alert' : 'status'}" style="width:min(420px,100%);border:1px solid var(--c-bdr, rgba(255,255,255,.14));border-radius:24px;background:var(--c-card, rgba(15,23,42,.88));padding:28px;box-shadow:0 24px 80px rgba(0,0,0,.28);">
+        <div style="width:48px;height:48px;border-radius:16px;background:${color};color:#fff;display:grid;place-items:center;font-weight:900;margin-bottom:16px;">T</div>
         <h1 style="font-size:22px;line-height:1.2;margin:0 0 8px;">Keycloak sign-in</h1>
-        <p style="font-size:14px;line-height:1.55;margin:0;color:#cbd5e1;">${escapeHtml(message)}</p>
-        ${tone === 'error' ? `<a href="${homePath}" style="display:inline-flex;margin-top:18px;color:#fff;font-weight:800;">Back to Tusyen</a>` : ''}
+        <p style="font-size:14px;line-height:1.55;margin:0;color:var(--c-text2, #9B7BBE);">${escapeHtml(message)}</p>
+        ${tone === 'error' ? `<a href="${homePath}" style="display:inline-flex;margin-top:18px;color:var(--c-acc-hi, #A78BFA);font-weight:800;">Back to Tusyen</a>` : ''}
       </section>
     </main>
   `;
@@ -1030,6 +1072,18 @@ const tusyenApi = {
     }).catch(() => undefined);
     clearStoredSession();
   },
+  async startKeycloakLogin(redirectUri = `${window.location.origin}${KEYCLOAK_CALLBACK_PATH}`) {
+    const data = await request('/auth/keycloak/login-url', {
+      method: 'POST',
+      body: JSON.stringify({
+        redirectUri
+      })
+    });
+    if (data?.url) {
+      window.location.href = data.url;
+    }
+    return data;
+  },
   restoreSession() {
     const userStr = localStorage.getItem(USER_KEY);
     if (!userStr) return null;
@@ -1083,7 +1137,8 @@ const UI_TEXT = {
   close: 'Tutup',
   confirm: 'Sahkan',
   delete: 'Padam',
-  loading: 'Memproses...'
+  loading: 'Memproses...',
+  apiOffline: 'API tidak dapat dicapai — mod demo diaktifkan.'
 };
 const LANGUAGE_KEY = 'tusyen_language';
 const LANGUAGE_EVENT = 'tusyen-language-change';
@@ -1161,7 +1216,7 @@ const useLanguage = () => {
     t
   };
 };
-const STATIC_TRANSLATIONS = new Map([['Akaun', 'Account'], ['Aktif', 'Active'], ['Aktifkan', 'Activate'], ['Amaran', 'Alerts'], ['Amaran & Notifikasi', 'Alerts & Notifications'], ['Anak', 'Children'], ['Anak berjaya dipaut.', 'Child linked successfully.'], ['Anak Dipaut', 'Linked Children'], ['Anda perlukan ID Tusyen pelajar atau e-mel akaun pelajar. Kod kelas guru tidak digunakan di sini.', 'You need the student Tusyen ID or student account email. Teacher class codes are not used here.'], ['Arus, voltan, rintangan', 'Current, voltage, resistance'], ['Atom dan molekul', 'Atoms and molecules'], ['Aktiviti sistem', 'System activity'], ['Bahasa', 'Language'], ['Batal', 'Cancel'], ['Belajar', 'Learn'], ['Belajar 7 hari berturut', 'Study 7 days in a row'], ['Belajar fleksibel', 'Flexible learning'], ['Belum ada pencapaian. Lengkapkan pelajaran pertama untuk membuka badge.', 'No achievements yet. Complete your first lesson to unlock a badge.'], ['Belum ada kelas', 'No classes yet'], ['Belum ada markah direkodkan.', 'No scores recorded yet.'], ['Belum ada pelajaran', 'No lessons yet'], ['Belum ada soalan', 'No questions yet'], ['Belum ada topik selesai', 'No completed topics yet'], ['Belum dipautkan', 'Not linked yet'], ['Belum disemak', 'Not checked yet'], ['Belum log masuk', 'Not logged in yet'], ['Buat kelas dahulu untuk boleh mulakan sesi kuiz langsung.', 'Create a class first before starting a live quiz session.'], ['Buka Panduan Tambah Anak', 'Open Add Child Guide'], ['Belum mula', 'Not started'], ['Benar / palsu', 'True / false'], ['Buang soalan', 'Remove question'], ['Buang soalan?', 'Remove question?'], ['Cipta Akaun', 'Create Account'], ['Cipta Kandungan', 'Create Content'], ['Cipta Kelas', 'Create Class'], ['Cipta kelas pertama anda', 'Create your first class'], ['Cipta Pelajaran Berpandu', 'Create Guided Lesson'], ['Cuba lagi', 'Retry'], ['Cerah', 'Light'], ['Capai 5,000 XP', 'Reach 5,000 XP'], ['Cari ibu bapa...', 'Search parents...'], ['Cari pelajar...', 'Search students...'], ['Dapatkan PIN daripada guru untuk masuk ke sesi langsung.', 'Get the PIN from your teacher to join the live session.'], ['Data anak belum dapat dimuat.', 'Child data could not be loaded yet.'], ['Dek baharu', 'New deck'], ['Dek kuiz', 'Quiz deck'], ['Dek Kuiz', 'Quiz Decks'], ['DEK KUIZ', 'QUIZ DECKS'], ['Detail Kelas', 'Class Detail'], ['Dijeda', 'Paused'], ['Dipautkan', 'Linked'], ['E-mel', 'Email'], ['Faktor dan graf', 'Factors and graphs'], ['Gelap', 'Dark'], ['Geometri', 'Geometry'], ['Guru', 'Teacher'], ['Halaju, pecutan, graf', 'Velocity, acceleration, graphs'], ['Hari aktif', 'Active days'], ['Hari Streak', 'Day Streak'], ['Ibu Bapa', 'Parent'], ['Identiti dan budaya', 'Identity and culture'], ['Ikut rekod semasa', 'Based on current records'], ['Interaksi organisma', 'Organism interactions'], ['Ion dan kovalen', 'Ionic and covalent'], ['Jawapan tidak dapat dihantar.', 'Answer could not be submitted.'], ['Jeda', 'Pause'], ['Jumlah Soalan', 'Total Questions'], ['Jumlah XP', 'Total XP'], ['JUMLAH SOALAN', 'TOTAL QUESTIONS'], ['KELAS', 'CLASSES'], ['Kawalan dalaman', 'Internal regulation'], ['Kandungan', 'Content'], ['Kata Laluan', 'Password'], ['Kembali ke dek', 'Back to decks'], ['Kelas', 'Classes'], ['Kelas baharu', 'New class'], ['Kelas Saya', 'My Classes'], ['Kelas tanpa nama', 'Untitled class'], ['Kemajuan', 'Progress'], ['Keputusan', 'Results'], ['Keputusan Kuiz', 'Quiz Results'], ['Ketepatan', 'Accuracy'], ['Ketepatan Setiap Soalan', 'Accuracy By Question'], ['Kimia', 'Chemistry'], ['Kod Kelas', 'Class Code'], ['Kod kelas guru tidak boleh digunakan. Masukkan ID Tusyen pelajar atau e-mel akaun pelajar.', 'Teacher class codes cannot be used. Enter the student Tusyen ID or student account email.'], ['Komponen kuiz tidak dapat dimuatkan.', 'Quiz component could not be loaded.'], ['Komen ini akan disembunyikan daripada perbincangan pos kelas.', 'This comment will be hidden from the class post discussion.'], ['Kumpulan dan kala', 'Groups and periods'], ['Kuiz ini telah tamat. Minta PIN sesi baharu daripada guru.', 'This quiz has ended. Ask your teacher for a new session PIN.'], ['Kuiz', 'Quiz'], ['Kuiz baharu', 'New Quiz'], ['Kuiz langsung', 'Live quiz'], ['Kelengkapan Profil', 'Profile Completion'], ['Kerja, kuasa, kecekapan', 'Work, power, efficiency'], ['Lobi', 'Lobby'], ['Log Keluar', 'Sign Out'], ['Log keluar', 'Sign out'], ['Log Masuk', 'Sign In'], ['Langkau ke kandungan utama', 'Skip to main content'], ['Latih topik lemah', 'Practice weak topics'], ['Lihat kelas', 'View class'], ['Lihat penguasaan', 'View mastery'], ['Lihat sebab dan cadangan', 'View reasons and suggestions'], ['Matematik', 'Mathematics'], ['Masa minggu ini', 'Time this week'], ['Masukkan ID Tusyen pelajar atau e-mel akaun pelajar.', 'Enter the student Tusyen ID or student account email.'], ['Masukkan PIN 6 digit daripada guru', 'Enter the 6-digit PIN from your teacher'], ['Memadam...', 'Deleting...'], ['Memeriksa sesi kuiz aktif...', 'Checking active quiz session...'], ['Memantau %s', 'Monitoring %s'], ['Memproses...', 'Processing...'], ['Memulakan...', 'Starting...'], ['Menunggu guru memulakan...', 'Waiting for the teacher to start...'], ['Menyambung ke sesi langsung...', 'Connecting to the live session...'], ['Menyertai...', 'Joining...'], ['Menyimpan...', 'Saving...'], ['Mengemas kini...', 'Updating...'], ['Mitosis dan meiosis', 'Mitosis and meiosis'], ['Mulakan', 'Start'], ['Mulakan Kuiz', 'Start Quiz'], ['Mula topik semasa', 'Start current topic'], ['Nama Penuh', 'Full Name'], ['Nama panggilan', 'Nickname'], ['Nama panggilan diperlukan.', 'Nickname is required.'], ['Navigasi admin', 'Admin navigation'], ['Navigasi bawah', 'Bottom navigation'], ['Navigasi guru', 'Teacher navigation'], ['Nombor', 'Numbers'], ['Notifikasi', 'Notifications'], ['Nyahaktifkan', 'Deactivate'], ['Nyahaktifkan kelas', 'Deactivate class'], ['Nyahaktifkan Pautan', 'Deactivate Link'], ['Nyahaktifkan pautan', 'Deactivate link'], ['Nyahaktifkan pautan keluarga?', 'Deactivate family link?'], ['Papan Putih', 'Whiteboard'], ['Papan Skor Langsung', 'Live Scoreboard'], ['Pangkalan Data', 'Database'], ['Padam dek', 'Delete deck'], ['Padam dek kuiz?', 'Delete quiz deck?'], ['Padam komen', 'Delete comment'], ['Padam pos', 'Delete post'], ['Paparan PIN', 'PIN Display'], ['PELAJAR', 'STUDENTS'], ['Pelajar', 'Student'], ['Pelajar Berisiko', 'At-Risk Students'], ['Pelajaran dicadang', 'Suggested lesson'], ['Pelajaran', 'Lessons'], ['Pemantauan', 'Monitoring'], ['Pembangunan negara', 'National development'], ['Pemasa kuiz langsung', 'Live quiz timer'], ['Pengguna', 'Users'], ['Pengurusan alam sekitar', 'Environmental management'], ['Peranan', 'Role'], ['Peristiwa utama', 'Key events'], ['Perlembagaan dan sistem', 'Constitution and system'], ['Perbincangan', 'Discussion'], ['Peserta', 'Participants'], ['Peserta Teratas', 'Top Participants'], ['pH dan peneutralan', 'pH and neutralization'], ['PIN mesti 6 digit.', 'PIN must be 6 digits.'], ['PIN tidak sah. Semak 6 digit daripada guru dan cuba lagi.', 'Invalid PIN. Check the 6 digits from your teacher and try again.'], ['Pautan ditambah.', 'Link added.'], ['Pautan dinyahaktifkan.', 'Link deactivated.'], ['Pautan Ibu Bapa-Pelajar', 'Parent-Student Links'], ['Pautan Ibu Bapa–Pelajar', 'Parent-Student Links'], ['Pautkan anak untuk mula memantau.', 'Link a child to start monitoring.'], ['Pilih anak', 'Select child'], ['Pilih bahasa', 'Choose language'], ['Pilih Kelas', 'Select Class'], ['Pilih kelas dahulu.', 'Select a class first.'], ['Pilih ibu bapa dan pelajar.', 'Select a parent and student.'], ['Pilih subjek', 'Choose subject'], ['Pilih tema warna', 'Choose color theme'], ['Pilih topik semasa', 'Choose current topic'], ['Pilihan jawapan', 'Multiple choice'], ['Pos', 'Posts'], ['Pos baharu', 'New post'], ['Pos Kelas', 'Class Posts'], ['Pos daripada kelas anak akan muncul di sini.', 'Posts from the child classes will appear here.'], ['Profil', 'Profile'], ['Profil Guru', 'Teacher Profile'], ['Pewarisan sifat', 'Inherited traits'], ['Pratonton Pelajaran', 'Lesson Preview'], ['Privasi: pautan ibu bapa hanya memaparkan kemajuan, kelas, dan pos berkaitan anak. Pastikan anak bersetuju sebelum memaut akaun.', 'Privacy: parent links only show progress, classes, and posts related to the child. Make sure the child agrees before linking the account.'], ['Purata Siap', 'Average Completion'], ['Purata skor', 'Average score'], ['Ringkasan Kuiz Saya', 'My Quiz Summary'], ['Ringkasan ibu bapa', 'Parent summary'], ['Sains', 'Science'], ['Salin', 'Copy'], ['Salin dek', 'Copy deck'], ['Sambung', 'Resume'], ['Saiz storan belum dimuat.', 'Storage size has not loaded.'], ['Sedang berjalan', 'In progress'], ['Sejarah', 'History'], ['Sejarah Pelajaran', 'Lesson History'], ['Selesai', 'Done'], ['Selesai semua Algebra', 'Complete all Algebra'], ['Sertai Kuiz', 'Join Quiz'], ['Sertai Kuiz dengan PIN', 'Join Quiz With PIN'], ['Sertai Sekarang', 'Join Now'], ['Sesi Terkini', 'Recent Sessions'], ['Sahkan', 'Confirm'], ['Sahkan persetujuan anak sebelum memaut akaun.', 'Confirm the child consent before linking the account.'], ['Sila tunggu...', 'Please wait...'], ['Simpan', 'Save'], ['Simpan dek', 'Save deck'], ['Simpan draf', 'Save draft'], ['Simpan Perubahan', 'Save Changes'], ['Simpan Profil', 'Save Profile'], ['Sistem', 'System'], ['Skala dan arah', 'Scale and direction'], ['Skor 100% dalam ujian', 'Score 100% in a quiz'], ['Soalan', 'Questions'], ['Soalan Latihan', 'Practice Questions'], ['Soalan Seterusnya', 'Next Question'], ['Status belum dimuat.', 'Status has not loaded.'], ['Statistik', 'Statistics'], ['Storan', 'Storage'], ['Struktur dan fungsi', 'Structure and function'], ['Subjek', 'Subject'], ['SUBJEK', 'SUBJECTS'], ['Suapan & Pos', 'Feed & Posts'], ['Suapan Kelas', 'Class Feed'], ['Sunting', 'Edit'], ['Sunting dek', 'Edit deck'], ['Sunting profil', 'Edit profile'], ['Tajuk dek', 'Deck title'], ['Tajuk Pelajaran', 'Lesson Title'], ['Tajuk wajib diisi.', 'Deck title is required.'], ['Tambah sekurang-kurangnya satu soalan lengkap.', 'Add at least one complete question.'], ['Tambah Anak', 'Add Child'], ['Tambah Pautan', 'Add Link'], ['Tambah Pautan Baharu', 'Add New Link'], ['Tambah Pengguna', 'Add User'], ['Tambah Soalan', 'Add Question'], ['Tandai untuk tindak lanjut', 'Flag for follow-up'], ['Tamat', 'Ended'], ['Tamatkan', 'End'], ['Tanah tinggi dan saliran', 'Highlands and drainage'], ['Tanpa tajuk', 'Untitled'], ['Teks soalan...', 'Question text...'], ['Tiada mesej dihantar; tindakan ini hanya menyimpan tanda tindak lanjut.', 'No message is sent; this only saves a follow-up flag.'], ['Tetapkan ke Kelas', 'Assign to Class'], ['Tema', 'Theme'], ['Tetapan', 'Settings'], ['Tetapan Akaun', 'Account Settings'], ['Tetapan Ibu Bapa', 'Parent Settings'], ['Tetapan Kelas', 'Class Settings'], ['Tingkatan', 'Form'], ['Tindakan lanjut', 'More actions'], ['Tindakan lanjut soalan', 'More question actions'], ['Tindak lanjut disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.', 'Follow-up saved on this device. Use official class or school channels if a question must be sent.'], ['Tokoh dan gerakan', 'Figures and movements'], ['Topik pembelajaran', 'Learning topic'], ['Tidak dapat memulakan kuiz.', 'Could not start the quiz.'], ['Tidak dapat menamatkan kuiz.', 'Could not end the quiz.'], ['Tidak dapat mengemas kini pemasa.', 'Could not update the timer.'], ['Tidak dapat pergi ke soalan seterusnya.', 'Could not move to the next question.'], ['Tidak dapat memaut anak.', 'Unable to link child.'], ['Tidak dapat membuang pautan anak.', 'Unable to remove child link.'], ['Tidak dapat memuat anak terpaut.', 'Unable to load linked child.'], ['Tidak dapat memuat kemajuan.', 'Unable to load progress.'], ['Tidak dapat memuat pos.', 'Unable to load posts.'], ['Tidak dapat menukar kata laluan.', 'Unable to change password.'], ['Tidak aktif', 'Inactive'], ['Tiada dek lagi. Cipta dek pertama anda.', 'No decks yet. Create your first deck.'], ['Tiada data', 'No data'], ['Tiada e-mel', 'No email'], ['Tiada e-mel ibu bapa', 'No parent email'], ['Tiada e-mel pelajar', 'No student email'], ['Tiada ibu bapa ditemui', 'No parents found'], ['Tiada pelajar ditemui', 'No students found'], ['Tiada amaran aktif', 'No active alerts'], ['Tiada ulasan lagi.', 'No comments yet.'], ['Tutup', 'Close'], ['Tugasan', 'Assignment'], ['Tugasan guru', 'Teacher assignment'], ['Tugasan Kelas', 'Class Assignments'], ['Tugaskan Pelajaran', 'Assign Lesson'], ['Ulang kaji selesai', 'Review completed'], ['Urus Pengguna', 'Manage Users'], ['Utama', 'Home'], ['%s anak didaftarkan', '%s children linked'], ['+ Cipta kelas baharu', '+ Create new class'], ['+ Pos baharu', '+ New post']]);
+const STATIC_TRANSLATIONS = new Map([['API tidak dapat dicapai — mod demo diaktifkan.', 'API unreachable — demo mode enabled.'], ['API_OFFLINE', 'API unreachable — demo mode enabled.'], ['Log Masuk SSO', 'SSO Sign In'], ['Log masuk SSO', 'SSO Sign In'], ['Log masuk SSO gagal.', 'SSO sign-in failed.'], ['Lagi', 'More'], ['Navigasi Tambahan', 'More Options'], ['Menu navigasi lain', 'More navigation'], ['Akaun', 'Account'], ['Aktif', 'Active'], ['Aktifkan', 'Activate'], ['Amaran', 'Alerts'], ['Amaran & Notifikasi', 'Alerts & Notifications'], ['Anak', 'Children'], ['Anak berjaya dipaut.', 'Child linked successfully.'], ['Anak Dipaut', 'Linked Children'], ['Anda perlukan ID Tusyen pelajar atau e-mel akaun pelajar. Kod kelas guru tidak digunakan di sini.', 'You need the student Tusyen ID or student account email. Teacher class codes are not used here.'], ['Arus, voltan, rintangan', 'Current, voltage, resistance'], ['Atom dan molekul', 'Atoms and molecules'], ['Aktiviti sistem', 'System activity'], ['Bahasa', 'Language'], ['Batal', 'Cancel'], ['Belajar', 'Learn'], ['Belajar 7 hari berturut', 'Study 7 days in a row'], ['Belajar fleksibel', 'Flexible learning'], ['Belum ada pencapaian. Lengkapkan pelajaran pertama untuk membuka badge.', 'No achievements yet. Complete your first lesson to unlock a badge.'], ['Belum ada kelas', 'No classes yet'], ['Belum ada markah direkodkan.', 'No scores recorded yet.'], ['Belum ada pelajaran', 'No lessons yet'], ['Belum ada soalan', 'No questions yet'], ['Belum ada topik selesai', 'No completed topics yet'], ['Belum dipautkan', 'Not linked yet'], ['Belum disemak', 'Not checked yet'], ['Belum log masuk', 'Not logged in yet'], ['Buat kelas dahulu untuk boleh mulakan sesi kuiz langsung.', 'Create a class first before starting a live quiz session.'], ['Buka Panduan Tambah Anak', 'Open Add Child Guide'], ['Belum mula', 'Not started'], ['Benar / palsu', 'True / false'], ['Buang soalan', 'Remove question'], ['Buang soalan?', 'Remove question?'], ['Cipta Akaun', 'Create Account'], ['Cipta Kandungan', 'Create Content'], ['Cipta Kelas', 'Create Class'], ['Cipta kelas pertama anda', 'Create your first class'], ['Cipta Pelajaran Berpandu', 'Create Guided Lesson'], ['Cuba lagi', 'Retry'], ['Cerah', 'Light'], ['Capai 5,000 XP', 'Reach 5,000 XP'], ['Cari ibu bapa...', 'Search parents...'], ['Cari pelajar...', 'Search students...'], ['Dapatkan PIN daripada guru untuk masuk ke sesi langsung.', 'Get the PIN from your teacher to join the live session.'], ['Data anak belum dapat dimuat.', 'Child data could not be loaded yet.'], ['Dek baharu', 'New deck'], ['Dek kuiz', 'Quiz deck'], ['Dek Kuiz', 'Quiz Decks'], ['DEK KUIZ', 'QUIZ DECKS'], ['Detail Kelas', 'Class Detail'], ['Dijeda', 'Paused'], ['Dipautkan', 'Linked'], ['E-mel', 'Email'], ['Faktor dan graf', 'Factors and graphs'], ['Gelap', 'Dark'], ['Geometri', 'Geometry'], ['Guru', 'Teacher'], ['Halaju, pecutan, graf', 'Velocity, acceleration, graphs'], ['Hari aktif', 'Active days'], ['Hari Streak', 'Day Streak'], ['Ibu Bapa', 'Parent'], ['Identiti dan budaya', 'Identity and culture'], ['Ikut rekod semasa', 'Based on current records'], ['Interaksi organisma', 'Organism interactions'], ['Ion dan kovalen', 'Ionic and covalent'], ['Jawapan tidak dapat dihantar.', 'Answer could not be submitted.'], ['Jeda', 'Pause'], ['Jumlah Soalan', 'Total Questions'], ['Jumlah XP', 'Total XP'], ['JUMLAH SOALAN', 'TOTAL QUESTIONS'], ['KELAS', 'CLASSES'], ['Kawalan dalaman', 'Internal regulation'], ['Kandungan', 'Content'], ['Kata Laluan', 'Password'], ['Kembali ke dek', 'Back to decks'], ['Kelas', 'Classes'], ['Kelas baharu', 'New class'], ['Kelas Saya', 'My Classes'], ['Kelas tanpa nama', 'Untitled class'], ['Kemajuan', 'Progress'], ['Keputusan', 'Results'], ['Keputusan Kuiz', 'Quiz Results'], ['Ketepatan', 'Accuracy'], ['Ketepatan Setiap Soalan', 'Accuracy By Question'], ['Kimia', 'Chemistry'], ['Kod Kelas', 'Class Code'], ['Kod kelas guru tidak boleh digunakan. Masukkan ID Tusyen pelajar atau e-mel akaun pelajar.', 'Teacher class codes cannot be used. Enter the student Tusyen ID or student account email.'], ['Komponen kuiz tidak dapat dimuatkan.', 'Quiz component could not be loaded.'], ['Komen ini akan disembunyikan daripada perbincangan pos kelas.', 'This comment will be hidden from the class post discussion.'], ['Kumpulan dan kala', 'Groups and periods'], ['Kuiz ini telah tamat. Minta PIN sesi baharu daripada guru.', 'This quiz has ended. Ask your teacher for a new session PIN.'], ['Kuiz', 'Quiz'], ['Kuiz baharu', 'New Quiz'], ['Kuiz langsung', 'Live quiz'], ['Kelengkapan Profil', 'Profile Completion'], ['Kerja, kuasa, kecekapan', 'Work, power, efficiency'], ['Lobi', 'Lobby'], ['Log Keluar', 'Sign Out'], ['Log keluar', 'Sign out'], ['Log Masuk', 'Sign In'], ['Langkau ke kandungan utama', 'Skip to main content'], ['Latih topik lemah', 'Practice weak topics'], ['Lihat kelas', 'View class'], ['Lihat penguasaan', 'View mastery'], ['Lihat sebab dan cadangan', 'View reasons and suggestions'], ['Matematik', 'Mathematics'], ['Masa minggu ini', 'Time this week'], ['Masukkan ID Tusyen pelajar atau e-mel akaun pelajar.', 'Enter the student Tusyen ID or student account email.'], ['Masukkan PIN 6 digit daripada guru', 'Enter the 6-digit PIN from your teacher'], ['Memadam...', 'Deleting...'], ['Memeriksa sesi kuiz aktif...', 'Checking active quiz session...'], ['Memantau %s', 'Monitoring %s'], ['Memproses...', 'Processing...'], ['Memulakan...', 'Starting...'], ['Menunggu guru memulakan...', 'Waiting for the teacher to start...'], ['Menyambung ke sesi langsung...', 'Connecting to the live session...'], ['Menyertai...', 'Joining...'], ['Menyimpan...', 'Saving...'], ['Mengemas kini...', 'Updating...'], ['Mitosis dan meiosis', 'Mitosis and meiosis'], ['Mulakan', 'Start'], ['Mulakan Kuiz', 'Start Quiz'], ['Mula topik semasa', 'Start current topic'], ['Nama Penuh', 'Full Name'], ['Nama panggilan', 'Nickname'], ['Nama panggilan diperlukan.', 'Nickname is required.'], ['Navigasi admin', 'Admin navigation'], ['Navigasi bawah', 'Bottom navigation'], ['Navigasi guru', 'Teacher navigation'], ['Nombor', 'Numbers'], ['Notifikasi', 'Notifications'], ['Nyahaktifkan', 'Deactivate'], ['Nyahaktifkan kelas', 'Deactivate class'], ['Nyahaktifkan Pautan', 'Deactivate Link'], ['Nyahaktifkan pautan', 'Deactivate link'], ['Nyahaktifkan pautan keluarga?', 'Deactivate family link?'], ['Papan Putih', 'Whiteboard'], ['Papan Skor Langsung', 'Live Scoreboard'], ['Pangkalan Data', 'Database'], ['Padam dek', 'Delete deck'], ['Padam dek kuiz?', 'Delete quiz deck?'], ['Padam komen', 'Delete comment'], ['Padam pos', 'Delete post'], ['Paparan PIN', 'PIN Display'], ['PELAJAR', 'STUDENTS'], ['Pelajar', 'Student'], ['Pelajar Berisiko', 'At-Risk Students'], ['Pelajaran dicadang', 'Suggested lesson'], ['Pelajaran', 'Lessons'], ['Pemantauan', 'Monitoring'], ['Pembangunan negara', 'National development'], ['Pemasa kuiz langsung', 'Live quiz timer'], ['Pengguna', 'Users'], ['Pengurusan alam sekitar', 'Environmental management'], ['Peranan', 'Role'], ['Peristiwa utama', 'Key events'], ['Perlembagaan dan sistem', 'Constitution and system'], ['Perbincangan', 'Discussion'], ['Peserta', 'Participants'], ['Peserta Teratas', 'Top Participants'], ['pH dan peneutralan', 'pH and neutralization'], ['PIN mesti 6 digit.', 'PIN must be 6 digits.'], ['PIN tidak sah. Semak 6 digit daripada guru dan cuba lagi.', 'Invalid PIN. Check the 6 digits from your teacher and try again.'], ['Pautan ditambah.', 'Link added.'], ['Pautan dinyahaktifkan.', 'Link deactivated.'], ['Pautan Ibu Bapa-Pelajar', 'Parent-Student Links'], ['Pautan Ibu Bapa–Pelajar', 'Parent-Student Links'], ['Pautkan anak untuk mula memantau.', 'Link a child to start monitoring.'], ['Pilih anak', 'Select child'], ['Pilih bahasa', 'Choose language'], ['Pilih Kelas', 'Select Class'], ['Pilih kelas dahulu.', 'Select a class first.'], ['Pilih ibu bapa dan pelajar.', 'Select a parent and student.'], ['Pilih subjek', 'Choose subject'], ['Pilih tema warna', 'Choose color theme'], ['Pilih topik semasa', 'Choose current topic'], ['Pilihan jawapan', 'Multiple choice'], ['Pos', 'Posts'], ['Pos baharu', 'New post'], ['Pos Kelas', 'Class Posts'], ['Pos daripada kelas anak akan muncul di sini.', 'Posts from the child classes will appear here.'], ['Profil', 'Profile'], ['Profil Guru', 'Teacher Profile'], ['Pewarisan sifat', 'Inherited traits'], ['Pratonton Pelajaran', 'Lesson Preview'], ['Privasi: pautan ibu bapa hanya memaparkan kemajuan, kelas, dan pos berkaitan anak. Pastikan anak bersetuju sebelum memaut akaun.', 'Privacy: parent links only show progress, classes, and posts related to the child. Make sure the child agrees before linking the account.'], ['Purata Siap', 'Average Completion'], ['Purata skor', 'Average score'], ['Ringkasan Kuiz Saya', 'My Quiz Summary'], ['Ringkasan ibu bapa', 'Parent summary'], ['Sains', 'Science'], ['Salin', 'Copy'], ['Salin dek', 'Copy deck'], ['Sambung', 'Resume'], ['Saiz storan belum dimuat.', 'Storage size has not loaded.'], ['Sedang berjalan', 'In progress'], ['Sejarah', 'History'], ['Sejarah Pelajaran', 'Lesson History'], ['Selesai', 'Done'], ['Selesai semua Algebra', 'Complete all Algebra'], ['Sertai Kuiz', 'Join Quiz'], ['Sertai Kuiz dengan PIN', 'Join Quiz With PIN'], ['Sertai Sekarang', 'Join Now'], ['Sesi Terkini', 'Recent Sessions'], ['Sahkan', 'Confirm'], ['Sahkan persetujuan anak sebelum memaut akaun.', 'Confirm the child consent before linking the account.'], ['Sila tunggu...', 'Please wait...'], ['Simpan', 'Save'], ['Simpan dek', 'Save deck'], ['Simpan draf', 'Save draft'], ['Simpan Perubahan', 'Save Changes'], ['Simpan Profil', 'Save Profile'], ['Sistem', 'System'], ['Skala dan arah', 'Scale and direction'], ['Skor 100% dalam ujian', 'Score 100% in a quiz'], ['Soalan', 'Questions'], ['Soalan Latihan', 'Practice Questions'], ['Soalan Seterusnya', 'Next Question'], ['Status belum dimuat.', 'Status has not loaded.'], ['Statistik', 'Statistics'], ['Storan', 'Storage'], ['Struktur dan fungsi', 'Structure and function'], ['Subjek', 'Subject'], ['SUBJEK', 'SUBJECTS'], ['Suapan & Pos', 'Feed & Posts'], ['Suapan Kelas', 'Class Feed'], ['Sunting', 'Edit'], ['Sunting dek', 'Edit deck'], ['Sunting profil', 'Edit profile'], ['Tajuk dek', 'Deck title'], ['Tajuk Pelajaran', 'Lesson Title'], ['Tajuk wajib diisi.', 'Deck title is required.'], ['Tambah sekurang-kurangnya satu soalan lengkap.', 'Add at least one complete question.'], ['Tambah Anak', 'Add Child'], ['Tambah Pautan', 'Add Link'], ['Tambah Pautan Baharu', 'Add New Link'], ['Tambah Pengguna', 'Add User'], ['Tambah Soalan', 'Add Question'], ['Tandai untuk tindak lanjut', 'Flag for follow-up'], ['Tamat', 'Ended'], ['Tamatkan', 'End'], ['Tanah tinggi dan saliran', 'Highlands and drainage'], ['Tanpa tajuk', 'Untitled'], ['Teks soalan...', 'Question text...'], ['Tiada mesej dihantar; tindakan ini hanya menyimpan tanda tindak lanjut.', 'No message is sent; this only saves a follow-up flag.'], ['Tetapkan ke Kelas', 'Assign to Class'], ['Tema', 'Theme'], ['Tetapan', 'Settings'], ['Tetapan Akaun', 'Account Settings'], ['Tetapan Ibu Bapa', 'Parent Settings'], ['Tetapan Kelas', 'Class Settings'], ['Tingkatan', 'Form'], ['Tindakan lanjut', 'More actions'], ['Tindakan lanjut soalan', 'More question actions'], ['Tindak lanjut disimpan pada peranti ini. Gunakan saluran rasmi kelas atau sekolah jika soalan perlu dihantar.', 'Follow-up saved on this device. Use official class or school channels if a question must be sent.'], ['Tokoh dan gerakan', 'Figures and movements'], ['Topik pembelajaran', 'Learning topic'], ['Tidak dapat memulakan kuiz.', 'Could not start the quiz.'], ['Tidak dapat menamatkan kuiz.', 'Could not end the quiz.'], ['Tidak dapat mengemas kini pemasa.', 'Could not update the timer.'], ['Tidak dapat pergi ke soalan seterusnya.', 'Could not move to the next question.'], ['Tidak dapat memaut anak.', 'Unable to link child.'], ['Tidak dapat membuang pautan anak.', 'Unable to remove child link.'], ['Tidak dapat memuat anak terpaut.', 'Unable to load linked child.'], ['Tidak dapat memuat kemajuan.', 'Unable to load progress.'], ['Tidak dapat memuat pos.', 'Unable to load posts.'], ['Tidak dapat menukar kata laluan.', 'Unable to change password.'], ['Tidak aktif', 'Inactive'], ['Tiada dek lagi. Cipta dek pertama anda.', 'No decks yet. Create your first deck.'], ['Tiada data', 'No data'], ['Tiada e-mel', 'No email'], ['Tiada e-mel ibu bapa', 'No parent email'], ['Tiada e-mel pelajar', 'No student email'], ['Tiada ibu bapa ditemui', 'No parents found'], ['Tiada pelajar ditemui', 'No students found'], ['Tiada amaran aktif', 'No active alerts'], ['Tiada ulasan lagi.', 'No comments yet.'], ['Tutup', 'Close'], ['Tugasan', 'Assignment'], ['Tugasan guru', 'Teacher assignment'], ['Tugasan Kelas', 'Class Assignments'], ['Tugaskan Pelajaran', 'Assign Lesson'], ['Ulang kaji selesai', 'Review completed'], ['Urus Pengguna', 'Manage Users'], ['Utama', 'Home'], ['%s anak didaftarkan', '%s children linked'], ['+ Cipta kelas baharu', '+ Create new class'], ['+ Pos baharu', '+ New post']]);
 const STATIC_TRANSLATION_PATTERNS = [[/^\+ Tambah Soalan$/, '+ Add Question'], [/^(\d+) soalan$/, '$1 questions'], [/^(\d+) soalan - (.+)$/, '$1 questions - $2'], [/^(\d+) peserta dalam lobi$/, '$1 participants in lobby'], [/^(\d+) peserta$/, '$1 participants'], [/^(\d+) sesi - (.+) XP diperoleh$/, '$1 sessions - $2 XP earned'], [/^(\d+)\/(\d+) betul$/, '$1/$2 correct'], [/^(.+)\sPelajar$/, '$1 Student'], [/^(.+)\sGuru$/, '$1 Teacher'], [/^(.+)\sIbu Bapa$/, '$1 Parent'], [/^Tindakan lanjut untuk (.+)$/, 'More actions for $1'], [/^Form (\d+)$/, 'Form $1'], [/^Pilihan ([A-Z])$/, 'Option $1'], [/^PIN Kuiz \(6 digit\)$/, 'Quiz PIN (6 digits)'], [/^Soalan (\d+)$/, 'Question $1'], [/^Tingkatan (\d+)$/, 'Form $1'], [/^Dek "(.+)" akan dibuang daripada senarai guru\.$/, 'Deck "$1" will be removed from the teacher list.'], [/^Soalan (\d+) akan dikeluarkan daripada draf dek ini\.$/, 'Question $1 will be removed from this deck draft.']];
 const TRANSLATED_TEXT_NODES = new WeakMap();
 const TRANSLATED_ATTRS = new WeakMap();
@@ -1726,7 +1781,7 @@ const StatPill = ({
   }
 }, value)), label && /*#__PURE__*/React.createElement("div", {
   style: {
-    fontSize: 10,
+    fontSize: 11,
     color: C.textMuted,
     fontWeight: 800,
     lineHeight: 1.05
@@ -1948,138 +2003,202 @@ const NotifBell = ({
   }
 }, count > 9 ? '9+' : count));
 const NotifPanel = ({
-  notifs,
+  notifs = [],
   onClose
-}) => /*#__PURE__*/React.createElement("div", {
-  onClick: onClose,
-  style: {
-    position: 'fixed',
-    inset: 0,
-    zIndex: 400,
-    background: 'rgba(2,6,23,.55)',
-    display: 'flex',
-    alignItems: 'flex-end'
-  }
-}, /*#__PURE__*/React.createElement("div", {
-  className: "tv2-sheetup",
-  onClick: e => e.stopPropagation(),
-  style: {
-    width: '100%',
-    maxHeight: '82%',
-    minHeight: '42%',
-    background: C.bg,
-    display: 'flex',
-    flexDirection: 'column',
-    overflow: 'hidden',
-    borderRadius: '22px 22px 0 0',
-    border: `1px solid ${C.border}`,
-    boxShadow: '0 -18px 44px rgba(0,0,0,.28)'
-  }
-}, /*#__PURE__*/React.createElement("div", {
-  style: {
-    width: 42,
-    height: 4,
-    borderRadius: 999,
-    background: C.borderB,
-    margin: '10px auto 0',
-    flexShrink: 0
-  }
-}), /*#__PURE__*/React.createElement("div", {
-  style: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '12px 18px 14px',
-    borderBottom: `1px solid ${C.border}`,
-    background: C.surface,
-    flexShrink: 0
-  }
-}, /*#__PURE__*/React.createElement("div", {
-  style: {
-    fontWeight: 700,
-    fontSize: 16,
-    color: C.text
-  }
-}, "Notifikasi"), /*#__PURE__*/React.createElement("button", {
-  onClick: onClose,
-  style: {
-    background: C.accDim,
-    border: `1px solid ${C.border}`,
-    borderRadius: 8,
-    padding: '5px 14px',
-    color: C.textMuted,
-    cursor: 'pointer',
-    fontSize: 12,
-    fontWeight: 700,
-    fontFamily: 'Nunito'
-  }
-}, "Tutup")), /*#__PURE__*/React.createElement("div", {
-  style: {
-    flex: 1,
-    overflowY: 'auto',
-    padding: '12px 16px 18px',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 8
-  }
-}, notifs.length === 0 ? /*#__PURE__*/React.createElement("div", {
-  style: {
-    background: C.card,
-    border: `1px solid ${C.border}`,
-    borderRadius: 14,
-    padding: '18px 14px',
-    textAlign: 'center',
-    color: C.textMuted,
-    fontSize: 12,
-    fontWeight: 600,
-    lineHeight: 1.45
-  }
-}, "Tiada notifikasi baharu buat masa ini.") : notifs.map((n, i) => /*#__PURE__*/React.createElement("div", {
-  key: i,
-  className: "tv2-pop",
-  style: {
-    background: n.unread ? C.accDim : C.card,
-    border: `1px solid ${n.unread ? C.borderB : C.border}`,
-    borderRadius: 14,
-    padding: '11px 12px',
-    display: 'flex',
-    gap: 10,
-    alignItems: 'flex-start',
-    animationDelay: `${i * 0.05}s`
-  }
-}, /*#__PURE__*/React.createElement("span", {
-  style: {
-    fontSize: 20,
-    flexShrink: 0,
-    marginTop: 1
-  }
-}, n.icon), /*#__PURE__*/React.createElement("div", {
-  style: {
-    flex: 1
-  }
-}, /*#__PURE__*/React.createElement("div", {
-  style: {
-    fontWeight: 700,
-    fontSize: 13,
-    color: C.text,
-    lineHeight: 1.35
-  }
-}, n.msg), /*#__PURE__*/React.createElement("div", {
-  style: {
-    fontSize: 10,
-    color: C.textFaint,
-    marginTop: 3
-  }
-}, n.time)), n.unread && /*#__PURE__*/React.createElement("div", {
-  style: {
-    width: 7,
-    height: 7,
-    borderRadius: '50%',
-    background: C.acc,
-    flexShrink: 0,
-    marginTop: 5
-  }
-}))))));
+}) => {
+  const panelRef = React.useRef(null);
+  const closeBtnRef = React.useRef(null);
+  const restoreFocusRef = React.useRef(null);
+
+  // Scroll lock & restore focus
+  React.useEffect(() => {
+    const active = document.activeElement;
+    restoreFocusRef.current = active && active !== document.body ? active : null;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const timer = window.setTimeout(() => {
+      closeBtnRef.current?.focus?.({
+        preventScroll: true
+      });
+    }, 0);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.clearTimeout(timer);
+      const target = restoreFocusRef.current;
+      restoreFocusRef.current = null;
+      if (target && document.contains(target)) {
+        target.focus?.({
+          preventScroll: true
+        });
+      }
+    };
+  }, []);
+
+  // Escape key & Focus trap
+  React.useEffect(() => {
+    const onKeyDown = event => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        onClose?.();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = panelRef.current?.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
+      if (!focusable?.length) {
+        event.preventDefault();
+        return;
+      }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [onClose]);
+  return /*#__PURE__*/React.createElement("div", {
+    onClick: onClose,
+    style: {
+      position: 'fixed',
+      inset: 0,
+      zIndex: 400,
+      background: 'rgba(2,6,23,.55)',
+      display: 'flex',
+      alignItems: 'flex-end'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    ref: panelRef,
+    role: "dialog",
+    "aria-modal": "true",
+    "aria-label": "Notifikasi",
+    className: "tv2-sheetup",
+    onClick: e => e.stopPropagation(),
+    style: {
+      width: '100%',
+      maxHeight: '82%',
+      minHeight: '42%',
+      background: C.bg,
+      display: 'flex',
+      flexDirection: 'column',
+      overflow: 'hidden',
+      borderRadius: '22px 22px 0 0',
+      border: `1px solid ${C.border}`,
+      boxShadow: '0 -18px 44px rgba(0,0,0,.28)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 42,
+      height: 4,
+      borderRadius: 999,
+      background: C.borderB,
+      margin: '10px auto 0',
+      flexShrink: 0
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      padding: '12px 18px 14px',
+      borderBottom: `1px solid ${C.border}`,
+      background: C.surface,
+      flexShrink: 0
+    }
+  }, /*#__PURE__*/React.createElement("h2", {
+    style: {
+      fontWeight: 700,
+      fontSize: 16,
+      color: C.text,
+      margin: 0
+    }
+  }, "Notifikasi"), /*#__PURE__*/React.createElement("button", {
+    ref: closeBtnRef,
+    onClick: onClose,
+    "aria-label": "Tutup notifikasi",
+    style: {
+      background: C.accDim,
+      border: `1px solid ${C.border}`,
+      borderRadius: 8,
+      padding: '5px 14px',
+      color: C.textMuted,
+      cursor: 'pointer',
+      fontSize: 12,
+      fontWeight: 700,
+      fontFamily: 'Nunito'
+    }
+  }, "Tutup")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      overflowY: 'auto',
+      padding: '12px 16px 18px',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 8
+    }
+  }, notifs.length === 0 ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: C.card,
+      border: `1px solid ${C.border}`,
+      borderRadius: 14,
+      padding: '18px 14px',
+      textAlign: 'center',
+      color: C.textMuted,
+      fontSize: 12,
+      fontWeight: 600,
+      lineHeight: 1.45
+    }
+  }, "Tiada notifikasi baharu buat masa ini.") : notifs.map((n, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    className: "tv2-pop",
+    style: {
+      background: n.unread ? C.accDim : C.card,
+      border: `1px solid ${n.unread ? C.borderB : C.border}`,
+      borderRadius: 14,
+      padding: '11px 12px',
+      display: 'flex',
+      gap: 10,
+      alignItems: 'flex-start',
+      animationDelay: `${i * 0.05}s`
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 20,
+      flexShrink: 0,
+      marginTop: 1
+    }
+  }, n.icon), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      fontSize: 13,
+      color: C.text,
+      lineHeight: 1.35
+    }
+  }, n.msg), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: C.textFaint,
+      marginTop: 3
+    }
+  }, n.time)), n.unread && /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 7,
+      height: 7,
+      borderRadius: '50%',
+      background: C.acc,
+      flexShrink: 0,
+      marginTop: 5
+    }
+  }))))));
+};
 const EmptyState = ({
   icon,
   title,
@@ -3169,7 +3288,7 @@ const AppSidebar = ({
     }, visibleLabel), item.en && language === 'ms' && /*#__PURE__*/React.createElement("div", {
       lang: "en",
       style: {
-        fontSize: 10,
+        fontSize: 11,
         fontWeight: 600,
         color: on ? C.accPale : C.textFaint,
         lineHeight: 1
@@ -3219,7 +3338,7 @@ const AppSidebar = ({
     "aria-hidden": "true"
   }, "\uD83D\uDD25"), " ", streak), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 9,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600,
       textTransform: 'uppercase',
@@ -3245,7 +3364,7 @@ const AppSidebar = ({
     "aria-hidden": "true"
   }, "\u26A1"), " ", xp >= 1000 ? `${(xp / 1000).toFixed(1)}k` : xp), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 9,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600,
       textTransform: 'uppercase',
@@ -3336,7 +3455,7 @@ const TopBarMobile = ({
   lang: "en",
   style: {
     fontWeight: 500,
-    fontSize: 10,
+    fontSize: 11,
     color: C.textMuted,
     textAlign: 'center',
     marginTop: 1
@@ -3416,12 +3535,63 @@ const BottomNavMobile = ({
       lang: language,
       className: "bottom-nav-label",
       style: {
-        fontSize: 10,
+        fontSize: 11,
         fontWeight: 600,
         lineHeight: 1
       }
     }, visibleLabel));
   })));
+};
+const parseHashNav = () => {
+  const hash = (typeof window !== 'undefined' ? window.location.hash || '' : '').replace(/^#\/?/, '');
+  if (!hash) return null;
+  const parts = hash.split('/').filter(Boolean);
+  if (!parts.length) return null;
+  return {
+    role: parts[0]?.toLowerCase() || '',
+    screen: parts[1]?.toLowerCase() || ''
+  };
+};
+const getInitialHashScreen = (role, defaultScreen = 'home', aliases = {}) => {
+  const parsed = parseHashNav();
+  if (!parsed || parsed.role !== role) return defaultScreen;
+  const rawScreen = parsed.screen || defaultScreen;
+  return aliases[rawScreen] || rawScreen;
+};
+const updateHashRoute = (role, screen, alias = null) => {
+  if (typeof window === 'undefined') return;
+  const targetScreen = alias || screen;
+  const newHash = targetScreen ? `#/${role}/${targetScreen}` : `#/${role}`;
+  if (window.location.hash !== newHash) {
+    window.history.replaceState(window.history.state, '', newHash);
+  }
+};
+const useHashNavigation = (role, defaultScreen = 'home', validScreens = [], options = {}) => {
+  const aliases = options.aliases || {};
+  const reverseAliases = options.reverseAliases || {};
+  const [screen, setScreen] = React.useState(() => {
+    const fromHash = getInitialHashScreen(role, defaultScreen, aliases);
+    return validScreens.length ? validScreens.includes(fromHash) ? fromHash : defaultScreen : fromHash;
+  });
+  React.useEffect(() => {
+    const hashScreen = reverseAliases[screen] || screen;
+    updateHashRoute(role, hashScreen);
+  }, [screen, role]);
+  React.useEffect(() => {
+    const onHashChange = () => {
+      const parsed = parseHashNav();
+      if (parsed && parsed.role === role) {
+        const rawScreen = parsed.screen || defaultScreen;
+        const nextScreen = aliases[rawScreen] || rawScreen;
+        if (!validScreens.length || validScreens.includes(nextScreen)) {
+          setScreen(nextScreen);
+        }
+      }
+    };
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, [role, defaultScreen]);
+  return [screen, setScreen];
 };
 Object.assign(window, {
   C,
@@ -3465,7 +3635,11 @@ Object.assign(window, {
   isVideoEmbedUrl,
   cleanUiText,
   cleanUiName,
-  cleanUiTitle
+  cleanUiTitle,
+  parseHashNav,
+  getInitialHashScreen,
+  updateHashRoute,
+  useHashNavigation
 });
 }());
 // END components/shared.jsx
@@ -4640,7 +4814,7 @@ function ResultsScreen({
     }
   }, item.value), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       fontWeight: 900,
       color: 'var(--c-text3)',
       textTransform: 'uppercase'
@@ -7190,7 +7364,7 @@ const StudentAttachmentPreview = ({
     }, label), /*#__PURE__*/React.createElement("span", {
       style: {
         display: 'block',
-        fontSize: 10,
+        fontSize: 11,
         fontWeight: 800,
         color: C.textFaint,
         marginTop: 2
@@ -9169,7 +9343,7 @@ const SLessonResult = ({
     }
   }, st.value), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 600,
       textTransform: 'uppercase',
@@ -9200,7 +9374,7 @@ const SLessonResult = ({
     style: {
       flexBasis: '100%',
       textAlign: 'center',
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700
     }
@@ -10581,7 +10755,7 @@ const SHome = ({
     }, s.name), /*#__PURE__*/React.createElement("div", {
       className: "student-clamp-2",
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 600,
         lineHeight: 1.2
@@ -11274,7 +11448,7 @@ const SLearn = ({
       height: 6
     }), /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 800,
         marginTop: 5
@@ -12006,7 +12180,7 @@ const SClassrooms = ({
       }
     }, /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 800,
         textTransform: 'uppercase',
@@ -12062,7 +12236,7 @@ const SClassrooms = ({
       }
     }, /*#__PURE__*/React.createElement("span", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 700
       }
@@ -12477,7 +12651,7 @@ const SFeed = ({
         color: typeInfo.color,
         borderRadius: 20,
         padding: '2px 8px',
-        fontSize: 10,
+        fontSize: 11,
         fontWeight: 800
       }
     }, typeInfo.icon, " ", typeInfo.label), post.is_pinned && /*#__PURE__*/React.createElement("span", {
@@ -12518,7 +12692,7 @@ const SFeed = ({
       compact: true
     }), /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 600,
         marginBottom: 10
@@ -13063,7 +13237,7 @@ const SProfile = ({
     }, badgeName), /*#__PURE__*/React.createElement("div", {
       title: badgeDesc,
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textMuted,
         fontWeight: 600,
         lineHeight: 1.3,
@@ -13425,7 +13599,7 @@ const SProgress = () => {
     }
   }, cell.value), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 700,
       textTransform: 'uppercase',
@@ -13478,7 +13652,7 @@ const SProgress = () => {
   }, band.label), /*#__PURE__*/React.createElement("div", {
     style: {
       color: C.textFaint,
-      fontSize: 10,
+      fontSize: 11,
       fontWeight: 800,
       marginTop: 2
     }
@@ -13558,7 +13732,7 @@ const SProgress = () => {
       }
     }, band.label), /*#__PURE__*/React.createElement("span", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         fontWeight: 700,
         color: C.textFaint,
         background: C.surface,
@@ -13571,7 +13745,7 @@ const SProgress = () => {
       height: 6
     }), /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 700,
         marginTop: 4
@@ -13668,7 +13842,7 @@ const SProgress = () => {
       }
     }, score, "%"), /*#__PURE__*/React.createElement("span", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         fontWeight: 800,
         color: isDone ? C.green : C.gold,
         background: isDone ? 'rgba(34,197,94,.10)' : 'rgba(245,158,11,.10)',
@@ -13678,7 +13852,7 @@ const SProgress = () => {
       }
     }, isDone ? 'Selesai' : 'Dalam Proses'), row.updated_at && /*#__PURE__*/React.createElement("span", {
       style: {
-        fontSize: 9,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 600
       }
@@ -13866,7 +14040,7 @@ const TeacherProfileModal = ({
     }
   }, s.v), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 700,
       marginTop: 4,
@@ -13903,13 +14077,180 @@ const TeacherProfileModal = ({
   }, p.credentials)))));
 };
 window.TeacherProfileModal = TeacherProfileModal;
-
-// ─── StudentApp ───────────────────────────────────────────────────────────────
+const StudentMoreSheet = ({
+  items,
+  active,
+  onSelect,
+  onClose
+}) => {
+  const panelRef = React.useRef(null);
+  const closeBtnRef = React.useRef(null);
+  const restoreFocusRef = React.useRef(null);
+  const {
+    language,
+    t
+  } = useLanguage();
+  React.useEffect(() => {
+    const activeEl = document.activeElement;
+    restoreFocusRef.current = activeEl && activeEl !== document.body ? activeEl : null;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const timer = window.setTimeout(() => {
+      closeBtnRef.current?.focus?.({
+        preventScroll: true
+      });
+    }, 0);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.clearTimeout(timer);
+      const target = restoreFocusRef.current;
+      restoreFocusRef.current = null;
+      if (target && document.contains(target)) {
+        target.focus?.({
+          preventScroll: true
+        });
+      }
+    };
+  }, []);
+  React.useEffect(() => {
+    const onKeyDown = event => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        onClose?.();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = panelRef.current?.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
+      if (!focusable?.length) {
+        event.preventDefault();
+        return;
+      }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [onClose]);
+  return /*#__PURE__*/React.createElement("div", {
+    onClick: onClose,
+    style: {
+      position: 'fixed',
+      inset: 0,
+      zIndex: 450,
+      background: 'rgba(2,6,23,.55)',
+      display: 'flex',
+      alignItems: 'flex-end'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    ref: panelRef,
+    role: "dialog",
+    "aria-modal": "true",
+    "aria-label": t('Menu navigasi lain', 'More navigation'),
+    className: "tv2-sheetup",
+    onClick: e => e.stopPropagation(),
+    style: {
+      width: '100%',
+      maxHeight: '60%',
+      background: C.bg,
+      display: 'flex',
+      flexDirection: 'column',
+      overflow: 'hidden',
+      borderRadius: '22px 22px 0 0',
+      border: `1px solid ${C.border}`,
+      boxShadow: '0 -18px 44px rgba(0,0,0,.28)',
+      paddingBottom: 24
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 42,
+      height: 4,
+      borderRadius: 999,
+      background: C.borderB,
+      margin: '10px auto 0',
+      flexShrink: 0
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      padding: '12px 18px 14px',
+      borderBottom: `1px solid ${C.border}`,
+      background: C.surface,
+      flexShrink: 0
+    }
+  }, /*#__PURE__*/React.createElement("h2", {
+    style: {
+      fontWeight: 700,
+      fontSize: 16,
+      color: C.text,
+      margin: 0
+    }
+  }, t('Navigasi Tambahan', 'More Options')), /*#__PURE__*/React.createElement("button", {
+    ref: closeBtnRef,
+    onClick: onClose,
+    "aria-label": t('Tutup', 'Close'),
+    style: {
+      background: C.accDim,
+      border: `1px solid ${C.border}`,
+      borderRadius: 8,
+      padding: '5px 14px',
+      color: C.textMuted,
+      cursor: 'pointer',
+      fontSize: 12,
+      fontWeight: 700,
+      fontFamily: 'Nunito'
+    }
+  }, t('Tutup', 'Close'))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: 10,
+      padding: '16px'
+    }
+  }, items.map(item => {
+    const on = active === item.id;
+    const labelText = languageText(item.label, item.en, language);
+    return /*#__PURE__*/React.createElement("button", {
+      key: item.id,
+      onClick: () => {
+        onSelect(item.id);
+        onClose();
+      },
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 10,
+        padding: '14px 16px',
+        borderRadius: 14,
+        background: on ? C.accDim : C.card,
+        border: `1px solid ${on ? C.borderB : C.border}`,
+        color: on ? C.accHi : C.text,
+        cursor: 'pointer',
+        fontFamily: 'Nunito',
+        fontSize: 13,
+        fontWeight: 700,
+        textAlign: 'left'
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 22
+      }
+    }, item.icon), /*#__PURE__*/React.createElement("span", null, labelText));
+  }))));
+};
 const StudentApp = ({
   sidebarExtraTop,
   sidebarExtraBottom
 }) => {
-  const [screen, setScreen] = React.useState('home');
+  const [screen, setScreen] = (window.useHashNavigation || useHashNavigation)('student', 'home', ['home', 'learn', 'classrooms', 'posts', 'progress', 'lesson', 'quiz', 'whiteboard', 'profile']);
   const [showNotif, setShowNotif] = React.useState(false);
   const [selectedLesson, setSelectedLesson] = React.useState(null);
   const [activeSubject, setActiveSubject] = React.useState('math');
@@ -14072,11 +14413,46 @@ const StudentApp = ({
     whiteboard: 'Whiteboard',
     profile: 'Profile'
   };
+  const [showMoreSheet, setShowMoreSheet] = React.useState(false);
+  const moreNavItems = [{
+    id: 'posts',
+    icon: '📢',
+    label: 'Pos',
+    en: 'Posts'
+  }, {
+    id: 'quiz',
+    icon: '🎮',
+    label: 'Kuiz',
+    en: 'Quiz'
+  }, {
+    id: 'whiteboard',
+    icon: '🖌️',
+    label: 'Papan Putih',
+    en: 'Whiteboard'
+  }, {
+    id: 'profile',
+    icon: '👤',
+    label: 'Profil',
+    en: 'Profile'
+  }];
+  const isMoreActive = moreNavItems.some(item => item.id === screen);
   const localizedNav = nav.map(item => ({
     ...item,
     en: navEnglish[item.id] || item.en
   }));
-  const mobileNav = localizedNav.filter(item => item.id !== 'lesson' && item.id !== 'profile');
+  const mobileNav = [localizedNav.find(item => item.id === 'home'), localizedNav.find(item => item.id === 'learn'), localizedNav.find(item => item.id === 'classrooms'), localizedNav.find(item => item.id === 'progress'), {
+    id: 'more',
+    icon: '⋯',
+    label: 'Lagi',
+    en: 'More'
+  }].filter(Boolean);
+  const handleMobileNav = id => {
+    if (id === 'more') {
+      setShowMoreSheet(true);
+      return;
+    }
+    selectNav(id);
+  };
   const activeSubjectName = SUBJECTS.find(s => s.id === activeSubject)?.name || 'Belajar';
   const screenMeta = {
     home: {
@@ -14201,11 +14577,16 @@ const StudentApp = ({
     onClassJoined: classState.refresh
   })), /*#__PURE__*/React.createElement(BottomNavMobile, {
     items: mobileNav,
-    active: screen,
-    onNav: selectNav
+    active: isMoreActive ? 'more' : screen,
+    onNav: handleMobileNav
   })), showNotif && /*#__PURE__*/React.createElement(NotifPanel, {
     notifs: notifications,
     onClose: closeNotifications
+  }), showMoreSheet && /*#__PURE__*/React.createElement(StudentMoreSheet, {
+    items: moreNavItems,
+    active: screen,
+    onSelect: selectNav,
+    onClose: () => setShowMoreSheet(false)
   }), /*#__PURE__*/React.createElement(StudentConfirmModal, {
     open: Boolean(pendingNav),
     danger: true,
@@ -14894,7 +15275,7 @@ const PostCard = ({
     }
   }, pinned && /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.gold,
       fontWeight: 900,
       background: 'rgba(245,166,35,.15)',
@@ -14904,7 +15285,7 @@ const PostCard = ({
     }
   }, "Disemat"), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: meta.color,
       fontWeight: 900,
       background: meta.bg,
@@ -14914,7 +15295,7 @@ const PostCard = ({
     }
   }, meta.icon, " ", meta.label), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600
     }
@@ -15206,7 +15587,7 @@ const PostComposerModal = ({
       color: type === option.value ? C.accPale : C.textMuted,
       fontFamily: 'Nunito',
       fontWeight: 800,
-      fontSize: 10,
+      fontSize: 11,
       display: 'grid',
       gap: 2,
       alignContent: 'center',
@@ -15220,7 +15601,7 @@ const PostComposerModal = ({
     }
   }, option.label), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 9,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       lineHeight: 1.2
@@ -15554,7 +15935,7 @@ const TeacherField = ({
   style: {
     display: 'grid',
     gap: 4,
-    fontSize: 10,
+    fontSize: 11,
     color: C.textMuted,
     fontWeight: 600,
     textTransform: 'uppercase',
@@ -15621,7 +16002,7 @@ const TeacherBadge = ({
       color: palette.color,
       borderRadius: 999,
       padding: '2px 7px',
-      fontSize: 10,
+      fontSize: 11,
       fontWeight: 900,
       whiteSpace: 'nowrap',
       ...style
@@ -15649,7 +16030,7 @@ const TeacherSmallButton = ({
     color: danger ? C.red : success ? C.green : C.accPale,
     fontFamily: 'Nunito',
     fontWeight: 900,
-    fontSize: 10,
+    fontSize: 11,
     cursor: disabled ? 'not-allowed' : 'pointer',
     opacity: disabled ? .55 : 1,
     whiteSpace: 'nowrap',
@@ -16109,7 +16490,7 @@ const TeacherChecklistPanel = ({
       background: item.done ? 'rgba(34,197,94,.14)' : item.required === false ? C.surface : 'rgba(245,166,35,.16)',
       color: item.done ? C.green : item.required === false ? C.textMuted : C.gold,
       border: `1px solid ${item.done ? 'rgba(34,197,94,.32)' : item.required === false ? C.border : 'rgba(245,166,35,.32)'}`,
-      fontSize: 10,
+      fontSize: 11,
       fontWeight: 900
     }
   }, item.done ? 'OK' : item.required === false ? '-' : '!'), /*#__PURE__*/React.createElement("div", {
@@ -16125,7 +16506,7 @@ const TeacherChecklistPanel = ({
     }
   }, item.label), item.detail && /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       lineHeight: 1.35
@@ -16809,7 +17190,7 @@ const TeacherLessonsScreen = ({
       color: difficulty === value ? C.accPale : C.textMuted,
       fontFamily: 'Nunito',
       fontWeight: 900,
-      fontSize: 10,
+      fontSize: 11,
       cursor: 'pointer',
       whiteSpace: 'nowrap'
     }
@@ -16872,7 +17253,7 @@ const TeacherLessonsScreen = ({
     }
   }, group.title), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 800
     }
@@ -16920,7 +17301,7 @@ const TeacherLessonsScreen = ({
       }
     }, displayTitle), /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 600,
         marginTop: 2
@@ -16934,7 +17315,7 @@ const TeacherLessonsScreen = ({
       }
     }, /*#__PURE__*/React.createElement("span", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         fontWeight: 900,
         color: LESSON_DIFF_COLOR[lesson.difficulty] || C.textMuted,
         background: `color-mix(in srgb,${LESSON_DIFF_COLOR[lesson.difficulty] || C.acc} 12%,transparent)`,
@@ -16944,13 +17325,13 @@ const TeacherLessonsScreen = ({
       }
     }, LESSON_DIFF_LABEL[lesson.difficulty] || lesson.difficulty), lesson.question_count > 0 && /*#__PURE__*/React.createElement("span", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         fontWeight: 600,
         color: C.textMuted
       }
     }, lesson.question_count, t('soalan', 'questions')), lesson.estimated_minutes && /*#__PURE__*/React.createElement("span", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         fontWeight: 600,
         color: C.textMuted
       }
@@ -18294,7 +18675,7 @@ const WhiteboardCanvas = ({
     }
   }, t('Papan Putih', 'Whiteboard')), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: connected ? C.green : C.red,
       fontWeight: 800
     }
@@ -18744,14 +19125,14 @@ const TeacherWhiteboardScreen = ({
     }
   }, teacherTitle(s.title, t('Sesi Papan Putih', 'Whiteboard Session'))), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600,
       marginTop: 2
     }
   }, formatDateShort(s.started_at), " - ", s.ended_at ? `Tamat ${window.timeAgo(s.ended_at)}` : t('Sedang berjalan', 'Running'), " - ", whiteboardParticipantCount(s), t('peserta', 'participants')), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 800,
       marginTop: 3
@@ -18792,7 +19173,7 @@ const TeacherWhiteboardScreen = ({
     }
   }, "Ringkasan")), !whiteboardHasEventReplay(s) && /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 700,
       lineHeight: 1.35,
@@ -19398,7 +19779,7 @@ const TeacherClass = ({
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 9,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 900,
       textTransform: 'uppercase'
@@ -19474,7 +19855,7 @@ const TeacherClass = ({
       fontFamily: 'Nunito,sans-serif',
       minWidth: 60,
       fontWeight: 800,
-      fontSize: 10,
+      fontSize: 11,
       textTransform: 'uppercase',
       letterSpacing: 0.3,
       color: tab === t ? C.accHi : C.textFaint,
@@ -19505,7 +19886,7 @@ const TeacherClass = ({
       color: studentFilter === value ? C.accPale : C.textMuted,
       fontFamily: 'Nunito',
       fontWeight: 900,
-      fontSize: 10,
+      fontSize: 11,
       cursor: 'pointer'
     }
   }, label))), /*#__PURE__*/React.createElement("div", {
@@ -19727,7 +20108,7 @@ const TeacherClass = ({
     style: {
       color: C.textMuted,
       fontWeight: 600,
-      fontSize: 9,
+      fontSize: 11,
       textTransform: 'uppercase'
     }
   }, item.l)))), /*#__PURE__*/React.createElement("div", {
@@ -19769,7 +20150,7 @@ const TeacherClass = ({
     }
   }, compactLessonTitle(p.lesson_title || p.title || '', t('Pelajaran', 'Lessons'))), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 600
     }
@@ -19802,7 +20183,7 @@ const TeacherClass = ({
     }
   }, "Prestasi Mingguan"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 600
     }
@@ -20045,7 +20426,7 @@ const TeacherClass = ({
         color: C.red,
         fontFamily: 'Nunito',
         fontWeight: 900,
-        fontSize: 10,
+        fontSize: 11,
         cursor: 'pointer',
         flexShrink: 0
       }
@@ -20094,7 +20475,7 @@ const TeacherClass = ({
   }, composer.label), composer.postType === 'assignment' && /*#__PURE__*/React.createElement("label", {
     style: {
       display: 'block',
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600,
       textTransform: 'uppercase',
@@ -20208,7 +20589,7 @@ const TeacherClass = ({
       border: `1px solid ${C.border}`,
       borderRadius: 8,
       padding: '2px 7px',
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600
     }
@@ -20256,7 +20637,7 @@ const TeacherClass = ({
     }
   }, teacherTitle(post.title, post.post_type === 'assignment' ? t('Tugasan', 'Assignment') : t('Pengumuman', 'Announcement'))), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600
     }
@@ -20517,7 +20898,7 @@ const TeacherHome = ({
     }
   }, s.v), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 600,
       textTransform: 'uppercase'
@@ -20884,7 +21265,7 @@ const TeacherHome = ({
       }
     }, /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 9,
+        fontSize: 11,
         color: C.textMuted,
         fontWeight: 900,
         textTransform: 'uppercase'
@@ -21280,7 +21661,7 @@ const TeacherProfile = ({
     }
   }, s.v), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 9,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 600,
       textTransform: 'uppercase'
@@ -21357,7 +21738,7 @@ const TeacherProfile = ({
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 900,
       textTransform: 'uppercase',
@@ -21431,7 +21812,7 @@ const TeacherProfile = ({
     }
   }), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 600,
       lineHeight: 1.35,
@@ -21564,7 +21945,7 @@ const TeacherProfile = ({
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600,
       textTransform: 'uppercase',
@@ -21619,7 +22000,7 @@ const TeacherProfile = ({
     }
   }, s.name), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 600
     }
@@ -21983,7 +22364,7 @@ const TeacherQuizScreen = ({
     }
   }, decks.length), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 700,
       textTransform: 'uppercase'
@@ -22001,7 +22382,7 @@ const TeacherQuizScreen = ({
     }
   }, totalQuestions), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 700,
       textTransform: 'uppercase'
@@ -22086,7 +22467,7 @@ const TeacherSidebarStats = ({
     }
   }, item.value), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 9,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       textTransform: 'uppercase',
@@ -22101,7 +22482,14 @@ const TeacherApp = ({
   const {
     t
   } = useLanguage();
-  const [screen, setScreen] = React.useState('home');
+  const [screen, setScreen] = (window.useHashNavigation || useHashNavigation)('teacher', 'home', ['home', 'class', 'posts', 'lessons', 'quiz', 'whiteboard', 'profile'], {
+    aliases: {
+      classes: 'home'
+    },
+    reverseAliases: {
+      home: 'classes'
+    }
+  });
   const [cls, setCls] = React.useState(null);
   const [classView, setClassView] = React.useState({
     tab: 'students',
@@ -22906,7 +23294,7 @@ const ChildSwitcher = ({
     }
   }, t('Pilih anak', 'Select child')), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700
     }
@@ -23068,7 +23456,7 @@ const TimelineList = ({
   }
 }, a.label), /*#__PURE__*/React.createElement("div", {
   style: {
-    fontSize: 10,
+    fontSize: 11,
     color: C.textFaint,
     marginTop: 2
   }
@@ -23416,7 +23804,7 @@ const GuidedAddChildModal = ({
     id: identifierHintId,
     style: {
       marginTop: 6,
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       lineHeight: 1.4
@@ -23562,7 +23950,7 @@ const parentChipStyle = (tone = 'neutral') => {
     padding: '2px 8px',
     color: palette.color,
     background: palette.bg,
-    fontSize: 10,
+    fontSize: 11,
     fontWeight: 900
   };
 };
@@ -24028,7 +24416,7 @@ const ParentHome = ({
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 900,
       textTransform: 'uppercase',
@@ -24219,13 +24607,13 @@ const ParentHome = ({
     }
   }, s.v), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 600
     }
   }, s.l), s.sub && /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 9,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600,
       marginTop: 1
@@ -24381,13 +24769,13 @@ const ParentHome = ({
       style: parentChipStyle(tone)
     }, alertSeverityLabel(alert.severity)), read && /*#__PURE__*/React.createElement("span", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textMuted,
         fontWeight: 900
       }
     }, "Dibaca"), followed && /*#__PURE__*/React.createElement("span", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textMuted,
         fontWeight: 900
       }
@@ -24400,7 +24788,7 @@ const ParentHome = ({
       }
     }, parentTitle(alert.title, 'Makluman'))), /*#__PURE__*/React.createElement("span", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 700,
         flexShrink: 0
@@ -24697,7 +25085,7 @@ const ParentProgress = ({
     }
   }, s.v), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 600,
       textTransform: 'uppercase'
@@ -24820,7 +25208,7 @@ const ParentProgress = ({
       position: 'absolute',
       right: 0,
       top: -8,
-      fontSize: 9,
+      fontSize: 11,
       fontWeight: 900,
       color: threshold.color,
       background: C.card,
@@ -24867,13 +25255,13 @@ const ParentProgress = ({
     })), /*#__PURE__*/React.createElement("div", {
       style: {
         minHeight: 14,
-        fontSize: 10,
+        fontSize: 11,
         color: score !== null ? C.text : C.textFaint,
         fontWeight: 900
       }
     }, score !== null ? `${score}%` : '-'), /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 700,
         lineHeight: 1.1,
@@ -25074,7 +25462,7 @@ const ParentAlerts = ({
     onRetry: childState.refresh
   })), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       lineHeight: 1.4,
@@ -25220,7 +25608,7 @@ const ParentAlerts = ({
       }
     }, parentTitle(alert.title, 'Makluman'))), /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 600,
         flexShrink: 0,
@@ -25545,7 +25933,7 @@ const ParentAlertsV2 = ({
     onRetry: childState.refresh
   })), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       lineHeight: 1.4,
@@ -25711,7 +26099,7 @@ const ParentAlertsV2 = ({
       }
     }, parentTitle(alert.title, 'Makluman'))), /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 700,
         flexShrink: 0
@@ -25786,7 +26174,7 @@ const ParentAlertsV2 = ({
       }
     }, /*#__PURE__*/React.createElement("strong", null, "Tindakan dicadang:"), " ", alertRecommendedAction(alert)), /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 700,
         lineHeight: 1.4
@@ -26007,7 +26395,7 @@ const PasswordField = ({
     id: helperId,
     style: {
       marginTop: 5,
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       lineHeight: 1.35
@@ -26078,13 +26466,13 @@ const PasswordStrengthMeter = ({
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: strength.color,
       fontWeight: 900
     }
   }, strength.label), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       textAlign: 'right'
@@ -26322,7 +26710,7 @@ const ParentSettings = ({
   })), /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 7,
-      fontSize: 10,
+      fontSize: 11,
       lineHeight: 1.4,
       color: C.textFaint,
       fontWeight: 700
@@ -26386,7 +26774,7 @@ const ParentSettings = ({
     }
   }, child.name), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600
     }
@@ -26956,7 +27344,7 @@ const ParentSettingsV2 = ({
   })), /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 8,
-      fontSize: 10,
+      fontSize: 11,
       lineHeight: 1.4,
       color: C.textFaint,
       fontWeight: 700
@@ -27081,7 +27469,7 @@ const ParentSettingsV2 = ({
     }
   }, child.name), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600
     }
@@ -27196,7 +27584,7 @@ const ParentSettingsV2 = ({
         marginTop: 3,
         color: C.textFaint,
         fontWeight: 700,
-        fontSize: 10,
+        fontSize: 11,
         lineHeight: 1.3
       }
     }, option.hint));
@@ -27724,7 +28112,7 @@ const ParentPostsPage = ({
       }
     }, /*#__PURE__*/React.createElement("span", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         fontWeight: 800,
         color: meta.color(),
         background: `color-mix(in srgb,${meta.color()} 14%,transparent)`,
@@ -27743,7 +28131,7 @@ const ParentPostsPage = ({
       }
     }), /*#__PURE__*/React.createElement("span", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 600
       }
@@ -27785,7 +28173,7 @@ const ParentPostsPage = ({
       }
     }), /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 700,
         lineHeight: 1.4,
@@ -27907,7 +28295,7 @@ const ParentPostsPage = ({
       }
     }, parentName(comment.author_name, t('Pengguna', 'User'))), /*#__PURE__*/React.createElement("span", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 600
       }
@@ -28325,7 +28713,7 @@ const ParentSidebarSummary = ({
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 900,
       textTransform: 'uppercase',
@@ -28396,7 +28784,7 @@ const ParentSidebarSummary = ({
 const ParentApp = ({
   sidebarExtraTop
 } = {}) => {
-  const [screen, setScreen] = React.useState('home');
+  const [screen, setScreen] = (window.useHashNavigation || useHashNavigation)('parent', 'home', ['home', 'children', 'progress', 'posts', 'alerts', 'settings']);
   const childState = useParentChildren();
   const childOptions = childState.data?.children || [];
   const [selectedId, setSelectedId] = React.useState(() => localStorage.getItem('tusyen_parent_selected_child') || '');
@@ -28883,7 +29271,7 @@ const Field = ({
   style: {
     display: 'grid',
     gap: 4,
-    fontSize: 10,
+    fontSize: 11,
     color: C.textMuted,
     fontWeight: 900,
     textTransform: 'uppercase',
@@ -28931,7 +29319,7 @@ const Badge = ({
       color: colors.color,
       borderRadius: 999,
       padding: '2px 7px',
-      fontSize: 10,
+      fontSize: 11,
       fontWeight: 900,
       whiteSpace: 'nowrap',
       ...style
@@ -28966,7 +29354,7 @@ const SmallButton = ({
     color: danger ? C.red : success ? C.green : C.accPale,
     fontFamily: 'Nunito',
     fontWeight: 900,
-    fontSize: 10,
+    fontSize: 11,
     cursor: disabled ? 'not-allowed' : 'pointer',
     opacity: disabled ? .55 : 1,
     whiteSpace: 'nowrap',
@@ -29354,7 +29742,7 @@ const AdminActionMenu = ({
       style: {
         color: C.textFaint,
         fontWeight: 700,
-        fontSize: 9,
+        fontSize: 11,
         lineHeight: 1.25
       }
     }, item.description));
@@ -29434,7 +29822,7 @@ const AdminCombobox = ({
     }
   }, selected.label), selected.description && /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 9,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       whiteSpace: 'nowrap',
@@ -29522,7 +29910,7 @@ const AdminCombobox = ({
     }
   }, option.label), option.description && /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 9,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       marginTop: 1,
@@ -29582,7 +29970,7 @@ const HealthStatusCard = ({
     }
   }, metric.label), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       marginTop: 2
@@ -29601,7 +29989,7 @@ const HealthStatusCard = ({
     tone: tone === 'bad' ? 'bad' : tone === 'good' ? 'good' : tone === 'warn' ? 'warn' : 'neutral'
   }, serviceHintLabel(metric.hint)), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 9,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       marginTop: 8,
@@ -29632,7 +30020,7 @@ const TrendPill = ({
   if (number === null) {
     return /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 600,
         marginTop: 8
@@ -29688,14 +30076,14 @@ const HealthMetricRow = ({
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
-      fontSize: 10,
+      fontSize: 11,
       fontWeight: 900
     }
   }, "?")), /*#__PURE__*/React.createElement(Badge, {
     tone: tone === 'bad' ? 'bad' : tone === 'good' ? 'good' : tone === 'warn' ? 'warn' : 'neutral'
   }, serviceHintLabel(metric.hint))), metric.detail && /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600,
       marginBottom: 6,
@@ -30050,7 +30438,7 @@ const AdminDash = ({
     }
   }, "Tusyen Online"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600,
       marginTop: 2
@@ -30273,7 +30661,7 @@ const AdminDash = ({
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: logColor(group.type),
       fontWeight: 900,
       textTransform: 'uppercase',
@@ -30301,7 +30689,7 @@ const AdminDash = ({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      fontSize: 9,
+      fontSize: 11,
       fontWeight: 900
     }
   }, logIcon(log.type)), /*#__PURE__*/React.createElement("div", {
@@ -30320,7 +30708,7 @@ const AdminDash = ({
     }
   }, log.msg), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       marginTop: 1
     }
@@ -30335,7 +30723,7 @@ const AdminDash = ({
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600
     }
@@ -30416,7 +30804,7 @@ const AdminDash = ({
     }
   }, a.label), a.note && /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600,
       marginTop: 4,
@@ -30443,7 +30831,7 @@ const FormFieldError = ({
     id: id,
     role: "alert",
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.red,
       fontWeight: 800,
       lineHeight: 1.35
@@ -30574,7 +30962,7 @@ const UserForm = ({
   }), /*#__PURE__*/React.createElement("div", {
     id: "admin-user-password-help",
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       lineHeight: 1.35
@@ -31371,7 +31759,7 @@ const AdminUsers = () => {
     ariaLabel: "Halaman pengguna sebelumnya"
   }, "Sebelum"), /*#__PURE__*/React.createElement("span", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 900
     }
@@ -31406,7 +31794,7 @@ const AdminUsers = () => {
     }
   }, selected.size, " dipilih pada halaman ini", /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 9,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       marginTop: 1
@@ -31550,7 +31938,7 @@ const AdminUsers = () => {
     }
   }), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600
     }
@@ -31563,7 +31951,7 @@ const AdminUsers = () => {
       padding: '8px 0',
       borderBottom: `1px solid ${C.border}`,
       color: C.textFaint,
-      fontSize: 10,
+      fontSize: 11,
       fontWeight: 900,
       textTransform: 'uppercase',
       letterSpacing: .5
@@ -31636,7 +32024,7 @@ const AdminUsers = () => {
     }, u.name), /*#__PURE__*/React.createElement("div", {
       title: u.displayEmail || t("Tiada e-mel", "No email"),
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 600,
         marginTop: 1,
@@ -31663,7 +32051,7 @@ const AdminUsers = () => {
         border: `1px solid ${rs.border}`,
         borderRadius: 999,
         padding: '2px 7px',
-        fontSize: 10,
+        fontSize: 11,
         fontWeight: 900,
         color: rs.text
       }
@@ -31674,7 +32062,7 @@ const AdminUsers = () => {
         borderRadius: 8,
         padding: '3px 7px',
         flexShrink: 0,
-        fontSize: 10,
+        fontSize: 11,
         fontWeight: 900,
         color: rs.text
       }
@@ -31682,7 +32070,7 @@ const AdminUsers = () => {
       tone: u.active ? 'good' : 'warn'
     }, statusText(u.active)), !narrow && /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 700,
         whiteSpace: 'nowrap',
@@ -31709,7 +32097,7 @@ const AdminUsers = () => {
   })), /*#__PURE__*/React.createElement("div", {
     style: {
       padding: '12px 0 4px',
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600,
       lineHeight: 1.5
@@ -32560,7 +32948,7 @@ const AdminContent = () => {
     status: "draft"
   }), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       textAlign: 'right'
@@ -32629,7 +33017,7 @@ const AdminContent = () => {
     }
   }, cleanContentTitle(item.topic, 'Topik tanpa tajuk')), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600,
       marginTop: 2,
@@ -32857,7 +33245,7 @@ const AdminContent = () => {
     }
   }, /*#__PURE__*/React.createElement("legend", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 900,
       textTransform: 'uppercase',
@@ -32947,7 +33335,7 @@ const AdminContent = () => {
     status: "draft"
   }), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       textAlign: 'right'
@@ -33017,7 +33405,7 @@ const AdminContent = () => {
     }
   }, cleanContentTitle(lesson.title, 'Pelajaran tanpa tajuk')), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600,
       marginTop: 2,
@@ -33214,7 +33602,7 @@ const AdminSystem = () => {
     }
   }, "Operasi Platform"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       marginTop: 2
@@ -33298,7 +33686,7 @@ const AdminSystem = () => {
     }
   })) : /*#__PURE__*/React.createElement(React.Fragment, null, !showConfig && /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 800,
       lineHeight: 1.35,
@@ -33349,7 +33737,7 @@ const AdminSystem = () => {
     }
   }, fmt(sync.registeredDevices || 0)), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 600
     }
@@ -33361,13 +33749,13 @@ const AdminSystem = () => {
     }
   }, fmt(sync.pendingQueues || 0)), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textMuted,
       fontWeight: 600
     }
   }, "Giliran tertunggak"))), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600,
       marginTop: 8
@@ -33396,7 +33784,7 @@ const AdminSystem = () => {
     }
   }, "Cache Redis"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600
     }
@@ -33419,7 +33807,7 @@ const AdminSystem = () => {
     }
   }, t("Notifikasi", "Notifications")), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600
     }
@@ -33450,7 +33838,7 @@ const AdminSystem = () => {
     }
   }, "Postgres backup"), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600,
       lineHeight: 1.35
@@ -33465,7 +33853,7 @@ const AdminSystem = () => {
     tone: "warn"
   }, backup.mode || 'external'), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 9,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600,
       textAlign: 'right',
@@ -33583,7 +33971,7 @@ const SearchableUserSelect = ({
     value: option.id
   }, option.name, option.displayEmail ? ` - ${option.displayEmail}` : ''))), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 800,
       lineHeight: 1.3
@@ -34214,7 +34602,7 @@ const AdminClassroomsPage = () => {
     }, "T", cls.form_level || '-')), /*#__PURE__*/React.createElement("div", {
       title: teacherLabel,
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 700,
         marginTop: 5,
@@ -34242,7 +34630,7 @@ const AdminClassroomsPage = () => {
       }
     }, fmt(cls.student_count ?? 0)), /*#__PURE__*/React.createElement("div", {
       style: {
-        fontSize: 9,
+        fontSize: 11,
         fontWeight: 900,
         textTransform: 'uppercase',
         lineHeight: 1.1
@@ -34347,7 +34735,7 @@ const AdminClassroomsPage = () => {
     }, cleanUserName(s)), /*#__PURE__*/React.createElement("div", {
       title: cleanEmailDisplay(s.email, 42, '', 'student'),
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 600,
         overflowWrap: 'anywhere'
@@ -34648,7 +35036,7 @@ const AdminParentLinksSection = () => {
   }, family.parentName), /*#__PURE__*/React.createElement("div", {
     title: family.parentEmail || t("Tiada e-mel ibu bapa", "No parent email"),
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       overflowWrap: 'anywhere'
@@ -34697,7 +35085,7 @@ const AdminParentLinksSection = () => {
     }, cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', t("Pelajar", "Student"))), /*#__PURE__*/React.createElement("div", {
       title: cleanEmailDisplay(link.student_email || link.studentEmail, 42, t("Tiada e-mel pelajar", "No student email"), 'student'),
       style: {
-        fontSize: 10,
+        fontSize: 11,
         color: C.textFaint,
         fontWeight: 700,
         overflowWrap: 'anywhere'
@@ -34766,7 +35154,7 @@ const AdminParentLinksSection = () => {
     }
   }, cleanPersonName(link.parent_name || link.parentName, link.parent_email || link.parentEmail, 'parent', t("Ibu Bapa", "Parent")), " -> ", cleanPersonName(link.student_name || link.studentName, link.student_email || link.studentEmail, 'student', t("Pelajar", "Student"))), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 600
     }
@@ -34940,7 +35328,7 @@ const AdminSidebar = ({
     }, visibleLabel), item.en && language === 'ms' && /*#__PURE__*/React.createElement("div", {
       lang: "en",
       style: {
-        fontSize: 10,
+        fontSize: 11,
         fontWeight: 600,
         color: on ? C.accPale : C.textFaint,
         lineHeight: 1
@@ -34977,7 +35365,7 @@ const AdminSidebar = ({
     }
   }, t("Operasi", "Operations")), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontSize: 10,
+      fontSize: 11,
       color: C.textFaint,
       fontWeight: 700,
       lineHeight: 1.35,
@@ -35016,7 +35404,7 @@ const AdminSidebar = ({
 const AdminApp = ({
   sidebarExtraTop
 } = {}) => {
-  const [screen, setScreen] = React.useState('home');
+  const [screen, setScreen] = (window.useHashNavigation || useHashNavigation)('admin', 'home', ['home', 'users', 'links', 'classrooms', 'content', 'settings']);
   const nav = [{
     id: 'home',
     icon: '📊',
@@ -35140,11 +35528,20 @@ const ROLES = [{
 const LOCAL_QA_HOST = ['localhost', '127.0.0.1'].includes(window.location.hostname);
 const SHOW_ADMIN_DEMO = LOCAL_QA_HOST && new URLSearchParams(window.location.search).get('demoAdmin') === '1';
 const GUIDE_QUERY_KEY = 'guide';
-const isGuideRoute = () => new URLSearchParams(window.location.search).get(GUIDE_QUERY_KEY) === '1';
+const isGuideRoute = () => {
+  if (new URLSearchParams(window.location.search).get(GUIDE_QUERY_KEY) === '1') return true;
+  const hash = (window.location.hash || '').toLowerCase();
+  return hash === '#/guide' || hash === '#guide';
+};
 const guideHref = showGuide => {
   const url = new URL(window.location.href);
-  if (showGuide) url.searchParams.set(GUIDE_QUERY_KEY, '1');else url.searchParams.delete(GUIDE_QUERY_KEY);
-  url.hash = '';
+  if (showGuide) {
+    url.searchParams.set(GUIDE_QUERY_KEY, '1');
+    url.hash = '/guide';
+  } else {
+    url.searchParams.delete(GUIDE_QUERY_KEY);
+    if (url.hash === '#/guide' || url.hash === '#guide') url.hash = '';
+  }
   return url.toString();
 };
 const setGuideRoute = showGuide => {
@@ -35351,7 +35748,63 @@ const LoginScreen = ({
       });
       onSignedIn(data);
     } catch (err) {
+      if (err?.code === 'API_OFFLINE' || err?.message === 'API_OFFLINE') {
+        const chosenRole = (mode === 'register' ? role : null) || demoAccounts.find(d => d.email.toLowerCase() === (email || '').toLowerCase())?.role || (email.includes('teacher') ? 'teacher' : email.includes('parent') ? 'parent' : email.includes('admin') ? 'admin' : 'student');
+        const demoUser = {
+          id: `demo-${chosenRole}`,
+          fullName: fullName || (chosenRole === 'teacher' ? 'Cikgu Demo' : chosenRole === 'parent' ? 'Ibu Bapa Demo' : chosenRole === 'admin' ? 'Admin Demo' : 'Pelajar Demo'),
+          email: `${chosenRole}@tusyen.test`,
+          role: chosenRole,
+          isOfflineDemo: true
+        };
+        const demoData = {
+          token: 'offline-demo-token',
+          user: demoUser
+        };
+        localStorage.setItem('tusyen_user', JSON.stringify(demoUser));
+        window.tusyenUser = demoUser;
+        onSignedIn(demoData);
+        return;
+      }
       setError(err.message || t('Ralat tidak dijangka.', 'Unexpected error.'));
+    } finally {
+      setBusy(false);
+    }
+  };
+  const handleSso = async () => {
+    setBusy(true);
+    setError('');
+    try {
+      if (window.tusyenApi?.startKeycloakLogin) {
+        await window.tusyenApi.startKeycloakLogin();
+      } else {
+        const data = await window.tusyenApi.request?.('/auth/keycloak/login-url', {
+          method: 'POST',
+          body: JSON.stringify({
+            redirectUri: `${window.location.origin}/keycloak-callback`
+          })
+        });
+        if (data?.url) window.location.href = data.url;
+      }
+    } catch (err) {
+      if (err?.code === 'API_OFFLINE' || err?.message === 'API_OFFLINE') {
+        const demoUser = {
+          id: 'demo-sso',
+          fullName: 'Pengguna SSO Demo',
+          email: 'student@tusyen.test',
+          role: 'student',
+          isOfflineDemo: true
+        };
+        const demoData = {
+          token: 'offline-demo-token',
+          user: demoUser
+        };
+        localStorage.setItem('tusyen_user', JSON.stringify(demoUser));
+        window.tusyenUser = demoUser;
+        onSignedIn(demoData);
+        return;
+      }
+      setError(err?.message || t('Log masuk SSO gagal.', 'SSO sign-in failed.'));
     } finally {
       setBusy(false);
     }
@@ -35439,7 +35892,33 @@ const LoginScreen = ({
     "data-mode": mode,
     "data-busy": busy ? '1' : '0',
     "aria-label": busy ? t('Sila tunggu...', 'Please wait...') : mode === 'login' ? t('Log Masuk', 'Sign In') : t('Cipta Akaun', 'Create Account')
-  }, busy ? 'Sila tunggu…' : mode === 'login' ? 'Log Masuk' : 'Cipta Akaun')), /*#__PURE__*/React.createElement("div", {
+  }, busy ? 'Sila tunggu…' : mode === 'login' ? 'Log Masuk' : 'Cipta Akaun'), mode === 'login' && /*#__PURE__*/React.createElement("button", {
+    className: "login-sso-btn",
+    type: "button",
+    onClick: handleSso,
+    disabled: busy,
+    "aria-label": t('Log Masuk SSO', 'SSO Sign In'),
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 8,
+      width: '100%',
+      padding: '11px 16px',
+      borderRadius: 14,
+      border: '1.5px solid var(--c-bdr, #3C0F62)',
+      background: 'var(--c-card, #1B0030)',
+      color: 'var(--c-text, #F0ECFF)',
+      fontFamily: 'Nunito',
+      fontSize: 13,
+      fontWeight: 800,
+      cursor: 'pointer',
+      marginTop: 10
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    role: "img",
+    "aria-hidden": "true"
+  }, "\uD83D\uDD10"), " ", t('Log Masuk SSO', 'SSO Sign In'))), /*#__PURE__*/React.createElement("div", {
     className: "login-demo"
   }, /*#__PURE__*/React.createElement("div", {
     className: "login-demo-label"
@@ -35474,7 +35953,7 @@ const RoleSwitcher = ({
   }
 }, /*#__PURE__*/React.createElement("div", {
   style: {
-    fontSize: 9,
+    fontSize: 11,
     fontWeight: 700,
     color: 'var(--c-text3)',
     textTransform: 'uppercase',
@@ -35500,7 +35979,14 @@ const App = () => {
     checked: false,
     text: 'Memeriksa API…'
   });
-  const [role, setRole] = React.useState('student');
+  const [role, setRole] = React.useState(() => {
+    const parsed = window.parseHashNav ? window.parseHashNav() : null;
+    if (parsed?.role && ['student', 'teacher', 'parent', 'admin'].includes(parsed.role)) {
+      return parsed.role;
+    }
+    const session = window.tusyenApi?.restoreSession?.();
+    return session?.user?.role || 'student';
+  });
   const [showGuide, setShowGuide] = React.useState(isGuideRoute);
   const openGuide = React.useCallback(event => {
     event?.preventDefault?.();
@@ -35517,6 +36003,9 @@ const App = () => {
     window.tusyenUser = null;
     setAuth(null);
     setRole('student');
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
   }, []);
   React.useEffect(() => {
     window.tusyenApi.health().then(h => setApiStatus({
@@ -35526,16 +36015,26 @@ const App = () => {
     })).catch(err => setApiStatus({
       ok: false,
       checked: true,
-      text: `API tidak dicapai: ${err.message}`
+      text: err?.code === 'API_OFFLINE' || err?.message === 'API_OFFLINE' ? 'API tidak dapat dicapai — mod demo diaktifkan.' : `API tidak dicapai: ${err.message}`
     }));
   }, []);
   React.useEffect(() => {
     if (auth?.user?.role) setRole(auth.user.role);
   }, [auth]);
   React.useEffect(() => {
-    const syncPublicRoute = () => setShowGuide(isGuideRoute());
-    window.addEventListener('popstate', syncPublicRoute);
-    return () => window.removeEventListener('popstate', syncPublicRoute);
+    const syncRoute = () => {
+      setShowGuide(isGuideRoute());
+      const parsed = window.parseHashNav ? window.parseHashNav() : null;
+      if (parsed?.role && ['student', 'teacher', 'parent', 'admin'].includes(parsed.role)) {
+        setRole(parsed.role);
+      }
+    };
+    window.addEventListener('popstate', syncRoute);
+    window.addEventListener('hashchange', syncRoute);
+    return () => {
+      window.removeEventListener('popstate', syncRoute);
+      window.removeEventListener('hashchange', syncRoute);
+    };
   }, []);
   React.useEffect(() => {
     window.tusyenUser = auth?.user || null;
@@ -35557,7 +36056,10 @@ const App = () => {
   }
   if (!auth) {
     return /*#__PURE__*/React.createElement(LoginScreen, {
-      onSignedIn: setAuth,
+      onSignedIn: data => {
+        if (data?.user?.role) setRole(data.user.role);
+        setAuth(data);
+      },
       apiStatus: apiStatus,
       onShowGuide: openGuide,
       guideUrl: guideHref(true)

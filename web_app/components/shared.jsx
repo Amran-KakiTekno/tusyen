@@ -17,6 +17,7 @@ const UI_TEXT = {
   confirm:'Sahkan',
   delete:'Padam',
   loading:'Memproses...',
+  apiOffline:'API tidak dapat dicapai — mod demo diaktifkan.',
 };
 const LANGUAGE_KEY = 'tusyen_language';
 const LANGUAGE_EVENT = 'tusyen-language-change';
@@ -76,6 +77,14 @@ const useLanguage = () => {
 };
 
 const STATIC_TRANSLATIONS = new Map([
+  ['API tidak dapat dicapai — mod demo diaktifkan.', 'API unreachable — demo mode enabled.'],
+  ['API_OFFLINE', 'API unreachable — demo mode enabled.'],
+  ['Log Masuk SSO', 'SSO Sign In'],
+  ['Log masuk SSO', 'SSO Sign In'],
+  ['Log masuk SSO gagal.', 'SSO sign-in failed.'],
+  ['Lagi', 'More'],
+  ['Navigasi Tambahan', 'More Options'],
+  ['Menu navigasi lain', 'More navigation'],
   ['Akaun', 'Account'],
   ['Aktif', 'Active'],
   ['Aktifkan', 'Activate'],
@@ -865,7 +874,7 @@ const StatPill = ({ icon, value, color, label }) => (
       <span style={{ fontSize:15, lineHeight:1, flexShrink:0 }}>{icon}</span>
       <span style={{ fontWeight:900, fontSize:14, color, lineHeight:1 }}>{value}</span>
     </div>
-    {label && <div style={{ fontSize:10, color:C.textMuted, fontWeight:800, lineHeight:1.05 }}>{label}</div>}
+    {label && <div style={{ fontSize:11, color:C.textMuted, fontWeight:800, lineHeight:1.05 }}>{label}</div>}
   </div>
 );
 
@@ -1018,64 +1027,137 @@ const NotifBell = ({ count=0, onClick }) => (
   </button>
 );
 
-const NotifPanel = ({ notifs, onClose }) => (
-  <div onClick={onClose} style={{
-    position:'fixed', inset:0, zIndex:400,
-    background:'rgba(2,6,23,.55)', display:'flex', alignItems:'flex-end',
-  }}>
-    <div className="tv2-sheetup" onClick={(e) => e.stopPropagation()} style={{
-      width:'100%', maxHeight:'82%', minHeight:'42%',
-      background:C.bg, display:'flex', flexDirection:'column', overflow:'hidden',
-      borderRadius:'22px 22px 0 0', border:`1px solid ${C.border}`,
-      boxShadow:'0 -18px 44px rgba(0,0,0,.28)',
+const NotifPanel = ({ notifs = [], onClose }) => {
+  const panelRef = React.useRef(null);
+  const closeBtnRef = React.useRef(null);
+  const restoreFocusRef = React.useRef(null);
+
+  // Scroll lock & restore focus
+  React.useEffect(() => {
+    const active = document.activeElement;
+    restoreFocusRef.current = active && active !== document.body ? active : null;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const timer = window.setTimeout(() => {
+      closeBtnRef.current?.focus?.({ preventScroll: true });
+    }, 0);
+
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.clearTimeout(timer);
+      const target = restoreFocusRef.current;
+      restoreFocusRef.current = null;
+      if (target && document.contains(target)) {
+        target.focus?.({ preventScroll: true });
+      }
+    };
+  }, []);
+
+  // Escape key & Focus trap
+  React.useEffect(() => {
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        onClose?.();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = panelRef.current?.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusable?.length) {
+        event.preventDefault();
+        return;
+      }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [onClose]);
+
+  return (
+    <div onClick={onClose} style={{
+      position:'fixed', inset:0, zIndex:400,
+      background:'rgba(2,6,23,.55)', display:'flex', alignItems:'flex-end',
     }}>
-      <div style={{
-        width:42, height:4, borderRadius:999, background:C.borderB,
-        margin:'10px auto 0', flexShrink:0,
-      }} />
-      <div style={{
-        display:'flex', alignItems:'center', justifyContent:'space-between',
-        padding:'12px 18px 14px', borderBottom:`1px solid ${C.border}`,
-        background:C.surface, flexShrink:0,
-      }}>
-        <div style={{ fontWeight:700, fontSize:16, color:C.text }}>Notifikasi</div>
-        <button onClick={onClose} style={{
-          background:C.accDim, border:`1px solid ${C.border}`, borderRadius:8,
-          padding:'5px 14px', color:C.textMuted, cursor:'pointer',
-          fontSize:12, fontWeight:700, fontFamily:'Nunito',
-        }}>Tutup</button>
-      </div>
-      <div style={{ flex:1, overflowY:'auto', padding:'12px 16px 18px', display:'flex', flexDirection:'column', gap:8 }}>
-        {notifs.length === 0 ? (
-          <div style={{
-            background:C.card, border:`1px solid ${C.border}`,
-            borderRadius:14, padding:'18px 14px', textAlign:'center',
-            color:C.textMuted, fontSize:12, fontWeight:600, lineHeight:1.45,
-          }}>
-            Tiada notifikasi baharu buat masa ini.
-          </div>
-        ) : notifs.map((n, i) => (
-          <div key={i} className="tv2-pop" style={{
-            background: n.unread ? C.accDim : C.card,
-            border:`1px solid ${n.unread ? C.borderB : C.border}`,
-            borderRadius:14, padding:'11px 12px',
-            display:'flex', gap:10, alignItems:'flex-start',
-            animationDelay:`${i * 0.05}s`,
-          }}>
-            <span style={{ fontSize:20, flexShrink:0, marginTop:1 }}>{n.icon}</span>
-            <div style={{ flex:1 }}>
-              <div style={{ fontWeight:700, fontSize:13, color:C.text, lineHeight:1.35 }}>{n.msg}</div>
-              <div style={{ fontSize:10, color:C.textFaint, marginTop:3 }}>{n.time}</div>
+      <div
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Notifikasi"
+        className="tv2-sheetup"
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          width:'100%', maxHeight:'82%', minHeight:'42%',
+          background:C.bg, display:'flex', flexDirection:'column', overflow:'hidden',
+          borderRadius:'22px 22px 0 0', border:`1px solid ${C.border}`,
+          boxShadow:'0 -18px 44px rgba(0,0,0,.28)',
+        }}
+      >
+        <div style={{
+          width:42, height:4, borderRadius:999, background:C.borderB,
+          margin:'10px auto 0', flexShrink:0,
+        }} />
+        <div style={{
+          display:'flex', alignItems:'center', justifyContent:'space-between',
+          padding:'12px 18px 14px', borderBottom:`1px solid ${C.border}`,
+          background:C.surface, flexShrink:0,
+        }}>
+          <h2 style={{ fontWeight:700, fontSize:16, color:C.text, margin:0 }}>Notifikasi</h2>
+          <button
+            ref={closeBtnRef}
+            onClick={onClose}
+            aria-label="Tutup notifikasi"
+            style={{
+              background:C.accDim, border:`1px solid ${C.border}`, borderRadius:8,
+              padding:'5px 14px', color:C.textMuted, cursor:'pointer',
+              fontSize:12, fontWeight:700, fontFamily:'Nunito',
+            }}
+          >
+            Tutup
+          </button>
+        </div>
+        <div style={{ flex:1, overflowY:'auto', padding:'12px 16px 18px', display:'flex', flexDirection:'column', gap:8 }}>
+          {notifs.length === 0 ? (
+            <div style={{
+              background:C.card, border:`1px solid ${C.border}`,
+              borderRadius:14, padding:'18px 14px', textAlign:'center',
+              color:C.textMuted, fontSize:12, fontWeight:600, lineHeight:1.45,
+            }}>
+              Tiada notifikasi baharu buat masa ini.
             </div>
-            {n.unread && (
-              <div style={{ width:7, height:7, borderRadius:'50%', background:C.acc, flexShrink:0, marginTop:5 }} />
-            )}
-          </div>
-        ))}
+          ) : notifs.map((n, i) => (
+            <div key={i} className="tv2-pop" style={{
+              background: n.unread ? C.accDim : C.card,
+              border:`1px solid ${n.unread ? C.borderB : C.border}`,
+              borderRadius:14, padding:'11px 12px',
+              display:'flex', gap:10, alignItems:'flex-start',
+              animationDelay:`${i * 0.05}s`,
+            }}>
+              <span style={{ fontSize:20, flexShrink:0, marginTop:1 }}>{n.icon}</span>
+              <div style={{ flex:1 }}>
+                <div style={{ fontWeight:700, fontSize:13, color:C.text, lineHeight:1.35 }}>{n.msg}</div>
+                <div style={{ fontSize:11, color:C.textFaint, marginTop:3 }}>{n.time}</div>
+              </div>
+              {n.unread && (
+                <div style={{ width:7, height:7, borderRadius:'50%', background:C.acc, flexShrink:0, marginTop:5 }} />
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const EmptyState = ({ icon, title, subtitle }) => (
   <div style={{
@@ -1830,7 +1912,7 @@ const AppSidebar = ({ navItems, active, onNav, user, stats, onSignOut, extraTop,
               <NavIcon item={item} />
               <div className="sidebar-label" style={{ flex:1 }}>
                 <div lang={language} style={{ lineHeight:1.2, color: on ? C.accHi : C.text }}>{visibleLabel}</div>
-                {item.en && language === 'ms' && <div lang="en" style={{ fontSize:10, fontWeight:600, color: on ? C.accPale : C.textFaint, lineHeight:1 }}>{item.en}</div>}
+                {item.en && language === 'ms' && <div lang="en" style={{ fontSize:11, fontWeight:600, color: on ? C.accPale : C.textFaint, lineHeight:1 }}>{item.en}</div>}
               </div>
               {on && <div aria-hidden="true" style={{ width:7, height:7, borderRadius:'50%', background:C.acc, boxShadow:`0 0 8px ${C.accGlow}`, flexShrink:0 }} />}
             </button>
@@ -1843,11 +1925,11 @@ const AppSidebar = ({ navItems, active, onNav, user, stats, onSignOut, extraTop,
         <div className="sidebar-stats" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:8, marginBottom:10 }}>
           <div style={{ background:'rgba(255,150,0,.10)', border:'1px solid rgba(255,150,0,.22)', borderRadius:12, padding:'10px 8px', textAlign:'center' }}>
             <div style={{ fontWeight:800, fontSize:17, color:'#FF9600', lineHeight:1 }}><span aria-hidden="true">🔥</span> {streak}</div>
-            <div style={{ fontSize:9, color:C.textFaint, fontWeight:600, textTransform:'uppercase', letterSpacing:.5, marginTop:3 }}>Hari Streak</div>
+            <div style={{ fontSize:11, color:C.textFaint, fontWeight:600, textTransform:'uppercase', letterSpacing:.5, marginTop:3 }}>Hari Streak</div>
           </div>
           <div style={{ background:'rgba(245,166,35,.10)', border:'1px solid rgba(245,166,35,.22)', borderRadius:12, padding:'10px 8px', textAlign:'center' }}>
             <div style={{ fontWeight:800, fontSize:17, color:'#F5A623', lineHeight:1 }}><span aria-hidden="true">⚡</span> {xp >= 1000 ? `${(xp/1000).toFixed(1)}k` : xp}</div>
-            <div style={{ fontSize:9, color:C.textFaint, fontWeight:600, textTransform:'uppercase', letterSpacing:.5, marginTop:3 }}>XP Total</div>
+            <div style={{ fontSize:11, color:C.textFaint, fontWeight:600, textTransform:'uppercase', letterSpacing:.5, marginTop:3 }}>XP Total</div>
           </div>
         </div>
         <ThemeToggle />
@@ -1887,7 +1969,7 @@ const TopBarMobile = ({ title, subtitle, left, right, brand = true, className = 
     </div>
     <div className="mobile-top-appbar-title">
       <div style={{ fontWeight:700, fontSize:15, color:C.text, textAlign:'center' }}>{title}</div>
-      {subtitle && <div lang="en" style={{ fontWeight:500, fontSize:10, color:C.textMuted, textAlign:'center', marginTop:1 }}>{subtitle}</div>}
+      {subtitle && <div lang="en" style={{ fontWeight:500, fontSize:11, color:C.textMuted, textAlign:'center', marginTop:1 }}>{subtitle}</div>}
     </div>
     <div className="mobile-top-appbar-right">
       <LanguageToggle iconOnly />
@@ -1931,13 +2013,71 @@ const BottomNavMobile = ({ items, active, onNav, className = '', label = 'Naviga
                 background:'linear-gradient(90deg, var(--acc-lo), var(--acc-hi))',
               }} />}
               <NavIcon item={item} size={22} />
-              <span lang={language} className="bottom-nav-label" style={{ fontSize:10, fontWeight:600, lineHeight:1 }}>{visibleLabel}</span>
+              <span lang={language} className="bottom-nav-label" style={{ fontSize:11, fontWeight:600, lineHeight:1 }}>{visibleLabel}</span>
             </button>
           );
         })}
       </div>
     </nav>
   );
+};
+
+const parseHashNav = () => {
+  const hash = (typeof window !== 'undefined' ? window.location.hash || '' : '').replace(/^#\/?/, '');
+  if (!hash) return null;
+  const parts = hash.split('/').filter(Boolean);
+  if (!parts.length) return null;
+  return {
+    role: parts[0]?.toLowerCase() || '',
+    screen: parts[1]?.toLowerCase() || '',
+  };
+};
+
+const getInitialHashScreen = (role, defaultScreen = 'home', aliases = {}) => {
+  const parsed = parseHashNav();
+  if (!parsed || parsed.role !== role) return defaultScreen;
+  const rawScreen = parsed.screen || defaultScreen;
+  return aliases[rawScreen] || rawScreen;
+};
+
+const updateHashRoute = (role, screen, alias = null) => {
+  if (typeof window === 'undefined') return;
+  const targetScreen = alias || screen;
+  const newHash = targetScreen ? `#/${role}/${targetScreen}` : `#/${role}`;
+  if (window.location.hash !== newHash) {
+    window.history.replaceState(window.history.state, '', newHash);
+  }
+};
+
+const useHashNavigation = (role, defaultScreen = 'home', validScreens = [], options = {}) => {
+  const aliases = options.aliases || {};
+  const reverseAliases = options.reverseAliases || {};
+  const [screen, setScreen] = React.useState(() => {
+    const fromHash = getInitialHashScreen(role, defaultScreen, aliases);
+    return validScreens.length ? (validScreens.includes(fromHash) ? fromHash : defaultScreen) : fromHash;
+  });
+
+  React.useEffect(() => {
+    const hashScreen = reverseAliases[screen] || screen;
+    updateHashRoute(role, hashScreen);
+  }, [screen, role]);
+
+  React.useEffect(() => {
+    const onHashChange = () => {
+      const parsed = parseHashNav();
+      if (parsed && parsed.role === role) {
+        const rawScreen = parsed.screen || defaultScreen;
+        const nextScreen = aliases[rawScreen] || rawScreen;
+        if (!validScreens.length || validScreens.includes(nextScreen)) {
+          setScreen(nextScreen);
+        }
+      }
+    };
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, [role, defaultScreen]);
+
+  return [screen, setScreen];
 };
 
 Object.assign(window, {
@@ -1951,4 +2091,5 @@ Object.assign(window, {
   useLanguage, useNarrow, useScreenFocus, AppSidebar, TopBarMobile, BottomNavMobile,
   NavIcon, VideoEmbed, isVideoEmbedUrl,
   cleanUiText, cleanUiName, cleanUiTitle,
+  parseHashNav, getInitialHashScreen, updateHashRoute, useHashNavigation,
 });

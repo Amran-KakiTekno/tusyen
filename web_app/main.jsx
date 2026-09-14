@@ -8,13 +8,21 @@ const LOCAL_QA_HOST = ['localhost', '127.0.0.1'].includes(window.location.hostna
 const SHOW_ADMIN_DEMO = LOCAL_QA_HOST && new URLSearchParams(window.location.search).get('demoAdmin') === '1';
 const GUIDE_QUERY_KEY = 'guide';
 
-const isGuideRoute = () => new URLSearchParams(window.location.search).get(GUIDE_QUERY_KEY) === '1';
+const isGuideRoute = () => {
+  if (new URLSearchParams(window.location.search).get(GUIDE_QUERY_KEY) === '1') return true;
+  const hash = (window.location.hash || '').toLowerCase();
+  return hash === '#/guide' || hash === '#guide';
+};
 
 const guideHref = (showGuide) => {
   const url = new URL(window.location.href);
-  if (showGuide) url.searchParams.set(GUIDE_QUERY_KEY, '1');
-  else url.searchParams.delete(GUIDE_QUERY_KEY);
-  url.hash = '';
+  if (showGuide) {
+    url.searchParams.set(GUIDE_QUERY_KEY, '1');
+    url.hash = '/guide';
+  } else {
+    url.searchParams.delete(GUIDE_QUERY_KEY);
+    if (url.hash === '#/guide' || url.hash === '#guide') url.hash = '';
+  }
   return url.toString();
 };
 
@@ -256,7 +264,60 @@ const LoginScreen = ({ onSignedIn, apiStatus, onShowGuide, guideUrl }) => {
         : await window.tusyenApi.register({ fullName, email, password, role });
       onSignedIn(data);
     } catch (err) {
+      if (err?.code === 'API_OFFLINE' || err?.message === 'API_OFFLINE') {
+        const chosenRole = (mode === 'register' ? role : null)
+          || demoAccounts.find(d => d.email.toLowerCase() === (email || '').toLowerCase())?.role
+          || (email.includes('teacher') ? 'teacher' : email.includes('parent') ? 'parent' : email.includes('admin') ? 'admin' : 'student');
+        const demoUser = {
+          id: `demo-${chosenRole}`,
+          fullName: fullName || (chosenRole === 'teacher' ? 'Cikgu Demo' : chosenRole === 'parent' ? 'Ibu Bapa Demo' : chosenRole === 'admin' ? 'Admin Demo' : 'Pelajar Demo'),
+          email: `${chosenRole}@tusyen.test`,
+          role: chosenRole,
+          isOfflineDemo: true,
+        };
+        const demoData = {
+          token: 'offline-demo-token',
+          user: demoUser,
+        };
+        localStorage.setItem('tusyen_user', JSON.stringify(demoUser));
+        window.tusyenUser = demoUser;
+        onSignedIn(demoData);
+        return;
+      }
       setError(err.message || t('Ralat tidak dijangka.', 'Unexpected error.'));
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const handleSso = async () => {
+    setBusy(true); setError('');
+    try {
+      if (window.tusyenApi?.startKeycloakLogin) {
+        await window.tusyenApi.startKeycloakLogin();
+      } else {
+        const data = await window.tusyenApi.request?.('/auth/keycloak/login-url', {
+          method: 'POST',
+          body: JSON.stringify({ redirectUri: `${window.location.origin}/keycloak-callback` }),
+        });
+        if (data?.url) window.location.href = data.url;
+      }
+    } catch (err) {
+      if (err?.code === 'API_OFFLINE' || err?.message === 'API_OFFLINE') {
+        const demoUser = {
+          id: 'demo-sso',
+          fullName: 'Pengguna SSO Demo',
+          email: 'student@tusyen.test',
+          role: 'student',
+          isOfflineDemo: true,
+        };
+        const demoData = { token: 'offline-demo-token', user: demoUser };
+        localStorage.setItem('tusyen_user', JSON.stringify(demoUser));
+        window.tusyenUser = demoUser;
+        onSignedIn(demoData);
+        return;
+      }
+      setError(err?.message || t('Log masuk SSO gagal.', 'SSO sign-in failed.'));
     } finally {
       setBusy(false);
     }
@@ -321,6 +382,34 @@ const LoginScreen = ({ onSignedIn, apiStatus, onShowGuide, guideUrl }) => {
           >
             {busy ? 'Sila tunggu…' : (mode === 'login' ? 'Log Masuk' : 'Cipta Akaun')}
           </button>
+          {mode === 'login' && (
+            <button
+              className="login-sso-btn"
+              type="button"
+              onClick={handleSso}
+              disabled={busy}
+              aria-label={t('Log Masuk SSO', 'SSO Sign In')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 8,
+                width: '100%',
+                padding: '11px 16px',
+                borderRadius: 14,
+                border: '1.5px solid var(--c-bdr, #3C0F62)',
+                background: 'var(--c-card, #1B0030)',
+                color: 'var(--c-text, #F0ECFF)',
+                fontFamily: 'Nunito',
+                fontSize: 13,
+                fontWeight: 800,
+                cursor: 'pointer',
+                marginTop: 10,
+              }}
+            >
+              <span role="img" aria-hidden="true">🔐</span> {t('Log Masuk SSO', 'SSO Sign In')}
+            </button>
+          )}
         </form>
 
         <div className="login-demo">
@@ -347,7 +436,7 @@ const LoginScreen = ({ onSignedIn, apiStatus, onShowGuide, guideUrl }) => {
 // Role switcher rendered inside the sidebar (as extraTop)
 const RoleSwitcher = ({ role, setRole, isDemo, userRole }) => (
   <div className="role-switcher" role="group" aria-label="Penukar peranan demo" style={{ paddingBottom:10, borderBottom:'1px solid var(--c-bdr)' }}>
-    <div style={{ fontSize:9, fontWeight:700, color:'var(--c-text3)', textTransform:'uppercase', letterSpacing:.8, width:'100%', marginBottom:4 }}>Peranan</div>
+    <div style={{ fontSize:11, fontWeight:700, color:'var(--c-text3)', textTransform:'uppercase', letterSpacing:.8, width:'100%', marginBottom:4 }}>Peranan</div>
     {ROLES.filter(r => SHOW_ADMIN_DEMO || r.id !== 'admin' || userRole === 'admin').map(r => {
       const allowed = (isDemo && (SHOW_ADMIN_DEMO || r.id !== 'admin')) || r.id === userRole;
       return (
@@ -367,7 +456,14 @@ const RoleSwitcher = ({ role, setRole, isDemo, userRole }) => (
 const App = () => {
   const [auth, setAuth]   = React.useState(() => window.tusyenApi.restoreSession());
   const [apiStatus, setApiStatus] = React.useState({ ok:false, checked:false, text:'Memeriksa API…' });
-  const [role, setRole]   = React.useState('student');
+  const [role, setRole]   = React.useState(() => {
+    const parsed = window.parseHashNav ? window.parseHashNav() : null;
+    if (parsed?.role && ['student', 'teacher', 'parent', 'admin'].includes(parsed.role)) {
+      return parsed.role;
+    }
+    const session = window.tusyenApi?.restoreSession?.();
+    return session?.user?.role || 'student';
+  });
   const [showGuide, setShowGuide] = React.useState(isGuideRoute);
 
   const openGuide = React.useCallback((event) => {
@@ -387,12 +483,21 @@ const App = () => {
     window.tusyenUser = null;
     setAuth(null);
     setRole('student');
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
   }, []);
 
   React.useEffect(() => {
     window.tusyenApi.health()
       .then(h => setApiStatus({ ok:true, checked:true, text:`API ${h.status} · DB ${h.database}` }))
-      .catch(err => setApiStatus({ ok:false, checked:true, text:`API tidak dicapai: ${err.message}` }));
+      .catch(err => setApiStatus({
+        ok: false,
+        checked: true,
+        text: (err?.code === 'API_OFFLINE' || err?.message === 'API_OFFLINE')
+          ? 'API tidak dapat dicapai — mod demo diaktifkan.'
+          : `API tidak dicapai: ${err.message}`
+      }));
   }, []);
 
   React.useEffect(() => {
@@ -400,9 +505,19 @@ const App = () => {
   }, [auth]);
 
   React.useEffect(() => {
-    const syncPublicRoute = () => setShowGuide(isGuideRoute());
-    window.addEventListener('popstate', syncPublicRoute);
-    return () => window.removeEventListener('popstate', syncPublicRoute);
+    const syncRoute = () => {
+      setShowGuide(isGuideRoute());
+      const parsed = window.parseHashNav ? window.parseHashNav() : null;
+      if (parsed?.role && ['student', 'teacher', 'parent', 'admin'].includes(parsed.role)) {
+        setRole(parsed.role);
+      }
+    };
+    window.addEventListener('popstate', syncRoute);
+    window.addEventListener('hashchange', syncRoute);
+    return () => {
+      window.removeEventListener('popstate', syncRoute);
+      window.removeEventListener('hashchange', syncRoute);
+    };
   }, []);
 
   React.useEffect(() => {
@@ -425,7 +540,7 @@ const App = () => {
   }
 
   if (!auth) {
-    return <LoginScreen onSignedIn={setAuth} apiStatus={apiStatus} onShowGuide={openGuide} guideUrl={guideHref(true)} />;
+    return <LoginScreen onSignedIn={(data) => { if (data?.user?.role) setRole(data.user.role); setAuth(data); }} apiStatus={apiStatus} onShowGuide={openGuide} guideUrl={guideHref(true)} />;
   }
 
   const isDemo = auth.user?.email?.endsWith?.('@tusyen.test');
