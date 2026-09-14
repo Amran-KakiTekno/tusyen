@@ -256,6 +256,26 @@ const LoginScreen = ({ onSignedIn, apiStatus, onShowGuide, guideUrl }) => {
         : await window.tusyenApi.register({ fullName, email, password, role });
       onSignedIn(data);
     } catch (err) {
+      if (err?.code === 'API_OFFLINE' || err?.message === 'API_OFFLINE') {
+        const chosenRole = (mode === 'register' ? role : null)
+          || demoAccounts.find(d => d.email.toLowerCase() === (email || '').toLowerCase())?.role
+          || (email.includes('teacher') ? 'teacher' : email.includes('parent') ? 'parent' : email.includes('admin') ? 'admin' : 'student');
+        const demoUser = {
+          id: `demo-${chosenRole}`,
+          fullName: fullName || (chosenRole === 'teacher' ? 'Cikgu Demo' : chosenRole === 'parent' ? 'Ibu Bapa Demo' : chosenRole === 'admin' ? 'Admin Demo' : 'Pelajar Demo'),
+          email: `${chosenRole}@tusyen.test`,
+          role: chosenRole,
+          isOfflineDemo: true,
+        };
+        const demoData = {
+          token: 'offline-demo-token',
+          user: demoUser,
+        };
+        localStorage.setItem('tusyen_user', JSON.stringify(demoUser));
+        window.tusyenUser = demoUser;
+        onSignedIn(demoData);
+        return;
+      }
       setError(err.message || t('Ralat tidak dijangka.', 'Unexpected error.'));
     } finally {
       setBusy(false);
@@ -392,7 +412,13 @@ const App = () => {
   React.useEffect(() => {
     window.tusyenApi.health()
       .then(h => setApiStatus({ ok:true, checked:true, text:`API ${h.status} · DB ${h.database}` }))
-      .catch(err => setApiStatus({ ok:false, checked:true, text:`API tidak dicapai: ${err.message}` }));
+      .catch(err => setApiStatus({
+        ok: false,
+        checked: true,
+        text: (err?.code === 'API_OFFLINE' || err?.message === 'API_OFFLINE')
+          ? 'API tidak dapat dicapai — mod demo diaktifkan.'
+          : `API tidak dicapai: ${err.message}`
+      }));
   }, []);
 
   React.useEffect(() => {
@@ -425,7 +451,7 @@ const App = () => {
   }
 
   if (!auth) {
-    return <LoginScreen onSignedIn={setAuth} apiStatus={apiStatus} onShowGuide={openGuide} guideUrl={guideHref(true)} />;
+    return <LoginScreen onSignedIn={(data) => { if (data?.user?.role) setRole(data.user.role); setAuth(data); }} apiStatus={apiStatus} onShowGuide={openGuide} guideUrl={guideHref(true)} />;
   }
 
   const isDemo = auth.user?.email?.endsWith?.('@tusyen.test');

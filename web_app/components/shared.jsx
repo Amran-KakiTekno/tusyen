@@ -17,6 +17,7 @@ const UI_TEXT = {
   confirm:'Sahkan',
   delete:'Padam',
   loading:'Memproses...',
+  apiOffline:'API tidak dapat dicapai — mod demo diaktifkan.',
 };
 const LANGUAGE_KEY = 'tusyen_language';
 const LANGUAGE_EVENT = 'tusyen-language-change';
@@ -76,6 +77,8 @@ const useLanguage = () => {
 };
 
 const STATIC_TRANSLATIONS = new Map([
+  ['API tidak dapat dicapai — mod demo diaktifkan.', 'API unreachable — demo mode enabled.'],
+  ['API_OFFLINE', 'API unreachable — demo mode enabled.'],
   ['Akaun', 'Account'],
   ['Aktif', 'Active'],
   ['Aktifkan', 'Activate'],

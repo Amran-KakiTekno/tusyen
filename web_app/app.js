@@ -19,13 +19,37 @@ async function request(path, options = {}, retryOnUnauthorized = true) {
   if (options.body !== undefined && !headers['Content-Type'] && !headers['content-type']) {
     headers['Content-Type'] = 'application/json';
   }
-  const response = await fetch(`${API_BASE}${path}`, {
-    ...options,
-    credentials: 'include',
-    headers,
-  });
-  const text = await response.text();
-  const data = text ? JSON.parse(text) : {};
+  let response;
+  try {
+    response = await fetch(`${API_BASE}${path}`, {
+      ...options,
+      credentials: 'include',
+      headers,
+    });
+  } catch (_fetchErr) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
+
+  const contentType = response.headers?.get?.('content-type') || '';
+  if (!contentType.includes('application/json')) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
+
+  let text = '';
+  let data = {};
+  try {
+    text = await response.text();
+    data = text ? JSON.parse(text) : {};
+  } catch (_jsonErr) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
+
   if (response.status === 401 && retryOnUnauthorized) {
     try {
       await refreshAccessToken();
@@ -50,14 +74,38 @@ async function refreshAccessToken() {
 }
 
 async function _doRefreshAccessToken() {
-  const response = await fetch(`${API_BASE}/auth/refresh`, {
-    method: 'POST',
-    credentials: 'include',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ refreshToken: localStorage.getItem(REFRESH_KEY) || undefined }),
-  });
-  const text = await response.text();
-  const data = text ? JSON.parse(text) : {};
+  let response;
+  try {
+    response = await fetch(`${API_BASE}/auth/refresh`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ refreshToken: localStorage.getItem(REFRESH_KEY) || undefined }),
+    });
+  } catch (_fetchErr) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
+
+  const contentType = response.headers?.get?.('content-type') || '';
+  if (!contentType.includes('application/json')) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
+
+  let text = '';
+  let data = {};
+  try {
+    text = await response.text();
+    data = text ? JSON.parse(text) : {};
+  } catch (_jsonErr) {
+    const err = new Error('API_OFFLINE');
+    err.code = 'API_OFFLINE';
+    throw err;
+  }
+
   if (!response.ok) {
     clearStoredSession();
     throw new Error(data.error || 'Session expired');
